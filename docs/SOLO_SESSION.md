@@ -89,6 +89,6 @@ No Test Explorer/debugger, acompanhe:
 - `SubmitAnswer_ReplayReturnsOriginalReceiptEvenAfterAdvancing_Eng005`: retry sem efeitos repetidos.
 - `Execute_ConcurrentDifferentAnswersAcceptsOnlyOne`: dois envios concorrentes e somente uma resposta aceita.
 
-Ainda não há `dotnet run`, tela ou recuperação após reiniciar o processo. A próxima etapa é persistir estado, prazos, respostas e recibos em PostgreSQL e testar concorrência contra banco real.
+Uma demonstração local em Blazor agora consome esta sessão via API: consulte [LOCAL_DEMO.md](LOCAL_DEMO.md) para executar `dotnet run` e jogar no navegador. Ainda não há recuperação após reiniciar o processo. A próxima etapa é persistir estado, prazos, respostas e recibos em PostgreSQL e testar concorrência contra banco real.
 
 `DECISION NEEDED`: seguem pendentes as fórmulas de pontuação/XP e a política de ciclos intencionais do grafo. Esta sessão não concede recompensas nem define silenciosamente essas regras.

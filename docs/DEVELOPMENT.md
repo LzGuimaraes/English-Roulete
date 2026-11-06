@@ -1,6 +1,6 @@
 # Desenvolvimento — incrementos do núcleo
 
-O primeiro incremento implementou conteúdo e regras de cenas/perguntas. O segundo acrescenta uma sessão Solo Adventure em memória e o projeto Application, com relógio injetável. O contrato e os testes da sessão estão em [SOLO_SESSION.md](SOLO_SESSION.md).
+O primeiro incremento implementou conteúdo e regras de cenas/perguntas. O segundo acrescentou uma sessão Solo Adventure em memória e o projeto Application, com relógio injetável. O contrato e os testes da sessão estão em [SOLO_SESSION.md](SOLO_SESSION.md). O terceiro conecta uma demonstração Blazor + API para experimentar no navegador, descrita em [LOCAL_DEMO.md](LOCAL_DEMO.md).
 
 ## Primeiro incremento: objetivo e critérios
 
@@ -43,7 +43,7 @@ dotnet test EnglishRoulette.sln --filter FullyQualifiedName~GetNextScene_Follows
 
 Coloque um breakpoint em `StoryFlowEngine.GetNextScene`. A fixture original `The Notebook at Platform Three` passa por `platform → notebook → reunion`. Os outros testes exercitam respostas certas/erradas, alternativas inválidas, bifurcações, destinos inválidos e grafos sem final. Esta fixture é conteúdo de teste, sem narração de áudio produzida.
 
-Ainda não há comando `dotnet run` nem validação visual no navegador: os projetos atuais são biblioteca e testes.
+A demonstração local agora pode ser iniciada com `dotnet run --project src/EnglishRoulette.Api --configuration Release --launch-profile http`, em http://localhost:5080. Os testes do domínio continuam independentes da interface.
 
 ## Limites e decisões pendentes
 
@@ -56,9 +56,9 @@ Ainda não há comando `dotnet run` nem validação visual no navegador: os proj
 ## Próximos incrementos
 
 1. Persistência PostgreSQL/EF Core: restaurar estado e recibos, controlar concorrência em transação e testar contra banco real.
-2. API REST, identidade de convidado e contratos públicos sem gabaritos.
+2. Evoluir a API de demonstração para contratos de produção, identidade de convidado durável e testes de integração HTTP.
 3. História original com três cenas, áudio e metadados de publicação; alimentar os tempos da sessão com duração validada e margem de segurança.
 4. Pontuação e conclusão com recompensas, após validar as fórmulas propostas.
-5. Blazor com narração, pergunta, feedback e retomada da sessão.
+5. Evoluir o Blazor de demonstração com áudio e retomada persistente.
 
 Os projetos são acrescentados conforme forem necessários. A mesma regra de navegação e avaliação será usada por solo e multiplayer.

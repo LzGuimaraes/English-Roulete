@@ -1,0 +1,37 @@
+@using EnglishRoulette.Contracts
+
+@if (State.Question is { } question)
+{
+    <section class="question-panel" aria-labelledby="question-title">
+        <div class="section-label">CHECK YOUR UNDERSTANDING</div>
+        <h2 id="question-title">@question.Prompt</h2>
+        <div class="options">
+            @foreach (var option in question.Options)
+            {
+                <button class="option @(State.Answer?.OptionKey == option.Key ? "selected" : "")"
+                        disabled="@(Busy || State.Phase != "QuestionOpen")"
+                        @onclick="() => OnAnswer.InvokeAsync(option.Key)">
+                    <span class="option-letter">@option.Key.ToUpperInvariant()</span><span>@option.Text</span>
+                </button>
+            }
+        </div>
+        @if (State.Answer is { } answer)
+        {
+            <div class="feedback @(answer.IsCorrect ? "correct" : "")" role="status">
+                <strong>@(answer.TimedOut ? "O tempo acabou. Tudo bem, vamos aprender." : answer.IsCorrect ? "Isso mesmo! Você entendeu a pista." : "Quase lá. Veja o que a história diz:")</strong>
+                <p lang="en">@answer.Explanation</p>
+            </div>
+            <button class="primary next-button" disabled="@Busy" @onclick="() => OnContinue.InvokeAsync()">
+                @(State.SceneNumber == 3 ? "Ver o desfecho" : "Continuar a história") <span aria-hidden="true">→</span>
+            </button>
+        }
+        else { <p class="hint">Escolha uma alternativa. Vale o que você compreendeu.</p> }
+    </section>
+}
+
+@code {
+    [Parameter, EditorRequired] public AdventureView State { get; set; } = default!;
+    [Parameter] public bool Busy { get; set; }
+    [Parameter] public EventCallback<string> OnAnswer { get; set; }
+    [Parameter] public EventCallback OnContinue { get; set; }
+}

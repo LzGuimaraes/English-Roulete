@@ -2,7 +2,19 @@
 
 Jogo de compreensão de inglês com histórias narradas, perguntas e decisões de caminho. Stack planejada: .NET 10, ASP.NET Core, Blazor WebAssembly e PostgreSQL.
 
-O núcleo C# já possui navegação entre cenas, validação estrutural do grafo, avaliação de múltipla escolha e uma sessão Solo Adventure em memória com fases, prazos, controle de versão e comandos idempotentes. **Ainda não existe aplicação jogável, API, persistência ou interface.** Os documentos em `docs/` descrevem o produto planejado; regras propostas continuam sujeitas a validação.
+O núcleo C# já possui navegação entre cenas, avaliação de múltipla escolha e uma sessão Solo Adventure em memória com fases, prazos e comandos idempotentes. **Já existe uma demonstração local no navegador**, em Blazor WebAssembly + ASP.NET Core, com três cenas por percurso e dois finais. A prévia é de leitura: áudio, pontuação e persistência PostgreSQL ainda não estão implementados. Os documentos em `docs/` descrevem o produto planejado; regras propostas continuam sujeitas a validação.
+
+## Experimentar no navegador
+
+Com o SDK .NET 10 instalado:
+
+```sh
+dotnet run --project src/EnglishRoulette.Api --configuration Release --launch-profile http
+```
+
+Abra **http://localhost:5080** e clique em **Começar minha aventura**. Leia a cena, responda à pergunta e escolha um caminho na livraria. Recarregar a página retoma a sessão enquanto o servidor continuar rodando; reiniciar o servidor perde as sessões em memória.
+
+Consulte [LOCAL_DEMO.md](docs/LOCAL_DEMO.md) para o fluxo de teste, contratos e limites. Os endpoints da demonstração ficam habilitados somente no ambiente `Development`.
 
 ## Executar as verificações
 
@@ -22,6 +34,9 @@ O domínio usa apenas APIs nativas do .NET. Os testes usam xUnit e ferramentas d
 ```text
 src/EnglishRoulette.Domain/          # Conteúdo, regras e sessão Solo Adventure
 src/EnglishRoulette.Application/     # Coordenação com relógio do servidor
+src/EnglishRoulette.Contracts/       # DTOs públicos sem gabaritos
+src/EnglishRoulette.Api/             # Host HTTP e demonstração local em memória
+src/EnglishRoulette.Web/             # Interface Blazor WebAssembly
 tests/EnglishRoulette.UnitTests/     # Cenas, respostas, prazos, retry e concorrência em memória
 docs/                               # Requisitos e decisões técnicas
 .github/workflows/ci.yml             # Build, testes e formatação
@@ -42,7 +57,7 @@ Consulte [DEVELOPMENT.md](docs/DEVELOPMENT.md) para acompanhar os incrementos e 
 
 **Story → Scene → Narration → Question → Answer → Next Scene** no modo Solo Adventure.
 
-A engine começa como **classes C# testáveis** na solução. Depois de existir uma aventura solo funcional, a mesma lógica de cena/pergunta será aproveitada no multiplayer com SignalR. Os prazos já são verificados na sessão em memória; persistência PostgreSQL, API, identidade de convidado, mídia e Blazor serão acrescentados em incrementos seguintes.
+A engine começa como **classes C# testáveis** na solução. A prévia Blazor já consome a sessão em memória via REST. Persistência PostgreSQL, identidade durável de convidado, mídia publicada, pontuação validada e multiplayer serão acrescentados em incrementos seguintes.
 
 ## Arquivos de implementação futuros
 
