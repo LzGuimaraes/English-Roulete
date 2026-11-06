@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\EnglishRoulette.Domain\EnglishRoulette.Domain.csproj" />
+    <ProjectReference Include="..\..\src\EnglishRoulette.Application\EnglishRoulette.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 
 Jogo de compreensão de inglês com histórias narradas, perguntas e decisões de caminho. Stack planejada: .NET 10, ASP.NET Core, Blazor WebAssembly e PostgreSQL.
 
-O desenvolvimento começou pelo núcleo C# independente de infraestrutura: navegação entre cenas, validação estrutural do grafo e avaliação de múltipla escolha. **Ainda não existe aplicação jogável, API, persistência ou interface.** Os documentos em `docs/` descrevem o produto planejado; regras propostas continuam sujeitas a validação.
+O núcleo C# já possui navegação entre cenas, validação estrutural do grafo, avaliação de múltipla escolha e uma sessão Solo Adventure em memória com fases, prazos, controle de versão e comandos idempotentes. **Ainda não existe aplicação jogável, API, persistência ou interface.** Os documentos em `docs/` descrevem o produto planejado; regras propostas continuam sujeitas a validação.
 
 ## Executar as verificações
 
@@ -20,14 +20,15 @@ O domínio usa apenas APIs nativas do .NET. Os testes usam xUnit e ferramentas d
 ## Estrutura atual
 
 ```text
-src/EnglishRoulette.Domain/          # Conteúdo imutável e regras puras
-tests/EnglishRoulette.UnitTests/     # Fluxo de cenas e avaliação de respostas
+src/EnglishRoulette.Domain/          # Conteúdo, regras e sessão Solo Adventure
+src/EnglishRoulette.Application/     # Coordenação com relógio do servidor
+tests/EnglishRoulette.UnitTests/     # Cenas, respostas, prazos, retry e concorrência em memória
 docs/                               # Requisitos e decisões técnicas
 .github/workflows/ci.yml             # Build, testes e formatação
 EnglishRoulette.sln
 ```
 
-Consulte [DEVELOPMENT.md](docs/DEVELOPMENT.md) para entender as classes, os testes, os limites deste incremento e os próximos passos.
+Consulte [DEVELOPMENT.md](docs/DEVELOPMENT.md) para acompanhar os incrementos e [SOLO_SESSION.md](docs/SOLO_SESSION.md) para entender as fases, os comandos, os testes e os limites da sessão atual.
 
 ## Ordem de leitura
 
@@ -41,7 +42,7 @@ Consulte [DEVELOPMENT.md](docs/DEVELOPMENT.md) para entender as classes, os test
 
 **Story → Scene → Narration → Question → Answer → Next Scene** no modo Solo Adventure.
 
-A engine começa como **classes C# testáveis** na solução. Depois de existir uma aventura solo funcional, a mesma lógica de cena/pergunta será aproveitada no multiplayer com SignalR. API, identidade de convidado, deadlines, persistência PostgreSQL, mídia e Blazor serão acrescentados em incrementos seguintes.
+A engine começa como **classes C# testáveis** na solução. Depois de existir uma aventura solo funcional, a mesma lógica de cena/pergunta será aproveitada no multiplayer com SignalR. Os prazos já são verificados na sessão em memória; persistência PostgreSQL, API, identidade de convidado, mídia e Blazor serão acrescentados em incrementos seguintes.
 
 ## Arquivos de implementação futuros
 
