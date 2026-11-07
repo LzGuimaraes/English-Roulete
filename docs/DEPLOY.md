@@ -75,6 +75,16 @@ Os dumps pré-deploy ficam em `<VPS_DEPLOY_PATH>/backups/`. Configure também ba
 
 Acompanhe a aplicação em `https://APP_DOMAIN/health/ready`, `/admin` e `/`. O healthcheck interno envia o Host configurado para funcionar com `AllowedHosts` restrito.
 
+## Logs e diagnóstico
+
+O Actions apresenta etapas nomeadas de restore, build, testes, build/publicação da imagem, validação de configuração e deploy. O build Docker inclui resumo e registro para download com retenção de sete dias. Falhas mostram o estado do builder e o uso de disco do runner.
+
+Antes de conectar, `python3 scripts/deploy_vps.py --check` valida presença e formato dos secrets, os campos obrigatórios de `VPS_ENV_FILE` (incluindo `POSTGRES_DB` e `POSTGRES_USER`), porta SSH, domínio sem protocolo/caminho, CIDR, senha administrativa, chave privada e entrada de known_hosts. Os logs mostram nomes e estado de configuração, sem imprimir os valores. Senhas dentro do secret multilinha também são registradas no mascaramento do GitHub antes dos comandos remotos.
+
+Na VPS, cada etapa registra horário e nome: configuração Compose, download, PostgreSQL, backup, migrations, administrador e healthcheck. Em falhas, coleta status, últimas 80 linhas dos serviços e somente os campos de estado/saúde dos containers. Não executa dump de ambiente, `set -x`, `docker compose config` completo ou `docker inspect` completo. Mensagens da aplicação devem continuar sem credenciais; o mascaramento é uma proteção adicional.
+
+`Permission denied (publickey,password)` indica autenticação SSH recusada. Confira `VPS_USER` e se a chave pública correspondente a `VPS_SSH_KEY` está no `~/.ssh/authorized_keys` desse usuário. A chave privada deve ser válida, sem passphrase e com quebras de linha reais. O deploy não consegue corrigir a autorização da VPS quando o acesso SSH já foi recusado.
+
 ## Validação e fontes
 
 A imagem é montada por `Dockerfile` em dois estágios e `.dockerignore` exclui `.env`, mídia, chaves, Git e resultados de build. O processo de publicação executa o trimming do Blazor; valide também o fluxo de login e upload na imagem publicada.
