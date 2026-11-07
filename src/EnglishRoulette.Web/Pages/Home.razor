@@ -10,7 +10,7 @@
 
 <PageTitle>English Roulette — gire. escute. explore.</PageTitle>
 <div class="experience game-experience motion-@(_state?.Appearance?.Motion ?? CurrentTheme.Motion) @(_state is not null ? "in-adventure" : "") @(IsHorror ? "horror-experience" : "") @(_state?.Visual is not null ? "has-scene-art" : "") @(_state?.Phase == "Preloading" ? "scene-intro" : "")" style="@ThemePalette.Style(CurrentTheme)">
-@if (_state is not null) { <div class="scene-backdrop"><SceneArtwork Visual="_state.Visual" /></div> }
+@if (_state is not null) { <div class="scene-backdrop"><SceneArtwork Visual="_state.Visual" Background="true" OnLoadFailure="url => _artFailureUrl = url" /></div> }
 <header class="site-header">
     <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">✦</span><span>english<span class="brand-light">roulette</span><small>GIRE. ESCUTE. EXPLORE.</small></span></a>
     <GameMenu Horror="IsHorror" Narrating="@(_state?.Phase == "Narrating")" />
@@ -73,6 +73,7 @@
         </section>
         <div class="game-grid">
             <article class="story-card">
+                @if (_state.Visual is not null && _artFailureUrl == _state.Visual.Url) { <p role="status">A imagem não carregou. Você pode continuar pelo texto e áudio.</p> }
                 <div class="chapter-heading"><span class="section-label">CENA @_state.SceneNumber DO SEU CAMINHO</span><span class="phase-badge">@(_state.Phase == "QuestionOpen" ? $"{RemainingSeconds}s para responder" : PhaseLabel)</span></div>
                 <h2>@_state.SceneTitle</h2>
                 @if (_state.Audio is { } audio && _state.Phase != "StoryResult")
@@ -86,7 +87,7 @@
                 }
                 else if (_state.Phase == "StoryResult")
                 {
-                    <div class="ending"><span class="ending-icon" aria-hidden="true">✦</span><div class="section-label">THE END · OU UM NOVO COMEÇO</div><h2>Você completou<br />esta história.</h2><p>Cada cena trouxe novas palavras e descobertas. Continue explorando outros caminhos.</p><div class="ending-stats"><span>@_state.SceneNumber cenas exploradas</span><span>1 final descoberto</span></div><button class="primary" disabled="@_busy" @onclick="CreateAsync">Jogar novamente ↗</button></div>
+                    <div class="ending"><span class="ending-icon" aria-hidden="true">✦</span><div class="section-label">THE END · OU UM NOVO COMEÇO</div><h2>Você completou<br />esta história.</h2><p>Cada cena trouxe novas palavras e descobertas. Continue explorando outros caminhos.</p><section class="ending-scene" aria-label="Desfecho da história"><h3>@_state.SceneTitle</h3><p class="narration" lang="en">@_state.Narration</p>@if (_state.Audio is { } endingAudio) { <audio class="ending-audio" src="@endingAudio.Url" controls preload="metadata" aria-label="Narração do desfecho em inglês"></audio> }</section><div class="ending-stats"><span>@_state.SceneNumber cenas exploradas</span><span>1 final descoberto</span></div><button class="primary" disabled="@_busy" @onclick="CreateAsync">Jogar novamente ↗</button></div>
                 }
                 else
                 {
@@ -151,6 +152,7 @@
     private ElementReference _adventureTitle;
     private bool _focusAdventure;
     private bool _audioReady;
+    private string? _artFailureUrl;
 
     private int RemainingSeconds => _state?.PhaseDeadlineUtc is { } deadline
         ? Math.Max(0, (int)Math.Ceiling((deadline - _state.ServerNowUtc - (Clock.GetUtcNow() - _receivedAtUtc)).TotalSeconds)) : 0;

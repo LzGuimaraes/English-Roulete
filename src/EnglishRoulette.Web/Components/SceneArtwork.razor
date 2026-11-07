@@ -1,13 +1,13 @@
 @using EnglishRoulette.Contracts
 @if (Visual is { } visual)
 {
-    <figure class="scene-artwork">
-        @if (!visual.Animated || _playing)
+    <figure class="scene-artwork @(visual.Animated ? "is-animated" : "")" aria-hidden="@(Background ? "true" : null)">
+        @if (Background || !visual.Animated || _playing)
         {
-            <img @key="visual.Url" src="@visual.Url" alt="@visual.AltText" loading="lazy" @onerror="() => _failed = true" />
+            <img @key="visual.Url" src="@visual.Url" alt="@(Background ? "" : visual.AltText)" loading="@(Background ? "eager" : "lazy")" @onerror="FailedAsync" />
         }
-        @if (_failed) { <figcaption role="status">A imagem não carregou. A aventura continua pelo texto e áudio.</figcaption> }
-        @if (visual.Animated)
+        @if (_failed && !Background) { <figcaption role="status">A imagem não carregou. A aventura continua pelo texto e áudio.</figcaption> }
+        @if (visual.Animated && !Background)
         {
             <button type="button" class="secondary" @onclick="() => _playing = !_playing">@(_playing ? "Ocultar animação" : "▶ Reproduzir animação")</button>
             @if (!_playing) { <figcaption>@visual.AltText</figcaption> }
@@ -16,8 +16,15 @@
 }
 @code {
     [Parameter] public SceneVisualView? Visual { get; set; }
+    [Parameter] public bool Background { get; set; }
+    [Parameter] public EventCallback<string> OnLoadFailure { get; set; }
     private string? _url;
     private bool _playing, _failed;
     protected override void OnParametersSet()
     { if (_url != Visual?.Url) { _url = Visual?.Url; _playing = _failed = false; } }
+    private async Task FailedAsync()
+    {
+        _failed = true;
+        await OnLoadFailure.InvokeAsync(Visual?.Url ?? "");
+    }
 }

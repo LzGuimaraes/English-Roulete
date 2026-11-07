@@ -111,4 +111,12 @@ O Playwright pode ser fornecido por um ambiente de QA já instalado; o caminho �
 - O teste de chegada no celular confirmou foco no título e rolagem no topo; antes desse ajuste, o título ficava cerca de 400px acima da área visível.
 - Duas sessões distintas de navegador validaram prontidão, roleta e resultado compartilhado do lobby. Os testes de administração, mídia privada e checkpoints permaneceram aprovados.
 
-As alterações de autoria de histórias que já estavam no diretório foram preservadas fora deste incremento. Esta validação não publicou uma nova versão na VPS.
+Essa primeira validação usou o catálogo local. Depois, a Antologia 01 foi produzida e publicada pela API administrativa, com os comprovantes em `content/anthology-01/` e o fluxo de mídia em `MEDIA_PRODUCTION.md`.
+
+### Artes animadas e desfechos
+
+O componente `SceneArtwork` mantém controles manuais nas prévias editoriais. No fundo da aventura, `Background=true` exibe a arte imediatamente, inclusive GIFs, com carregamento prioritário e sem controles escondidos atrás do jogo. Uma falha de imagem é informada no cartão da cena e não impede texto ou áudio. Com `prefers-reduced-motion`, os GIFs de fundo são ocultados e permanece a ambientação estática do tema; os assets atuais não possuem um poster estático separado.
+
+A tela `StoryResult` apresenta o título e o texto do desfecho real, além de um player nativo livre para sua narração. O player de narração com prazo continua sendo descartado ao terminar a partida, evitando chamadas para referências JavaScript já removidas. O backend continua decidindo a fase final; essa apresentação não acrescenta perguntas nem altera pontuação ou progresso.
+
+O roteiro de navegador confere uma aventura real com quatro perguntas e uma bifurcação usando The Blue Envelope, compara texto/áudio do final ao snapshot do servidor e verifica carregamento das artes em desktop e celular. Também cobre imagem indisponível, movimento reduzido, recuperação de erros e preservação do lobby multiplayer. Os 94 testes unitários e os 40 testes de integração passaram com PostgreSQL isolado; restore locked, build Release sem warnings e formatação foram conferidos.

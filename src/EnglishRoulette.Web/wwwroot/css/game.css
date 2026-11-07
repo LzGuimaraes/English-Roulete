@@ -74,7 +74,7 @@
 .in-adventure .story-card { padding:30px; min-height:calc(100dvh - 310px); animation:panel-enter .5s ease-out; }.in-adventure .story-card>h2 { font-size:27px; margin:26px 0 20px; }.in-adventure .journey-card { padding:26px 22px; }
 .in-adventure .phase-badge { background:#a88bd922; border:1px solid #a88bd955; color:#e5d7ff; font-size:10px; }
 .in-adventure .chapter-heading { gap:12px; flex-wrap:wrap; }.in-adventure .narration { font-size:clamp(17px,1.7vw,22px); line-height:1.9; color:#f1e8fa; }
-.in-adventure .audio-player { border-color:#ffffff25; background:#ffffff06; color:#e6dcf2; }.in-adventure .audio-heading span,.in-adventure .audio-player p { color:#c6b8d9; }.in-adventure audio { width:100%; }
+.in-adventure .audio-player { border-color:#ffffff25; background:#ffffff06; color:#e6dcf2; }.in-adventure .audio-heading span,.in-adventure .audio-player p { color:#c6b8d9; }.in-adventure audio { width:100%; color-scheme:dark; }
 .in-adventure .scene-ready { background:transparent; border-color:#ffffff20; }.in-adventure .scene-ready h3 { color:#fff; }.in-adventure .scene-ready p,.in-adventure .scene-ready .scene-icon { color:#cdb9eb; }
 .in-adventure .reading-note { background:#af8be914; border-color:#af8be940; color:#e6d7ff; }.in-adventure .reading-note strong { color:#f6d49a; }
 .in-adventure .option,.in-adventure .choice { color:#f4edff; background:#ffffff08; border:1px solid #c4a3f23d; min-height:52px; }.in-adventure .option:hover,.in-adventure .choice:hover { background:#b190ed20; border-color:#c4a3f2; }
@@ -150,3 +150,8 @@
 @media(max-width:1000px) and (min-width:781px) { .game-welcome>.roulette-column { transform:none; margin-inline:0; }.game-welcome .roulette-stage { transform:scale(.84); margin-inline:-38px; margin-block:-15px; }.roulette-context { max-width:300px; } }
 @media(max-width:780px) { .game-welcome { padding-block:28px 26px; gap:20px; }.game-experience .welcome h1 { font-size:clamp(40px,7.7vw,57px); letter-spacing:-1.7px; }.game-experience .welcome .lead { font-size:18px; }.game-welcome>.roulette-column { margin:5px 0 0; }.roulette-context p { margin-bottom:20px; }.round-preview { grid-template-columns:1fr; gap:16px; padding:25px 0 30px; }.preview-intro h2 { margin-bottom:12px; }.preview-intro>p { max-width:none; }.round-sample { padding:22px; }.hero-actions .secondary { min-height:46px; }.game-features { margin-bottom:25px; } }
 @media(max-width:480px) { .game-experience .welcome h1 { font-size:41px; }.roulette-context { margin-bottom:0; }.game-welcome .roulette-stage { margin-top:-10px!important; margin-bottom:-28px!important; }.game-experience .round-preview .section-label { font-size:10px; }.preview-options { grid-template-columns:1fr; }.preview-intro h2 { font-size:27px; }.round-sample blockquote { font-size:16px; }.roulette-column .roulette-result { margin-top:20px; }.sample-meta { font-size:12px; } }
+
+.ending-scene { margin: 1.5rem auto; padding: 1.25rem; max-width: 42rem; text-align: left; border: 1px solid var(--line); border-radius: 1rem; background: #ffffff06; }
+.ending-scene h3 { margin-top: 0; }
+.ending-audio { display: block; width: 100%; margin-top: 1rem; }
+@media(prefers-reduced-motion:reduce) { .scene-backdrop .scene-artwork.is-animated { display:none; } }

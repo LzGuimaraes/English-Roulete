@@ -25,6 +25,7 @@ async function home(page) {
 async function ready(page) {
     await page.getByRole('button', { name: /Ouvir e iniciar cena/ }).waitFor();
     await page.waitForFunction(() => !document.querySelector('.scene-ready button')?.disabled, null, { timeout: 15000 });
+    await page.waitForFunction(() => [...document.querySelectorAll('.scene-backdrop img')].some(image => image.complete && image.naturalWidth > 0));
 }
 async function start(page) {
     console.log("Starting a real adventure:", page.viewportSize().width);
@@ -61,6 +62,13 @@ async function completeAdventure(page) {
         if (await page.locator('.ending').count()) break;
     }
     assert.ok(await page.locator('.ending').isVisible());
+    const ending = await (await page.request.get(base + '/api/demo/session')).json();
+    assert.equal(await page.locator('.ending .narration').innerText(), ending.narration);
+    assert.equal(await page.locator('.ending-audio').getAttribute('src'), ending.audio.url);
+    await page.locator('.ending-audio').evaluate(audio => audio.play());
+    assert.ok(await page.locator('.ending-audio').evaluate(audio => !audio.paused));
+    await screen(page, 'ending');
+
     assert.ok(questions >= 1);
     console.log(JSON.stringify({ completedRealAdventure: true, questions, decisions }));
 }
@@ -149,6 +157,19 @@ async function failedStart(body, status) {
         const { context, page } = await open(390);
         await page.emulateMedia({ reducedMotion: 'reduce' });
         await home(page); await start(page); // No animationend event is required.
+        if (await page.locator('.scene-backdrop .is-animated').count()) {
+            assert.equal(await page.locator('.scene-backdrop .is-animated').evaluate(element => getComputedStyle(element).display), 'none');
+        }
+        await context.close();
+    }
+    {
+        const { context, page } = await open(390);
+        await page.route('**/media/visuals/**', route => route.fulfill({ status: 404, body: '' }));
+        await home(page); await start(page);
+        await page.getByText('A imagem não carregou. Você pode continuar pelo texto e áudio.', { exact: true }).waitFor();
+        await page.waitForFunction(() => !document.querySelector('.scene-ready button')?.disabled);
+        await page.getByRole('button', { name: /Ouvir e iniciar cena/ }).click();
+        await page.waitForFunction(() => !!document.querySelector('audio') && !document.querySelector('audio').paused);
         await context.close();
     }
     }
