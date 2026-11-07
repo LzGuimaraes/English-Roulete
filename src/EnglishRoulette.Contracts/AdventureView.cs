@@ -23,7 +23,8 @@ public sealed record AdventureView(
     IReadOnlyList<VisitedSceneView>? VisitedScenes = null,
     Guid? StoryVersionId = null,
     StoryAppearance? Appearance = null,
-    SceneVisualView? Visual = null);
+    SceneVisualView? Visual = null,
+    string Genre = "");
 
 public sealed record AdventureCommand(
     Guid RequestId,

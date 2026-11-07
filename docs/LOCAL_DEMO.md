@@ -26,7 +26,7 @@ python3 scripts/dev.py run --no-build  # Executar o build Release já existente
 
 ## Jogar e testar retomada
 
-1. Escolha uma história publicada e clique em **Começar minha aventura** e aguarde o aviso **Áudio pronto**.
+1. Clique em **Iniciar aventura solo**, acompanhe a roleta e clique em **Entrar na história**. Aguarde o aviso **Áudio pronto**.
 2. Escolha **Ouvir e iniciar cena**. O clique libera a reprodução no navegador; o servidor define o prazo pela duração do arquivo mais 2 segundos de margem.
 3. Ouça em inglês e acompanhe o texto. A pergunta abre após essa janela, sem depender de `audio.ended` enviado pelo cliente.
 4. Responda em até 20 segundos e confira a explicação. Na livraria, escolha café ou biblioteca; cada percurso tem três cenas.
@@ -87,3 +87,5 @@ Para QA visual, percorra os dois finais, experimente uma resposta errada e um ti
 O painel editorial e a autenticação ADMIN já estão disponíveis. Ainda faltam contas de jogadores, retenção, worker de prazos, tabelas analíticas, pontuação aprovada e multiplayer. O catálogo é relacional; o histórico de cada partida continua em checkpoints JSONB.
 
 Referências: [arquivos estáticos do Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/static-files), [API de síntese offline do eSpeak NG](https://github.com/espeak-ng/espeak-ng/blob/master/src/include/espeak-ng/speak_lib.h).
+
+A abertura, trilha, ambientação de terror e sorteio são descritos em [GAME_EXPERIENCE.md](GAME_EXPERIENCE.md).

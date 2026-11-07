@@ -38,14 +38,25 @@ public sealed class LobbyRoomTests
         Assert.Equal("STATE_CONFLICT", Assert.Throws<GameRuleException>(() => LobbyRoom.SetReady(updated, host.PlayerId, 1, false, Start)).Code);
     }
     [Fact]
-    public void ChooseStory_OnlyHostCanChange_AndResetsReadiness()
+    public void Spin_RequiresHostAndAllConnectedPlayersReady_AndPersistsOneResult()
     {
         var host = Member("Host"); var guest = Member("Guest");
-        var room = LobbyRoom.Join(LobbyRoom.Create(Guid.NewGuid(), "ABCDEFGH", 8, host, Start), guest, Start);
+        var room = LobbyRoom.Create(Guid.NewGuid(), "ABCDEFGH", 8, host, Start);
+        Assert.Equal("ROOM_NOT_READY", Assert.Throws<GameRuleException>(() => LobbyRoom.Spin(room, host.PlayerId, room.StateVersion, Guid.NewGuid(), Start)).Code);
+        room = LobbyRoom.Join(room, guest, Start);
+        Assert.Equal("ROOM_FORBIDDEN", Assert.Throws<GameRuleException>(() => LobbyRoom.Spin(room, guest.PlayerId, room.StateVersion, Guid.NewGuid(), Start)).Code);
         room = LobbyRoom.SetReady(room, host.PlayerId, room.StateVersion, true, Start);
-        Assert.Equal("ROOM_FORBIDDEN", Assert.Throws<GameRuleException>(() => LobbyRoom.ChooseStory(room, guest.PlayerId, room.StateVersion, Guid.NewGuid(), Start)).Code);
-        var selected = LobbyRoom.ChooseStory(room, host.PlayerId, room.StateVersion, Guid.NewGuid(), Start);
-        Assert.All(selected.Members, member => Assert.False(member.Ready)); Assert.NotNull(selected.StoryVersionId);
+        Assert.Equal("ROOM_NOT_READY", Assert.Throws<GameRuleException>(() => LobbyRoom.Spin(room, host.PlayerId, room.StateVersion, Guid.NewGuid(), Start)).Code);
+        room = LobbyRoom.SetReady(room, guest.PlayerId, room.StateVersion, true, Start);
+        Assert.Equal("ROOM_NOT_READY", Assert.Throws<GameRuleException>(() => LobbyRoom.Spin(room, host.PlayerId, room.StateVersion, Guid.NewGuid(), Start.AddSeconds(30))).Code);
+        var storyId = Guid.NewGuid();
+        var selected = LobbyRoom.Spin(room, host.PlayerId, room.StateVersion, storyId, Start);
+        Assert.Equal(storyId, selected.StoryVersionId);
+        Assert.Equal(Start, selected.RouletteStartedAtUtc);
+        Assert.Equal(room.StateVersion + 1, selected.StateVersion);
+        Assert.All(selected.Members, member => Assert.True(member.Ready));
+        Assert.Equal("ROULETTE_ALREADY_DRAWN", Assert.Throws<GameRuleException>(() => LobbyRoom.Spin(selected, host.PlayerId, selected.StateVersion, Guid.NewGuid(), Start)).Code);
+        Assert.Equal("STATE_CONFLICT", Assert.Throws<GameRuleException>(() => LobbyRoom.Spin(selected, host.PlayerId, room.StateVersion, Guid.NewGuid(), Start)).Code);
     }
     [Fact]
     public void ReconnectGrace_ExpiresAtNinetySeconds_AndTransfersHost()

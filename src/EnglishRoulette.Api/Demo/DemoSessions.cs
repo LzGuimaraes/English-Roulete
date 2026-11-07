@@ -4,6 +4,7 @@ using System.Text;
 using EnglishRoulette.Api.Admin;
 using EnglishRoulette.Api.Multiplayer;
 using EnglishRoulette.Application.Admin;
+using EnglishRoulette.Application.Presentation;
 using EnglishRoulette.Application.Solo;
 using EnglishRoulette.Contracts;
 using EnglishRoulette.Domain;
@@ -34,6 +35,7 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
     {
         var previousHash = CredentialHash(context);
         var previous = previousHash is null ? null : await store.FindAsync(previousHash, cancellationToken);
+        versionId ??= StoryRoulette.Draw(await catalog.PublishedAsync(cancellationToken));
         var content = await catalog.LoadPublishedAsync(versionId, cancellationToken)
             ?? throw new GameRuleException("CONTENT_NOT_PUBLISHED", "Escolha uma história publicada no catálogo.");
         var guest = await context.AuthenticateAsync(RoomEndpoints.PlayerScheme);
@@ -104,6 +106,7 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             snapshot.Choices.Select(choice => new ChoiceView(choice.Key, choice.Label)).ToArray(),
             new($"/media/catalog/{audio.Id}", audio.DurationMs, SafetyMarginMs),
             keys.Select(key => new VisitedSceneView(key, content.SceneTitles[key])).ToArray(), snapshot.StoryVersionId, AdminContracts.Appearance(content.Metadata.Appearance ?? new()),
-            content.Visuals.TryGetValue(snapshot.SceneKey, out var visual) ? new SceneVisualView($"/media/visuals/{visual.Id}", visual.AltText, visual.Animated) : null);
+            content.Visuals.TryGetValue(snapshot.SceneKey, out var visual) ? new SceneVisualView($"/media/visuals/{visual.Id}", visual.AltText, visual.Animated) : null,
+            content.Metadata.Genre);
     }
 }

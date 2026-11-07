@@ -384,6 +384,45 @@ public sealed class AdminCatalogTests : IAsyncLifetime
         await using var db = Context(); Assert.Single(await db.LobbyMemberships.ToListAsync());
     }
     [PostgresFact]
+    public async Task Roulette_SoloDrawsPublishedContent_AndRoomPersistsSharedResultWithoutHostChoice()
+    {
+        await Login();
+        var published = await Upload(await Draft());
+        using var publication = await Publish(published);
+        Assert.Equal(HttpStatusCode.NoContent, publication.StatusCode);
+        await Draft(); // An unpublished story must never enter the draw.
+        using var solo = NewClient();
+        solo.DefaultRequestHeaders.Add("X-English-Roulette", "demo");
+        using var adventure = await solo.PostAsJsonAsync("/api/demo/session", new CreateAdventureRequest());
+        Assert.Equal(HttpStatusCode.OK, adventure.StatusCode);
+        Assert.Equal(published.Id, (await adventure.Content.ReadFromJsonAsync<AdventureView>())?.StoryVersionId);
+        using var host = await Player("Host"); using var guest = await Player("Guest");
+        using var create = await RoomPost(host, "/api/rooms/", new CreateRoomRequest(2));
+        var room = (await create.Content.ReadFromJsonAsync<RoomView>())!;
+        using var join = await RoomPost(guest, "/api/rooms/join", new JoinRoomRequest(room.Code));
+        room = (await host.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
+        using var notReady = await RoomPost(host, $"/api/rooms/{room.Id}/spin", new SpinRoomRequest(room.StateVersion));
+        Assert.Equal(HttpStatusCode.Conflict, notReady.StatusCode);
+        using var guestReady = await RoomPost(guest, $"/api/rooms/{room.Id}/ready", new ReadyRoomRequest(room.StateVersion, true));
+        room = (await guestReady.Content.ReadFromJsonAsync<RoomView>())!;
+        using var hostReady = await RoomPost(host, $"/api/rooms/{room.Id}/ready", new ReadyRoomRequest(room.StateVersion, true));
+        room = (await hostReady.Content.ReadFromJsonAsync<RoomView>())!;
+        using var forbidden = await RoomPost(guest, $"/api/rooms/{room.Id}/spin", new SpinRoomRequest(room.StateVersion));
+        Assert.Equal(HttpStatusCode.Forbidden, forbidden.StatusCode);
+        Assert.Equal(HttpStatusCode.BadRequest, (await host.PostAsJsonAsync($"/api/rooms/{room.Id}/spin", new SpinRoomRequest(room.StateVersion))).StatusCode);
+        using var spin = await RoomPost(host, $"/api/rooms/{room.Id}/spin", new { expectedStateVersion = room.StateVersion, storyVersionId = Guid.NewGuid() });
+        Assert.Equal(HttpStatusCode.OK, spin.StatusCode);
+        var result = (await spin.Content.ReadFromJsonAsync<RoomView>())!;
+        Assert.Equal(published.Id, result.StoryVersionId);
+        Assert.Equal(_clock.GetUtcNow(), result.RouletteStartedAtUtc);
+        var restored = (await guest.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
+        Assert.Equal(result.StoryVersionId, restored.StoryVersionId);
+        Assert.Equal(result.RouletteStartedAtUtc, restored.RouletteStartedAtUtc);
+        using var redraw = await RoomPost(host, $"/api/rooms/{room.Id}/spin", new SpinRoomRequest(result.StateVersion));
+        Assert.Equal(HttpStatusCode.Conflict, redraw.StatusCode);
+        Assert.Equal(published.Id, (await host.GetFromJsonAsync<RoomView>("/api/rooms/current"))?.StoryVersionId);
+    }
+    [PostgresFact]
     public async Task Lobby_ConcurrentCreateFromOneIdentity_CannotOccupyTwoRooms()
     {
         using var host = await Player("Host");

@@ -4,6 +4,9 @@ namespace EnglishRoulette.Web.Services;
 
 public static class ThemePalette
 {
+    public static StoryAppearance Arcade => new() { Primary = "#A78BFA", Accent = "#FBBF6A", Background = "#100D20", Surface = "#211B35", Text = "#F5F0FF" };
+    public static StoryAppearance Horror => new() { Primary = "#F29A94", Accent = "#D45555", Background = "#100B10", Surface = "#21161E", Text = "#F6EBED", Font = "classic" };
+    public static bool IsHorror(string? genre) => genre?.Trim().ToLowerInvariant() is "terror" or "horror" or "terror psicológico" or "psychological horror";
     public static StoryAppearance Preset(string key) => key switch
     {
         "candy" => new() { Primary = "#BE185D", Accent = "#7C3AED", Background = "#FFF1F7", Surface = "#FFFFFF", Text = "#3B1532" },

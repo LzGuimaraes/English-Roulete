@@ -5,7 +5,8 @@ namespace EnglishRoulette.Domain.Multiplayer;
 public sealed record LobbyMember(Guid PlayerId, string Nickname, string Avatar, bool Ready,
     DateTimeOffset JoinedAtUtc, DateTimeOffset LastSeenUtc);
 public sealed record LobbyState(Guid Id, string Code, int Capacity, Guid HostId, long StateVersion,
-    Guid? StoryVersionId, IReadOnlyList<LobbyMember> Members, DateTimeOffset LastActivityUtc, string Status = "Lobby");
+    Guid? StoryVersionId, IReadOnlyList<LobbyMember> Members, DateTimeOffset LastActivityUtc, string Status = "Lobby",
+    DateTimeOffset? RouletteStartedAtUtc = null);
 
 public static class LobbyRoom
 {
@@ -44,16 +45,19 @@ public static class LobbyRoom
         if (state.Members.Single(member => member.PlayerId == player).Ready == ready) { return Touch(state, player, now); }
         return Touch(state with { Members = Array.AsReadOnly(state.Members.Select(member => member.PlayerId == player ? member with { Ready = ready } : member).ToArray()), StateVersion = state.StateVersion + 1 }, player, now);
     }
-    public static LobbyState ChooseStory(LobbyState state, Guid actor, long version, Guid storyVersionId, DateTimeOffset now)
+    public static LobbyState Spin(LobbyState state, Guid actor, long version, Guid storyVersionId, DateTimeOffset now)
     {
         Authorize(state, actor); Version(state, version);
-        if (state.HostId != actor) { throw new GameRuleException("ROOM_FORBIDDEN", "Só o anfitrião escolhe a história."); }
-        if (state.StoryVersionId == storyVersionId) { return Touch(state, actor, now); }
+        if (state.HostId != actor) { throw new GameRuleException("ROOM_FORBIDDEN", "Só o anfitrião inicia a roleta."); }
+        if (state.RouletteStartedAtUtc is not null)
+        { throw new GameRuleException("ROULETTE_ALREADY_DRAWN", "A história desta sala já foi sorteada."); }
+        if (state.Members.Count < 2 || state.Members.Any(member => !member.Ready || now - member.LastSeenUtc >= ConnectedWindow))
+        { throw new GameRuleException("ROOM_NOT_READY", "A roleta precisa de pelo menos dois jogadores conectados e todos prontos."); }
         return Touch(state with
         {
             StoryVersionId = storyVersionId,
+            RouletteStartedAtUtc = now,
             StateVersion = state.StateVersion + 1,
-            Members = Array.AsReadOnly(state.Members.Select(member => member with { Ready = false }).ToArray())
         }, actor, now);
     }
     public static LobbyState Leave(LobbyState state, Guid player, DateTimeOffset now)

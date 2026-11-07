@@ -18,7 +18,7 @@ public sealed class RoomClient(HttpClient http)
     public Task<RoomView> CreateAsync(int capacity, CancellationToken token) => Send<RoomView>("api/rooms/", new CreateRoomRequest(capacity), token);
     public Task<RoomView> JoinAsync(string code, CancellationToken token) => Send<RoomView>("api/rooms/join", new JoinRoomRequest(code), token);
     public Task<RoomView> ReadyAsync(RoomView room, bool ready, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/ready", new ReadyRoomRequest(room.StateVersion, ready), token);
-    public Task<RoomView> StoryAsync(RoomView room, Guid versionId, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/story", new RoomStoryRequest(room.StateVersion, versionId), token);
+    public Task<RoomView> SpinAsync(RoomView room, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/spin", new SpinRoomRequest(room.StateVersion), token);
     public async Task LeaveAsync(Guid id, CancellationToken token)
     { using var response = await Post($"api/rooms/{id}/leave", new { }, token); await Ensure(response, token); }
     private async Task<T?> Optional<T>(string path, CancellationToken token)

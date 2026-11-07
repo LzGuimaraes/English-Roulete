@@ -13,7 +13,7 @@ python3 scripts/dev.py setup
 python3 scripts/dev.py run
 ```
 
-Abra **http://localhost:5080** e clique em **Começar minha aventura**. Depois escolha **Ouvir e iniciar cena**: ouça a narração, responda e escolha um caminho na livraria. Recarregar a página ou reiniciar a API preserva o progresso enquanto o cookie do navegador e o volume PostgreSQL forem mantidos. O prazo de uma pergunta aberta continua correndo.
+Abra **http://localhost:5080** e clique em **Iniciar aventura solo**, aguarde a roleta e escolha **Entrar na história**. Depois escolha **Ouvir e iniciar cena**: ouça a narração, responda e escolha um caminho na livraria. Recarregar a página ou reiniciar a API preserva o progresso enquanto o cookie do navegador e o volume PostgreSQL forem mantidos. O prazo de uma pergunta aberta continua correndo.
 
 `setup` cria credenciais locais fora do Git, inicia somente o PostgreSQL deste projeto em `127.0.0.1:55432`, aplica as migrations, provisiona a conta administrativa local e gera os arquivos WAV em `media/` (ignorado pelo Git). Não altera o PostgreSQL do sistema. Caso o SDK 10 não seja o padrão, configure `DOTNET_HOST_PATH` com o caminho do executável adequado.
 
@@ -39,7 +39,7 @@ python3 scripts/import_story.py content/examples/green-ribbon-a2.json --check
 
 ## Início do multiplayer
 
-O [lobby multiplayer](docs/MULTIPLAYER.md) está em **http://localhost:5080/multiplayer**: convidados, salas de 2 a 8, convite, prontidão, escolha de história e sincronização SignalR. A partida simultânea com respostas, votação e ranking é o próximo incremento.
+O [lobby multiplayer](docs/MULTIPLAYER.md) está em **http://localhost:5080/multiplayer**: convidados, salas de 2 a 8, convite, prontidão, roleta com sorteio no servidor e sincronização SignalR. A partida simultânea com respostas, votação e ranking é o próximo incremento.
 
 ## Executar as verificações
 
@@ -93,3 +93,5 @@ A engine permanece independente da interface. A prévia Blazor consome a sessão
 ## Arquivos de implementação futuros
 
 `API.md` (contratos REST/SignalR) pode ser detalhado conforme os próximos incrementos. O passo a passo de VPS e recuperação já está em [DEPLOY.md](docs/DEPLOY.md).
+
+A experiência visual, trilha opcional, manual e regras da roleta estão em [GAME_EXPERIENCE.md](docs/GAME_EXPERIENCE.md).

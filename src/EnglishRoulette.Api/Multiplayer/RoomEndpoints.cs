@@ -3,6 +3,7 @@ using System.Threading.RateLimiting;
 using EnglishRoulette.Api.Admin;
 using EnglishRoulette.Application.Admin;
 using EnglishRoulette.Application.Multiplayer;
+using EnglishRoulette.Application.Presentation;
 using EnglishRoulette.Contracts;
 using EnglishRoulette.Contracts.Admin;
 using EnglishRoulette.Domain;
@@ -81,12 +82,13 @@ internal static class RoomEndpoints
             var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) => LobbyRoom.SetReady(state, Actor(context), request.ExpectedStateVersion, request.Ready, now), context.RequestAborted);
             await Notify(hub, state); return Results.Ok(View(state, Actor(context), clock));
         }).RequireRateLimiting("AdminWrite");
-        group.MapPost("/{id:guid}/story", async (Guid id, RoomStoryRequest request, HttpContext context, ILobbyStore lobbies,
+        group.MapPost("/{id:guid}/spin", async (Guid id, SpinRoomRequest request, HttpContext context, ILobbyStore lobbies,
             IAdminCatalog catalog, TimeProvider clock, IHubContext<RoomHub> hub) =>
         {
-            if (await catalog.LoadPublishedAsync(request.StoryVersionId, context.RequestAborted) is null)
-            { throw new GameRuleException("INVALID_CONTENT", "Escolha uma história publicada."); }
-            var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) => LobbyRoom.ChooseStory(state, Actor(context), request.ExpectedStateVersion, request.StoryVersionId, now), context.RequestAborted);
+            var selected = StoryRoulette.Draw(await catalog.PublishedAsync(context.RequestAborted));
+            if (await catalog.LoadPublishedAsync(selected, context.RequestAborted) is null)
+            { throw new GameRuleException("INVALID_CONTENT", "O catálogo mudou. Tente girar novamente."); }
+            var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) => LobbyRoom.Spin(state, Actor(context), request.ExpectedStateVersion, selected, now), context.RequestAborted);
             await Notify(hub, state); return Results.Ok(View(state, Actor(context), clock));
         }).RequireRateLimiting("AdminWrite");
         group.MapPost("/{id:guid}/leave", async (Guid id, HttpContext context, ILobbyStore lobbies, IHubContext<RoomHub> hub) =>
@@ -100,5 +102,5 @@ internal static class RoomEndpoints
     private static Guid Actor(HttpContext context) => Guid.Parse(context.User.FindFirstValue(ClaimTypes.NameIdentifier)!);
     private static RoomView View(LobbyState state, Guid actor, TimeProvider clock) => new(state.Id, state.Code, state.Capacity,
         state.HostId, actor, state.StateVersion, state.StoryVersionId, state.Members.Select(member => new RoomMemberView(member.PlayerId,
-            member.Nickname, member.Avatar, member.Ready, clock.GetUtcNow() - member.LastSeenUtc < LobbyRoom.ConnectedWindow)).ToArray(), clock.GetUtcNow());
+            member.Nickname, member.Avatar, member.Ready, clock.GetUtcNow() - member.LastSeenUtc < LobbyRoom.ConnectedWindow)).ToArray(), clock.GetUtcNow(), state.RouletteStartedAtUtc);
 }

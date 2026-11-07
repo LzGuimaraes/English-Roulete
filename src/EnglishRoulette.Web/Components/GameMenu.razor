@@ -1,0 +1,66 @@
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+<nav class="game-menu" aria-label="Menu do jogo">
+    <button type="button" class="menu-button" @onclick="OpenAsync">Como jogar <span aria-hidden="true">?</span></button>
+    <button type="button" class="menu-button sound-button" aria-pressed="@_sound" @onclick="ToggleSoundAsync">@(_sound ? "♫ Som ligado" : "♪ Ativar trilha")</button>
+</nav>
+@if (_audioError is not null) { <p class="sound-status" role="status">@_audioError</p> }
+<dialog @ref="_dialog" class="help-dialog" aria-labelledby="help-title">
+    <div class="help-heading"><span class="eyebrow">MANUAL DO EXPLORADOR</span><button class="menu-button" autofocus @onclick="CloseAsync" aria-label="Fechar instruções">Fechar ✕</button></div>
+    <h2 id="help-title">Uma roleta.<br />Muitos caminhos.</h2>
+    <p>Seu inglês é a chave. A curiosidade faz o resto.</p>
+    <ol class="help-steps">
+        <li><strong>Inicie e gire.</strong> A roleta sorteia um gênero e uma história do catálogo publicado. Você descobre o tema depois de começar.</li>
+        <li><strong>Entre na cena.</strong> Ative a narração pelo botão “Ouvir e iniciar cena”. Ouça e acompanhe o texto em inglês.</li>
+        <li><strong>Mostre o que entendeu.</strong> A pergunta aparece após a narração. Escolha uma alternativa antes do prazo; depois, confira a explicação.</li>
+        <li><strong>Mude o rumo.</strong> Nas bifurcações, escolha seu caminho. Escolhas narrativas não têm resposta errada. Explore outros finais ao jogar de novo.</li>
+    </ol>
+    <div class="help-callout"><strong>Vai jogar com amigos?</strong><p>Crie uma sala, compartilhe o convite e confirme “Estou pronto”. Com pelo menos duas pessoas e todos prontos, o anfitrião inicia a roleta. O mesmo resultado aparece para todos. A partida simultânea ainda está em desenvolvimento.</p></div>
+    <h3>O que pode acontecer na história?</h3>
+    <div class="event-guide">
+        <article><span>↗</span><div><strong>Caminhos e finais alternativos</strong><small>Disponível quando a história tem bifurcações.</small><p>Uma decisão muda as próximas cenas e o final que você encontra.</p></div></article>
+        <article><span>◷</span><div><strong>Perguntas com prazo</strong><small>Disponível no Solo Adventure.</small><p>Atenção aos detalhes: o tempo começa quando o servidor abre a pergunta.</p></div></article>
+        <article><span>◉</span><div><strong>Blind Listening · Memory Rush</strong><small>Previstos · ainda não disponíveis.</small><p>Ouvir sem texto ou lembrar de uma cena anterior.</p></div></article>
+        <article><span>✎</span><div><strong>Missing Word · Find the Lie · Scrambled Sentence</strong><small>Previstos · ainda não disponíveis.</small><p>Completar palavras, encontrar a mentira ou reorganizar uma frase.</p></div></article>
+        <article><span>ϟ</span><div><strong>Double Points · Speed Challenge</strong><small>Previstos · ainda não disponíveis.</small><p>Rodadas com bônus compartilhados ou perguntas rápidas em sequência.</p></div></article>
+        <article><span>✦</span><div><strong>Mystery Box · Final Boss</strong><small>Previstos · ainda não disponíveis.</small><p>Um desafio ou dica surpresa e uma última prova sobre toda a história.</p></div></article>
+    </div>
+    <p class="help-footnote">Eventos especiais dependem de conteúdo preparado para cada história. Pontuação e XP ainda não estão ativos. A trilha é opcional e baixa durante a narração. Você pode reduzir os movimentos nas preferências do seu dispositivo.</p>
+    <button class="primary" @onclick="CloseAsync">Entendi. Vamos jogar →</button>
+</dialog>
+
+@code {
+    [Parameter] public bool Horror { get; set; }
+    [Parameter] public bool Narrating { get; set; }
+    private ElementReference _dialog;
+    private IJSObjectReference? _module;
+    private bool _sound;
+    private bool? _lastHorror, _lastNarrating;
+    private string? _audioError;
+
+    private async Task<IJSObjectReference> ModuleAsync() => _module ??= await JS.InvokeAsync<IJSObjectReference>("import", "./game-atmosphere.js");
+    private async Task OpenAsync() => await (await ModuleAsync()).InvokeVoidAsync("openHelp", _dialog);
+    private async Task CloseAsync() => await (await ModuleAsync()).InvokeVoidAsync("closeHelp", _dialog);
+    private async Task ToggleSoundAsync()
+    {
+        try
+        {
+            _sound = await (await ModuleAsync()).InvokeAsync<bool>("toggleSound", Horror, Narrating);
+            _lastHorror = Horror; _lastNarrating = Narrating; _audioError = null;
+        }
+        catch (JSException) { _sound = false; _audioError = "A trilha não pôde iniciar. Tente ativar o som novamente."; }
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (_sound && _module is not null && (_lastHorror != Horror || _lastNarrating != Narrating))
+        {
+            _lastHorror = Horror; _lastNarrating = Narrating;
+            await _module.InvokeVoidAsync("setMood", Horror, Narrating);
+        }
+    }
+    public async ValueTask DisposeAsync()
+    {
+        if (_module is not null) { await _module.InvokeVoidAsync("stopSound"); await _module.DisposeAsync(); }
+    }
+}

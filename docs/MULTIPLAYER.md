@@ -1,13 +1,13 @@
 # Multiplayer — primeiro incremento de lobby
 
-Abra **http://localhost:5080/multiplayer** ou use o link de convite `/join/{codigo}`. Esta etapa começa RF-001 a RF-004: perfil de convidado, criação/entrada em sala, participantes, prontidão, escolha de história e reconexão do lobby. A partida sincronizada, votação, ranking, XP e revanche ainda não estão implementados; a interface informa esse limite.
+Abra **http://localhost:5080/multiplayer** ou use o link de convite `/join/{codigo}`. Esta etapa começa RF-001 a RF-004: perfil de convidado, criação/entrada em sala, participantes, prontidão, roleta compartilhada e reconexão do lobby. A partida sincronizada, votação, ranking, XP e revanche ainda não estão implementados; a interface informa esse limite.
 
 ## Fluxo disponível
 
 1. Informe apelido de 3 a 20 caracteres e escolha um dos avatares permitidos.
 2. Crie uma sala de 2 a 8 vagas ou entre com o código/link recebido.
-3. O anfitrião escolhe uma história publicada. Alterar a escolha reinicia a prontidão de todos.
-4. Cada jogador marca seu próprio estado “pronto”. Outros navegadores recebem uma notificação SignalR e buscam o snapshot autorizado.
+3. Cada jogador marca seu próprio estado “pronto”. Outros navegadores recebem uma notificação SignalR e buscam o snapshot autorizado.
+4. Com pelo menos dois jogadores conectados e todos prontos, o anfitrião inicia a roleta; o servidor sorteia o gênero e a história.
 5. Ao sair, a liderança passa ao participante conectado mais antigo; na ausência de conectados, uma vaga ainda dentro da janela de reconexão conserva a sala.
 
 Apelidos precisam ser distintos dentro da sala. Reconectar com o mesmo cookie não ocupa outra vaga. O código tem oito caracteres gerados por criptografia e não substitui a autenticação individual. O convite não contém credenciais.
@@ -16,7 +16,7 @@ Apelidos precisam ser distintos dentro da sala. Reconectar com o mesmo cookie n�
 
 Um cookie de convidado protegido pelo ASP.NET Core autentica o jogador, com HttpOnly, SameSite=Strict e Secure fora de Development. Ele é separado do cookie administrativo. O servidor fornece token antiforgery específico da identidade de jogador para mutações de sala. Entrada/perfil têm limite por IP e comandos têm limite por usuário. A API valida Origin nas rotas de sala e no hub quando o navegador envia esse cabeçalho.
 
-`GET /api/rooms/current` funciona como heartbeat de 15 segundos na UI. Presença sem heartbeat por 30 segundos aparece como reconectando; a vaga é preservada até 90 segundos. Salas inativas expiram em 30 minutos. Expiração é aplicada na próxima leitura/comando; não há worker de limpeza neste incremento. Abas em segundo plano podem ter timers suspensos pelo navegador.
+`GET /api/rooms/current` funciona como heartbeat de 10 segundos na UI. Presença sem heartbeat por 30 segundos aparece como reconectando; a vaga é preservada até 90 segundos. Salas inativas expiram em 30 minutos. Expiração é aplicada na próxima leitura/comando; não há worker de limpeza neste incremento. Abas em segundo plano podem ter timers suspensos pelo navegador.
 
 O PostgreSQL guarda perfis em `game_guests`, snapshots em `multiplayer_lobbies` e a associação ativa em `lobby_memberships`. Cada convidado ocupa uma sala por vez. Locks transacionais serializam alterações na sala; um lock consultivo por jogador e a chave única de associação impedem criar duas salas simultâneas com a mesma identidade. A revisão de estado rejeita comandos de prontidão/configuração obsoletos.
 
@@ -37,6 +37,10 @@ Novas aventuras solo usam a identidade de convidado quando ela já existe. Sess�
 
 Execute os testes do README. Os casos incluem lotação, apelido duplicado, repetição de entrada, revisão antiga, acesso de não participante, CSRF, concorrência ao criar salas, transferência e expiração da presença.
 
-Para verificar manualmente, abra dois perfis de navegador (ou janela anônima), crie uma sala com um jogador e entre com o outro. Confira prontidão em ambos, mudança de história, refresh, transferência ao sair e ausência de acesso administrativo para convidados.
+Para verificar manualmente, abra dois perfis de navegador (ou janela anônima), crie uma sala com um jogador e entre com o outro. Confira prontidão em ambos, resultado compartilhado da roleta, refresh, transferência ao sair e ausência de acesso administrativo para convidados.
 
 O próximo incremento reutilizará `StoryFlowEngine` e `ChallengeEvaluator` para preloading, áudio simultâneo, perguntas com prazo do servidor e decisão coletiva. As fórmulas de pontos/XP continuam pendentes de validação; este lobby não inventa placares.
+
+## Atualização: roleta compartilhada
+
+A escolha manual de história foi substituída por `POST /api/rooms/{id}/spin` com `SpinRoomRequest(ExpectedStateVersion)`. O anfitrião inicia após todos os presentes conectados confirmarem prontidão (mínimo de dois). O servidor sorteia gênero/história, persiste resultado e `RouletteStartedAtUtc` no checkpoint e notifica a sala. Não é permitido trocar o resultado com outro giro. A partida simultânea permanece pendente. Veja [GAME_EXPERIENCE.md](GAME_EXPERIENCE.md) para aceite, responsabilidades e validação.

@@ -5,54 +5,61 @@
 @using EnglishRoulette.Web.Services
 @implements IAsyncDisposable
 @inject AdventureClient Client
+@inject TimeProvider Clock
 
-<PageTitle>English Roulette — uma história, seu caminho</PageTitle>
-<div class="experience motion-@CurrentTheme.Motion" style="@ThemePalette.Style(CurrentTheme)">
+<PageTitle>English Roulette — gire. escute. explore.</PageTitle>
+<div class="experience game-experience motion-@(_state?.Appearance?.Motion ?? CurrentTheme.Motion) @(_state is not null ? "in-adventure" : "") @(IsHorror ? "horror-experience" : "") @(_state?.Visual is not null ? "has-scene-art" : "") @(_state?.Phase == "Preloading" ? "scene-intro" : "")" style="@ThemePalette.Style(CurrentTheme)">
+@if (_state is not null) { <div class="scene-backdrop"><SceneArtwork Visual="_state.Visual" /></div> }
 <header class="site-header">
-    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">e.</span><span>english<span class="brand-light">roulette</span><small>STORIES THAT TAKE YOU FURTHER</small></span></a>
-    <span class="preview-badge"><span></span> Prévia · Solo Adventure</span>
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">✦</span><span>english<span class="brand-light">roulette</span><small>GIRE. ESCUTE. EXPLORE.</small></span></a>
+    <GameMenu Horror="IsHorror" Narrating="@(_state?.Phase == "Narrating")" />
 </header>
 <main>
     @if (_error is not null)
     {
-        <div class="error-banner" role="alert">@_error <button class="text-button" @onclick="RefreshAsync">Tentar reconectar</button></div>
+        <div class="error-banner" role="alert">@_error <button class="text-button" disabled="@_busy" @onclick="ReconnectAsync">Tentar reconectar</button></div>
     }
     @if (_loading) { <div class="loading-screen" role="status">Abrindo seu próximo capítulo…</div> }
     else if (_state is null)
     {
-        <section class="welcome">
+        <section class="welcome game-welcome">
             <div class="welcome-copy">
-                <div class="eyebrow"><span class="small-line"></span> APRENDA INGLÊS. VIVA UMA HISTÓRIA.</div>
-                <h1>Uma história.<br />Seu próximo<br /><em>caminho.</em></h1>
-                <p class="lead">Escolha uma história. Descubra novas palavras.<br class="desktop-break" /> E encontre seu próprio caminho.</p>
-                <p class="intro">Ouça e leia em inglês, descubra o que aconteceu e escolha como a história termina. Um capítulo de cada vez.</p>
-                @if (_catalog.Count > 0)
-                {
-                    <label class="catalog-select">Sua próxima história<select @bind="_selectedVersion">@foreach (var story in _catalog) { <option value="@story.Id">@story.Title · @story.Difficulty</option> }</select></label>
-                    @if (SelectedStory is { } selected) { <p class="catalog-synopsis">@selected.Synopsis</p><div class="story-meta"><span>@selected.Difficulty · @selected.Genre</span><span>@selected.SceneCount cenas no catálogo</span></div> }
-                }
-                else { <p class="hint">Novas histórias estão sendo preparadas. Volte em breve.</p> }
-                <button class="primary start-button" disabled="@(_busy || _catalog.Count == 0)" @onclick="CreateAsync">@(_busy ? "Preparando…" : "Começar minha aventura") <span aria-hidden="true">↗</span></button>
-                <p class="hint">Sem cadastro. Só você e uma boa história.</p><a class="multiplayer-link" href="/multiplayer">Junte o grupo · Multiplayer ↗</a>
+                <div class="eyebrow"><span class="live-dot"></span> SEU INGLÊS DESBLOQUEIA A HISTÓRIA</div>
+                <h1>O próximo giro.<br /><em>Um novo mundo.</em></h1>
+                <p class="lead">Você dá o primeiro passo.<br />A roleta escolhe a aventura.</p>
+                <p class="intro">Mistérios, escolhas e caminhos inesperados. Escute em inglês, conecte as pistas e descubra até onde sua história vai.</p>
+                <div class="hero-actions">
+                    <button class="primary start-button" disabled="@(_busy || _spinning || _catalog.Count == 0)" @onclick="CreateAsync">@(_spinning ? "A roleta está girando…" : _busy ? "Conectando…" : "Iniciar aventura solo") <span aria-hidden="true">↗</span></button>
+                    <a class="secondary" href="/multiplayer">Jogar com amigos <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="hero-facts"><span>◉ Listening + reading</span><span>↗ Suas escolhas importam</span><span>✓ Sem cadastro</span></div>
+                @if (_catalog.Count == 0) { <p class="catalog-note">O catálogo ainda está sendo preparado. Volte em breve.</p> }
+                else if (Genres.Count == 1) { <p class="catalog-note">Catálogo em expansão: @Genres[0] é o gênero disponível neste momento. Histórias podem se repetir.</p> }
+
             </div>
-            <NotebookArt />
+            <div class="roulette-column">
+            <StoryWheel Genres="Genres" ResultGenre="@_pendingAdventure?.Genre" ResultKey="@_pendingAdventure?.StoryVersionId?.ToString()" Spinning="_spinning" />
+                @if (_pendingAdventure is not null && !_spinning)
+                {
+                    <div class="roulette-result" role="status"><span class="eyebrow">A ROLETA ESCOLHEU</span><h2>@_pendingAdventure.Title</h2><p>@_pendingAdventure.Genre · Prepare os fones e entre na história.</p><button class="primary" @onclick="EnterAdventure">Entrar na história →</button></div>
+                }
+            </div>
         </section>
-        <section class="how-it-works" aria-label="Como jogar">
-            <div><span class="step-number">01</span><strong>Entre na história</strong><p>Ouça uma cena curta e acompanhe o texto.</p></div>
-            <div><span class="step-number">02</span><strong>Siga as pistas</strong><p>Responda com o que você compreendeu.</p></div>
-            <div><span class="step-number">03</span><strong>Escolha seu caminho</strong><p>Descubra aonde sua curiosidade leva.</p></div>
+        <section class="game-features" aria-label="Sua próxima missão">
+            <div><span class="feature-icon">◉</span><div><span class="section-label">01 / SINTA A HISTÓRIA</span><h2>Ouça. Imagine.</h2><p>Uma cena em inglês. Um universo para entrar de cabeça.</p></div></div>
+            <div><span class="feature-icon">⌕</span><div><span class="section-label">02 / CONECTE AS PISTAS</span><h2>Desafie seu inglês.</h2><p>O que você entendeu abre a próxima porta.</p></div></div>
+            <div><span class="feature-icon">⑂</span><div><span class="section-label">03 / MUDE O DESTINO</span><h2>Escolha. Explore.</h2><p>Outro caminho pode levar a um final que você ainda não conhece.</p></div></div>
         </section>
     }
     else
     {
         <section class="adventure-heading">
             <div><div class="eyebrow">YOUR SOLO ADVENTURE</div><h1>@_state.Title</h1></div>
-            <div><button class="text-button" disabled="@_busy" @onclick="CreateAsync">Recomeçar ↻</button><button class="text-button" disabled="@_busy" @onclick="BackToCatalogAsync">Outras histórias</button></div>
+            <div><button class="text-button" disabled="@(_busy || _spinning)" @onclick="CreateAsync">Sortear nova aventura ↻</button><button class="text-button" disabled="@_busy" @onclick="BackToCatalogAsync">Menu principal</button></div>
         </section>
         <div class="game-grid">
             <article class="story-card">
                 <div class="chapter-heading"><span class="section-label">CENA @_state.SceneNumber DO SEU CAMINHO</span><span class="phase-badge">@(_state.Phase == "QuestionOpen" ? $"{RemainingSeconds}s para responder" : PhaseLabel)</span></div>
-                <SceneArtwork Visual="_state.Visual" />
                 <h2>@_state.SceneTitle</h2>
                 @if (_state.Audio is { } audio && _state.Phase != "StoryResult")
                 {
@@ -61,11 +68,11 @@
                 }
                 @if (_state.Phase == "Preloading")
                 {
-                    <div class="scene-ready"><span class="scene-icon" aria-hidden="true">✦</span><h3>Mais uma pista espera por você.</h3><p>Ouça a narração e acompanhe o texto. A pergunta aparece depois do áudio e de uma breve pausa.</p><button class="primary" disabled="@(_busy || !_audioReady)" @onclick="StartAsync">Ouvir e iniciar cena <span aria-hidden="true">→</span></button></div>
+                    <div class="scene-ready"><span class="scene-icon" aria-hidden="true">@(IsHorror ? "◈" : "✦")</span><h3>@(IsHorror ? "Você ouviu isso? Não está sozinho." : "Mais uma pista espera por você.")</h3><p>Ouça a narração e acompanhe o texto. A pergunta aparece depois do áudio e de uma breve pausa.</p><button class="primary" disabled="@(_busy || !_audioReady)" @onclick="StartAsync">Ouvir e iniciar cena <span aria-hidden="true">→</span></button></div>
                 }
                 else if (_state.Phase == "StoryResult")
                 {
-                    <div class="ending"><span class="ending-icon" aria-hidden="true">✦</span><div class="section-label">THE END · OU UM NOVO COMEÇO</div><h2>Você completou<br />esta história.</h2><p>Cada cena trouxe novas palavras e descobertas. Continue explorando outros caminhos.</p><div class="ending-stats"><span>@_state.SceneNumber cenas exploradas</span><span>1 final descoberto</span></div><button class="primary" disabled="@_busy" @onclick="CreateAsync">Jogar novamente ↗</button></div>
+                    <div class="ending"><span class="ending-icon" aria-hidden="true">✦</span><div class="section-label">THE END · OU UM NOVO COMEÇO</div><h2>Você completou<br />esta história.</h2><p>Cada cena trouxe novas palavras e descobertas. Continue explorando outros caminhos.</p><div class="ending-stats"><span>@_state.SceneNumber cenas exploradas</span><span>1 final descoberto</span></div><button class="primary" disabled="@(_busy || _spinning)" @onclick="CreateAsync">Jogar novamente ↗</button></div>
                 }
                 else
                 {
@@ -91,17 +98,19 @@
         </div>
     }
 </main>
-<footer><span>Uma pequena aventura. Um pouco mais de inglês.</span><span>Listening + reading · seu progresso fica salvo · <a href="/admin">Administração</a></span></footer>
+<footer><span>Gire a roleta. Viva a história.</span><span>Solo Adventure · progresso salvo · <a href="/admin">Administração</a></span></footer>
 </div>
 
 @code {
     private readonly CancellationTokenSource _lifetime = new();
-    private StoryAppearance CurrentTheme => _state?.Appearance ?? SelectedStory?.Appearance ?? new();
+    private StoryAppearance CurrentTheme => IsHorror ? ThemePalette.Horror : _state?.Appearance ?? ThemePalette.Arcade;
+    private bool IsHorror => ThemePalette.IsHorror(_state?.Genre);
+    private IReadOnlyList<string> Genres => _catalog.Select(story => story.Genre.Trim()).Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
+    private AdventureView? _pendingAdventure;
+    private bool _spinning;
     private AdventureView? _state;
     private List<PublicStoryView> _catalog = [];
-    private Guid? _selectedVersion;
     private bool _browsing;
-    private PublicStoryView? SelectedStory => _catalog.FirstOrDefault(story => story.Id == _selectedVersion);
     private Task? _pollTask;
     private bool _loading = true;
     private bool _busy;
@@ -112,7 +121,7 @@
     private bool _audioReady;
 
     private int RemainingSeconds => _state?.PhaseDeadlineUtc is { } deadline
-        ? Math.Max(0, (int)Math.Ceiling((deadline - _state.ServerNowUtc - (DateTimeOffset.UtcNow - _receivedAtUtc)).TotalSeconds)) : 0;
+        ? Math.Max(0, (int)Math.Ceiling((deadline - _state.ServerNowUtc - (Clock.GetUtcNow() - _receivedAtUtc)).TotalSeconds)) : 0;
     private string PhaseLabel => _state?.Phase switch
     {
         "Preloading" => "Uma nova cena", "Narrating" => "Hora da leitura", "QuestionOpen" => "Siga a pista",
@@ -121,7 +130,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        try { _catalog = await Client.CatalogAsync(_lifetime.Token); _selectedVersion = _catalog.FirstOrDefault()?.Id; }
+        try { _catalog = await Client.CatalogAsync(_lifetime.Token); }
         catch (HttpRequestException) { _error = "Não foi possível carregar as histórias."; }
         await RefreshAsync();
         _loading = false;
@@ -131,8 +140,9 @@
     private void SetState(AdventureView? state)
     {
         if (_state?.SceneKey != state?.SceneKey || _state?.Phase == "StoryResult") { _audioReady = false; }
+        if (state is null) { _narrator = null; }
         _state = state;
-        _receivedAtUtc = DateTimeOffset.UtcNow;
+        _receivedAtUtc = Clock.GetUtcNow();
     }
 
     private async Task RefreshAsync()
@@ -146,16 +156,39 @@
         catch (HttpRequestException) { _error = "Não foi possível conectar à aventura. Tente novamente."; }
     }
 
-    private async Task CreateAsync()
+    private async Task ReconnectAsync()
     {
         _browsing = false;
-        await PerformAsync(() => Client.CreateAsync(_state?.StoryVersionId ?? _selectedVersion, _lifetime.Token));
+        await RefreshAsync();
+    }
+
+    private async Task CreateAsync()
+    {
+        if (_busy || _spinning) { return; }
+        if (_narrator is not null) { await _narrator.StopAsync(); }
+        _busy = true; _generation++; _browsing = true;
+        try
+        {
+            _pendingAdventure = null;
+            var adventure = await Client.CreateAsync(null, _lifetime.Token);
+            if (adventure is null) { _error = "A roleta não retornou uma história. Tente novamente."; return; }
+            SetState(null); _pendingAdventure = adventure; _spinning = true; _error = null;
+            StateHasChanged();
+            await Task.Delay(TimeSpan.FromSeconds(5), _lifetime.Token);
+        }
+        catch (OperationCanceledException) when (_lifetime.IsCancellationRequested) { }
+        catch (HttpRequestException) { _error = "Não foi possível girar a roleta. Tente novamente ou reconecte para recuperar a aventura."; }
+        finally { _busy = false; _spinning = false; }
+    }
+    private void EnterAdventure()
+    {
+        SetState(_pendingAdventure); _pendingAdventure = null; _browsing = false;
     }
     private async Task BackToCatalogAsync()
     {
         if (_narrator is not null) { await _narrator.StopAsync(); }
-        _browsing = true; _generation++; SetState(null);
-        try { _catalog = await Client.CatalogAsync(_lifetime.Token); _selectedVersion = _catalog.FirstOrDefault()?.Id; }
+        _browsing = true; _generation++; SetState(null); _pendingAdventure = null;
+        try { _catalog = await Client.CatalogAsync(_lifetime.Token); }
         catch (HttpRequestException) { _error = "Não foi possível carregar as histórias."; }
     }
     private void AudioReady(bool ready) => _audioReady = ready;
