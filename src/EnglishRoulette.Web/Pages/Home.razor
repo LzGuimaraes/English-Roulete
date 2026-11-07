@@ -8,7 +8,6 @@
 @inject TimeProvider Clock
 @inject ILogger<Home> Logger
 
-<PageTitle>English Roulette — gire. escute. explore.</PageTitle>
 <div class="experience game-experience motion-@(_state?.Appearance?.Motion ?? CurrentTheme.Motion) @(_state is not null ? "in-adventure phase-" + _state.Phase.ToLowerInvariant() : "") @(IsHorror ? "horror-experience" : "") @(_state?.Visual is not null ? "has-scene-art" : "") @(_state?.Phase == "Preloading" ? "scene-intro" : "")" style="@ThemePalette.Style(CurrentTheme)">
 @if (_state is not null) { <div class="scene-backdrop"><SceneArtwork Visual="_state.Visual" Background="true" OnLoadFailure="url => _artFailureUrl = url" /></div> }
 <header class="site-header">

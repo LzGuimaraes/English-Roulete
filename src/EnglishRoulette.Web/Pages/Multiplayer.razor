@@ -12,7 +12,6 @@
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
 @inject TimeProvider Clock
-<PageTitle>Jogue em grupo — English Roulette</PageTitle>
 <div class="experience game-experience room-experience @(ThemePalette.IsHorror(SelectedStory?.Genre) ? "horror-experience" : "")" style="@ThemePalette.Style(ThemePalette.IsHorror(SelectedStory?.Genre) ? ThemePalette.Horror : ThemePalette.Arcade)">
     <header class="site-header"><a class="brand" href="/"><span class="brand-mark">✦</span>english<span class="brand-light">roulette</span></a><div class="header-actions"><GameMenu Horror="@ThemePalette.IsHorror(SelectedStory?.Genre)" /><a class="secondary room-solo" href="/">Solo ↗</a></div></header>
     <main class="rooms-main"><div class="eyebrow">MULTIPLAYER · SUA EQUIPE, UM DESTINO</div>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>english roullete</title>
+  <rect width="64" height="64" rx="16" fill="#211B35" />
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#A78BFA" stroke-width="3" />
+  <path d="M32 9C35 25 39 29 55 32C39 35 35 39 32 55C29 39 25 35 9 32C25 29 29 25 32 9Z" fill="#FBBF6A" />
+</svg>
