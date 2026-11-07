@@ -65,6 +65,21 @@ public sealed class AdminClient(HttpClient http)
         return await ReadAsync<AdminStoryEditor>(response, token);
     }
 
+    public async Task<AdminStoryEditor> UploadVisualAsync(AdminStoryEditor editor, AdminSceneEditor scene,
+        IBrowserFile file, string altText, string attribution, string evidence, CancellationToken token)
+    {
+        using var form = new MultipartFormDataContent();
+        using var stream = file.OpenReadStream(8 * 1024 * 1024, token);
+        form.Add(new StreamContent(stream), "file", "visual");
+        form.Add(new StringContent(altText), "altText"); form.Add(new StringContent(attribution), "attribution");
+        form.Add(new StringContent(evidence), "licenseEvidence");
+        using var request = new HttpRequestMessage(HttpMethod.Post, $"api/admin/stories/{editor.Id}/scenes/{scene.Id}/visual?revision={editor.Revision}") { Content = form };
+        await AddCsrfAsync(request, token);
+        using var response = await http.SendAsync(request, token);
+        await EnsureAsync(response, token);
+        return await ReadAsync<AdminStoryEditor>(response, token);
+    }
+
     private async Task<T> GetAsync<T>(string path, CancellationToken token)
     {
         using var response = await http.GetAsync(path, token);

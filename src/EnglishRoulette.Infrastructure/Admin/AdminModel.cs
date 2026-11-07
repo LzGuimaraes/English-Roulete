@@ -31,6 +31,7 @@ internal static class AdminModel
         model.Entity<CatalogVersionRow>().HasMany(row => row.Scenes).WithOne().HasForeignKey(scene => scene.VersionId).OnDelete(DeleteBehavior.Cascade);
         model.Entity<CatalogSceneRow>().ToTable("catalog_scenes").HasKey(row => row.Id);
         model.Entity<CatalogSceneRow>().HasIndex(row => new { row.VersionId, row.Key }).IsUnique();
+        model.Entity<CatalogSceneRow>().HasOne(row => row.Visual).WithMany().HasForeignKey(row => row.VisualId).OnDelete(DeleteBehavior.Restrict);
         model.Entity<CatalogSceneRow>().HasOne(row => row.Audio).WithMany().HasForeignKey(row => row.AudioId).OnDelete(DeleteBehavior.Restrict);
         model.Entity<CatalogSceneRow>().HasMany(row => row.Options).WithOne().HasForeignKey(row => row.SceneId).OnDelete(DeleteBehavior.Cascade);
         model.Entity<CatalogSceneRow>().HasMany(row => row.Transitions).WithOne().HasForeignKey(row => row.SceneId).OnDelete(DeleteBehavior.Cascade);
@@ -39,6 +40,7 @@ internal static class AdminModel
         model.Entity<CatalogTransitionRow>().ToTable("catalog_transitions").HasKey(row => row.Id);
         model.Entity<CatalogTransitionRow>().HasIndex(row => new { row.SceneId, row.Key }).IsUnique();
         model.Entity<CatalogMediaRow>().ToTable("catalog_media", table => table.HasCheckConstraint("ck_catalog_media", "size_bytes > 0 AND duration_ms > 0")).HasKey(row => row.Id);
+        model.Entity<CatalogVisualRow>().ToTable("catalog_visuals").HasKey(row => row.Id);
         model.Entity<AdminAuditRow>().ToTable("admin_audit").HasKey(row => row.Id);
         model.Entity<AdminAuditRow>().HasIndex(row => row.AtUtc);
         foreach (var entity in model.Model.GetEntityTypes().Where(entity => entity.ClrType != typeof(Persistence.StoredSessionRow)))

@@ -1,4 +1,5 @@
 using EnglishRoulette.Infrastructure.Admin;
+using EnglishRoulette.Infrastructure.Multiplayer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -15,16 +16,21 @@ public sealed class StoredSessionRow
 
 public sealed class AdventureDbContext(DbContextOptions<AdventureDbContext> options) : IdentityDbContext<AdminUser, IdentityRole<Guid>, Guid>(options)
 {
+    public DbSet<GameGuestRow> GameGuests => Set<GameGuestRow>();
+    public DbSet<LobbyRow> Lobbies => Set<LobbyRow>();
+    public DbSet<LobbyMembershipRow> LobbyMemberships => Set<LobbyMembershipRow>();
     public DbSet<StoredSessionRow> SoloSessions => Set<StoredSessionRow>();
     public DbSet<CatalogStoryRow> CatalogStories => Set<CatalogStoryRow>();
     public DbSet<CatalogVersionRow> CatalogVersions => Set<CatalogVersionRow>();
     public DbSet<CatalogSceneRow> CatalogScenes => Set<CatalogSceneRow>();
     public DbSet<CatalogMediaRow> CatalogMedia => Set<CatalogMediaRow>();
+    public DbSet<CatalogVisualRow> CatalogVisuals => Set<CatalogVisualRow>();
     public DbSet<AdminAuditRow> AdminAudit => Set<AdminAuditRow>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        LobbyModel.Configure(modelBuilder);
         AdminModel.Configure(modelBuilder);
         var row = modelBuilder.Entity<StoredSessionRow>();
         row.ToTable("solo_session_checkpoints", table =>

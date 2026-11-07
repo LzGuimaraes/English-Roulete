@@ -272,6 +272,156 @@ public sealed class AdminCatalogTests : IAsyncLifetime
         Assert.True(next?.IsEnding);
     }
 
+    [PostgresFact]
+    public async Task SceneVisual_StaysPrivateUntilPublication_AndIsPreservedInOldVersions()
+    {
+        await Login();
+        var editor = await Upload(await Draft());
+        using var upload = await UploadVisual(editor, ImageInspectionTests.Png());
+        Assert.Equal(HttpStatusCode.OK, upload.StatusCode);
+        editor = (await upload.Content.ReadFromJsonAsync<AdminStoryEditor>())!;
+        var visual = Assert.IsType<AdminVisualView>(editor.Scenes[0].Visual);
+        using var anonymous = NewClient();
+        Assert.Equal(HttpStatusCode.Unauthorized, (await anonymous.GetAsync(visual.PreviewUrl)).StatusCode);
+        Assert.Equal(HttpStatusCode.NotFound, (await anonymous.GetAsync($"/media/visuals/{visual.Id}")).StatusCode);
+        editor.Metadata.Appearance.Primary = "#BE185D";
+        editor = await Save(editor);
+        using var published = await Publish(editor);
+        Assert.Equal(HttpStatusCode.NoContent, published.StatusCode);
+        var catalog = await anonymous.GetFromJsonAsync<List<PublicStoryView>>("/api/catalog");
+        Assert.Equal("#BE185D", Assert.Single(catalog!).Appearance?.Primary);
+        anonymous.DefaultRequestHeaders.Add("X-English-Roulette", "demo");
+        using var created = await anonymous.PostAsJsonAsync("/api/demo/session", new CreateAdventureRequest(editor.Id));
+        var first = (await created.Content.ReadFromJsonAsync<AdventureView>())!;
+        Assert.Equal($"/media/visuals/{visual.Id}", first.Visual?.Url);
+        using var image = await anonymous.GetAsync(first.Visual!.Url);
+        Assert.Equal("image/png", image.Content.Headers.ContentType?.MediaType);
+        Assert.Equal("nosniff", Assert.Single(image.Headers.GetValues("X-Content-Type-Options")));
+        using var copy = await Mutate(HttpMethod.Post, $"/api/admin/stories/{editor.Id}/duplicate", new { });
+        var next = (await copy.Content.ReadFromJsonAsync<AdminStoryEditor>())!;
+        Assert.Equal(visual.Id, next.Scenes[0].Visual?.Id);
+        next.Scenes[0].Visual = null; next.Metadata.Appearance.Primary = "#0369A1";
+        next = await Save(next);
+        using var replacement = await Publish(next);
+        Assert.Equal(HttpStatusCode.NoContent, replacement.StatusCode);
+        var resumed = await anonymous.GetFromJsonAsync<AdventureView>("/api/demo/session");
+        Assert.Equal("#BE185D", resumed?.Appearance?.Primary);
+        Assert.Equal(first.Visual, resumed?.Visual);
+    }
+
+    [PostgresFact]
+    public async Task VisualAndTheme_RejectInvalidContentAndStaleUpload()
+    {
+        await Login();
+        var editor = await Draft();
+        using var malformed = await UploadVisual(editor, "<html>bad image</html>"u8.ToArray());
+        Assert.Equal(HttpStatusCode.BadRequest, malformed.StatusCode);
+        using var stale = await UploadVisual(editor, ImageInspectionTests.Png(), revision: 0);
+        Assert.Equal(HttpStatusCode.Conflict, stale.StatusCode);
+        editor.Metadata.Appearance.Text = "#FFFFFF";
+        using var contrast = await Mutate(HttpMethod.Put, $"/api/admin/stories/{editor.Id}", editor);
+        Assert.Equal(HttpStatusCode.BadRequest, contrast.StatusCode);
+        editor.Metadata.Appearance.Text = "red; background:url(https://invalid)";
+        using var unsafeCss = await Mutate(HttpMethod.Put, $"/api/admin/stories/{editor.Id}", editor);
+        Assert.Equal(HttpStatusCode.BadRequest, unsafeCss.StatusCode);
+    }
+
+    private async Task<HttpResponseMessage> UploadVisual(AdminStoryEditor editor, byte[] data, long? revision = null)
+    {
+        var csrf = await _client.GetFromJsonAsync<AntiforgeryView>("/api/admin/antiforgery");
+        using var form = new MultipartFormDataContent();
+        form.Add(new ByteArrayContent(data), "file", "image.png");
+        form.Add(new StringContent("An orange pixel"), "altText");
+        form.Add(new StringContent("Test artwork"), "attribution");
+        form.Add(new StringContent("Original fixture"), "licenseEvidence");
+        using var request = new HttpRequestMessage(HttpMethod.Post,
+            $"/api/admin/stories/{editor.Id}/scenes/{editor.Scenes[0].Id}/visual?revision={revision ?? editor.Revision}")
+        { Content = form };
+        request.Headers.Add("X-CSRF-TOKEN", csrf!.Token);
+        return await _client.SendAsync(request);
+    }
+
+    [PostgresFact]
+    public async Task Lobby_RequiresPlayerIdentityAndCsrf_AndRoomCodeDoesNotAuthorizeReading()
+    {
+        Assert.Equal(HttpStatusCode.Unauthorized, (await _client.GetAsync("/api/rooms/current")).StatusCode);
+        Assert.Equal(HttpStatusCode.Unauthorized, (await _client.PostAsync("/hubs/rooms/negotiate?negotiateVersion=1", null)).StatusCode);
+        using var host = await Player("Host");
+        using var stranger = await Player("Stranger");
+        using var create = await RoomPost(host, "/api/rooms/", new CreateRoomRequest(2));
+        var room = (await create.Content.ReadFromJsonAsync<RoomView>())!;
+        Assert.Equal(HttpStatusCode.NotFound, (await stranger.GetAsync($"/api/rooms/{room.Id}")).StatusCode);
+        Assert.Equal(HttpStatusCode.Unauthorized, (await host.GetAsync("/api/admin/stories")).StatusCode);
+        Assert.Equal(HttpStatusCode.BadRequest, (await host.PostAsJsonAsync($"/api/rooms/{room.Id}/ready", new ReadyRoomRequest(room.StateVersion, true))).StatusCode);
+        using var spoofed = await RoomPost(stranger, $"/api/rooms/{room.Id}/ready", new ReadyRoomRequest(room.StateVersion, true));
+        Assert.Equal(HttpStatusCode.Forbidden, spoofed.StatusCode);
+    }
+    [PostgresFact]
+    public async Task Lobby_JoinCapacityReadinessAndLeadershipPersistAcrossRequests()
+    {
+        using var host = await Player("Host"); using var guest = await Player("Guest"); using var third = await Player("Third");
+        using var create = await RoomPost(host, "/api/rooms/", new CreateRoomRequest(2));
+        var room = (await create.Content.ReadFromJsonAsync<RoomView>())!;
+        using var join = await RoomPost(guest, "/api/rooms/join", new JoinRoomRequest(room.Code));
+        Assert.Equal(HttpStatusCode.OK, join.StatusCode);
+        var joined = (await join.Content.ReadFromJsonAsync<RoomView>())!;
+        Assert.Equal(2, joined.Members.Count);
+        using var duplicate = await RoomPost(guest, "/api/rooms/join", new JoinRoomRequest(room.Code));
+        Assert.Equal(2, (await duplicate.Content.ReadFromJsonAsync<RoomView>())?.Members.Count);
+        using var full = await RoomPost(third, "/api/rooms/join", new JoinRoomRequest(room.Code));
+        Assert.Equal(HttpStatusCode.Conflict, full.StatusCode);
+        using var ready = await RoomPost(guest, $"/api/rooms/{room.Id}/ready", new ReadyRoomRequest(joined.StateVersion, true));
+        Assert.Equal(HttpStatusCode.OK, ready.StatusCode);
+        var current = (await host.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
+        Assert.Contains(current.Members, member => member.PlayerId == joined.ViewerId && member.Ready);
+        using var stale = await RoomPost(host, $"/api/rooms/{room.Id}/ready", new ReadyRoomRequest(joined.StateVersion, true));
+        Assert.Equal(HttpStatusCode.Conflict, stale.StatusCode);
+        using var leave = await RoomPost(host, $"/api/rooms/{room.Id}/leave", new { });
+        Assert.Equal(HttpStatusCode.NoContent, leave.StatusCode);
+        var transferred = (await guest.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
+        Assert.Equal(joined.ViewerId, transferred.HostId); Assert.Single(transferred.Members);
+        Assert.Equal(HttpStatusCode.NotFound, (await host.GetAsync("/api/rooms/current")).StatusCode);
+        await using var db = Context(); Assert.Single(await db.LobbyMemberships.ToListAsync());
+    }
+    [PostgresFact]
+    public async Task Lobby_ConcurrentCreateFromOneIdentity_CannotOccupyTwoRooms()
+    {
+        using var host = await Player("Host");
+        await host.GetAsync("/api/rooms/antiforgery");
+        var responses = await Task.WhenAll(Enumerable.Range(0, 2).Select(_ => RoomPost(host, "/api/rooms/", new CreateRoomRequest())));
+        Assert.Single(responses, response => response.StatusCode == HttpStatusCode.OK);
+        Assert.Single(responses, response => response.StatusCode == HttpStatusCode.Conflict);
+        foreach (var response in responses) { response.Dispose(); }
+        await using var db = Context(); Assert.Single(await db.Lobbies.ToListAsync()); Assert.Single(await db.LobbyMemberships.ToListAsync());
+    }
+    [PostgresFact]
+    public async Task Lobby_ExpiredPresenceIsRemoved_WithoutResettingAnotherPlayersPlace()
+    {
+        using var host = await Player("Host"); using var guest = await Player("Guest");
+        using var create = await RoomPost(host, "/api/rooms/", new CreateRoomRequest());
+        var room = (await create.Content.ReadFromJsonAsync<RoomView>())!;
+        using var join = await RoomPost(guest, "/api/rooms/join", new JoinRoomRequest(room.Code));
+        var member = (await join.Content.ReadFromJsonAsync<RoomView>())!;
+        _clock.Now = _clock.Now.AddSeconds(80);
+        await guest.GetAsync("/api/rooms/current");
+        _clock.Now = _clock.Now.AddSeconds(11);
+        var current = (await guest.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
+        Assert.Single(current.Members); Assert.Equal(member.ViewerId, current.HostId);
+        Assert.Equal(HttpStatusCode.NotFound, (await host.GetAsync("/api/rooms/current")).StatusCode);
+    }
+    private async Task<HttpClient> Player(string name)
+    {
+        var client = NewClient(); client.DefaultRequestHeaders.Add("X-English-Roulette", "demo");
+        using var response = await client.PostAsJsonAsync("/api/rooms/identity", new GuestRequest(name, "🦊"));
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode); return client;
+    }
+    private static async Task<HttpResponseMessage> RoomPost(HttpClient client, string path, object body)
+    {
+        var csrf = await client.GetFromJsonAsync<AntiforgeryView>("/api/rooms/antiforgery");
+        using var request = new HttpRequestMessage(HttpMethod.Post, path) { Content = JsonContent.Create(body, body.GetType()) };
+        request.Headers.Add("X-CSRF-TOKEN", csrf!.Token); return await client.SendAsync(request);
+    }
+
     private AdventureDbContext Context() => new(new DbContextOptionsBuilder<AdventureDbContext>()
         .UseNpgsql(Connection, options => options.MigrationsHistoryTable("__EFMigrationsHistory", _schema)).Options);
     private HttpClient NewClient() => _factory.CreateClient(new() { BaseAddress = new("https://localhost"), AllowAutoRedirect = false });

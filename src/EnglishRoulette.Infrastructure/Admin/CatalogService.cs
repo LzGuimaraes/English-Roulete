@@ -1,16 +1,19 @@
+using System.Text.Json;
 using EnglishRoulette.Application.Admin;
+using EnglishRoulette.Application.Presentation;
 using EnglishRoulette.Domain;
 using EnglishRoulette.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace EnglishRoulette.Infrastructure.Admin;
 
-public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvider, CatalogMediaStorage media) : IAdminCatalog
+public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvider, CatalogMediaStorage media, CatalogVisualStorage visuals) : IAdminCatalog
 {
     private IQueryable<CatalogVersionRow> Complete() => db.CatalogVersions.AsNoTracking().AsSplitQuery()
         .Include(version => version.Scenes).ThenInclude(scene => scene.Options)
         .Include(version => version.Scenes).ThenInclude(scene => scene.Transitions)
-        .Include(version => version.Scenes).ThenInclude(scene => scene.Audio);
+        .Include(version => version.Scenes).ThenInclude(scene => scene.Audio)
+        .Include(version => version.Scenes).ThenInclude(scene => scene.Visual);
 
     public async Task<IReadOnlyList<CatalogSummary>> ListAsync(int page, CancellationToken cancellationToken) =>
         await db.CatalogVersions.AsNoTracking().OrderByDescending(version => version.UpdatedAtUtc).ThenBy(version => version.Id)
@@ -49,13 +52,16 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
         var audioIds = draft.Scenes.Where(scene => scene.Audio is not null).Select(scene => scene.Audio!.Id).Distinct().ToArray();
         var assets = await db.CatalogMedia.Where(asset => audioIds.Contains(asset.Id)).ToDictionaryAsync(asset => asset.Id, cancellationToken);
         if (assets.Count != audioIds.Length) { throw new GameRuleException("INVALID_AUDIO", "Um áudio selecionado não existe."); }
+        var visualIds = draft.Scenes.Where(scene => scene.Visual is not null).Select(scene => scene.Visual!.Id).Distinct().ToArray();
+        var visualAssets = await db.CatalogVisuals.Where(asset => visualIds.Contains(asset.Id)).ToDictionaryAsync(asset => asset.Id, cancellationToken);
+        if (visualAssets.Count != visualIds.Length) { throw new GameRuleException("INVALID_CONTENT", "Uma imagem selecionada não existe."); }
         // Replace only draft children, inside the same transaction. Published versions are never edited.
         db.RemoveRange(version.Scenes);
         version.Scenes = [];
         await db.SaveChangesAsync(cancellationToken);
         ApplyMetadata(version, draft.Metadata);
         version.InitialSceneKey = draft.InitialSceneKey;
-        version.Scenes = draft.Scenes.Select((scene, position) => SceneRow(scene, version.Id, position, assets)).ToList();
+        version.Scenes = draft.Scenes.Select((scene, position) => SceneRow(scene, version.Id, position, assets, visualAssets)).ToList();
         db.CatalogScenes.AddRange(version.Scenes);
         version.Revision++;
         version.UpdatedAtUtc = timeProvider.GetUtcNow();
@@ -86,7 +92,9 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
         ApplyMetadata(copy, original.Metadata);
         var audioIds = original.Scenes.Where(scene => scene.Audio is not null).Select(scene => scene.Audio!.Id).Distinct().ToArray();
         var assets = await db.CatalogMedia.Where(asset => audioIds.Contains(asset.Id)).ToDictionaryAsync(asset => asset.Id, cancellationToken);
-        copy.Scenes = original.Scenes.Select((scene, position) => SceneRow(scene with { Id = Guid.NewGuid() }, copy.Id, position, assets)).ToList();
+        var visualIds = original.Scenes.Where(scene => scene.Visual is not null).Select(scene => scene.Visual!.Id).Distinct().ToArray();
+        var visualAssets = await db.CatalogVisuals.Where(asset => visualIds.Contains(asset.Id)).ToDictionaryAsync(asset => asset.Id, cancellationToken);
+        copy.Scenes = original.Scenes.Select((scene, position) => SceneRow(scene with { Id = Guid.NewGuid() }, copy.Id, position, assets, visualAssets)).ToList();
         db.CatalogVersions.Add(copy);
         Audit(actorId, copy.Id, "DuplicateDraft");
         await db.SaveChangesAsync(cancellationToken);
@@ -110,6 +118,13 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
             if (string.IsNullOrWhiteSpace(asset.Attribution) || string.IsNullOrWhiteSpace(asset.LicenseEvidence))
             { issues.Add($"Cena {scene.Key}: faltam créditos ou evidência de direitos do áudio."); }
         }
+        var visualIds = draft.Scenes.Where(scene => scene.Visual is not null).Select(scene => scene.Visual!.Id).Distinct().ToArray();
+        var visualAssets = await db.CatalogVisuals.AsNoTracking().Where(asset => visualIds.Contains(asset.Id)).ToListAsync(cancellationToken);
+        foreach (var asset in visualAssets)
+        {
+            if (!visuals.IsValid(asset) || string.IsNullOrWhiteSpace(asset.Attribution) || string.IsNullOrWhiteSpace(asset.LicenseEvidence) || string.IsNullOrWhiteSpace(asset.AltText))
+            { issues.Add("Uma imagem está ausente, inválida ou sem descrição/créditos/licença."); }
+        }
         return new(issues);
     }
 
@@ -132,6 +147,9 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
                 .SetProperty(version => version.Revision, version => version.Revision + 1), cancellationToken);
         var assetIds = current.Scenes.Where(scene => scene.Audio is not null).Select(scene => scene.Audio!.Id).ToArray();
         await db.CatalogMedia.Where(asset => assetIds.Contains(asset.Id))
+            .ExecuteUpdateAsync(update => update.SetProperty(asset => asset.Published, true), cancellationToken);
+        var visualIds = current.Scenes.Where(scene => scene.Visual is not null).Select(scene => scene.Visual!.Id).ToArray();
+        await db.CatalogVisuals.Where(asset => visualIds.Contains(asset.Id))
             .ExecuteUpdateAsync(update => update.SetProperty(asset => asset.Published, true), cancellationToken);
         row.Status = "Published";
         row.Revision++;
@@ -175,18 +193,23 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
         var draft = Map(row);
         return new(CatalogRules.ToStory(draft), draft.Metadata,
             draft.Scenes.ToDictionary(scene => scene.Key, scene => scene.Title),
-            draft.Scenes.Where(scene => scene.Audio is not null).ToDictionary(scene => scene.Key, scene => scene.Audio!));
+            draft.Scenes.Where(scene => scene.Audio is not null).ToDictionary(scene => scene.Key, scene => scene.Audio!),
+            draft.Scenes.Where(scene => scene.Visual is not null).ToDictionary(scene => scene.Key, scene => scene.Visual!));
     }
 
+    public static CatalogAppearance AppearanceFromJson(string json) => string.IsNullOrWhiteSpace(json)
+        ? new() : JsonSerializer.Deserialize<CatalogAppearance>(json) ?? new();
+
     public static CatalogDraft Map(CatalogVersionRow row) => new(row.Id, row.StoryId, row.Number, row.Status, row.Revision,
-        row.InitialSceneKey, new(row.Title, row.Synopsis, row.Genre, row.Difficulty, row.Author, row.LicenseType, row.LicenseEvidence, row.Attribution),
+        row.InitialSceneKey, new(row.Title, row.Synopsis, row.Genre, row.Difficulty, row.Author, row.LicenseType, row.LicenseEvidence, row.Attribution, AppearanceFromJson(row.AppearanceJson)),
         row.Scenes.OrderBy(scene => scene.Position).Select(scene => new CatalogScene(scene.Id, scene.Key, scene.Title, scene.Narration, scene.IsEnding,
             scene.Prompt, scene.Options.OrderBy(option => option.Position).Select(option => new CatalogOption(option.Key, option.Text)).ToArray(),
             scene.CorrectOptionKey, scene.Explanation, scene.Transitions.OrderBy(transition => transition.Position)
                 .Select(transition => new CatalogTransition(transition.Key, transition.Label, transition.TargetSceneKey)).ToArray(),
-            scene.Audio is { } audio ? new CatalogAudio(audio.Id, audio.DurationMs, audio.Attribution, audio.LicenseEvidence) : null)).ToArray());
+            scene.Audio is { } audio ? new CatalogAudio(audio.Id, audio.DurationMs, audio.Attribution, audio.LicenseEvidence) : null,
+            scene.Visual is { } visual ? new CatalogVisual(visual.Id, visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null)).ToArray());
 
-    public static CatalogSceneRow SceneRow(CatalogScene scene, Guid versionId, int position, IReadOnlyDictionary<Guid, CatalogMediaRow> assets) => new()
+    public static CatalogSceneRow SceneRow(CatalogScene scene, Guid versionId, int position, IReadOnlyDictionary<Guid, CatalogMediaRow> assets, IReadOnlyDictionary<Guid, CatalogVisualRow>? visuals = null) => new()
     {
         Id = scene.Id == Guid.Empty ? Guid.NewGuid() : scene.Id,
         VersionId = versionId,
@@ -198,6 +221,8 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
         Prompt = scene.Prompt,
         CorrectOptionKey = scene.CorrectOptionKey,
         Explanation = scene.Explanation,
+        VisualId = scene.Visual?.Id,
+        Visual = scene.Visual is { } visual && visuals is not null ? visuals[visual.Id] : null,
         AudioId = scene.Audio?.Id,
         Audio = scene.Audio is { } audio ? assets[audio.Id] : null,
         Options = scene.Options.Select((option, index) => new CatalogOptionRow { Id = Guid.NewGuid(), Key = option.Key, Text = option.Text, Position = index }).ToList(),
@@ -213,6 +238,7 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
 
     private static void ApplyMetadata(CatalogVersionRow row, CatalogMetadata metadata)
     {
+        row.AppearanceJson = JsonSerializer.Serialize(metadata.Appearance ?? new());
         row.Title = metadata.Title; row.Synopsis = metadata.Synopsis; row.Genre = metadata.Genre; row.Difficulty = metadata.Difficulty;
         row.Author = metadata.Author; row.LicenseType = metadata.LicenseType; row.LicenseEvidence = metadata.LicenseEvidence; row.Attribution = metadata.Attribution;
     }

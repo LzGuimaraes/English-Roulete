@@ -276,9 +276,15 @@ namespace EnglishRoulette.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("version_id");
 
+                    b.Property<Guid?>("VisualId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("visual_id");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AudioId");
+
+                    b.HasIndex("VisualId");
 
                     b.HasIndex("VersionId", "Key")
                         .IsUnique();
@@ -355,6 +361,11 @@ namespace EnglishRoulette.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
+
+                    b.Property<string>("AppearanceJson")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("appearance_json");
 
                     b.Property<string>("Attribution")
                         .IsRequired()
@@ -446,6 +457,139 @@ namespace EnglishRoulette.Infrastructure.Persistence.Migrations
 
                             t.HasCheckConstraint("ck_catalog_status", "status IN ('Draft','Published','Archived')");
                         });
+                });
+
+            modelBuilder.Entity("EnglishRoulette.Infrastructure.Admin.CatalogVisualRow", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<string>("AltText")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("alt_text");
+
+                    b.Property<bool>("Animated")
+                        .HasColumnType("boolean")
+                        .HasColumnName("animated");
+
+                    b.Property<string>("Attribution")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("attribution");
+
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("content_type");
+
+                    b.Property<DateTimeOffset>("CreatedAtUtc")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at_utc");
+
+                    b.Property<int>("Height")
+                        .HasColumnType("integer")
+                        .HasColumnName("height");
+
+                    b.Property<string>("LicenseEvidence")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("license_evidence");
+
+                    b.Property<bool>("Published")
+                        .HasColumnType("boolean")
+                        .HasColumnName("published");
+
+                    b.Property<string>("Sha256")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("sha256");
+
+                    b.Property<long>("SizeBytes")
+                        .HasColumnType("bigint")
+                        .HasColumnName("size_bytes");
+
+                    b.Property<string>("StorageKey")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("storage_key");
+
+                    b.Property<int>("Width")
+                        .HasColumnType("integer")
+                        .HasColumnName("width");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("catalog_visuals", (string)null);
+                });
+
+            modelBuilder.Entity("EnglishRoulette.Infrastructure.Multiplayer.GameGuestRow", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Avatar")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)")
+                        .HasColumnName("avatar");
+
+                    b.Property<string>("Nickname")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)")
+                        .HasColumnName("nickname");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("game_guests", (string)null);
+                });
+
+            modelBuilder.Entity("EnglishRoulette.Infrastructure.Multiplayer.LobbyMembershipRow", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("room_id");
+
+                    b.HasKey("PlayerId");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("lobby_memberships", (string)null);
+                });
+
+            modelBuilder.Entity("EnglishRoulette.Infrastructure.Multiplayer.LobbyRow", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("character varying(8)")
+                        .HasColumnName("code");
+
+                    b.Property<string>("StateJson")
+                        .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("state_json");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("multiplayer_lobbies", (string)null);
                 });
 
             modelBuilder.Entity("EnglishRoulette.Infrastructure.Persistence.StoredSessionRow", b =>
@@ -653,7 +797,14 @@ namespace EnglishRoulette.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EnglishRoulette.Infrastructure.Admin.CatalogVisualRow", "Visual")
+                        .WithMany()
+                        .HasForeignKey("VisualId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.Navigation("Audio");
+
+                    b.Navigation("Visual");
                 });
 
             modelBuilder.Entity("EnglishRoulette.Infrastructure.Admin.CatalogTransitionRow", b =>
@@ -670,6 +821,21 @@ namespace EnglishRoulette.Infrastructure.Persistence.Migrations
                     b.HasOne("EnglishRoulette.Infrastructure.Admin.CatalogStoryRow", null)
                         .WithMany()
                         .HasForeignKey("StoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EnglishRoulette.Infrastructure.Multiplayer.LobbyMembershipRow", b =>
+                {
+                    b.HasOne("EnglishRoulette.Infrastructure.Multiplayer.GameGuestRow", null)
+                        .WithMany()
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("EnglishRoulette.Infrastructure.Multiplayer.LobbyRow", null)
+                        .WithMany()
+                        .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

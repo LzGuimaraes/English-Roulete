@@ -1,0 +1,128 @@
+@page "/multiplayer"
+@page "/join/{Code}"
+@using EnglishRoulette.Contracts
+@using EnglishRoulette.Contracts.Admin
+@using EnglishRoulette.Web.Services
+@using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.AspNetCore.SignalR
+@implements IAsyncDisposable
+@inject RoomClient Client
+@inject AdventureClient Catalog
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+<PageTitle>Jogue em grupo — English Roulette</PageTitle>
+<div class="experience room-experience" style="@ThemePalette.Style(SelectedStory?.Appearance)">
+    <header class="site-header"><a class="brand" href="/"><span class="brand-mark">e.</span>english<span class="brand-light">roulette</span></a><a class="secondary room-solo" href="/">Aventura solo ↗</a></header>
+    <main class="rooms-main"><div class="eyebrow">MULTIPLAYER · PRIMEIRO ACESSO ÀS SALAS</div>
+        @if (_loading) { <p role="status">Preparando o ponto de encontro…</p> }
+        else
+        {
+            @if (_error is not null) { <div class="admin-error" role="alert">@_error</div> }
+            @if (_guest is null || _editProfile)
+            {
+                <section class="room-intro"><div><h1>Boas histórias ficam<br /><em>melhores em grupo.</em></h1><p>Escolha seu apelido e avatar para criar uma sala ou entrar com seus amigos.</p></div>
+                    <form class="admin-card room-profile" @onsubmit="IdentifyAsync" @onsubmit:preventDefault>
+                        <label>Seu apelido<input required minlength="3" maxlength="20" @bind="_nickname" autocomplete="nickname" /></label>
+                        <div class="avatar-picker" role="group" aria-label="Seu avatar">@foreach (var avatar in Avatars) { <button type="button" class="@(_avatar == avatar ? "selected" : "")" aria-label="Avatar @avatar" aria-pressed="@(_avatar == avatar)" @onclick="() => _avatar = avatar">@avatar</button> }</div>
+                        <button class="primary" disabled="@_busy" type="submit">Entrar no lobby →</button>
+                    </form>
+                </section>
+            }
+            else if (_room is null)
+            {
+                <h1>Olá, @_guest.Nickname <span>@_guest.Avatar</span></h1><p>Prepare o grupo. Você pode criar uma sala privada ou usar um convite.</p>
+                <div class="room-entry"><section class="admin-card"><div class="eyebrow">SEU GRUPO, SUA SALA</div><h2>Crie o ponto de encontro.</h2><label>Vagas<select @bind="_capacity">@for (var size = 2; size <= 8; size++) { <option value="@size">@size jogadores</option> }</select></label><button class="primary" disabled="@_busy" @onclick="CreateAsync">Criar sala →</button></section>
+                    <form class="admin-card" @onsubmit="JoinAsync" @onsubmit:preventDefault><div class="eyebrow">JÁ TEM UM CONVITE?</div><h2>Chegue mais.</h2><label>Código da sala<input @bind="_code" required maxlength="8" minlength="8" autocapitalize="characters" /></label><button class="secondary" disabled="@_busy" type="submit">Entrar na sala →</button></form></div>
+                <button class="text-button" @onclick="() => _editProfile = true">Trocar apelido ou avatar</button>
+            }
+            else
+            {
+                <div class="room-heading"><div><h1>Seu grupo chegou.</h1><p><span class="room-live">@(_live ? "● Ao vivo" : "○ Sincronização por consulta")</span> · @_room.Members.Count de @_room.Capacity jogadores</p></div><button class="text-button danger" disabled="@_busy" @onclick="LeaveAsync">Sair da sala</button></div>
+                <div class="room-grid"><section class="admin-card"><div class="eyebrow">CONVIDE OS AMIGOS</div><strong class="room-code">@_room.Code</strong><label>Link do convite<input readonly value="@InviteUrl" /></label><button class="secondary" @onclick="CopyAsync">Copiar convite</button>@if (_copied) { <p role="status">Convite copiado.</p> }
+                        <div class="room-members">@foreach (var member in _room.Members) { <div class="room-member"><span class="member-avatar">@member.Avatar</span><div><strong>@member.Nickname @(member.PlayerId == _room.ViewerId ? "(você)" : "")</strong><small>@(member.PlayerId == _room.HostId ? "Anfitrião · " : "")@(member.Connected ? "Conectado" : "Reconectando…")</small></div><span class="member-ready @(member.Ready ? "is-ready" : "")">@(member.Ready ? "Pronto ✓" : "Preparando")</span></div> }</div>
+                    </section><section class="admin-card"><div class="eyebrow">A PRÓXIMA HISTÓRIA</div><h2>@(SelectedStory?.Title ?? "Escolha o universo do grupo")</h2>
+                        @if (_room.HostId == _room.ViewerId)
+                        { <label>História do grupo<select @bind="_selectedId" disabled="@_busy"><option value="">Escolha uma história</option>@foreach (var story in _stories) { <option value="@story.Id">@story.Title · @story.Difficulty</option> }</select></label><button class="secondary" disabled="@(_busy || _selectedId is null)" @onclick="ChooseStoryAsync">Confirmar história</button> }
+                        else { <p>O anfitrião escolhe a história. Mudar a escolha reinicia a confirmação de todos.</p> }
+                        @if (SelectedStory is { } selected) { <p>@selected.Synopsis</p> }
+                        <button class="primary room-ready" disabled="@_busy" @onclick="ReadyAsync">@(ViewerReady ? "Ainda estou me preparando" : "Estou pronto! ✓")</button>
+                        <p class="room-development">O lobby já sincroniza participantes, convite e prontidão. A partida com narração simultânea, respostas, votação e ranking será o próximo incremento.</p>
+                    </section></div>
+            }
+        }
+    </main>
+</div>
+@code {
+    [Parameter] public string? Code { get; set; }
+    private static readonly string[] Avatars = ["🦊", "🐼", "🐙", "🦄", "🤖", "🐸", "🐯", "🐨"];
+    private readonly CancellationTokenSource _life = new();
+    private GuestView? _guest;
+    private RoomView? _room;
+    private List<PublicStoryView> _stories = [];
+    private HubConnection? _hub;
+    private Task? _poll;
+    private string _nickname = "", _avatar = "🦊", _code = "";
+    private int _capacity = 8;
+    private Guid? _selectedId;
+    private bool _loading = true, _busy, _editProfile, _live, _copied;
+    private string? _error;
+    private PublicStoryView? SelectedStory => _stories.FirstOrDefault(story => story.Id == _room?.StoryVersionId);
+    private bool ViewerReady => _room?.Members.SingleOrDefault(member => member.PlayerId == _room.ViewerId)?.Ready == true;
+    private string InviteUrl => Navigation.ToAbsoluteUri("join/" + _room?.Code).ToString();
+    protected override async Task OnInitializedAsync()
+    {
+        _code = Code ?? "";
+        await Run(async () => { _guest = await Client.MeAsync(_life.Token); _stories = await Catalog.CatalogAsync(_life.Token);
+            if (_guest is not null) { _nickname = _guest.Nickname; _avatar = _guest.Avatar; await RefreshAsync(); } });
+        _loading = false; _poll = PollAsync();
+    }
+    private async Task IdentifyAsync() => await Run(async () => { _guest = await Client.IdentifyAsync(_nickname, _avatar, _life.Token); _editProfile = false; await RefreshAsync(); });
+    private async Task CreateAsync() => await Run(async () => { _room = await Client.CreateAsync(_capacity, _life.Token); await ConnectAsync(); });
+    private async Task JoinAsync() => await Run(async () => { _room = await Client.JoinAsync(_code, _life.Token); await ConnectAsync(); });
+    private async Task ReadyAsync() => await Run(async () => { if (_room is { } room) { _room = await Client.ReadyAsync(room, !ViewerReady, _life.Token); } });
+    private async Task ChooseStoryAsync() => await Run(async () => { if (_room is { } room && _selectedId is { } id) { _room = await Client.StoryAsync(room, id, _life.Token); } });
+    private async Task LeaveAsync() => await Run(async () => { if (_room is { } room) { await Client.LeaveAsync(room.Id, _life.Token); _room = null; _live = false; if (_hub is not null) { await _hub.DisposeAsync(); _hub = null; } } });
+    private async Task CopyAsync()
+    { try { await JS.InvokeVoidAsync("navigator.clipboard.writeText", InviteUrl); _copied = true; } catch (JSException) { _error = "Selecione e copie o link do convite acima."; } }
+    private async Task RefreshAsync()
+    {
+        if (_guest is null) { return; }
+        var previous = _room?.Id; _room = await Client.CurrentAsync(_life.Token);
+        _selectedId = _room?.StoryVersionId;
+        if (previous != _room?.Id && _hub is not null) { await _hub.DisposeAsync(); _hub = null; _live = false; }
+        if (_room is not null && _hub is null) { await ConnectAsync(); }
+    }
+    private async Task ConnectAsync()
+    {
+        if (_room is null || _hub is not null) { return; }
+        var hub = new HubConnectionBuilder().WithUrl(Navigation.ToAbsoluteUri("hubs/rooms")).WithAutomaticReconnect().Build();
+        _hub = hub;
+        hub.On<Guid, long>("RoomChanged", (id, _) => InvokeAsync(async () => { if (!_busy && _room?.Id == id) { await Run(RefreshAsync); StateHasChanged(); } }));
+        hub.Reconnecting += _ => InvokeAsync(() => { _live = false; StateHasChanged(); });
+        hub.Reconnected += async _ => { if (_room is { } room) { await hub.InvokeAsync("JoinRoom", room.Id, _life.Token); } await InvokeAsync(async () => { _live = true; await Run(RefreshAsync); StateHasChanged(); }); };
+        hub.Closed += _ => InvokeAsync(() => { _live = false; StateHasChanged(); });
+        try { await hub.StartAsync(_life.Token); await hub.InvokeAsync("JoinRoom", _room.Id, _life.Token); _live = true; }
+        catch (Exception error) when (error is HttpRequestException or HubException or InvalidOperationException)
+        { _live = false; await hub.DisposeAsync(); if (ReferenceEquals(_hub, hub)) { _hub = null; } }
+    }
+    private async Task PollAsync()
+    {
+        using var timer = new PeriodicTimer(TimeSpan.FromSeconds(15));
+        try { while (await timer.WaitForNextTickAsync(_life.Token)) { await InvokeAsync(async () => { if (!_busy) { await Run(RefreshAsync); StateHasChanged(); } }); } }
+        catch (OperationCanceledException) when (_life.IsCancellationRequested) { }
+    }
+    private async Task Run(Func<Task> action)
+    {
+        if (_busy) { return; } _busy = true; _error = null;
+        try { await action(); }
+        catch (RoomApiException error) { _error = error.Message; if (_guest is not null) { try { _room = await Client.CurrentAsync(_life.Token); } catch (HttpRequestException) { _live = false; } } }
+        catch (HttpRequestException) { _error = "A conexão caiu. Seu lugar será preservado por até 90 segundos."; }
+        catch (OperationCanceledException) when (_life.IsCancellationRequested) { }
+        finally { _busy = false; }
+    }
+    public async ValueTask DisposeAsync()
+    {
+        await _life.CancelAsync(); if (_hub is not null) { await _hub.DisposeAsync(); }
+        if (_poll is not null) { await _poll; } _life.Dispose();
+    }
+}

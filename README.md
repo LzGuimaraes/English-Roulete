@@ -21,13 +21,17 @@ Consulte [LOCAL_DEMO.md](docs/LOCAL_DEMO.md) para o fluxo de teste, contratos e 
 
 ## Administrar histórias
 
-Abra **http://localhost:5080/admin**. Use `ADMIN_EMAIL` e `ADMIN_PASSWORD` do arquivo privado `infra/.env`. O painel permite criar histórias, cenas, perguntas, caminhos e narrações, simular o percurso e publicar versões sem alterar o código. Conteúdo publicado é imutável; duplique para editar uma nova versão.
+Abra **http://localhost:5080/admin**. Use `ADMIN_EMAIL` e `ADMIN_PASSWORD` do arquivo privado `infra/.env`. O painel permite criar histórias, cenas, perguntas, caminhos, narrações, imagens/animações e temas visuais, simular o percurso e publicar versões sem alterar o código. Conteúdo publicado é imutável; duplique para editar uma nova versão.
 
 Para atualizar um ambiente existente, execute `python3 scripts/dev.py migrate` e `python3 scripts/dev.py admin`. Consulte [ADMIN.md](docs/ADMIN.md) para acesso, recuperação de senha, publicação e limites de áudio.
 
 ## Hospedar em VPS
 
 A esteira do GitHub Actions verifica o código, publica a imagem no GHCR e pode fazer deploy por SSH com Docker Compose e Traefik. O deploy fica desativado até configurar `DEPLOY_ENABLED=true` e os secrets. Veja [DEPLOY.md](docs/DEPLOY.md) e [infra/.env.production.example](infra/.env.production.example) para o modelo completo de variáveis, domínio, chave SSH, volumes e recuperação.
+
+## Início do multiplayer
+
+O [lobby multiplayer](docs/MULTIPLAYER.md) está em **http://localhost:5080/multiplayer**: convidados, salas de 2 a 8, convite, prontidão, escolha de história e sincronização SignalR. A partida simultânea com respostas, votação e ranking é o próximo incremento.
 
 ## Executar as verificações
 
@@ -76,7 +80,7 @@ Consulte [DEVELOPMENT.md](docs/DEVELOPMENT.md), [SOLO_SESSION.md](docs/SOLO_SESS
 
 **Story → Scene → Narration → Question → Answer → Next Scene** no modo Solo Adventure.
 
-A engine permanece independente da interface. A prévia Blazor consome a sessão via REST, o servidor persiste checkpoints e o navegador reproduz arquivos WAV publicados. Login administrativo e catálogo editorial já estão disponíveis. Pontuação aprovada, progressão, contas de jogadores e multiplayer continuam nos próximos incrementos.
+A engine permanece independente da interface. A prévia Blazor consome a sessão via REST, o servidor persiste checkpoints e o navegador reproduz arquivos WAV publicados. Login administrativo e catálogo editorial já estão disponíveis. Pontuação aprovada, progressão de jogadores e a partida multiplayer completa continuam nos próximos incrementos.
 
 ## Arquivos de implementação futuros
 

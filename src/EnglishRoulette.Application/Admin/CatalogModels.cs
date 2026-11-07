@@ -1,15 +1,17 @@
+using EnglishRoulette.Application.Presentation;
 using EnglishRoulette.Domain.Stories;
 
 namespace EnglishRoulette.Application.Admin;
 
 public sealed record CatalogMetadata(string Title, string Synopsis, string Genre, string Difficulty,
-    string Author, string LicenseType, string LicenseEvidence, string Attribution);
+    string Author, string LicenseType, string LicenseEvidence, string Attribution, CatalogAppearance? Appearance = null);
 public sealed record CatalogOption(string Key, string Text);
 public sealed record CatalogTransition(string Key, string Label, string TargetSceneKey);
 public sealed record CatalogAudio(Guid Id, int DurationMs, string Attribution, string LicenseEvidence);
+public sealed record CatalogVisual(Guid Id, string AltText, bool Animated, string Attribution, string LicenseEvidence);
 public sealed record CatalogScene(Guid Id, string Key, string Title, string Narration, bool IsEnding,
     string Prompt, IReadOnlyList<CatalogOption> Options, string CorrectOptionKey, string Explanation,
-    IReadOnlyList<CatalogTransition> Transitions, CatalogAudio? Audio);
+    IReadOnlyList<CatalogTransition> Transitions, CatalogAudio? Audio, CatalogVisual? Visual = null);
 public sealed record CatalogDraft(Guid Id, Guid StoryId, int Number, string Status, long Revision,
     string InitialSceneKey, CatalogMetadata Metadata, IReadOnlyList<CatalogScene> Scenes);
 public sealed record CatalogSummary(Guid Id, Guid StoryId, int Number, string Title, string Genre,
@@ -19,7 +21,8 @@ public sealed record PublicationCheck(IReadOnlyList<string> Issues)
     public bool CanPublish => Issues.Count == 0;
 }
 public sealed record PublishedAdventure(StoryVersion Story, CatalogMetadata Metadata,
-    IReadOnlyDictionary<string, string> SceneTitles, IReadOnlyDictionary<string, CatalogAudio> Audio);
+    IReadOnlyDictionary<string, string> SceneTitles, IReadOnlyDictionary<string, CatalogAudio> Audio,
+    IReadOnlyDictionary<string, CatalogVisual> Visuals);
 
 public interface IAdminCatalog
 {

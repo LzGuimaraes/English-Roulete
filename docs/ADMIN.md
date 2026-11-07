@@ -80,4 +80,14 @@ A nova dependência de runtime é o pacote oficial `Microsoft.AspNetCore.Identit
 
 Execute as verificações do README e `python3 scripts/dev.py test`. Os testes HTTP usam schemas PostgreSQL e diretórios temporários isolados. Cobrem acesso anônimo e sem role, CSRF, bloqueio/rate limit, troca de senha/logout, edição concorrente, entrada malformada, revisão, áudio privado, Range, publicação, imutabilidade, substituição e retomada após arquivamento.
 
-Para verificar a UI, siga o fluxo de edição em desktop e celular; confirme também que sair com alterações pendentes exige uma decisão e que logout impede chamadas editoriais. Pontuação, contas de jogadores, multiplayer, gerenciamento de administradores, MFA, recuperação por e-mail, imagens, tags, eventos e relatórios de uso permanecem fora desta etapa. Gênero é um campo livre e os níveis são uma lista fixa nesta versão.
+Para verificar a UI, siga o fluxo de edição em desktop e celular; confirme também que sair com alterações pendentes exige uma decisão e que logout impede chamadas editoriais. Pontuação, contas permanentes de jogadores, partida multiplayer, gerenciamento de administradores, MFA, recuperação por e-mail, tags, eventos e relatórios de uso permanecem fora desta etapa. Gênero é um campo livre e os níveis são uma lista fixa nesta versão.
+
+## Temas, imagens e animações
+
+Cada versão possui cores principal/destaque/fundo/cartão/texto, tipografia e movimento decorativo configuráveis. O editor oferece Pop, Candy, Ocean e Jungle como pontos de partida e mostra uma amostra. O servidor exige cores hexadecimais e contraste de texto de ao menos 4,5:1 nos fundos. O tema acompanha a versão preservada da história, inclusive após outra edição ser publicada.
+
+Cada cena aceita uma imagem estática **PNG ou JPEG**, ou animação **GIF/APNG**, com descrição acessível, créditos e evidência de direitos. Limites: 8 MB, 4096 px por dimensão, 8 megapixels, 120 quadros e 50 megapixels acumulados. O servidor inspeciona o contêiner e os metadados do arquivo; SVG, HTML e URLs externas não são aceitos. A inspeção não é um mecanismo de moderação nem um decodificador completo de pixels. O navegador oferece fallback se não conseguir exibir a imagem.
+
+Uploads ficam privados até publicar e recebem um identificador novo a cada substituição. Imagens publicadas continuam disponíveis para versões antigas. O editor permite remover a referência à imagem ou ao áudio de um rascunho e enviar substitutos. Para trocar mídia de uma versão publicada, duplique a versão, substitua os arquivos e publique; isso preserva as sessões em andamento.
+
+Animações de arquivo começam somente após clicar em **Reproduzir animação**, com opção de ocultar. Movimento decorativo respeita `prefers-reduced-motion`. A nova interface padrão usa uma paleta jovem e colorida, e a escolha da história adapta o tema do jogo.

@@ -1,11 +1,14 @@
 using EnglishRoulette.Api;
 using EnglishRoulette.Api.Admin;
 using EnglishRoulette.Api.Demo;
+using EnglishRoulette.Api.Multiplayer;
 using EnglishRoulette.Application.Admin;
+using EnglishRoulette.Application.Multiplayer;
 using EnglishRoulette.Application.Solo;
 using EnglishRoulette.Contracts;
 using EnglishRoulette.Domain;
 using EnglishRoulette.Infrastructure.Admin;
+using EnglishRoulette.Infrastructure.Multiplayer;
 using EnglishRoulette.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -25,7 +28,10 @@ builder.Services.AddScoped<ISoloSessionStore, PostgresSoloSessionStore>();
 builder.Services.AddScoped<DemoSessions>();
 builder.Services.AddSingleton<DemoMediaCatalog>();
 builder.AddAdminSecurity();
+builder.AddRooms();
+builder.Services.AddScoped<ILobbyStore, LobbyStore>();
 builder.Services.AddScoped<IAdminCatalog, CatalogService>();
+builder.Services.AddScoped<CatalogVisualStorage>();
 builder.Services.AddScoped(provider => new CatalogMediaStorage(
     builder.Configuration["Media:Root"] ?? Path.GetFullPath(Path.Combine(builder.Environment.ContentRootPath, "../../media")),
     provider.GetRequiredService<AdventureDbContext>(), provider.GetRequiredService<TimeProvider>()));
@@ -71,6 +77,7 @@ app.UseAntiforgery();
 app.UseStaticFiles();
 app.MapStaticAssets();
 app.MapAdmin();
+app.MapRooms();
 
 app.MapGet("/health/live", () => Results.Ok(new { status = "ok" }));
 app.MapGet("/health/ready", async (AdventureDbContext db, CancellationToken cancellationToken) =>

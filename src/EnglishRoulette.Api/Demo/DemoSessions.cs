@@ -1,5 +1,8 @@
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using EnglishRoulette.Api.Admin;
+using EnglishRoulette.Api.Multiplayer;
 using EnglishRoulette.Application.Admin;
 using EnglishRoulette.Application.Solo;
 using EnglishRoulette.Contracts;
@@ -7,6 +10,7 @@ using EnglishRoulette.Domain;
 using EnglishRoulette.Domain.Sessions;
 using EnglishRoulette.Infrastructure.Admin;
 using EnglishRoulette.Infrastructure.Persistence;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 
 namespace EnglishRoulette.Api.Demo;
@@ -32,7 +36,9 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
         var previous = previousHash is null ? null : await store.FindAsync(previousHash, cancellationToken);
         var content = await catalog.LoadPublishedAsync(versionId, cancellationToken)
             ?? throw new GameRuleException("CONTENT_NOT_PUBLISHED", "Escolha uma história publicada no catálogo.");
-        var playerId = previous?.Checkpoint.PlayerId ?? Guid.NewGuid();
+        var guest = await context.AuthenticateAsync(RoomEndpoints.PlayerScheme);
+        var playerId = Guid.TryParse(guest.Principal?.FindFirstValue(ClaimTypes.NameIdentifier), out var guestId)
+            ? guestId : previous?.Checkpoint.PlayerId ?? Guid.NewGuid();
         var timings = content.Story.Scenes.Select(scene => new SceneTiming(scene.Key,
             TimeSpan.FromMilliseconds(content.Audio[scene.Key].DurationMs + SafetyMarginMs), TimeSpan.FromSeconds(20)));
         var session = new SoloAdventureSession(Guid.NewGuid(), playerId, content.Story, timings);
@@ -97,6 +103,7 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             snapshot.Answer is { } answer ? new(answer.OptionKey, answer.IsCorrect, answer.TimedOut, answer.Explanation) : null,
             snapshot.Choices.Select(choice => new ChoiceView(choice.Key, choice.Label)).ToArray(),
             new($"/media/catalog/{audio.Id}", audio.DurationMs, SafetyMarginMs),
-            keys.Select(key => new VisitedSceneView(key, content.SceneTitles[key])).ToArray(), snapshot.StoryVersionId);
+            keys.Select(key => new VisitedSceneView(key, content.SceneTitles[key])).ToArray(), snapshot.StoryVersionId, AdminContracts.Appearance(content.Metadata.Appearance ?? new()),
+            content.Visuals.TryGetValue(snapshot.SceneKey, out var visual) ? new SceneVisualView($"/media/visuals/{visual.Id}", visual.AltText, visual.Animated) : null);
     }
 }

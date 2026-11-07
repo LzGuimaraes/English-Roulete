@@ -22,6 +22,7 @@ public sealed class CatalogVersionRow
     public string LicenseType { get; set; } = "Original";
     public string LicenseEvidence { get; set; } = "";
     public string Attribution { get; set; } = "";
+    public string AppearanceJson { get; set; } = "{}";
     public string InitialSceneKey { get; set; } = "";
     public DateTimeOffset CreatedAtUtc { get; set; }
     public DateTimeOffset UpdatedAtUtc { get; set; }
@@ -41,6 +42,8 @@ public sealed class CatalogSceneRow
     public string Prompt { get; set; } = "";
     public string CorrectOptionKey { get; set; } = "";
     public string Explanation { get; set; } = "";
+    public Guid? VisualId { get; set; }
+    public CatalogVisualRow? Visual { get; set; }
     public Guid? AudioId { get; set; }
     public CatalogMediaRow? Audio { get; set; }
     public List<CatalogOptionRow> Options { get; set; } = [];
@@ -87,4 +90,21 @@ public sealed class AdminAuditRow
     public Guid TargetId { get; set; }
     public string Action { get; set; } = "";
     public DateTimeOffset AtUtc { get; set; }
+}
+
+public sealed class CatalogVisualRow
+{
+    public Guid Id { get; set; }
+    public string StorageKey { get; set; } = "";
+    public string ContentType { get; set; } = "";
+    public string Sha256 { get; set; } = "";
+    public long SizeBytes { get; set; }
+    public int Width { get; set; }
+    public int Height { get; set; }
+    public bool Animated { get; set; }
+    public string AltText { get; set; } = "";
+    public string Attribution { get; set; } = "";
+    public string LicenseEvidence { get; set; } = "";
+    public bool Published { get; set; }
+    public DateTimeOffset CreatedAtUtc { get; set; }
 }

@@ -7,6 +7,7 @@
 @inject AdventureClient Client
 
 <PageTitle>English Roulette — uma história, seu caminho</PageTitle>
+<div class="experience motion-@CurrentTheme.Motion" style="@ThemePalette.Style(CurrentTheme)">
 <header class="site-header">
     <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">e.</span><span>english<span class="brand-light">roulette</span><small>STORIES THAT TAKE YOU FURTHER</small></span></a>
     <span class="preview-badge"><span></span> Prévia · Solo Adventure</span>
@@ -32,7 +33,7 @@
                 }
                 else { <p class="hint">Novas histórias estão sendo preparadas. Volte em breve.</p> }
                 <button class="primary start-button" disabled="@(_busy || _catalog.Count == 0)" @onclick="CreateAsync">@(_busy ? "Preparando…" : "Começar minha aventura") <span aria-hidden="true">↗</span></button>
-                <p class="hint">Sem cadastro. Só você e uma boa história.</p>
+                <p class="hint">Sem cadastro. Só você e uma boa história.</p><a class="multiplayer-link" href="/multiplayer">Junte o grupo · Multiplayer ↗</a>
             </div>
             <NotebookArt />
         </section>
@@ -51,6 +52,7 @@
         <div class="game-grid">
             <article class="story-card">
                 <div class="chapter-heading"><span class="section-label">CENA @_state.SceneNumber DO SEU CAMINHO</span><span class="phase-badge">@(_state.Phase == "QuestionOpen" ? $"{RemainingSeconds}s para responder" : PhaseLabel)</span></div>
+                <SceneArtwork Visual="_state.Visual" />
                 <h2>@_state.SceneTitle</h2>
                 @if (_state.Audio is { } audio && _state.Phase != "StoryResult")
                 {
@@ -90,9 +92,11 @@
     }
 </main>
 <footer><span>Uma pequena aventura. Um pouco mais de inglês.</span><span>Listening + reading · seu progresso fica salvo · <a href="/admin">Administração</a></span></footer>
+</div>
 
 @code {
     private readonly CancellationTokenSource _lifetime = new();
+    private StoryAppearance CurrentTheme => _state?.Appearance ?? SelectedStory?.Appearance ?? new();
     private AdventureView? _state;
     private List<PublicStoryView> _catalog = [];
     private Guid? _selectedVersion;

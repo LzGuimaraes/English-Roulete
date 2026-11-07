@@ -22,7 +22,7 @@ internal static class AdminEndpoints
             if (context.Request.Path.StartsWithSegments("/api/admin"))
             {
                 context.Response.Headers.CacheControl = "no-store";
-                var limit = context.Request.Path.Value?.EndsWith("/audio", StringComparison.Ordinal) == true
+                var limit = context.Request.Path.Value is { } uploadPath && (uploadPath.EndsWith("/audio", StringComparison.Ordinal) || uploadPath.EndsWith("/visual", StringComparison.Ordinal))
                     ? CatalogMediaStorage.MaximumUploadBytes + 16384 : 1024 * 1024;
                 if (context.Request.ContentLength > limit)
                 { await Results.Problem(statusCode: 413, title: "O arquivo ou formulário excede o limite permitido.").ExecuteAsync(context); return; }
@@ -92,7 +92,9 @@ internal static class AdminEndpoints
             return Results.Ok(new PreviewSceneView(scene.Key, source.Title, scene.Narration, scene.IsEnding,
                 scene.Challenge.Prompt, scene.Challenge.Options.Select(option => new OptionView(option.Key, option.Text)).ToArray(),
                 scene.Transitions.Select(choice => new ChoiceView(choice.Key, choice.Label)).ToArray(),
-                source.Audio is { } audio ? $"/api/admin/media/{audio.Id}" : null));
+                source.Audio is { } audio ? $"/api/admin/media/{audio.Id}" : null,
+                source.Visual is { } visual ? new SceneVisualView($"/api/admin/visuals/{visual.Id}", visual.AltText, visual.Animated) : null,
+                AdminContracts.Appearance(draft.Metadata.Appearance ?? new())));
         });
         group.MapPost("/stories/{id:guid}/preview-answer", async (Guid id, PreviewAnswerRequest request,
             IAdminCatalog catalog, CancellationToken token) =>
@@ -128,16 +130,45 @@ internal static class AdminEndpoints
             var draft = await catalog.FindAsync(id, context.RequestAborted);
             return draft is null ? Results.NotFound() : Results.Ok(AdminContracts.View(draft));
         }).RequireRateLimiting("AdminWrite");
+        group.MapPost("/stories/{id:guid}/scenes/{sceneId:guid}/visual", async (Guid id, Guid sceneId, long revision,
+            HttpContext context, CatalogVisualStorage storage, IAdminCatalog catalog) =>
+        {
+            if (!context.Request.HasFormContentType) { return Results.BadRequest(); }
+            var form = await context.Request.ReadFormAsync(context.RequestAborted);
+            var file = form.Files.GetFile("file");
+            if (file is null || file.Length is <= 0 or > CatalogVisualStorage.MaximumBytes)
+            { return Results.Problem(statusCode: 400, title: "Escolha PNG/APNG, JPEG ou GIF de até 8 MB."); }
+            await using var stream = file.OpenReadStream();
+            await storage.UploadAsync(id, sceneId, revision, stream, form["altText"].ToString(), form["attribution"].ToString(),
+                form["licenseEvidence"].ToString(), Actor(context), context.RequestAborted);
+            return Results.Ok(AdminContracts.View((await catalog.FindAsync(id, context.RequestAborted))!));
+        }).RequireRateLimiting("AdminWrite");
+        group.MapGet("/visuals/{id:guid}", async (Guid id, HttpContext context, AdventureDbContext db, CatalogVisualStorage storage, CancellationToken token) =>
+        {
+            context.Response.Headers.XContentTypeOptions = "nosniff";
+            return await db.CatalogVisuals.AsNoTracking().SingleOrDefaultAsync(asset => asset.Id == id, token) is { } asset && storage.PathFor(asset) is { } path
+                ? Results.File(path, asset.ContentType) : Results.NotFound();
+        });
+        app.MapGet("/media/visuals/{id:guid}", async (Guid id, HttpContext context, AdventureDbContext db, CatalogVisualStorage storage, CancellationToken token) =>
+        {
+            context.Response.Headers.XContentTypeOptions = "nosniff";
+            return await db.CatalogVisuals.AsNoTracking().SingleOrDefaultAsync(asset => asset.Id == id && asset.Published, token) is { } asset && storage.PathFor(asset) is { } path
+                ? Results.File(path, asset.ContentType) : Results.NotFound();
+        });
         group.MapGet("/media/{id:guid}", async (Guid id, AdventureDbContext db, CatalogMediaStorage storage, CancellationToken token) =>
             await db.CatalogMedia.AsNoTracking().SingleOrDefaultAsync(asset => asset.Id == id, token) is { } asset && storage.PathFor(asset) is { } path
                 ? Results.File(path, "audio/wav", enableRangeProcessing: true) : Results.NotFound());
         app.MapGet("/media/catalog/{id:guid}", async (Guid id, AdventureDbContext db, CatalogMediaStorage storage, CancellationToken token) =>
             await db.CatalogMedia.AsNoTracking().SingleOrDefaultAsync(asset => asset.Id == id && asset.Published, token) is { } asset && storage.PathFor(asset) is { } path
                 ? Results.File(path, "audio/wav", enableRangeProcessing: true) : Results.NotFound());
-        app.MapGet("/api/catalog", async (AdventureDbContext db, CancellationToken token) => Results.Ok(await db.CatalogVersions.AsNoTracking()
-            .Where(version => version.Status == "Published").OrderBy(version => version.CreatedAtUtc).Take(100)
-            .Select(version => new PublicStoryView(version.Id, version.Title, version.Synopsis, version.Genre, version.Difficulty, version.Scenes.Count))
-            .ToListAsync(token)));
+        app.MapGet("/api/catalog", async (AdventureDbContext db, CancellationToken token) =>
+        {
+            var rows = await db.CatalogVersions.AsNoTracking().Where(version => version.Status == "Published")
+                .OrderBy(version => version.CreatedAtUtc).Take(100).Select(version => new
+                { version.Id, version.Title, version.Synopsis, version.Genre, version.Difficulty, Count = version.Scenes.Count, version.AppearanceJson }).ToListAsync(token);
+            return Results.Ok(rows.Select(version => new PublicStoryView(version.Id, version.Title, version.Synopsis, version.Genre,
+                version.Difficulty, version.Count, AdminContracts.Appearance(CatalogService.AppearanceFromJson(version.AppearanceJson)))));
+        });
     }
 
     private static async Task<CatalogDraft> PreviewDraft(IAdminCatalog catalog, Guid id, long revision, CancellationToken token)

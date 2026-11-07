@@ -9,7 +9,7 @@ public sealed record PublishRequest(long Revision, bool Reviewed, bool RightsCon
 public sealed record PublicationCheckView(bool CanPublish, IReadOnlyList<string> Issues);
 public sealed record AdminStorySummary(Guid Id, Guid StoryId, int Number, string Title, string Genre,
     string Difficulty, string Status, long Revision, DateTimeOffset UpdatedAtUtc);
-public sealed record PublicStoryView(Guid Id, string Title, string Synopsis, string Genre, string Difficulty, int SceneCount);
+public sealed record PublicStoryView(Guid Id, string Title, string Synopsis, string Genre, string Difficulty, int SceneCount, StoryAppearance? Appearance = null);
 
 // Editorial DTOs are returned only by ADMIN-authorized endpoints. They are not game snapshots.
 public sealed class AdminStoryEditor
@@ -25,6 +25,7 @@ public sealed class AdminStoryEditor
 }
 public sealed class AdminMetadata
 {
+    public StoryAppearance Appearance { get; set; } = new();
     public string Title { get; set; } = "";
     public string Synopsis { get; set; } = "";
     public string Genre { get; set; } = "Mistério";
@@ -46,6 +47,7 @@ public sealed class AdminSceneEditor
     public string CorrectOptionKey { get; set; } = "";
     public string Explanation { get; set; } = "";
     public List<AdminTransitionEditor> Transitions { get; set; } = [];
+    public AdminVisualView? Visual { get; set; }
     public AdminAudioView? Audio { get; set; }
 }
 public sealed class AdminOptionEditor
@@ -59,9 +61,10 @@ public sealed class AdminTransitionEditor
     public string Label { get; set; } = "";
     public string TargetSceneKey { get; set; } = "";
 }
+public sealed record AdminVisualView(Guid Id, string PreviewUrl, string AltText, bool Animated, string Attribution, string LicenseEvidence);
 public sealed record AdminAudioView(Guid Id, int DurationMs, string PreviewUrl, string Attribution, string LicenseEvidence);
 
 public sealed record PreviewSceneView(string Key, string Title, string Narration, bool IsEnding,
-    string Prompt, IReadOnlyList<OptionView> Options, IReadOnlyList<ChoiceView> Choices, string? AudioUrl);
+    string Prompt, IReadOnlyList<OptionView> Options, IReadOnlyList<ChoiceView> Choices, string? AudioUrl, SceneVisualView? Visual = null, StoryAppearance? Appearance = null);
 public sealed record PreviewAnswerRequest(long Revision, string SceneKey, string OptionKey);
 public sealed record PreviewAnswerView(bool IsCorrect, string Explanation);

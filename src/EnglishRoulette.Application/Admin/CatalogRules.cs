@@ -9,6 +9,8 @@ public static partial class CatalogRules
     public static IReadOnlyList<string> DraftIssues(CatalogDraft draft)
     {
         var issues = new List<string>();
+        if (draft.Metadata.Appearance is { } appearance && !appearance.IsValid())
+        { issues.Add("Escolha cores válidas com contraste de texto legível, fonte e movimento permitidos."); }
         if (string.IsNullOrWhiteSpace(draft.Metadata.Title) || draft.Metadata.Title.Length > 200)
         { issues.Add("Informe um título de até 200 caracteres."); }
         if (draft.Metadata.Genre.Length > 120 || draft.Metadata.Difficulty.Length > 10 || draft.Metadata.LicenseType.Length > 40 ||

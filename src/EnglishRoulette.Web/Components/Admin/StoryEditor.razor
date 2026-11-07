@@ -1,5 +1,6 @@
 @using EnglishRoulette.Contracts.Admin
 @using EnglishRoulette.Web.Services
+@using EnglishRoulette.Web.Components
 @implements IDisposable
 @inject AdminClient Client
 @inject IJSRuntime JS
@@ -20,16 +21,18 @@
     <label>Créditos e atribuição<textarea rows="2" @bind="_draft.Metadata.Attribution" @bind:after="Dirty" maxlength="2000"></textarea></label>
     <label>Cena inicial<select @bind="_draft.InitialSceneKey" @bind:after="Dirty"><option value="">Escolha uma cena</option>@foreach (var scene in _draft.Scenes) { <option value="@scene.Key">@scene.Key · @scene.Title</option> }</select></label>
 </fieldset>
+<AppearanceEditor Appearance="_draft.Metadata.Appearance" ReadOnly="@(ReadOnly || _busy)" OnChanged="Dirty" />
 @for (var index = 0; index < _draft.Scenes.Count; index++)
 {
     var scene = _draft.Scenes[index];
-    <SceneEditor @key="scene" Scene="scene" AllScenes="_draft.Scenes" Position="index" ReadOnly="ReadOnly" Busy="_busy" CanUpload="@(!_dirty && scene.Id != Guid.Empty)" OnChanged="Dirty" OnRemove="() => RemoveScene(scene)" OnUpload="UploadAsync" />
+    <SceneEditor @key="scene" Scene="scene" AllScenes="_draft.Scenes" Position="index" ReadOnly="ReadOnly" Busy="_busy" CanUpload="@(!_dirty && scene.Id != Guid.Empty)" OnChanged="Dirty" OnRemove="() => RemoveScene(scene)" OnUpload="UploadAsync" OnVisualUpload="UploadVisualAsync" />
 }
 @if (!ReadOnly) { <button class="secondary" disabled="@(_busy || _draft.Scenes.Count >= 40)" @onclick="AddScene">+ Adicionar cena</button> }
-<section class="admin-card admin-preview"><h2>Simular percurso</h2><p>Teste a história salva, ouça a narração e confira as respostas e escolhas.</p>
+<section class="admin-card admin-preview experience" style="@ThemePalette.Style(_draft.Metadata.Appearance)"><h2>Simular percurso</h2><p>Teste a história salva, ouça a narração e confira as respostas e escolhas.</p>
     <button class="secondary" disabled="@(_busy || _dirty)" @onclick="() => PreviewAsync()">Iniciar / reiniciar simulação</button>
     @if (_preview is { } preview)
     {
+        <SceneArtwork Visual="preview.Visual" />
         <h3>@preview.Title</h3><p class="narration" lang="en">@preview.Narration</p>
         @if (preview.AudioUrl is { } url) { <audio @key="url" controls src="@url"></audio> }
         <h4>@preview.Prompt</h4>
@@ -91,6 +94,7 @@
     private async Task CheckAsync() => await Run(async () => _check = await Client.ValidateAsync(_draft.Id, _life.Token));
     private async Task PublishAsync() => await Run(async () => { await Client.PublishAsync(_draft, _reviewed, _rights, _life.Token); _draft = await Client.FindAsync(_draft.Id, _life.Token); _notice = "História publicada. Ela já pode ser escolhida no jogo."; });
     private async Task ArchiveAsync() => await Run(async () => { await Client.ArchiveAsync(_draft, _life.Token); _confirmArchive = false; _draft = await Client.FindAsync(_draft.Id, _life.Token); _notice = "Versão arquivada."; });
+    private async Task UploadVisualAsync(SceneEditor.VisualUpload upload) => await Run(async () => { _draft = await Client.UploadVisualAsync(_draft, upload.Scene, upload.File, upload.AltText, upload.Attribution, upload.Evidence, _life.Token); _check = null; _notice = "Imagem validada e salva."; });
     private async Task UploadAsync(SceneEditor.SceneUpload upload) => await Run(async () => { _draft = await Client.UploadAsync(_draft, upload.Scene, upload.File, upload.Attribution, upload.Evidence, _life.Token); _check = null; _notice = "Narração validada e salva."; });
     private async Task Run(Func<Task> action)
     {
@@ -100,7 +104,7 @@
         catch (AdminApiException exception) { _error = exception.Message; if (exception.Unauthorized) { await OnExpired.InvokeAsync(); } }
         catch (OperationCanceledException) when (_life.IsCancellationRequested) { }
         catch (HttpRequestException) { _error = "A conexão foi interrompida. Recarregue para conferir os dados salvos."; }
-        catch (IOException) { _error = "Não foi possível ler o arquivo. Escolha um WAV de até 10 MB."; }
+        catch (IOException) { _error = "Não foi possível ler o arquivo. Confira o limite informado no campo de upload."; }
         finally { _busy = false; }
     }
     public void Dispose() { _life.Cancel(); _life.Dispose(); }

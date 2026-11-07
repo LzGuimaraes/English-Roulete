@@ -1,0 +1,26 @@
+@using EnglishRoulette.Contracts
+@using EnglishRoulette.Web.Services
+<fieldset class="admin-card" disabled="@ReadOnly">
+    <h2>O universo da sua história</h2><p>Escolha uma paleta ou personalize as cores. O tema acompanha esta versão no jogo.</p>
+    <div class="theme-presets">@foreach (var preset in new[] { ("pop", "⚡ Pop"), ("candy", "🍬 Candy"), ("ocean", "🌊 Ocean"), ("jungle", "🌴 Jungle") })
+        { <button type="button" class="secondary" @onclick="() => Apply(preset.Item1)">@preset.Item2</button> }</div>
+    <div class="theme-colors">
+        <label>Cor principal<input type="color" @bind="Appearance.Primary" @bind:after="Changed" /></label><label>Destaque<input type="color" @bind="Appearance.Accent" @bind:after="Changed" /></label>
+        <label>Fundo<input type="color" @bind="Appearance.Background" @bind:after="Changed" /></label><label>Cartões<input type="color" @bind="Appearance.Surface" @bind:after="Changed" /></label><label>Texto<input type="color" @bind="Appearance.Text" @bind:after="Changed" /></label>
+    </div>
+    <div class="admin-form-grid"><label>Tipografia<select @bind="Appearance.Font" @bind:after="Changed"><option value="rounded">Jovem e arredondada</option><option value="modern">Moderna</option><option value="classic">Literária</option></select></label><label>Movimento decorativo<select @bind="Appearance.Motion" @bind:after="Changed"><option value="gentle">Suave</option><option value="none">Sem movimento</option></select></label></div>
+    <div class="theme-sample experience" style="@ThemePalette.Style(Appearance)"><span class="eyebrow">UMA PRÉVIA DO SEU UNIVERSO</span><h3>Uma história. Mil possibilidades.</h3><p>Texto legível, cores com personalidade e escolhas que fazem a diferença.</p><span class="theme-pill">Sua próxima aventura →</span></div>
+</fieldset>
+@code {
+    [Parameter, EditorRequired] public StoryAppearance Appearance { get; set; } = new();
+    [Parameter] public bool ReadOnly { get; set; }
+    [Parameter] public EventCallback OnChanged { get; set; }
+    private async Task Changed() => await OnChanged.InvokeAsync();
+    private async Task Apply(string key)
+    {
+        var preset = ThemePalette.Preset(key);
+        Appearance.Primary = preset.Primary; Appearance.Accent = preset.Accent; Appearance.Background = preset.Background;
+        Appearance.Surface = preset.Surface; Appearance.Text = preset.Text;
+        await Changed();
+    }
+}

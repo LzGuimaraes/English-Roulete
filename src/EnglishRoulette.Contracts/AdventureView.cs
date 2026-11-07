@@ -21,7 +21,9 @@ public sealed record AdventureView(
     IReadOnlyList<ChoiceView> Choices,
     AudioView? Audio = null,
     IReadOnlyList<VisitedSceneView>? VisitedScenes = null,
-    Guid? StoryVersionId = null);
+    Guid? StoryVersionId = null,
+    StoryAppearance? Appearance = null,
+    SceneVisualView? Visual = null);
 
 public sealed record AdventureCommand(
     Guid RequestId,
@@ -32,4 +34,6 @@ public sealed record AdventureCommand(
     string? TransitionKey = null);
 
 public sealed record VisitedSceneView(string Key, string Title);
-public sealed record CreateAdventureRequest(Guid? StoryVersionId = null);
+public sealed record CreateAdventureRequest(Guid? StoryVersionId = null,
+    StoryAppearance? Appearance = null,
+    SceneVisualView? Visual = null);

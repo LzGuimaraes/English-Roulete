@@ -1,4 +1,6 @@
 @using EnglishRoulette.Contracts.Admin
+@using EnglishRoulette.Contracts
+@using EnglishRoulette.Web.Components
 
 <section class="admin-scene">
     <div class="admin-title"><h3>Cena @(Position + 1) · @(string.IsNullOrEmpty(Scene.Title) ? "Sem título" : Scene.Title)</h3><button type="button" class="text-button danger" disabled="@(ReadOnly || Busy)" @onclick="() => OnRemove.InvokeAsync()">Remover cena</button></div>
@@ -25,8 +27,22 @@
             <button type="button" class="secondary" disabled="@(Scene.Transitions.Count >= 8)" @onclick="AddTransition">+ Caminho</button>
         }
     </fieldset>
+    <div class="admin-audio"><h4>Imagem ou animação da cena</h4>
+        @if (Scene.Visual is { } visual)
+        {
+            <SceneArtwork Visual="@(new SceneVisualView(visual.PreviewUrl, visual.AltText, visual.Animated))" />
+            @if (!ReadOnly) { <button class="text-button danger" disabled="@Busy" @onclick="RemoveVisual">Remover imagem desta cena</button> }
+        }
+        @if (!ReadOnly && CanUpload)
+        {
+            <label>Descrição acessível da imagem<input @bind="_altText" @bind:event="oninput" maxlength="300" /></label>
+            <label>Créditos da imagem<input @bind="_visualAttribution" @bind:event="oninput" maxlength="2000" /></label><label>Licença da imagem<input @bind="_visualEvidence" @bind:event="oninput" maxlength="2000" /></label>
+            <label>Enviar ou substituir imagem (PNG/APNG, JPEG, GIF até 8 MB)<InputFile OnChange="UploadVisual" accept="image/png,image/jpeg,image/gif" disabled="@(Busy || string.IsNullOrWhiteSpace(_altText) || string.IsNullOrWhiteSpace(_visualAttribution) || string.IsNullOrWhiteSpace(_visualEvidence))" /></label>
+        }
+        else if (!ReadOnly) { <p class="hint">Salve a cena antes de enviar a imagem ou animação.</p> }
+    </div>
     <div class="admin-audio"><h4>Narração da cena</h4>
-        @if (Scene.Audio is { } audio) { <p>@(audio.DurationMs / 1000d) segundos · @audio.Attribution</p><audio controls preload="metadata" src="@audio.PreviewUrl"></audio> }
+        @if (Scene.Audio is { } audio) { <p>@(audio.DurationMs / 1000d) segundos · @audio.Attribution</p><audio controls preload="metadata" src="@audio.PreviewUrl"></audio>@if (!ReadOnly) { <button class="text-button danger" disabled="@Busy" @onclick="RemoveAudio">Remover áudio desta cena</button> } }
         else { <p>Nenhum áudio enviado.</p> }
         @if (!ReadOnly)
         {
@@ -49,9 +65,15 @@
     [Parameter] public bool CanUpload { get; set; }
     [Parameter] public EventCallback OnChanged { get; set; }
     [Parameter] public EventCallback OnRemove { get; set; }
+    [Parameter] public EventCallback<VisualUpload> OnVisualUpload { get; set; }
     [Parameter] public EventCallback<SceneUpload> OnUpload { get; set; }
+    private string _altText = "", _visualAttribution = "", _visualEvidence = "";
+    private async Task RemoveAudio() { Scene.Audio = null; await Changed(); }
+    private async Task RemoveVisual() { Scene.Visual = null; await Changed(); }
+    private async Task UploadVisual(InputFileChangeEventArgs arguments) => await OnVisualUpload.InvokeAsync(new(Scene, arguments.File, _altText, _visualAttribution, _visualEvidence));
+    public sealed record VisualUpload(AdminSceneEditor Scene, IBrowserFile File, string AltText, string Attribution, string Evidence);
     private string _attribution = "", _evidence = "";
-    protected override void OnInitialized() { _attribution = Scene.Audio?.Attribution ?? ""; _evidence = Scene.Audio?.LicenseEvidence ?? ""; }
+    protected override void OnInitialized() { _altText = Scene.Visual?.AltText ?? ""; _visualAttribution = Scene.Visual?.Attribution ?? ""; _visualEvidence = Scene.Visual?.LicenseEvidence ?? ""; _attribution = Scene.Audio?.Attribution ?? ""; _evidence = Scene.Audio?.LicenseEvidence ?? ""; }
     private async Task Changed() => await OnChanged.InvokeAsync();
     private async Task AddOption()
     {

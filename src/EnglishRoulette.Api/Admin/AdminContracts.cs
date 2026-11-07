@@ -1,4 +1,6 @@
 using EnglishRoulette.Application.Admin;
+using EnglishRoulette.Application.Presentation;
+using EnglishRoulette.Contracts;
 using EnglishRoulette.Contracts.Admin;
 
 namespace EnglishRoulette.Api.Admin;
@@ -15,6 +17,7 @@ internal static class AdminContracts
         InitialSceneKey = draft.InitialSceneKey,
         Metadata = new()
         {
+            Appearance = Appearance(draft.Metadata.Appearance ?? new()),
             Title = draft.Metadata.Title,
             Synopsis = draft.Metadata.Synopsis,
             Genre = draft.Metadata.Genre,
@@ -37,6 +40,7 @@ internal static class AdminContracts
             Options = scene.Options.Select(option => new AdminOptionEditor { Key = option.Key, Text = option.Text }).ToList(),
             Transitions = scene.Transitions.Select(transition => new AdminTransitionEditor
             { Key = transition.Key, Label = transition.Label, TargetSceneKey = transition.TargetSceneKey }).ToList(),
+            Visual = scene.Visual is { } visual ? new(visual.Id, $"/api/admin/visuals/{visual.Id}", visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null,
             Audio = scene.Audio is { } audio ? new(audio.Id, audio.DurationMs, $"/api/admin/media/{audio.Id}", audio.Attribution, audio.LicenseEvidence) : null
         }).ToList()
     };
@@ -49,13 +53,19 @@ internal static class AdminContracts
         var metadata = editor.Metadata ?? new();
         return new(id, editor.StoryId, editor.Number, editor.Status ?? "", editor.Revision, editor.InitialSceneKey ?? "",
             new(metadata.Title ?? "", metadata.Synopsis ?? "", metadata.Genre ?? "", metadata.Difficulty ?? "",
-                metadata.Author ?? "", metadata.LicenseType ?? "", metadata.LicenseEvidence ?? "", metadata.Attribution ?? ""),
+                metadata.Author ?? "", metadata.LicenseType ?? "", metadata.LicenseEvidence ?? "", metadata.Attribution ?? "", Appearance(metadata.Appearance ?? new())),
             (editor.Scenes ?? []).Select(scene => new CatalogScene(scene.Id, scene.Key ?? "", scene.Title ?? "", scene.Narration ?? "", scene.IsEnding,
                 scene.Prompt ?? "", (scene.Options ?? []).Select(option => new CatalogOption(option.Key ?? "", option.Text ?? "")).ToArray(),
                 scene.CorrectOptionKey ?? "", scene.Explanation ?? "", (scene.Transitions ?? []).Select(transition =>
                     new CatalogTransition(transition.Key ?? "", transition.Label ?? "", transition.TargetSceneKey ?? "")).ToArray(),
-                scene.Audio is { } audio ? new(audio.Id, audio.DurationMs, audio.Attribution, audio.LicenseEvidence) : null)).ToArray());
+                scene.Audio is { } audio ? new(audio.Id, audio.DurationMs, audio.Attribution, audio.LicenseEvidence) : null,
+                scene.Visual is { } visual ? new(visual.Id, visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null)).ToArray());
     }
+
+    public static StoryAppearance Appearance(CatalogAppearance value) => new()
+    { Primary = value.Primary, Accent = value.Accent, Background = value.Background, Surface = value.Surface, Text = value.Text, Font = value.Font, Motion = value.Motion };
+    private static CatalogAppearance Appearance(StoryAppearance value) => new()
+    { Primary = value.Primary, Accent = value.Accent, Background = value.Background, Surface = value.Surface, Text = value.Text, Font = value.Font, Motion = value.Motion };
 
     public static AdminStorySummary Summary(CatalogSummary row) => new(row.Id, row.StoryId, row.Number,
         row.Title, row.Genre, row.Difficulty, row.Status, row.Revision, row.UpdatedAtUtc);

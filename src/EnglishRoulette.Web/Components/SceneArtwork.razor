@@ -1,0 +1,23 @@
+@using EnglishRoulette.Contracts
+@if (Visual is { } visual)
+{
+    <figure class="scene-artwork">
+        @if (!visual.Animated || _playing)
+        {
+            <img @key="visual.Url" src="@visual.Url" alt="@visual.AltText" loading="lazy" @onerror="() => _failed = true" />
+        }
+        @if (_failed) { <figcaption role="status">A imagem não carregou. A aventura continua pelo texto e áudio.</figcaption> }
+        @if (visual.Animated)
+        {
+            <button type="button" class="secondary" @onclick="() => _playing = !_playing">@(_playing ? "Ocultar animação" : "▶ Reproduzir animação")</button>
+            @if (!_playing) { <figcaption>@visual.AltText</figcaption> }
+        }
+    </figure>
+}
+@code {
+    [Parameter] public SceneVisualView? Visual { get; set; }
+    private string? _url;
+    private bool _playing, _failed;
+    protected override void OnParametersSet()
+    { if (_url != Visual?.Url) { _url = Visual?.Url; _playing = _failed = false; } }
+}
