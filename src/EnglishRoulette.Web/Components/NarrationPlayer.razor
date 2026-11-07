@@ -4,7 +4,7 @@
 
 <section class="audio-player" aria-label="Narração em inglês">
     <div class="audio-heading"><strong>Narração em inglês</strong><span>Ouça a cena antes de responder</span></div>
-    <audio @ref="_audio" @key="Audio.Url" src="@Audio.Url" preload="auto"
+    <audio id="@AudioElementId" @ref="_audio" @key="Audio.Url" src="@Audio.Url" preload="auto"
            controls="@(Phase == "Narrating")" @oncanplay="ReadyAsync" @onerror="FailedAsync"></audio>
     @if (_failed)
     {
@@ -17,12 +17,13 @@
     }
     else if (Phase == "Narrating")
     {
-        <p>Ao retomar a página, pressione play. Pausar o áudio não pausa o prazo da cena.</p>
+        <p class="audio-timing-note">Pausar o áudio não pausa o tempo da cena.</p>
     }
 </section>
 
 @code {
     [Parameter, EditorRequired] public AudioView Audio { get; set; } = default!;
+    [Parameter] public string AudioElementId { get; set; } = "narration-" + Guid.NewGuid().ToString("N");
     [Parameter] public string Phase { get; set; } = "Preloading";
     [Parameter] public DateTimeOffset ServerNowUtc { get; set; }
     [Parameter] public DateTimeOffset? PhaseDeadlineUtc { get; set; }

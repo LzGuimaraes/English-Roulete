@@ -120,3 +120,16 @@ O componente `SceneArtwork` mantém controles manuais nas prévias editoriais. N
 A tela `StoryResult` apresenta o título e o texto do desfecho real, além de um player nativo livre para sua narração. O player de narração com prazo continua sendo descartado ao terminar a partida, evitando chamadas para referências JavaScript já removidas. O backend continua decidindo a fase final; essa apresentação não acrescenta perguntas nem altera pontuação ou progresso.
 
 O roteiro de navegador confere uma aventura real com quatro perguntas e uma bifurcação usando The Blue Envelope, compara texto/áudio do final ao snapshot do servidor e verifica carregamento das artes em desktop e celular. Também cobre imagem indisponível, movimento reduzido, recuperação de erros e preservação do lobby multiplayer. Os 94 testes unitários e os 40 testes de integração passaram com PostgreSQL isolado; restore locked, build Release sem warnings e formatação foram conferidos.
+
+### Leitura progressiva e cena desobstruída
+
+Incremento solicitado pelo responsável com uma referência visual de The Second Cup: reduzir o player e os painéis para preservar a imagem de fundo, revelando as letras durante a narração.
+
+- `NarrationPlayer` conserva o áudio nativo, controles, pré-carregamento, erro/retry e reprodução por gesto. Na aventura, a barra tem 34px de altura e no máximo 330px de largura; a mensagem de prazo permanece discreta.
+- `Home` concentra a leitura na região inferior, recolhe o percurso em `details` e mantém perguntas, decisões e desfechos. O painel opaco e os slogans durante a escuta foram retirados. A administração e a Home inicial continuam com os mesmos componentes e fluxo.
+- `ProgressiveNarration` apresenta o texto em inglês com uma cópia acessível completa para leitores de tela. Reserva o espaço do parágrafo para evitar saltos de layout e oferece “Mostrar texto completo”.
+- `audio-player.js` usa `audio.currentTime / audio.duration` para revelar grafemas Unicode. O efeito pausa, recua/avança ao buscar no áudio e retoma pelo instante real após refresh. Listeners e frames são liberados ao trocar de cena/sair. O texto completo aparece depois da narração, quando solicitado ou com movimento reduzido no sistema/tema.
+
+Os WAVs publicados não incluem alinhamento por palavra/fonema. A revelação é proporcional ao progresso real do áudio, não uma transcrição temporizada precisa. Não é guiada pelo contador da pergunta e não altera o relógio, as respostas, as fases ou o checkpoint do servidor. Pausar o áudio continua sem suspender o prazo do Solo Adventure.
+
+Critérios de aceite: player compacto em desktop/celular; cenário visível sem o cartão opaco; letras acompanhando reprodução/pausa/busca/retomada; alternativa de texto completo e movimento reduzido; percurso expansível; pergunta, escolha, desfecho, retry e lobby preservados. `tests/browser/adventure.cjs` verifica esses comportamentos com narração real, incluindo a igualdade do deadline antes/depois de pausar. Para uma revisão visual do tema de terror, The Second Cup pode ser copiada ao catálogo isolado de QA pela API ADMIN, sem editar versões da VPS.

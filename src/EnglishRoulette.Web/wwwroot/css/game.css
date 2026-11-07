@@ -155,3 +155,83 @@
 .ending-scene h3 { margin-top: 0; }
 .ending-audio { display: block; width: 100%; margin-top: 1rem; }
 @media(prefers-reduced-motion:reduce) { .scene-backdrop .scene-artwork.is-animated { display:none; } }
+
+/* Cinematic scene: scenery stays open; controls and reading share a small lower area. */
+.game-experience.in-adventure { --scene-accent:#d0b9f5; }
+.game-experience.in-adventure .site-header { max-width:none; min-height:0; padding:18px 5%; border-color:#ffffff12; background:linear-gradient(#0b0913b0,transparent); backdrop-filter:none; }
+.game-experience.in-adventure .brand { font-size:21px; }
+.game-experience.in-adventure .brand-mark { width:35px; height:35px; font-size:24px; }
+.game-experience.in-adventure .brand small { display:none; }
+.game-experience.in-adventure main { max-width:none; min-height:0; }
+.game-experience.in-adventure .adventure-heading { padding:20px 0 8px; margin:0; align-items:start; }
+.game-experience.in-adventure .adventure-heading h1 { font-size:clamp(25px,2.6vw,37px); margin:6px 0 0; line-height:1.2; }
+.game-experience.in-adventure .adventure-heading .eyebrow { font-size:9px; letter-spacing:2px; }
+.game-experience.in-adventure .arrival-notice { font-size:11px; margin:8px 0 0; max-width:380px; }
+.game-experience.in-adventure .scene-backdrop .scene-artwork img { opacity:1; animation:none; }
+.game-experience.in-adventure .scene-backdrop::after { background:linear-gradient(0deg,#080711f5 0%,#080711b0 24%,#08071125 58%,#08071112 80%,#08071165 100%); }
+.game-experience.in-adventure .game-grid { position:relative; display:grid; grid-template-columns:1fr; align-items:end; gap:0; min-height:calc(100svh - 180px); margin:0; padding:clamp(140px,22svh,280px) 0 30px; }
+.game-experience.in-adventure .story-card { width:min(100%,760px); min-height:0; padding:0; margin:0; border:0; border-radius:0; background:transparent; backdrop-filter:none; box-shadow:none; animation:none; }
+.game-experience.in-adventure .chapter-heading { max-width:680px; gap:18px; }
+.game-experience.in-adventure .chapter-heading .section-label { font-size:9px; letter-spacing:2px; color:var(--scene-accent); }
+.game-experience.in-adventure .phase-badge { padding:4px 8px; border:0; background:#100d2080; font-size:10px; }
+.game-experience.in-adventure .story-card>h2 { margin:10px 0 14px; font-size:clamp(24px,2.5vw,32px); line-height:1.2; text-shadow:0 2px 14px #000; }
+.game-experience.in-adventure .audio-player { width:min(100%,330px); padding:0; margin:0 0 14px; border:0; border-radius:0; background:transparent; }
+.game-experience.in-adventure .audio-heading { display:none; }
+.game-experience.in-adventure .audio-player audio { display:block; width:100%; height:34px; margin:0; color-scheme:dark; }
+.game-experience.in-adventure .audio-player audio:not([controls]) { display:none; }
+.game-experience.in-adventure .audio-player p { margin:4px 0 0; color:#e4d8e9; font-size:10px; line-height:1.45; }
+.game-experience.in-adventure .scene-ready { padding:0; margin:0; border:0; text-align:left; }
+.game-experience.in-adventure .scene-ready p { font-size:13px; margin:0 0 16px; color:#eee1ef; }
+.game-experience.in-adventure .scene-ready .primary { width:auto; min-height:44px; padding:11px 22px; font-size:13px; }
+.game-experience.in-adventure .scene-transcript .narration { display:grid; position:relative; margin:0; font-size:clamp(18px,1.65vw,23px); line-height:1.7; color:#fff6ef; text-shadow:0 2px 8px #000; }
+.narration-layout,.narration-copy { grid-area:1 / 1; }
+.narration-layout { visibility:hidden; pointer-events:none; user-select:none; }
+.transcript-accessible { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
+.game-experience.in-adventure .transcript-toggle { display:inline-block; min-height:30px; margin:8px 0 0; padding:4px 0; border:0; background:transparent; color:#d6c8de; font-size:11px; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+.game-experience.in-adventure .reading-note { display:block; margin:5px 0 0; padding:0; border:0; background:transparent; font-size:11px; color:#cfc1d3; }
+.game-experience.in-adventure .journey-card { position:absolute; right:0; top:20px; width:215px; padding:0; border:1px solid #ffffff24; border-radius:10px; background:#140e1c80; backdrop-filter:blur(8px); box-shadow:none; z-index:2; }
+.game-experience.in-adventure .journey-card summary { display:flex; align-items:center; gap:14px; min-height:42px; padding:10px 13px; color:#f4e6f7; font-size:12px; cursor:pointer; list-style:none; }
+.game-experience.in-adventure .journey-card summary::-webkit-details-marker { display:none; }
+.game-experience.in-adventure .journey-card summary span { margin-left:auto; color:#d0c1d8; font-size:10px; }
+.game-experience.in-adventure .journey-card summary::after { content:'⌄'; color:var(--scene-accent); }
+.game-experience.in-adventure .journey-card[open] { background:#160f20ed; }
+.game-experience.in-adventure .journey-stops { max-height:48svh; overflow:auto; padding:16px 14px 6px; border-top:1px solid #ffffff18; }
+.game-experience.in-adventure .journey-stop { margin-bottom:14px; }
+.game-experience.in-adventure .question-panel,.game-experience.in-adventure .decision { padding:20px; margin-top:18px; border:1px solid #ffffff20; border-radius:12px; background:#130d1de8; }
+.game-experience.in-adventure.phase-questionopen .scene-transcript,.game-experience.in-adventure.phase-questionreveal .scene-transcript { margin-top:4px; }
+.game-experience.in-adventure.phase-storyresult .story-card { padding:22px; border:1px solid #ffffff20; border-radius:14px; background:#130d1de3; }
+.game-experience.in-adventure .ending { padding:0; }
+.game-experience.in-adventure .ending>h2 { font-size:28px; }
+.game-experience.in-adventure .ending>p { font-size:13px; }
+.game-experience.in-adventure .ending-scene { margin:18px auto; }
+.game-experience.in-adventure .ending-audio { height:34px; max-width:330px; }
+.game-experience.in-adventure>footer { display:none; }
+.game-experience.horror-experience.in-adventure { --scene-accent:#e7c68d; }
+.game-experience.horror-experience.in-adventure .scene-backdrop::after { background:linear-gradient(0deg,#120907f5 0%,#120907b5 24%,#12090720 60%,#12090710 80%,#12090765 100%); }
+.game-experience.horror-experience.in-adventure .scene-backdrop::before { opacity:.06; }
+.game-experience.horror-experience.in-adventure .section-label,.game-experience.horror-experience.in-adventure .eyebrow { color:#e7c68d; }
+.game-experience.horror-experience.in-adventure .primary { background:linear-gradient(110deg,#e4c38c,#cba569); border-color:#ebd2a7; color:#21150a; box-shadow:0 3px 0 #75512c; }
+.game-experience.horror-experience.in-adventure .brand-mark { background:linear-gradient(140deg,#7e3029,#3b1817); color:#efd19a; box-shadow:0 0 18px #ba6a2420; }
+.game-experience.horror-experience.in-adventure .journey-card { border-color:#bd8d5145; background:#21100d80; }
+.game-experience.horror-experience.in-adventure .journey-card[open] { background:#21100df0; }
+@media(max-width:780px) {
+    .game-experience.in-adventure .site-header { padding:15px 5%; gap:10px; }
+    .game-experience.in-adventure .brand { font-size:18px; }
+    .game-experience.in-adventure .brand-mark { width:30px; height:30px; }
+    .game-experience.in-adventure .site-header>.game-menu { width:auto; margin-left:auto; justify-content:flex-end; }
+    .game-experience.in-adventure .menu-button { min-height:34px; padding:7px 9px; font-size:10px; }
+    .game-experience.in-adventure .adventure-heading { gap:4px; padding:17px 0 6px; }
+    .game-experience.in-adventure .adventure-heading h1 { font-size:25px; }
+    .game-experience.in-adventure .adventure-heading .text-button { min-height:36px; padding:8px 14px 8px 0; font-size:11px; }
+    .game-experience.in-adventure .game-grid { min-height:calc(100svh - 240px); padding-top:clamp(160px,29svh,300px); padding-bottom:28px; }
+    .game-experience.in-adventure .journey-card { top:8px; width:190px; }
+    .game-experience.in-adventure .journey-card summary { min-height:36px; padding:8px 11px; font-size:11px; }
+    .game-experience.in-adventure .story-card { width:100%; }
+    .game-experience.in-adventure .story-card>h2 { font-size:25px; }
+    .game-experience.in-adventure .scene-transcript .narration { font-size:18px; line-height:1.65; }
+    .game-experience.in-adventure .audio-player { max-width:300px; }
+    .game-experience.in-adventure .chapter-heading .section-label { font-size:8px; letter-spacing:1.5px; }
+    .game-experience.in-adventure .question-panel,.game-experience.in-adventure .decision { padding:17px; }
+}
+.motion-none .transcript-toggle { display:none; }
+@media(prefers-reduced-motion:reduce) { .game-experience.in-adventure .transcript-toggle { display:none; } }

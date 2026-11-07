@@ -9,7 +9,7 @@
 @inject ILogger<Home> Logger
 
 <PageTitle>English Roulette — gire. escute. explore.</PageTitle>
-<div class="experience game-experience motion-@(_state?.Appearance?.Motion ?? CurrentTheme.Motion) @(_state is not null ? "in-adventure" : "") @(IsHorror ? "horror-experience" : "") @(_state?.Visual is not null ? "has-scene-art" : "") @(_state?.Phase == "Preloading" ? "scene-intro" : "")" style="@ThemePalette.Style(CurrentTheme)">
+<div class="experience game-experience motion-@(_state?.Appearance?.Motion ?? CurrentTheme.Motion) @(_state is not null ? "in-adventure phase-" + _state.Phase.ToLowerInvariant() : "") @(IsHorror ? "horror-experience" : "") @(_state?.Visual is not null ? "has-scene-art" : "") @(_state?.Phase == "Preloading" ? "scene-intro" : "")" style="@ThemePalette.Style(CurrentTheme)">
 @if (_state is not null) { <div class="scene-backdrop"><SceneArtwork Visual="_state.Visual" Background="true" OnLoadFailure="url => _artFailureUrl = url" /></div> }
 <header class="site-header">
     <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">✦</span><span>english<span class="brand-light">roulette</span><small>GIRE. ESCUTE. EXPLORE.</small></span></a>
@@ -74,16 +74,16 @@
         <div class="game-grid">
             <article class="story-card">
                 @if (_state.Visual is not null && _artFailureUrl == _state.Visual.Url) { <p role="status">A imagem não carregou. Você pode continuar pelo texto e áudio.</p> }
-                <div class="chapter-heading"><span class="section-label">CENA @_state.SceneNumber DO SEU CAMINHO</span><span class="phase-badge">@(_state.Phase == "QuestionOpen" ? $"{RemainingSeconds}s para responder" : PhaseLabel)</span></div>
+                <div class="chapter-heading"><span class="section-label">CENA @_state.SceneNumber DO SEU CAMINHO</span><span class="phase-badge" role="@(_state.Phase == "QuestionOpen" ? "timer" : null)">@(_state.Phase == "QuestionOpen" ? $"{RemainingSeconds}s para responder" : PhaseLabel)</span></div>
                 <h2>@_state.SceneTitle</h2>
                 @if (_state.Audio is { } audio && _state.Phase != "StoryResult")
                 {
-                    <NarrationPlayer @key="_state.SceneKey" @ref="_narrator" Audio="audio" Phase="@_state.Phase"
+                    <NarrationPlayer @key="_state.SceneKey" @ref="_narrator" Audio="audio" Phase="@_state.Phase" AudioElementId="@_narrationAudioId"
                         ServerNowUtc="_state.ServerNowUtc" PhaseDeadlineUtc="_state.PhaseDeadlineUtc" OnReady="AudioReady" />
                 }
                 @if (_state.Phase == "Preloading")
                 {
-                    <div class="scene-ready"><span class="scene-icon" aria-hidden="true">@(IsHorror ? "◈" : "✦")</span><h3>@(IsHorror ? "Você ouviu isso? Não está sozinho." : "Mais uma pista espera por você.")</h3><p>Ouça a narração e acompanhe o texto. A pergunta aparece depois do áudio e de uma breve pausa.</p>@if (!_audioReady) { <p class="audio-wait" role="status">Aguardando o áudio. Se o carregamento falhar, use “Tentar carregar áudio novamente” no player.</p> }<button class="primary" disabled="@(_busy || !_audioReady)" @onclick="StartAsync">Ouvir e iniciar cena <span aria-hidden="true">→</span></button></div>
+                    <div class="scene-ready"><p>Ouça a cena. As palavras aparecem durante a narração.</p>@if (!_audioReady) { <p class="audio-wait" role="status">Aguardando o áudio. Se falhar, use “Tentar carregar áudio novamente”.</p> }<button class="primary" disabled="@(_busy || !_audioReady)" @onclick="StartAsync">Ouvir e iniciar cena <span aria-hidden="true">→</span></button></div>
                 }
                 else if (_state.Phase == "StoryResult")
                 {
@@ -91,8 +91,8 @@
                 }
                 else
                 {
-                    <p class="narration" lang="en">@_state.Narration</p>
-                    @if (_state.Phase == "Narrating") { <div class="reading-note"><span class="pulse-dot"></span><span>Ouça e acompanhe o texto. A pergunta aparece em <strong>@RemainingSeconds s</strong>.</span></div> }
+                    <ProgressiveNarration @key="(_state.SceneKey, nameof(ProgressiveNarration))" Text="@_state.Narration" Phase="@_state.Phase" AudioElementId="@_narrationAudioId" />
+                    @if (_state.Phase == "Narrating") { <p class="reading-note">Pergunta em <strong>@RemainingSeconds s</strong></p> }
                     <QuestionPanel State="_state" Busy="_busy" OnAnswer="AnswerAsync" OnContinue="ContinueAsync" />
                     @if (_state.Phase == "DecisionOpen")
                     {
@@ -100,16 +100,15 @@
                     }
                 }
             </article>
-            <aside class="journey-card">
-                <span class="section-label">SEU CAMINHO ATÉ AQUI</span>
+            <details class="journey-card">
+                <summary>Seu caminho <span>@_state.SceneNumber @(_state.SceneNumber == 1 ? "cena" : "cenas")</span></summary>
+                <div class="journey-stops">
                 @foreach (var scene in _state.VisitedScenes ?? [])
                 {
                     <div class="journey-stop"><span class="journey-dot active"></span><div><strong>@scene.Title</strong><small>@(scene.Key == _state.SceneKey ? "Você está aqui" : "Cena explorada")</small></div></div>
                 }
-                @if (_state.Phase == "QuestionOpen") { <div class="timer" role="timer" aria-label="Tempo restante"><strong>@RemainingSeconds<span>s</span></strong><small>para seguir esta pista</small></div> }
-                else { <blockquote>“Every new word<br />opens a new door.”</blockquote> }
-                <p class="journey-hint">Não precisa entender cada palavra. Procure o sentido da história.</p>
-            </aside>
+                </div>
+            </details>
         </div>
     }
 </main>
@@ -149,6 +148,7 @@
     private long _generation;
     private DateTimeOffset _receivedAtUtc;
     private NarrationPlayer? _narrator;
+    private readonly string _narrationAudioId = "narration-" + Guid.NewGuid().ToString("N");
     private ElementReference _adventureTitle;
     private bool _focusAdventure;
     private bool _audioReady;

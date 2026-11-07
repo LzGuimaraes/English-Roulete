@@ -40,6 +40,42 @@ async function start(page) {
     await page.waitForFunction(() => document.activeElement === document.querySelector('.adventure-heading h1'));
     return state;
 }
+async function progressiveText(page) {
+    const snapshot = await (await page.request.get(base + '/api/demo/session')).json();
+    const copy = page.locator('.narration-copy');
+    await page.waitForFunction(() => document.querySelector('.narration-copy')?.textContent.length > 0);
+    assert.ok((await copy.textContent()).length < snapshot.narration.length);
+    const player = await page.locator('.audio-player').boundingBox();
+    assert.ok(player.width <= 335 && player.height <= 70, 'The player must remain compact.');
+    await page.locator('audio').evaluate(audio => audio.pause());
+    const pausedText = await copy.textContent();
+    await page.waitForTimeout(1100);
+    assert.equal(await copy.textContent(), pausedText, 'Paused audio must freeze text.');
+    const paused = await (await page.request.get(base + '/api/demo/session')).json();
+    assert.equal(paused.phaseDeadlineUtc, snapshot.phaseDeadlineUtc, 'Pausing must not change the server deadline.');
+    await page.locator('audio').evaluate(audio => { audio.currentTime = audio.duration / 2; });
+    await page.waitForFunction(() => {
+        const count = document.querySelector('.narration-copy').textContent.length;
+        const total = document.querySelector('.narration-layout').textContent.length;
+        return count > total * .45 && count < total * .6;
+    });
+    await page.getByRole('button', { name: 'Mostrar texto completo', exact: true }).click();
+    await page.waitForFunction(() => document.querySelector('.narration-copy').textContent === document.querySelector('.narration-layout').textContent);
+    await page.getByRole('button', { name: 'Acompanhar narração', exact: true }).click();
+    await page.waitForFunction(() => document.querySelector('.narration-copy').textContent.length < document.querySelector('.narration-layout').textContent.length);
+    await page.reload();
+    await page.locator('.narration-copy').waitFor();
+    await page.waitForFunction(() => {
+        const audio = document.querySelector('audio');
+        const total = document.querySelector('.narration-layout').textContent.length;
+        const count = document.querySelector('.narration-copy').textContent.length;
+        return audio.currentTime > 0 && Math.abs(count - Math.floor(total * audio.currentTime / audio.duration)) <= 3;
+    });
+    await page.getByRole('button', { name: 'Mostrar texto completo', exact: true }).click();
+    await page.getByRole('button', { name: 'Acompanhar narração', exact: true }).click();
+    await page.locator('audio').evaluate(audio => audio.play());
+    console.log('PASS: progressive text follows audio pause, seek, resume, refresh and full-text preference.');
+}
 async function completeAdventure(page) {
     let decisions = 0, questions = 0;
     for (let step = 0; step < 8; step++) {
@@ -48,6 +84,7 @@ async function completeAdventure(page) {
         await page.getByRole('button', { name: /Ouvir e iniciar cena/ }).click();
         await page.locator('.narration').waitFor();
         assert.ok(await page.locator('audio').evaluate(audio => !audio.paused));
+        if (step === 0) await progressiveText(page);
         await screen(page, `scene-${step}`);
         await page.waitForFunction(() => !!document.querySelector('.question-panel .option:not(:disabled)'), null, { timeout: 90000 });
         await page.locator('.question-panel .option').first().click();
@@ -104,6 +141,10 @@ async function failedStart(body, status) {
         await page.getByRole('dialog').waitFor(); await page.keyboard.press('Escape');
         await start(page); await ready(page);
         await screen(page, `preloading-${width}`);
+        assert.equal(await page.locator('.journey-card').getAttribute('open'), null);
+        await page.locator('.journey-card summary').click();
+        assert.ok(await page.locator('.journey-stop').first().isVisible());
+        await page.locator('.journey-card summary').click();
         if (width === 1440) await completeAdventure(page);
         else {
             await page.reload(); await ready(page);
@@ -160,6 +201,12 @@ async function failedStart(body, status) {
         if (await page.locator('.scene-backdrop .is-animated').count()) {
             assert.equal(await page.locator('.scene-backdrop .is-animated').evaluate(element => getComputedStyle(element).display), 'none');
         }
+        await ready(page);
+        await page.getByRole('button', { name: /Ouvir e iniciar cena/ }).click();
+        await page.waitForFunction(() => {
+            const copy = document.querySelector('.narration-copy'), layout = document.querySelector('.narration-layout');
+            return copy && layout && copy.textContent === layout.textContent;
+        });
         await context.close();
     }
     {
