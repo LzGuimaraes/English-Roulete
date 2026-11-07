@@ -62,7 +62,7 @@ tests/EnglishRoulette.IntegrationTests/ # Concorrência, retomada e constraints 
 infra/                              # PostgreSQL local isolado
 scripts/                            # Preparação do ambiente e narração pré-gravada
 docs/                               # Requisitos e decisões técnicas
-.github/workflows/ci.yml             # Build, testes e formatação
+.github/workflows/deploy.yml         # Build, testes, imagem e deploy na VPS
 EnglishRoulette.sln
 ```
 

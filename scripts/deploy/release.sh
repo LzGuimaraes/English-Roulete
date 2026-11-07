@@ -9,8 +9,12 @@ compose=(docker compose --env-file .env -f compose.production.yaml)
 "${compose[@]}" pull app postgres
 "${compose[@]}" up -d --wait postgres
 mkdir -p "$DEPLOY_ROOT/backups"
-# Keep an on-host pre-migration recovery point; schedule off-host backups separately.
-"${compose[@]}" exec -T postgres sh -c 'pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc' > "$DEPLOY_ROOT/backups/pre-${RELEASE_SHA:?}.dump"
+# Back up existing deployments before migration; the first deployment has no current image.
+if [[ -f "$DEPLOY_ROOT/current-image" ]]; then
+  "${compose[@]}" exec -T postgres \
+    sh -c 'pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc' \
+    > "$DEPLOY_ROOT/backups/pre-${RELEASE_SHA:?}.dump"
+fi
 "${compose[@]}" run --rm --no-deps app --migrate
 # Bootstrap is explicit and never resets an existing password. No demo assets are required.
 set -a

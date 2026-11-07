@@ -1,6 +1,6 @@
 # VPS com Docker Compose e GitHub Actions
 
-O workflow `.github/workflows/ci.yml` executa restore travado, build Release, testes PostgreSQL e formatação. Na `main`, publica a imagem em `ghcr.io/lzguimaraes/english-roulete` com tag do commit e usa seu **digest imutável** no deploy. Pull requests executam somente verificações.
+O workflow `.github/workflows/deploy.yml` executa restore travado, build Release, testes PostgreSQL e formatação. Na `main`, publica a imagem em `ghcr.io/lzguimaraes/english-roulete` com tag do commit e usa seu **digest imutável** no deploy. Pull requests executam somente verificações.
 
 O job de deploy requer `DEPLOY_ENABLED=true` nas **Repository variables** e usa o Environment `production`. Enquanto essa variável não for definida, testes e imagem funcionam sem acessar a VPS. Proteções/aprovações do Environment podem ser configuradas no GitHub conforme seu processo.
 
@@ -59,7 +59,7 @@ Banco e API usam somente redes Docker; nenhuma porta de banco/API é publicada p
 
 `scripts/deploy_vps.py` valida o destino, cria arquivos temporários privados no runner e copia somente Compose, script e configuração para `<VPS_DEPLOY_PATH>/releases/<commit>`. A chave privada fica no runner e é apagada no encerramento do diretório temporário. O checkout inteiro e a mídia local não são enviados.
 
-`release.sh` baixa a imagem por digest, inicia PostgreSQL e faz um `pg_dump` antes das migrations. Executa a imagem com `--migrate` como um comando separado. Esse comando rejeita operações marcadas como destrutivas pelo EF e SQL arbitrário; migrations desse tipo exigem revisão e aplicação explícita antes do deploy. Migrations não rodam durante o startup normal.
+`release.sh` baixa a imagem por digest e inicia PostgreSQL. Quando existe `current-image`, faz um `pg_dump` antes das migrations; o primeiro deploy pula esse backup. Executa a imagem com `--migrate` como um comando separado. Esse comando rejeita operações marcadas como destrutivas pelo EF e SQL arbitrário; migrations desse tipo exigem revisão e aplicação explícita antes do deploy. Migrations não rodam durante o startup normal.
 
 Depois, provisiona ADMIN com `--bootstrap-admin`, sem resetar senha de usuário existente e **sem sintetizar/importar conteúdo demo na produção**. O primeiro catálogo estará vazio; cadastre histórias pelo `/admin`. Não precisa instalar eSpeak na imagem de produção.
 
