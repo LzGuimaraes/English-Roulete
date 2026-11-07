@@ -12,7 +12,8 @@ Em **Settings → Secrets and variables → Actions**, adicione:
 |---|---|
 | `VPS_HOST` | `203.0.113.10` — IP ou hostname da VPS |
 | `VPS_USER` | `deploy` — usuário SSH com acesso ao Docker e ao diretório de deploy |
-| `VPS_SSH_KEY` | Conteúdo completo da chave privada SSH dedicada ao deploy, sem passphrase |
+| `VPS_SSH_KEY` | Conteúdo completo da chave privada SSH dedicada ao deploy |
+| `VPS_SSH_PASSPHRASE` | Passphrase da chave privada; deixe ausente se a chave não for protegida |
 | `VPS_KNOWN_HOSTS` | Linha completa de known_hosts da VPS, verificada por canal confiável |
 | `VPS_ENV_FILE` | Conteúdo completo do exemplo abaixo, com valores reais |
 | `VPS_REGISTRY_TOKEN` | Opcional: token GitHub com `read:packages` para imagem privada |
@@ -83,7 +84,7 @@ Antes de conectar, `python3 scripts/deploy_vps.py --check` valida presença e fo
 
 Na VPS, cada etapa registra horário e nome: configuração Compose, download, PostgreSQL, backup, migrations, administrador e healthcheck. Em falhas, coleta status, últimas 80 linhas dos serviços e somente os campos de estado/saúde dos containers. Não executa dump de ambiente, `set -x`, `docker compose config` completo ou `docker inspect` completo. Mensagens da aplicação devem continuar sem credenciais; o mascaramento é uma proteção adicional.
 
-`Permission denied (publickey,password)` indica autenticação SSH recusada. Confira `VPS_USER` e se a chave pública correspondente a `VPS_SSH_KEY` está no `~/.ssh/authorized_keys` desse usuário. A chave privada deve ser válida, sem passphrase e com quebras de linha reais. O deploy não consegue corrigir a autorização da VPS quando o acesso SSH já foi recusado.
+`Permission denied (publickey,password)` indica autenticação SSH recusada. Confira `VPS_USER` e se a chave pública correspondente a `VPS_SSH_KEY` está no `~/.ssh/authorized_keys` desse usuário. A chave privada deve ser válida e ter quebras de linha reais. Se for protegida, cadastre sua passphrase em `VPS_SSH_PASSPHRASE`. O script desbloqueia somente a cópia temporária no runner usando SSH_ASKPASS; a passphrase fica no ambiente e não é passada nos argumentos ou gravada no helper. A chave original permanece protegida. O deploy não consegue corrigir a autorização da VPS quando o acesso SSH já foi recusado.
 
 ## Validação e fontes
 

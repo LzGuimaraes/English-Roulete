@@ -54,6 +54,7 @@ def checked(name, pattern):
 
 
 def configuration():
+    mask(os.environ.get("VPS_SSH_PASSPHRASE", ""))
     required = ["VPS_HOST", "VPS_USER", "VPS_SSH_KEY", "VPS_KNOWN_HOSTS", "VPS_ENV_FILE", "APP_IMAGE", "RELEASE_SHA"]
     missing = [name for name in required if not os.environ.get(name, "").strip()]
     if missing:
@@ -137,9 +138,20 @@ def main():
         known = private / "known_hosts"
         known.write_text(os.environ["VPS_KNOWN_HOSTS"] + "\n")
         with stage("Validate SSH key and pinned host"):
+            if os.environ.get("VPS_SSH_PASSPHRASE"):
+                askpass = private / "askpass.sh"
+                askpass.write_text("#!/bin/sh\nprintf '%s\\n' \"$VPS_SSH_PASSPHRASE\"\n")
+                askpass.chmod(0o700)
+                key_env = os.environ.copy()
+                key_env.update(SSH_ASKPASS=str(askpass), SSH_ASKPASS_REQUIRE="force", DISPLAY="deploy:0")
+                result = subprocess.run(["ssh-keygen", "-p", "-N", "", "-f", str(key)], env=key_env,
+                                        stdin=subprocess.DEVNULL, capture_output=True, start_new_session=True)
+                if result.returncode:
+                    raise ConfigurationError("Could not unlock VPS_SSH_KEY. Check VPS_SSH_PASSPHRASE.")
+                key.chmod(0o600)
             result = subprocess.run(["ssh-keygen", "-y", "-P", "", "-f", str(key)], capture_output=True)
             if result.returncode:
-                raise ConfigurationError("VPS_SSH_KEY must be a valid private key without a passphrase and with real line breaks.")
+                raise ConfigurationError("VPS_SSH_KEY must be a valid private key with real line breaks. For an encrypted key, set VPS_SSH_PASSPHRASE.")
             lookup = f"[{host}]:{port}" if int(port) != 22 else host
             result = subprocess.run(["ssh-keygen", "-F", lookup, "-f", str(known)], capture_output=True)
             if result.returncode:

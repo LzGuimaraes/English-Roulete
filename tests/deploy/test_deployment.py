@@ -93,6 +93,26 @@ class ConfigurationTests(unittest.TestCase):
                 with self.assertRaisesRegex(deploy.ConfigurationError, "VPS_KNOWN_HOSTS"):
                     deploy.main()
 
+    def test_check_unlocks_encrypted_copy_and_rejects_wrong_passphrase(self):
+        with tempfile.TemporaryDirectory() as directory:
+            key = Path(directory) / "key"
+            phrase = "Fixture-only-passphrase"
+            subprocess.run(["ssh-keygen", "-q", "-t", "ed25519", "-N", phrase, "-f", str(key)], check=True)
+            original = key.read_text()
+            values = settings(); values["PATH"] = os.environ["PATH"]
+            values["VPS_SSH_KEY"] = original
+            values["VPS_SSH_PASSPHRASE"] = phrase
+            values["VPS_KNOWN_HOSTS"] = "example.invalid " + key.with_suffix(".pub").read_text()
+            with patch.dict(os.environ, values, clear=True), patch("sys.argv", ["deploy_vps.py", "--check"]), redirect_stdout(io.StringIO()) as output:
+                deploy.main()
+            self.assertIn("no VPS connection attempted", output.getvalue())
+            self.assertNotIn(phrase, output.getvalue())
+            self.assertEqual(key.read_text(), original)
+            values["VPS_SSH_PASSPHRASE"] = "incorrect-fixture-passphrase"
+            with patch.dict(os.environ, values, clear=True), patch("sys.argv", ["deploy_vps.py", "--check"]), redirect_stdout(io.StringIO()):
+                with self.assertRaisesRegex(deploy.ConfigurationError, "VPS_SSH_PASSPHRASE"):
+                    deploy.main()
+
 
 class ReleaseTests(unittest.TestCase):
     def release(self, existing=False, failure=""):
