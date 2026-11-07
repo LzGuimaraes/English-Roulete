@@ -1,11 +1,15 @@
 using System.Net;
 using System.Net.Http.Json;
 using EnglishRoulette.Contracts;
+using EnglishRoulette.Contracts.Admin;
 
 namespace EnglishRoulette.Web.Services;
 
 public sealed class AdventureClient(HttpClient http)
 {
+    public async Task<List<PublicStoryView>> CatalogAsync(CancellationToken token) =>
+        await http.GetFromJsonAsync<List<PublicStoryView>>("api/catalog", token) ?? [];
+
     public async Task<AdventureView?> GetAsync(CancellationToken cancellationToken)
     {
         using var response = await http.GetAsync("api/demo/session", cancellationToken);
@@ -14,9 +18,9 @@ public sealed class AdventureClient(HttpClient http)
         return await response.Content.ReadFromJsonAsync<AdventureView>(cancellationToken);
     }
 
-    public async Task<AdventureView?> CreateAsync(CancellationToken cancellationToken)
+    public async Task<AdventureView?> CreateAsync(Guid? versionId, CancellationToken cancellationToken)
     {
-        using var response = await http.PostAsJsonAsync("api/demo/session", new { }, cancellationToken);
+        using var response = await http.PostAsJsonAsync("api/demo/session", new CreateAdventureRequest(versionId), cancellationToken);
         response.EnsureSuccessStatusCode();
         return await ReadAsync(response, cancellationToken);
     }

@@ -14,5 +14,6 @@ builder.Services.AddScoped(_ =>
     return client;
 });
 builder.Services.AddScoped<AdventureClient>();
+builder.Services.AddScoped<AdminClient>();
 
 await builder.Build().RunAsync();

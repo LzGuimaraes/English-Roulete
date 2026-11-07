@@ -2,7 +2,7 @@
 
 Jogo de compreensão de inglês com histórias narradas, perguntas e decisões de caminho. Stack planejada: .NET 10, ASP.NET Core, Blazor WebAssembly e PostgreSQL.
 
-**Já existe uma demonstração local com narração e progresso salvo no PostgreSQL**, em Blazor WebAssembly + ASP.NET Core, com três cenas por percurso e dois finais. O motor valida cenas, respostas, prazos e comandos idempotentes; a aventura pode ser retomada após reiniciar a API. Pontuação e XP ainda dependem de validação. Os documentos em `docs/` descrevem o produto planejado; nem todo requisito já foi implementado.
+**Já existe um jogo local com login administrativo, catálogo editorial, narração e progresso salvo no PostgreSQL**, em Blazor WebAssembly + ASP.NET Core, com três cenas por percurso e dois finais. O motor valida cenas, respostas, prazos e comandos idempotentes; a aventura pode ser retomada após reiniciar a API. Pontuação e XP ainda dependem de validação. Os documentos em `docs/` descrevem o produto planejado; nem todo requisito já foi implementado.
 
 ## Experimentar no navegador
 
@@ -15,9 +15,15 @@ python3 scripts/dev.py run
 
 Abra **http://localhost:5080** e clique em **Começar minha aventura**. Depois escolha **Ouvir e iniciar cena**: ouça a narração, responda e escolha um caminho na livraria. Recarregar a página ou reiniciar a API preserva o progresso enquanto o cookie do navegador e o volume PostgreSQL forem mantidos. O prazo de uma pergunta aberta continua correndo.
 
-`setup` cria credenciais locais fora do Git, inicia somente o PostgreSQL deste projeto em `127.0.0.1:55432`, aplica a migration inicial e gera os arquivos WAV em `media/` (ignorado pelo Git). Não altera o PostgreSQL do sistema. Caso o SDK 10 não seja o padrão, configure `DOTNET_HOST_PATH` com o caminho do executável adequado.
+`setup` cria credenciais locais fora do Git, inicia somente o PostgreSQL deste projeto em `127.0.0.1:55432`, aplica as migrations, provisiona a conta administrativa local e gera os arquivos WAV em `media/` (ignorado pelo Git). Não altera o PostgreSQL do sistema. Caso o SDK 10 não seja o padrão, configure `DOTNET_HOST_PATH` com o caminho do executável adequado.
 
-Consulte [LOCAL_DEMO.md](docs/LOCAL_DEMO.md) para o fluxo de teste, contratos e limites. Os endpoints da demonstração ficam habilitados somente no ambiente `Development`.
+Consulte [LOCAL_DEMO.md](docs/LOCAL_DEMO.md) para o fluxo de teste, contratos e limites. As rotas do jogo e do catálogo funcionam em todos os ambientes; a rota legada de áudio por hash fica restrita a `Development`.
+
+## Administrar histórias
+
+Abra **http://localhost:5080/admin**. Use `ADMIN_EMAIL` e `ADMIN_PASSWORD` do arquivo privado `infra/.env`. O painel permite criar histórias, cenas, perguntas, caminhos e narrações, simular o percurso e publicar versões sem alterar o código. Conteúdo publicado é imutável; duplique para editar uma nova versão.
+
+Para atualizar um ambiente existente, execute `python3 scripts/dev.py migrate` e `python3 scripts/dev.py admin`. Consulte [ADMIN.md](docs/ADMIN.md) para acesso, recuperação de senha, publicação e limites de áudio.
 
 ## Executar as verificações
 
@@ -38,8 +44,8 @@ Para incluir os testes PostgreSQL localmente após `setup`, execute `python3 scr
 
 ```text
 src/EnglishRoulette.Domain/          # Conteúdo, regras e sessão Solo Adventure
-src/EnglishRoulette.Application/     # Coordenação com relógio do servidor
-src/EnglishRoulette.Contracts/       # DTOs públicos sem gabaritos
+src/EnglishRoulette.Application/     # Coordenação, contratos e validação editorial
+src/EnglishRoulette.Contracts/       # DTOs de jogo e contratos editoriais restritos a ADMIN
 src/EnglishRoulette.Infrastructure/  # EF Core, PostgreSQL, migrations e validação WAV
 src/EnglishRoulette.Api/             # Host HTTP, credenciais opacas e mídia publicada
 src/EnglishRoulette.Web/             # Interface Blazor WebAssembly
@@ -66,7 +72,7 @@ Consulte [DEVELOPMENT.md](docs/DEVELOPMENT.md), [SOLO_SESSION.md](docs/SOLO_SESS
 
 **Story → Scene → Narration → Question → Answer → Next Scene** no modo Solo Adventure.
 
-A engine permanece independente da interface. A prévia Blazor consome a sessão via REST, o servidor persiste checkpoints e o navegador reproduz arquivos WAV publicados. Catálogo editorial completo, pontuação aprovada, progressão e multiplayer continuam nos próximos incrementos.
+A engine permanece independente da interface. A prévia Blazor consome a sessão via REST, o servidor persiste checkpoints e o navegador reproduz arquivos WAV publicados. Login administrativo e catálogo editorial já estão disponíveis. Pontuação aprovada, progressão, contas de jogadores e multiplayer continuam nos próximos incrementos.
 
 ## Arquivos de implementação futuros
 

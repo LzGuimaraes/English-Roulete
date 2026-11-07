@@ -1,4 +1,5 @@
 @page "/"
+@using EnglishRoulette.Contracts.Admin
 @using EnglishRoulette.Contracts
 @using EnglishRoulette.Web.Components
 @using EnglishRoulette.Web.Services
@@ -22,10 +23,15 @@
             <div class="welcome-copy">
                 <div class="eyebrow"><span class="small-line"></span> APRENDA INGLÊS. VIVA UMA HISTÓRIA.</div>
                 <h1>Uma história.<br />Seu próximo<br /><em>caminho.</em></h1>
-                <p class="lead">Um caderno perdido. Uma cidade cheia de pistas.<br class="desktop-break" /> E você no centro da aventura.</p>
+                <p class="lead">Escolha uma história. Descubra novas palavras.<br class="desktop-break" /> E encontre seu próprio caminho.</p>
                 <p class="intro">Ouça e leia em inglês, descubra o que aconteceu e escolha como a história termina. Um capítulo de cada vez.</p>
-                <div class="story-meta"><span>A2 · Inglês básico</span><span>3 cenas</span><span>2 finais possíveis</span></div>
-                <button class="primary start-button" disabled="@_busy" @onclick="CreateAsync">@(_busy ? "Preparando…" : "Começar minha aventura") <span aria-hidden="true">↗</span></button>
+                @if (_catalog.Count > 0)
+                {
+                    <label class="catalog-select">Sua próxima história<select @bind="_selectedVersion">@foreach (var story in _catalog) { <option value="@story.Id">@story.Title · @story.Difficulty</option> }</select></label>
+                    @if (SelectedStory is { } selected) { <p class="catalog-synopsis">@selected.Synopsis</p><div class="story-meta"><span>@selected.Difficulty · @selected.Genre</span><span>@selected.SceneCount cenas no catálogo</span></div> }
+                }
+                else { <p class="hint">Novas histórias estão sendo preparadas. Volte em breve.</p> }
+                <button class="primary start-button" disabled="@(_busy || _catalog.Count == 0)" @onclick="CreateAsync">@(_busy ? "Preparando…" : "Começar minha aventura") <span aria-hidden="true">↗</span></button>
                 <p class="hint">Sem cadastro. Só você e uma boa história.</p>
             </div>
             <NotebookArt />
@@ -39,13 +45,12 @@
     else
     {
         <section class="adventure-heading">
-            <div><div class="eyebrow">YOUR SOLO ADVENTURE · A2</div><h1>@_state.Title</h1></div>
-            <button class="text-button" disabled="@_busy" @onclick="CreateAsync">Recomeçar ↻</button>
+            <div><div class="eyebrow">YOUR SOLO ADVENTURE</div><h1>@_state.Title</h1></div>
+            <div><button class="text-button" disabled="@_busy" @onclick="CreateAsync">Recomeçar ↻</button><button class="text-button" disabled="@_busy" @onclick="BackToCatalogAsync">Outras histórias</button></div>
         </section>
         <div class="game-grid">
             <article class="story-card">
-                <div class="chapter-heading"><span class="section-label">CAPÍTULO @_state.SceneNumber DE 3</span><span class="phase-badge">@(_state.Phase == "QuestionOpen" ? $"{RemainingSeconds}s para responder" : PhaseLabel)</span></div>
-                <div class="chapter-progress" aria-label="Cena @_state.SceneNumber de 3">@for (var i = 1; i <= 3; i++) { <span class="@(i <= _state.SceneNumber ? "done" : "")"></span> }</div>
+                <div class="chapter-heading"><span class="section-label">CENA @_state.SceneNumber DO SEU CAMINHO</span><span class="phase-badge">@(_state.Phase == "QuestionOpen" ? $"{RemainingSeconds}s para responder" : PhaseLabel)</span></div>
                 <h2>@_state.SceneTitle</h2>
                 @if (_state.Audio is { } audio && _state.Phase != "StoryResult")
                 {
@@ -58,7 +63,7 @@
                 }
                 else if (_state.Phase == "StoryResult")
                 {
-                    <div class="ending"><span class="ending-icon" aria-hidden="true">✦</span><div class="section-label">THE END · OU UM NOVO COMEÇO</div><h2>Você encontrou Nora.<br />E uma nova história.</h2><p>Um pequeno gesto transformou a noite de Mia. Seu caminho terminou @(_state.SceneKey == "cafe" ? "com um chocolate quente à beira do rio." : "com uma história compartilhada na biblioteca.")</p><div class="ending-stats"><span>3 cenas exploradas</span><span>1 final descoberto</span></div><button class="primary" disabled="@_busy" @onclick="CreateAsync">Descobrir o outro caminho ↗</button></div>
+                    <div class="ending"><span class="ending-icon" aria-hidden="true">✦</span><div class="section-label">THE END · OU UM NOVO COMEÇO</div><h2>Você completou<br />esta história.</h2><p>Cada cena trouxe novas palavras e descobertas. Continue explorando outros caminhos.</p><div class="ending-stats"><span>@_state.SceneNumber cenas exploradas</span><span>1 final descoberto</span></div><button class="primary" disabled="@_busy" @onclick="CreateAsync">Jogar novamente ↗</button></div>
                 }
                 else
                 {
@@ -67,15 +72,16 @@
                     <QuestionPanel State="_state" Busy="_busy" OnAnswer="AnswerAsync" OnContinue="ContinueAsync" />
                     @if (_state.Phase == "DecisionOpen")
                     {
-                        <section class="decision"><div class="section-label">SUA HISTÓRIA, SUA ESCOLHA</div><h2>Onde vamos procurar Nora?</h2><p>Não existe resposta errada. Siga sua curiosidade.</p>@foreach (var choice in _state.Choices) { <button class="choice" disabled="@_busy" @onclick="() => ChooseAsync(choice.Key)">@choice.Label <span aria-hidden="true">→</span></button> }</section>
+                        <section class="decision"><div class="section-label">SUA HISTÓRIA, SUA ESCOLHA</div><h2>Qual será seu próximo caminho?</h2><p>Não existe resposta errada. Siga sua curiosidade.</p>@foreach (var choice in _state.Choices) { <button class="choice" disabled="@_busy" @onclick="() => ChooseAsync(choice.Key)">@choice.Label <span aria-hidden="true">→</span></button> }</section>
                     }
                 }
             </article>
             <aside class="journey-card">
-                <span class="section-label">SEU PEQUENO GRANDE PASSEIO</span>
-                <div class="journey-stop"><span class="journey-dot active"></span><div><strong>A estação</strong><small>Um encontro inesperado</small></div></div>
-                <div class="journey-stop"><span class="journey-dot @(_state.SceneNumber >= 2 ? "active" : "")"></span><div><strong>A livraria</strong><small>Uma pista, dois caminhos</small></div></div>
-                <div class="journey-stop"><span class="journey-dot @(_state.SceneNumber >= 3 ? "active" : "")"></span><div><strong>@(_state.SceneKey == "library" ? "A biblioteca" : _state.SceneKey == "cafe" ? "O café" : "Seu próximo destino")</strong><small>O final que você escolheu</small></div></div>
+                <span class="section-label">SEU CAMINHO ATÉ AQUI</span>
+                @foreach (var scene in _state.VisitedScenes ?? [])
+                {
+                    <div class="journey-stop"><span class="journey-dot active"></span><div><strong>@scene.Title</strong><small>@(scene.Key == _state.SceneKey ? "Você está aqui" : "Cena explorada")</small></div></div>
+                }
                 @if (_state.Phase == "QuestionOpen") { <div class="timer" role="timer" aria-label="Tempo restante"><strong>@RemainingSeconds<span>s</span></strong><small>para seguir esta pista</small></div> }
                 else { <blockquote>“Every new word<br />opens a new door.”</blockquote> }
                 <p class="journey-hint">Não precisa entender cada palavra. Procure o sentido da história.</p>
@@ -83,11 +89,15 @@
         </div>
     }
 </main>
-<footer><span>Uma pequena aventura. Um pouco mais de inglês.</span><span>Listening + reading · seu progresso fica salvo</span></footer>
+<footer><span>Uma pequena aventura. Um pouco mais de inglês.</span><span>Listening + reading · seu progresso fica salvo · <a href="/admin">Administração</a></span></footer>
 
 @code {
     private readonly CancellationTokenSource _lifetime = new();
     private AdventureView? _state;
+    private List<PublicStoryView> _catalog = [];
+    private Guid? _selectedVersion;
+    private bool _browsing;
+    private PublicStoryView? SelectedStory => _catalog.FirstOrDefault(story => story.Id == _selectedVersion);
     private Task? _pollTask;
     private bool _loading = true;
     private bool _busy;
@@ -107,6 +117,8 @@
 
     protected override async Task OnInitializedAsync()
     {
+        try { _catalog = await Client.CatalogAsync(_lifetime.Token); _selectedVersion = _catalog.FirstOrDefault()?.Id; }
+        catch (HttpRequestException) { _error = "Não foi possível carregar as histórias."; }
         await RefreshAsync();
         _loading = false;
         _pollTask = PollAsync();
@@ -125,12 +137,23 @@
         try
         {
             var state = await Client.GetAsync(_lifetime.Token);
-            if (generation == _generation && !_busy) { SetState(state); _error = null; }
+            if (generation == _generation && !_busy && !_browsing) { SetState(state); _error = null; }
         }
         catch (HttpRequestException) { _error = "Não foi possível conectar à aventura. Tente novamente."; }
     }
 
-    private async Task CreateAsync() => await PerformAsync(() => Client.CreateAsync(_lifetime.Token));
+    private async Task CreateAsync()
+    {
+        _browsing = false;
+        await PerformAsync(() => Client.CreateAsync(_state?.StoryVersionId ?? _selectedVersion, _lifetime.Token));
+    }
+    private async Task BackToCatalogAsync()
+    {
+        if (_narrator is not null) { await _narrator.StopAsync(); }
+        _browsing = true; _generation++; SetState(null);
+        try { _catalog = await Client.CatalogAsync(_lifetime.Token); _selectedVersion = _catalog.FirstOrDefault()?.Id; }
+        catch (HttpRequestException) { _error = "Não foi possível carregar as histórias."; }
+    }
     private void AudioReady(bool ready) => _audioReady = ready;
     private async Task StartAsync()
     {

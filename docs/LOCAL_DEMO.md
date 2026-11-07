@@ -1,6 +1,6 @@
 # Demonstração local com narração e PostgreSQL
 
-A prévia conecta o motor solo a uma interface Blazor WebAssembly, arquivos de narração e checkpoints PostgreSQL. É um incremento jogável de CA-000; pontuação, XP e catálogo editorial completo continuam pendentes.
+A prévia conecta o motor solo a uma interface Blazor WebAssembly, arquivos de narração e checkpoints PostgreSQL. É um incremento jogável de CA-000; pontuação e XP continuam pendentes. O login e o catálogo editorial estão descritos em [ADMIN.md](ADMIN.md).
 
 ## Preparar e executar
 
@@ -13,7 +13,7 @@ python3 scripts/dev.py run
 
 Abra **http://localhost:5080**. A API e o frontend usam a mesma origem. O perfil `http` configura Development e escuta somente no computador local. Ctrl+C encerra a API; o banco e o progresso continuam no volume do Docker.
 
-`setup` gera `infra/.env` com uma senha aleatória (sem imprimi-la), sobe somente o container `englishroulette-postgres-1`, cria um banco separado para testes, restaura a ferramenta EF, aplica a migration inicial e prepara a narração. Não acessa o PostgreSQL do sistema. Para selecionar um SDK fora do PATH, use `DOTNET_HOST_PATH=/caminho/para/dotnet`.
+`setup` gera `infra/.env` com uma senha aleatória (sem imprimi-la), sobe somente o container `englishroulette-postgres-1`, cria um banco separado para testes, restaura a ferramenta EF, aplica as migrations, prepara a narração e provisiona o administrador. Não acessa o PostgreSQL do sistema. Para selecionar um SDK fora do PATH, use `DOTNET_HOST_PATH=/caminho/para/dotnet`.
 
 Comandos adicionais:
 
@@ -26,7 +26,7 @@ python3 scripts/dev.py run --no-build  # Executar o build Release já existente
 
 ## Jogar e testar retomada
 
-1. Clique em **Começar minha aventura** e aguarde o aviso **Áudio pronto**.
+1. Escolha uma história publicada e clique em **Começar minha aventura** e aguarde o aviso **Áudio pronto**.
 2. Escolha **Ouvir e iniciar cena**. O clique libera a reprodução no navegador; o servidor define o prazo pela duração do arquivo mais 2 segundos de margem.
 3. Ouça em inglês e acompanhe o texto. A pergunta abre após essa janela, sem depender de `audio.ended` enviado pelo cliente.
 4. Responda em até 20 segundos e confira a explicação. Na livraria, escolha café ou biblioteca; cada percurso tem três cenas.
@@ -41,9 +41,9 @@ A história original está em `Api/Demo/story.json`, como recurso **somente do s
 
 `python3 scripts/generate_demo_audio.py` prepara WAVs offline com eSpeak NG en-us. São vozes sintéticas de demonstração, sem geração durante o jogo, serviços de IA ou dependências JavaScript externas. Arquivos e `media/manifest.json` ficam fora do Git, em diretório dedicado. A geração verifica assets existentes e não sobrescreve uma narração publicada com conteúdo diferente.
 
-A API valida hash SHA-256, tamanho e estrutura PCM WAV antes de disponibilizar os arquivos. A duração vem da quantidade de frames; não é um número estimado pelo frontend. Os URLs contêm o hash do arquivo e recebem cache imutável. A entrega suporta HTTP Range; hashes ausentes retornam 404, sem expor diretórios ou rascunhos.
+A API valida hash SHA-256, tamanho e estrutura PCM WAV antes de disponibilizar os arquivos. A duração vem da quantidade de frames; não é um número estimado pelo frontend. O catálogo guarda hashes dos arquivos e entrega mídia publicada por identificador. A rota legada por hash permanece disponível em Development. A entrega suporta HTTP Range; hashes ausentes retornam 404, sem expor diretórios ou rascunhos.
 
-O caminho padrão é `media/` na raiz do checkout. É possível configurar `Media__Root` para um volume externo contendo o mesmo manifesto e subdiretório `audio`. Na evolução editorial, narrações revisadas e metadados completos substituirão a preparação de desenvolvimento.
+O caminho padrão é `media/` na raiz do checkout. É possível configurar `Media__Root` para um volume externo contendo o mesmo manifesto e subdiretório `audio`. O painel já permite enviar narrações revisadas para outras histórias e versões.
 
 ## Código
 
@@ -68,9 +68,11 @@ O navegador recebe apenas Web e Contracts. Domain, Infrastructure, gabaritos e c
 | GET | `/api/demo/session` | Snapshot da aventura associada ao cookie |
 | POST | `/api/demo/session` | Nova aventura, revogando a credencial anterior |
 | POST | `/api/demo/commands` | `start`, `answer`, `continue` ou `choose` |
+| GET | `/api/catalog` | Histórias publicadas disponíveis para novas aventuras |
+| GET | `/media/catalog/{id}` | Áudio editorial já publicado, com Range |
 | GET | `/media/audio/{hash}.wav` | Apenas áudio do manifesto publicado, com Range |
 
-Os endpoints de demonstração e mídia ficam habilitados somente em Development. Comandos incluem RequestId e ExpectedStateVersion; respostas também citam a instância da pergunta. Regra violada retorna ProblemDetails/409; entrada inválida, 400; mídia indisponível, 503.
+As rotas de sessão, catálogo e mídia editorial funcionam em todos os ambientes; somente a rota legada `/media/audio/{hash}.wav` exige Development. Comandos incluem RequestId e ExpectedStateVersion; respostas também citam a instância da pergunta. Regra violada retorna ProblemDetails/409; entrada inválida, 400; mídia indisponível, 503.
 
 O cookie aleatório é HttpOnly, SameSite=Strict e restrito a `/api/demo`, com duração de 30 dias. Somente o hash da credencial fica no banco. O cookie é Secure sob HTTPS; a prévia local usa HTTP em loopback. POST exige o cabeçalho customizado `X-English-Roulette: demo`; não há CORS permissivo. Snapshots usam `Cache-Control: no-store`.
 
@@ -82,6 +84,6 @@ Veja os comandos no README e o desenho transacional em [PERSISTENCE.md](PERSISTE
 
 Para QA visual, percorra os dois finais, experimente uma resposta errada e um timeout, confira o cronômetro no celular e teste retomada após reiniciar a API. Bloquear a URL de áudio nas ferramentas do navegador deve exibir recuperação de mídia e impedir o início até o carregamento funcionar.
 
-Ainda faltam catálogo/painel editorial, autenticação definitiva, retenção, worker de prazos, tabelas analíticas, pontuação aprovada e multiplayer. A solução atual persiste snapshots completos; não apresenta o modelo relacional planejado como se já estivesse implementado.
+O painel editorial e a autenticação ADMIN já estão disponíveis. Ainda faltam contas de jogadores, retenção, worker de prazos, tabelas analíticas, pontuação aprovada e multiplayer. O catálogo é relacional; o histórico de cada partida continua em checkpoints JSONB.
 
 Referências: [arquivos estáticos do Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/static-files), [API de síntese offline do eSpeak NG](https://github.com/espeak-ng/espeak-ng/blob/master/src/include/espeak-ng/speak_lib.h).

@@ -31,7 +31,7 @@ O fluxo testado é `GetInitialScene → Evaluate → GetNextScene`, repetido at�
 
 `ValidateForPlay` rejeita rascunhos, destinos ausentes, cenas de outra versão, cenas desconectadas, finais com saídas, cenas não finais sem saídas e qualquer caminho sem possibilidade de atingir um final. As chaves são comparadas exatamente, com diferenciação entre maiúsculas e minúsculas.
 
-Os construtores fazem cópias defensivas e expõem coleções somente de leitura. O checkpoint PostgreSQL também congela a definição completa usada pela sessão; catálogo editorial e publicação de novas versões permanecem pendentes.
+Os construtores fazem cópias defensivas e expõem coleções somente de leitura. O checkpoint PostgreSQL também congela a definição completa usada pela sessão; novas versões podem ser publicadas pelo [painel editorial](ADMIN.md), preservando as anteriores.
 
 O gabarito e a explicação não são propriedades públicas do desafio. Mesmo assim, entidades Domain **não devem ser serializadas pela futura API**: ela usará DTOs próprios. O avaliador entrega a explicação ao código servidor que o chamou; a camada de aplicação ainda deverá controlar quando revelá-la.
 
@@ -49,17 +49,17 @@ A demonstração local é preparada com `python3 scripts/dev.py setup` e iniciad
 
 ## Limites e decisões pendentes
 
-- A validação implementada é **estrutural**, não um serviço completo de publicação. Direitos, revisão editorial, áudio, existência de mídia, dificuldade e metadados serão verificados quando catálogo e mídia forem implementados.
+- A validação implementada é **estrutural**, não um serviço completo de publicação. Direitos, revisão editorial, áudio, integridade de mídia, dificuldade e metadados são verificados pela camada editorial, descrita em [ADMIN.md](ADMIN.md).
 - A sessão acrescentada no segundo incremento controla proprietário, fase, versão do estado e comandos idempotentes antes de navegar. A API futura deverá autenticar o convidado; informar um `PlayerId` não comprova identidade.
-- Prazos, retomada persistente, cookie opaco e concorrência entre instâncias já funcionam na prévia. Pontuação, XP, eventos, catálogo editorial completo e multiplayer ainda não foram implementados.
-- `DECISION NEEDED`: política de ciclos intencionais e limite de cenas percorridas (RF-010). O validador atual garante que todas as cenas tenham uma rota para um final, mas permite ciclos que tenham saída. Antes de publicar conteúdo real, definir como impedir percursos infinitos durante uma sessão.
+- Prazos, retomada persistente, cookie opaco e concorrência entre instâncias já funcionam na prévia. Login ADMIN e catálogo editorial também estão implementados. Pontuação, XP, eventos de jogo e multiplayer ainda não foram implementados.
+- `DECISION NEEDED`: política de ciclos intencionais e limite de cenas percorridas (RF-010). O validador atual garante que todas as cenas tenham uma rota para um final, mas permite ciclos que tenham saída. A publicação V1 rejeita ciclos conforme `DATABASE.md`; ciclos intencionais continuam sendo uma decisão para versões futuras.
 - `DECISION NEEDED`: confirmar as tabelas de pontuação, bônus e XP propostas antes de implementá-las; este incremento não aplica nenhuma dessas fórmulas.
 
 ## Próximos incrementos
 
 1. Validar fórmulas de pontuação e XP antes de implementá-las.
-2. Evoluir checkpoint e credencial local para o catálogo e histórico relacional, mantendo compatibilidade das sessões salvas.
-3. Adicionar painel editorial, upload/revisão de áudio e publicação com licenças e metadados completos.
+2. Evoluir o histórico relacional de partidas mantendo os checkpoints e a compatibilidade das sessões salvas.
+3. Evoluir o painel editorial e o pipeline de mídia conforme o uso real.
 4. Acrescentar worker de prazos, retenção e contratos HTTP de produção.
 5. Reutilizar o motor em Practice e depois em multiplayer.
 

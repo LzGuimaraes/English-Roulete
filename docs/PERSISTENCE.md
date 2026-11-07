@@ -46,7 +46,7 @@ Cobertura: nova instância recupera pergunta e deadline; recibo resiste ao round
 
 ## Limites deste incremento
 
-O catálogo editorial e as tabelas normalizadas de perguntas, respostas, decisões e recompensas de `DATABASE.md` continuam planejados. A consistência atual de respostas é protegida pelo agregado e pela revisão atômica do checkpoint; ainda não existem índices relacionais por pergunta/jogador nem consultas analíticas desse histórico.
+O catálogo editorial normalizado e Identity foram acrescentados pela migration `AdminIdentityAndCatalog`; veja [ADMIN.md](ADMIN.md). As tabelas analíticas de perguntas respondidas, decisões e recompensas de `DATABASE.md` continuam planejadas. A consistência atual de respostas é protegida pelo agregado e pela revisão atômica do checkpoint; ainda não existem índices relacionais por pergunta/jogador nem consultas analíticas desse histórico.
 
 Prazos vencidos são aplicados no próximo snapshot/comando; ainda não há worker de varredura. Retenção, expiração no banco e idempotência da criação de aventura permanecem para a evolução. Nenhuma pontuação ou recompensa foi introduzida.
 

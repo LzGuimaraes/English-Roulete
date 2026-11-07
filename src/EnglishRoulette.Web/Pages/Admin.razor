@@ -1,0 +1,112 @@
+@page "/admin"
+@using EnglishRoulette.Contracts.Admin
+@using EnglishRoulette.Web.Components.Admin
+@using EnglishRoulette.Web.Services
+@implements IDisposable
+@inject AdminClient Client
+@inject IJSRuntime JS
+
+<PageTitle>Administração — English Roulette</PageTitle>
+<div class="admin-shell">
+    <header class="admin-header"><a class="brand" href="/"><span class="brand-mark">e.</span><span>english<span class="brand-light">roulette</span></span></a><span class="preview-badge">Estúdio de histórias</span></header>
+    @if (_loading) { <main class="admin-main"><p role="status">Abrindo o painel…</p></main> }
+    else if (_user is null)
+    {
+        <main class="admin-login"><div class="eyebrow">ACESSO RESTRITO</div><h1>O próximo capítulo<br />começa aqui.</h1><p>Entre para cuidar das histórias, perguntas e narrações.</p>
+            <form @onsubmit="LoginAsync" @onsubmit:preventDefault>
+                <label>E-mail<input type="email" autocomplete="username" required maxlength="256" @bind="_email" /></label>
+                <label>Senha<input type="password" autocomplete="current-password" required @bind="_password" /></label>
+                @if (_error is not null) { <div class="admin-error" role="alert">@_error</div> }
+                <button class="primary" type="submit" disabled="@_busy">@(_busy ? "Entrando…" : "Entrar no estúdio") →</button>
+            </form><a class="text-button" href="/">Voltar para as aventuras</a>
+        </main>
+    }
+    else
+    {
+        <div class="admin-frame"><aside class="admin-nav"><div class="section-label">SEU ESTÚDIO</div><button class="@(_section == "catalog" ? "active" : "")" @onclick="ShowCatalogAsync">Histórias e versões</button><button class="@(_section == "account" ? "active" : "")" @onclick="ShowAccount">Minha conta</button><a href="/" target="_blank" rel="noopener">Abrir o jogo ↗</a><div class="admin-identity"><small>@_user.Email</small><button @onclick="LogoutAsync" disabled="@_busy">Sair da conta</button></div></aside>
+            <main class="admin-main">
+                @if (_error is not null) { <div class="admin-error" role="alert">@_error</div> }
+                @if (_section == "account")
+                {
+                    <div class="eyebrow">MINHA CONTA</div><h1>Uma senha só sua.</h1><p>Use ao menos 12 caracteres, com maiúscula, minúscula, número e símbolo.</p>
+                    <form class="admin-account" @onsubmit="ChangePasswordAsync" @onsubmit:preventDefault>
+                        <label>Senha atual<input type="password" autocomplete="current-password" required @bind="_currentPassword" /></label>
+                        <label>Nova senha<input type="password" autocomplete="new-password" minlength="12" required @bind="_newPassword" /></label>
+                        <label>Confirmar nova senha<input type="password" autocomplete="new-password" required @bind="_confirmPassword" /></label>
+                        <button class="primary" type="submit" disabled="@_busy">Atualizar senha</button>
+                        @if (_notice is not null) { <p role="status">@_notice</p> }
+                    </form>
+                }
+                else if (_editing is { } editor)
+                {
+                    <StoryEditor @key="editor.Id" @ref="_storyEditor" Initial="editor" OnBack="ShowCatalogAsync" OnExpired="Expired" />
+                }
+                else
+                {
+                    <div class="admin-title"><div><div class="eyebrow">CATÁLOGO EDITORIAL</div><h1>Histórias que abrem caminhos.</h1><p>Crie, revise e publique sem alterar o jogo.</p></div><button class="primary" disabled="@_busy" @onclick="CreateAsync">+ Nova história</button></div>
+                    <div class="admin-metrics"><div><strong>@_stories.Count(story => story.Status == "Draft")</strong><span>Rascunhos nesta página</span></div><div><strong>@_stories.Count(story => story.Status == "Published")</strong><span>Publicadas nesta página</span></div><div><strong>@_stories.Count(story => story.Status == "Archived")</strong><span>Arquivadas nesta página</span></div></div>
+                    <div class="admin-table"><table><thead><tr><th>História</th><th>Nível / gênero</th><th>Status</th><th></th></tr></thead><tbody>
+                        @foreach (var story in _stories)
+                        {
+                            <tr><td><strong>@story.Title</strong><small>Versão @story.Number · @story.UpdatedAtUtc.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</small></td><td>@story.Difficulty<small>@story.Genre</small></td><td><span class="status-tag @story.Status.ToLowerInvariant()">@Status(story.Status)</span></td><td><button class="text-button" disabled="@_busy" @onclick="() => OpenAsync(story.Id)">@(story.Status == "Draft" ? "Editar" : "Ver versão") →</button></td></tr>
+                        }
+                    </tbody></table>@if (_stories.Count == 0) { <p class="admin-empty">Seu catálogo está pronto para a primeira história.</p> }</div>
+                    <div class="admin-pagination"><button disabled="@(_page == 1 || _busy)" @onclick="PreviousAsync">← Anterior</button><span>Página @_page</span><button disabled="@(_stories.Count < 25 || _busy)" @onclick="NextAsync">Próxima →</button></div>
+                }
+            </main>
+        </div>
+    }
+</div>
+
+@code {
+    private readonly CancellationTokenSource _life = new();
+    private AdminUserView? _user;
+    private AdminStoryEditor? _editing;
+    private StoryEditor? _storyEditor;
+    private async Task<bool> CanLeaveAsync() => _editing is null || _storyEditor?.HasUnsavedChanges != true ||
+        await JS.InvokeAsync<bool>("confirm", "Descartar alterações não salvas e sair do editor?");
+    private List<AdminStorySummary> _stories = [];
+    private bool _loading = true, _busy;
+    private int _page = 1;
+    private string _email = "", _password = "", _section = "catalog", _currentPassword = "", _newPassword = "", _confirmPassword = "";
+    private string? _error, _notice;
+    protected override async Task OnInitializedAsync()
+    {
+        await RunAsync(async () => { _user = await Client.MeAsync(_life.Token); if (_user is not null) { _stories = await Client.ListAsync(_page, _life.Token); } });
+        _loading = false;
+    }
+    private async Task LoginAsync() => await RunAsync(async () =>
+    {
+        try { await Client.LoginAsync(_email, _password, _life.Token); _user = await Client.MeAsync(_life.Token);
+            if (_user is null) { throw new AdminApiException("Esta conta não tem permissão de administrador."); }
+            _stories = await Client.ListAsync(_page, _life.Token); }
+        finally { _password = ""; }
+    });
+    private async Task LogoutAsync() => await RunAsync(async () => { if (!await CanLeaveAsync()) { return; } await Client.LogoutAsync(_life.Token); Expired(); });
+    private async Task ShowCatalogAsync() => await RunAsync(async () => { if (!await CanLeaveAsync()) { return; } _editing = null; _section = "catalog"; _stories = await Client.ListAsync(_page, _life.Token); });
+    private async Task CreateAsync() => await RunAsync(async () => _editing = await Client.CreateAsync(_life.Token));
+    private async Task OpenAsync(Guid id) => await RunAsync(async () => _editing = await Client.FindAsync(id, _life.Token));
+    private async Task ShowAccount() { if (!await CanLeaveAsync()) { return; } _editing = null; _section = "account"; _error = null; _notice = null; }
+    private async Task PreviousAsync() { _page--; await ShowCatalogAsync(); }
+    private async Task NextAsync() { _page++; await ShowCatalogAsync(); }
+    private void Expired() { _user = null; _editing = null; _section = "catalog"; }
+    private async Task ChangePasswordAsync() => await RunAsync(async () =>
+    {
+        if (_newPassword != _confirmPassword) { throw new AdminApiException("A confirmação não corresponde à nova senha."); }
+        await Client.PasswordAsync(_currentPassword, _newPassword, _life.Token);
+        _currentPassword = _newPassword = _confirmPassword = "";
+        _notice = "Senha atualizada.";
+    });
+    private async Task RunAsync(Func<Task> action)
+    {
+        if (_busy) { return; }
+        _busy = true; _error = null;
+        try { await action(); }
+        catch (AdminApiException exception) { _error = exception.Message; if (exception.Unauthorized) { Expired(); } }
+        catch (OperationCanceledException) when (_life.IsCancellationRequested) { }
+        catch (HttpRequestException) { _error = "Não foi possível conectar ao painel. Tente novamente."; }
+        finally { _busy = false; }
+    }
+    private static string Status(string value) => value switch { "Draft" => "Rascunho", "Published" => "Publicada", _ => "Arquivada" };
+    public void Dispose() { _life.Cancel(); _life.Dispose(); }
+}

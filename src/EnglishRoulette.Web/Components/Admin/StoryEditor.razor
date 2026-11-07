@@ -1,0 +1,107 @@
+@using EnglishRoulette.Contracts.Admin
+@using EnglishRoulette.Web.Services
+@implements IDisposable
+@inject AdminClient Client
+@inject IJSRuntime JS
+<NavigationLock ConfirmExternalNavigation="@_dirty" OnBeforeInternalNavigation="ConfirmNavigationAsync" />
+
+<button class="text-button" @onclick="Back">← Voltar ao catálogo</button>
+<div class="admin-title"><div><div class="eyebrow">VERSÃO @_draft.Number · @(_draft.Status == "Draft" ? "RASCUNHO" : _draft.Status == "Published" ? "PUBLICADA" : "ARQUIVADA")</div><h1>@_draft.Metadata.Title</h1><p>@(_dirty ? "Há alterações não salvas." : "Todas as alterações estão salvas.")</p></div>
+    <div class="admin-actions">@if (!ReadOnly) { <button class="primary" disabled="@_busy" @onclick="SaveAsync">Salvar rascunho</button> }<button class="secondary" disabled="@(_busy || _dirty)" @onclick="DuplicateAsync">Duplicar como rascunho</button></div>
+</div>
+@if (_error is not null) { <div class="admin-error" role="alert">@_error</div> }
+@if (_notice is not null) { <div class="admin-notice" role="status">@_notice</div> }
+@if (ReadOnly) { <p class="admin-notice">Esta versão é preservada para o histórico. Duplique como rascunho para editar.</p> }
+@if (_confirmLeave) { <div class="admin-error"><p>Existem alterações não salvas. Deseja descartá-las?</p><button class="secondary" @onclick="() => _confirmLeave = false">Continuar editando</button><button class="text-button" @onclick="DiscardAsync">Descartar e voltar</button></div> }
+<fieldset class="admin-card" disabled="@(ReadOnly || _busy)">
+    <h2>Sobre a história</h2><label>Título<input @bind="_draft.Metadata.Title" @bind:after="Dirty" maxlength="200" /></label><label>Sinopse<textarea rows="3" @bind="_draft.Metadata.Synopsis" @bind:after="Dirty" maxlength="2000"></textarea></label>
+    <div class="admin-form-grid"><label>Gênero<input @bind="_draft.Metadata.Genre" @bind:after="Dirty" maxlength="120" /></label><label>Nível<select @bind="_draft.Metadata.Difficulty" @bind:after="Dirty">@foreach (var level in new[] { "A1", "A2", "B1", "B2", "C1" }) { <option>@level</option> }</select></label></div>
+    <label>Autoria<input @bind="_draft.Metadata.Author" @bind:after="Dirty" maxlength="200" /></label><div class="admin-form-grid"><label>Categoria de direitos<select @bind="_draft.Metadata.LicenseType" @bind:after="Dirty"><option value="Original">Original</option><option value="PublicDomain">Domínio público verificado</option><option value="Authorized">Licença / autorização</option></select></label><label>Evidência / autorização<input @bind="_draft.Metadata.LicenseEvidence" @bind:after="Dirty" maxlength="2000" /></label></div>
+    <label>Créditos e atribuição<textarea rows="2" @bind="_draft.Metadata.Attribution" @bind:after="Dirty" maxlength="2000"></textarea></label>
+    <label>Cena inicial<select @bind="_draft.InitialSceneKey" @bind:after="Dirty"><option value="">Escolha uma cena</option>@foreach (var scene in _draft.Scenes) { <option value="@scene.Key">@scene.Key · @scene.Title</option> }</select></label>
+</fieldset>
+@for (var index = 0; index < _draft.Scenes.Count; index++)
+{
+    var scene = _draft.Scenes[index];
+    <SceneEditor @key="scene" Scene="scene" AllScenes="_draft.Scenes" Position="index" ReadOnly="ReadOnly" Busy="_busy" CanUpload="@(!_dirty && scene.Id != Guid.Empty)" OnChanged="Dirty" OnRemove="() => RemoveScene(scene)" OnUpload="UploadAsync" />
+}
+@if (!ReadOnly) { <button class="secondary" disabled="@(_busy || _draft.Scenes.Count >= 40)" @onclick="AddScene">+ Adicionar cena</button> }
+<section class="admin-card admin-preview"><h2>Simular percurso</h2><p>Teste a história salva, ouça a narração e confira as respostas e escolhas.</p>
+    <button class="secondary" disabled="@(_busy || _dirty)" @onclick="() => PreviewAsync()">Iniciar / reiniciar simulação</button>
+    @if (_preview is { } preview)
+    {
+        <h3>@preview.Title</h3><p class="narration" lang="en">@preview.Narration</p>
+        @if (preview.AudioUrl is { } url) { <audio @key="url" controls src="@url"></audio> }
+        <h4>@preview.Prompt</h4>
+        @foreach (var option in preview.Options) { <button class="choice" disabled="@_busy" @onclick="() => PreviewAnswerAsync(option.Key)">@option.Text</button> }
+        @if (_previewAnswer is { } answer) { <p class="admin-notice" role="status">@(answer.IsCorrect ? "Resposta correta." : "Resposta incorreta.") @answer.Explanation</p> }
+        @if (preview.IsEnding) { <p class="eyebrow">FIM DESTE CAMINHO</p> }
+        else { @foreach (var choice in preview.Choices) { <button class="secondary" disabled="@_busy" @onclick="() => PreviewAsync(preview.Key, choice.Key)">@choice.Label →</button> } }
+    }
+</section>
+<section class="admin-card publication"><h2>Revisão e publicação</h2><p>Verifique as cenas, perguntas, caminhos e narrações antes de disponibilizar esta versão.</p>
+    <div class="admin-actions"><button class="secondary" disabled="@(_busy || _dirty)" @onclick="CheckAsync">Verificar publicação</button></div>
+    @if (_check is { } check)
+    {
+        @if (check.CanPublish) { <p class="admin-notice">Estrutura e arquivos válidos. Confirme a revisão editorial e os direitos.</p> }
+        else { <ul class="admin-issues" role="status">@foreach (var issue in check.Issues) { <li>@issue</li> }</ul> }
+    }
+    @if (!ReadOnly)
+    {
+        <label class="admin-check"><input type="checkbox" @bind="_reviewed" /> Revisei texto, perguntas, gabaritos e correspondência da narração.</label><label class="admin-check"><input type="checkbox" @bind="_rights" /> Confirmei os direitos de uso, adaptação e distribuição do conteúdo e do áudio.</label>
+        <button class="primary" disabled="@(_busy || _dirty || !_reviewed || !_rights || _check?.CanPublish != true)" @onclick="PublishAsync">Publicar versão</button>
+    }
+    @if (_draft.Status != "Archived") { <button class="text-button danger" disabled="@(_busy || _dirty)" @onclick="() => _confirmArchive = true">Arquivar versão</button> }
+    @if (_confirmArchive) { <div class="admin-error"><p>A versão sairá do catálogo de novas aventuras. O histórico e as sessões existentes serão preservados.</p><button class="secondary" @onclick="() => _confirmArchive = false">Cancelar</button><button class="text-button danger" @onclick="ArchiveAsync">Confirmar arquivamento</button></div> }
+</section>
+
+@code {
+    [Parameter, EditorRequired] public AdminStoryEditor Initial { get; set; } = new();
+    [Parameter] public EventCallback OnBack { get; set; }
+    [Parameter] public EventCallback OnExpired { get; set; }
+    private readonly CancellationTokenSource _life = new();
+    private AdminStoryEditor _draft = new();
+    private bool _dirty, _busy, _reviewed, _rights, _confirmLeave, _confirmArchive;
+    private string? _error, _notice;
+    private PublicationCheckView? _check;
+    private PreviewSceneView? _preview;
+    private PreviewAnswerView? _previewAnswer;
+    public bool HasUnsavedChanges => _dirty;
+    private async Task ConfirmNavigationAsync(LocationChangingContext context)
+    { if (_dirty && !await JS.InvokeAsync<bool>("confirm", "Descartar alterações não salvas e sair do editor?")) { context.PreventNavigation(); } }
+    private async Task DiscardAsync() { _dirty = false; await OnBack.InvokeAsync(); }
+    private bool ReadOnly => _draft.Status != "Draft";
+    protected override void OnInitialized() => _draft = Initial;
+    private void Dirty() { _preview = null; _previewAnswer = null; _dirty = true; _check = null; _reviewed = _rights = false; _notice = null; }
+    private async Task Back() { if (_dirty) { _confirmLeave = true; } else { await OnBack.InvokeAsync(); } }
+    private void AddScene()
+    {
+        var key = "cena-" + Guid.NewGuid().ToString("N")[..6];
+        _draft.Scenes.Add(new() { Key = key, Options = [new() { Key = "a" }, new() { Key = "b" }] });
+        if (_draft.Scenes.Count == 1) { _draft.InitialSceneKey = key; }
+        Dirty();
+    }
+    private void RemoveScene(AdminSceneEditor scene) { _draft.Scenes.Remove(scene); Dirty(); }
+    private async Task SaveAsync() => await Run(async () => { _draft = await Client.SaveAsync(_draft, _life.Token); _dirty = false; _check = null; _notice = "Rascunho salvo."; });
+    private async Task DuplicateAsync() => await Run(async () => { _draft = await Client.DuplicateAsync(_draft.Id, _life.Token); _dirty = false; _check = null; _reviewed = _rights = false; _notice = "Nova versão em rascunho criada. A versão anterior foi preservada."; });
+    private async Task PreviewAsync(string? scene = null, string? choice = null) => await Run(async () =>
+    { _preview = await Client.PreviewAsync(_draft, scene, choice, _life.Token); _previewAnswer = null; });
+    private async Task PreviewAnswerAsync(string option) => await Run(async () =>
+    { if (_preview is { } scene) { _previewAnswer = await Client.PreviewAnswerAsync(_draft, scene.Key, option, _life.Token); } });
+    private async Task CheckAsync() => await Run(async () => _check = await Client.ValidateAsync(_draft.Id, _life.Token));
+    private async Task PublishAsync() => await Run(async () => { await Client.PublishAsync(_draft, _reviewed, _rights, _life.Token); _draft = await Client.FindAsync(_draft.Id, _life.Token); _notice = "História publicada. Ela já pode ser escolhida no jogo."; });
+    private async Task ArchiveAsync() => await Run(async () => { await Client.ArchiveAsync(_draft, _life.Token); _confirmArchive = false; _draft = await Client.FindAsync(_draft.Id, _life.Token); _notice = "Versão arquivada."; });
+    private async Task UploadAsync(SceneEditor.SceneUpload upload) => await Run(async () => { _draft = await Client.UploadAsync(_draft, upload.Scene, upload.File, upload.Attribution, upload.Evidence, _life.Token); _check = null; _notice = "Narração validada e salva."; });
+    private async Task Run(Func<Task> action)
+    {
+        if (_busy) { return; }
+        _busy = true; _error = _notice = null;
+        try { await action(); }
+        catch (AdminApiException exception) { _error = exception.Message; if (exception.Unauthorized) { await OnExpired.InvokeAsync(); } }
+        catch (OperationCanceledException) when (_life.IsCancellationRequested) { }
+        catch (HttpRequestException) { _error = "A conexão foi interrompida. Recarregue para conferir os dados salvos."; }
+        catch (IOException) { _error = "Não foi possível ler o arquivo. Escolha um WAV de até 10 MB."; }
+        finally { _busy = false; }
+    }
+    public void Dispose() { _life.Cancel(); _life.Dispose(); }
+}

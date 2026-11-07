@@ -1,0 +1,66 @@
+@using EnglishRoulette.Contracts.Admin
+
+<section class="admin-scene">
+    <div class="admin-title"><h3>Cena @(Position + 1) · @(string.IsNullOrEmpty(Scene.Title) ? "Sem título" : Scene.Title)</h3><button type="button" class="text-button danger" disabled="@(ReadOnly || Busy)" @onclick="() => OnRemove.InvokeAsync()">Remover cena</button></div>
+    <fieldset disabled="@(ReadOnly || Busy)">
+        <div class="admin-form-grid"><label>Chave da cena<input @bind="Scene.Key" @bind:after="Changed" maxlength="80" placeholder="estacao" /></label><label>Título da cena<input @bind="Scene.Title" @bind:after="Changed" maxlength="200" /></label></div>
+        <label>Texto da narração em inglês<textarea rows="5" @bind="Scene.Narration" @bind:after="Changed" maxlength="10000"></textarea></label>
+        <label class="admin-check"><input type="checkbox" @bind="Scene.IsEnding" @bind:after="Changed" /> Esta cena é um final</label>
+        <label>Pergunta em inglês<input @bind="Scene.Prompt" @bind:after="Changed" maxlength="1000" /></label>
+        <div class="section-label">ALTERNATIVAS</div>
+        @foreach (var option in Scene.Options)
+        {
+            <div class="admin-option"><span>@option.Key.ToUpperInvariant()</span><input aria-label="Alternativa @option.Key" @bind="option.Text" @bind:after="Changed" maxlength="1000" /><button type="button" class="text-button" @onclick="() => RemoveOption(option)">Remover</button></div>
+        }
+        <button type="button" class="secondary" disabled="@(Scene.Options.Count >= 8)" @onclick="AddOption">+ Alternativa</button>
+        <label>Resposta correta<select @bind="Scene.CorrectOptionKey" @bind:after="Changed"><option value="">Escolha uma alternativa</option>@foreach (var option in Scene.Options) { <option value="@option.Key">@option.Key.ToUpperInvariant() · @option.Text</option> }</select></label>
+        <label>Explicação da resposta<textarea rows="2" @bind="Scene.Explanation" @bind:after="Changed" maxlength="3000"></textarea></label>
+        @if (!Scene.IsEnding)
+        {
+            <div class="section-label">PRÓXIMOS CAMINHOS</div>
+            @foreach (var transition in Scene.Transitions)
+            {
+                <div class="admin-transition"><label>Chave<input @bind="transition.Key" @bind:after="Changed" /></label><label>Texto da escolha<input @bind="transition.Label" @bind:after="Changed" /></label><label>Destino<select @bind="transition.TargetSceneKey" @bind:after="Changed"><option value="">Escolha uma cena</option>@foreach (var target in AllScenes) { <option value="@target.Key">@target.Key · @target.Title</option> }</select></label><button type="button" class="text-button" @onclick="() => RemoveTransition(transition)">Remover</button></div>
+            }
+            <button type="button" class="secondary" disabled="@(Scene.Transitions.Count >= 8)" @onclick="AddTransition">+ Caminho</button>
+        }
+    </fieldset>
+    <div class="admin-audio"><h4>Narração da cena</h4>
+        @if (Scene.Audio is { } audio) { <p>@(audio.DurationMs / 1000d) segundos · @audio.Attribution</p><audio controls preload="metadata" src="@audio.PreviewUrl"></audio> }
+        else { <p>Nenhum áudio enviado.</p> }
+        @if (!ReadOnly)
+        {
+            @if (!CanUpload) { <p class="hint">Salve o rascunho e o texto da cena antes de enviar a narração.</p> }
+            else
+            {
+                <label>Créditos do áudio<input @bind="_attribution" @bind:event="oninput" maxlength="2000" /></label><label>Licença / evidência de permissão<input @bind="_evidence" @bind:event="oninput" maxlength="2000" /></label>
+                <label class="audio-upload">Enviar ou substituir WAV (PCM 16 bits, até 10 MB / 2 minutos)<InputFile OnChange="Upload" accept=".wav,audio/wav" disabled="@(Busy || string.IsNullOrWhiteSpace(_attribution) || string.IsNullOrWhiteSpace(_evidence))" /></label>
+            }
+        }
+    </div>
+</section>
+
+@code {
+    [Parameter, EditorRequired] public AdminSceneEditor Scene { get; set; } = new();
+    [Parameter] public List<AdminSceneEditor> AllScenes { get; set; } = [];
+    [Parameter] public int Position { get; set; }
+    [Parameter] public bool ReadOnly { get; set; }
+    [Parameter] public bool Busy { get; set; }
+    [Parameter] public bool CanUpload { get; set; }
+    [Parameter] public EventCallback OnChanged { get; set; }
+    [Parameter] public EventCallback OnRemove { get; set; }
+    [Parameter] public EventCallback<SceneUpload> OnUpload { get; set; }
+    private string _attribution = "", _evidence = "";
+    protected override void OnInitialized() { _attribution = Scene.Audio?.Attribution ?? ""; _evidence = Scene.Audio?.LicenseEvidence ?? ""; }
+    private async Task Changed() => await OnChanged.InvokeAsync();
+    private async Task AddOption()
+    {
+        var key = Enumerable.Range(0, 8).Select(index => ((char)('a' + index)).ToString()).First(value => Scene.Options.All(option => option.Key != value));
+        Scene.Options.Add(new() { Key = key }); await Changed();
+    }
+    private async Task RemoveOption(AdminOptionEditor option) { Scene.Options.Remove(option); await Changed(); }
+    private async Task AddTransition() { Scene.Transitions.Add(new() { Key = "caminho-" + Guid.NewGuid().ToString("N")[..6] }); await Changed(); }
+    private async Task RemoveTransition(AdminTransitionEditor transition) { Scene.Transitions.Remove(transition); await Changed(); }
+    private async Task Upload(InputFileChangeEventArgs arguments) => await OnUpload.InvokeAsync(new(Scene, arguments.File, _attribution, _evidence));
+    public sealed record SceneUpload(AdminSceneEditor Scene, IBrowserFile File, string Attribution, string Evidence);
+}
