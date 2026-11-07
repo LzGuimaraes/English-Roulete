@@ -4,6 +4,7 @@
     <ProjectReference Include="..\EnglishRoulette.Application\EnglishRoulette.Application.csproj" />
     <ProjectReference Include="..\EnglishRoulette.Contracts\EnglishRoulette.Contracts.csproj" />
     <ProjectReference Include="..\EnglishRoulette.Web\EnglishRoulette.Web.csproj" />
+    <ProjectReference Include="..\EnglishRoulette.Infrastructure\EnglishRoulette.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,5 +16,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Demo/story.json" />
+  </ItemGroup>
 
 </Project>

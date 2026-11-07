@@ -2,6 +2,8 @@
 
 O primeiro incremento implementou conteúdo e regras de cenas/perguntas. O segundo acrescentou uma sessão Solo Adventure em memória e o projeto Application, com relógio injetável. O contrato e os testes da sessão estão em [SOLO_SESSION.md](SOLO_SESSION.md). O terceiro conecta uma demonstração Blazor + API para experimentar no navegador, descrita em [LOCAL_DEMO.md](LOCAL_DEMO.md).
 
+O incremento atual adiciona [persistência PostgreSQL](PERSISTENCE.md), concorrência entre instâncias do agregado e narração pré-gravada com duração validada. A API recupera checkpoints; o Blazor reproduz arquivos WAV, sem síntese de voz ou IA durante a partida.
+
 ## Primeiro incremento: objetivo e critérios
 
 Iniciar o Slice 1 de `GAME_RULES.md`, seção 13, com as duas primeiras regras independentes de infraestrutura:
@@ -29,7 +31,7 @@ O fluxo testado é `GetInitialScene → Evaluate → GetNextScene`, repetido at�
 
 `ValidateForPlay` rejeita rascunhos, destinos ausentes, cenas de outra versão, cenas desconectadas, finais com saídas, cenas não finais sem saídas e qualquer caminho sem possibilidade de atingir um final. As chaves são comparadas exatamente, com diferenciação entre maiúsculas e minúsculas.
 
-Os construtores fazem cópias defensivas e expõem coleções somente de leitura. Alterar arrays usados para construir uma história não modifica o conteúdo já carregado. Isso prepara a imutabilidade em memória; o versionamento no PostgreSQL ainda será implementado.
+Os construtores fazem cópias defensivas e expõem coleções somente de leitura. O checkpoint PostgreSQL também congela a definição completa usada pela sessão; catálogo editorial e publicação de novas versões permanecem pendentes.
 
 O gabarito e a explicação não são propriedades públicas do desafio. Mesmo assim, entidades Domain **não devem ser serializadas pela futura API**: ela usará DTOs próprios. O avaliador entrega a explicação ao código servidor que o chamou; a camada de aplicação ainda deverá controlar quando revelá-la.
 
@@ -43,22 +45,22 @@ dotnet test EnglishRoulette.sln --filter FullyQualifiedName~GetNextScene_Follows
 
 Coloque um breakpoint em `StoryFlowEngine.GetNextScene`. A fixture original `The Notebook at Platform Three` passa por `platform → notebook → reunion`. Os outros testes exercitam respostas certas/erradas, alternativas inválidas, bifurcações, destinos inválidos e grafos sem final. Esta fixture é conteúdo de teste, sem narração de áudio produzida.
 
-A demonstração local agora pode ser iniciada com `dotnet run --project src/EnglishRoulette.Api --configuration Release --launch-profile http`, em http://localhost:5080. Os testes do domínio continuam independentes da interface.
+A demonstração local é preparada com `python3 scripts/dev.py setup` e iniciada com `python3 scripts/dev.py run`, em http://localhost:5080. Os testes do domínio continuam independentes da interface.
 
 ## Limites e decisões pendentes
 
 - A validação implementada é **estrutural**, não um serviço completo de publicação. Direitos, revisão editorial, áudio, existência de mídia, dificuldade e metadados serão verificados quando catálogo e mídia forem implementados.
 - A sessão acrescentada no segundo incremento controla proprietário, fase, versão do estado e comandos idempotentes antes de navegar. A API futura deverá autenticar o convidado; informar um `PlayerId` não comprova identidade.
-- Prazos, retomada do mesmo objeto e exclusão mútua de comandos já funcionam em memória. Persistência, autenticação HTTP, concorrência entre instâncias, pontuação, XP, eventos e multiplayer ainda não foram implementados.
+- Prazos, retomada persistente, cookie opaco e concorrência entre instâncias já funcionam na prévia. Pontuação, XP, eventos, catálogo editorial completo e multiplayer ainda não foram implementados.
 - `DECISION NEEDED`: política de ciclos intencionais e limite de cenas percorridas (RF-010). O validador atual garante que todas as cenas tenham uma rota para um final, mas permite ciclos que tenham saída. Antes de publicar conteúdo real, definir como impedir percursos infinitos durante uma sessão.
 - `DECISION NEEDED`: confirmar as tabelas de pontuação, bônus e XP propostas antes de implementá-las; este incremento não aplica nenhuma dessas fórmulas.
 
 ## Próximos incrementos
 
-1. Persistência PostgreSQL/EF Core: restaurar estado e recibos, controlar concorrência em transação e testar contra banco real.
-2. Evoluir a API de demonstração para contratos de produção, identidade de convidado durável e testes de integração HTTP.
-3. História original com três cenas, áudio e metadados de publicação; alimentar os tempos da sessão com duração validada e margem de segurança.
-4. Pontuação e conclusão com recompensas, após validar as fórmulas propostas.
-5. Evoluir o Blazor de demonstração com áudio e retomada persistente.
+1. Validar fórmulas de pontuação e XP antes de implementá-las.
+2. Evoluir checkpoint e credencial local para o catálogo e histórico relacional, mantendo compatibilidade das sessões salvas.
+3. Adicionar painel editorial, upload/revisão de áudio e publicação com licenças e metadados completos.
+4. Acrescentar worker de prazos, retenção e contratos HTTP de produção.
+5. Reutilizar o motor em Practice e depois em multiplayer.
 
 Os projetos são acrescentados conforme forem necessários. A mesma regra de navegação e avaliação será usada por solo e multiplayer.

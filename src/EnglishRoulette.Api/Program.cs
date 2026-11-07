@@ -1,19 +1,42 @@
+using EnglishRoulette.Api;
 using EnglishRoulette.Api.Demo;
+using EnglishRoulette.Application.Solo;
 using EnglishRoulette.Contracts;
 using EnglishRoulette.Domain;
+using EnglishRoulette.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddProblemDetails();
-builder.Services.AddSingleton<DemoSessions>();
+builder.Services.AddExceptionHandler<DomainRuleExceptionHandler>();
+var connection = builder.Configuration.GetConnectionString("Adventure")
+    ?? throw new InvalidOperationException("Configure ConnectionStrings__Adventure. See scripts/dev.py setup.");
+builder.Services.AddDbContext<AdventureDbContext>(options => options.UseNpgsql(connection));
+builder.Services.AddSingleton(TimeProvider.System);
+builder.Services.AddScoped<ISoloSessionStore, PostgresSoloSessionStore>();
+builder.Services.AddScoped<DemoSessions>();
+builder.Services.AddSingleton<DemoMediaCatalog>();
 var app = builder.Build();
 app.UseExceptionHandler();
-app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
+app.MapStaticAssets();
 
 app.MapGet("/health/live", () => Results.Ok(new { status = "ok" }));
+app.MapGet("/health/ready", async (AdventureDbContext db, CancellationToken cancellationToken) =>
+    await db.Database.CanConnectAsync(cancellationToken) &&
+    !(await db.Database.GetPendingMigrationsAsync(cancellationToken)).Any()
+        ? Results.Ok(new { status = "ready" }) : Results.StatusCode(503));
 
 if (app.Environment.IsDevelopment())
 {
+    var media = app.Services.GetRequiredService<DemoMediaCatalog>();
+    app.MapGet("/media/audio/{hash}.wav", (string hash, HttpContext context) =>
+    {
+        var path = media.FilePath(hash);
+        if (path is null) { return Results.NotFound(); }
+        context.Response.Headers.CacheControl = "public,max-age=31536000,immutable";
+        return Results.File(path, "audio/wav", enableRangeProcessing: true);
+    });
     app.Use(async (context, next) =>
     {
         if (context.Request.Path.StartsWithSegments("/api/demo"))
@@ -28,18 +51,16 @@ if (app.Environment.IsDevelopment())
 
         await next(context);
     });
-    app.MapGet("/api/demo/session", (HttpContext context, DemoSessions sessions) =>
-        sessions.Get(context) is { } state ? Results.Ok(state) : Results.NotFound());
-    app.MapPost("/api/demo/session", (HttpContext context, DemoSessions sessions) => Results.Ok(sessions.Create(context)));
-    app.MapPost("/api/demo/commands", (HttpContext context, AdventureCommand command, DemoSessions sessions) =>
+    app.MapGet("/api/demo/session", async (HttpContext context, DemoSessions sessions) =>
+        await sessions.GetAsync(context, context.RequestAborted) is { } state ? Results.Ok(state) : Results.NotFound());
+    app.MapPost("/api/demo/session", async (HttpContext context, DemoSessions sessions) =>
+        Results.Ok(await sessions.CreateAsync(context, context.RequestAborted)));
+    app.MapPost("/api/demo/commands", async (HttpContext context, AdventureCommand command, DemoSessions sessions) =>
     {
         try
         {
-            return sessions.Execute(context, command) is { } state ? Results.Ok(state) : Results.NotFound();
-        }
-        catch (GameRuleException exception)
-        {
-            return Results.Problem(statusCode: 409, title: "O estado da aventura mudou.", detail: exception.Code);
+            return await sessions.ExecuteAsync(context, command, context.RequestAborted) is { } state
+                ? Results.Ok(state) : Results.NotFound();
         }
         catch (ArgumentException)
         {

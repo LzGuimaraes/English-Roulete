@@ -1,0 +1,115 @@
+@using EnglishRoulette.Contracts
+@implements IAsyncDisposable
+@inject IJSRuntime Js
+
+<section class="audio-player" aria-label="Narração em inglês">
+    <div class="audio-heading"><strong>Narração em inglês</strong><span>Voz sintética de demonstração</span></div>
+    <audio @ref="_audio" @key="Audio.Url" src="@Audio.Url" preload="auto"
+           controls="@(Phase == "Narrating")" @oncanplay="ReadyAsync" @onerror="FailedAsync"></audio>
+    @if (_failed)
+    {
+        <p role="alert">Não foi possível carregar a narração.</p>
+        <button class="text-button" @onclick="ReloadAsync">Tentar carregar áudio novamente</button>
+    }
+    else if (Phase == "Preloading")
+    {
+        <p>@(_ready ? "Áudio pronto. Inicie quando quiser." : "Carregando narração…")</p>
+    }
+    else if (Phase == "Narrating")
+    {
+        <p>Ao retomar a página, pressione play. Pausar o áudio não pausa o prazo da cena.</p>
+    }
+</section>
+
+@code {
+    [Parameter, EditorRequired] public AudioView Audio { get; set; } = default!;
+    [Parameter] public string Phase { get; set; } = "Preloading";
+    [Parameter] public DateTimeOffset ServerNowUtc { get; set; }
+    [Parameter] public DateTimeOffset? PhaseDeadlineUtc { get; set; }
+    [Parameter] public EventCallback<bool> OnReady { get; set; }
+    private ElementReference _audio;
+    private IJSObjectReference? _module;
+    private string? _lastUrl;
+    private string? _lastPhase;
+    private bool _ready;
+    private bool _failed;
+    private bool _moduleFailed;
+    private bool _reportedReady;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (_moduleFailed) { return; }
+        try
+        {
+            _module ??= await Js.InvokeAsync<IJSObjectReference>("import", "./audio-player.js");
+            if (_lastUrl != Audio.Url || _lastPhase != Phase)
+            {
+                var offset = PhaseDeadlineUtc is { } deadline
+                    ? (Audio.DurationMilliseconds + Audio.SafetyMarginMilliseconds) / 1000d - (deadline - ServerNowUtc).TotalSeconds : 0;
+                _lastUrl = Audio.Url;
+                _lastPhase = Phase;
+                await _module.InvokeVoidAsync("synchronize", _audio, Phase, offset);
+            }
+            if (await _module.InvokeAsync<bool>("isReady", _audio)) { _ready = true; }
+            await ReportReadyAsync();
+        }
+        catch (JSException)
+        {
+            _moduleFailed = true;
+            await FailedAsync();
+            StateHasChanged();
+        }
+    }
+
+    private async Task ReadyAsync()
+    {
+        _ready = true;
+        if (!_moduleFailed) { _failed = false; }
+        await ReportReadyAsync();
+    }
+
+    private async Task FailedAsync()
+    {
+        _failed = true;
+        _ready = false;
+        await ReportReadyAsync();
+    }
+
+    private async Task ReloadAsync()
+    {
+        _failed = false;
+        _ready = false;
+        _moduleFailed = false;
+        await ReportReadyAsync();
+        if (_module is not null) { await _module.InvokeVoidAsync("reload", _audio); }
+    }
+
+    private async Task ReportReadyAsync()
+    {
+        var ready = _ready && _module is not null && !_moduleFailed;
+        if (ready != _reportedReady)
+        {
+            _reportedReady = ready;
+            await OnReady.InvokeAsync(ready);
+        }
+    }
+
+    public async Task PlayAsync()
+    {
+        if (!_ready || _module is null) { throw new JSException("A narração ainda não está pronta."); }
+        await _module.InvokeVoidAsync("play", _audio);
+    }
+
+    public async Task StopAsync()
+    {
+        if (_module is not null) { await _module.InvokeVoidAsync("stop", _audio); }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_module is not null)
+        {
+            await _module.DisposeAsync();
+        }
+    }
+}

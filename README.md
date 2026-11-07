@@ -2,17 +2,20 @@
 
 Jogo de compreensão de inglês com histórias narradas, perguntas e decisões de caminho. Stack planejada: .NET 10, ASP.NET Core, Blazor WebAssembly e PostgreSQL.
 
-O núcleo C# já possui navegação entre cenas, avaliação de múltipla escolha e uma sessão Solo Adventure em memória com fases, prazos e comandos idempotentes. **Já existe uma demonstração local no navegador**, em Blazor WebAssembly + ASP.NET Core, com três cenas por percurso e dois finais. A prévia é de leitura: áudio, pontuação e persistência PostgreSQL ainda não estão implementados. Os documentos em `docs/` descrevem o produto planejado; regras propostas continuam sujeitas a validação.
+**Já existe uma demonstração local com narração e progresso salvo no PostgreSQL**, em Blazor WebAssembly + ASP.NET Core, com três cenas por percurso e dois finais. O motor valida cenas, respostas, prazos e comandos idempotentes; a aventura pode ser retomada após reiniciar a API. Pontuação e XP ainda dependem de validação. Os documentos em `docs/` descrevem o produto planejado; nem todo requisito já foi implementado.
 
 ## Experimentar no navegador
 
-Com o SDK .NET 10 instalado:
+Requer SDK .NET 10, Docker Compose, Python 3 e `libespeak-ng1`/`espeak-ng-data` para gerar a narração de demonstração no Linux. A geração é feita antes da execução; a API nunca sintetiza voz durante a partida.
 
 ```sh
-dotnet run --project src/EnglishRoulette.Api --configuration Release --launch-profile http
+python3 scripts/dev.py setup
+python3 scripts/dev.py run
 ```
 
-Abra **http://localhost:5080** e clique em **Começar minha aventura**. Leia a cena, responda à pergunta e escolha um caminho na livraria. Recarregar a página retoma a sessão enquanto o servidor continuar rodando; reiniciar o servidor perde as sessões em memória.
+Abra **http://localhost:5080** e clique em **Começar minha aventura**. Depois escolha **Ouvir e iniciar cena**: ouça a narração, responda e escolha um caminho na livraria. Recarregar a página ou reiniciar a API preserva o progresso enquanto o cookie do navegador e o volume PostgreSQL forem mantidos. O prazo de uma pergunta aberta continua correndo.
+
+`setup` cria credenciais locais fora do Git, inicia somente o PostgreSQL deste projeto em `127.0.0.1:55432`, aplica a migration inicial e gera os arquivos WAV em `media/` (ignorado pelo Git). Não altera o PostgreSQL do sistema. Caso o SDK 10 não seja o padrão, configure `DOTNET_HOST_PATH` com o caminho do executável adequado.
 
 Consulte [LOCAL_DEMO.md](docs/LOCAL_DEMO.md) para o fluxo de teste, contratos e limites. Os endpoints da demonstração ficam habilitados somente no ambiente `Development`.
 
@@ -29,21 +32,27 @@ dotnet format EnglishRoulette.sln --verify-no-changes --no-restore
 
 O domínio usa apenas APIs nativas do .NET. Os testes usam xUnit e ferramentas de execução/cobertura do template oficial `dotnet new xunit`. As dependências resolvidas estão nos arquivos `packages.lock.json`. O GitHub Actions executa as mesmas verificações em pushes na `main` e pull requests.
 
+Para incluir os testes PostgreSQL localmente após `setup`, execute `python3 scripts/dev.py test`. Sem `ENGLISHROULETTE_TEST_CONNECTION`, os testes que exigem banco são exibidos como skipped; a CI configura um PostgreSQL real e os executa.
+
 ## Estrutura atual
 
 ```text
 src/EnglishRoulette.Domain/          # Conteúdo, regras e sessão Solo Adventure
 src/EnglishRoulette.Application/     # Coordenação com relógio do servidor
 src/EnglishRoulette.Contracts/       # DTOs públicos sem gabaritos
-src/EnglishRoulette.Api/             # Host HTTP e demonstração local em memória
+src/EnglishRoulette.Infrastructure/  # EF Core, PostgreSQL, migrations e validação WAV
+src/EnglishRoulette.Api/             # Host HTTP, credenciais opacas e mídia publicada
 src/EnglishRoulette.Web/             # Interface Blazor WebAssembly
 tests/EnglishRoulette.UnitTests/     # Cenas, respostas, prazos, retry e concorrência em memória
+tests/EnglishRoulette.IntegrationTests/ # Concorrência, retomada e constraints em PostgreSQL real
+infra/                              # PostgreSQL local isolado
+scripts/                            # Preparação do ambiente e narração pré-gravada
 docs/                               # Requisitos e decisões técnicas
 .github/workflows/ci.yml             # Build, testes e formatação
 EnglishRoulette.sln
 ```
 
-Consulte [DEVELOPMENT.md](docs/DEVELOPMENT.md) para acompanhar os incrementos e [SOLO_SESSION.md](docs/SOLO_SESSION.md) para entender as fases, os comandos, os testes e os limites da sessão atual.
+Consulte [DEVELOPMENT.md](docs/DEVELOPMENT.md), [SOLO_SESSION.md](docs/SOLO_SESSION.md) e [PERSISTENCE.md](docs/PERSISTENCE.md) para entender o código e os limites atuais.
 
 ## Ordem de leitura
 
@@ -57,7 +66,7 @@ Consulte [DEVELOPMENT.md](docs/DEVELOPMENT.md) para acompanhar os incrementos e 
 
 **Story → Scene → Narration → Question → Answer → Next Scene** no modo Solo Adventure.
 
-A engine começa como **classes C# testáveis** na solução. A prévia Blazor já consome a sessão em memória via REST. Persistência PostgreSQL, identidade durável de convidado, mídia publicada, pontuação validada e multiplayer serão acrescentados em incrementos seguintes.
+A engine permanece independente da interface. A prévia Blazor consome a sessão via REST, o servidor persiste checkpoints e o navegador reproduz arquivos WAV publicados. Catálogo editorial completo, pontuação aprovada, progressão e multiplayer continuam nos próximos incrementos.
 
 ## Arquivos de implementação futuros
 

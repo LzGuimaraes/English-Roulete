@@ -23,7 +23,7 @@
                 <div class="eyebrow"><span class="small-line"></span> APRENDA INGLÊS. VIVA UMA HISTÓRIA.</div>
                 <h1>Uma história.<br />Seu próximo<br /><em>caminho.</em></h1>
                 <p class="lead">Um caderno perdido. Uma cidade cheia de pistas.<br class="desktop-break" /> E você no centro da aventura.</p>
-                <p class="intro">Leia em inglês, descubra o que aconteceu e escolha como a história termina. Um capítulo de cada vez.</p>
+                <p class="intro">Ouça e leia em inglês, descubra o que aconteceu e escolha como a história termina. Um capítulo de cada vez.</p>
                 <div class="story-meta"><span>A2 · Inglês básico</span><span>3 cenas</span><span>2 finais possíveis</span></div>
                 <button class="primary start-button" disabled="@_busy" @onclick="CreateAsync">@(_busy ? "Preparando…" : "Começar minha aventura") <span aria-hidden="true">↗</span></button>
                 <p class="hint">Sem cadastro. Só você e uma boa história.</p>
@@ -31,7 +31,7 @@
             <NotebookArt />
         </section>
         <section class="how-it-works" aria-label="Como jogar">
-            <div><span class="step-number">01</span><strong>Entre na história</strong><p>Acompanhe uma cena curta em inglês.</p></div>
+            <div><span class="step-number">01</span><strong>Entre na história</strong><p>Ouça uma cena curta e acompanhe o texto.</p></div>
             <div><span class="step-number">02</span><strong>Siga as pistas</strong><p>Responda com o que você compreendeu.</p></div>
             <div><span class="step-number">03</span><strong>Escolha seu caminho</strong><p>Descubra aonde sua curiosidade leva.</p></div>
         </section>
@@ -47,9 +47,14 @@
                 <div class="chapter-heading"><span class="section-label">CAPÍTULO @_state.SceneNumber DE 3</span><span class="phase-badge">@(_state.Phase == "QuestionOpen" ? $"{RemainingSeconds}s para responder" : PhaseLabel)</span></div>
                 <div class="chapter-progress" aria-label="Cena @_state.SceneNumber de 3">@for (var i = 1; i <= 3; i++) { <span class="@(i <= _state.SceneNumber ? "done" : "")"></span> }</div>
                 <h2>@_state.SceneTitle</h2>
+                @if (_state.Audio is { } audio && _state.Phase != "StoryResult")
+                {
+                    <NarrationPlayer @key="_state.SceneKey" @ref="_narrator" Audio="audio" Phase="@_state.Phase"
+                        ServerNowUtc="_state.ServerNowUtc" PhaseDeadlineUtc="_state.PhaseDeadlineUtc" OnReady="AudioReady" />
+                }
                 @if (_state.Phase == "Preloading")
                 {
-                    <div class="scene-ready"><span class="scene-icon" aria-hidden="true">✦</span><h3>Mais uma pista espera por você.</h3><p>Reserve um momento para ler. A pergunta aparece depois da janela de leitura.</p><button class="primary" disabled="@_busy" @onclick="StartAsync">Ler esta cena <span aria-hidden="true">→</span></button></div>
+                    <div class="scene-ready"><span class="scene-icon" aria-hidden="true">✦</span><h3>Mais uma pista espera por você.</h3><p>Ouça a narração e acompanhe o texto. A pergunta aparece depois do áudio e de uma breve pausa.</p><button class="primary" disabled="@(_busy || !_audioReady)" @onclick="StartAsync">Ouvir e iniciar cena <span aria-hidden="true">→</span></button></div>
                 }
                 else if (_state.Phase == "StoryResult")
                 {
@@ -58,7 +63,7 @@
                 else
                 {
                     <p class="narration" lang="en">@_state.Narration</p>
-                    @if (_state.Phase == "Narrating") { <div class="reading-note"><span class="pulse-dot"></span><span>Leia com calma. A pergunta aparece em <strong>@RemainingSeconds s</strong>.</span></div> }
+                    @if (_state.Phase == "Narrating") { <div class="reading-note"><span class="pulse-dot"></span><span>Ouça e acompanhe o texto. A pergunta aparece em <strong>@RemainingSeconds s</strong>.</span></div> }
                     <QuestionPanel State="_state" Busy="_busy" OnAnswer="AnswerAsync" OnContinue="ContinueAsync" />
                     @if (_state.Phase == "DecisionOpen")
                     {
@@ -78,7 +83,7 @@
         </div>
     }
 </main>
-<footer><span>Uma pequena aventura. Um pouco mais de inglês.</span><span>Prévia de leitura · áudio em breve</span></footer>
+<footer><span>Uma pequena aventura. Um pouco mais de inglês.</span><span>Listening + reading · seu progresso fica salvo</span></footer>
 
 @code {
     private readonly CancellationTokenSource _lifetime = new();
@@ -89,6 +94,8 @@
     private string? _error;
     private long _generation;
     private DateTimeOffset _receivedAtUtc;
+    private NarrationPlayer? _narrator;
+    private bool _audioReady;
 
     private int RemainingSeconds => _state?.PhaseDeadlineUtc is { } deadline
         ? Math.Max(0, (int)Math.Ceiling((deadline - _state.ServerNowUtc - (DateTimeOffset.UtcNow - _receivedAtUtc)).TotalSeconds)) : 0;
@@ -107,6 +114,7 @@
 
     private void SetState(AdventureView? state)
     {
+        if (_state?.SceneKey != state?.SceneKey || _state?.Phase == "StoryResult") { _audioReady = false; }
         _state = state;
         _receivedAtUtc = DateTimeOffset.UtcNow;
     }
@@ -123,7 +131,18 @@
     }
 
     private async Task CreateAsync() => await PerformAsync(() => Client.CreateAsync(_lifetime.Token));
-    private async Task StartAsync() => await SendAsync("start");
+    private void AudioReady(bool ready) => _audioReady = ready;
+    private async Task StartAsync()
+    {
+        if (_narrator is null) { return; }
+        try
+        {
+            await _narrator.PlayAsync();
+            await SendAsync("start");
+            if (_state?.Phase != "Narrating") { await _narrator.StopAsync(); }
+        }
+        catch (JSException) { _error = "Não foi possível reproduzir o áudio. Tente tocar novamente para iniciar."; }
+    }
     private async Task AnswerAsync(string option) => await SendAsync("answer", option: option);
     private async Task ContinueAsync() => await SendAsync("continue");
     private async Task ChooseAsync(string choice) => await SendAsync("choose", choice: choice);

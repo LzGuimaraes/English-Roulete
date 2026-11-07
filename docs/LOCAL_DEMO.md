@@ -1,59 +1,87 @@
-# Demonstração local no navegador
+# Demonstração local com narração e PostgreSQL
 
-Este incremento permite experimentar a sessão existente por uma interface Blazor WebAssembly. Atende à solicitação de uma prévia jogável; não representa o aceite completo de Solo Adventure (CA-000).
+A prévia conecta o motor solo a uma interface Blazor WebAssembly, arquivos de narração e checkpoints PostgreSQL. É um incremento jogável de CA-000; pontuação, XP e catálogo editorial completo continuam pendentes.
 
-## Executar
+## Preparar e executar
 
-Requer SDK .NET 10 e acesso ao NuGet no primeiro restore.
+Requer Linux com SDK .NET 10, Docker Compose, Python 3, `libespeak-ng1` e os dados de voz `espeak-ng-data`. A biblioteca de voz é usada somente na preparação, não pela API durante as partidas. O primeiro restore precisa acessar o NuGet.
 
 ```sh
-dotnet run --project src/EnglishRoulette.Api --configuration Release --launch-profile http
+python3 scripts/dev.py setup
+python3 scripts/dev.py run
 ```
 
-Abra http://localhost:5080. O perfil `http` usa `Development` e escuta somente no computador local. API e frontend são servidos na mesma origem, sem configurar CORS. Para encerrar no terminal, use Ctrl+C.
+Abra **http://localhost:5080**. A API e o frontend usam a mesma origem. O perfil `http` configura Development e escuta somente no computador local. Ctrl+C encerra a API; o banco e o progresso continuam no volume do Docker.
 
-## Experimentar o fluxo
+`setup` gera `infra/.env` com uma senha aleatória (sem imprimi-la), sobe somente o container `englishroulette-postgres-1`, cria um banco separado para testes, restaura a ferramenta EF, aplica a migration inicial e prepara a narração. Não acessa o PostgreSQL do sistema. Para selecionar um SDK fora do PATH, use `DOTNET_HOST_PATH=/caminho/para/dotnet`.
 
-1. Clique em **Começar minha aventura**, depois em **Ler esta cena**.
-2. Leia o texto em inglês. A janela de leitura dura 22 segundos; a pergunta abre automaticamente.
-3. Responda em até 20 segundos. O servidor avalia a alternativa e entrega o feedback.
-4. Continue até a livraria e escolha café ou biblioteca. Cada percurso possui três cenas.
-5. Responda à última pergunta e veja o desfecho. Recomece para descobrir o outro caminho.
-6. Recarregue a página durante uma pergunta: o prazo continua contando. Se expirar, é possível continuar sem uma nova tentativa.
+Comandos adicionais:
 
-A história demonstrativa foi escrita para esta prévia. Não há áudio nem recompensa/XP. As durações são configurações da demonstração e não homologam as tabelas de pontuação propostas.
+```sh
+python3 scripts/dev.py db       # Iniciar o PostgreSQL local e preparar o banco de testes
+python3 scripts/dev.py migrate  # Aplicar migrations explicitamente
+python3 scripts/dev.py test     # Incluir os testes com banco real
+python3 scripts/dev.py run --no-build  # Executar o build Release já existente
+```
 
-## Código e dependências
+## Jogar e testar retomada
 
-| Projeto | Responsabilidade |
+1. Clique em **Começar minha aventura** e aguarde o aviso **Áudio pronto**.
+2. Escolha **Ouvir e iniciar cena**. O clique libera a reprodução no navegador; o servidor define o prazo pela duração do arquivo mais 2 segundos de margem.
+3. Ouça em inglês e acompanhe o texto. A pergunta abre após essa janela, sem depender de `audio.ended` enviado pelo cliente.
+4. Responda em até 20 segundos e confira a explicação. Na livraria, escolha café ou biblioteca; cada percurso tem três cenas.
+5. Recarregue a página durante uma cena: o progresso retorna. Em uma narração retomada, pressione play para continuar o áudio a partir da posição correspondente ao relógio do servidor.
+6. Pare e execute novamente a API, mantendo o navegador. A mesma aventura deve voltar. Uma pergunta vencida retorna como timeout, sem reiniciar os 20 segundos.
+
+Pausar o áudio não pausa o cronômetro de Adventure. O player interrompe a reprodução ao sair da fase de narração. Falha no arquivo mantém o início da cena bloqueado e oferece **Tentar carregar áudio novamente**.
+
+## Narrativas, arquivos e integridade
+
+A história original está em `Api/Demo/story.json`, como recurso **somente do servidor**, fora de wwwroot. Esse arquivo inclui gabaritos e não deve ser copiado para o cliente. A edição narrada usa outro StoryVersionId; sessões persistidas congelam sua definição completa.
+
+`python3 scripts/generate_demo_audio.py` prepara WAVs offline com eSpeak NG en-us. São vozes sintéticas de demonstração, sem geração durante o jogo, serviços de IA ou dependências JavaScript externas. Arquivos e `media/manifest.json` ficam fora do Git, em diretório dedicado. A geração verifica assets existentes e não sobrescreve uma narração publicada com conteúdo diferente.
+
+A API valida hash SHA-256, tamanho e estrutura PCM WAV antes de disponibilizar os arquivos. A duração vem da quantidade de frames; não é um número estimado pelo frontend. Os URLs contêm o hash do arquivo e recebem cache imutável. A entrega suporta HTTP Range; hashes ausentes retornam 404, sem expor diretórios ou rascunhos.
+
+O caminho padrão é `media/` na raiz do checkout. É possível configurar `Media__Root` para um volume externo contendo o mesmo manifesto e subdiretório `audio`. Na evolução editorial, narrações revisadas e metadados completos substituirão a preparação de desenvolvimento.
+
+## Código
+
+| Componente | Responsabilidade |
 |---|---|
-| Contracts | Records de entrada/saída sem entidades, gabarito ou IDs de outros jogadores |
-| Api/Demo | História, catálogo mínimo e armazenamento em memória; mapeia snapshots para DTOs explícitos |
-| Api/Program.cs | Rotas, cookie e proteção de requisições mutáveis; somente habilita a API demo em Development |
-| Web/Services | Cliente HTTP tipado; consulta o servidor para transições e conflitos |
-| Web/Pages e Components | Tela inicial, cena, alternativas, feedback e finais |
+| Domain | Regras, captura/restauração do estado e definição congelada da história |
+| Application | Porta de armazenamento e coordenação com retry por revisão |
+| Infrastructure | EF Core/Npgsql, migration, JSONB e validação de WAV |
+| Api/Demo | Conteúdo, token opaco, mídia e mapeamento para DTOs explícitos |
+| Contracts | Dados públicos sem gabaritos ou checkpoints |
+| Web/NarrationPlayer | Player HTML nativo, pré-carregamento e recuperação de falhas |
+| Web/audio-player.js | Interop localizado para play, pause e posição do áudio |
 
-O navegador referencia somente Web e Contracts. As avaliações continuam em Domain/Application no servidor. Não há segunda implementação de regras no frontend. O relógio local apenas desenha a contagem; a aceitação da resposta depende dos prazos UTC do servidor.
+O navegador recebe apenas Web e Contracts. Domain, Infrastructure, gabaritos e credenciais de banco permanecem no servidor. O relógio do cliente apenas desenha a contagem; ele não determina aceitação, estado ou pontos.
 
-Foram adicionados os pacotes oficiais Microsoft.AspNetCore.Components.WebAssembly, DevServer e WebAssembly.Server, na versão 10.0.14 fornecida pelo template do SDK instalado. Eles executam e hospedam o cliente WebAssembly; os arquivos `packages.lock.json` registram a resolução. Não há dependências JavaScript de runtime, fontes remotas ou serviços de IA.
-
-Referência de hospedagem: [documentação oficial do Blazor WebAssembly](https://learn.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/webassembly/?view=aspnetcore-10.0).
-
-## HTTP e isolamento
+## HTTP
 
 | Método | Rota | Comportamento |
 |---|---|---|
-| GET | `/health/live` | Disponibilidade do host |
-| GET | `/api/demo/session` | Snapshot da sessão associada ao cookie; 404 se não houver |
-| POST | `/api/demo/session` | Cria uma aventura e substitui a anterior desse navegador |
-| POST | `/api/demo/commands` | Executa `start`, `answer`, `continue` ou `choose` |
+| GET | `/health/live` | Host ativo |
+| GET | `/health/ready` | PostgreSQL acessível e migrations aplicadas |
+| GET | `/api/demo/session` | Snapshot da aventura associada ao cookie |
+| POST | `/api/demo/session` | Nova aventura, revogando a credencial anterior |
+| POST | `/api/demo/commands` | `start`, `answer`, `continue` ou `choose` |
+| GET | `/media/audio/{hash}.wav` | Apenas áudio do manifesto publicado, com Range |
 
-Comandos enviam `RequestId` e `ExpectedStateVersion`; respostas citam `QuestionInstanceId` e `OptionKey`; escolhas citam `TransitionKey`. Identidade, horário e gabarito não são recebidos do cliente. Violações de regra retornam ProblemDetails (409); entrada inválida retorna 400. O cliente recupera o snapshot ao encontrar conflito.
+Os endpoints de demonstração e mídia ficam habilitados somente em Development. Comandos incluem RequestId e ExpectedStateVersion; respostas também citam a instância da pergunta. Regra violada retorna ProblemDetails/409; entrada inválida, 400; mídia indisponível, 503.
 
-O cookie contém um token aleatório opaco, é HttpOnly e SameSite=Strict e está restrito a `/api/demo`. É Secure quando a conexão é HTTPS; nesta prévia o perfil usa HTTP em loopback. Requisições POST exigem `X-English-Roulette: demo`, um cabeçalho customizado da mesma origem. Não há CORS permissivo. Snapshots recebem `Cache-Control: no-store`.
+O cookie aleatório é HttpOnly, SameSite=Strict e restrito a `/api/demo`, com duração de 30 dias. Somente o hash da credencial fica no banco. O cookie é Secure sob HTTPS; a prévia local usa HTTP em loopback. POST exige o cabeçalho customizado `X-English-Roulette: demo`; não há CORS permissivo. Snapshots usam `Cache-Control: no-store`.
 
-Sessões e recibos existem somente na memória do processo. Dois navegadores possuem identidades separadas; abas do mesmo navegador compartilham a aventura. Reiniciar o host perde o progresso. Este armazenamento não substitui autenticação de produção, retenção, rate limits e persistência PostgreSQL; os endpoints de demonstração não são habilitados em Production.
+Preserve o cookie, o volume PostgreSQL e a pasta de mídia para retomar. Abas do mesmo navegador compartilham a aventura; outro navegador recebe uma identidade separada. Recomeçar substitui a aventura anterior desse navegador, como na prévia original.
 
-## Verificar
+## Verificações e limites
 
-Os comandos de build, testes e formatação continuam no README. Para validação visual, execute o percurso acima no desktop e com viewport de celular, confira acesso por teclado e confirme que o cronômetro continua visível durante a pergunta. Teste também uma alternativa errada e um prazo expirado.
+Veja os comandos no README e o desenho transacional em [PERSISTENCE.md](PERSISTENCE.md). Os testes PostgreSQL usam schemas isolados e validam concorrência, restauração e constraints reais. Os testes de WAV exercitam duração e rejeição de arquivos inválidos.
+
+Para QA visual, percorra os dois finais, experimente uma resposta errada e um timeout, confira o cronômetro no celular e teste retomada após reiniciar a API. Bloquear a URL de áudio nas ferramentas do navegador deve exibir recuperação de mídia e impedir o início até o carregamento funcionar.
+
+Ainda faltam catálogo/painel editorial, autenticação definitiva, retenção, worker de prazos, tabelas analíticas, pontuação aprovada e multiplayer. A solução atual persiste snapshots completos; não apresenta o modelo relacional planejado como se já estivesse implementado.
+
+Referências: [arquivos estáticos do Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/static-files), [API de síntese offline do eSpeak NG](https://github.com/espeak-ng/espeak-ng/blob/master/src/include/espeak-ng/speak_lib.h).

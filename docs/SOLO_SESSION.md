@@ -1,5 +1,7 @@
 # Solo Adventure — sessão em memória
 
+Esta página descreve o agregado do domínio. A API agora persiste seu checkpoint no PostgreSQL e reproduz narração pré-gravada: veja [PERSISTENCE.md](PERSISTENCE.md) e [LOCAL_DEMO.md](LOCAL_DEMO.md).
+
 ## Critérios deste incremento
 
 - Um único jogador por sessão, com uma versão publicada de história fixada na criação (RF-SOLO-008).
@@ -89,6 +91,6 @@ No Test Explorer/debugger, acompanhe:
 - `SubmitAnswer_ReplayReturnsOriginalReceiptEvenAfterAdvancing_Eng005`: retry sem efeitos repetidos.
 - `Execute_ConcurrentDifferentAnswersAcceptsOnlyOne`: dois envios concorrentes e somente uma resposta aceita.
 
-Uma demonstração local em Blazor agora consome esta sessão via API: consulte [LOCAL_DEMO.md](LOCAL_DEMO.md) para executar `dotnet run` e jogar no navegador. Ainda não há recuperação após reiniciar o processo. A próxima etapa é persistir estado, prazos, respostas e recibos em PostgreSQL e testar concorrência contra banco real.
+Uma demonstração local em Blazor consome esta sessão via API: consulte [LOCAL_DEMO.md](LOCAL_DEMO.md) para preparar o ambiente e jogar no navegador. `Capture/Restore` e a porta `ISoloSessionStore` permitem recuperar cena, prazos e recibos após reiniciar o processo. Os testes de integração usam PostgreSQL real e DbContexts independentes.
 
 `DECISION NEEDED`: seguem pendentes as fórmulas de pontuação/XP e a política de ciclos intencionais do grafo. Esta sessão não concede recompensas nem define silenciosamente essas regras.

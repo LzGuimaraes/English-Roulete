@@ -1,0 +1,133 @@
+{
+  "id": "be135d20-3666-411c-ab3c-d903687b52bf",
+  "title": "The Notebook at Platform Three",
+  "status": "Published",
+  "initialSceneKey": "platform",
+  "scenes": [
+    {
+      "storyVersionId": "be135d20-3666-411c-ab3c-d903687b52bf",
+      "key": "platform",
+      "narration": "The last train had already left when Mia noticed a blue notebook beneath the station clock. On its cover, someone had written: 'If you find this, please follow the map.' Inside, a tiny drawing pointed to the old bookshop across the street.",
+      "challenge": {
+        "id": "93164bf4-2771-48c7-871e-b548b4db2bb9",
+        "prompt": "Where did Mia find the notebook?",
+        "options": [
+          {
+            "key": "a",
+            "text": "Inside the last train"
+          },
+          {
+            "key": "b",
+            "text": "Beneath the station clock"
+          },
+          {
+            "key": "c",
+            "text": "In the old bookshop"
+          }
+        ],
+        "correctOptionKey": "b",
+        "explanation": "Mia noticed the notebook beneath the station clock, after the last train had left."
+      },
+      "isEnding": false,
+      "transitions": [
+        {
+          "key": "follow",
+          "label": "Seguir o mapa até a livraria",
+          "targetSceneKey": "bookshop"
+        }
+      ]
+    },
+    {
+      "storyVersionId": "be135d20-3666-411c-ab3c-d903687b52bf",
+      "key": "bookshop",
+      "narration": "A warm light shone through the bookshop window. The owner recognised the notebook immediately. 'It belongs to my sister, Nora,' he said. 'She writes stories about this town.' He turned a page. There were two possible places to find her: the riverside café or the quiet library.",
+      "challenge": {
+        "id": "e897c22f-49f7-42e5-ae73-e2d31176c675",
+        "prompt": "What does Nora write about?",
+        "options": [
+          {
+            "key": "a",
+            "text": "Stories about the town"
+          },
+          {
+            "key": "b",
+            "text": "Train timetables"
+          },
+          {
+            "key": "c",
+            "text": "Recipes for the café"
+          }
+        ],
+        "correctOptionKey": "a",
+        "explanation": "The owner says Nora writes stories about this town."
+      },
+      "isEnding": false,
+      "transitions": [
+        {
+          "key": "cafe",
+          "label": "Procurar Nora no café",
+          "targetSceneKey": "cafe"
+        },
+        {
+          "key": "library",
+          "label": "Procurar Nora na biblioteca",
+          "targetSceneKey": "library"
+        }
+      ]
+    },
+    {
+      "storyVersionId": "be135d20-3666-411c-ab3c-d903687b52bf",
+      "key": "cafe",
+      "narration": "Mia found Nora sitting by the café window, watching the river. When she saw the blue notebook, her face lit up. 'My new story was in there! Thank you for bringing it back.' Nora bought Mia a hot chocolate and asked if she could write about their unexpected meeting.",
+      "challenge": {
+        "id": "785eae45-d86f-4332-bb4c-a9ad5b04ae2d",
+        "prompt": "Why was the notebook important to Nora?",
+        "options": [
+          {
+            "key": "a",
+            "text": "It contained a train ticket"
+          },
+          {
+            "key": "b",
+            "text": "It was a gift for Mia"
+          },
+          {
+            "key": "c",
+            "text": "Her new story was inside"
+          }
+        ],
+        "correctOptionKey": "c",
+        "explanation": "Nora explains that her new story was in the notebook."
+      },
+      "isEnding": true,
+      "transitions": []
+    },
+    {
+      "storyVersionId": "be135d20-3666-411c-ab3c-d903687b52bf",
+      "key": "library",
+      "narration": "At the library, Nora was reading to a small group of children. Mia waited until the story ended, then handed her the notebook. 'You found my missing ending!' Nora laughed. She invited Mia to stay. That evening, the children heard a brand-new story about a kind traveller and a blue notebook.",
+      "challenge": {
+        "id": "9019d5b4-f545-49ce-979d-a5fd1eedc6cd",
+        "prompt": "What was Nora doing when Mia arrived?",
+        "options": [
+          {
+            "key": "a",
+            "text": "Reading to children"
+          },
+          {
+            "key": "b",
+            "text": "Looking for a train"
+          },
+          {
+            "key": "c",
+            "text": "Closing the café"
+          }
+        ],
+        "correctOptionKey": "a",
+        "explanation": "Nora was reading to a small group of children when Mia arrived."
+      },
+      "isEnding": true,
+      "transitions": []
+    }
+  ]
+}
