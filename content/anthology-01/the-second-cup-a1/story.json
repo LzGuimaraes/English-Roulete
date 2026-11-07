@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Second Cup — A1",
+    "synopsis": "Ao fechar um café vazio, Nora encontra uma segunda xícara quente e precisa decidir por qual saída partir.",
+    "genre": "Terror psicológico",
+    "difficulty": "A1",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#D8A3A3",
+      "accent": "#BA7878",
+      "background": "#100B10",
+      "surface": "#21161E",
+      "text": "#F6EBED",
+      "font": "classic",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "closing-time",
+  "scenes": [
+    {
+      "key": "closing-time",
+      "title": "Closing Time",
+      "narration": "Nora closes the café at night. She puts on her brown coat. The street is quiet. She makes one cup of tea and puts it on a table near the front door. Steam rises from the cup. She goes to get her keys.",
+      "isEnding": false,
+      "prompt": "How many cups of tea does Nora make?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Two cups"
+        },
+        {
+          "key": "b",
+          "text": "One cup"
+        },
+        {
+          "key": "c",
+          "text": "Three cups"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"one cup of tea\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "two-cups"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Nora stands at the small table near the café front glass door. One white cup releases faint steam. The street beyond is quiet; the café ceiling lamp is still on. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Nora closes the café at night. She puts on her brown coat. The street is quiet. She makes one cup of tea and puts it on a table near the front door. Steam rises from the cup. She goes to get her keys.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/closing-time.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Closing Time', using that image as the reference. Preserve this composition: Nora stands at the small table near the café front glass door. One white cup releases faint steam. The street beyond is quiet; the café ceiling lamp is still on. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/closing-time.gif"
+        },
+        "cluePurpose": "A quantidade inicial é explícita e sustenta a estranheza seguinte.",
+        "questionEvidence": "one cup of tea"
+      }
+    },
+    {
+      "key": "two-cups",
+      "title": "Two Cups on the Table",
+      "narration": "Her keys are on the table. Now there are two white cups beside them. Steam rises from both cups. Nora stops. The front door is closed. She calls, \"Hello?\" No one answers. She does not want to stay alone.",
+      "isEnding": false,
+      "prompt": "Where are Nora's keys?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Behind the counter"
+        },
+        {
+          "key": "b",
+          "text": "Inside her coat"
+        },
+        {
+          "key": "c",
+          "text": "On the table"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"Her keys are on the table\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "two-exits"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Nora looks toward two white cups with faint steam on the front table. Her brass keys lie beside the cups. The closed front glass door is visible; no other person appears. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Her keys are on the table. Now there are two white cups beside them. Steam rises from both cups. Nora stops. The front door is closed. She calls, \"Hello?\" No one answers. She does not want to stay alone.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/two-cups.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Two Cups on the Table', using that image as the reference. Preserve this composition: Nora looks toward two white cups with faint steam on the front table. Her brass keys lie beside the cups. The closed front glass door is visible; no other person appears. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/two-cups.gif"
+        },
+        "cluePurpose": "Duas xícaras quentes surgem no lugar onde havia apenas uma; as chaves não mudam de posição.",
+        "questionEvidence": "Her keys are on the table"
+      }
+    },
+    {
+      "key": "two-exits",
+      "title": "A Way Out",
+      "narration": "Nora takes her keys. She leaves both cups on the table. The bakery across the street is open. Behind her, the kitchen door leads to a small courtyard. Its gate is open. She can use the front door or the kitchen.",
+      "isEnding": false,
+      "prompt": "What does Nora leave on the table?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Both cups"
+        },
+        {
+          "key": "b",
+          "text": "Her keys"
+        },
+        {
+          "key": "c",
+          "text": "Her coat"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"She leaves both cups on the table\".",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Leave through the front door",
+          "targetSceneKey": "across-the-street"
+        },
+        {
+          "key": "route-two",
+          "label": "Leave through the kitchen and courtyard",
+          "targetSceneKey": "courtyard-exit"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Nora holds her brass keys between the front table and the kitchen passage. Both steaming white cups remain on the table. The open bakery is visible across the street through glass. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Nora takes her keys. She leaves both cups on the table. The bakery across the street is open. Behind her, the kitchen door leads to a small courtyard. Its gate is open. She can use the front door or the kitchen.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/two-exits.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Way Out', using that image as the reference. Preserve this composition: Nora holds her brass keys between the front table and the kitchen passage. Both steaming white cups remain on the table. The open bakery is visible across the street through glass. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/two-exits.gif"
+        },
+        "cluePurpose": "As duas saídas existem antes da escolha, e nenhuma exige uma ação imprudente.",
+        "questionEvidence": "She leaves both cups on the table"
+      }
+    },
+    {
+      "key": "across-the-street",
+      "title": "Across the Street",
+      "narration": "Nora locks the front door and enters the bakery. The baker sees her shaking hands. He gives her a chair. From the bakery window, she can see her café table. There are still two cups. She stays with the baker until morning.",
+      "isEnding": true,
+      "prompt": "Where does Nora stay until morning?",
+      "options": [
+        {
+          "key": "a",
+          "text": "In the café kitchen"
+        },
+        {
+          "key": "b",
+          "text": "In the bakery"
+        },
+        {
+          "key": "c",
+          "text": "In the courtyard"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"She stays with the baker until morning\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Nora sits near the bakery window, her keys in her hand. The adult baker stands nearby. Across the street, the closed café and its table remain visible without adding figures. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Nora locks the front door and enters the bakery. The baker sees her shaking hands. He gives her a chair. From the bakery window, she can see her café table. There are still two cups. She stays with the baker until morning.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/across-the-street.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Across the Street', using that image as the reference. Preserve this composition: Nora sits near the bakery window, her keys in her hand. The adult baker stands nearby. Across the street, the closed café and its table remain visible without adding figures. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/across-the-street.gif"
+        },
+        "cluePurpose": "Nora encontra companhia e conclui sua saída; a causa da segunda xícara continua incerta.",
+        "questionEvidence": "She stays with the baker until morning"
+      }
+    },
+    {
+      "key": "courtyard-exit",
+      "title": "The Courtyard Gate",
+      "narration": "Nora walks through the empty kitchen and leaves by the courtyard gate. Outside, she calls the café owner. \"I only made one cup,\" she says. He stays on the phone. She reaches the main street and goes home. Tomorrow, they will return together.",
+      "isEnding": true,
+      "prompt": "Who stays on the phone with Nora?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The baker"
+        },
+        {
+          "key": "b",
+          "text": "A kitchen worker"
+        },
+        {
+          "key": "c",
+          "text": "The café owner"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"He stays on the phone\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Nora stands outside the open courtyard gate with a phone at her ear and brass keys in her other hand. A street lamp lights the pavement; the empty kitchen lies beyond the gate. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Nora walks through the empty kitchen and leaves by the courtyard gate. Outside, she calls the café owner. \"I only made one cup,\" she says. He stays on the phone. She reaches the main street and goes home. Tomorrow, they will return together.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/courtyard-exit.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'The Courtyard Gate', using that image as the reference. Preserve this composition: Nora stands outside the open courtyard gate with a phone at her ear and brass keys in her other hand. A street lamp lights the pavement; the empty kitchen lies beyond the gate. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/courtyard-exit.gif"
+        },
+        "cluePurpose": "A protagonista sai e combina uma volta acompanhada, encerrando sua decisão sem explicar cedo o mistério.",
+        "questionEvidence": "He stays on the phone"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Ao fechar um café vazio, Nora encontra uma segunda xícara quente e precisa decidir por qual saída partir.",
+    "visualContinuity": {
+      "characters": "Nora, a 46-year-old woman with a long face, tired brown eyes, shoulder-length dark brown hair tied back, a brown coat, cream shirt, black trousers and plain shoes.",
+      "locations": "A closed street café: counter at the back, a small table near the front glass door, a short passage to an empty kitchen, and a rear courtyard gate. A bakery opposite is still open.",
+      "clues": "Two white cups stand on the front table, each with steam. Nora's brass keys begin by the cups. The kitchen has no third cup. Nora takes only her keys, leaving both cups on the table."
+    },
+    "learningFocus": "Quantidades, temperatura, localização e ações explícitas; presente simples.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "closing-time",
+        "two-cups",
+        "two-exits",
+        "across-the-street"
+      ],
+      [
+        "closing-time",
+        "two-cups",
+        "two-exits",
+        "courtyard-exit"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-second-cup-a1/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

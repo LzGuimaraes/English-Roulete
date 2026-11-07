@@ -1,0 +1,72 @@
+{
+  "inspection-kit": {
+    "audio": {
+      "file": "audio/inspection-kit.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/inspection-kit.gif",
+      "altText": "Dalia sets a blue survey envelope on the dusty reception counter, holding the yellow-tag brass key. A clean black guest ledger lies on the same desk. A dim front window lights the contrasting dust; no residents or silhouettes are visible.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "six-empty-rooms": {
+    "audio": {
+      "file": "audio/six-empty-rooms.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/six-empty-rooms.gif",
+      "altText": "Back at reception, Dalia studies the open black ledger beside her blue survey envelope. The corridor doors stand ajar behind her, revealing only bare rooms. Pages may have indistinct marks, but no readable names or figures.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "her-name": {
+    "audio": {
+      "file": "audio/her-name.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/her-name.gif",
+      "altText": "Dalia looks from her separate survey form to the last line of the open black ledger. The brass key with a yellow tag rests beside the blue envelope. Both established exits remain open; no figure appears in either doorway.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "ledger-outside": {
+    "audio": {
+      "file": "audio/ledger-outside.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/ledger-outside.gif",
+      "altText": "Outside the boarding-house street gate, Dalia holds the open black ledger with visibly blank pages. The blue survey envelope is under her other arm and the yellow-tag key remains in her hand. Pale daylight replaces the interior gloom.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "survey-only": {
+    "audio": {
+      "file": "audio/survey-only.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/survey-only.gif",
+      "altText": "At the open courtyard gate, Dalia checks the survey taken from her blue envelope while holding the yellow-tag key. The reception ledger is not in this frame and must not be placed in her belongings. The corridor behind her is empty.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

@@ -1,0 +1,1025 @@
+{
+  "origin": "https://english.lzguimaraes.com.br",
+  "stories": {
+    "a-visitor-made-of-light-a2": {
+      "versionId": "86990fda-9c3a-470d-be8b-ae345257d0fa",
+      "scenes": {
+        "old-workshop": {
+          "audio": {
+            "id": "ba9e758b-aca3-462d-a64d-934c6f694d83",
+            "sha256": "5c1a81bf6c16cc85a88445aee3f693cdc6901e08e0158343918dc623aaa50aa0",
+            "file": "a-visitor-made-of-light-a2/audio/old-workshop.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:04.454274+00:00",
+            "durationMs": 22628
+          },
+          "visual": {
+            "id": "1bbc0fb3-1873-4154-8a36-9304682cae0f",
+            "sha256": "a3726f92f5e000a0ac0592a331a41c9249457a5f00467305971e35e21aad500f",
+            "file": "a-visitor-made-of-light-a2/animations/old-workshop.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:05.062586+00:00"
+          }
+        },
+        "window-memory": {
+          "audio": {
+            "id": "190b4a04-dae1-46d3-bc65-42defcc96e28",
+            "sha256": "53e51acb5d9a2ccdc74126aff17c24acb996dc682da2becfe0ad5be7403ba898",
+            "file": "a-visitor-made-of-light-a2/audio/window-memory.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:05.531667+00:00",
+            "durationMs": 20736
+          },
+          "visual": {
+            "id": "60907755-6953-4f94-b630-302e02fa08db",
+            "sha256": "10e769a9f80d7db21a15b2e2f1c767b7791719357953bc519490216826f79fb7",
+            "file": "a-visitor-made-of-light-a2/animations/window-memory.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:06.094391+00:00"
+          }
+        },
+        "what-to-save": {
+          "audio": {
+            "id": "5d8441a6-9d7e-4d33-a600-2ef2f4addd5a",
+            "sha256": "239289ee9fc4e2f7d2ffa98e965ff03e738a91f39d7b7273d738cbb2727a26e7",
+            "file": "a-visitor-made-of-light-a2/audio/what-to-save.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:06.591256+00:00",
+            "durationMs": 21665
+          },
+          "visual": {
+            "id": "a1d4864f-5bb1-4925-9a9f-d9d8e0207810",
+            "sha256": "291ad5bbeb9d0466eb523758dfe4e633d8fa447c6f06accaf0a53026dc2c2f60",
+            "file": "a-visitor-made-of-light-a2/animations/what-to-save.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:07.120470+00:00"
+          }
+        },
+        "archive-light": {
+          "audio": {
+            "id": "25074750-7851-40f3-8e92-938bd15c89a6",
+            "sha256": "f9a918a5c282a3426c17428a9c70a5d48a1cf2535ba5e8ba87a13ec04f37fe5c",
+            "file": "a-visitor-made-of-light-a2/audio/archive-light.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:07.610281+00:00",
+            "durationMs": 21734
+          },
+          "visual": {
+            "id": "e82e4832-2930-43f9-99fb-d2514b5f2a2b",
+            "sha256": "6403fbdb769213b8b2f8655f9a2663a6d949a293833dd49a61823ae5071d3f8a",
+            "file": "a-visitor-made-of-light-a2/animations/archive-light.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:08.160888+00:00"
+          }
+        },
+        "workshop-voice": {
+          "audio": {
+            "id": "93f956e9-0fe7-428e-a5f2-35298e88928c",
+            "sha256": "692769b0f72178262acf2bb39b641e22ab9a72bd8052fef42f4d8f64b913201c",
+            "file": "a-visitor-made-of-light-a2/audio/workshop-voice.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:08.659022+00:00",
+            "durationMs": 23348
+          },
+          "visual": {
+            "id": "74155526-1a2b-44a5-8032-da2f173d4086",
+            "sha256": "978af46650ca916be0332b2771e372ee0040fb4947a0d1e4cc11817bcecbb828",
+            "file": "a-visitor-made-of-light-a2/animations/workshop-voice.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:09.169933+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "7aea03d1f866b9c25e37116527605d964828a98454cc3035f9f8d194eab98a6f",
+      "verifiedAtUtc": "2026-11-07T17:04:09.294670+00:00"
+    },
+    "the-blue-envelope-a1": {
+      "versionId": "61ed0b74-b786-4aa7-b612-27ee502d8d9a",
+      "scenes": {
+        "under-the-desk": {
+          "audio": {
+            "id": "9a3344ab-155c-415b-b294-c224a29b6748",
+            "sha256": "79c01a688e74208d8d6be64160db3437a505382ad399bf592fe1bfc1b0a299b0",
+            "file": "the-blue-envelope-a1/audio/under-the-desk.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:10.382293+00:00",
+            "durationMs": 15953
+          },
+          "visual": {
+            "id": "78fd635a-d019-46fa-ba4e-52ee5e28f02e",
+            "sha256": "bdb06555dfad4131adce520c7ac6654af9886e945b6c712a350542bb5926105b",
+            "file": "the-blue-envelope-a1/animations/under-the-desk.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:10.896414+00:00"
+          }
+        },
+        "old-photograph": {
+          "audio": {
+            "id": "287070da-027e-437f-a73e-c5d3e60a5ff2",
+            "sha256": "839b58aef51e0ceccc70091c6d900fff7a7643119b809618ba1e8749b88afc02",
+            "file": "the-blue-envelope-a1/audio/old-photograph.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:11.326201+00:00",
+            "durationMs": 14908
+          },
+          "visual": {
+            "id": "afad9c37-41b7-4242-aabb-cad530b251c7",
+            "sha256": "0a57cb6c6172f779131559caab64507ee18353dd35e949bcf2a5c297c847b0cf",
+            "file": "the-blue-envelope-a1/animations/old-photograph.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:11.861283+00:00"
+          }
+        },
+        "two-places": {
+          "audio": {
+            "id": "cce71f86-5bc2-4e41-865f-5bcd97e94402",
+            "sha256": "a2013becec92a21ed479e1a50baa6e12e911773b81a92ef6d42596e1ebabb53c",
+            "file": "the-blue-envelope-a1/audio/two-places.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:12.352472+00:00",
+            "durationMs": 15802
+          },
+          "visual": {
+            "id": "1147694e-f6cd-4cf4-b614-ecb8c9a69156",
+            "sha256": "202a5e7c1bf51ba5bcc97822932406567f5a02b2b8e91a32c641d121731a3bda",
+            "file": "the-blue-envelope-a1/animations/two-places.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:12.879025+00:00"
+          }
+        },
+        "bakery-answer": {
+          "audio": {
+            "id": "34d67b7c-cd21-45c2-8b2d-35133ef5d67a",
+            "sha256": "441d1baeb463a95cd223b35b7dfeacc7d6ee919d2d649afe4de029c6e633355c",
+            "file": "the-blue-envelope-a1/audio/bakery-answer.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:13.355608+00:00",
+            "durationMs": 15163
+          },
+          "visual": {
+            "id": "54e04113-6f97-479a-bfbc-065ad9de3bab",
+            "sha256": "a79fcca03286af36f8de450df16327ccb1c4cfc2e402af552378bd1989d1cca2",
+            "file": "the-blue-envelope-a1/animations/bakery-answer.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:13.887131+00:00"
+          }
+        },
+        "bench-answer": {
+          "audio": {
+            "id": "f195377f-89a5-42bf-b153-762dae366669",
+            "sha256": "fd81a3d4119b9c60bbf7e98bafd0d7ec4d8e341e1b150c874f0e1fd797e28e74",
+            "file": "the-blue-envelope-a1/audio/bench-answer.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:14.334999+00:00",
+            "durationMs": 14606
+          },
+          "visual": {
+            "id": "f4d02ca6-6f03-4f1a-86d5-21230f61a901",
+            "sha256": "4085845d5ef6c63616aac33a5b2db8b1c8fc58c581294a435e3046e53251ab73",
+            "file": "the-blue-envelope-a1/animations/bench-answer.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:14.849657+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "dce789b45b1f736afd2988cb768c6c57076d49debfd57ad758483d5630c975ef",
+      "verifiedAtUtc": "2026-11-07T17:04:14.986866+00:00"
+    },
+    "the-empty-frame-a2": {
+      "versionId": "d0148e14-1b7b-4194-a319-1a2cae64dc6c",
+      "scenes": {
+        "gallery-morning": {
+          "audio": {
+            "id": "2fd1edba-54f3-4b14-8c3c-1b10bc2f3444",
+            "sha256": "a98bae50c98e07067689744ee16417ef4cad6ccf1b1aaada216249297d0b2a2d",
+            "file": "the-empty-frame-a2/audio/gallery-morning.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:15.971765+00:00",
+            "durationMs": 20086
+          },
+          "visual": {
+            "id": "34879827-d62e-4719-be12-5dc541114b75",
+            "sha256": "19b5298a8d6da0bd98e00f3bdc25781aa18e4ac89a3d1705c6e517851b6d20ef",
+            "file": "the-empty-frame-a2/animations/gallery-morning.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:16.490627+00:00"
+          }
+        },
+        "restoration-log": {
+          "audio": {
+            "id": "9c82898e-2238-49c0-a441-8f7b5bdd306c",
+            "sha256": "fcd14407a19285a0832eaba6ca795e1e27bdb527543a2468b1fc749d6228dd24",
+            "file": "the-empty-frame-a2/audio/restoration-log.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:16.962693+00:00",
+            "durationMs": 20806
+          },
+          "visual": {
+            "id": "fc078d49-dbb8-4961-85ed-ccec224cab0f",
+            "sha256": "1aad9b2645d4ee1d86946e61c9a3f9768dfa21f6aa7be250784fa0d5b03ee766",
+            "file": "the-empty-frame-a2/animations/restoration-log.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:17.506101+00:00"
+          }
+        },
+        "two-checks": {
+          "audio": {
+            "id": "01e7d1bd-47e0-458e-be2a-bfe9fc4bb6c1",
+            "sha256": "3cfc5d633e2194c28b3f7bc0b41118866549eae2147b1d77225a237d010f1197",
+            "file": "the-empty-frame-a2/audio/two-checks.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:17.963595+00:00",
+            "durationMs": 21792
+          },
+          "visual": {
+            "id": "7073fd9d-d2a1-4097-a845-4e1a039178a9",
+            "sha256": "6e1c2154d982d66017eafb579ecc33a38c4af49123dfd76d5b13016a21886cef",
+            "file": "the-empty-frame-a2/animations/two-checks.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:18.697080+00:00"
+          }
+        },
+        "restorer-explanation": {
+          "audio": {
+            "id": "9e2520f8-232c-4342-91ff-306a6a4faf72",
+            "sha256": "3eec73cc01a181b2af87b44852b95f15a0695173ea179a78fe43e2657cc1d4b3",
+            "file": "the-empty-frame-a2/audio/restorer-explanation.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:19.149996+00:00",
+            "durationMs": 21444
+          },
+          "visual": {
+            "id": "ae1e53de-18ab-4f2c-8bcd-3b7dd4e54409",
+            "sha256": "559194d33a8962bb6d388232774d6f0f1e1748845d568eb28c92bf65d4085446",
+            "file": "the-empty-frame-a2/animations/restorer-explanation.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:19.763327+00:00"
+          }
+        },
+        "attic-storage": {
+          "audio": {
+            "id": "0f5b9beb-a2bf-4c33-b5bd-2f71d26375e8",
+            "sha256": "1f024c1073ae61f0cb66760bb9a691459f35140c4a96ffd09b235859fc6b6d7b",
+            "file": "the-empty-frame-a2/audio/attic-storage.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:20.266960+00:00",
+            "durationMs": 23151
+          },
+          "visual": {
+            "id": "a976a04a-bd4b-4138-b85f-c44358e55b10",
+            "sha256": "0fdb5c6f1d58afbee5a122dbd6c6c2d890575746603e351c0b77b7529cf5492e",
+            "file": "the-empty-frame-a2/animations/attic-storage.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:20.851594+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "88556fb1228f68b7cb75b1bde3b5ce39d375640a64291a6fc55a1188066a6ef0",
+      "verifiedAtUtc": "2026-11-07T17:04:20.984358+00:00"
+    },
+    "the-garden-robot-a1": {
+      "versionId": "a0ca179c-a904-4085-9991-0c6f5032cbeb",
+      "scenes": {
+        "greenhouse-door": {
+          "audio": {
+            "id": "14213232-b8cd-43fd-82c1-269cae20ecc4",
+            "sha256": "a538e1baef7273c23cf97196450a1b7227f38b2873ad1ee7d346ced1f2ff3bf4",
+            "file": "the-garden-robot-a1/audio/greenhouse-door.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:21.883473+00:00",
+            "durationMs": 14559
+          },
+          "visual": {
+            "id": "fab4951b-a64a-4c09-bf05-b6a3afac595a",
+            "sha256": "f932e957c766b7bb2046c9894d32a94925814d76326c76aa80b6ff2ee24c87f8",
+            "file": "the-garden-robot-a1/animations/greenhouse-door.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:22.424875+00:00"
+          }
+        },
+        "open-panel": {
+          "audio": {
+            "id": "d4fcc777-f1bc-4b26-a948-252a33ad1809",
+            "sha256": "0fc26dd01a89ccb8822b611b7a0deef085e4f217393f7d71560f620a42cd05e0",
+            "file": "the-garden-robot-a1/audio/open-panel.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:22.905073+00:00",
+            "durationMs": 16777
+          },
+          "visual": {
+            "id": "04962ae0-3090-4982-a17a-6c0ecab1de6c",
+            "sha256": "1dcf5e44c6db2d60f47d70a8df138dfbd35d259a6b609878b4d92480a5bd0338",
+            "file": "the-garden-robot-a1/animations/open-panel.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:23.419197+00:00"
+          }
+        },
+        "delivery-choice": {
+          "audio": {
+            "id": "cd372b7e-d8a1-4374-bf47-9da906603668",
+            "sha256": "5527c939a336ee458d73d841c5d6b13d56ce27bcf44662f705df7a5e23532604",
+            "file": "the-garden-robot-a1/audio/delivery-choice.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:23.849060+00:00",
+            "durationMs": 15349
+          },
+          "visual": {
+            "id": "a0de1e2d-66d9-45ad-85d3-0f30edae36fe",
+            "sha256": "39d2536ee86221b0f5d71ec99f677ca48f438acd1e55da77eed3b9626e2cabf7",
+            "file": "the-garden-robot-a1/animations/delivery-choice.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:24.386981+00:00"
+          }
+        },
+        "voice-again": {
+          "audio": {
+            "id": "9c003415-ed67-4dcf-9246-5e4ea2dd76d3",
+            "sha256": "fea9f831b638e97418d33bf1c2a9cf8ff4d017678443d4dc46c2ccd6f047d649",
+            "file": "the-garden-robot-a1/audio/voice-again.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:24.848440+00:00",
+            "durationMs": 17172
+          },
+          "visual": {
+            "id": "c234c5b9-6bdd-4ca1-95a9-76d20a4bc9c2",
+            "sha256": "77faa8e91f57977afdfbfdbbded3bf761db6530a16ba4d6e62f7ce7615a0463a",
+            "file": "the-garden-robot-a1/animations/voice-again.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:25.471514+00:00"
+          }
+        },
+        "quiet-team": {
+          "audio": {
+            "id": "6f157db5-631b-4d22-bebb-3be07973640a",
+            "sha256": "d83d5dda2adfc20e29289696669ee8c000e7d79b279e7efacfbe8f07feb6164c",
+            "file": "the-garden-robot-a1/audio/quiet-team.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:25.899392+00:00",
+            "durationMs": 18344
+          },
+          "visual": {
+            "id": "eea25593-62bd-4fa1-af47-2c797d1db54c",
+            "sha256": "f5b5a5f16edb569a6a7b6129e9544d88effb94d7ad2b25ba02ff805e1a035fe7",
+            "file": "the-garden-robot-a1/animations/quiet-team.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:26.462974+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "28d5a562e98dbc09dbf25be339861b0f65e8c7924d81630d85fb065d854675cc",
+      "verifiedAtUtc": "2026-11-07T17:04:26.587736+00:00"
+    },
+    "the-inventory-of-empty-rooms-b1": {
+      "versionId": "a7c535e7-dca8-4f60-96f6-f9f70eccc106",
+      "scenes": {
+        "inspection-kit": {
+          "audio": {
+            "id": "10a39ec9-2010-40d9-8880-4da2872cab16",
+            "sha256": "46a50e17e2862eb540451ddac77130560140d866526fda9ca71402daa92cd9aa",
+            "file": "the-inventory-of-empty-rooms-b1/audio/inspection-kit.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:27.553463+00:00",
+            "durationMs": 26413
+          },
+          "visual": {
+            "id": "a8fad582-a0da-44be-99cf-11e4772a4421",
+            "sha256": "0661e60feb02b453eb1ca304719c4d7909dd1fb007b0bd9520a2cc60a61af6c9",
+            "file": "the-inventory-of-empty-rooms-b1/animations/inspection-kit.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:28.166818+00:00"
+          }
+        },
+        "six-empty-rooms": {
+          "audio": {
+            "id": "85147548-27f8-4806-bd73-da087dc384c5",
+            "sha256": "84e0fdb14704ddf2fc17a1c56268534eab57e7b1f8f5446a8d10e3fda36a392c",
+            "file": "the-inventory-of-empty-rooms-b1/audio/six-empty-rooms.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:28.653758+00:00",
+            "durationMs": 29269
+          },
+          "visual": {
+            "id": "3c8f7839-db7a-4208-be91-d9c6fca624eb",
+            "sha256": "02a25c6096b5441f668bd149a5f9488ccdfa4b677ad02eb2a074f87833817594",
+            "file": "the-inventory-of-empty-rooms-b1/animations/six-empty-rooms.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:29.340294+00:00"
+          }
+        },
+        "her-name": {
+          "audio": {
+            "id": "0f3cb424-a26d-4b45-8475-fbe11959d5b3",
+            "sha256": "00b071f3bd9c3f2cf68b2d850c203949fcf9a6b118ec48a0b877c7152996622a",
+            "file": "the-inventory-of-empty-rooms-b1/audio/her-name.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:29.837991+00:00",
+            "durationMs": 24962
+          },
+          "visual": {
+            "id": "ec85c021-fd4f-482f-b647-7868dcf11412",
+            "sha256": "611ee830431a6875021ffa4958cd79d25dbed6ec7abab2eb0d0da50e3cd98fd4",
+            "file": "the-inventory-of-empty-rooms-b1/animations/her-name.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:30.380334+00:00"
+          }
+        },
+        "ledger-outside": {
+          "audio": {
+            "id": "c0c2d29a-fa8f-40d9-a136-36750db9fec2",
+            "sha256": "185b3977c31af1237885b47f15a20517879ebc13e2d5bbae202d72cc2c665d8e",
+            "file": "the-inventory-of-empty-rooms-b1/audio/ledger-outside.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:30.903449+00:00",
+            "durationMs": 27667
+          },
+          "visual": {
+            "id": "a1aaac76-1e0e-4d72-8563-42f017afef1f",
+            "sha256": "23e1c5ba110a4c252abe9aa8f32ba8fc1c60258ee47e1a9366eedad117f33623",
+            "file": "the-inventory-of-empty-rooms-b1/animations/ledger-outside.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:31.529636+00:00"
+          }
+        },
+        "survey-only": {
+          "audio": {
+            "id": "5b0dfc0c-4c80-47d4-b82c-1d37d793946a",
+            "sha256": "6ae85775a7b601ae251c212a7f1e111ddeead6ff4f5e1cedb2fcdd1c61a68045",
+            "file": "the-inventory-of-empty-rooms-b1/audio/survey-only.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:32.077959+00:00",
+            "durationMs": 26912
+          },
+          "visual": {
+            "id": "a36ba72b-08e8-4805-8376-a533ac46f79f",
+            "sha256": "375cce02efa9d284f60cbf1d495009227388054fa547f689b3e104fb45a26e77",
+            "file": "the-inventory-of-empty-rooms-b1/animations/survey-only.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:32.691325+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "3db463af60a2efbedfcebfe804b83916e755fe76e5dcb957d822ffd73e37a21c",
+      "verifiedAtUtc": "2026-11-07T17:04:32.816441+00:00"
+    },
+    "the-lantern-walk-a1": {
+      "versionId": "dcc801e3-9f26-40b6-9380-5f1ea8924ad8",
+      "scenes": {
+        "park-entrance": {
+          "audio": {
+            "id": "8a75f4dd-45a5-4746-8e49-c18efcbf77a2",
+            "sha256": "5346a07d567198bb3e5d97130a63ed0b2266d8bdb543b2733e180ead0560260f",
+            "file": "the-lantern-walk-a1/audio/park-entrance.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:33.718265+00:00",
+            "durationMs": 15802
+          },
+          "visual": {
+            "id": "badedc08-8a84-4eb1-9b1a-784ad06fa7f4",
+            "sha256": "e155aee5edcd37da03a93df2adec4614927cf7f5e792dd774763adecf043c23f",
+            "file": "the-lantern-walk-a1/animations/park-entrance.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:34.273853+00:00"
+          }
+        },
+        "map-paths": {
+          "audio": {
+            "id": "a36544a3-3f9c-431a-941e-532e5aae41e7",
+            "sha256": "6c9e1e9bad4e1ef751856f8ea4cd0c42a4e26047aa33eccfdce0be5dd688c747",
+            "file": "the-lantern-walk-a1/audio/map-paths.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:34.726506+00:00",
+            "durationMs": 15419
+          },
+          "visual": {
+            "id": "82cb6481-5b73-4ef6-9127-703ac63230fc",
+            "sha256": "321710314d014d5cb15dbfafeda6524ca188e6b52ad89b4722555af78d4d2db1",
+            "file": "the-lantern-walk-a1/animations/map-paths.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:35.262609+00:00"
+          }
+        },
+        "people-on-paths": {
+          "audio": {
+            "id": "aa055fe3-ae13-4c04-a317-91bd6793fbbc",
+            "sha256": "baa09c4a6afc6a5094a93ae1d166a700f0a606f7129ed9cb382b3d5d23fff0cb",
+            "file": "the-lantern-walk-a1/audio/people-on-paths.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:35.705485+00:00",
+            "durationMs": 14211
+          },
+          "visual": {
+            "id": "0a3e89b0-4ea1-4410-bf43-c1ae8e59689a",
+            "sha256": "a8b68d2958d54fa78a14f0cc94bb18fd068b23e565accd3e7395fb24cef9d300",
+            "file": "the-lantern-walk-a1/animations/people-on-paths.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:36.239853+00:00"
+          }
+        },
+        "picnic-table": {
+          "audio": {
+            "id": "53876ccc-ddc8-4c97-847f-c80281853e45",
+            "sha256": "14fc3f2ba507ecee7aca6dcad1f796a29c64b64c475936d6e5cab002e4fd2a7b",
+            "file": "the-lantern-walk-a1/audio/picnic-table.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:36.681776+00:00",
+            "durationMs": 15999
+          },
+          "visual": {
+            "id": "ceff0a1e-cb19-4d35-a602-4dfd47f28b8c",
+            "sha256": "dc02ec038e5d5e740240d2f5fc42d00c8c9a5b4d244408aaaa264f8f4c4d6315",
+            "file": "the-lantern-walk-a1/animations/picnic-table.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:37.233535+00:00"
+          }
+        },
+        "picnic-stage": {
+          "audio": {
+            "id": "c01c9bad-a435-4fa9-9120-d0f82c9491e9",
+            "sha256": "a528dd3f837c5927bc17cee08d4a9bfc36fb9d62adeafc5f0c9889eada539a2c",
+            "file": "the-lantern-walk-a1/audio/picnic-stage.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:37.690845+00:00",
+            "durationMs": 17741
+          },
+          "visual": {
+            "id": "6add196e-a64c-4c4a-8b3d-38d89e857872",
+            "sha256": "64f583203c12fb4bdb6831bf498efe707d4f371b9da0b6a0d1c9d6035672776f",
+            "file": "the-lantern-walk-a1/animations/picnic-stage.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:38.254364+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "22236865b8f4d825a3e9237f2786d21481ebc66c5042c4765cea95cb0f4ddc1f",
+      "verifiedAtUtc": "2026-11-07T17:04:38.376422+00:00"
+    },
+    "the-lighthouse-beyond-earth-b1": {
+      "versionId": "80df6a65-5578-4bc0-a1cc-34651c6daa1f",
+      "scenes": {
+        "outpost-shift": {
+          "audio": {
+            "id": "b944a055-2294-47a6-a277-cc83ce3eab08",
+            "sha256": "16f561bfd90e76f140c7568b93411693a46bd99a69666dc357ee1a02c4bdaa6a",
+            "file": "the-lighthouse-beyond-earth-b1/audio/outpost-shift.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:39.409499+00:00",
+            "durationMs": 31173
+          },
+          "visual": {
+            "id": "31f307d9-a166-48d5-9ce8-f7510a0b9142",
+            "sha256": "7ca1e89b8b6f66b78a1eecad4de4441cc66a79b391005ad4f191496f4be21cf0",
+            "file": "the-lighthouse-beyond-earth-b1/animations/outpost-shift.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:39.958164+00:00"
+          }
+        },
+        "an-answering-pause": {
+          "audio": {
+            "id": "dece038b-c33f-4ce1-a408-0704822b399c",
+            "sha256": "6795abd4efd91cf862b5f6719fd63843334a3f2752edecc03e34a0bf820f7808",
+            "file": "the-lighthouse-beyond-earth-b1/audio/an-answering-pause.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:40.500588+00:00",
+            "durationMs": 27133
+          },
+          "visual": {
+            "id": "d4792b38-a5bd-4d52-82ad-80475b926ad3",
+            "sha256": "5a7a080299c4553b3233577f76098cb846e0dd53d816fed52be3382ab9894e88",
+            "file": "the-lighthouse-beyond-earth-b1/animations/an-answering-pause.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:41.036597+00:00"
+          }
+        },
+        "choosing-a-language": {
+          "audio": {
+            "id": "058fb460-07fb-4aeb-956e-bcaebc5a5381",
+            "sha256": "ce693c392f9e5d14ad93626f5e989bfcc6a5c9e54aa0f938539bc0965d36c965",
+            "file": "the-lighthouse-beyond-earth-b1/audio/choosing-a-language.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:41.579258+00:00",
+            "durationMs": 28120
+          },
+          "visual": {
+            "id": "13a365a6-20ae-4d2d-a020-40838082a9b7",
+            "sha256": "45b6f00182f3926ae47528eb1a1efff0127a95e4f8098fafd01cac283083a125",
+            "file": "the-lighthouse-beyond-earth-b1/animations/choosing-a-language.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:42.122074+00:00"
+          }
+        },
+        "spoken-reply": {
+          "audio": {
+            "id": "69c499ea-05f7-412b-b355-80002d8a5f5f",
+            "sha256": "0e88c68c66ddd85686ae329fece2c2804f29530692f858e972b15e0c24a7d17a",
+            "file": "the-lighthouse-beyond-earth-b1/audio/spoken-reply.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:42.644237+00:00",
+            "durationMs": 28491
+          },
+          "visual": {
+            "id": "97793dea-113e-487e-b162-e8ee7f8d066f",
+            "sha256": "358917d7116d99e64860c5fe7cbde080bc526d38e179a8c6bdd2acd7343190f0",
+            "file": "the-lighthouse-beyond-earth-b1/animations/spoken-reply.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:43.203894+00:00"
+          }
+        },
+        "pulse-reply": {
+          "audio": {
+            "id": "53af7082-2c85-485b-8eba-6f10c736adc8",
+            "sha256": "64724c9b4f528da5225a9c1d5e52b26b718aaaece2d6ccfd44869da11d467304",
+            "file": "the-lighthouse-beyond-earth-b1/audio/pulse-reply.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:43.754713+00:00",
+            "durationMs": 28933
+          },
+          "visual": {
+            "id": "4568b941-9243-4641-9847-f634a23bd719",
+            "sha256": "ccb194bf1b004d1286f153f895e3a5ea7f58e6a748c01278e5af3189751ebecb",
+            "file": "the-lighthouse-beyond-earth-b1/animations/pulse-reply.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:44.301291+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "a63f3224bf21190342b7b017fc9a8d2b4dbedebd7b3e22f0c5314725ae9290e5",
+      "verifiedAtUtc": "2026-11-07T17:04:44.423274+00:00"
+    },
+    "the-listening-booth-a2": {
+      "versionId": "227aaa71-c670-4715-946d-26a03a820b9e",
+      "scenes": {
+        "archive-visit": {
+          "audio": {
+            "id": "3ae3ec9b-29a2-42df-b322-12970d162693",
+            "sha256": "b236638c4bc11ca0481173e773c59e9ff449d049581c82365a5841b245c52c96",
+            "file": "the-listening-booth-a2/audio/archive-visit.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:45.352457+00:00",
+            "durationMs": 21003
+          },
+          "visual": {
+            "id": "f4a46ec9-931c-4691-9aed-cfdb9b4b6bf0",
+            "sha256": "8a26afbedde5c9fbb29387ad8230e0504d77e259e4e9862d44865f130f20f017",
+            "file": "the-listening-booth-a2/animations/archive-visit.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:46.008220+00:00"
+          }
+        },
+        "unfamiliar-voice": {
+          "audio": {
+            "id": "2dc7a9d9-55af-4e81-9100-39f07b98c1d7",
+            "sha256": "90646bc1fc30d993a8fd615f60a48eb55605cf067963b6bb07c7b6cf2c65e202",
+            "file": "the-listening-booth-a2/audio/unfamiliar-voice.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:46.448862+00:00",
+            "durationMs": 20446
+          },
+          "visual": {
+            "id": "5d54385d-19cc-46a5-8e39-9e1117081c9b",
+            "sha256": "58cc1f39f5c6484235c0fb99d5db9a1f2323065f484db8ebcea938c86191cb0f",
+            "file": "the-listening-booth-a2/animations/unfamiliar-voice.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:47.040087+00:00"
+          }
+        },
+        "copying-choice": {
+          "audio": {
+            "id": "a298338c-4cff-407a-885b-54d3b634dd5d",
+            "sha256": "43a55be94034c2e19ff7e266c11a6477046ca4113ca80d09127928ae3d213180",
+            "file": "the-listening-booth-a2/audio/copying-choice.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:47.519742+00:00",
+            "durationMs": 20585
+          },
+          "visual": {
+            "id": "d73e4222-38a1-48d2-a3e9-d8a54aba0da3",
+            "sha256": "6513b913a76fa8261ba7d1cbe663e586f3f19a537c948c7adb34c516a1e7f52c",
+            "file": "the-listening-booth-a2/animations/copying-choice.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:48.107677+00:00"
+          }
+        },
+        "full-recording": {
+          "audio": {
+            "id": "4c28160e-6b6f-4b9c-aba6-bab6f708351f",
+            "sha256": "81c5afeffe9b64ded7ff7bbaca6591184bff87d4e1e4b0310942dab586f7519c",
+            "file": "the-listening-booth-a2/audio/full-recording.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:48.588143+00:00",
+            "durationMs": 21816
+          },
+          "visual": {
+            "id": "ecd20269-2a98-4b84-926f-8a915bcb105d",
+            "sha256": "7003a082b9f2398528448f9a5c1c8be7b20301b643adcccab3f97d1fbc575a7a",
+            "file": "the-listening-booth-a2/animations/full-recording.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:49.168348+00:00"
+          }
+        },
+        "fathers-message": {
+          "audio": {
+            "id": "775079ab-4d72-4e06-a729-e641ed92b82d",
+            "sha256": "042da70490c9e332559914523a4c823273660abc7cb3e4294480fc65be33eca9",
+            "file": "the-listening-booth-a2/audio/fathers-message.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:49.671086+00:00",
+            "durationMs": 22338
+          },
+          "visual": {
+            "id": "82d56f18-f163-4f09-9a9c-8ddfd0228c1c",
+            "sha256": "e117968c9838d45b153ee0dd45d5acdec65ef1574e3c1b2856acf16f778cb6ab",
+            "file": "the-listening-booth-a2/animations/fathers-message.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:50.245720+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "a828a4e0953eaaf5e6b67c9a5f96b2eab81654ddc35ad9c01811690d031eff2e",
+      "verifiedAtUtc": "2026-11-07T17:04:50.405197+00:00"
+    },
+    "the-mountain-post-b1": {
+      "versionId": "f2d259a0-58df-4b29-8792-fcf6ca874482",
+      "scenes": {
+        "last-collection": {
+          "audio": {
+            "id": "c9ae236a-7543-4d99-9a65-f2ee479f1444",
+            "sha256": "f88c282ea98be4c221608270f4e3b9dc5a3c8ffc056d66768dc3f38185d23afb",
+            "file": "the-mountain-post-b1/audio/last-collection.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:51.430021+00:00",
+            "durationMs": 26518
+          },
+          "visual": {
+            "id": "f88bc2d8-cd8e-421e-be9b-a8fa6b0fdd1c",
+            "sha256": "8ce0c795de8a06226f446a82925ba7b0c28685cc688d8793da04849d06e12724",
+            "file": "the-mountain-post-b1/animations/last-collection.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:52.008906+00:00"
+          }
+        },
+        "old-timetable": {
+          "audio": {
+            "id": "92d876e0-865b-4b0e-a978-23ef3fc9c64d",
+            "sha256": "aefeb90158b4a155eb04d0e73e6ac37a09a882f84e4a757b1b42251354080654",
+            "file": "the-mountain-post-b1/audio/old-timetable.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:52.609536+00:00",
+            "durationMs": 29629
+          },
+          "visual": {
+            "id": "f3e5d305-9db4-43db-a8e6-2e03a086b81b",
+            "sha256": "fe76c58123601b2858f4189366c4d94febe27e8b2ad7788a50454bc1159cf552",
+            "file": "the-mountain-post-b1/animations/old-timetable.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:53.103330+00:00"
+          }
+        },
+        "descent-choice": {
+          "audio": {
+            "id": "374fa64b-2371-4403-bc0d-d1c2d7bafa37",
+            "sha256": "3fabb7ba7712e910c78ba49d80560e3cf8f39e635ef8e6d81b3fa31ccbc5b3a1",
+            "file": "the-mountain-post-b1/audio/descent-choice.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:53.689072+00:00",
+            "durationMs": 29687
+          },
+          "visual": {
+            "id": "87d7a3ca-f1ec-4ea9-b9df-9b1ded8ab541",
+            "sha256": "2f68c2c65d8f5c553ddc893c6225301726237ec7933f498cdcae39a72312e9f4",
+            "file": "the-mountain-post-b1/animations/descent-choice.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:54.266305+00:00"
+          }
+        },
+        "village-return": {
+          "audio": {
+            "id": "270826ca-0f01-4f68-9818-1ecdbf1e0001",
+            "sha256": "daf283a944e2b2c8a291fecaac8daae05849cb40d6b969c7a989b8205a048bcb",
+            "file": "the-mountain-post-b1/audio/village-return.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:54.770642+00:00",
+            "durationMs": 25740
+          },
+          "visual": {
+            "id": "86a9395c-68a0-47af-bdf2-8188fa9fe95f",
+            "sha256": "8c8503cd3c72e74572712332daaf67da43d88aa685ae11231fdca8eaf80c28cd",
+            "file": "the-mountain-post-b1/animations/village-return.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:55.495378+00:00"
+          }
+        },
+        "farm-return": {
+          "audio": {
+            "id": "ef2cc1d6-3ef2-4222-90e0-45d4e389bbd8",
+            "sha256": "97141bdabaa824a37900b1de66883fbd93ed4b309329b55e8be432a65336f7be",
+            "file": "the-mountain-post-b1/audio/farm-return.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:55.992073+00:00",
+            "durationMs": 27029
+          },
+          "visual": {
+            "id": "34ddbc73-29e2-46a1-b679-d76b2a4e84f6",
+            "sha256": "6265f00ab07f9bbb2ccf7c570d0042c3424007c15e0153432dc8a8859ef54536",
+            "file": "the-mountain-post-b1/animations/farm-return.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:56.588483+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "c62b4ccfeb6365886c45cbe1f58508b3e1c45b2e0d1b6b515e9124acfff30adf",
+      "verifiedAtUtc": "2026-11-07T17:04:56.709664+00:00"
+    },
+    "the-red-violin-case-a2": {
+      "versionId": "9587ee41-c059-495e-8108-b116198486c4",
+      "scenes": {
+        "ferry-delay": {
+          "audio": {
+            "id": "a033ecd9-c963-43f6-9fe7-cfb165d19053",
+            "sha256": "c0fc60b5d3d118dd87f26047f749aacd343fbe7a0fec145de1dac3b8dc9bbf85",
+            "file": "the-red-violin-case-a2/audio/ferry-delay.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:57.613798+00:00",
+            "durationMs": 19819
+          },
+          "visual": {
+            "id": "64e83c5b-5280-45b1-aeb2-c6d2650f63df",
+            "sha256": "eda123c18e25885c084b61b6a2726afacb732d7e117bb4cccfaa5665914f251e",
+            "file": "the-red-violin-case-a2/animations/ferry-delay.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:58.229993+00:00"
+          }
+        },
+        "other-crossings": {
+          "audio": {
+            "id": "81baa322-49c3-43af-a6a0-7331f67233ff",
+            "sha256": "a813b14555131f87a83065c552fd43432afc27640f71563a4ed072535e75e816",
+            "file": "the-red-violin-case-a2/audio/other-crossings.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:58.709948+00:00",
+            "durationMs": 20213
+          },
+          "visual": {
+            "id": "c37dd41c-cf17-4d8c-8ada-71e76089e2ad",
+            "sha256": "df7ea9b14e33d99842a2c0e577db94fdb62b5193bcd795663ede1000d43d2fcc",
+            "file": "the-red-violin-case-a2/animations/other-crossings.gif",
+            "verifiedAtUtc": "2026-11-07T17:04:59.362760+00:00"
+          }
+        },
+        "a-person-to-help": {
+          "audio": {
+            "id": "59cc4f13-eff4-46ed-8c80-15cd776badf9",
+            "sha256": "3e37d8011fd148bfbb2dfda2a1df89aebca4d3247bf53b9774ab141587fecfe2",
+            "file": "the-red-violin-case-a2/audio/a-person-to-help.wav",
+            "verifiedAtUtc": "2026-11-07T17:04:59.843350+00:00",
+            "durationMs": 19981
+          },
+          "visual": {
+            "id": "253b89f4-132f-4024-9ee1-cf5f3b0a55d9",
+            "sha256": "686fe932695d457835db18f6cbbccb1818d28d0ccb077a9d57d561e178f37e16",
+            "file": "the-red-violin-case-a2/animations/a-person-to-help.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:00.415717+00:00"
+          }
+        },
+        "bridge-story": {
+          "audio": {
+            "id": "9826d219-d758-4bf6-a5eb-8ba4c81533a1",
+            "sha256": "8aa180fd1ded8d7a8721fbd72b62668abc9a290febb4106b1fbd289b7d116aa8",
+            "file": "the-red-violin-case-a2/audio/bridge-story.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:00.961686+00:00",
+            "durationMs": 21560
+          },
+          "visual": {
+            "id": "7766768e-b4d4-4da4-b267-46c2ef51c318",
+            "sha256": "a155c7234c454d1150c434af833f35a315b9a9464e4aad1a7684050127b563f1",
+            "file": "the-red-violin-case-a2/animations/bridge-story.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:01.629705+00:00"
+          }
+        },
+        "boat-arrival": {
+          "audio": {
+            "id": "59630409-ac6d-426b-ae77-5a3776bec96e",
+            "sha256": "00ef71d5caccc79d589ba9a9b54a3cadf2d3961114f1b8b3f07b72f56b458c6e",
+            "file": "the-red-violin-case-a2/audio/boat-arrival.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:02.142880+00:00",
+            "durationMs": 22872
+          },
+          "visual": {
+            "id": "b6b88492-1867-4287-9d9c-5aa2dbbeeb38",
+            "sha256": "d04e01fba9094fbd890ce6f3e293a9311d10c9e05a43de622c388b46e3f8bf69",
+            "file": "the-red-violin-case-a2/animations/boat-arrival.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:02.732210+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "f0e1138c724eae4d668531cd3e6cdb2c3c8a07b902ee5be2aa404a229a7ac873",
+      "verifiedAtUtc": "2026-11-07T17:05:02.868313+00:00"
+    },
+    "the-second-cup-a1": {
+      "versionId": "504b6986-c13b-4cfc-b6f1-6df8364134d4",
+      "scenes": {
+        "closing-time": {
+          "audio": {
+            "id": "646aa4ff-7c6f-4a98-aa12-49e2bb1493d6",
+            "sha256": "d5fd41d185b693b384169b448302fc5221479ddbcfaa016891ffdecff0d0d5c2",
+            "file": "the-second-cup-a1/audio/closing-time.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:04.002351+00:00",
+            "durationMs": 14861
+          },
+          "visual": {
+            "id": "ca92c9ec-a970-427c-b28c-20c4ba07db36",
+            "sha256": "182efcf245581795d2c03391440d2851e35004549fcc1962b904d10cbf05c9ea",
+            "file": "the-second-cup-a1/animations/closing-time.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:04.553987+00:00"
+          }
+        },
+        "two-cups": {
+          "audio": {
+            "id": "e2f4e603-5046-4255-b6c4-f050c9902d69",
+            "sha256": "3ac9141ad6723a8e377511408468a981218bb45e3fcd16bf17d252c09145deee",
+            "file": "the-second-cup-a1/audio/two-cups.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:05.050749+00:00",
+            "durationMs": 14884
+          },
+          "visual": {
+            "id": "987a3046-9d2a-46b2-9396-ef8f6cdae8ee",
+            "sha256": "a214848e60f72b19a10516ebc18445eaf6a36ff12ee453ed4d7ceaac9c8e37f2",
+            "file": "the-second-cup-a1/animations/two-cups.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:05.566956+00:00"
+          }
+        },
+        "two-exits": {
+          "audio": {
+            "id": "425b6e85-594e-4eec-a8c2-70b0df408085",
+            "sha256": "9cdd71679450a47da00457e9368db075639f4430fc71661c6a8574ee0b489658",
+            "file": "the-second-cup-a1/audio/two-exits.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:06.050814+00:00",
+            "durationMs": 15198
+          },
+          "visual": {
+            "id": "0b5ab3c7-7c57-46f3-8876-1a5fedc37e39",
+            "sha256": "a261c6ea26fe68177e2c6580474d5790cda9d4867b502a51d4e91c168aa092c0",
+            "file": "the-second-cup-a1/animations/two-exits.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:06.609049+00:00"
+          }
+        },
+        "across-the-street": {
+          "audio": {
+            "id": "2d4ccce9-bc53-4707-ab26-98d7acaec2a8",
+            "sha256": "0ef942702734feb8dc9e4109777c51ef89ecf92e8a135a904e6cd5503d9b4143",
+            "file": "the-second-cup-a1/audio/across-the-street.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:07.092746+00:00",
+            "durationMs": 14943
+          },
+          "visual": {
+            "id": "0cd6632a-6e5e-4e15-98f6-135f8ff01d34",
+            "sha256": "61cf55d21b27199c7e575d75c97463099393d3944fbb1d3a18b6b6f34161c699",
+            "file": "the-second-cup-a1/animations/across-the-street.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:07.664266+00:00"
+          }
+        },
+        "courtyard-exit": {
+          "audio": {
+            "id": "606edf20-5c4e-445b-9037-4a7a79214476",
+            "sha256": "88eb36608934059615e99fdc6dadf228a50aa48fd917eee275f3ec0aa0e0f7de",
+            "file": "the-second-cup-a1/audio/courtyard-exit.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:08.126283+00:00",
+            "durationMs": 17601
+          },
+          "visual": {
+            "id": "f88a1ee7-afb5-4014-8b4c-ced21af3da01",
+            "sha256": "16c3c896e018310ef2f0b0ca26baa984981ea40ff442aa4dd94a3b8d15c5c3c2",
+            "file": "the-second-cup-a1/animations/courtyard-exit.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:08.742683+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "7b10e74f46a8067449f792f891780d7c94c25b65348e6063c1a94915a9a0302d",
+      "verifiedAtUtc": "2026-11-07T17:05:08.867010+00:00"
+    },
+    "the-seventh-photograph-b1": {
+      "versionId": "c9126f19-4607-454f-82f7-cafe9bf59dc5",
+      "scenes": {
+        "sorting-table": {
+          "audio": {
+            "id": "235a9af2-5a7c-4899-ad81-32cef9edbf40",
+            "sha256": "a6c3cb6e7afcd3b50e8f870f91ddb7187874434b033ae93ac6595a87c449eb61",
+            "file": "the-seventh-photograph-b1/audio/sorting-table.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:09.891017+00:00",
+            "durationMs": 27481
+          },
+          "visual": {
+            "id": "f5969ef2-2c64-4ebe-a0cd-3a919536fac9",
+            "sha256": "d7bf1caee6ef2260ef5ca942769c6e9b05ec7ab2f30d499e92c88c4cb2db5e93",
+            "file": "the-seventh-photograph-b1/animations/sorting-table.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:10.459332+00:00"
+          }
+        },
+        "beam-and-ledger": {
+          "audio": {
+            "id": "7fc5b24a-6d77-4c8d-9b9e-9ae036228f70",
+            "sha256": "3669beba6787a16edd39ef717aaca88a70a3f44c29853a938783c5010530e11c",
+            "file": "the-seventh-photograph-b1/audio/beam-and-ledger.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:10.971931+00:00",
+            "durationMs": 27830
+          },
+          "visual": {
+            "id": "f10dbedc-4423-4d43-b37a-4bf1bb2dc8e5",
+            "sha256": "6cd11adc6a985b09da24d87948a4a4f36d07d13e11e933f46a5dfa6123210ce6",
+            "file": "the-seventh-photograph-b1/animations/beam-and-ledger.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:11.574221+00:00"
+          }
+        },
+        "two-sources": {
+          "audio": {
+            "id": "4d691547-78a1-4d8d-b262-159f03d4a59c",
+            "sha256": "d18d2591bc82f46bccd16b73ea2f5eaab94f85eaec925218670b022ebe20516e",
+            "file": "the-seventh-photograph-b1/audio/two-sources.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:12.097075+00:00",
+            "durationMs": 26843
+          },
+          "visual": {
+            "id": "4ad0d27d-4c39-4656-b57f-e7ddd8555c08",
+            "sha256": "04b5812e21a9fcea5f79cfb34af7c52b792ce733a78f6fc1c50d69311f8475d1",
+            "file": "the-seventh-photograph-b1/animations/two-sources.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:12.605508+00:00"
+          }
+        },
+        "carpenters-account": {
+          "audio": {
+            "id": "2592dcd0-db82-46af-8083-0421af48965a",
+            "sha256": "04cc09f40c8848f979f9bc205fb61bdd1f663d071c2cb91224eab94631209aa6",
+            "file": "the-seventh-photograph-b1/audio/carpenters-account.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:13.142678+00:00",
+            "durationMs": 27922
+          },
+          "visual": {
+            "id": "8199d627-68ad-4545-af3e-8d2ed64f2e69",
+            "sha256": "34c3461473edc1249bc6b78bdf31c4fc2a454674f79e17ff7331cf460e33c42c",
+            "file": "the-seventh-photograph-b1/animations/carpenters-account.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:13.710811+00:00"
+          }
+        },
+        "construction-records": {
+          "audio": {
+            "id": "4e98c6a9-14e2-48e7-9487-9ae539e44bba",
+            "sha256": "a34d87a6efd888f4ec51aa79764306f221857b761af07c8ad7836556980c6af3",
+            "file": "the-seventh-photograph-b1/audio/construction-records.wav",
+            "verifiedAtUtc": "2026-11-07T17:05:14.236457+00:00",
+            "durationMs": 29165
+          },
+          "visual": {
+            "id": "2847718e-f572-4543-934f-34f7a7292c72",
+            "sha256": "70cfdee6fbaab9296a272a5a17f7efe662f1e24430f0e965e93c69137fb3b5e6",
+            "file": "the-seventh-photograph-b1/animations/construction-records.gif",
+            "verifiedAtUtc": "2026-11-07T17:05:14.742742+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "d23ea48b68715ef5cc9f4af143c11e5315e88166d84374275b93ed5cc6e86f07",
+      "verifiedAtUtc": "2026-11-07T17:05:14.887890+00:00"
+    }
+  }
+}

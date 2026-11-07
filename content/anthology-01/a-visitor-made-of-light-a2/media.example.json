@@ -1,0 +1,72 @@
+{
+  "old-workshop": {
+    "audio": {
+      "file": "audio/old-workshop.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/old-workshop.gif",
+      "altText": "Sana stands beside the built-in window bench in the old orbital workshop. A faint blue projection of the older builder appears above a desk projector. The station window is dark; the workshop has practical white lamps.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "window-memory": {
+    "audio": {
+      "file": "audio/window-memory.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/window-memory.gif",
+      "altText": "Sana holds a white memory card above the open desk drawer. The blue projected builder remains above the projector; the built-in bench sits under the wide workshop window. Keep all equipment in its established position.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "what-to-save": {
+    "audio": {
+      "file": "audio/what-to-save.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/what-to-save.gif",
+      "altText": "Sana holds the white memory card between the desk projector and the worn window bench. The builder remains a small blue recorded projection. Show no readable menus; the decision is conveyed by objects and Sana's thoughtful posture.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "archive-light": {
+    "audio": {
+      "file": "audio/archive-light.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/archive-light.gif",
+      "altText": "In the old workshop, Sana holds the completed white memory card and watches the blue builder above the projector for the last time. The window bench remains below the dark orbital window. Do not depict the future museum in this frame.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "workshop-voice": {
+    "audio": {
+      "file": "audio/workshop-voice.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/workshop-voice.gif",
+      "altText": "Sana and a small adult work team listen beside an ordinary workbench in the new workshop. The reused projector and white memory card sit on the bench without a blue figure; the saved copy in this route is voice only.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Seventh Photograph — B1",
+    "synopsis": "Ao preparar uma exposição, Nadia descobre uma fotografia que contradiz o crédito dado à construção de uma ponte.",
+    "genre": "Mistério",
+    "difficulty": "B1",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#B6A0E8",
+      "accent": "#E4BA6D",
+      "background": "#131021",
+      "surface": "#221B35",
+      "text": "#F5F0FF",
+      "font": "modern",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "sorting-table",
+  "scenes": [
+    {
+      "key": "sorting-table",
+      "title": "One Photograph Too Many",
+      "narration": "Nadia was preparing a museum display about the town's first footbridge. Six glossy photographs showed the mayor at its opening. A seventh picture, printed on rougher paper, showed workers fitting a wooden beam. Their faces were clear, but the mayor was absent. The museum label credited him with building the bridge. Nadia set the picture aside. Before repeating that claim, she wanted to know whether the seventh photograph belonged to the same bridge.",
+      "isEnding": false,
+      "prompt": "Why did Nadia set the seventh photograph aside?",
+      "options": [
+        {
+          "key": "a",
+          "text": "She wanted to remove every photograph without the mayor"
+        },
+        {
+          "key": "b",
+          "text": "She thought rough paper could not preserve a real photograph"
+        },
+        {
+          "key": "c",
+          "text": "She wanted to check the claim on the museum label"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The label credits the mayor, but the photograph shows other workers. Nadia wants to check the claim before repeating it.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "beam-and-ledger"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: In the museum workroom, Nadia sorts six glossy opening photographs and one matte construction photograph on a table beside the window. Keep all photographic writing unreadable. Her expression is attentive rather than triumphant. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Nadia was preparing a museum display about the town's first footbridge. Six glossy photographs showed the mayor at its opening. A seventh picture, printed on rougher paper, showed workers fitting a wooden beam. Their faces were clear, but the mayor was absent. The museum label credited him with building the bridge. Nadia set the picture aside. Before repeating that claim, she wanted to know whether the seventh photograph belonged to the same bridge.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/sorting-table.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'One Photograph Too Many', using that image as the reference. Preserve this composition: In the museum workroom, Nadia sorts six glossy opening photographs and one matte construction photograph on a table beside the window. Keep all photographic writing unreadable. Her expression is attentive rather than triumphant. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/sorting-table.gif"
+        },
+        "cluePurpose": "A diferença de suporte e conteúdo desperta uma pergunta investigável, sem concluir fraude antes das evidências.",
+        "questionEvidence": "Before repeating that claim, she wanted to know"
+      }
+    },
+    {
+      "key": "beam-and-ledger",
+      "title": "A Mark in the Wood",
+      "narration": "In the gallery, Nadia compared the seventh photograph with a detail photograph of the bridge. Both showed a small triangular notch in the same beam. The picture did belong to this project. A grant ledger recorded the mayor's payment, but said nothing about who did the work. Beside it, a file guide listed construction records and permission letters in the downstairs records room. Nadia realised that paying for a bridge and building it were different kinds of contribution.",
+      "isEnding": false,
+      "prompt": "What did the matching triangular notch establish?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The construction photograph showed the same bridge"
+        },
+        {
+          "key": "b",
+          "text": "The mayor had personally repaired the beam"
+        },
+        {
+          "key": "c",
+          "text": "The grant payment had never been made"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The same notch appears in both photographs, linking the construction scene to the bridge in the gallery.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "two-sources"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Nadia compares the matte photograph with a bridge detail photograph in the museum gallery. Each image shows the same small triangular notch in a wooden beam. A closed grant ledger and file guide rest nearby; no readable labels are required. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "In the gallery, Nadia compared the seventh photograph with a detail photograph of the bridge. Both showed a small triangular notch in the same beam. The picture did belong to this project. A grant ledger recorded the mayor's payment, but said nothing about who did the work. Beside it, a file guide listed construction records and permission letters in the downstairs records room. Nadia realised that paying for a bridge and building it were different kinds of contribution.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/beam-and-ledger.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Mark in the Wood', using that image as the reference. Preserve this composition: Nadia compares the matte photograph with a bridge detail photograph in the museum gallery. Each image shows the same small triangular notch in a wooden beam. A closed grant ledger and file guide rest nearby; no readable labels are required. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/beam-and-ledger.gif"
+        },
+        "cluePurpose": "A marca confirma identidade; o registro de doação não prova autoria material.",
+        "questionEvidence": "The picture did belong to this project"
+      }
+    },
+    {
+      "key": "two-sources",
+      "title": "People and Paper",
+      "narration": "An assistant recognised one worker in the photograph as Rosa Vale, a retired carpenter who lived across the square. Nadia could visit her and ask what she remembered. She could also follow the file guide to the construction records downstairs. The photograph offered a question, not a complete answer. Nadia wanted to correct the display without replacing one unsupported story with another, so she chose how to gather the missing evidence.",
+      "isEnding": false,
+      "prompt": "What did Nadia want to avoid?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Learning the names of the bridge workers"
+        },
+        {
+          "key": "b",
+          "text": "Replacing one unsupported account with another"
+        },
+        {
+          "key": "c",
+          "text": "Keeping any record of the mayor's payment"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Nadia wants evidence, rather than another account that has not been checked.",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Visit Rosa Vale and ask about the photograph",
+          "targetSceneKey": "carpenters-account"
+        },
+        {
+          "key": "route-two",
+          "label": "Compare the photograph with the construction records",
+          "targetSceneKey": "construction-records"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Nadia holds the seventh matte photograph at the museum workroom doorway while an adult assistant identifies a worker. The square is visible through the workroom window; rear stairs lead down to the records room. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "An assistant recognised one worker in the photograph as Rosa Vale, a retired carpenter who lived across the square. Nadia could visit her and ask what she remembered. She could also follow the file guide to the construction records downstairs. The photograph offered a question, not a complete answer. Nadia wanted to correct the display without replacing one unsupported story with another, so she chose how to gather the missing evidence.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/two-sources.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'People and Paper', using that image as the reference. Preserve this composition: Nadia holds the seventh matte photograph at the museum workroom doorway while an adult assistant identifies a worker. The square is visible through the workroom window; rear stairs lead down to the records room. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/two-sources.gif"
+        },
+        "cluePurpose": "As rotas separam entrevista e pesquisa documental, ambas voltadas a confirmar a mesma história.",
+        "questionEvidence": "without replacing one unsupported story with another"
+      }
+    },
+    {
+      "key": "carpenters-account",
+      "title": "Rosa's Side of the Bridge",
+      "narration": "Rosa recognised the photograph immediately. She had cut that beam, while neighbours supplied wood and the mayor paid for the foundations. She showed Nadia her old work diary and agreed to lend both the diary and the photograph to the museum. The revised display gave each contribution its place. Watching Rosa read the new label, Nadia understood that the mystery had not been a missing bridge. It had been the people hidden behind an easy sentence.",
+      "isEnding": true,
+      "prompt": "What did the revised display change?",
+      "options": [
+        {
+          "key": "a",
+          "text": "It claimed that Rosa had paid for all the foundations"
+        },
+        {
+          "key": "b",
+          "text": "It removed the mayor despite evidence of his payment"
+        },
+        {
+          "key": "c",
+          "text": "It recognised several different contributions to the bridge"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The display recognises the work, donated wood and foundation funding as different contributions.",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: In the museum bridge gallery, Nadia watches Rosa read an indistinct revised display beside the matte photograph and an open work diary. Rosa wears her plain brown coat. Avoid readable exhibit text and celebratory crowds. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Rosa Vale is a retired carpenter in her seventies with cropped silver hair, a lined face and a plain brown wool coat. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Rosa Vale is a retired carpenter in her seventies with cropped silver hair, a lined face and a plain brown wool coat. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Rosa recognised the photograph immediately. She had cut that beam, while neighbours supplied wood and the mayor paid for the foundations. She showed Nadia her old work diary and agreed to lend both the diary and the photograph to the museum. The revised display gave each contribution its place. Watching Rosa read the new label, Nadia understood that the mystery had not been a missing bridge. It had been the people hidden behind an easy sentence.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/carpenters-account.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Rosa's Side of the Bridge', using that image as the reference. Preserve this composition: In the museum bridge gallery, Nadia watches Rosa read an indistinct revised display beside the matte photograph and an open work diary. Rosa wears her plain brown coat. Avoid readable exhibit text and celebratory crowds. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/carpenters-account.gif"
+        },
+        "cluePurpose": "A entrevista ganha confirmação material e autorização dentro da ficção, sem apagar a contribuição financeira documentada.",
+        "questionEvidence": "gave each contribution its place"
+      }
+    },
+    {
+      "key": "construction-records",
+      "title": "The Names below the Grant",
+      "narration": "Downstairs, Nadia found signed construction records naming Rosa and the neighbours who had supplied timber. A permission letter allowed the museum to display their work records. The mayor's grant covered the foundations, not the whole project. Nadia prepared a new panel that separated those contributions and sent Rosa a copy before the exhibition. The seventh photograph became its centre. A familiar town story now had enough space for the people who had actually held the tools.",
+      "isEnding": true,
+      "prompt": "Why could Nadia distinguish the mayor's role from Rosa's?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The records separated foundation funding from construction work"
+        },
+        {
+          "key": "b",
+          "text": "The photograph alone listed every payment"
+        },
+        {
+          "key": "c",
+          "text": "The permission letter said that the grant was imaginary"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The construction records name the workers, while the grant covers the foundations. They show different roles.",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: In the downstairs museum records room, Nadia lays construction records, a permission letter and the seventh photograph beside the grant ledger. A shaded desk lamp lights the papers; do not render legible names or amounts. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Downstairs, Nadia found signed construction records naming Rosa and the neighbours who had supplied timber. A permission letter allowed the museum to display their work records. The mayor's grant covered the foundations, not the whole project. Nadia prepared a new panel that separated those contributions and sent Rosa a copy before the exhibition. The seventh photograph became its centre. A familiar town story now had enough space for the people who had actually held the tools.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/construction-records.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'The Names below the Grant', using that image as the reference. Preserve this composition: In the downstairs museum records room, Nadia lays construction records, a permission letter and the seventh photograph beside the grant ledger. A shaded desk lamp lights the papers; do not render legible names or amounts. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/construction-records.gif"
+        },
+        "cluePurpose": "A rota documental confirma a mesma divisão de trabalho e permite uma conclusão completa sem a entrevista.",
+        "questionEvidence": "The mayor's grant covered the foundations"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Ao preparar uma exposição, Nadia descobre uma fotografia que contradiz o crédito dado à construção de uma ponte.",
+    "visualContinuity": {
+      "characters": "Nadia, a 46-year-old woman with a square face, olive skin, dark brown eyes, greying black hair in a loose bun, a charcoal cardigan, pale blue blouse, dark trousers and flat shoes. Rosa Vale is a retired carpenter in her seventies with cropped silver hair, a lined face and a plain brown wool coat.",
+      "locations": "A town museum: workroom with a sorting table and window, public bridge gallery in front, records room down the rear stairs. Rosa Vale lives in a ground-floor flat across the square. The photograph never requires a dangerous trip to the bridge.",
+      "clues": "Six glossy opening photographs contrast with a seventh matte construction photograph. A bridge beam in the seventh carries a small triangular repair notch. A grant ledger identifies the mayor as funder; construction records and releases are filed separately downstairs."
+    },
+    "learningFocus": "Comparação de evidências, distinção entre financiamento e execução, e inferência de motivação.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "sorting-table",
+        "beam-and-ledger",
+        "two-sources",
+        "carpenters-account"
+      ],
+      [
+        "sorting-table",
+        "beam-and-ledger",
+        "two-sources",
+        "construction-records"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-seventh-photograph-b1/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

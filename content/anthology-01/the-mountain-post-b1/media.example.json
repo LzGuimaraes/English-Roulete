@@ -1,0 +1,72 @@
+{
+  "last-collection": {
+    "audio": {
+      "file": "audio/last-collection.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/last-collection.gif",
+      "altText": "Jo stands on the weather-station porch beside the unlocked postbox, placing one sealed packet in her canvas mail bag. The borrowed key is in her other hand. A maintained track reaches the porch; the mountain landscape is calm and clear.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "old-timetable": {
+    "audio": {
+      "file": "audio/old-timetable.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/old-timetable.gif",
+      "altText": "In the station workroom, Jo compares an old wall timetable with a recent route note and a current route sheet. Her canvas mail bag stays closed beside her. Show two route lines without readable names or invented hazards.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "descent-choice": {
+    "audio": {
+      "file": "audio/descent-choice.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/descent-choice.gif",
+      "altText": "Jo pauses at a clearly signed path junction with an adult cooperative worker. The forest path starts beside them; the roof of Nico's farmhouse is visible below the hillside route. The closed canvas mail bag remains on Jo's shoulder.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "village-return": {
+    "audio": {
+      "file": "audio/village-return.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/village-return.gif",
+      "altText": "At the cooperative kitchen table, Nico opens his packet and lays out old photographs with Jo and the adult cooperative worker. The borrowed key rests beside Nico; Jo's canvas bag is empty at her feet. Warm kitchen light supports a quiet reunion.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "farm-return": {
+    "audio": {
+      "file": "audio/farm-return.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/farm-return.gif",
+      "altText": "In Nico's farmhouse kitchen, Jo sits with tea while Nico studies one photograph beside the window. The opened packet, other photographs and returned key lie on the table. The canvas bag is empty; no cooperative workers are present.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

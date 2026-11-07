@@ -1,0 +1,72 @@
+{
+  "closing-time": {
+    "audio": {
+      "file": "audio/closing-time.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/closing-time.gif",
+      "altText": "Nora stands at the small table near the café front glass door. One white cup releases faint steam. The street beyond is quiet; the café ceiling lamp is still on.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "two-cups": {
+    "audio": {
+      "file": "audio/two-cups.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/two-cups.gif",
+      "altText": "Nora looks toward two white cups with faint steam on the front table. Her brass keys lie beside the cups. The closed front glass door is visible; no other person appears.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "two-exits": {
+    "audio": {
+      "file": "audio/two-exits.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/two-exits.gif",
+      "altText": "Nora holds her brass keys between the front table and the kitchen passage. Both steaming white cups remain on the table. The open bakery is visible across the street through glass.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "across-the-street": {
+    "audio": {
+      "file": "audio/across-the-street.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/across-the-street.gif",
+      "altText": "Nora sits near the bakery window, her keys in her hand. The adult baker stands nearby. Across the street, the closed café and its table remain visible without adding figures.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "courtyard-exit": {
+    "audio": {
+      "file": "audio/courtyard-exit.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/courtyard-exit.gif",
+      "altText": "Nora stands outside the open courtyard gate with a phone at her ear and brass keys in her other hand. A street lamp lights the pavement; the empty kitchen lies beyond the gate.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

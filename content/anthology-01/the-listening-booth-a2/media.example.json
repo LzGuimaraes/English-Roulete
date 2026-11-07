@@ -1,0 +1,72 @@
+{
+  "archive-visit": {
+    "audio": {
+      "file": "audio/archive-visit.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/archive-visit.gif",
+      "altText": "Celia sits at the listening-booth desk wearing headphones. The reel player holds the father's tape, a black memory drive rests beside the copying terminal, and the square amber lamp lights her hands.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "unfamiliar-voice": {
+    "audio": {
+      "file": "audio/unfamiliar-voice.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/unfamiliar-voice.gif",
+      "altText": "Celia holds the removed headphones at the booth desk. The booth door is now open to an empty corridor. Keep the reel player, black memory drive and amber lamp in their established places; no figure appears outside.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "copying-choice": {
+    "audio": {
+      "file": "audio/copying-choice.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/copying-choice.gif",
+      "altText": "Celia pauses with one hand near the copying terminal and her black memory drive connected. The booth door remains visibly open behind her. Show an indistinct display without readable text or invented controls.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "full-recording": {
+    "audio": {
+      "file": "audio/full-recording.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/full-recording.gif",
+      "altText": "At archive reception, Celia stands beside an adult clerk listening to the copied recording at the reception desk. Celia has brought the black memory drive with her. The listening-booth door is open in the background.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "fathers-message": {
+    "audio": {
+      "file": "audio/fathers-message.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/fathers-message.gif",
+      "altText": "Celia stands just outside the booth holding the black memory drive. Inside the open door, the original tape remains on the reel player beneath the amber lamp. This image depicts her departure, not a montage of home and archive.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

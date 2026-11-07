@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Inventory of Empty Rooms — B1",
+    "synopsis": "Uma vistoriadora precisa certificar uma pensão vazia, mas o livro de hóspedes começa a registrá-la como moradora.",
+    "genre": "Terror psicológico",
+    "difficulty": "B1",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#D8A3A3",
+      "accent": "#BA7878",
+      "background": "#100B10",
+      "surface": "#21161E",
+      "text": "#F6EBED",
+      "font": "classic",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "inspection-kit",
+  "scenes": [
+    {
+      "key": "inspection-kit",
+      "title": "A Form for an Empty Building",
+      "narration": "Dalia arrived to inspect a boarding house that had been closed for years. Her agency wanted a simple statement that its six rooms were empty. She carried the survey in a blue envelope and a brass key on a yellow tag. Inside, a black guest ledger lay on the reception desk. Dust covered the counter around it, but not the book. She put down her envelope without opening the ledger. First, she would check the rooms.",
+      "isEnding": false,
+      "prompt": "What made the ledger stand out from its surroundings?",
+      "options": [
+        {
+          "key": "a",
+          "text": "It had no dust while the counter around it did"
+        },
+        {
+          "key": "b",
+          "text": "It was the only object mentioned on the survey form"
+        },
+        {
+          "key": "c",
+          "text": "It had been locked inside one of the six rooms"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The book is clean even though dust covers the counter around it. That difference catches Dalia's attention.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "six-empty-rooms"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Dalia sets a blue survey envelope on the dusty reception counter, holding the yellow-tag brass key. A clean black guest ledger lies on the same desk. A dim front window lights the contrasting dust; no residents or silhouettes are visible. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Dalia arrived to inspect a boarding house that had been closed for years. Her agency wanted a simple statement that its six rooms were empty. She carried the survey in a blue envelope and a brass key on a yellow tag. Inside, a black guest ledger lay on the reception desk. Dust covered the counter around it, but not the book. She put down her envelope without opening the ledger. First, she would check the rooms.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/inspection-kit.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Form for an Empty Building', using that image as the reference. Preserve this composition: Dalia sets a blue survey envelope on the dusty reception counter, holding the yellow-tag brass key. A clean black guest ledger lies on the same desk. A dim front window lights the contrasting dust; no residents or silhouettes are visible. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/inspection-kit.gif"
+        },
+        "cluePurpose": "O livro deslocado do ambiente é a primeira anomalia; envelope e registro nunca são o mesmo objeto.",
+        "questionEvidence": "Dust covered the counter around it, but not the book"
+      }
+    },
+    {
+      "key": "six-empty-rooms",
+      "title": "Six Doors, Six Names",
+      "narration": "Dalia checked all six rooms. The beds were bare, the cupboards open, and no personal belongings remained. Back at reception, she opened the ledger. Six names filled the current page, each followed by the word \"present.\" She checked the dates against her survey: they were today's. Perhaps someone had recently used the building. Yet the rooms had contained none of the small signs of ordinary life. She left the ledger open while writing down what she had actually observed.",
+      "isEnding": false,
+      "prompt": "Why did Dalia hesitate to accept the ledger as proof of residents?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The ledger listed fewer rooms than the building had"
+        },
+        {
+          "key": "b",
+          "text": "The rooms contained no signs of ordinary life"
+        },
+        {
+          "key": "c",
+          "text": "Her agency had forbidden her to inspect the cupboards"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The ledger lists current guests, but the empty rooms do not support that account.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "her-name"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Back at reception, Dalia studies the open black ledger beside her blue survey envelope. The corridor doors stand ajar behind her, revealing only bare rooms. Pages may have indistinct marks, but no readable names or figures. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Dalia checked all six rooms. The beds were bare, the cupboards open, and no personal belongings remained. Back at reception, she opened the ledger. Six names filled the current page, each followed by the word \"present.\" She checked the dates against her survey: they were today's. Perhaps someone had recently used the building. Yet the rooms had contained none of the small signs of ordinary life. She left the ledger open while writing down what she had actually observed.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/six-empty-rooms.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Six Doors, Six Names', using that image as the reference. Preserve this composition: Back at reception, Dalia studies the open black ledger beside her blue survey envelope. The corridor doors stand ajar behind her, revealing only bare rooms. Pages may have indistinct marks, but no readable names or figures. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/six-empty-rooms.gif"
+        },
+        "cluePurpose": "Há conflito entre evidência física e registro; o texto não confirma moradores invisíveis como fato.",
+        "questionEvidence": "none of the small signs of ordinary life"
+      }
+    },
+    {
+      "key": "her-name",
+      "title": "A Place Already Written",
+      "narration": "When Dalia looked up from the survey, one entry had changed. Her own full name now occupied the last line of the guest ledger. The handwriting resembled hers, although her pen had touched only the survey. The yellow-tag key was still beside the blue envelope. Both the front door and courtyard exit were open. She could take the book to her agency or leave it behind. Either way, she would not sign a claim that she could no longer support.",
+      "isEnding": false,
+      "prompt": "What had Dalia decided before choosing what to take?",
+      "options": [
+        {
+          "key": "a",
+          "text": "To sign the guest ledger as a new resident"
+        },
+        {
+          "key": "b",
+          "text": "To lock both exits and inspect the rooms again"
+        },
+        {
+          "key": "c",
+          "text": "Not to certify a claim she could not support"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "Dalia says she will not sign a claim she can no longer support, before deciding whether to take the book.",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Take the ledger to the agency as evidence",
+          "targetSceneKey": "ledger-outside"
+        },
+        {
+          "key": "route-two",
+          "label": "Leave the ledger and submit only the survey",
+          "targetSceneKey": "survey-only"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Dalia looks from her separate survey form to the last line of the open black ledger. The brass key with a yellow tag rests beside the blue envelope. Both established exits remain open; no figure appears in either doorway. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "When Dalia looked up from the survey, one entry had changed. Her own full name now occupied the last line of the guest ledger. The handwriting resembled hers, although her pen had touched only the survey. The yellow-tag key was still beside the blue envelope. Both the front door and courtyard exit were open. She could take the book to her agency or leave it behind. Either way, she would not sign a claim that she could no longer support.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/her-name.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Place Already Written', using that image as the reference. Preserve this composition: Dalia looks from her separate survey form to the last line of the open black ledger. The brass key with a yellow tag rests beside the blue envelope. Both established exits remain open; no figure appears in either doorway. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/her-name.gif"
+        },
+        "cluePurpose": "O nome envolve a protagonista, mas as saídas continuam disponíveis e a decisão profissional é explícita.",
+        "questionEvidence": "she would not sign a claim that she could no longer support"
+      }
+    },
+    {
+      "key": "ledger-outside",
+      "title": "A Book beyond the Gate",
+      "narration": "Dalia placed the ledger and survey envelope under her arm, took the key, and walked through the front door. Outside the gate, every page of the ledger was blank. At the agency, she showed the book to a colleague and described the six names and her own. He recorded her account without asking her to return alone. The inspection remained incomplete. For Dalia, leaving a form unfinished felt less frightening than pretending she had understood the building.",
+      "isEnding": true,
+      "prompt": "Why did Dalia leave the inspection incomplete?",
+      "options": [
+        {
+          "key": "a",
+          "text": "She could not honestly explain or certify what she had found"
+        },
+        {
+          "key": "b",
+          "text": "She had forgotten to bring the survey envelope"
+        },
+        {
+          "key": "c",
+          "text": "Her colleague asked her to sign the blank guest pages"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "Dalia cannot honestly explain the conflicting evidence, so she does not certify the inspection.",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Outside the boarding-house street gate, Dalia holds the open black ledger with visibly blank pages. The blue survey envelope is under her other arm and the yellow-tag key remains in her hand. Pale daylight replaces the interior gloom. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Dalia placed the ledger and survey envelope under her arm, took the key, and walked through the front door. Outside the gate, every page of the ledger was blank. At the agency, she showed the book to a colleague and described the six names and her own. He recorded her account without asking her to return alone. The inspection remained incomplete. For Dalia, leaving a form unfinished felt less frightening than pretending she had understood the building.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/ledger-outside.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Book beyond the Gate', using that image as the reference. Preserve this composition: Outside the boarding-house street gate, Dalia holds the open black ledger with visibly blank pages. The blue survey envelope is under her other arm and the yellow-tag key remains in her hand. Pale daylight replaces the interior gloom. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/ledger-outside.gif"
+        },
+        "cluePurpose": "A anomalia do registro é levada a outra pessoa e o contrato fica sem certificação; não se inventa uma explicação ou ameaça nova.",
+        "questionEvidence": "pretending she had understood the building"
+      }
+    },
+    {
+      "key": "survey-only",
+      "title": "An Address She Did Not Accept",
+      "narration": "Dalia left the guest ledger open and took only her survey envelope and key. At the courtyard gate, she checked the form: it still contained her careful notes, not a list of residents. She submitted a report marked \"occupancy unverified\" and declined another visit without a colleague. At home, she put the yellow-tag key in the agency return box. Whatever the ledger had called her, she had chosen not to make its address her own.",
+      "isEnding": true,
+      "prompt": "What did Dalia take away from the building?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The guest ledger and its six names"
+        },
+        {
+          "key": "b",
+          "text": "Her survey envelope and key, but not the ledger"
+        },
+        {
+          "key": "c",
+          "text": "Only a blank form from the reception desk"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "She leaves the ledger inside and takes her own survey envelope and key through the courtyard exit.",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: At the open courtyard gate, Dalia checks the survey taken from her blue envelope while holding the yellow-tag key. The reception ledger is not in this frame and must not be placed in her belongings. The corridor behind her is empty. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Dalia left the guest ledger open and took only her survey envelope and key. At the courtyard gate, she checked the form: it still contained her careful notes, not a list of residents. She submitted a report marked \"occupancy unverified\" and declined another visit without a colleague. At home, she put the yellow-tag key in the agency return box. Whatever the ledger had called her, she had chosen not to make its address her own.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/survey-only.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'An Address She Did Not Accept', using that image as the reference. Preserve this composition: At the open courtyard gate, Dalia checks the survey taken from her blue envelope while holding the yellow-tag key. The reception ledger is not in this frame and must not be placed in her belongings. The corridor behind her is empty. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/survey-only.gif"
+        },
+        "cluePurpose": "A rota mantém os registros separados e encerra a experiência com um limite pessoal claro.",
+        "questionEvidence": "took only her survey envelope and key"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Uma vistoriadora precisa certificar uma pensão vazia, mas o livro de hóspedes começa a registrá-la como moradora.",
+    "visualContinuity": {
+      "characters": "Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots.",
+      "locations": "A shuttered six-room boarding house: front reception desk with a black guest ledger, a straight corridor with six numbered doors, a courtyard exit at the far end, and an outside street gate. A blue survey envelope and a yellow-tag key belong to the inspection kit.",
+      "clues": "Dalia brings a blue survey envelope and a brass key on a yellow tag. A black ledger remains at reception until the carry-book route. Six rooms appear empty; the ledger first lists six guests and later Dalia's full name. The blue survey form is distinct from the guest ledger."
+    },
+    "learningFocus": "Contraste entre observação e registro, inferências cautelosas e escolha diante de evidência incerta.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "inspection-kit",
+        "six-empty-rooms",
+        "her-name",
+        "ledger-outside"
+      ],
+      [
+        "inspection-kit",
+        "six-empty-rooms",
+        "her-name",
+        "survey-only"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-inventory-of-empty-rooms-b1/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

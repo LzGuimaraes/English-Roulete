@@ -4,14 +4,22 @@ Crie conteúdo editorial para um catálogo versionado usado pelo mesmo motor nos
 PREENCHA O BRIEFING:
 - NÍVEL: A2 (permitidos hoje: A1, A2, B1, B2, C1).
 - CENAS TOTAIS: 4 (escolher de 3 a 5).
-- GÊNERO: suspense leve / aventura / mistério / fantasia escolar / ficção científica.
-- REFERÊNCIA DE CLIMA: sensação de isolamento e descoberta ao acordar em um local evacuado; ou uma aventura de anime com amizade, exploração e pistas.
-- PREMISSA ORIGINAL: uma pessoa acorda em uma clínica evacuada após uma tempestade; sinais deixados pela equipe indicam dois caminhos para encontrar ajuda.
-- PROTAGONISTA ORIGINAL: Eva, adulta, cabelo castanho curto, jaqueta laranja.
-- PÚBLICO: aprendizes de inglês; suspense sem violência gráfica.
-- FINAL: esperançoso; com 4–5 cenas, permitir duas rotas de final.
-- VOZ: narrador em inglês, frases naturais para ler em voz alta, sem efeitos sonoros escritos no texto.
+- GÊNERO: terror psicológico adulto, sério e atmosférico (ou outro gênero explicitamente solicitado no briefing).
+- REFERÊNCIA DE CLIMA: isolamento, silêncio e dúvida em um local realista; cite apenas sensações e temas, sem copiar cenas de uma obra.
+- PREMISSA ORIGINAL: uma técnica retorna a uma estação de bombeamento desativada para recuperar a última gravação da irmã desaparecida e precisa sair antes que a maré bloqueie o acesso.
+- PROTAGONISTA ORIGINAL: Helena, 38 anos, rosto oval com olheiras discretas, cabelo castanho curto, casaco impermeável verde-oliva gasto, camisa cinza, calça escura e botas marrons; aparência cotidiana e proporções naturais.
+- OBJETIVO E MOTIVAÇÃO: recuperar a gravação e sair em segurança; ela busca uma resposta concreta sobre a irmã, apesar do medo.
+- AMBIENTE: estação costeira de concreto úmido, metal oxidado e azulejos gastos; estabelecer a disposição dos espaços antes de descrever os percursos.
+- PISTAS: escolha 2–3 objetos ou sinais concretos, com posição e características fixas; apresente todos na narração antes de usá-los na arte ou nos desfechos.
+- PÚBLICO E TOM: adultos aprendendo inglês; terror psicológico contido, sem violência gráfica, humor involuntário ou linguagem infantil.
+- FINAL: completo e coerente em cada rota; resolver a decisão principal e mostrar uma consequência emocional, sem explicar todo o mistério. Com 4–5 cenas, permitir duas rotas de final.
+- ESTILO VISUAL: animação 2D cinematográfica, como um quadro de um longa animado, enquadramento 16:9, personagens adultos desenhados, contornos limpos, sombras em cel shading e cenários pintados. Sem atores reais, fotorrealismo, pele fotográfica ou aparência de fotografia. O desenho não deve infantilizar o terror.
+- CONTINUIDADE: fixar aparência, idade, roupa e proporções dos personagens, planta dos locais e estado dos objetos recorrentes; descrever explicitamente qualquer mudança na narração.
+- VOZ: narrador em inglês, voz natural e próxima da fala humana, dicção clara, pausas discretas e tensão contida; sem teatralidade exagerada, sussurros que prejudiquem a compreensão, música ou efeitos sonoros escritos.
 - MÍDIA POR CENA: uma narração WAV e uma animação GIF/APNG originais; produza seus roteiros e instruções no JSON.
+
+COMO INTERPRETAR O BRIEFING:
+O pedido específico enviado junto deste arquivo substitui os valores de exemplo acima. Não misture a premissa de exemplo com a premissa escolhida pelo usuário. Se não houver outro briefing, use o exemplo completo acima e tome decisões editoriais coerentes para os detalhes restantes. Não deixe campos entre colchetes, alternativas de estilo ou instruções de preenchimento no JSON final. Nível A1/A2 limita a complexidade do inglês, não torna o público infantil nem altera o estilo de animação 2D. Estas instruções definem a história e seus prompts de produção; não afirmam que o site implementa classificação etária.
 
 ORIGINALIDADE:
 Use referências conhecidas somente como briefing de gênero, clima ou situação genérica. Crie nomes, diálogos, lugares, causas, pistas e desfechos próprios. Não reproduza a abertura, personagens, falas, imagens ou sequência de acontecimentos de The Walking Dead ou de um anime. Nenhuma resposta deve exigir conhecer a referência.
@@ -24,6 +32,14 @@ Os seguintes tamanhos são metas editoriais deste projeto, não definições ofi
 - B2: cerca de 80–120 palavras; orações mais variadas, relações entre ideias e motivações inferíveis.
 - C1: cerca de 95–140 palavras; linguagem natural mais rica e sentidos implícitos sustentados pelo texto, sem obscuridade gratuita.
 A pergunta, alternativas e explicação precisam respeitar o mesmo nível. O nível é uma hipótese editorial que será revisada por uma pessoa.
+
+TOM, PROGRESSÃO E PERSONAGENS:
+- No terror, construa desconforto por isolamento, incerteza, comportamento estranho, silêncio, escala do ambiente e consequências emocionais. Evite clichês de casa mal-assombrada, sustos gratuitos e revelar ou explicar o perigo cedo demais.
+- Cada cena deve mudar a situação: revelar uma pista, aumentar o risco, alterar a interpretação de algo anterior ou exigir uma escolha entre caminhos plausíveis. Não escreva cenas que apenas descrevem o lugar.
+- Dê à protagonista objetivo claro, reação emocional crível e razões compreensíveis para suas decisões. Não a faça agir de forma irracional apenas para criar perigo.
+- Apresente poucas pistas com contexto, preserve sua continuidade e prepare os elementos que serão retomados nos finais. Uma pergunta deve ter resposta clara no texto, mesmo quando o mistério maior permanecer ambíguo.
+- Cada final deve concluir o percurso, resolver a decisão principal e mostrar uma consequência emocional. Não encerre com revelação aleatória, ameaça nova sem preparação ou um simples corte antes da resolução.
+- A narração deve funcionar sem imagem. A imagem reforça o texto e não acrescenta fatos, pistas, pessoas ou ameaças que a narração não apresentou.
 
 REGRAS DE NARRATIVA E GAMEPLAY:
 1. Entregue a história inteira e todos os finais, sem reticências, TODO ou cenas-resumo.
@@ -38,25 +54,52 @@ REGRAS DE NARRATIVA E GAMEPLAY:
 10. A história é independente do modo. No solo, uma pessoa escolhe; na partida multiplayer planejada, o grupo votará no mesmo conjunto de caminhos. Não duplique a história por modo.
 11. Não determine pontuação, prazos, sorteios ou gabaritos no navegador. O gabarito deste JSON é editorial e ficará no servidor.
 
+DIREÇÃO DE IMAGEM POR CENA:
+Escreva productionNotes.imagePrompt em inglês, específico e autossuficiente. Repita os detalhes necessários de continuidade em cada cena; não use somente "same character", "as before" ou o título da cena. Use os seguintes rótulos dentro de uma única string JSON, preenchidos com detalhes concretos:
+- SCENE: um momento exato, uma ação ou descoberta visível. Não resuma toda a cena nem mostre uma montagem de vários momentos.
+- SETTING: localização, materiais, desgaste, disposição espacial e poucos objetos relevantes já estabelecidos na narração. O cenário deve ser ilustrado, com organização espacial coerente e sinais de uso ou abandono apoiados na narração.
+- CHARACTERS: cada pessoa visível como personagem desenhado de animação 2D, com idade adulta, rosto estilizado, cabelo, roupa, postura e proporções consistentes. Emoções legíveis e contidas; não usar rostos fotográficos, atores reais ou pele com poros realistas. Não acrescente figurantes.
+- VISUAL CLUES: somente as pistas presentes nesse momento, com cor, formato, condição e posição precisas. Não antecipe objetos de cenas futuras. Pistas descritas verbalmente no texto devem continuar compreensíveis pela narração, sem depender de letras legíveis na imagem.
+- MOOD AND HORROR: desconforto psicológico adulto por composição, isolamento, incerteza e pequenos detalhes descritos no texto. Sem violência gráfica, mutilação ou monstro claramente revelado. Não acrescente silhuetas humanas, vultos ou ameaças que só existam na imagem.
+- CINEMATOGRAPHY: polished 2D animated-feature keyframe, hand-drawn adult characters, clearly stylized faces and anatomy, clean linework, controlled cel shading, painted backgrounds, cinematic composition, widescreen 16:9. Escolha distância e ângulo que tornem a ação e as pistas compreensíveis. Não misture esse estilo com pessoas fotorrealistas.
+- LIGHTING: luz desenhada e sombras em cel shading, apoiadas nas fontes e no horário da narração; posição, direção, temperatura de cor e contraste legíveis. No terror, usar sombras profundas sem perder as pistas. Defina esse estado-base antes de escolher o movimento da animação.
+- CONTINUITY: repetir a descrição fixa da personagem e dos objetos recorrentes visíveis; preservar a planta do lugar e o estado das pistas. Mudanças só quando descritas na narração.
+- DO NOT INCLUDE: readable text, captions, subtitles, logos, watermarks, borders, UI, extra characters, unexplained objects or details contradicting the narration.
+- AVOID: photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish expressions, franchise characters, decorative clutter, excessive blur and gore. Não proíba cartoon ou desenho: a linguagem de animação 2D é o estilo solicitado.
+Se outro gênero for escolhido, adapte o tom e a luz sem misturar estilos visuais incompatíveis. Não é necessário usar terror em uma história de outro gênero.
+
+DIREÇÃO DE ANIMAÇÃO POR CENA:
+Escreva productionNotes.animationPrompt em inglês, separado do imagePrompt e derivado da imagem-base dessa mesma cena. A imagem aprovada deve ser fornecida como referência à ferramenta de animação; o texto do prompt sozinho não garante continuidade visual.
+- Comece pedindo para animar exatamente a imagem-base aprovada, preservando a linguagem de animação 2D, contornos, cel shading, cenário pintado, composição, personagem, expressão, luz, ambiente e todas as pistas. Não redesenhar, substituir, acrescentar ou remover elementos.
+- Especifique loop de 6 segundos, 8 quadros por segundo, 48 quadros, 640x360 pixels, exportação GIF ou APNG.
+- Escolha e nomeie exatamente um ou dois movimentos discretos, fisicamente plausíveis e já sustentados pela narração: chuva no vidro, poeira em um feixe, cortina oscilando levemente ou pequena variação de uma lâmpada estabelecida como instável. Não mantenha uma lista de movimentos alternativos no prompt final.
+- Prefira câmera fixa. Se usar movimento de câmera, descreva um deslocamento mínimo com retorno suave à posição inicial; um avanço contínuo não forma um loop limpo. Preserve a legibilidade das pistas e evite que o movimento revele novas áreas.
+- Mantenha protagonista e pistas estáveis. Não fazer a personagem falar, caminhar, mudar a expressão ou piscar de forma artificial; não inventar ações ausentes da narração.
+- Proíba sustos, movimentos repentinos, tremor de câmera, cortes, texto, novas sombras com forma de pessoas, objetos novos e violência gráfica. Sem áudio incorporado; a narração será um arquivo separado.
+- Preserve o estado de luz da imagem-base; variações só podem afetar a fonte instável escolhida, com baixa amplitude e sem efeito estroboscópico. O último quadro deve se aproximar do primeiro, com movimentos periódicos que fechem o loop sem salto.
+
+CONTINUIDADE ENTRE ROTAS:
+Antes de escrever as cenas, estabeleça personagens, local e pistas recorrentes. Registre essa referência em authoringNotes.visualContinuity, uma anotação editorial local. Não confunda objetos levados em uma rota com os de outra; não reutilize uma cena compartilhada se as rotas exigirem estados incompatíveis. Reproduza nos prompts de cada cena os detalhes dessa referência que realmente aparecem no enquadramento.
+
 FORMATO DA RESPOSTA:
 Retorne somente um objeto JSON válido, sem cercas Markdown e sem SQL. Use esta estrutura exata; repita scenes até completar a história:
 {
   "metadata": {
     "title": "Título original em inglês com indicação do nível",
     "synopsis": "Sinopse curta em português",
-    "genre": "Mistério",
+    "genre": "Terror psicológico",
     "difficulty": "A2",
     "author": "English Roulette — rascunho com assistência de IA",
     "licenseType": "Original",
     "licenseEvidence": "",
     "attribution": "Rascunho original assistido por IA; revisão humana e produção de mídia pendentes.",
     "appearance": {
-      "primary": "#6D28D9",
-      "accent": "#F97316",
-      "background": "#F5F3FF",
-      "surface": "#FFFFFF",
-      "text": "#231942",
-      "font": "rounded",
+      "primary": "#86B6A4",
+      "accent": "#C49A6C",
+      "background": "#101418",
+      "surface": "#1B2427",
+      "text": "#E9EFEB",
+      "font": "modern",
       "motion": "gentle"
     }
   },
@@ -79,11 +122,11 @@ Retorne somente um objeto JSON válido, sem cercas Markdown e sem SQL. Use esta 
         { "key": "continue", "label": "English action label", "targetSceneKey": "scene-two" }
       ],
       "productionNotes": {
-        "imagePrompt": "Descrição em inglês para arte original, com consistência visual e sem texto/logo/personagens de franquias.",
+        "imagePrompt": "Prompt completo em inglês com SCENE, SETTING, CHARACTERS, VISUAL CLUES, MOOD AND HORROR, CINEMATOGRAPHY, LIGHTING, CONTINUITY, DO NOT INCLUDE e AVOID preenchidos especificamente para esta cena.",
         "audioText": "Cópia exata de narration, para produzir áudio offline.",
-        "voiceDirection": "Narração em inglês no ritmo do nível, sem música, sem acrescentar palavras.",
+        "voiceDirection": "Instrução específica em inglês: voz natural, sotaque consistente, dicção clara, ritmo adequado ao nível e tensão contida; ler audioText exatamente, sem música, efeitos ou palavras adicionais.",
         "plannedAudioFile": "audio/scene-one.wav",
-        "animationPrompt": "Movimento sutil e loop coerente com a cena; personagens, objetos e cores das pistas permanecem consistentes.",
+        "animationPrompt": "Prompt completo em inglês para animar a imagem-base desta cena: preservar seu conteúdo, escolher um ou dois movimentos sutis coerentes com a narração, câmera fixa ou retorno periódico suave, loop de 6 segundos, 48 quadros a 8 fps, 640x360, GIF/APNG, sem áudio ou elementos novos.",
         "animationPlan": {
           "durationSeconds": 6,
           "framesPerSecond": 8,
@@ -99,6 +142,11 @@ Retorne somente um objeto JSON válido, sem cercas Markdown e sem SQL. Use esta 
   ],
   "authoringNotes": {
     "brief": "Resumo do briefing original",
+    "visualContinuity": {
+      "characters": "Descrições fixas de idade, rosto, cabelo, roupa, proporções e objetos pessoais de cada personagem recorrente.",
+      "locations": "Disposição dos espaços, conexões entre eles, materiais e fontes de luz estabelecidas na narração.",
+      "clues": "Para cada pista: aparência, cor, posição inicial, cenas em que aparece e mudanças explicitamente narradas em cada rota."
+    },
     "routes": [["scene-one", "scene-two", "ending-key"]],
     "reviewStatus": "Pendente de revisão humana de nível, texto, perguntas, direitos e mídia."
   }
@@ -111,7 +159,7 @@ CONSTRAINTS:
 - Cena final: isEnding=true e transitions=[]. Cena não final: pelo menos uma transição válida.
 - Não gere UUIDs, IDs de banco, revisions, slugs, status Published, URLs de áudio/imagem, hashes, durações de arquivos ou bytes de mídia.
 - Não invente licença, autorização ou revisão já realizada. licenseEvidence deve ficar vazio para preenchimento humano.
-- A paleta do exemplo já é válida. Se personalizar, use somente #RRGGBB, contraste de text com background e surface >=4,5:1; font rounded/modern/classic; motion gentle/none.
+- A paleta escura do exemplo já é válida e combina com o briefing de terror. Se personalizar, use somente #RRGGBB, contraste de text com background e surface >=4,5:1; font rounded/modern/classic; motion gentle/none. A paleta da interface não exige alterar a cor estabelecida das pistas na arte.
 - O áudio deve ler narration exatamente; exportação final WAV PCM 16 bits, até 10 MB e 2 minutos.
 - Animações devem ser arquivos reais GIF/APNG; alvo 640x360, 6 segundos, 8 fps, até 8 MB, 120 quadros e 50 megapixels acumulados. Preserve pistas e aparência dos personagens.
 - JSON/texto não produz arquivos de áudio/animação: não afirme ter gerado os arquivos. Se sua ferramenta tem geração de mídia, execute essa etapa separadamente e entregue os arquivos planejados; se não tem, entregue os prompts completos para uma ferramenta capaz.
@@ -119,4 +167,4 @@ CONSTRAINTS:
 - productionNotes e authoringNotes são anotações locais: o importador salva somente os campos suportados pelo catálogo. Mídia real será enviada pelo painel ou pelo importador com --media-manifest.
 
 ANTES DE RESPONDER:
-Confira continuidade dos objetos, contagem de cenas, todos os percursos/finais, ausência de ciclos, perguntas respondíveis pelo texto, chaves/destinos, nível proposto e JSON parseável. Corrija inconsistências e entregue somente o JSON final completo.
+Confira continuidade dos personagens, objetos, locais e rotas; progressão em cada cena; objetivo e motivos críveis; finais completos; contagem de cenas; todos os percursos e ausência de ciclos; perguntas respondíveis somente pelo texto; chaves/destinos; nível proposto; imagePrompt e animationPrompt específicos e sem campos de preenchimento; pistas visíveis apoiadas na narração; movimentos realmente periódicos; correspondência exata entre narration e audioText; JSON parseável. Corrija inconsistências e entregue somente o JSON final completo.

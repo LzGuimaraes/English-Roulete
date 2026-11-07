@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Empty Frame — A2",
+    "synopsis": "Uma curadora encontra uma moldura vazia antes de uma exposição e segue pistas de uma retirada inesperada.",
+    "genre": "Mistério",
+    "difficulty": "A2",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#B6A0E8",
+      "accent": "#E4BA6D",
+      "background": "#131021",
+      "surface": "#221B35",
+      "text": "#F5F0FF",
+      "font": "modern",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "gallery-morning",
+  "scenes": [
+    {
+      "key": "gallery-morning",
+      "title": "An Empty Place on the Wall",
+      "narration": "Etta opened the community museum before the exhibition. In the river gallery, the wooden frame was still on the wall, but the painting was gone. She checked the entrance desk. The workshop key hung there on its red cord. Nothing else seemed missing. She needed to find the painting before inviting visitors inside.",
+      "isEnding": false,
+      "prompt": "What was missing from the gallery?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The wooden frame"
+        },
+        {
+          "key": "b",
+          "text": "The painting"
+        },
+        {
+          "key": "c",
+          "text": "The workshop key"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"the painting was gone\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "restoration-log"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Etta stands in the river gallery before the empty wooden frame. The entrance desk and its hanging red-cord workshop key are visible through the open entrance. Soft morning window light reveals the empty frame. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Etta opened the community museum before the exhibition. In the river gallery, the wooden frame was still on the wall, but the painting was gone. She checked the entrance desk. The workshop key hung there on its red cord. Nothing else seemed missing. She needed to find the painting before inviting visitors inside.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/gallery-morning.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'An Empty Place on the Wall', using that image as the reference. Preserve this composition: Etta stands in the river gallery before the empty wooden frame. The entrance desk and its hanging red-cord workshop key are visible through the open entrance. Soft morning window light reveals the empty frame. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/gallery-morning.gif"
+        },
+        "cluePurpose": "A ausência é delimitada: a pintura sumiu, mas moldura e chave continuam nos lugares.",
+        "questionEvidence": "the painting was gone"
+      }
+    },
+    {
+      "key": "restoration-log",
+      "title": "A Page with a Blue Clip",
+      "narration": "A blue clip marked a page in the restoration log on the desk. Etta read, \"River painting moved after the rain. See storage notes.\" Beside the gallery wall, fresh water marks reached the floor. She remembered the heavy rain during the night. Perhaps someone had moved the painting to protect it, rather than steal it.",
+      "isEnding": false,
+      "prompt": "Why might someone have moved the painting?",
+      "options": [
+        {
+          "key": "a",
+          "text": "To change the wooden frame"
+        },
+        {
+          "key": "b",
+          "text": "To prepare the entrance desk"
+        },
+        {
+          "key": "c",
+          "text": "To protect it from water"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"moved the painting to protect it\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "two-checks"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: At the entrance desk, Etta reads a restoration log held open by a blue clip. Water marks are visible down the nearby gallery wall. Do not render readable log text or add the painting here. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "A blue clip marked a page in the restoration log on the desk. Etta read, \"River painting moved after the rain. See storage notes.\" Beside the gallery wall, fresh water marks reached the floor. She remembered the heavy rain during the night. Perhaps someone had moved the painting to protect it, rather than steal it.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/restoration-log.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Page with a Blue Clip', using that image as the reference. Preserve this composition: At the entrance desk, Etta reads a restoration log held open by a blue clip. Water marks are visible down the nearby gallery wall. Do not render readable log text or add the painting here. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/restoration-log.gif"
+        },
+        "cluePurpose": "O registro e as marcas de água sustentam a hipótese de preservação.",
+        "questionEvidence": "moved the painting to protect it"
+      }
+    },
+    {
+      "key": "two-checks",
+      "title": "Two Ways to Check",
+      "narration": "Etta took the red-cord key. The workshop door was on her left. She could use it and ask the restorer, who often arrived early. Behind the gallery, stairs led to the attic. Wet marks continued towards those stairs. She could also check the roof and storage area herself. She kept the log on the desk and considered both routes.",
+      "isEnding": false,
+      "prompt": "Where did the wet marks lead?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Towards the attic stairs"
+        },
+        {
+          "key": "b",
+          "text": "Towards the entrance door"
+        },
+        {
+          "key": "c",
+          "text": "Towards the workshop window"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"Wet marks continued towards those stairs\".",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Use the key and speak to the restorer",
+          "targetSceneKey": "restorer-explanation"
+        },
+        {
+          "key": "route-two",
+          "label": "Follow the wet marks up to the attic",
+          "targetSceneKey": "attic-storage"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Etta pauses between the left workshop door and the rear attic stairs, holding the red-cord key. The restoration log remains on the entrance desk. Faint wet marks continue towards the stairs. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Etta took the red-cord key. The workshop door was on her left. She could use it and ask the restorer, who often arrived early. Behind the gallery, stairs led to the attic. Wet marks continued towards those stairs. She could also check the roof and storage area herself. She kept the log on the desk and considered both routes.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/two-checks.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Two Ways to Check', using that image as the reference. Preserve this composition: Etta pauses between the left workshop door and the rear attic stairs, holding the red-cord key. The restoration log remains on the entrance desk. Faint wet marks continue towards the stairs. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/two-checks.gif"
+        },
+        "cluePurpose": "As duas rotas investigam a mesma causa; o registro não viaja indevidamente entre locais.",
+        "questionEvidence": "Wet marks continued towards those stairs"
+      }
+    },
+    {
+      "key": "restorer-explanation",
+      "title": "The Restorer's Explanation",
+      "narration": "Etta unlocked the workshop and found the restorer checking a damaged corner of the painting's protective cover. He had carried the painting to a dry storage box in the attic during the rain. Together they checked that it was safe. Etta delayed the exhibition and arranged a roof repair. The empty frame could wait; the painting could not risk another wet night.",
+      "isEnding": true,
+      "prompt": "Why did Etta delay the exhibition?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The restorer needed to make a new painting"
+        },
+        {
+          "key": "b",
+          "text": "The roof needed repair to protect the painting"
+        },
+        {
+          "key": "c",
+          "text": "The entrance desk had been stolen"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"arranged a roof repair\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Inside the workshop, Etta listens to an adult restorer beside a protective cover with a damp corner. She holds the red-cord key. The painting is not present: it remains in the attic storage box in this route. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Etta unlocked the workshop and found the restorer checking a damaged corner of the painting's protective cover. He had carried the painting to a dry storage box in the attic during the rain. Together they checked that it was safe. Etta delayed the exhibition and arranged a roof repair. The empty frame could wait; the painting could not risk another wet night.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/restorer-explanation.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'The Restorer's Explanation', using that image as the reference. Preserve this composition: Inside the workshop, Etta listens to an adult restorer beside a protective cover with a damp corner. She holds the red-cord key. The painting is not present: it remains in the attic storage box in this route. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/restorer-explanation.gif"
+        },
+        "cluePurpose": "O restaurador confirma a retirada protetiva e a prioridade muda de abrir a exposição para preservar a obra.",
+        "questionEvidence": "arranged a roof repair"
+      }
+    },
+    {
+      "key": "attic-storage",
+      "title": "Safe above the Gallery",
+      "narration": "Etta climbed to the attic. On its dry side, she found the river painting inside a wide storage box. A note from the restorer explained that rain had entered above the frame. She closed the box again and took photographs of the leaking roof for a repair request. The painting was safe. Instead of opening the exhibition, she helped protect its future.",
+      "isEnding": true,
+      "prompt": "What did Etta photograph for the repair request?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The wooden frame"
+        },
+        {
+          "key": "b",
+          "text": "The entrance desk"
+        },
+        {
+          "key": "c",
+          "text": "The leaking roof"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"photographs of the leaking roof\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Etta stands on the dry side of the attic beside the open wide storage box containing the river painting. The damp roof area is across the room. Her phone is raised towards the roof, not the painting. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Etta climbed to the attic. On its dry side, she found the river painting inside a wide storage box. A note from the restorer explained that rain had entered above the frame. She closed the box again and took photographs of the leaking roof for a repair request. The painting was safe. Instead of opening the exhibition, she helped protect its future.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/attic-storage.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Safe above the Gallery', using that image as the reference. Preserve this composition: Etta stands on the dry side of the attic beside the open wide storage box containing the river painting. The damp roof area is across the room. Her phone is raised towards the roof, not the painting. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/attic-storage.gif"
+        },
+        "cluePurpose": "A investigação direta confirma a mesma explicação sem depender de visitar a oficina.",
+        "questionEvidence": "photographs of the leaking roof"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Uma curadora encontra uma moldura vazia antes de uma exposição e segue pistas de uma retirada inesperada.",
+    "visualContinuity": {
+      "characters": "Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes.",
+      "locations": "A community museum: entrance desk in front of the river gallery, a restoration workshop through the left door, and stairs at the rear to an attic above the gallery. A storage box stands on the dry side of the attic.",
+      "clues": "An empty wooden frame remains on the gallery wall. A workshop key on a red cord hangs at the entrance desk. A blue clip marks a restoration log page. A roof leak explains the removal; the painting is stored in the attic in both routes."
+    },
+    "learningFocus": "Sequência de acontecimentos, causa e localização; passado simples e conectores comuns.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "gallery-morning",
+        "restoration-log",
+        "two-checks",
+        "restorer-explanation"
+      ],
+      [
+        "gallery-morning",
+        "restoration-log",
+        "two-checks",
+        "attic-storage"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-empty-frame-a2/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

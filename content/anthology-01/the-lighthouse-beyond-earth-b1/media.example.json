@@ -1,0 +1,72 @@
+{
+  "outpost-shift": {
+    "audio": {
+      "file": "audio/outpost-shift.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/outpost-shift.gif",
+      "altText": "Anik sits at the lunar signal desk wearing headphones, watching a yellow indicator. Grey lunar ground and a black sky appear through the control-room window. The recorded-transmission unit is present but not active; show no spacecraft or other beings.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "an-answering-pause": {
+    "audio": {
+      "file": "audio/an-answering-pause.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/an-answering-pause.gif",
+      "altText": "At the lunar signal desk, Anik has removed one headphone cup and writes an observation in a plain notebook. The yellow indicator and recording controls remain in front of him. The window still shows only grey ground and black sky.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "choosing-a-language": {
+    "audio": {
+      "file": "audio/choosing-a-language.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/choosing-a-language.gif",
+      "altText": "Anik pauses between the desk microphone and the recording controls while the yellow indicator glows softly. The automatic transmission unit remains silent. Keep the frame to this single human and the established control room; no readable menus.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "spoken-reply": {
+    "audio": {
+      "file": "audio/spoken-reply.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/spoken-reply.gif",
+      "altText": "Anik sits beside the control-room speaker and recorder, writing clear handover notes while the yellow indicator remains on. The automatic transmitter stays inactive. The frame contains no alien figure, incoming crew or new vessel.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "pulse-reply": {
+    "audio": {
+      "file": "audio/pulse-reply.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/pulse-reply.gif",
+      "altText": "Anik reviews the saved exchange at the lunar signal desk, one hand resting near the recorder. A yellow indicator and the silent automatic-transmission unit remain visible. Through the window are only grey ground and black sky; no invented visual origin for the pulses.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

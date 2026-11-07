@@ -1,0 +1,72 @@
+{
+  "greenhouse-door": {
+    "audio": {
+      "file": "audio/greenhouse-door.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/greenhouse-door.gif",
+      "altText": "Imani stands beside the greenhouse work table with the yellow seed packet. Pip, a small white wheeled robot with a blue front light, waits beside her. Red terrain is visible through a sealed window.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "open-panel": {
+    "audio": {
+      "file": "audio/open-panel.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/open-panel.gif",
+      "altText": "Imani kneels beside Pip at the greenhouse work table. Pip has one open side panel with a visibly loose cable. A tool shelf and rear rows of plants remain in the established greenhouse.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "delivery-choice": {
+    "audio": {
+      "file": "audio/delivery-choice.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/delivery-choice.gif",
+      "altText": "At the work table, Imani rests her hand near Pip, which now carries the yellow seed packet. The open cable panel and distant rear planting table are visible; tools stay on the shelf.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "voice-again": {
+    "audio": {
+      "file": "audio/voice-again.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/voice-again.gif",
+      "altText": "At the rear planting table, Imani plants seeds while Pip steadies the opened yellow packet. Pip's side panel is now closed. Soft greenhouse lights illuminate the plants and natural human proportions.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "quiet-team": {
+    "audio": {
+      "file": "audio/quiet-team.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/quiet-team.gif",
+      "altText": "At the rear planting table, Imani opens the yellow packet while Pip waits with its blue light on. Its side panel is still open; do not show repaired cables or imply speech in this route.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

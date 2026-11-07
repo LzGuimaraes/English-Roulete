@@ -1,0 +1,72 @@
+{
+  "sorting-table": {
+    "audio": {
+      "file": "audio/sorting-table.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/sorting-table.gif",
+      "altText": "In the museum workroom, Nadia sorts six glossy opening photographs and one matte construction photograph on a table beside the window. Keep all photographic writing unreadable. Her expression is attentive rather than triumphant.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "beam-and-ledger": {
+    "audio": {
+      "file": "audio/beam-and-ledger.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/beam-and-ledger.gif",
+      "altText": "Nadia compares the matte photograph with a bridge detail photograph in the museum gallery. Each image shows the same small triangular notch in a wooden beam. A closed grant ledger and file guide rest nearby; no readable labels are required.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "two-sources": {
+    "audio": {
+      "file": "audio/two-sources.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/two-sources.gif",
+      "altText": "Nadia holds the seventh matte photograph at the museum workroom doorway while an adult assistant identifies a worker. The square is visible through the workroom window; rear stairs lead down to the records room.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "carpenters-account": {
+    "audio": {
+      "file": "audio/carpenters-account.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/carpenters-account.gif",
+      "altText": "In the museum bridge gallery, Nadia watches Rosa read an indistinct revised display beside the matte photograph and an open work diary. Rosa wears her plain brown coat. Avoid readable exhibit text and celebratory crowds.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "construction-records": {
+    "audio": {
+      "file": "audio/construction-records.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/construction-records.gif",
+      "altText": "In the downstairs museum records room, Nadia lays construction records, a permission letter and the seventh photograph beside the grant ledger. A shaded desk lamp lights the papers; do not render legible names or amounts.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

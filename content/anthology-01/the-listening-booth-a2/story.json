@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Listening Booth — A2",
+    "synopsis": "Celia vai copiar uma gravação do pai e encontra uma voz que parece responder antes de ela falar.",
+    "genre": "Terror psicológico",
+    "difficulty": "A2",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#D8A3A3",
+      "accent": "#BA7878",
+      "background": "#100B10",
+      "surface": "#21161E",
+      "text": "#F6EBED",
+      "font": "classic",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "archive-visit",
+  "scenes": [
+    {
+      "key": "archive-visit",
+      "title": "A Recording to Take Home",
+      "narration": "Celia visited the sound archive to copy her father's old recording. She brought a black memory drive. Inside the listening booth, an amber lamp lit the desk. Her father's tape was already on the player. She put on the headphones and heard his familiar words: \"Take your time.\" For a moment, the small room felt welcoming.",
+      "isEnding": false,
+      "prompt": "Why did Celia bring a memory drive?",
+      "options": [
+        {
+          "key": "a",
+          "text": "To repair the desk lamp"
+        },
+        {
+          "key": "b",
+          "text": "To leave a message for the receptionist"
+        },
+        {
+          "key": "c",
+          "text": "To copy her father's recording"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"to copy her father's old recording\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "unfamiliar-voice"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Celia sits at the listening-booth desk wearing headphones. The reel player holds the father's tape, a black memory drive rests beside the copying terminal, and the square amber lamp lights her hands. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Celia visited the sound archive to copy her father's old recording. She brought a black memory drive. Inside the listening booth, an amber lamp lit the desk. Her father's tape was already on the player. She put on the headphones and heard his familiar words: \"Take your time.\" For a moment, the small room felt welcoming.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/archive-visit.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Recording to Take Home', using that image as the reference. Preserve this composition: Celia sits at the listening-booth desk wearing headphones. The reel player holds the father's tape, a black memory drive rests beside the copying terminal, and the square amber lamp lights her hands. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/archive-visit.gif"
+        },
+        "cluePurpose": "O objetivo afetivo e os aparelhos necessários são apresentados antes da anomalia.",
+        "questionEvidence": "to copy her father's old recording"
+      }
+    },
+    {
+      "key": "unfamiliar-voice",
+      "title": "A Voice before Her Own",
+      "narration": "After her father's words, another voice said, \"Leave the door open.\" It sounded like Celia, although she had not spoken. She removed the headphones. The same words came quietly from them again. She opened the booth door and looked into the empty corridor. Returning to the desk, she decided that she would not close the door again.",
+      "isEnding": false,
+      "prompt": "What did the unfamiliar voice tell Celia to do?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Leave the door open"
+        },
+        {
+          "key": "b",
+          "text": "Turn off the amber lamp"
+        },
+        {
+          "key": "c",
+          "text": "Return the drive to reception"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"Leave the door open\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "copying-choice"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Celia holds the removed headphones at the booth desk. The booth door is now open to an empty corridor. Keep the reel player, black memory drive and amber lamp in their established places; no figure appears outside. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "After her father's words, another voice said, \"Leave the door open.\" It sounded like Celia, although she had not spoken. She removed the headphones. The same words came quietly from them again. She opened the booth door and looked into the empty corridor. Returning to the desk, she decided that she would not close the door again.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/unfamiliar-voice.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Voice before Her Own', using that image as the reference. Preserve this composition: Celia holds the removed headphones at the booth desk. The booth door is now open to an empty corridor. Keep the reel player, black memory drive and amber lamp in their established places; no figure appears outside. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/unfamiliar-voice.gif"
+        },
+        "cluePurpose": "A voz antecede a fala da protagonista; abrir a porta é uma reação concreta e prudente.",
+        "questionEvidence": "Leave the door open"
+      }
+    },
+    {
+      "key": "copying-choice",
+      "title": "What to Carry Away",
+      "narration": "The copying terminal showed two parts: her father's short message and the strange voice after it. Celia could keep the whole recording as evidence, or copy only the words she had come to hear. Both copies could fit on her black drive. With the door still open behind her, she reached towards the terminal and chose what to take home.",
+      "isEnding": false,
+      "prompt": "What could Celia copy onto her drive?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Only the strange voice, without her father's message"
+        },
+        {
+          "key": "b",
+          "text": "Either the full recording or just her father's message"
+        },
+        {
+          "key": "c",
+          "text": "Nothing, because her drive was already full"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"Both copies could fit on her black drive\".",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Keep the full recording and leave",
+          "targetSceneKey": "full-recording"
+        },
+        {
+          "key": "route-two",
+          "label": "Keep only the father's message and leave",
+          "targetSceneKey": "fathers-message"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Celia pauses with one hand near the copying terminal and her black memory drive connected. The booth door remains visibly open behind her. Show an indistinct display without readable text or invented controls. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "The copying terminal showed two parts: her father's short message and the strange voice after it. Celia could keep the whole recording as evidence, or copy only the words she had come to hear. Both copies could fit on her black drive. With the door still open behind her, she reached towards the terminal and chose what to take home.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/copying-choice.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'What to Carry Away', using that image as the reference. Preserve this composition: Celia pauses with one hand near the copying terminal and her black memory drive connected. The booth door remains visibly open behind her. Show an indistinct display without readable text or invented controls. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/copying-choice.gif"
+        },
+        "cluePurpose": "A escolha altera o conteúdo levado, não uma regra de pontuação ou um minijogo.",
+        "questionEvidence": "Both copies could fit on her black drive"
+      }
+    },
+    {
+      "key": "full-recording",
+      "title": "A Copy with a Witness",
+      "narration": "Celia saved both parts and left the booth. At reception, she asked the clerk to listen with her. Her father's message played clearly. After it, they heard a click and a faint breath, but no words. The clerk noted the problem. Celia kept the full copy and left the archive with him. She had the recording, and someone else knew what she had heard.",
+      "isEnding": true,
+      "prompt": "What did Celia and the clerk hear after her father's message?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The clear words \"Leave the door open\""
+        },
+        {
+          "key": "b",
+          "text": "A greeting from the receptionist"
+        },
+        {
+          "key": "c",
+          "text": "A click and a faint breath"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"a click and a faint breath\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: At archive reception, Celia stands beside an adult clerk listening to the copied recording at the reception desk. Celia has brought the black memory drive with her. The listening-booth door is open in the background. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Celia saved both parts and left the booth. At reception, she asked the clerk to listen with her. Her father's message played clearly. After it, they heard a click and a faint breath, but no words. The clerk noted the problem. Celia kept the full copy and left the archive with him. She had the recording, and someone else knew what she had heard.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/full-recording.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Copy with a Witness', using that image as the reference. Preserve this composition: At archive reception, Celia stands beside an adult clerk listening to the copied recording at the reception desk. Celia has brought the black memory drive with her. The listening-booth door is open in the background. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/full-recording.gif"
+        },
+        "cluePurpose": "A cópia integral preserva a busca por evidência e permite que Celia saia acompanhada; a discrepância foi preparada pela voz instável.",
+        "questionEvidence": "a click and a faint breath"
+      }
+    },
+    {
+      "key": "fathers-message",
+      "title": "Only the Words She Wanted",
+      "narration": "Celia copied only her father's message onto the black drive. She left the tape in the player and walked out through the open door. At home, she played the copy while calling her sister. \"Take your time,\" their father said. Celia told her sister about the booth, too. She had not brought its strange voice home, but she did not have to keep the experience to herself.",
+      "isEnding": true,
+      "prompt": "What did Celia leave in the archive?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The original tape"
+        },
+        {
+          "key": "b",
+          "text": "Her black memory drive"
+        },
+        {
+          "key": "c",
+          "text": "Her father's copied message"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"left the tape in the player\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Celia stands just outside the booth holding the black memory drive. Inside the open door, the original tape remains on the reel player beneath the amber lamp. This image depicts her departure, not a montage of home and archive. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Celia copied only her father's message onto the black drive. She left the tape in the player and walked out through the open door. At home, she played the copy while calling her sister. \"Take your time,\" their father said. Celia told her sister about the booth, too. She had not brought its strange voice home, but she did not have to keep the experience to herself.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/fathers-message.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Only the Words She Wanted', using that image as the reference. Preserve this composition: Celia stands just outside the booth holding the black memory drive. Inside the open door, the original tape remains on the reel player beneath the amber lamp. This image depicts her departure, not a montage of home and archive. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/fathers-message.gif"
+        },
+        "cluePurpose": "A rota preserva somente a mensagem escolhida e encerra o objetivo pessoal; ela compartilha o medo em vez de permanecer isolada.",
+        "questionEvidence": "left the tape in the player"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Celia vai copiar uma gravação do pai e encontra uma voz que parece responder antes de ela falar.",
+    "visualContinuity": {
+      "characters": "Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots.",
+      "locations": "An old sound archive: reception corridor outside a single listening booth; inside, a desk with a reel player and a small copying terminal, a square amber desk lamp, headphones, and a door opening back into the corridor. Celia leaves the door open.",
+      "clues": "The father's tape sits on the reel player. Celia brings a black memory drive for the copy. An amber lamp lights the desk. The father says \"Take your time\"; the unknown voice says \"Leave the door open.\" Full-copy and father-only endings keep distinct audio contents."
+    },
+    "learningFocus": "Identificação de vozes, ordem temporal e intenção explícita; suspense compreensível sem imagem.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "archive-visit",
+        "unfamiliar-voice",
+        "copying-choice",
+        "full-recording"
+      ],
+      [
+        "archive-visit",
+        "unfamiliar-voice",
+        "copying-choice",
+        "fathers-message"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-listening-booth-a2/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

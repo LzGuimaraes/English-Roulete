@@ -5,6 +5,7 @@ O fluxo deste incremento é **briefing → JSON editorial → arquivos de mídia
 Arquivos prontos para usar:
 
 - [`prompts/STORY_AUTHORING.pt-BR.txt`](prompts/STORY_AUTHORING.pt-BR.txt): prompt completo com briefing, níveis, grafo, perguntas, pistas, voz e animação por cena.
+- [`prompts/STORY_BRIEF_HORROR_A2.pt-BR.txt`](prompts/STORY_BRIEF_HORROR_A2.pt-BR.txt): pedido preenchido de terror psicológico adulto A2 para enviar junto do prompt completo.
 - [`../content/examples/green-ribbon-a2.json`](../content/examples/green-ribbon-a2.json): história original completa A2, quatro cenas físicas, dois finais e três cenas por percurso.
 - [`../content/examples/green-ribbon-a2.media.example.json`](../content/examples/green-ribbon-a2.media.example.json): manifesto de arquivos WAV e GIF/APNG para completar com créditos e direitos.
 - [`../scripts/import_story.py`](../scripts/import_story.py): ponte de terminal que grava rascunhos e envia mídia pelas rotas administrativas existentes.
@@ -42,6 +43,12 @@ Para oferecer a mesma premissa em vários níveis, gere **um JSON e uma históri
 As pistas são elementos da narração e da arte, com perguntas respondíveis pelo texto. O motor atual suporta escolhas de caminho, mas não inventário, combate, scripts de missão ou condições programadas. `productionNotes` e `authoringNotes` permanecem no arquivo local; só os campos suportados pelo catálogo são persistidos.
 
 ## Como usar
+
+Envie o arquivo `STORY_AUTHORING.pt-BR.txt` à IA junto de um pedido específico. Você pode copiar o briefing de `STORY_BRIEF_HORROR_A2.pt-BR.txt` e trocar nível, premissa, personagem, local e pistas. Os valores do pedido específico substituem os exemplos do prompt principal. O nível define a complexidade do inglês; A2 também pode ser usado para público adulto e tom sério.
+
+O prompt principal agora inclui direção de terror psicológico, imagens em estilo de animação 2D e loops discretos. Cada `imagePrompt` deve especificar momento, cenário, personagens, pistas, câmera, luz e continuidade. Cada `animationPrompt` deriva da imagem-base e escolhe um ou dois movimentos periódicos. `authoringNotes.visualContinuity` registra personagens, planta do local e pistas; permanece somente no pacote local e não exige mudança no backend. O exemplo antigo `green-ribbon-a2.json` continua sendo uma aventura leve; não foi convertido em terror nem teve suas mídias substituídas.
+
+Depois de revisar o JSON, envie o `imagePrompt` de cada cena à ferramenta de imagens. Para cenas posteriores, forneça também as imagens aprovadas anteriores como referência de personagem e continuidade, quando a ferramenta permitir. Para animar, forneça **a imagem-base aprovada daquela cena** junto do respectivo `animationPrompt`; só o texto não garante que a ferramenta preserve a composição. Produza a voz a partir de `audioText`, seguindo `voiceDirection`. Esses prompts são instruções de produção, não uma integração automática com um gerador de mídia.
 
 1. Copie o prompt e preencha nível, gênero, premissa, protagonista e 3–5 cenas. Gere uma resposta JSON completa.
 2. Salve como `historia-a2.json` e confira o formato:
@@ -120,3 +127,9 @@ flowchart TD
 **Próxima implementação de gameplay:** preloading de todos, `startsAtUtc` comum, narração, pergunta simultânea, fechamento pelo relógio do servidor, avaliação por participante, revelação, voto e próxima cena. O grupo segue o mesmo caminho. Como proposto em REQUIREMENTS, empate de votos será resolvido no servidor; regras de pontuação/XP ainda precisam ser aprovadas. Practice também continua pendente.
 
 O coordenador multiplayer deve congelar a versão no início, persistir comandos idempotentes por RequestId, impor uma resposta/voto por jogador e usar StateVersion para evitar avanço duplicado. Gabaritos só saem nas rotas editoriais autenticadas ou no resultado autorizado da questão fechada. Áudio e animações são baixados por HTTP, sem enviar bytes pelo SignalR. A IA fica no fluxo editorial, fora dos timers e da correção da partida.
+
+## Preferência visual e envio autorizado à VPS
+
+A preferência atual do responsável é **animação 2D cinematográfica**, com personagens desenhados e cenários pintados, sem aparência de pessoas reais. Essa direção foi aplicada aos 60 prompts de imagem e animação da [Antologia 01](../content/anthology-01/README.md), ao prompt principal e ao briefing de terror. Os roteiros, gabaritos e percursos permanecem os mesmos. O estilo gráfico não depende de a mídia estar em movimento: uma imagem-base estática também deve ter esse desenho.
+
+O responsável autorizou nesta sessão o envio das 12 histórias ao banco da VPS sem uma nova confirmação de conteúdo. O envio usa a API ADMIN autenticada e o fluxo de rascunhos existente, sem SQL direto nem alteração de versões publicadas. O comprovante de execução fica junto do pacote, em `vps-import.json`, somente com IDs retornados pelo servidor, contagens e resultado da validação. Credenciais e cookies não entram no comprovante. Prompts de produção permanecem locais; os arquivos de mídia precisam ser produzidos e enviados para que o estilo apareça no jogo.

@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Red Violin Case — A2",
+    "synopsis": "Joana precisa levar um violino emprestado ao salão de música e descobre duas formas de atravessar o rio.",
+    "genre": "Aventura",
+    "difficulty": "A2",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#A1C7B1",
+      "accent": "#E7BC75",
+      "background": "#0D1C19",
+      "surface": "#17352C",
+      "text": "#EFF8F2",
+      "font": "modern",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "ferry-delay",
+  "scenes": [
+    {
+      "key": "ferry-delay",
+      "title": "A Delay at the Landing",
+      "narration": "Joana reached the ferry landing with a red violin case. Inside was the violin she had borrowed from her teacher. She needed to return it at the music hall across the river. A notice said the ferry was delayed for repairs. The water was calm, but the large boat would not leave soon. She looked for another plan.",
+      "isEnding": false,
+      "prompt": "Why did Joana need to reach the music hall?",
+      "options": [
+        {
+          "key": "a",
+          "text": "To return her teacher's violin"
+        },
+        {
+          "key": "b",
+          "text": "To repair the delayed ferry"
+        },
+        {
+          "key": "c",
+          "text": "To collect a new violin case"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"needed to return it at the music hall\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "other-crossings"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Joana stands at the calm river ferry landing, holding the closed hard red violin case. The delayed ferry is moored beside a notice board with unreadable writing; the opposite bank is visible. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Joana reached the ferry landing with a red violin case. Inside was the violin she had borrowed from her teacher. She needed to return it at the music hall across the river. A notice said the ferry was delayed for repairs. The water was calm, but the large boat would not leave soon. She looked for another plan.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/ferry-delay.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Delay at the Landing', using that image as the reference. Preserve this composition: Joana stands at the calm river ferry landing, holding the closed hard red violin case. The delayed ferry is moored beside a notice board with unreadable writing; the opposite bank is visible. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/ferry-delay.gif"
+        },
+        "cluePurpose": "A tarefa é devolver um instrumento emprestado, não vencer uma corrida imposta ao jogador.",
+        "questionEvidence": "needed to return it at the music hall"
+      }
+    },
+    {
+      "key": "other-crossings",
+      "title": "Other Ways across",
+      "narration": "A landing worker pointed upstream. A riverside path led to a pedestrian bridge, then back along the other bank to the hall. Beside the landing, a licensed operator was preparing a smaller boat for a scheduled crossing. He had space for Joana and the closed case. She thanked the worker and checked both routes on the town map.",
+      "isEnding": false,
+      "prompt": "Where did the riverside path lead first?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Directly to the music hall"
+        },
+        {
+          "key": "b",
+          "text": "To a pedestrian bridge"
+        },
+        {
+          "key": "c",
+          "text": "To the ferry repair shed"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"led to a pedestrian bridge\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "a-person-to-help"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Joana studies the town map near the landing worker, with the closed red case at her feet. The upstream path is visible; an adult boat operator prepares a small moored boat nearby. Daylight is clear. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. The boat operator is a 50-year-old woman with short black hair and a practical dark blue jacket. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. The boat operator is a 50-year-old woman with short black hair and a practical dark blue jacket. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "A landing worker pointed upstream. A riverside path led to a pedestrian bridge, then back along the other bank to the hall. Beside the landing, a licensed operator was preparing a smaller boat for a scheduled crossing. He had space for Joana and the closed case. She thanked the worker and checked both routes on the town map.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/other-crossings.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Other Ways across', using that image as the reference. Preserve this composition: Joana studies the town map near the landing worker, with the closed red case at her feet. The upstream path is visible; an adult boat operator prepares a small moored boat nearby. Daylight is clear. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/other-crossings.gif"
+        },
+        "cluePurpose": "As alternativas são oferecidas por pessoas presentes, sem criar uma travessia improvisada.",
+        "questionEvidence": "led to a pedestrian bridge"
+      }
+    },
+    {
+      "key": "a-person-to-help",
+      "title": "A Person to Help",
+      "narration": "An older musician stood at the start of the riverside path. He was walking to the hall and offered to guide Joana. The boat operator called that his crossing was ready, too. Joana could walk with the musician or travel with the operator. Neither route changed her promise to return the violin safely. She held the case by its handle.",
+      "isEnding": false,
+      "prompt": "What did the older musician offer?",
+      "options": [
+        {
+          "key": "a",
+          "text": "To repair her violin"
+        },
+        {
+          "key": "b",
+          "text": "To carry the ferry's passengers"
+        },
+        {
+          "key": "c",
+          "text": "To guide Joana to the hall"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"offered to guide Joana\".",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Take the riverside path to the bridge",
+          "targetSceneKey": "bridge-story"
+        },
+        {
+          "key": "route-two",
+          "label": "Share the operator's scheduled boat crossing",
+          "targetSceneKey": "boat-arrival"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Joana holds the closed red case at the junction of landing and riverside path. An older adult musician gestures along the path; the boat operator waits beside the moored small boat. No crossing has begun. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. The older musician is a 72-year-old man with a white beard, a lined face and a brown wool coat. The boat operator is a 50-year-old woman with short black hair and a practical dark blue jacket. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. The older musician is a 72-year-old man with a white beard, a lined face and a brown wool coat. The boat operator is a 50-year-old woman with short black hair and a practical dark blue jacket. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "An older musician stood at the start of the riverside path. He was walking to the hall and offered to guide Joana. The boat operator called that his crossing was ready, too. Joana could walk with the musician or travel with the operator. Neither route changed her promise to return the violin safely. She held the case by its handle.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/a-person-to-help.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Person to Help', using that image as the reference. Preserve this composition: Joana holds the closed red case at the junction of landing and riverside path. An older adult musician gestures along the path; the boat operator waits beside the moored small boat. No crossing has begun. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/a-person-to-help.gif"
+        },
+        "cluePurpose": "As companhias mudam a experiência, e a responsabilidade pelo instrumento é comum às duas escolhas.",
+        "questionEvidence": "offered to guide Joana"
+      }
+    },
+    {
+      "key": "bridge-story",
+      "title": "A Story on the Bridge",
+      "narration": "Joana followed the musician along the path and over the bridge. He told her that her teacher had once played at the hall with him. At the north-bank entrance, they found the teacher waiting. Joana returned the closed red case and introduced her guide. The two musicians recognised each other. Her longer journey had brought more than a violin back to the hall.",
+      "isEnding": true,
+      "prompt": "How did the older musician know Joana's teacher?",
+      "options": [
+        {
+          "key": "a",
+          "text": "They had played at the hall together"
+        },
+        {
+          "key": "b",
+          "text": "They had repaired the ferry together"
+        },
+        {
+          "key": "c",
+          "text": "They had borrowed Joana's violin together"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"her teacher had once played at the hall with him\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: At the north-bank music-hall entrance, Joana returns the closed red case to her adult teacher while the older musician smiles in recognition. The riverside path ends nearby; soft daylight lights the entrance. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Joana's teacher is a 58-year-old man with short greying hair, a narrow face and a plain green cardigan. The older musician is a 72-year-old man with a white beard, a lined face and a brown wool coat. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Joana's teacher is a 58-year-old man with short greying hair, a narrow face and a plain green cardigan. The older musician is a 72-year-old man with a white beard, a lined face and a brown wool coat. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Joana followed the musician along the path and over the bridge. He told her that her teacher had once played at the hall with him. At the north-bank entrance, they found the teacher waiting. Joana returned the closed red case and introduced her guide. The two musicians recognised each other. Her longer journey had brought more than a violin back to the hall.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/bridge-story.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Story on the Bridge', using that image as the reference. Preserve this composition: At the north-bank music-hall entrance, Joana returns the closed red case to her adult teacher while the older musician smiles in recognition. The riverside path ends nearby; soft daylight lights the entrance. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/bridge-story.gif"
+        },
+        "cluePurpose": "A caminhada conclui a devolução e produz um reencontro preparado pela conversa do percurso.",
+        "questionEvidence": "her teacher had once played at the hall with him"
+      }
+    },
+    {
+      "key": "boat-arrival",
+      "title": "A Seat by the Window",
+      "narration": "Joana crossed in the operator's boat, keeping the closed case beside her seat. At the north landing, he showed her the short path to the music hall. Her teacher was waiting inside. After Joana returned the violin, he invited her to stay for the rehearsal. She chose a seat by the window and listened, relieved that the borrowed instrument was safely home.",
+      "isEnding": true,
+      "prompt": "What did the teacher invite Joana to do?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Help repair the ferry"
+        },
+        {
+          "key": "b",
+          "text": "Stay for the rehearsal"
+        },
+        {
+          "key": "c",
+          "text": "Return the operator's boat"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"invited her to stay for the rehearsal\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Inside the music hall, Joana sits beside a window after returning the red case to her adult teacher, who holds it near the rehearsal area. Daylight through the window reveals the calm river beyond. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Joana's teacher is a 58-year-old man with short greying hair, a narrow face and a plain green cardigan. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Joana's teacher is a 58-year-old man with short greying hair, a narrow face and a plain green cardigan. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Joana crossed in the operator's boat, keeping the closed case beside her seat. At the north landing, he showed her the short path to the music hall. Her teacher was waiting inside. After Joana returned the violin, he invited her to stay for the rehearsal. She chose a seat by the window and listened, relieved that the borrowed instrument was safely home.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/boat-arrival.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Seat by the Window', using that image as the reference. Preserve this composition: Inside the music hall, Joana sits beside a window after returning the red case to her adult teacher, who holds it near the rehearsal area. Daylight through the window reveals the calm river beyond. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/boat-arrival.gif"
+        },
+        "cluePurpose": "A travessia direta conclui a mesma promessa e permite acompanhar o ensaio, sem exigir a rota da ponte.",
+        "questionEvidence": "invited her to stay for the rehearsal"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Joana precisa levar um violino emprestado ao salão de música e descobre duas formas de atravessar o rio.",
+    "visualContinuity": {
+      "characters": "Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots; she carries a hard red violin case. Joana's teacher is a 58-year-old man with short greying hair, a narrow face and a plain green cardigan. The older musician is a 72-year-old man with a white beard, a lined face and a brown wool coat. The boat operator is a 50-year-old woman with short black hair and a practical dark blue jacket.",
+      "locations": "A calm river town: ferry landing on the south bank, an upstream pedestrian bridge reached by a riverside path, and a music hall on the north bank. A licensed boat operator also works at the landing.",
+      "clues": "The borrowed violin stays closed inside its red case until the final hall. A notice at the ferry landing announces a repair delay. The upstream bridge and the boat operator are both introduced before the choice."
+    },
+    "learningFocus": "Rotas, comparação de planos e compreensão de motivos; passado simples.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "ferry-delay",
+        "other-crossings",
+        "a-person-to-help",
+        "bridge-story"
+      ],
+      [
+        "ferry-delay",
+        "other-crossings",
+        "a-person-to-help",
+        "boat-arrival"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-red-violin-case-a2/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

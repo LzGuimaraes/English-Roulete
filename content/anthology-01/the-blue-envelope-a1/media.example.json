@@ -1,0 +1,72 @@
+{
+  "under-the-desk": {
+    "audio": {
+      "file": "audio/under-the-desk.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/under-the-desk.gif",
+      "altText": "Lena holds an open blue envelope beside the library front desk; the small photograph rests on her palm. Daylight enters the street window.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "old-photograph": {
+    "audio": {
+      "file": "audio/old-photograph.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/old-photograph.gif",
+      "altText": "Lena studies the photograph by the library side door; a red bench is visible in the courtyard beyond. Keep the writing on the photograph unreadable.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "two-places": {
+    "audio": {
+      "file": "audio/two-places.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/two-places.gif",
+      "altText": "Lena stands inside the library side doorway with the envelope and photograph. An adult woman looks beneath the red courtyard bench. No baker is visible in this frame.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "bakery-answer": {
+    "audio": {
+      "file": "audio/bakery-answer.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/bakery-answer.gif",
+      "altText": "Inside the bakery doorway, Lena hands the blue envelope to the adult woman. The baker stands beside them. The photograph stays with the envelope; soft daylight lights the three adults.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "bench-answer": {
+    "audio": {
+      "file": "audio/bench-answer.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/bench-answer.gif",
+      "altText": "Beside the courtyard red bench, Lena returns the blue envelope and photograph to the relieved woman. The library side door remains behind Lena; daylight is gentle.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

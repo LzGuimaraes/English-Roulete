@@ -1,0 +1,72 @@
+{
+  "gallery-morning": {
+    "audio": {
+      "file": "audio/gallery-morning.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/gallery-morning.gif",
+      "altText": "Etta stands in the river gallery before the empty wooden frame. The entrance desk and its hanging red-cord workshop key are visible through the open entrance. Soft morning window light reveals the empty frame.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "restoration-log": {
+    "audio": {
+      "file": "audio/restoration-log.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/restoration-log.gif",
+      "altText": "At the entrance desk, Etta reads a restoration log held open by a blue clip. Water marks are visible down the nearby gallery wall. Do not render readable log text or add the painting here.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "two-checks": {
+    "audio": {
+      "file": "audio/two-checks.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/two-checks.gif",
+      "altText": "Etta pauses between the left workshop door and the rear attic stairs, holding the red-cord key. The restoration log remains on the entrance desk. Faint wet marks continue towards the stairs.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "restorer-explanation": {
+    "audio": {
+      "file": "audio/restorer-explanation.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/restorer-explanation.gif",
+      "altText": "Inside the workshop, Etta listens to an adult restorer beside a protective cover with a damp corner. She holds the red-cord key. The painting is not present: it remains in the attic storage box in this route.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "attic-storage": {
+    "audio": {
+      "file": "audio/attic-storage.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/attic-storage.gif",
+      "altText": "Etta stands on the dry side of the attic beside the open wide storage box containing the river painting. The damp roof area is across the room. Her phone is raised towards the roof, not the painting.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

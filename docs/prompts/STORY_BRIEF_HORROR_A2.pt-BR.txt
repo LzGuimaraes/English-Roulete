@@ -1,0 +1,21 @@
+Leia e siga integralmente o arquivo STORY_AUTHORING.pt-BR.txt enviado junto deste pedido.
+Este briefing substitui os valores de exemplo desse arquivo.
+
+NÍVEL: A2. Inglês claro para adultos; não infantilize o tom.
+CENAS TOTAIS: 4 cenas físicas, uma bifurcação, dois finais completos e pelo menos 3 cenas em cada percurso.
+GÊNERO E PÚBLICO: terror psicológico adulto, sério, contido e atmosférico, sem violência gráfica.
+PREMISSA ORIGINAL: Helena retorna a uma estação de bombeamento costeira desativada para recuperar a última gravação da irmã desaparecida. A maré está subindo e ameaça bloquear o acesso. Pequenas contradições no ambiente fazem Helena duvidar de quando a gravação foi feita.
+PROTAGONISTA: Helena, 38 anos, rosto oval com olheiras discretas, cabelo castanho curto, casaco impermeável verde-oliva gasto, camisa cinza, calça escura e botas marrons. Personagem adulto desenhado em animação 2D, proporções estilizadas consistentes e medo contido.
+OBJETIVO: recuperar a gravação e sair em segurança antes de a maré bloquear o acesso.
+MOTIVAÇÃO: encontrar uma resposta concreta sobre a irmã. Suas decisões devem ser cautelosas e compreensíveis.
+LOCAL: estação realista de concreto úmido, metal oxidado e azulejos gastos. Defina uma planta simples e consistente para os dois caminhos de saída.
+PISTAS: escolha 2–3 pistas concretas, fáceis de reconhecer, e fixe cor, formato, posição e estado. Apresente-as na narração antes de retomá-las. Não dependa de texto legível na imagem.
+PROGRESSÃO: cada cena deve trazer descoberta, risco ou decisão; prepare os elementos usados nos finais.
+FINAIS: os dois percursos resolvem a tentativa de saída e mostram consequências emocionais distintas. Preserve alguma dúvida sobre o mistério, sem reviravolta aleatória.
+VISUAL: quadro de animação 2D cinematográfica, personagens adultos desenhados, contornos limpos, sombras em cel shading e cenários pintados, 16:9. Cores contidas e iluminação sombria legível. Sem fotorrealismo, atores reais, pele fotográfica, aparência infantil, gore ou personagens de franquias.
+ANIMAÇÃO: por cena, preservar o desenho 2D, os contornos, o cel shading e a imagem-base aprovada, câmera fixa, somente 1–2 movimentos discretos já descritos na narração; loop de 6 segundos, 48 quadros, 8 fps, 640x360, GIF/APNG.
+VOZ: inglês americano, narradora com voz natural e ritmo confortável para A2, tensão contida, dicção clara, sem sussurros excessivos, música ou efeitos. Ler narration exatamente.
+
+ENTREGA DESTA ETAPA:
+Somente o JSON editorial completo, com perguntas, alternativas, explicações, caminhos e productionNotes para cada cena. imagePrompt e animationPrompt devem estar em inglês, específicos e autossuficientes. Registre a continuidade em authoringNotes.visualContinuity.
+Não gere SQL, UUIDs, mídia fictícia nem licença ou revisão humana inventada. Mantenha licenseEvidence vazio. Não afirme ter produzido WAV/GIF/APNG: nesta etapa, entregue os textos e os prompts de produção.

@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Mountain Post — B1",
+    "synopsis": "Uma voluntária recolhe a última correspondência de uma estação de montanha e decide como devolvê-la a quem a escreveu.",
+    "genre": "Aventura",
+    "difficulty": "B1",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#A1C7B1",
+      "accent": "#E7BC75",
+      "background": "#0D1C19",
+      "surface": "#17352C",
+      "text": "#EFF8F2",
+      "font": "modern",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "last-collection",
+  "scenes": [
+    {
+      "key": "last-collection",
+      "title": "The Last Collection",
+      "narration": "Jo reached the weather station along its maintained service track. The building would close the next day, and Nico, its retired observer, had asked her to collect the last mail from the porch postbox. He had lent her its key. Inside, she found one sealed packet with his name on it. She placed it in her canvas mail bag. Returning it seemed a small task, but she knew how much this final connection to the station mattered to him.",
+      "isEnding": false,
+      "prompt": "Why was collecting the packet important beyond the delivery itself?",
+      "options": [
+        {
+          "key": "a",
+          "text": "It would allow Jo to become the new weather observer"
+        },
+        {
+          "key": "b",
+          "text": "It was Nico's final connection to the closing station"
+        },
+        {
+          "key": "c",
+          "text": "It proved that the station would remain open indefinitely"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The station is closing, and the last mail matters to Nico as a final connection to his former workplace.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "old-timetable"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Jo stands on the weather-station porch beside the unlocked postbox, placing one sealed packet in her canvas mail bag. The borrowed key is in her other hand. A maintained track reaches the porch; the mountain landscape is calm and clear. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Jo reached the weather station along its maintained service track. The building would close the next day, and Nico, its retired observer, had asked her to collect the last mail from the porch postbox. He had lent her its key. Inside, she found one sealed packet with his name on it. She placed it in her canvas mail bag. Returning it seemed a small task, but she knew how much this final connection to the station mattered to him.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/last-collection.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'The Last Collection', using that image as the reference. Preserve this composition: Jo stands on the weather-station porch beside the unlocked postbox, placing one sealed packet in her canvas mail bag. The borrowed key is in her other hand. A maintained track reaches the porch; the mountain landscape is calm and clear. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/last-collection.gif"
+        },
+        "cluePurpose": "A entrega é pequena, mas tem significado pessoal estabelecido antes das escolhas.",
+        "questionEvidence": "this final connection to the station mattered to him"
+      }
+    },
+    {
+      "key": "old-timetable",
+      "title": "The Route on the Wall",
+      "narration": "In the unlocked workroom, Jo studied a route map before descending. An old timetable marked the village cooperative as the mail collection point. A recent note added Nico's farm beside the hillside path. Both signed paths were maintained and open. The forest route would bring her to people who had worked with him; the hillside route would let her hand over the packet directly. Jo checked the sealed envelope once more, then folded the current route sheet into her pocket.",
+      "isEnding": false,
+      "prompt": "What was the main advantage of the hillside route?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Jo could avoid using an open, maintained path"
+        },
+        {
+          "key": "b",
+          "text": "Jo could leave the packet in the station workroom"
+        },
+        {
+          "key": "c",
+          "text": "Jo could give the packet directly to Nico"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The hillside route ends beside Nico's farm, allowing Jo to hand the packet to him directly.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "descent-choice"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: In the station workroom, Jo compares an old wall timetable with a recent route note and a current route sheet. Her canvas mail bag stays closed beside her. Show two route lines without readable names or invented hazards. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "In the unlocked workroom, Jo studied a route map before descending. An old timetable marked the village cooperative as the mail collection point. A recent note added Nico's farm beside the hillside path. Both signed paths were maintained and open. The forest route would bring her to people who had worked with him; the hillside route would let her hand over the packet directly. Jo checked the sealed envelope once more, then folded the current route sheet into her pocket.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/old-timetable.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'The Route on the Wall', using that image as the reference. Preserve this composition: In the station workroom, Jo compares an old wall timetable with a recent route note and a current route sheet. Her canvas mail bag stays closed beside her. Show two route lines without readable names or invented hazards. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/old-timetable.gif"
+        },
+        "cluePurpose": "O registro antigo e a anotação recente explicam por que há dois destinos razoáveis.",
+        "questionEvidence": "hand over the packet directly"
+      }
+    },
+    {
+      "key": "descent-choice",
+      "title": "Different Ways to Return",
+      "narration": "At the path junction, Jo met a cooperative worker who was returning through the forest. The worker remembered sharing meals with Nico during winter supply runs. She offered to carry news of the station's closure back to the village. The hillside path remained clear, leading towards the roof of Nico's farmhouse below. Jo could reconnect the packet with its wider community first, or preserve the quiet of a personal delivery. She did not need to open it to choose.",
+      "isEnding": false,
+      "prompt": "What information could the cooperative worker bring to the village?",
+      "options": [
+        {
+          "key": "a",
+          "text": "News that the weather station was closing"
+        },
+        {
+          "key": "b",
+          "text": "The private contents of Nico's sealed packet"
+        },
+        {
+          "key": "c",
+          "text": "A promise that Nico was returning to work"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The worker offers to take news of the closure to the village. The packet stays sealed.",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Take the forest path to the village cooperative",
+          "targetSceneKey": "village-return"
+        },
+        {
+          "key": "route-two",
+          "label": "Take the hillside path to Nico's farm",
+          "targetSceneKey": "farm-return"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Jo pauses at a clearly signed path junction with an adult cooperative worker. The forest path starts beside them; the roof of Nico's farmhouse is visible below the hillside route. The closed canvas mail bag remains on Jo's shoulder. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. The cooperative worker is a 38-year-old woman with a square face, short black hair, a maroon fleece and dark walking trousers. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. The cooperative worker is a 38-year-old woman with a square face, short black hair, a maroon fleece and dark walking trousers. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "At the path junction, Jo met a cooperative worker who was returning through the forest. The worker remembered sharing meals with Nico during winter supply runs. She offered to carry news of the station's closure back to the village. The hillside path remained clear, leading towards the roof of Nico's farmhouse below. Jo could reconnect the packet with its wider community first, or preserve the quiet of a personal delivery. She did not need to open it to choose.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/descent-choice.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Different Ways to Return', using that image as the reference. Preserve this composition: Jo pauses at a clearly signed path junction with an adult cooperative worker. The forest path starts beside them; the roof of Nico's farmhouse is visible below the hillside route. The closed canvas mail bag remains on Jo's shoulder. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/descent-choice.gif"
+        },
+        "cluePurpose": "A escolha diz respeito à forma da devolução, não ao direito de ler correspondência alheia.",
+        "questionEvidence": "news of the station's closure"
+      }
+    },
+    {
+      "key": "village-return",
+      "title": "A Table in the Village",
+      "narration": "Jo followed the worker to the cooperative. They contacted Nico, who came down from his farm to collect the sealed packet. Around the familiar kitchen table, he opened it: former colleagues had sent photographs from his years at the station. The visit became an afternoon of shared memories. Jo left the borrowed key with him and walked home. Her route had taken longer, but it had returned a piece of the mountain to the village as well as to its keeper.",
+      "isEnding": true,
+      "prompt": "What consequence followed Jo's village route?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The packet was opened before Nico arrived"
+        },
+        {
+          "key": "b",
+          "text": "Nico shared the photographs and memories with other people"
+        },
+        {
+          "key": "c",
+          "text": "Jo kept Nico's borrowed key as a souvenir"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Nico opens the packet at the cooperative, and the visit becomes an afternoon of shared memories.",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: At the cooperative kitchen table, Nico opens his packet and lays out old photographs with Jo and the adult cooperative worker. The borrowed key rests beside Nico; Jo's canvas bag is empty at her feet. Warm kitchen light supports a quiet reunion. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. Nico is a retired weather observer in his late sixties, with grey hair, a lined face and a plain navy fleece. The cooperative worker is a 38-year-old woman with a square face, short black hair, a maroon fleece and dark walking trousers. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. Nico is a retired weather observer in his late sixties, with grey hair, a lined face and a plain navy fleece. The cooperative worker is a 38-year-old woman with a square face, short black hair, a maroon fleece and dark walking trousers. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Jo followed the worker to the cooperative. They contacted Nico, who came down from his farm to collect the sealed packet. Around the familiar kitchen table, he opened it: former colleagues had sent photographs from his years at the station. The visit became an afternoon of shared memories. Jo left the borrowed key with him and walked home. Her route had taken longer, but it had returned a piece of the mountain to the village as well as to its keeper.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/village-return.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Table in the Village', using that image as the reference. Preserve this composition: At the cooperative kitchen table, Nico opens his packet and lays out old photographs with Jo and the adult cooperative worker. The borrowed key rests beside Nico; Jo's canvas bag is empty at her feet. Warm kitchen light supports a quiet reunion. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/village-return.gif"
+        },
+        "cluePurpose": "O próprio destinatário abre a correspondência, e o trajeto cria um reencontro comunitário.",
+        "questionEvidence": "an afternoon of shared memories"
+      }
+    },
+    {
+      "key": "farm-return",
+      "title": "The Last Letter at Home",
+      "narration": "Jo followed the hillside path to the farm and gave Nico the sealed packet with his key. He opened it beside the kitchen window. Former colleagues had sent photographs of the station and a short letter thanking him for keeping its door open to travellers. Nico chose one photograph for the wall and put the others away carefully. Jo stayed for tea, then left him with his own memories. The station could close without taking every part of his work away.",
+      "isEnding": true,
+      "prompt": "Why did the personal delivery suit this ending?",
+      "options": [
+        {
+          "key": "a",
+          "text": "It let Jo decide which private photographs Nico should keep"
+        },
+        {
+          "key": "b",
+          "text": "It required Nico to return the packet without opening it"
+        },
+        {
+          "key": "c",
+          "text": "It gave Nico space to receive and choose his memories quietly"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "At home, Nico can choose a photograph and receive the memories in a quiet personal visit.",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: In Nico's farmhouse kitchen, Jo sits with tea while Nico studies one photograph beside the window. The opened packet, other photographs and returned key lie on the table. The canvas bag is empty; no cooperative workers are present. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. Nico is a retired weather observer in his late sixties, with grey hair, a lined face and a plain navy fleece. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. Nico is a retired weather observer in his late sixties, with grey hair, a lined face and a plain navy fleece. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Jo followed the hillside path to the farm and gave Nico the sealed packet with his key. He opened it beside the kitchen window. Former colleagues had sent photographs of the station and a short letter thanking him for keeping its door open to travellers. Nico chose one photograph for the wall and put the others away carefully. Jo stayed for tea, then left him with his own memories. The station could close without taking every part of his work away.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/farm-return.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'The Last Letter at Home', using that image as the reference. Preserve this composition: In Nico's farmhouse kitchen, Jo sits with tea while Nico studies one photograph beside the window. The opened packet, other photographs and returned key lie on the table. The canvas bag is empty; no cooperative workers are present. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/farm-return.gif"
+        },
+        "cluePurpose": "O conteúdo é idêntico ao outro final, mas o acolhimento acontece em uma conversa privada.",
+        "questionEvidence": "left him with his own memories"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Uma voluntária recolhe a última correspondência de uma estação de montanha e decide como devolvê-la a quem a escreveu.",
+    "visualContinuity": {
+      "characters": "Jo, a 44-year-old woman with a broad face, freckled brown skin, dark eyes, short curly brown hair, a mustard waterproof jacket, dark hiking trousers and well-used walking boots. Nico is a retired weather observer in his late sixties, with grey hair, a lined face and a plain navy fleece. The cooperative worker is a 38-year-old woman with a square face, short black hair, a maroon fleece and dark walking trousers; her appearance remains the same at the path junction and the cooperative kitchen.",
+      "locations": "An old mountain weather station reached by a maintained service track: porch with a locked postbox, workroom with a route map, and two signed descent paths. The forest path ends at the village cooperative; the hillside path ends beside Nico's farm. Both paths are maintained and open.",
+      "clues": "Jo has Nico's postbox key and a small canvas mail bag. The last sealed packet is addressed to Nico. An old timetable on the map marks the former village collection point, while a current note marks his farm. The packet remains sealed until Nico receives it."
+    },
+    "learningFocus": "Inferência de motivação, comparação de rotas e consequências sociais sem resposta narrativa certa.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "last-collection",
+        "old-timetable",
+        "descent-choice",
+        "village-return"
+      ],
+      [
+        "last-collection",
+        "old-timetable",
+        "descent-choice",
+        "farm-return"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-mountain-post-b1/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

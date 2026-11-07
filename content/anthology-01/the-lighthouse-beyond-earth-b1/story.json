@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Lighthouse beyond Earth — B1",
+    "synopsis": "Em uma estação lunar, Anik encontra um sinal que parece escutar e escolhe como responder antes de automatizar o posto.",
+    "genre": "Ficção científica",
+    "difficulty": "B1",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#9EC9EC",
+      "accent": "#C4AEED",
+      "background": "#0B1422",
+      "surface": "#172A41",
+      "text": "#EFF5FC",
+      "font": "modern",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "outpost-shift",
+  "scenes": [
+    {
+      "key": "outpost-shift",
+      "title": "A Signal before the Change",
+      "narration": "Anik was preparing a lunar communications outpost for automatic operation. Soon, recorded messages would replace his night shifts. While checking the signal desk, he noticed a yellow indicator pulsing three times, followed by a pause. The pattern did not match the station's usual messages. He listened through the headphones, with grey ground and black sky beyond the window. Before handing the room over to a repeating recording, he wanted to know whether something was already trying to be heard.",
+      "isEnding": false,
+      "prompt": "Why did Anik investigate before switching to automatic operation?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The yellow indicator proved that a visitor was standing outside"
+        },
+        {
+          "key": "b",
+          "text": "The station's usual recordings had already explained the pattern"
+        },
+        {
+          "key": "c",
+          "text": "The unfamiliar pattern might be an incoming attempt to communicate"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The unfamiliar pattern might be an incoming message. Anik wants to investigate before filling the channel with recordings.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "an-answering-pause"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Anik sits at the lunar signal desk wearing headphones, watching a yellow indicator. Grey lunar ground and a black sky appear through the control-room window. The recorded-transmission unit is present but not active; show no spacecraft or other beings. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space and grey lunar ground. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "audioText": "Anik was preparing a lunar communications outpost for automatic operation. Soon, recorded messages would replace his night shifts. While checking the signal desk, he noticed a yellow indicator pulsing three times, followed by a pause. The pattern did not match the station's usual messages. He listened through the headphones, with grey ground and black sky beyond the window. Before handing the room over to a repeating recording, he wanted to know whether something was already trying to be heard.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/outpost-shift.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Signal before the Change', using that image as the reference. Preserve this composition: Anik sits at the lunar signal desk wearing headphones, watching a yellow indicator. Grey lunar ground and a black sky appear through the control-room window. The recorded-transmission unit is present but not active; show no spacecraft or other beings. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/outpost-shift.gif"
+        },
+        "cluePurpose": "O sinal é diferente do habitual, mas ainda não prova quem ou o que o produziu.",
+        "questionEvidence": "something was already trying to be heard"
+      }
+    },
+    {
+      "key": "an-answering-pause",
+      "title": "A Pause That Changed",
+      "narration": "Anik sent the station's ordinary test tone. The three-beat pattern stopped. When he ended the tone, it returned, but the pause was now longer. He checked the recording twice. A loose connection might repeat a noise, yet this change seemed related to what he had just sent. He wrote down that observation without naming its source. If the response was deliberate, a channel filled with automatic messages might prevent them from hearing each other.",
+      "isEnding": false,
+      "prompt": "What made Anik consider the possibility of a deliberate response?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The pattern changed after he sent the test tone"
+        },
+        {
+          "key": "b",
+          "text": "The recording announced the name of its sender"
+        },
+        {
+          "key": "c",
+          "text": "The window showed someone holding a transmitter"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The pause changes after Anik sends a test tone. This suggests a response without proving its source.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "choosing-a-language"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: At the lunar signal desk, Anik has removed one headphone cup and writes an observation in a plain notebook. The yellow indicator and recording controls remain in front of him. The window still shows only grey ground and black sky. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space and grey lunar ground. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "audioText": "Anik sent the station's ordinary test tone. The three-beat pattern stopped. When he ended the tone, it returned, but the pause was now longer. He checked the recording twice. A loose connection might repeat a noise, yet this change seemed related to what he had just sent. He wrote down that observation without naming its source. If the response was deliberate, a channel filled with automatic messages might prevent them from hearing each other.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/an-answering-pause.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Pause That Changed', using that image as the reference. Preserve this composition: At the lunar signal desk, Anik has removed one headphone cup and writes an observation in a plain notebook. The yellow indicator and recording controls remain in front of him. The window still shows only grey ground and black sky. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/an-answering-pause.gif"
+        },
+        "cluePurpose": "A mudança após o teste sustenta uma hipótese, não uma conclusão infalível sobre origem extraterrestre.",
+        "questionEvidence": "this change seemed related to what he had just sent"
+      }
+    },
+    {
+      "key": "choosing-a-language",
+      "title": "A First Reply",
+      "narration": "The desk recorder could send either a short spoken message or the same three beats. A voice would show that someone was listening, though the receiver might not understand the words. Repeating the pattern would use a form the unknown source already seemed to recognise. Anik could record either reply and preserve the result for the incoming crew. He kept the automatic transmitter silent and chose how to begin, knowing that a response would still not tell him who was there.",
+      "isEnding": false,
+      "prompt": "What was the advantage of repeating the three beats?",
+      "options": [
+        {
+          "key": "a",
+          "text": "It guaranteed that the sender would identify itself"
+        },
+        {
+          "key": "b",
+          "text": "It used a form the unknown source seemed to recognise"
+        },
+        {
+          "key": "c",
+          "text": "It allowed the automatic transmitter to fill the channel"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Repeating the pattern uses a form the receiver seems to recognise. Spoken words might not be understood.",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Send a simple recorded greeting",
+          "targetSceneKey": "spoken-reply"
+        },
+        {
+          "key": "route-two",
+          "label": "Repeat the three-beat pattern",
+          "targetSceneKey": "pulse-reply"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Anik pauses between the desk microphone and the recording controls while the yellow indicator glows softly. The automatic transmission unit remains silent. Keep the frame to this single human and the established control room; no readable menus. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space and grey lunar ground. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "audioText": "The desk recorder could send either a short spoken message or the same three beats. A voice would show that someone was listening, though the receiver might not understand the words. Repeating the pattern would use a form the unknown source already seemed to recognise. Anik could record either reply and preserve the result for the incoming crew. He kept the automatic transmitter silent and chose how to begin, knowing that a response would still not tell him who was there.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/choosing-a-language.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A First Reply', using that image as the reference. Preserve this composition: Anik pauses between the desk microphone and the recording controls while the yellow indicator glows softly. The automatic transmission unit remains silent. Keep the frame to this single human and the established control room; no readable menus. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/choosing-a-language.gif"
+        },
+        "cluePurpose": "As duas escolhas têm vantagens explícitas e não dependem de tradução ou fala livre do jogador.",
+        "questionEvidence": "a form the unknown source already seemed to recognise"
+      }
+    },
+    {
+      "key": "spoken-reply",
+      "title": "Someone Is Listening",
+      "narration": "Anik recorded a simple greeting: \"This is Anik. Someone is listening.\" After he sent it, the speaker returned a broken version of the last two words. He saved both recordings and left clear notes for the incoming crew. There was no name, image or explanation of the distance between them. Still, a reply had changed with his message. He postponed the automatic broadcast. His last night shift had become the start of a conversation that another person could continue.",
+      "isEnding": true,
+      "prompt": "What did the returned words support?",
+      "options": [
+        {
+          "key": "a",
+          "text": "That Anik knew the sender's identity and location"
+        },
+        {
+          "key": "b",
+          "text": "That the incoming crew no longer needed his recordings"
+        },
+        {
+          "key": "c",
+          "text": "That the reply had changed in relation to Anik's message"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The returned words change with his greeting. They support a connection, but give no identity or location.",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Anik sits beside the control-room speaker and recorder, writing clear handover notes while the yellow indicator remains on. The automatic transmitter stays inactive. The frame contains no alien figure, incoming crew or new vessel. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space and grey lunar ground. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "audioText": "Anik recorded a simple greeting: \"This is Anik. Someone is listening.\" After he sent it, the speaker returned a broken version of the last two words. He saved both recordings and left clear notes for the incoming crew. There was no name, image or explanation of the distance between them. Still, a reply had changed with his message. He postponed the automatic broadcast. His last night shift had become the start of a conversation that another person could continue.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/spoken-reply.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Someone Is Listening', using that image as the reference. Preserve this composition: Anik sits beside the control-room speaker and recorder, writing clear handover notes while the yellow indicator remains on. The automatic transmitter stays inactive. The frame contains no alien figure, incoming crew or new vessel. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/spoken-reply.gif"
+        },
+        "cluePurpose": "A resposta dá evidência de relação com a mensagem, sem alegar identidade que o texto não revelou.",
+        "questionEvidence": "a reply had changed with his message"
+      }
+    },
+    {
+      "key": "pulse-reply",
+      "title": "A Pattern for the Next Shift",
+      "narration": "Anik sent three beats and waited. The speaker replied with three beats, then a fourth. He repeated the four-beat pattern; the next reply added one more. He saved the exchange and prepared a careful report for the incoming crew. It showed a developing response, not the identity of a sender. He left the channel free of automatic speech. Before leaving the room, he listened once more, comforted by the thought that curiosity could be shared without a common language.",
+      "isEnding": true,
+      "prompt": "Why did Anik describe the exchange cautiously?",
+      "options": [
+        {
+          "key": "a",
+          "text": "It showed a response but did not identify the sender"
+        },
+        {
+          "key": "b",
+          "text": "It contained only the station's old automatic speech"
+        },
+        {
+          "key": "c",
+          "text": "It proved that the incoming crew had sent every beat"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The growing pattern shows a developing response. It does not say who is sending it.",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Anik reviews the saved exchange at the lunar signal desk, one hand resting near the recorder. A yellow indicator and the silent automatic-transmission unit remain visible. Through the window are only grey ground and black sky; no invented visual origin for the pulses. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space and grey lunar ground. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "audioText": "Anik sent three beats and waited. The speaker replied with three beats, then a fourth. He repeated the four-beat pattern; the next reply added one more. He saved the exchange and prepared a careful report for the incoming crew. It showed a developing response, not the identity of a sender. He left the channel free of automatic speech. Before leaving the room, he listened once more, comforted by the thought that curiosity could be shared without a common language.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and natural connected speech at a measured intermediate pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/pulse-reply.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Pattern for the Next Shift', using that image as the reference. Preserve this composition: Anik reviews the saved exchange at the lunar signal desk, one hand resting near the recorder. A yellow indicator and the silent automatic-transmission unit remain visible. Through the window are only grey ground and black sky; no invented visual origin for the pulses. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/pulse-reply.gif"
+        },
+        "cluePurpose": "O padrão cresce de forma observável e a transferência do posto conclui o objetivo, mantendo a incerteza científica honesta.",
+        "questionEvidence": "not the identity of a sender"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Em uma estação lunar, Anik encontra um sinal que parece escutar e escolhe como responder antes de automatizar o posto.",
+    "visualContinuity": {
+      "characters": "Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots.",
+      "locations": "A fictional lunar communications outpost: one control room with a signal desk, a speaker and headphones, a yellow indicator, a recorded-transmission unit, and a wide window onto grey ground and a black sky. Earth is not shown in the window.",
+      "clues": "A yellow indicator pulses at the signal desk. An incoming three-beat pattern pauses when the local test stops. A recorder can preserve either a simple spoken greeting or a repeated pulse response. No alien body, face or ship is established."
+    },
+    "learningFocus": "Inferência apoiada em resposta observável, limites da evidência e escolha de comunicação. Tecnologia especulativa, sem exigir conhecimento científico externo.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "outpost-shift",
+        "an-answering-pause",
+        "choosing-a-language",
+        "spoken-reply"
+      ],
+      [
+        "outpost-shift",
+        "an-answering-pause",
+        "choosing-a-language",
+        "pulse-reply"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-lighthouse-beyond-earth-b1/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Lantern Walk — A1",
+    "synopsis": "Omar leva uma lanterna ao encontro do bairro e escolhe entre dois caminhos do parque.",
+    "genre": "Aventura",
+    "difficulty": "A1",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#A1C7B1",
+      "accent": "#E7BC75",
+      "background": "#0D1C19",
+      "surface": "#17352C",
+      "text": "#EFF8F2",
+      "font": "modern",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "park-entrance",
+  "scenes": [
+    {
+      "key": "park-entrance",
+      "title": "At the Park Entrance",
+      "narration": "Omar wears a blue jacket and carries a green lantern. Tonight, his neighbours have a picnic in the park. The lights at their food table are not working. He wants to help. At the park entrance, he opens a paper map.",
+      "isEnding": false,
+      "prompt": "What does Omar carry?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A blue basket"
+        },
+        {
+          "key": "b",
+          "text": "A yellow umbrella"
+        },
+        {
+          "key": "c",
+          "text": "A green lantern"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"carries a green lantern\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "map-paths"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Omar stands at the park south entrance, holding a green lantern and an open paper map. The green lantern provides warm light at the entrance; dusk is gentle, not threatening. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Omar wears a blue jacket and carries a green lantern. Tonight, his neighbours have a picnic in the park. The lights at their food table are not working. He wants to help. At the park entrance, he opens a paper map.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/park-entrance.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'At the Park Entrance', using that image as the reference. Preserve this composition: Omar stands at the park south entrance, holding a green lantern and an open paper map. The green lantern provides warm light at the entrance; dusk is gentle, not threatening. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/park-entrance.gif"
+        },
+        "cluePurpose": "A lanterna resolve uma necessidade apresentada desde o início.",
+        "questionEvidence": "carries a green lantern"
+      }
+    },
+    {
+      "key": "map-paths",
+      "title": "Two Paths on the Map",
+      "narration": "The map shows two paths to the picnic. The left path goes beside a pond. The right path goes through an orchard. Both paths are open. Omar folds the map and puts it in his pocket. He can see the pond from the entrance.",
+      "isEnding": false,
+      "prompt": "Where does the left path go?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Beside a pond"
+        },
+        {
+          "key": "b",
+          "text": "Through an orchard"
+        },
+        {
+          "key": "c",
+          "text": "Across a car park"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"The left path goes beside a pond\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "people-on-paths"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Omar puts the folded paper map into his jacket pocket. The pond path opens to the left and the orchard path to the right. He keeps the green lantern in his other hand. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "The map shows two paths to the picnic. The left path goes beside a pond. The right path goes through an orchard. Both paths are open. Omar folds the map and puts it in his pocket. He can see the pond from the entrance.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/map-paths.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Two Paths on the Map', using that image as the reference. Preserve this composition: Omar puts the folded paper map into his jacket pocket. The pond path opens to the left and the orchard path to the right. He keeps the green lantern in his other hand. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/map-paths.gif"
+        },
+        "cluePurpose": "Os dois trajetos são apresentados e permanecem disponíveis, sem condição de código.",
+        "questionEvidence": "The left path goes beside a pond"
+      }
+    },
+    {
+      "key": "people-on-paths",
+      "title": "People on the Paths",
+      "narration": "A neighbour waits on a bench beside the pond. Two musicians stand by the orchard path. They also want to reach the picnic. Omar can walk with the neighbour or the musicians. He holds the lantern high so they can see him.",
+      "isEnding": false,
+      "prompt": "Who stands by the orchard path?",
+      "options": [
+        {
+          "key": "a",
+          "text": "One neighbour on a bench"
+        },
+        {
+          "key": "b",
+          "text": "Two musicians"
+        },
+        {
+          "key": "c",
+          "text": "Three people with food"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"Two musicians stand by the orchard path\".",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Take the path beside the pond",
+          "targetSceneKey": "picnic-table"
+        },
+        {
+          "key": "route-two",
+          "label": "Take the path through the orchard",
+          "targetSceneKey": "picnic-stage"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: At the path fork, Omar holds his green lantern at shoulder height. One adult neighbour sits by the pond; two adult musicians stand at the orchard entrance. Keep both routes distinct. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. The two musicians are a 40-year-old woman with dark braided hair and a forest-green jacket, and a 45-year-old man with a short black beard and a plain grey jacket. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. The two musicians are a 40-year-old woman with dark braided hair and a forest-green jacket, and a 45-year-old man with a short black beard and a plain grey jacket. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "A neighbour waits on a bench beside the pond. Two musicians stand by the orchard path. They also want to reach the picnic. Omar can walk with the neighbour or the musicians. He holds the lantern high so they can see him.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/people-on-paths.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'People on the Paths', using that image as the reference. Preserve this composition: At the path fork, Omar holds his green lantern at shoulder height. One adult neighbour sits by the pond; two adult musicians stand at the orchard entrance. Keep both routes distinct. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/people-on-paths.gif"
+        },
+        "cluePurpose": "A escolha altera a companhia e o lugar onde a ajuda será aproveitada.",
+        "questionEvidence": "Two musicians stand by the orchard path"
+      }
+    },
+    {
+      "key": "picnic-table",
+      "title": "Light for the Table",
+      "narration": "Omar takes the pond path with his neighbour. They reach the picnic together. He puts the green lantern on the food table. Now everyone can see the plates. His neighbour gives him some bread. Omar sits down, happy to share the evening.",
+      "isEnding": true,
+      "prompt": "Where does Omar put the lantern?",
+      "options": [
+        {
+          "key": "a",
+          "text": "On a pond bench"
+        },
+        {
+          "key": "b",
+          "text": "Beside the stage"
+        },
+        {
+          "key": "c",
+          "text": "On the food table"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"on the food table\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Omar sets the green lantern on the picnic food table among plates and bread. His adult neighbour stands beside him. The lantern lights their faces; the pond path ends behind them. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Omar takes the pond path with his neighbour. They reach the picnic together. He puts the green lantern on the food table. Now everyone can see the plates. His neighbour gives him some bread. Omar sits down, happy to share the evening.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/picnic-table.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Light for the Table', using that image as the reference. Preserve this composition: Omar sets the green lantern on the picnic food table among plates and bread. His adult neighbour stands beside him. The lantern lights their faces; the pond path ends behind them. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/picnic-table.gif"
+        },
+        "cluePurpose": "O objetivo inicial é cumprido diretamente: iluminar a mesa do encontro.",
+        "questionEvidence": "on the food table"
+      }
+    },
+    {
+      "key": "picnic-stage",
+      "title": "Light for the Music",
+      "narration": "Omar walks through the orchard with the musicians. At the picnic, another neighbour brings a lamp for the food table. Omar puts his green lantern beside the small stage. The musicians begin to play. He stays to listen, glad that both places have light.",
+      "isEnding": true,
+      "prompt": "Where does Omar put his lantern?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Beside the small stage"
+        },
+        {
+          "key": "b",
+          "text": "On the food table"
+        },
+        {
+          "key": "c",
+          "text": "Under an orchard tree"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"beside the small stage\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Omar places his green lantern beside the small picnic stage. Two adult musicians prepare to play. In the background, a neighbour brings a separate lamp to the food table, as stated in this ending. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. The two musicians are a 40-year-old woman with dark braided hair and a forest-green jacket, and a 45-year-old man with a short black beard and a plain grey jacket. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. The two musicians are a 40-year-old woman with dark braided hair and a forest-green jacket, and a 45-year-old man with a short black beard and a plain grey jacket. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Omar walks through the orchard with the musicians. At the picnic, another neighbour brings a lamp for the food table. Omar puts his green lantern beside the small stage. The musicians begin to play. He stays to listen, glad that both places have light.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/picnic-stage.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Light for the Music', using that image as the reference. Preserve this composition: Omar places his green lantern beside the small picnic stage. Two adult musicians prepare to play. In the background, a neighbour brings a separate lamp to the food table, as stated in this ending. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/picnic-stage.gif"
+        },
+        "cluePurpose": "A lanterna apoia outra parte do mesmo encontro; a outra lâmpada só existe nesta rota e é apresentada no texto.",
+        "questionEvidence": "beside the small stage"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Omar leva uma lanterna ao encontro do bairro e escolhe entre dois caminhos do parque.",
+    "visualContinuity": {
+      "characters": "Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes; he carries a plain green lantern. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. The two musicians are a 40-year-old woman with dark braided hair and a forest-green jacket, and a 45-year-old man with a short black beard and a plain grey jacket. Do not add instruments unless the chosen frame and narration support them.",
+      "locations": "A small public park: south entrance by a map board, a pond path on the left, an orchard path on the right; both end at the community picnic, with a food table and a small stage.",
+      "clues": "Omar carries a green lantern throughout. A paper map at the entrance marks both paths. Benches border the pond; fruit trees line the orchard. The lantern ends at the food table or beside the stage."
+    },
+    "learningFocus": "Direções, pessoas, objetos e finalidade explícita; presente simples.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "park-entrance",
+        "map-paths",
+        "people-on-paths",
+        "picnic-table"
+      ],
+      [
+        "park-entrance",
+        "map-paths",
+        "people-on-paths",
+        "picnic-stage"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-lantern-walk-a1/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Garden Robot — A1",
+    "synopsis": "Em uma estufa em Marte, Imani ajuda um pequeno robô a entregar as últimas sementes do dia.",
+    "genre": "Ficção científica",
+    "difficulty": "A1",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#9EC9EC",
+      "accent": "#C4AEED",
+      "background": "#0B1422",
+      "surface": "#172A41",
+      "text": "#EFF5FC",
+      "font": "modern",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "greenhouse-door",
+  "scenes": [
+    {
+      "key": "greenhouse-door",
+      "title": "Inside the Greenhouse",
+      "narration": "Imani works in a greenhouse on Mars. She wears a grey shirt. A small white robot waits by the work table. Its name is Pip. It has a blue light but no voice today. A yellow packet of seeds is on the table.",
+      "isEnding": false,
+      "prompt": "What is on the work table?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A yellow packet of seeds"
+        },
+        {
+          "key": "b",
+          "text": "A blue packet of tools"
+        },
+        {
+          "key": "c",
+          "text": "A white packet of food"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"A yellow packet of seeds\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "open-panel"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Imani stands beside the greenhouse work table with the yellow seed packet. Pip, a small white wheeled robot with a blue front light, waits beside her. Red terrain is visible through a sealed window. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Imani works in a greenhouse on Mars. She wears a grey shirt. A small white robot waits by the work table. Its name is Pip. It has a blue light but no voice today. A yellow packet of seeds is on the table.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/greenhouse-door.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Inside the Greenhouse', using that image as the reference. Preserve this composition: Imani stands beside the greenhouse work table with the yellow seed packet. Pip, a small white wheeled robot with a blue front light, waits beside her. Red terrain is visible through a sealed window. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/greenhouse-door.gif"
+        },
+        "cluePurpose": "Apresenta-se a tarefa, o robô e o pacote sem exigir nenhum conhecimento de Marte.",
+        "questionEvidence": "A yellow packet of seeds"
+      }
+    },
+    {
+      "key": "open-panel",
+      "title": "An Open Panel",
+      "narration": "Imani looks at Pip. A small panel on its side is open. Inside, one cable is loose. Her tools are on the shelf. Pip turns towards the seeds. It can still move. The plants at the back of the greenhouse need these seeds today.",
+      "isEnding": false,
+      "prompt": "What is loose inside Pip?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A wheel"
+        },
+        {
+          "key": "b",
+          "text": "A cable"
+        },
+        {
+          "key": "c",
+          "text": "A seed packet"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"one cable is loose\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "delivery-choice"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Imani kneels beside Pip at the greenhouse work table. Pip has one open side panel with a visibly loose cable. A tool shelf and rear rows of plants remain in the established greenhouse. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Imani looks at Pip. A small panel on its side is open. Inside, one cable is loose. Her tools are on the shelf. Pip turns towards the seeds. It can still move. The plants at the back of the greenhouse need these seeds today.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/open-panel.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'An Open Panel', using that image as the reference. Preserve this composition: Imani kneels beside Pip at the greenhouse work table. Pip has one open side panel with a visibly loose cable. A tool shelf and rear rows of plants remain in the established greenhouse. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/open-panel.gif"
+        },
+        "cluePurpose": "A falha de voz não impede movimento; ambas as soluções são possíveis.",
+        "questionEvidence": "one cable is loose"
+      }
+    },
+    {
+      "key": "delivery-choice",
+      "title": "A Delivery to Make",
+      "narration": "Imani puts the yellow seed packet on Pip. The planting table is at the back of the greenhouse. She can fix the loose cable first. She can also guide Pip with her hand. The packet is light, and both plans are possible.",
+      "isEnding": false,
+      "prompt": "Where is the planting table?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Beside the inner door"
+        },
+        {
+          "key": "b",
+          "text": "Outside the greenhouse window"
+        },
+        {
+          "key": "c",
+          "text": "At the back of the greenhouse"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"at the back of the greenhouse\".",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Fix Pip's cable before the delivery",
+          "targetSceneKey": "voice-again"
+        },
+        {
+          "key": "route-two",
+          "label": "Guide Pip to the planting table without speech",
+          "targetSceneKey": "quiet-team"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: At the work table, Imani rests her hand near Pip, which now carries the yellow seed packet. The open cable panel and distant rear planting table are visible; tools stay on the shelf. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Imani puts the yellow seed packet on Pip. The planting table is at the back of the greenhouse. She can fix the loose cable first. She can also guide Pip with her hand. The packet is light, and both plans are possible.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/delivery-choice.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Delivery to Make', using that image as the reference. Preserve this composition: At the work table, Imani rests her hand near Pip, which now carries the yellow seed packet. The open cable panel and distant rear planting table are visible; tools stay on the shelf. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/delivery-choice.gif"
+        },
+        "cluePurpose": "A escolha distingue reparar a voz de concluir a entrega por gestos, sem inventário jogável.",
+        "questionEvidence": "at the back of the greenhouse"
+      }
+    },
+    {
+      "key": "voice-again",
+      "title": "A Voice Again",
+      "narration": "Imani fixes the cable and closes the panel. \"Hello, Imani,\" Pip says. They take the seeds to the planting table. She opens the yellow packet. Pip holds it steady. As she plants, she tells the little robot about her first garden on Earth.",
+      "isEnding": true,
+      "prompt": "What does Imani close?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Pip's panel"
+        },
+        {
+          "key": "b",
+          "text": "The greenhouse door"
+        },
+        {
+          "key": "c",
+          "text": "The seed packet"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"closes the panel\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: At the rear planting table, Imani plants seeds while Pip steadies the opened yellow packet. Pip's side panel is now closed. Soft greenhouse lights illuminate the plants and consistent stylized adult proportions. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Imani fixes the cable and closes the panel. \"Hello, Imani,\" Pip says. They take the seeds to the planting table. She opens the yellow packet. Pip holds it steady. As she plants, she tells the little robot about her first garden on Earth.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/voice-again.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Voice Again', using that image as the reference. Preserve this composition: At the rear planting table, Imani plants seeds while Pip steadies the opened yellow packet. Pip's side panel is now closed. Soft greenhouse lights illuminate the plants and natural human proportions. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/voice-again.gif"
+        },
+        "cluePurpose": "A voz volta após a correção descrita; a entrega termina e abre espaço para um vínculo pessoal.",
+        "questionEvidence": "closes the panel"
+      }
+    },
+    {
+      "key": "quiet-team",
+      "title": "A Quiet Team",
+      "narration": "Imani guides Pip to the planting table with her hand. Pip follows her slowly. She opens the yellow packet and plants the seeds. Pip cannot speak, but its blue light is bright. The delivery is complete. They can fix the cable after their work.",
+      "isEnding": true,
+      "prompt": "What can Pip still not do?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Move"
+        },
+        {
+          "key": "b",
+          "text": "Speak"
+        },
+        {
+          "key": "c",
+          "text": "Carry the seeds"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"Pip cannot speak\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: At the rear planting table, Imani opens the yellow packet while Pip waits with its blue light on. Its side panel is still open; do not show repaired cables or imply speech in this route. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "audioText": "Imani guides Pip to the planting table with her hand. Pip follows her slowly. She opens the yellow packet and plants the seeds. Pip cannot speak, but its blue light is bright. The delivery is complete. They can fix the cable after their work.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/quiet-team.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Quiet Team', using that image as the reference. Preserve this composition: At the rear planting table, Imani opens the yellow packet while Pip waits with its blue light on. Its side panel is still open; do not show repaired cables or imply speech in this route. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/quiet-team.gif"
+        },
+        "cluePurpose": "A entrega termina sem reparar a voz; o estado do painel não é misturado com o outro final.",
+        "questionEvidence": "Pip cannot speak"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Em uma estufa em Marte, Imani ajuda um pequeno robô a entregar as últimas sementes do dia.",
+    "visualContinuity": {
+      "characters": "Imani, a 32-year-old woman with a round face, dark brown skin, short coiled black hair, a plain grey work shirt, dark green trousers and soft boots; Pip is a small rectangular white service robot with two wheels and a round blue front light.",
+      "locations": "A sealed Mars greenhouse with rows of plants, a work table by the inner door, a tool shelf, and a rear planting table. Red terrain is visible only through the greenhouse window.",
+      "clues": "A yellow seed packet begins at the work table. Pip has a blue front light and cannot speak. A loose cable is visible at an open panel. Imani either reconnects it before delivery or guides Pip without repairing it."
+    },
+    "learningFocus": "Cores, localização e ações simples; presente simples. A tecnologia pertence à ficção.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "greenhouse-door",
+        "open-panel",
+        "delivery-choice",
+        "voice-again"
+      ],
+      [
+        "greenhouse-door",
+        "open-panel",
+        "delivery-choice",
+        "quiet-team"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-garden-robot-a1/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

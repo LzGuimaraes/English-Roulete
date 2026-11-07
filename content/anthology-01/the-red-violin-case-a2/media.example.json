@@ -1,0 +1,72 @@
+{
+  "ferry-delay": {
+    "audio": {
+      "file": "audio/ferry-delay.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/ferry-delay.gif",
+      "altText": "Joana stands at the calm river ferry landing, holding the closed hard red violin case. The delayed ferry is moored beside a notice board with unreadable writing; the opposite bank is visible.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "other-crossings": {
+    "audio": {
+      "file": "audio/other-crossings.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/other-crossings.gif",
+      "altText": "Joana studies the town map near the landing worker, with the closed red case at her feet. The upstream path is visible; an adult boat operator prepares a small moored boat nearby. Daylight is clear.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "a-person-to-help": {
+    "audio": {
+      "file": "audio/a-person-to-help.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/a-person-to-help.gif",
+      "altText": "Joana holds the closed red case at the junction of landing and riverside path. An older adult musician gestures along the path; the boat operator waits beside the moored small boat. No crossing has begun.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "bridge-story": {
+    "audio": {
+      "file": "audio/bridge-story.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/bridge-story.gif",
+      "altText": "At the north-bank music-hall entrance, Joana returns the closed red case to her adult teacher while the older musician smiles in recognition. The riverside path ends nearby; soft daylight lights the entrance.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "boat-arrival": {
+    "audio": {
+      "file": "audio/boat-arrival.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/boat-arrival.gif",
+      "altText": "Inside the music hall, Joana sits beside a window after returning the red case to her adult teacher, who holds it near the rehearsal area. Daylight through the window reveals the calm river beyond.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

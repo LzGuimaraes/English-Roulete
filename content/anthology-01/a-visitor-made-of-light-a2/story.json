@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "A Visitor Made of Light — A2",
+    "synopsis": "Na desmontagem de uma estação espacial, Sana encontra a mensagem holográfica deixada por uma antiga construtora.",
+    "genre": "Ficção científica",
+    "difficulty": "A2",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#9EC9EC",
+      "accent": "#C4AEED",
+      "background": "#0B1422",
+      "surface": "#172A41",
+      "text": "#EFF5FC",
+      "font": "modern",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "old-workshop",
+  "scenes": [
+    {
+      "key": "old-workshop",
+      "title": "Someone above the Desk",
+      "narration": "Sana was checking an old workshop before the station was taken apart. Above a desk projector, a blue figure appeared: an older woman in a work shirt. \"I helped build this place,\" the recording said. Sana stopped by the window bench. The visitor was only light, but its voice sounded pleased to have company again. She decided to hear the whole message.",
+      "isEnding": false,
+      "prompt": "Who did the projected woman say she was?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Someone who arrived to take Sana home"
+        },
+        {
+          "key": "b",
+          "text": "Someone who helped build the station"
+        },
+        {
+          "key": "c",
+          "text": "Someone who owned the transport ship"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"I helped build this place\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "window-memory"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Sana stands beside the built-in window bench in the old orbital workshop. A faint blue projection of the older builder appears above a desk projector. The station window is dark; the workshop has practical white lamps. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "audioText": "Sana was checking an old workshop before the station was taken apart. Above a desk projector, a blue figure appeared: an older woman in a work shirt. \"I helped build this place,\" the recording said. Sana stopped by the window bench. The visitor was only light, but its voice sounded pleased to have company again. She decided to hear the whole message.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/old-workshop.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Someone above the Desk', using that image as the reference. Preserve this composition: Sana stands beside the built-in window bench in the old orbital workshop. A faint blue projection of the older builder appears above a desk projector. The station window is dark; the workshop has practical white lamps. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/old-workshop.gif"
+        },
+        "cluePurpose": "A figura é uma gravação, não uma personagem interativa oferecida pelo motor do jogo.",
+        "questionEvidence": "I helped build this place"
+      }
+    },
+    {
+      "key": "window-memory",
+      "title": "The Bench by the Window",
+      "narration": "The builder's recording described the bench beneath the workshop window. After long shifts, she and her team had sat there to watch the stars. She had saved the message so future workers would know that the station was once a home. Sana opened the desk drawer and found a white memory card. It could hold a copy before the equipment was removed.",
+      "isEnding": false,
+      "prompt": "Why had the builder saved the message?",
+      "options": [
+        {
+          "key": "a",
+          "text": "To ask future workers to build another window"
+        },
+        {
+          "key": "b",
+          "text": "To warn that the workshop tools were missing"
+        },
+        {
+          "key": "c",
+          "text": "To show that the station had once been a home"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"the station was once a home\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "what-to-save"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Sana holds a white memory card above the open desk drawer. The blue projected builder remains above the projector; the built-in bench sits under the wide workshop window. Keep all equipment in its established position. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "audioText": "The builder's recording described the bench beneath the workshop window. After long shifts, she and her team had sat there to watch the stars. She had saved the message so future workers would know that the station was once a home. Sana opened the desk drawer and found a white memory card. It could hold a copy before the equipment was removed.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/window-memory.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'The Bench by the Window', using that image as the reference. Preserve this composition: Sana holds a white memory card above the open desk drawer. The blue projected builder remains above the projector; the built-in bench sits under the wide workshop window. Keep all equipment in its established position. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/window-memory.gif"
+        },
+        "cluePurpose": "O banco ancora a memória em um local concreto e o cartão permite as duas rotas.",
+        "questionEvidence": "the station was once a home"
+      }
+    },
+    {
+      "key": "what-to-save",
+      "title": "What Is Worth Keeping?",
+      "narration": "The white card had room for the complete projection or a simpler voice recording. The station archive could preserve the full scene. Sana could also save the voice, then send the projector to the new workshop for reuse. The builder's words would survive either way. Looking at the worn bench, Sana considered what she wanted the next workers to receive.",
+      "isEnding": false,
+      "prompt": "What would survive in either choice?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The builder's words"
+        },
+        {
+          "key": "b",
+          "text": "The old bench itself"
+        },
+        {
+          "key": "c",
+          "text": "The entire workshop"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"The builder's words would survive either way\".",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Save the complete projection for the station archive",
+          "targetSceneKey": "archive-light"
+        },
+        {
+          "key": "route-two",
+          "label": "Save the voice and reuse the projector",
+          "targetSceneKey": "workshop-voice"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Sana holds the white memory card between the desk projector and the worn window bench. The builder remains a small blue recorded projection. Show no readable menus; the decision is conveyed by objects and Sana's thoughtful posture. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "audioText": "The white card had room for the complete projection or a simpler voice recording. The station archive could preserve the full scene. Sana could also save the voice, then send the projector to the new workshop for reuse. The builder's words would survive either way. Looking at the worn bench, Sana considered what she wanted the next workers to receive.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/what-to-save.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'What Is Worth Keeping?', using that image as the reference. Preserve this composition: Sana holds the white memory card between the desk projector and the worn window bench. The builder remains a small blue recorded projection. Show no readable menus; the decision is conveyed by objects and Sana's thoughtful posture. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/what-to-save.gif"
+        },
+        "cluePurpose": "A decisão contrapõe preservação integral e reutilização, sem perder a mensagem principal.",
+        "questionEvidence": "The builder's words would survive either way"
+      }
+    },
+    {
+      "key": "archive-light",
+      "title": "A Place in the Archive",
+      "narration": "Sana copied the complete projection onto the white card and labelled it for the archive. Before leaving, she watched the builder beside the window bench one last time. Later, in the station museum, visitors could see that modest workshop and hear why it mattered. Sana had not saved the building, but she had kept a way for other people to enter its memory.",
+      "isEnding": true,
+      "prompt": "Where would visitors be able to see the saved projection?",
+      "options": [
+        {
+          "key": "a",
+          "text": "In Sana's transport cabin"
+        },
+        {
+          "key": "b",
+          "text": "In the station museum"
+        },
+        {
+          "key": "c",
+          "text": "In the new workshop's tool cupboard"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"in the station museum\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: In the old workshop, Sana holds the completed white memory card and watches the blue builder above the projector for the last time. The window bench remains below the dark orbital window. Do not depict the future museum in this frame. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "audioText": "Sana copied the complete projection onto the white card and labelled it for the archive. Before leaving, she watched the builder beside the window bench one last time. Later, in the station museum, visitors could see that modest workshop and hear why it mattered. Sana had not saved the building, but she had kept a way for other people to enter its memory.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/archive-light.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Place in the Archive', using that image as the reference. Preserve this composition: In the old workshop, Sana holds the completed white memory card and watches the blue builder above the projector for the last time. The window bench remains below the dark orbital window. Do not depict the future museum in this frame. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/archive-light.gif"
+        },
+        "cluePurpose": "A cópia integral tem um destino claro e encerra a tarefa de preservação sem salvar fisicamente a estação.",
+        "questionEvidence": "in the station museum"
+      }
+    },
+    {
+      "key": "workshop-voice",
+      "title": "A Voice in the New Workshop",
+      "narration": "Sana saved the voice onto the white card and prepared the projector for reuse. In the new workshop, she played the builder's message for her team. They listened beside an ordinary workbench, then left a place where everyone could sit after a shift. The old window was gone, but the reason for its bench had travelled with them. Sana felt ready to begin again.",
+      "isEnding": true,
+      "prompt": "What did the new team create after listening?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A copy of the old station window"
+        },
+        {
+          "key": "b",
+          "text": "A private room for Sana alone"
+        },
+        {
+          "key": "c",
+          "text": "A place to sit together after a shift"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"a place where everyone could sit after a shift\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Sana and a small adult work team listen beside an ordinary workbench in the new workshop. The reused projector and white memory card sit on the bench without a blue figure; the saved copy in this route is voice only. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "audioText": "Sana saved the voice onto the white card and prepared the projector for reuse. In the new workshop, she played the builder's message for her team. They listened beside an ordinary workbench, then left a place where everyone could sit after a shift. The old window was gone, but the reason for its bench had travelled with them. Sana felt ready to begin again.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear connected speech at a comfortable elementary pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/workshop-voice.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'A Voice in the New Workshop', using that image as the reference. Preserve this composition: Sana and a small adult work team listen beside an ordinary workbench in the new workshop. The reused projector and white memory card sit on the bench without a blue figure; the saved copy in this route is voice only. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/workshop-voice.gif"
+        },
+        "cluePurpose": "A voz transforma uma prática de convivência no novo lugar; não aparece a projeção integral da outra rota.",
+        "questionEvidence": "a place where everyone could sit after a shift"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Na desmontagem de uma estação espacial, Sana encontra a mensagem holográfica deixada por uma antiga construtora.",
+    "visualContinuity": {
+      "characters": "Sana, a 31-year-old woman with a round face, medium brown skin, dark eyes, black hair in a close braid, a plain burgundy work jacket, grey trousers and soft black boots. The recorded builder is an older woman with short grey hair and a blue work shirt, seen only as a faint blue projection.",
+      "locations": "A decommissioned orbital station: entrance corridor opens to an old workshop, with a desk projector, a memory card socket and a wide window above a built-in bench. A tool rack stands against the rear wall.",
+      "clues": "A blue projected builder appears above the desk projector. A white memory card is in the desk drawer. The recorded message concerns the bench below the workshop window. Whole-scene and voice-only copies are separate endings."
+    },
+    "learningFocus": "Identificação de quem fala, finalidade de uma mensagem e contraste entre registros; passado simples.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "old-workshop",
+        "window-memory",
+        "what-to-save",
+        "archive-light"
+      ],
+      [
+        "old-workshop",
+        "window-memory",
+        "what-to-save",
+        "workshop-voice"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/a-visitor-made-of-light-a2/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

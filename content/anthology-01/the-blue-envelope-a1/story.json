@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "title": "The Blue Envelope — A1",
+    "synopsis": "Uma bibliotecária encontra um envelope sem nome e procura quem deixou uma fotografia dentro dele.",
+    "genre": "Mistério",
+    "difficulty": "A1",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Texto original criado com assistência de IA para o projeto English Roulette. O responsável autorizou expressamente o envio destas histórias ao banco da VPS nesta sessão, em 07/11/2026. Este registro não substitui créditos e permissões de mídias de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Envio à VPS autorizado pelo responsável; nível proposto e produção de mídia pendentes de revisão.",
+    "appearance": {
+      "primary": "#B6A0E8",
+      "accent": "#E4BA6D",
+      "background": "#131021",
+      "surface": "#221B35",
+      "text": "#F5F0FF",
+      "font": "modern",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "under-the-desk",
+  "scenes": [
+    {
+      "key": "under-the-desk",
+      "title": "Under the Desk",
+      "narration": "Lena works in a small library. She wears a yellow cardigan. Today, she finds a blue envelope under the front desk. There is no name on it. She opens it carefully. A small photograph falls into her hand.",
+      "isEnding": false,
+      "prompt": "Where does Lena find the envelope?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Under the front desk"
+        },
+        {
+          "key": "b",
+          "text": "On a reading chair"
+        },
+        {
+          "key": "c",
+          "text": "Beside the front door"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"under the front desk\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "old-photograph"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Lena holds an open blue envelope beside the library front desk; the small photograph rests on her palm. Daylight enters the street window. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. EXACT CAST: This scene has exactly 1 adult person(s). Do not add anyone else.",
+        "audioText": "Lena works in a small library. She wears a yellow cardigan. Today, she finds a blue envelope under the front desk. There is no name on it. She opens it carefully. A small photograph falls into her hand.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/under-the-desk.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Under the Desk', using that image as the reference. Preserve this composition: Lena holds an open blue envelope beside the library front desk; the small photograph rests on her palm. Daylight enters the street window. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/under-the-desk.gif"
+        },
+        "cluePurpose": "O envelope apresenta o objeto que Lena acompanha até os dois finais.",
+        "questionEvidence": "under the front desk"
+      }
+    },
+    {
+      "key": "old-photograph",
+      "title": "An Old Photograph",
+      "narration": "The photograph shows a red bench in a garden. Lena looks through the side door. The library courtyard has a red bench, too. On the back of the photograph, she sees two words: \"For Dad.\" She wants to find the owner.",
+      "isEnding": false,
+      "prompt": "What does the photograph show?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A blue chair in a kitchen"
+        },
+        {
+          "key": "b",
+          "text": "A red bench in a garden"
+        },
+        {
+          "key": "c",
+          "text": "A yellow table in a shop"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"a red bench in a garden\".",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "two-places"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Lena studies the photograph by the library side door; a red bench is visible in the courtyard beyond. Keep the writing on the photograph unreadable. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. EXACT CAST: This scene has exactly 1 adult person(s). Do not add anyone else.",
+        "audioText": "The photograph shows a red bench in a garden. Lena looks through the side door. The library courtyard has a red bench, too. On the back of the photograph, she sees two words: \"For Dad.\" She wants to find the owner.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/old-photograph.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'An Old Photograph', using that image as the reference. Preserve this composition: Lena studies the photograph by the library side door; a red bench is visible in the courtyard beyond. Keep the writing on the photograph unreadable. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/old-photograph.gif"
+        },
+        "cluePurpose": "O banco da fotografia corresponde ao banco visível no pátio.",
+        "questionEvidence": "a red bench in a garden"
+      }
+    },
+    {
+      "key": "two-places",
+      "title": "Two Places to Look",
+      "narration": "Lena takes the photograph and the envelope. The baker across the street knows many people. In the courtyard, a woman is looking under the red bench. Lena can ask the baker or speak to the woman. Both places are close.",
+      "isEnding": false,
+      "prompt": "What is the woman doing?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Opening the library window"
+        },
+        {
+          "key": "b",
+          "text": "Carrying bread across the street"
+        },
+        {
+          "key": "c",
+          "text": "Looking under the red bench"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The story says: \"looking under the red bench\".",
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Ask the baker about the photograph",
+          "targetSceneKey": "bakery-answer"
+        },
+        {
+          "key": "route-two",
+          "label": "Look for the red bench in the courtyard",
+          "targetSceneKey": "bench-answer"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Lena stands inside the library side doorway with the envelope and photograph. An adult woman looks beneath the red courtyard bench. No baker is visible in this frame. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. EXACT CAST: This scene has exactly 2 adult person(s). Do not add anyone else.",
+        "audioText": "Lena takes the photograph and the envelope. The baker across the street knows many people. In the courtyard, a woman is looking under the red bench. Lena can ask the baker or speak to the woman. Both places are close.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/two-places.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'Two Places to Look', using that image as the reference. Preserve this composition: Lena stands inside the library side doorway with the envelope and photograph. An adult woman looks beneath the red courtyard bench. No baker is visible in this frame. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/two-places.gif"
+        },
+        "cluePurpose": "A busca da mulher e o conhecimento do padeiro tornam as duas escolhas plausíveis.",
+        "questionEvidence": "looking under the red bench"
+      }
+    },
+    {
+      "key": "bakery-answer",
+      "title": "An Answer at the Bakery",
+      "narration": "Lena asks the baker. His daughter took the photograph in the library courtyard. He calls her on his phone. She comes across the street and collects the blue envelope. Her gift for Dad is ready, and Lena can return to work.",
+      "isEnding": true,
+      "prompt": "Who took the photograph?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The baker's daughter"
+        },
+        {
+          "key": "b",
+          "text": "Lena's sister"
+        },
+        {
+          "key": "c",
+          "text": "The baker's teacher"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The story says: \"His daughter took the photograph\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Inside the bakery doorway, Lena hands the blue envelope to the adult woman. The baker stands beside them. The photograph stays with the envelope; soft daylight lights the three adults. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. The baker is a man in his sixties with short grey hair and a plain cream apron. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. The baker is a man in his sixties with short grey hair and a plain cream apron. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. EXACT CAST: This scene has exactly 3 adult person(s). Do not add anyone else.",
+        "audioText": "Lena asks the baker. His daughter took the photograph in the library courtyard. He calls her on his phone. She comes across the street and collects the blue envelope. Her gift for Dad is ready, and Lena can return to work.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/bakery-answer.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'An Answer at the Bakery', using that image as the reference. Preserve this composition: Inside the bakery doorway, Lena hands the blue envelope to the adult woman. The baker stands beside them. The photograph stays with the envelope; soft daylight lights the three adults. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/bakery-answer.gif"
+        },
+        "cluePurpose": "O padeiro identifica a destinatária indireta e encerra a busca sem contradizer a outra rota.",
+        "questionEvidence": "His daughter took the photograph"
+      }
+    },
+    {
+      "key": "bench-answer",
+      "title": "An Answer by the Bench",
+      "narration": "Lena shows the photograph to the woman by the bench. \"It is mine!\" the woman says. \"It is a gift for my father. He works in the bakery.\" Lena returns the blue envelope. The woman thanks her and goes across the street.",
+      "isEnding": true,
+      "prompt": "Where does the woman's father work?",
+      "options": [
+        {
+          "key": "a",
+          "text": "In the library"
+        },
+        {
+          "key": "b",
+          "text": "In the bakery"
+        },
+        {
+          "key": "c",
+          "text": "In the garden shop"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The story says: \"He works in the bakery\".",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "SCENE: Beside the courtyard red bench, Lena returns the blue envelope and photograph to the relieved woman. The library side door remains behind Lena; daylight is gentle. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. EXACT CAST: This scene has exactly 2 adult person(s). Do not add anyone else.",
+        "audioText": "Lena shows the photograph to the woman by the bench. \"It is mine!\" the woman says. \"It is a gift for my father. He works in the bakery.\" Lena returns the blue envelope. The woman thanks her and goes across the street.",
+        "voiceDirection": "Use one consistent natural English narrator with a neutral accent and clear short phrases at an unhurried beginner pace. Speak every word of audioText exactly once, including quoted dialogue. Use small natural pauses, clear articulation and restrained emotion; no whispering, shouting, music, sound effects or additional words.",
+        "plannedAudioFile": "audio/bench-answer.wav",
+        "animationPrompt": "Keep the hand-drawn characters, painted backgrounds, clean linework, deep readable shadows and cel shading of the dark, shadowy 2D animated-feature style. Animate exactly the approved base image for 'An Answer by the Bench', using that image as the reference. Preserve this composition: Beside the courtyard red bench, Lena returns the blue envelope and photograph to the relieved woman. The library side door remains behind Lena; daylight is gentle. Use one movement only: a minimal periodic two-pixel camera drift to the right and back, returning exactly to the initial framing; never reveal a new area. Keep every person, facial expression, object, clue, shadow and light source fixed relative to the scene. No speaking, walking, artificial blinking, new figures, objects, letters or effects. Export a seamless six-second loop, 48 frames at 8 fps, 640x360 pixels, GIF or APNG, without audio. The final frame must align with the first. No cuts, shaking, jump scares, flashing, gore or continuous forward camera motion. Do not copy events or object states from the other ending.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/bench-answer.gif"
+        },
+        "cluePurpose": "A dona recupera a fotografia e confirma a mesma relação familiar da rota da padaria.",
+        "questionEvidence": "He works in the bakery"
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Uma bibliotecária encontra um envelope sem nome e procura quem deixou uma fotografia dentro dele.",
+    "visualContinuity": {
+      "characters": "Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. The baker is a man in his sixties with short grey hair and a plain cream apron.",
+      "locations": "A small library: front desk by a street window, a reading room behind it, and a side door to the shared courtyard. The bakery faces the front entrance.",
+      "clues": "A blue envelope starts under the front desk and stays with Lena. Its photograph shows the library courtyard and a red bench. A matching bench stands outside the side door."
+    },
+    "learningFocus": "Localização, objetos e identificação de pessoas; presente simples.",
+    "proposedAudience": "Adultos aprendendo inglês; sem violência gráfica. Faixa etária não é um recurso implementado no site.",
+    "routes": [
+      [
+        "under-the-desk",
+        "old-photograph",
+        "two-places",
+        "bakery-answer"
+      ],
+      [
+        "under-the-desk",
+        "old-photograph",
+        "two-places",
+        "bench-answer"
+      ]
+    ],
+    "reviewStatus": "Produção e envio à VPS concluídos: WAVs gerados a partir do texto exato e conferidos por transcrição automática; artes 2D dark inspecionadas e corrigidas por cena. Grafo e questões verificados pelos testes. Não declara revisão auditiva humana nem certificação CEFR.",
+    "supportedGameplay": "Cenas, narração pré-gravada, uma pergunta por cena, uma bifurcação e dois finais. Objetos, tecnologias e ações são elementos da ficção; não requerem inventário, fala do jogador, combate ou novos eventos de gameplay.",
+    "levelNote": "Nível e tamanho são propostas editoriais, não certificação automática CEFR.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "humanReviewChecklist": [
+      "Revisar compreensão e naturalidade do inglês no nível indicado.",
+      "Revisar se cada pergunta tem exatamente uma resposta apoiada no texto.",
+      "Revisar continuidade, motivação, tom e ambos os finais.",
+      "Revisar o registro de autoria e autorização do texto; preencher créditos e evidências das mídias que forem produzidas.",
+      "Produzir e escutar WAVs a partir de audioText; revisar e produzir as imagens-base e loops.",
+      "Importar como rascunho, validar mídia no servidor e publicar somente após revisão."
+    ],
+    "visualStyle": {
+      "style": "2d-animated-feature",
+      "description": "Animação 2D cinematográfica dark: personagens adultos desenhados, contornos limpos, cel shading, cenários pintados, paleta contida e sombras profundas com pistas legíveis. Terror com tensão sombria; sem pessoas fotorrealistas.",
+      "source": "Preferência do responsável pelo projeto nesta sessão, em 07/11/2026.",
+      "mood": "dark-shadowy"
+    },
+    "uploadAuthorization": {
+      "source": "Instrução explícita do responsável nesta sessão",
+      "recordedOn": "2026-11-07",
+      "scope": "Envio das 12 histórias deste lote ao banco da VPS, sem nova confirmação de conteúdo. Publicação jogável continua sujeita à presença e à validação das mídias.",
+      "additionalApprovalRequired": false
+    },
+    "mediaProduction": {
+      "package": "media/anthology-01/the-blue-envelope-a1/media.json",
+      "imageTool": "OpenAI image_gen (built-in)",
+      "voice": "Piper 1.8.0 / en_US-ljspeech-high",
+      "animation": "FFmpeg, deriva da arte aprovada; câmera periódica discreta de dois pixels, 48 quadros, 6 segundos, 640x360",
+      "receipt": "content/anthology-01/vps-media.json"
+    }
+  }
+}

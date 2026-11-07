@@ -1,0 +1,72 @@
+{
+  "park-entrance": {
+    "audio": {
+      "file": "audio/park-entrance.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/park-entrance.gif",
+      "altText": "Omar stands at the park south entrance, holding a green lantern and an open paper map. The green lantern provides warm light at the entrance; dusk is gentle, not threatening.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "map-paths": {
+    "audio": {
+      "file": "audio/map-paths.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/map-paths.gif",
+      "altText": "Omar puts the folded paper map into his jacket pocket. The pond path opens to the left and the orchard path to the right. He keeps the green lantern in his other hand.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "people-on-paths": {
+    "audio": {
+      "file": "audio/people-on-paths.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/people-on-paths.gif",
+      "altText": "At the path fork, Omar holds his green lantern at shoulder height. One adult neighbour sits by the pond; two adult musicians stand at the orchard entrance. Keep both routes distinct.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "picnic-table": {
+    "audio": {
+      "file": "audio/picnic-table.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/picnic-table.gif",
+      "altText": "Omar sets the green lantern on the picnic food table among plates and bread. His adult neighbour stands beside him. The lantern lights their faces; the pond path ends behind them.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "picnic-stage": {
+    "audio": {
+      "file": "audio/picnic-stage.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/picnic-stage.gif",
+      "altText": "Omar places his green lantern beside the small picnic stage. Two adult musicians prepare to play. In the background, a neighbour brings a separate lamp to the food table, as stated in this ending.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}
