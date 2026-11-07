@@ -11,6 +11,20 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: englishroulette_tests
+          POSTGRES_DB: englishroulette_tests
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U englishroulette_tests"
+          --health-interval 3s --health-timeout 3s --health-retries 20
+    env:
+      ENGLISHROULETTE_TEST_CONNECTION: Host=localhost;Port=5432;Database=englishroulette_tests;Username=englishroulette_tests
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-dotnet@v6.1.0

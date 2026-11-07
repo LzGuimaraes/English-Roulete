@@ -10,7 +10,7 @@ public sealed class SoloAdventureSession
     private readonly Guid _playerId;
     private readonly StoryVersion _story;
     private readonly Dictionary<string, SceneTiming> _timings;
-    private readonly Dictionary<Guid, CommandReceipt> _receipts = [];
+    private readonly Dictionary<Guid, SoloCommandReceipt> _receipts = [];
     private StoryScene _scene;
     private SoloAdventurePhase _phase = SoloAdventurePhase.Preloading;
     private long _stateVersion = 1;
@@ -235,5 +235,59 @@ public sealed class SoloAdventureSession
             _phase == SoloAdventurePhase.DecisionOpen ? _scene.Transitions : Array.Empty<SceneTransition>());
     }
 
-    private sealed record CommandReceipt(SoloAdventureCommand Command, SoloAdventureSnapshot Snapshot);
+    public SoloAdventureCheckpoint Capture()
+    {
+        lock (_sync)
+        {
+            return new(_id, _playerId, StoryDefinition.Capture(_story), Array.AsReadOnly(_timings.Values.ToArray()),
+                _scene.Key, _phase, _stateVersion, _questionInstanceId, _questionOpensAtUtc,
+                _questionClosesAtUtc, _answer, Array.AsReadOnly(_receipts.Values.ToArray()));
+        }
+    }
+
+    public static SoloAdventureSession Restore(SoloAdventureCheckpoint checkpoint)
+    {
+        ArgumentNullException.ThrowIfNull(checkpoint);
+        var story = checkpoint.Story.Restore();
+        var session = new SoloAdventureSession(checkpoint.Id, checkpoint.PlayerId, story, checkpoint.Timings);
+        var scene = story.Scenes.SingleOrDefault(candidate => candidate.Key == checkpoint.SceneKey);
+        if (scene is null || !Enum.IsDefined(checkpoint.Phase) || checkpoint.StateVersion < 1 ||
+            checkpoint.QuestionInstanceId == Guid.Empty ||
+            (checkpoint.Phase is SoloAdventurePhase.Narrating or SoloAdventurePhase.QuestionOpen &&
+                (checkpoint.QuestionClosesAtUtc <= checkpoint.QuestionOpensAtUtc || checkpoint.Answer is not null)) ||
+            (checkpoint.Phase == SoloAdventurePhase.QuestionReveal && checkpoint.Answer is null) ||
+            (checkpoint.Answer is { } answer && answer.QuestionInstanceId != checkpoint.QuestionInstanceId) ||
+            (checkpoint.Phase == SoloAdventurePhase.StoryResult && !scene.IsEnding) ||
+            (checkpoint.Phase == SoloAdventurePhase.DecisionOpen && scene.Transitions.Count < 2))
+        {
+            throw new InvalidOperationException("The solo checkpoint is inconsistent.");
+        }
+
+        session._scene = scene;
+        session._phase = checkpoint.Phase;
+        session._stateVersion = checkpoint.StateVersion;
+        session._questionInstanceId = checkpoint.QuestionInstanceId;
+        session._questionOpensAtUtc = checkpoint.QuestionOpensAtUtc;
+        session._questionClosesAtUtc = checkpoint.QuestionClosesAtUtc;
+        session._answer = checkpoint.Answer;
+        foreach (var receipt in checkpoint.Receipts)
+        {
+            if (receipt.Command.RequestId == Guid.Empty || receipt.Snapshot.SessionId != checkpoint.Id ||
+                receipt.Snapshot.PlayerId != checkpoint.PlayerId || receipt.Snapshot.StoryVersionId != story.Id ||
+                !session._receipts.TryAdd(receipt.Command.RequestId, receipt with
+                {
+                    Snapshot = receipt.Snapshot with
+                    {
+                        Question = receipt.Snapshot.Question is { } question
+                            ? question with { Options = Array.AsReadOnly(question.Options.ToArray()) } : null,
+                        Choices = Array.AsReadOnly(receipt.Snapshot.Choices.ToArray())
+                    }
+                }))
+            {
+                throw new InvalidOperationException("The solo checkpoint contains an invalid command receipt.");
+            }
+        }
+
+        return session;
+    }
 }
