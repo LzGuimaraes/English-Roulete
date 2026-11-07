@@ -33,10 +33,11 @@ jobs:
       ENGLISHROULETTE_TEST_CONNECTION: Host=localhost;Port=5432;Database=englishroulette_tests;Username=englishroulette_tests
     steps:
       - uses: actions/checkout@v7.0.1
-      - name: Validate deployment scripts
+      - name: Validate Python tools and deployment scripts
         run: |
           bash -n scripts/deploy/release.sh
           python3 -m unittest discover -s tests/deploy -v
+          python3 -m unittest discover -s tests/authoring -v
       - uses: actions/setup-dotnet@v6.1.0
         with:
           dotnet-version: '10.0.x'

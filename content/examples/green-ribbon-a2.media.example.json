@@ -1,0 +1,58 @@
+{
+  "quiet-room": {
+    "audio": {
+      "file": "audio/quiet-room.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/quiet-room.gif",
+      "altText": "The Quiet Room: Eva follows the rescue clues.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "radio-hall": {
+    "audio": {
+      "file": "audio/radio-hall.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/radio-hall.gif",
+      "altText": "A Voice on the Radio: Eva follows the rescue clues.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "garden-rescue": {
+    "audio": {
+      "file": "audio/garden-rescue.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/garden-rescue.gif",
+      "altText": "The Garden Gate: Eva follows the rescue clues.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  },
+  "roof-signal": {
+    "audio": {
+      "file": "audio/roof-signal.wav",
+      "attribution": "",
+      "licenseEvidence": ""
+    },
+    "visual": {
+      "file": "animations/roof-signal.gif",
+      "altText": "The Blue Button: Eva follows the rescue clues.",
+      "animated": true,
+      "attribution": "",
+      "licenseEvidence": ""
+    }
+  }
+}

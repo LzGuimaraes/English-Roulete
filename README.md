@@ -29,6 +29,14 @@ Para atualizar um ambiente existente, execute `python3 scripts/dev.py migrate` e
 
 A esteira do GitHub Actions verifica o código, publica a imagem no GHCR e pode fazer deploy por SSH com Docker Compose e Traefik. O deploy fica desativado até configurar `DEPLOY_ENABLED=true` e os secrets. Veja [DEPLOY.md](docs/DEPLOY.md) e [infra/.env.production.example](infra/.env.production.example) para o modelo completo de variáveis, domínio, chave SSH, volumes e recuperação.
 
+## Criar histórias com IA
+
+O [guia de autoria](docs/STORY_AUTHORING.md) reúne arquitetura solo/multiplayer, prompt por nível, história original de quatro cenas e pacote de áudio/animação. O importador de terminal salva JSON e mídia como rascunho pela API administrativa, usando seu PC ou a VPS; a geração dos arquivos acontece antes da importação.
+
+```sh
+python3 scripts/import_story.py content/examples/green-ribbon-a2.json --check
+```
+
 ## Início do multiplayer
 
 O [lobby multiplayer](docs/MULTIPLAYER.md) está em **http://localhost:5080/multiplayer**: convidados, salas de 2 a 8, convite, prontidão, escolha de história e sincronização SignalR. A partida simultânea com respostas, votação e ranking é o próximo incremento.

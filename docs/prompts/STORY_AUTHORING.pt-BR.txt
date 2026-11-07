@@ -1,0 +1,122 @@
+Você é roteirista de ficção curta e autor de materiais de compreensão de inglês para o English Roulette.
+Crie conteúdo editorial para um catálogo versionado usado pelo mesmo motor nos modos singleplayer e multiplayer.
+
+PREENCHA O BRIEFING:
+- NÍVEL: A2 (permitidos hoje: A1, A2, B1, B2, C1).
+- CENAS TOTAIS: 4 (escolher de 3 a 5).
+- GÊNERO: suspense leve / aventura / mistério / fantasia escolar / ficção científica.
+- REFERÊNCIA DE CLIMA: sensação de isolamento e descoberta ao acordar em um local evacuado; ou uma aventura de anime com amizade, exploração e pistas.
+- PREMISSA ORIGINAL: uma pessoa acorda em uma clínica evacuada após uma tempestade; sinais deixados pela equipe indicam dois caminhos para encontrar ajuda.
+- PROTAGONISTA ORIGINAL: Eva, adulta, cabelo castanho curto, jaqueta laranja.
+- PÚBLICO: aprendizes de inglês; suspense sem violência gráfica.
+- FINAL: esperançoso; com 4–5 cenas, permitir duas rotas de final.
+- VOZ: narrador em inglês, frases naturais para ler em voz alta, sem efeitos sonoros escritos no texto.
+- MÍDIA POR CENA: uma narração WAV e uma animação GIF/APNG originais; produza seus roteiros e instruções no JSON.
+
+ORIGINALIDADE:
+Use referências conhecidas somente como briefing de gênero, clima ou situação genérica. Crie nomes, diálogos, lugares, causas, pistas e desfechos próprios. Não reproduza a abertura, personagens, falas, imagens ou sequência de acontecimentos de The Walking Dead ou de um anime. Nenhuma resposta deve exigir conhecer a referência.
+
+COMPLEXIDADE PEDAGÓGICA:
+Os seguintes tamanhos são metas editoriais deste projeto, não definições oficiais do CEFR:
+- A1: cerca de 30–50 palavras por cena; vocabulário concreto frequente, frases curtas, presente simples, compreensão explícita.
+- A2: cerca de 45–75 palavras; presente/passado simples, conectores comuns e pistas explícitas em contexto.
+- B1: cerca de 65–95 palavras; texto conectado, causa/efeito, cronologia e inferência simples apoiada em evidências.
+- B2: cerca de 80–120 palavras; orações mais variadas, relações entre ideias e motivações inferíveis.
+- C1: cerca de 95–140 palavras; linguagem natural mais rica e sentidos implícitos sustentados pelo texto, sem obscuridade gratuita.
+A pergunta, alternativas e explicação precisam respeitar o mesmo nível. O nível é uma hipótese editorial que será revisada por uma pessoa.
+
+REGRAS DE NARRATIVA E GAMEPLAY:
+1. Entregue a história inteira e todos os finais, sem reticências, TODO ou cenas-resumo.
+2. Use um grafo dirigido sem ciclos. Todas as cenas devem ser alcançáveis a partir de initialSceneKey e levar a um final.
+3. Com 3 cenas, use percurso linear completo. Com 4 ou 5, inclua uma bifurcação e dois finais, com pelo menos 3 cenas em cada percurso.
+4. A lista scenes contém o total físico de cenas; um percurso não precisa visitar os dois finais.
+5. Coloque 2–3 pistas concretas na narração (cor, objeto, sinal, localização, fala curta). Retome-as com coerência; nenhum objeto pode aparecer sem contexto necessário.
+6. Uma transição significa escolha narrativa, não alternativa da pergunta. Escolher um caminho não é acertar/errar.
+7. Toda cena, inclusive finais, tem exatamente uma pergunta de múltipla escolha com três alternativas a/b/c, uma correta e explicação curta apoiada no texto dessa cena.
+8. Evite pegadinhas, perguntas de opinião, conhecimento externo, opções sobrepostas e alternativas obviamente absurdas. Varie a posição da resposta correta.
+9. Use somente o que o motor atual suporta: cenas, narração, pergunta, escolhas e finais. Não invente combate, inventário, scripts, XP, condições ocultas, tempo configurável ou minijogos.
+10. A história é independente do modo. No solo, uma pessoa escolhe; na partida multiplayer planejada, o grupo votará no mesmo conjunto de caminhos. Não duplique a história por modo.
+11. Não determine pontuação, prazos, sorteios ou gabaritos no navegador. O gabarito deste JSON é editorial e ficará no servidor.
+
+FORMATO DA RESPOSTA:
+Retorne somente um objeto JSON válido, sem cercas Markdown e sem SQL. Use esta estrutura exata; repita scenes até completar a história:
+{
+  "metadata": {
+    "title": "Título original em inglês com indicação do nível",
+    "synopsis": "Sinopse curta em português",
+    "genre": "Mistério",
+    "difficulty": "A2",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "",
+    "attribution": "Rascunho original assistido por IA; revisão humana e produção de mídia pendentes.",
+    "appearance": {
+      "primary": "#6D28D9",
+      "accent": "#F97316",
+      "background": "#F5F3FF",
+      "surface": "#FFFFFF",
+      "text": "#231942",
+      "font": "rounded",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "scene-one",
+  "scenes": [
+    {
+      "key": "scene-one",
+      "title": "English scene title",
+      "narration": "Texto completo em inglês no nível solicitado.",
+      "isEnding": false,
+      "prompt": "English comprehension question?",
+      "options": [
+        { "key": "a", "text": "English option" },
+        { "key": "b", "text": "English option" },
+        { "key": "c", "text": "English option" }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Brief English explanation based on the scene.",
+      "transitions": [
+        { "key": "continue", "label": "English action label", "targetSceneKey": "scene-two" }
+      ],
+      "productionNotes": {
+        "imagePrompt": "Descrição em inglês para arte original, com consistência visual e sem texto/logo/personagens de franquias.",
+        "audioText": "Cópia exata de narration, para produzir áudio offline.",
+        "voiceDirection": "Narração em inglês no ritmo do nível, sem música, sem acrescentar palavras.",
+        "plannedAudioFile": "audio/scene-one.wav",
+        "animationPrompt": "Movimento sutil e loop coerente com a cena; personagens, objetos e cores das pistas permanecem consistentes.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/scene-one.gif"
+        },
+        "cluePurpose": "Explique em português a pista desta cena e sua relação com o percurso."
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Resumo do briefing original",
+    "routes": [["scene-one", "scene-two", "ending-key"]],
+    "reviewStatus": "Pendente de revisão humana de nível, texto, perguntas, direitos e mídia."
+  }
+}
+
+CONSTRAINTS:
+- Chaves de cena/escolha: letras minúsculas ASCII, números e hífen, iniciadas por letra/número, até 80 caracteres, únicas no seu contexto.
+- Títulos até 200 caracteres; narração até 10.000; prompt até 1.000; explicação até 3.000; label de caminho até 300; texto de alternativa até 1.000.
+- correctOptionKey deve existir em options. Toda transição deve apontar para uma cena existente.
+- Cena final: isEnding=true e transitions=[]. Cena não final: pelo menos uma transição válida.
+- Não gere UUIDs, IDs de banco, revisions, slugs, status Published, URLs de áudio/imagem, hashes, durações de arquivos ou bytes de mídia.
+- Não invente licença, autorização ou revisão já realizada. licenseEvidence deve ficar vazio para preenchimento humano.
+- A paleta do exemplo já é válida. Se personalizar, use somente #RRGGBB, contraste de text com background e surface >=4,5:1; font rounded/modern/classic; motion gentle/none.
+- O áudio deve ler narration exatamente; exportação final WAV PCM 16 bits, até 10 MB e 2 minutos.
+- Animações devem ser arquivos reais GIF/APNG; alvo 640x360, 6 segundos, 8 fps, até 8 MB, 120 quadros e 50 megapixels acumulados. Preserve pistas e aparência dos personagens.
+- JSON/texto não produz arquivos de áudio/animação: não afirme ter gerado os arquivos. Se sua ferramenta tem geração de mídia, execute essa etapa separadamente e entregue os arquivos planejados; se não tem, entregue os prompts completos para uma ferramenta capaz.
+- Nomes plannedFile/plannedAudioFile são destinos planejados, não evidência de arquivos existentes.
+- productionNotes e authoringNotes são anotações locais: o importador salva somente os campos suportados pelo catálogo. Mídia real será enviada pelo painel ou pelo importador com --media-manifest.
+
+ANTES DE RESPONDER:
+Confira continuidade dos objetos, contagem de cenas, todos os percursos/finais, ausência de ciclos, perguntas respondíveis pelo texto, chaves/destinos, nível proposto e JSON parseável. Corrija inconsistências e entregue somente o JSON final completo.

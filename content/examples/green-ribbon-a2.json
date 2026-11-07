@@ -1,0 +1,221 @@
+{
+  "metadata": {
+    "title": "The Green Ribbon — A2",
+    "synopsis": "Após uma tempestade, Eva encontra sinais que levam a duas rotas de resgate em uma clínica evacuada.",
+    "genre": "Mistério",
+    "difficulty": "A2",
+    "author": "English Roulette — rascunho com assistência de IA",
+    "licenseType": "Original",
+    "licenseEvidence": "",
+    "attribution": "Texto original de exemplo para revisão editorial. Arte e narração ainda não produzidas.",
+    "appearance": {
+      "primary": "#6D28D9",
+      "accent": "#F97316",
+      "background": "#F5F3FF",
+      "surface": "#FFFFFF",
+      "text": "#231942",
+      "font": "rounded",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "quiet-room",
+  "scenes": [
+    {
+      "key": "quiet-room",
+      "title": "The Quiet Room",
+      "narration": "Eva opens her eyes in a small clinic. Rain taps on the window, but the room is empty. Her orange jacket is beside the bed. A green ribbon hangs from the door. A card says, \"Green marks the safe way. The storm is over.\" Eva puts on her jacket and follows the ribbon into the hall.",
+      "isEnding": false,
+      "prompt": "What does the green ribbon mark?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A place to sleep"
+        },
+        {
+          "key": "b",
+          "text": "The safe way"
+        },
+        {
+          "key": "c",
+          "text": "A broken telephone"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The card says that green marks the safe way.",
+      "transitions": [
+        {
+          "key": "follow-ribbon",
+          "label": "Follow the ribbon into the hall",
+          "targetSceneKey": "radio-hall"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "Original colorful adventure illustration, no text or logos. Eva is an adult with short brown hair and an orange rain jacket. Scene: The Quiet Room. Use green ribbons as a visual clue; no franchise characters or actor likenesses.",
+        "audioText": "Eva opens her eyes in a small clinic. Rain taps on the window, but the room is empty. Her orange jacket is beside the bed. A green ribbon hangs from the door. A card says, \"Green marks the safe way. The storm is over.\" Eva puts on her jacket and follows the ribbon into the hall.",
+        "cluePurpose": "Pista narrativa presente no texto; sem inventário ou condição de código.",
+        "animationPrompt": "Animate an original illustration of The Quiet Room. Keep Eva's short brown hair and orange jacket consistent. Gentle camera drift, small movement in rain or ribbons, no abrupt cuts, no changing clue colors or object positions, no logos or on-screen text. A subtle seamless loop, not a recreation of a film or anime shot.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/quiet-room.gif"
+        },
+        "plannedAudioFile": "audio/quiet-room.wav",
+        "voiceDirection": "English narration at a comfortable learner pace; read audioText exactly, without music or extra dialogue."
+      }
+    },
+    {
+      "key": "radio-hall",
+      "title": "A Voice on the Radio",
+      "narration": "The hall is dark, but Eva can see two signs: GARDEN and ROOF. A small radio is on a desk. A voice says, \"The rescue team is checking the garden and the roof.\" Beside the garden door, a key hangs on a green hook. The stairs to the roof are open. Eva must choose where to look first.",
+      "isEnding": false,
+      "prompt": "Where is the key?",
+      "options": [
+        {
+          "key": "a",
+          "text": "On a green hook"
+        },
+        {
+          "key": "b",
+          "text": "Under the desk"
+        },
+        {
+          "key": "c",
+          "text": "Inside the radio"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The narration says that the key hangs on a green hook beside the garden door.",
+      "transitions": [
+        {
+          "key": "garden-route",
+          "label": "Take the key and open the garden door",
+          "targetSceneKey": "garden-rescue"
+        },
+        {
+          "key": "roof-route",
+          "label": "Walk up the stairs to the roof",
+          "targetSceneKey": "roof-signal"
+        }
+      ],
+      "productionNotes": {
+        "imagePrompt": "Original colorful adventure illustration, no text or logos. Eva is an adult with short brown hair and an orange rain jacket. Scene: A Voice on the Radio. Use green ribbons as a visual clue; no franchise characters or actor likenesses.",
+        "audioText": "The hall is dark, but Eva can see two signs: GARDEN and ROOF. A small radio is on a desk. A voice says, \"The rescue team is checking the garden and the roof.\" Beside the garden door, a key hangs on a green hook. The stairs to the roof are open. Eva must choose where to look first.",
+        "cluePurpose": "Pista narrativa presente no texto; sem inventário ou condição de código.",
+        "animationPrompt": "Animate an original illustration of A Voice on the Radio. Keep Eva's short brown hair and orange jacket consistent. Gentle camera drift, small movement in rain or ribbons, no abrupt cuts, no changing clue colors or object positions, no logos or on-screen text. A subtle seamless loop, not a recreation of a film or anime shot.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/radio-hall.gif"
+        },
+        "plannedAudioFile": "audio/radio-hall.wav",
+        "voiceDirection": "English narration at a comfortable learner pace; read audioText exactly, without music or extra dialogue."
+      }
+    },
+    {
+      "key": "garden-rescue",
+      "title": "The Garden Gate",
+      "narration": "Eva takes the key from the green hook and opens the garden door. The air smells fresh after the rain. Green ribbons lead to a wide gate. A rescue driver is waiting beside a yellow van. \"We checked every room before the storm,\" he says. \"I am glad you found our signs.\" Eva climbs into the van, ready to go home.",
+      "isEnding": true,
+      "prompt": "Who is waiting beside the yellow van?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A teacher"
+        },
+        {
+          "key": "b",
+          "text": "A gardener"
+        },
+        {
+          "key": "c",
+          "text": "A rescue driver"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "A rescue driver is waiting beside the yellow van at the garden gate.",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "Original colorful adventure illustration, no text or logos. Eva is an adult with short brown hair and an orange rain jacket. Scene: The Garden Gate. Use green ribbons as a visual clue; no franchise characters or actor likenesses.",
+        "audioText": "Eva takes the key from the green hook and opens the garden door. The air smells fresh after the rain. Green ribbons lead to a wide gate. A rescue driver is waiting beside a yellow van. \"We checked every room before the storm,\" he says. \"I am glad you found our signs.\" Eva climbs into the van, ready to go home.",
+        "cluePurpose": "Pista narrativa presente no texto; sem inventário ou condição de código.",
+        "animationPrompt": "Animate an original illustration of The Garden Gate. Keep Eva's short brown hair and orange jacket consistent. Gentle camera drift, small movement in rain or ribbons, no abrupt cuts, no changing clue colors or object positions, no logos or on-screen text. A subtle seamless loop, not a recreation of a film or anime shot.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/garden-rescue.gif"
+        },
+        "plannedAudioFile": "audio/garden-rescue.wav",
+        "voiceDirection": "English narration at a comfortable learner pace; read audioText exactly, without music or extra dialogue."
+      }
+    },
+    {
+      "key": "roof-signal",
+      "title": "The Blue Button",
+      "narration": "Eva walks up the stairs and steps onto the roof. The clouds are moving away. Near a bench, she finds a radio with a blue button. A green ribbon is tied around it. A note says, \"Press the blue button if you need help.\" Eva presses it. A rescue worker answers and comes to meet her on the stairs. She is safe.",
+      "isEnding": true,
+      "prompt": "What does Eva press to ask for help?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The red switch"
+        },
+        {
+          "key": "b",
+          "text": "The blue button"
+        },
+        {
+          "key": "c",
+          "text": "The green ribbon"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The note tells Eva to press the blue button if she needs help.",
+      "transitions": [],
+      "productionNotes": {
+        "imagePrompt": "Original colorful adventure illustration, no text or logos. Eva is an adult with short brown hair and an orange rain jacket. Scene: The Blue Button. Use green ribbons as a visual clue; no franchise characters or actor likenesses.",
+        "audioText": "Eva walks up the stairs and steps onto the roof. The clouds are moving away. Near a bench, she finds a radio with a blue button. A green ribbon is tied around it. A note says, \"Press the blue button if you need help.\" Eva presses it. A rescue worker answers and comes to meet her on the stairs. She is safe.",
+        "cluePurpose": "Pista narrativa presente no texto; sem inventário ou condição de código.",
+        "animationPrompt": "Animate an original illustration of The Blue Button. Keep Eva's short brown hair and orange jacket consistent. Gentle camera drift, small movement in rain or ribbons, no abrupt cuts, no changing clue colors or object positions, no logos or on-screen text. A subtle seamless loop, not a recreation of a film or anime shot.",
+        "animationPlan": {
+          "durationSeconds": 6,
+          "framesPerSecond": 8,
+          "width": 640,
+          "height": 360,
+          "loop": true,
+          "format": "GIF or APNG",
+          "plannedFile": "animations/roof-signal.gif"
+        },
+        "plannedAudioFile": "audio/roof-signal.wav",
+        "voiceDirection": "English narration at a comfortable learner pace; read audioText exactly, without music or extra dialogue."
+      }
+    }
+  ],
+  "authoringNotes": {
+    "brief": "Suspense leve: uma pessoa acorda em uma clínica evacuada após uma tempestade e segue sinais para encontrar ajuda.",
+    "routes": [
+      [
+        "quiet-room",
+        "radio-hall",
+        "garden-rescue"
+      ],
+      [
+        "quiet-room",
+        "radio-hall",
+        "roof-signal"
+      ]
+    ],
+    "reviewStatus": "Pendente de revisão humana de nível, texto, perguntas, direitos e mídia."
+  }
+}
