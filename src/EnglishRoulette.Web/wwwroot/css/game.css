@@ -121,3 +121,32 @@
 .has-scene-art.scene-intro .scene-ready .scene-icon { display:none; }
 .has-scene-art.scene-intro .scene-ready h3 { margin:0 0 12px; }
 @media(max-width:780px) { .has-scene-art.scene-intro .game-grid { padding-top:90px; } }
+
+/* Clarify the existing home without replacing the game identity. */
+.game-welcome { min-height:0; padding-block:38px 30px; gap:4%; align-items:start; }
+.game-experience .welcome h1 { font-size:clamp(42px,4.3vw,64px); letter-spacing:-2.5px; margin-block:18px; }
+.game-experience .welcome .lead { font-size:19px; line-height:1.65; max-width:530px; margin-bottom:12px; }
+.game-experience .welcome .intro { font-size:15px; line-height:1.75; margin-bottom:23px; max-width:510px; }
+.hero-actions { align-items:center; gap:12px; }.hero-actions .secondary { padding:13px 18px; font-weight:600; border-color:#ffffff25; font-size:13px; }
+.game-experience .start-status { margin:19px 0 12px; font-size:13px; color:#cfc2e3; line-height:1.7; min-height:42px; }.start-status p { margin:0; }.start-status .text-button { padding-left:0; }
+.game-experience .level-note { font-size:13px; color:#bfb1d3; line-height:1.75; max-width:500px; margin-bottom:15px; }.level-note strong { color:#e0d3f5; font-weight:600; }
+.preview-link { color:#dcc6ff; font-size:13px; text-underline-offset:5px; display:inline-block; padding-block:10px; }
+.launch-error { margin:16px 0; padding:16px 18px; border:1px solid #efb1b559; border-radius:12px; background:#6b30352b; color:#ffe0e2; font-size:14px; line-height:1.7; }.launch-error p { margin:0; }.game-experience .launch-error button { padding:8px 0; color:#ffe0e2; }
+.roulette-context { text-align:center; margin:8px auto 0; max-width:350px; }.roulette-context p { color:#c9bcdd; font-size:14px; line-height:1.7; margin:7px 0 22px; }
+.roulette-stage { min-height:440px; padding-top:30px; }.roulette-stage .wheel-pointer { top:9px; }.roulette-stage .orbit-one { top:-5px; }.roulette-stage .orbit-two { top:-30px; }
+.has-result { animation-duration:var(--spin-duration,5s); }
+.wheel-label { font-size:12px; max-width:88px; line-height:1.35; }
+.wheel-caption { margin-top:24px; }.wheel-caption .section-label { font-size:10px; letter-spacing:1.5px; }.wheel-caption strong { font-size:14px; }
+.wheel-legend { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; list-style:none; margin:16px 0 0; padding:0; font-size:13px; color:#e2d4f5; }.wheel-legend li { border:1px solid #c2a0ff40; border-radius:20px; padding:6px 13px; background:#b795ec0c; }
+.roulette-column .roulette-result { padding:16px 20px; margin-top:8px; }.roulette-result h2 { font-size:23px; }
+.round-preview { display:grid; grid-template-columns:.8fr 1.2fr; gap:40px; padding:30px 0 40px; border-top:1px solid #ffffff17; scroll-margin-top:25px; }
+.preview-intro { padding-top:12px; }.preview-intro h2 { font-size:30px; color:#ede3ff; margin:12px 0 17px; }.preview-intro>p { font-size:15px; color:#c7b9d9; line-height:1.85; max-width:400px; }
+.preview-note { font-size:12px!important; color:#b5a5ca!important; line-height:1.8; }.round-sample { padding:24px 27px; border:1px solid #bba0e13b; border-radius:18px; background:#211a3280; }
+.sample-meta { display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:space-between; font-size:11px; color:#cbb5ed; line-height:1.7; margin-bottom:16px; }.round-sample h3 { font-size:17px; letter-spacing:0; font-weight:650; margin-bottom:12px; }.round-sample blockquote { margin:0; padding:0; font-size:16px; line-height:1.85; color:#efe7f8; font-style:normal; }
+.sample-question { margin:20px 0 15px; padding-top:18px; border-top:1px solid #ffffff1a; }.sample-question .section-label { font-size:9px; letter-spacing:1.2px; }.sample-question h3 { margin-top:10px; }.preview-options { padding:0; list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:8px; }.preview-options li { padding:10px 13px; border:1px solid #ffffff20; border-radius:8px; color:#d8cbe8; font-size:13px; line-height:1.6; }.round-sample>.preview-note { margin-bottom:0; }
+.game-features { margin-bottom:35px; }.game-features p { font-size:13px; }.game-features .section-label { font-size:10px; }
+.arrival-notice { color:#e1d1fa; font-size:14px; line-height:1.7; margin:10px 0 0; }.horror-experience .arrival-notice { color:#f2c5c4; }.game-experience .audio-wait { font-size:13px; color:#dbcee9; }
+@media(min-width:1500px) { .game-welcome { min-height:0; }.game-welcome .roulette-stage { transform:none; } }
+@media(max-width:1000px) and (min-width:781px) { .game-welcome>.roulette-column { transform:none; margin-inline:0; }.game-welcome .roulette-stage { transform:scale(.84); margin-inline:-38px; margin-block:-15px; }.roulette-context { max-width:300px; } }
+@media(max-width:780px) { .game-welcome { padding-block:28px 26px; gap:20px; }.game-experience .welcome h1 { font-size:clamp(40px,7.7vw,57px); letter-spacing:-1.7px; }.game-experience .welcome .lead { font-size:18px; }.game-welcome>.roulette-column { margin:5px 0 0; }.roulette-context p { margin-bottom:20px; }.round-preview { grid-template-columns:1fr; gap:16px; padding:25px 0 30px; }.preview-intro h2 { margin-bottom:12px; }.preview-intro>p { max-width:none; }.round-sample { padding:22px; }.hero-actions .secondary { min-height:46px; }.game-features { margin-bottom:25px; } }
+@media(max-width:480px) { .game-experience .welcome h1 { font-size:41px; }.roulette-context { margin-bottom:0; }.game-welcome .roulette-stage { margin-top:-10px!important; margin-bottom:-28px!important; }.game-experience .round-preview .section-label { font-size:10px; }.preview-options { grid-template-columns:1fr; }.preview-intro h2 { font-size:27px; }.round-sample blockquote { font-size:16px; }.roulette-column .roulette-result { margin-top:20px; }.sample-meta { font-size:12px; } }

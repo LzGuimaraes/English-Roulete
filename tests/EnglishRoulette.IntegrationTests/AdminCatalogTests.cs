@@ -159,6 +159,33 @@ public sealed class AdminCatalogTests : IAsyncLifetime
     }
 
     [PostgresFact]
+    public async Task RoundPreview_UsesOnlyPublishedContent_WithoutAnswerKeysOrCreatingProgress()
+    {
+        using var anonymous = NewClient();
+        Assert.Equal(HttpStatusCode.NoContent, (await anonymous.GetAsync("/api/catalog/round-preview")).StatusCode);
+        await Login();
+        var editor = await Upload(await Draft());
+        Assert.Equal(HttpStatusCode.NoContent, (await anonymous.GetAsync("/api/catalog/round-preview")).StatusCode);
+        using var publication = await Publish(editor);
+        Assert.Equal(HttpStatusCode.NoContent, publication.StatusCode);
+        using var response = await anonymous.GetAsync("/api/catalog/round-preview");
+        var json = await response.Content.ReadAsStringAsync();
+        var preview = (await response.Content.ReadFromJsonAsync<RoundPreviewView>())!;
+        Assert.Equal(editor.Metadata.Title, preview.StoryTitle);
+        Assert.Equal(editor.Scenes[0].Narration, preview.NarrationExcerpt);
+        Assert.Equal(editor.Scenes[0].Prompt, preview.QuestionPrompt);
+        Assert.Equal(editor.Scenes[0].Options.Select(option => option.Text), preview.Options);
+        Assert.DoesNotContain("correct", json, StringComparison.OrdinalIgnoreCase);
+        Assert.DoesNotContain("explanation", json, StringComparison.OrdinalIgnoreCase);
+        Assert.False(response.Headers.Contains("Set-Cookie"));
+        await using var db = Context();
+        Assert.Empty(await db.SoloSessions.ToListAsync());
+        using var archived = await Mutate(HttpMethod.Post, $"/api/admin/stories/{editor.Id}/archive", new RevisionRequest(editor.Revision + 1));
+        Assert.Equal(HttpStatusCode.NoContent, archived.StatusCode);
+        Assert.Equal(HttpStatusCode.NoContent, (await anonymous.GetAsync("/api/catalog/round-preview")).StatusCode);
+    }
+
+    [PostgresFact]
     public async Task Audio_IsPrivateUntilPublished_RejectsInvalidWav_AndSupportsRanges()
     {
         await Login();

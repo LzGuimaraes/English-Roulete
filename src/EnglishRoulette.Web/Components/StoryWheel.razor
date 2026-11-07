@@ -1,6 +1,8 @@
 @using System.Globalization
+@using Microsoft.Extensions.Logging
 @implements IAsyncDisposable
 @inject IJSRuntime JS
+@inject ILogger<StoryWheel> Logger
 
 <section @ref="_stage" class="roulette-stage @(Spinning ? "is-spinning" : "")" aria-label="Roleta de histórias">
     <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
@@ -17,9 +19,13 @@
         <div class="wheel-hub" aria-hidden="true"><span>✦</span><strong>STORY</strong><small>ROULETTE</small></div>
     </div>
     <div class="wheel-caption" role="status" aria-live="polite">
-        <span class="section-label">@(Spinning ? "O DESTINO ESTÁ GIRANDO…" : ResultGenre is not null ? "SEU UNIVERSO" : "QUAL SERÁ O SEU UNIVERSO?")</span>
-        <strong>@(Spinning ? "Prepare sua curiosidade." : ResultGenre ?? "Deixe a história surpreender.")</strong>
+        <span class="section-label">@(Spinning ? "HISTÓRIA CONFIRMADA · ROLETA GIRANDO" : ResultGenre is not null ? "GÊNERO SORTEADO" : "GÊNEROS DISPONÍVEIS")</span>
+        <strong>@(Spinning ? "A história já foi sorteada." : ResultGenre ?? (Genres.Count == 0 ? "Aguardando o catálogo" : "Inicie para descobrir sua história"))</strong>
     </div>
+    @if (!Spinning && ResultGenre is null && Genres.Count > 0)
+    {
+        <ul class="wheel-legend" aria-label="Gêneros disponíveis">@foreach (var genre in Genres) { <li>@genre</li> }</ul>
+    }
 </section>
 
 @code {
@@ -28,6 +34,7 @@
     [Parameter] public string? ResultKey { get; set; }
     [Parameter] public bool Spinning { get; set; }
     [Parameter] public double ElapsedSeconds { get; set; }
+    [Parameter] public double DurationSeconds { get; set; } = 5;
     private ElementReference _stage;
     private IJSObjectReference? _module;
     private string? _shownKey;
@@ -44,16 +51,20 @@
         if (Spinning && ResultKey is not null && _shownKey != ResultKey)
         {
             _shownKey = ResultKey;
-            _module ??= await JS.InvokeAsync<IJSObjectReference>("import", "./game-atmosphere.js");
-            await _module.InvokeVoidAsync("showWheel", _stage);
+            try
+            {
+                _module ??= await JS.InvokeAsync<IJSObjectReference>("import", "./game-atmosphere.js");
+                await _module.InvokeVoidAsync("showWheel", _stage);
+            }
+            catch (JSException error)
+            { Logger.LogWarning(error, "A rolagem opcional da roleta falhou; a aventura continua disponível."); }
         }
     }
     public async ValueTask DisposeAsync()
     {
         if (_module is not null) { await _module.DisposeAsync(); }
     }
-    private static readonly string[] PreviewGenres = ["Mistério", "Terror", "Aventura", "Fantasia", "Comédia", "Ficção"];
-    private IReadOnlyList<string> Segments => Genres.Count > 0 ? Genres : PreviewGenres;
+    private IReadOnlyList<string> Segments => Genres;
     private static string Number(double value) => value.ToString("0.###", CultureInfo.InvariantCulture);
     private string WheelStyle
     {
@@ -62,8 +73,9 @@
             string[] colors = ["#8854ef", "#cb467c", "#e7a548", "#318d98", "#4764cb", "#5f44b5"];
             var slices = Enumerable.Range(0, Segments.Count).Select(i => $"{colors[i % colors.Length]} {Number(i * 100d / Segments.Count)}% {Number((i + 1) * 100d / Segments.Count)}%");
             var winner = Math.Max(0, Segments.ToList().FindIndex(genre => string.Equals(genre, ResultGenre, StringComparison.OrdinalIgnoreCase)));
-            var rotation = 1800 + 360 - (winner + .5) * 360 / Segments.Count;
-            return $"background:conic-gradient({string.Join(',', slices)});--wheel-stop:{Number(rotation)}deg;--spin-delay:-{Number(Math.Clamp(_animationOffset, 0, 5))}s;";
+            var rotation = 1800 + 360 - (winner + .5) * 360 / Math.Max(1, Segments.Count);
+            var background = Segments.Count == 0 ? "#423550" : $"conic-gradient({string.Join(',', slices)})";
+            return $"background:{background};--wheel-stop:{Number(rotation)}deg;--spin-duration:{Number(DurationSeconds)}s;--spin-delay:-{Number(Math.Clamp(_animationOffset, 0, DurationSeconds))}s;";
         }
     }
 }

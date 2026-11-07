@@ -6,7 +6,7 @@ Incremento de RF-006, RF-008 e RF-015 solicitado em 07/11/2026: o jogador inicia
 
 - Home com abertura de jogo, roleta animada, acesso equivalente a solo e grupo, instruções e trilha opcional acionada pelo usuário.
 - Iniciar solo solicita uma história ao servidor sem enviar escolha. O servidor sorteia primeiro o gênero e depois uma versão publicada desse gênero. A animação apresenta o resultado; não decide o sorteio.
-- O resultado aparece após o giro; “Entrar na história” leva ao pré-carregamento. A narração continua exigindo um clique próprio. Recarregar recupera a aventura já persistida, sem sortear novamente.
+- Após uma resposta válida do servidor, a roleta apresenta o resultado por até três segundos e a primeira cena abre automaticamente. “Abrir história agora” pula a apresentação. A narração continua exigindo um clique próprio. Recarregar recupera a aventura já persistida, sem sortear novamente.
 - No lobby, o anfitrião apenas inicia o giro. Pelo menos dois participantes conectados e todos prontos são obrigatórios. O resultado e o início UTC ficam no checkpoint JSON da sala, compartilhados por snapshot e notificação SignalR. Uma segunda tentativa não troca o resultado. Não há migração de banco neste incremento.
 - Reconectar durante o giro usa o tempo transcorrido do servidor para posicionar a animação. Consultas periódicas atualizam presença; o cliente não decide regras nem deadlines.
 - A imagem publicada de cada cena preenche o viewport com `object-fit: cover`. Há recorte proporcional para acomodar a tela; texto e controles continuam em painéis legíveis. Sem imagem, há um fundo atmosférico. Imagens animadas mantêm controle para reproduzir/ocultar.
@@ -50,3 +50,65 @@ Validação manual em desktop e celular: abra `/`, ligue/desligue a trilha, abra
 ## Evidência deste incremento
 
 Restore em locked mode, build Release com zero warnings, 82 testes unitários e 32 testes de integração com PostgreSQL real passaram. `dotnet format --verify-no-changes` passou. QA automatizado no Chrome cobriu desktop e celular, ausência de overflow horizontal, manual/Escape, trilha, reprodução de narração, retomada, novo jogo após descarte do player, movimento reduzido e roleta compartilhada entre duas sessões de navegador. A cobertura visual de terror e da imagem em tela cheia usou um snapshot e uma ilustração de teste interceptados no navegador; não publicou uma nova história nem mídia de terror no catálogo.
+
+
+## Correção do início solo e clareza da Home
+
+### Diagnóstico antes da edição
+
+Em 07/11/2026, o site publicado foi inspecionado no Chrome em 1440×1000 e 390×844. `GET /api/catalog` respondeu com histórias A2 publicadas e `POST /api/demo/session` respondeu 200 com um snapshot real na fase `Preloading`. O giro terminou em aproximadamente cinco segundos, porém a tela continuou na Home, mesmo após doze segundos. `CreateAsync` só preenchia `_pendingAdventure`; a transição para `_state` existia exclusivamente no segundo botão, “Entrar na história”. No celular, esse botão ficava abaixo da área visível (o cartão terminava perto de 890px numa tela de 844px). Esse é o defeito de navegação confirmado. O texto “A roleta está girando…” **não permaneceu indefinidamente** nas sessões limpas observadas; não há evidência suficiente para atribuir esse relato a uma falha específica do servidor.
+
+Também foram reproduzidas, com interceptação apenas no navegador, duas falhas adicionais: JSON inválido causava `JsonException` sem mensagem útil na UI; falha no módulo visual causava uma exceção de renderização no componente da roleta. Essas situações agora têm tratamento próprio. O 404 inicial de `/api/demo/session` em um navegador sem cookie significa ausência de progresso salvo e é esperado. Ao percorrer a história completa, a regressão também encontrou uma referência ao player já descartado após `StoryResult`, que impedia retornar ao menu ou recomeçar. `SetState` agora limpa a referência sempre que o player deixa de ser renderizado.
+
+### Fluxo e critérios de aceite atualizados
+
+1. A Home explica cena narrada com texto, pergunta com feedback e escolhas nas bifurcações. Mostra apenas gêneros e níveis realmente retornados pelo catálogo. O nível descreve a complexidade do inglês; não há novo filtro de dificuldade.
+2. O clique principal entra em `Requesting`; só uma resposta válida da API permite `Spinning`. A sessão continua sendo sorteada e persistida no servidor por `StoryRoulette` e `DemoSessions`.
+3. A apresentação visual é limitada a três segundos, pode ser pulada e termina com a abertura automática da cena real. Não depende de `animationend`, JavaScript de rolagem ou movimento habilitado. O estado de ocupação é liberado no `finally`, com renderização explícita. Ao entrar ou recuperar uma aventura, o foco vai para o título da história, corrigindo a rolagem que permanecia na posição da roleta no celular. Falhas da rolagem opcional são registradas, sem impedir a abertura.
+4. Cada operação de `AdventureClient` tem limite de quinze segundos, incluindo leitura de JSON. Timeout, rede, resposta inválida e falta de conteúdo produzem mensagens recuperáveis. O cancelamento por saída da página é preservado. Falha de catálogo fica separada da ausência de sessão; atualizar uma delas não apaga o erro da outra.
+5. Sem histórias, o início tem explicação junto ao botão e há “Atualizar catálogo”. Após uma falha de início, é possível tentar novamente ou recuperar a sessão que o servidor possa ter criado. Não há repetição automática de POST.
+6. `GET /api/catalog/round-preview` retorna um trecho de até 420 caracteres da cena inicial de uma versão publicada, com título, nível, gênero, enunciado e textos de alternativas. Não retorna gabarito, explicação, entidades Domain ou estado de sessão. Não cria cookie nem progresso; catálogo sem conteúdo publicado retorna 204. A prévia é explicitamente de leitura e não avalia respostas.
+7. O motor permanece `Preloading → Narrating → QuestionOpen → QuestionReveal → DecisionOpen/Próxima cena → StoryResult`. Prazos e primeira resposta continuam validados pelo servidor. Áudio mantém pré-carregamento, reprodução por gesto e recuperação de erro. Escolhas seguem o grafo publicado e o progresso permanece no checkpoint e cookie existentes.
+8. A paleta, tipografia, marca, áudio ambiente e componentes existentes foram preservados. Foram ajustados textos, hierarquia, contraste, contexto e legenda da roleta. A seleção do lobby multiplayer mantém seu giro de cinco segundos; não passa a abrir uma partida simultânea inexistente.
+
+### Arquivos e responsabilidades
+
+| Arquivo | Alteração |
+|---|---|
+| `Web/Pages/Home.razor` | Estados de início, transição automática, recuperação, texto e hierarquia da Home. |
+| `Web/Services/AdventureClient.cs` | Timeout por operação, validação dos snapshots e erros HTTP/JSON recuperáveis. |
+| `Web/Components/StoryWheel.razor` | Duração configurável, legenda legível, gêneros reais e rolagem opcional protegida contra erro. |
+| `Web/Components/RoundPreview.razor` | Trecho real do catálogo, estado vazio/erro e nova tentativa de carregamento. |
+| `Web/Components/NarrationPlayer.razor` | Rótulo neutro para narrações publicadas; não presume que todo áudio seja uma demonstração sintética. |
+| `Web/wwwroot/css/game.css` | Ajustes sobre a identidade atual, hierarquia responsiva e apresentação da prévia. |
+| `Contracts/RoundPreviewView.cs` | DTO público restrito à prévia, sem gabaritos. |
+| `Api/Admin/AdminEndpoints.cs` | Endpoint público de leitura de uma rodada publicada; administração mantém autorização existente. |
+| `tests/EnglishRoulette.IntegrationTests/AdventureClientTests.cs` | HTTP real via handler controlado: sucesso, retry, resposta inválida, timeout, cancelamento e catálogo indisponível. |
+| `tests/EnglishRoulette.IntegrationTests/AdminCatalogTests.cs` | Publicação/arquivamento da prévia e ausência de gabaritos, cookies e progresso. |
+| `tests/browser/adventure.cjs` | Regressão de início automático, percurso real, feedback, bifurcação, retomada, falhas, desktop/mobile e lobby. |
+
+### Executar a regressão no navegador
+
+Use uma instância **local de QA**, com PostgreSQL isolado e uma história publicada com áudio. O teste percorre o conteúdo real, aguarda o relógio do servidor, responde, escolhe um caminho e confirma a conclusão. Não substitui a API saudável por dados fabricados. Interceptações ficam restritas aos cenários explícitos de erro, catálogo vazio e recurso visual indisponível.
+
+```sh
+ENGLISHROULETTE_BASE_URL=http://127.0.0.1:5087 \
+ENGLISHROULETTE_PLAYWRIGHT_PATH=/caminho/para/playwright \
+ENGLISHROULETTE_CHROME=/caminho/para/chrome \
+ENGLISHROULETTE_SCREENSHOTS=/tmp/englishroulette-qa \
+node tests/browser/adventure.cjs
+```
+
+O Playwright pode ser fornecido por um ambiente de QA já instalado; o caminho é opcional quando `require('playwright')` está disponível. `ENGLISHROULETTE_ONLY_MULTIPLAYER=1` executa apenas a verificação de lobby em duas sessões. Screenshots são opcionais e ficam fora do Git. Execute também restore locked, build Release, testes com `ENGLISHROULETTE_TEST_CONNECTION` e verificação de formatação conforme os comandos acima.
+
+
+### Evidência da correção
+
+- Restore locked, build Release sem warnings, 82 testes unitários e 40 testes de integração/cliente passaram, sem testes ignorados, usando PostgreSQL isolado. Verificação de formatação e `git diff --check` passaram.
+- No Chrome, uma aventura real foi concluída com três perguntas e uma bifurcação; feedback e progresso permaneceram após recarregar, e foi possível voltar ao menu e iniciar outra aventura após o final.
+- A Home e a primeira cena foram conferidas visualmente em desktop (1440×1000) e celular (390×844), sem overflow horizontal. A prévia na tela foi comparada com a resposta real do endpoint.
+- Falhas HTTP 409/503, JSON inválido, catálogo vazio/indisponível, timeout, nova tentativa, ausência do módulo visual e movimento reduzido foram exercitados no navegador. Falhas de início não produziram um giro com resultado inventado.
+- O teste de chegada no celular confirmou foco no título e rolagem no topo; antes desse ajuste, o título ficava cerca de 400px acima da área visível.
+- Duas sessões distintas de navegador validaram prontidão, roleta e resultado compartilhado do lobby. Os testes de administração, mídia privada e checkpoints permaneceram aprovados.
+
+As alterações de autoria de histórias que já estavam no diretório foram preservadas fora deste incremento. Esta validação não publicou uma nova versão na VPS.

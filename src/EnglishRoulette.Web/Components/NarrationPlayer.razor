@@ -3,7 +3,7 @@
 @inject IJSRuntime Js
 
 <section class="audio-player" aria-label="Narração em inglês">
-    <div class="audio-heading"><strong>Narração em inglês</strong><span>Voz sintética de demonstração</span></div>
+    <div class="audio-heading"><strong>Narração em inglês</strong><span>Ouça a cena antes de responder</span></div>
     <audio @ref="_audio" @key="Audio.Url" src="@Audio.Url" preload="auto"
            controls="@(Phase == "Narrating")" @oncanplay="ReadyAsync" @onerror="FailedAsync"></audio>
     @if (_failed)

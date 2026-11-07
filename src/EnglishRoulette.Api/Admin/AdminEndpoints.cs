@@ -169,6 +169,23 @@ internal static class AdminEndpoints
             return Results.Ok(rows.Select(version => new PublicStoryView(version.Id, version.Title, version.Synopsis, version.Genre,
                 version.Difficulty, version.Count, AdminContracts.Appearance(CatalogService.AppearanceFromJson(version.AppearanceJson)))));
         });
+        app.MapGet("/api/catalog/round-preview", async (IAdminCatalog catalog, HttpContext context) =>
+        {
+            context.Response.Headers.CacheControl = "no-store";
+            var content = await catalog.LoadPublishedAsync(null, context.RequestAborted);
+            if (content is null) { return Results.NoContent(); }
+            var scene = StoryFlowEngine.GetInitialScene(content.Story);
+            const int maximumExcerptLength = 420;
+            var excerpt = scene.Narration;
+            if (excerpt.Length > maximumExcerptLength)
+            {
+                var boundary = excerpt.LastIndexOf(' ', maximumExcerptLength);
+                excerpt = excerpt[..(boundary > 0 ? boundary : maximumExcerptLength)] + "…";
+            }
+            return Results.Ok(new RoundPreviewView(content.Metadata.Title, content.SceneTitles[scene.Key],
+                content.Metadata.Genre, content.Metadata.Difficulty, excerpt, scene.Challenge.Prompt,
+                scene.Challenge.Options.Select(option => option.Text).ToArray()));
+        });
     }
 
     private static async Task<CatalogDraft> PreviewDraft(IAdminCatalog catalog, Guid id, long revision, CancellationToken token)
