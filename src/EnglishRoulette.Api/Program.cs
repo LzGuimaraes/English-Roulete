@@ -1,12 +1,17 @@
 using EnglishRoulette.Api;
+using EnglishRoulette.Api.Admin;
 using EnglishRoulette.Api.Demo;
+using EnglishRoulette.Application.Admin;
 using EnglishRoulette.Application.Solo;
 using EnglishRoulette.Contracts;
 using EnglishRoulette.Domain;
+using EnglishRoulette.Infrastructure.Admin;
 using EnglishRoulette.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+var bootstrapAdmin = args.Contains("--bootstrap-admin");
+var resetAdmin = args.Contains("--reset-admin-password");
+var builder = WebApplication.CreateBuilder(args.Where(argument => argument is not ("--bootstrap-admin" or "--reset-admin-password")).ToArray());
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<DomainRuleExceptionHandler>();
 var connection = builder.Configuration.GetConnectionString("Adventure")
@@ -16,10 +21,27 @@ builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddScoped<ISoloSessionStore, PostgresSoloSessionStore>();
 builder.Services.AddScoped<DemoSessions>();
 builder.Services.AddSingleton<DemoMediaCatalog>();
+builder.AddAdminSecurity();
+builder.Services.AddScoped<IAdminCatalog, CatalogService>();
+builder.Services.AddScoped(provider => new CatalogMediaStorage(
+    builder.Configuration["Media:Root"] ?? Path.GetFullPath(Path.Combine(builder.Environment.ContentRootPath, "../../media")),
+    provider.GetRequiredService<AdventureDbContext>(), provider.GetRequiredService<TimeProvider>()));
+builder.Services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(options =>
+    options.MultipartBodyLengthLimit = CatalogMediaStorage.MaximumUploadBytes + 16384);
 var app = builder.Build();
+if (bootstrapAdmin)
+{
+    await AdminBootstrap.RunAsync(app.Services, builder.Configuration, resetAdmin);
+    return;
+}
 app.UseExceptionHandler();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseRateLimiter();
+app.UseAntiforgery();
 app.UseStaticFiles();
 app.MapStaticAssets();
+app.MapAdmin();
 
 app.MapGet("/health/live", () => Results.Ok(new { status = "ok" }));
 app.MapGet("/health/ready", async (AdventureDbContext db, CancellationToken cancellationToken) =>
@@ -37,38 +59,41 @@ if (app.Environment.IsDevelopment())
         context.Response.Headers.CacheControl = "public,max-age=31536000,immutable";
         return Results.File(path, "audio/wav", enableRangeProcessing: true);
     });
-    app.Use(async (context, next) =>
-    {
-        if (context.Request.Path.StartsWithSegments("/api/demo"))
-        {
-            context.Response.Headers.CacheControl = "no-store";
-            if (HttpMethods.IsPost(context.Request.Method) && context.Request.Headers["X-English-Roulette"] != "demo")
-            {
-                await Results.Problem(statusCode: 403, title: "Requisição inválida.").ExecuteAsync(context);
-                return;
-            }
-        }
-
-        await next(context);
-    });
-    app.MapGet("/api/demo/session", async (HttpContext context, DemoSessions sessions) =>
-        await sessions.GetAsync(context, context.RequestAborted) is { } state ? Results.Ok(state) : Results.NotFound());
-    app.MapPost("/api/demo/session", async (HttpContext context, DemoSessions sessions) =>
-        Results.Ok(await sessions.CreateAsync(context, context.RequestAborted)));
-    app.MapPost("/api/demo/commands", async (HttpContext context, AdventureCommand command, DemoSessions sessions) =>
-    {
-        try
-        {
-            return await sessions.ExecuteAsync(context, command, context.RequestAborted) is { } state
-                ? Results.Ok(state) : Results.NotFound();
-        }
-        catch (ArgumentException)
-        {
-            return Results.Problem(statusCode: 400, title: "Comando inválido.");
-        }
-    });
 }
+
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path.StartsWithSegments("/api/demo"))
+    {
+        context.Response.Headers.CacheControl = "no-store";
+        if (HttpMethods.IsPost(context.Request.Method) && context.Request.Headers["X-English-Roulette"] != "demo")
+        {
+            await Results.Problem(statusCode: 403, title: "Requisição inválida.").ExecuteAsync(context);
+            return;
+        }
+    }
+
+    await next(context);
+});
+app.MapGet("/api/demo/session", async (HttpContext context, DemoSessions sessions) =>
+    await sessions.GetAsync(context, context.RequestAborted) is { } state ? Results.Ok(state) : Results.NotFound());
+app.MapPost("/api/demo/session", async (HttpContext context, CreateAdventureRequest request, DemoSessions sessions) =>
+    Results.Ok(await sessions.CreateAsync(context, request.StoryVersionId, context.RequestAborted)));
+app.MapPost("/api/demo/commands", async (HttpContext context, AdventureCommand command, DemoSessions sessions) =>
+{
+    try
+    {
+        return await sessions.ExecuteAsync(context, command, context.RequestAborted) is { } state
+            ? Results.Ok(state) : Results.NotFound();
+    }
+    catch (ArgumentException)
+    {
+        return Results.Problem(statusCode: 400, title: "Comando inválido.");
+    }
+});
 
 app.Map("/api/{**path}", () => Results.NotFound());
 app.MapFallbackToFile("index.html");
 app.Run();
+
+public partial class Program { }

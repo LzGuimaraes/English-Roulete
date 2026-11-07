@@ -18,6 +18,15 @@ def initialize():
         with os.fdopen(fd, "w") as stream:
             stream.write("POSTGRES_USER=englishroulette\nPOSTGRES_DB=englishroulette\n"
                          "POSTGRES_PASSWORD=" + secrets.token_hex(24) + "\n")
+    existing = ENV_FILE.read_text()
+    additions = ""
+    if not any(line.startswith("ADMIN_EMAIL=") for line in existing.splitlines()):
+        additions += "ADMIN_EMAIL=admin@englishroulette.local\n"
+    if not any(line.startswith("ADMIN_PASSWORD=") for line in existing.splitlines()):
+        additions += "ADMIN_PASSWORD=Er1!" + secrets.token_urlsafe(24) + "\n"
+    if additions:
+        with ENV_FILE.open("a") as stream:
+            stream.write(("\n" if existing and not existing.endswith("\n") else "") + additions)
 
 
 def environment():
@@ -46,7 +55,7 @@ def run(command, env):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=["init", "db", "migrate", "setup", "run", "test"])
+    parser.add_argument("command", choices=["init", "db", "migrate", "setup", "run", "test", "admin", "admin-reset"])
     parser.add_argument("--no-build", action="store_true", help="Run the existing Release build.")
     args = parser.parse_args()
     host, env, values = environment()
@@ -65,6 +74,16 @@ def main():
              "--configuration", "Release"], env)
     if args.command == "setup":
         run([shutil.which("python3") or "python3", "scripts/generate_demo_audio.py"], env)
+    if args.command in {"setup", "admin", "admin-reset"}:
+        env["Admin__BootstrapEmail"] = values["ADMIN_EMAIL"]
+        env["Admin__BootstrapPassword"] = values["ADMIN_PASSWORD"]
+        arguments = [host, "run", "--project", "src/EnglishRoulette.Api", "--configuration", "Release", "--no-launch-profile"]
+        if args.no_build:
+            arguments.append("--no-build")
+        arguments += ["--", "--bootstrap-admin"]
+        if args.command == "admin-reset":
+            arguments.append("--reset-admin-password")
+        run(arguments, env)
     if args.command == "run":
         os.chdir(ROOT)
         arguments = [host, "run", "--project", "src/EnglishRoulette.Api", "--configuration", "Release",

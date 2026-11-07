@@ -1,15 +1,21 @@
 using System.Security.Cryptography;
 using System.Text;
+using EnglishRoulette.Application.Admin;
 using EnglishRoulette.Application.Solo;
 using EnglishRoulette.Contracts;
+using EnglishRoulette.Domain;
 using EnglishRoulette.Domain.Sessions;
+using EnglishRoulette.Infrastructure.Admin;
+using EnglishRoulette.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace EnglishRoulette.Api.Demo;
 
-internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timeProvider, DemoMediaCatalog media)
+internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timeProvider, IAdminCatalog catalog,
+    AdventureDbContext db, CatalogMediaStorage media)
 {
     private const string CookieName = "englishroulette.demo";
-    private const int QuestionWindowSeconds = 20;
+    private const int SafetyMarginMs = 2000;
     private readonly PersistentSoloAdventure _adventure = new(store, timeProvider);
 
     public async Task<AdventureView?> GetAsync(HttpContext context, CancellationToken cancellationToken)
@@ -17,23 +23,23 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
         var hash = CredentialHash(context);
         if (hash is null) { return null; }
         var snapshot = await _adventure.GetAsync(hash, cancellationToken);
-        return snapshot is null ? null : Map(snapshot);
+        return snapshot is null ? null : await MapAsync(snapshot, hash, cancellationToken);
     }
 
-    public async Task<AdventureView> CreateAsync(HttpContext context, CancellationToken cancellationToken)
+    public async Task<AdventureView> CreateAsync(HttpContext context, Guid? versionId, CancellationToken cancellationToken)
     {
         var previousHash = CredentialHash(context);
         var previous = previousHash is null ? null : await store.FindAsync(previousHash, cancellationToken);
-        var story = DemoStory.Create();
+        var content = await catalog.LoadPublishedAsync(versionId, cancellationToken)
+            ?? throw new GameRuleException("CONTENT_NOT_PUBLISHED", "Escolha uma história publicada no catálogo.");
         var playerId = previous?.Checkpoint.PlayerId ?? Guid.NewGuid();
-        var timings = story.Scenes.Select(scene => new SceneTiming(scene.Key,
-            TimeSpan.FromMilliseconds(media.Get(story.Id, scene.Key).DurationMs + DemoMediaCatalog.SafetyMarginMilliseconds),
-            TimeSpan.FromSeconds(QuestionWindowSeconds)));
-        var session = new SoloAdventureSession(Guid.NewGuid(), playerId, story, timings);
-        var token = Convert.ToHexString(RandomNumberGenerator.GetBytes(32));
-        var hash = Hash(token);
+        var timings = content.Story.Scenes.Select(scene => new SceneTiming(scene.Key,
+            TimeSpan.FromMilliseconds(content.Audio[scene.Key].DurationMs + SafetyMarginMs), TimeSpan.FromSeconds(20)));
+        var session = new SoloAdventureSession(Guid.NewGuid(), playerId, content.Story, timings);
+        var credential = Convert.ToHexString(RandomNumberGenerator.GetBytes(32));
+        var hash = Hash(credential);
         await store.CreateAsync(hash, session.Capture(), previousHash, cancellationToken);
-        context.Response.Cookies.Append(CookieName, token, new CookieOptions
+        context.Response.Cookies.Append(CookieName, credential, new CookieOptions
         {
             HttpOnly = true,
             SameSite = SameSiteMode.Strict,
@@ -41,11 +47,10 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             Path = "/api/demo",
             MaxAge = TimeSpan.FromDays(30)
         });
-        return Map(session.GetSnapshot(playerId, timeProvider.GetUtcNow()));
+        return await MapAsync(session.GetSnapshot(playerId, timeProvider.GetUtcNow()), hash, cancellationToken);
     }
 
-    public async Task<AdventureView?> ExecuteAsync(HttpContext context, AdventureCommand request,
-        CancellationToken cancellationToken)
+    public async Task<AdventureView?> ExecuteAsync(HttpContext context, AdventureCommand request, CancellationToken cancellationToken)
     {
         var hash = CredentialHash(context);
         if (hash is null) { return null; }
@@ -53,7 +58,11 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
         {
             var stored = await store.FindAsync(hash, cancellationToken);
             if (stored is null) { return null; }
-            media.Get(stored.Checkpoint.Story.Id, stored.Checkpoint.SceneKey);
+            var content = await catalog.LoadVersionAsync(stored.Checkpoint.Story.Id, cancellationToken);
+            if (content is null || !content.Audio.TryGetValue(stored.Checkpoint.SceneKey, out var audio))
+            { throw new GameRuleException("INVALID_AUDIO", "Narração indisponível."); }
+            var asset = await db.CatalogMedia.AsNoTracking().SingleAsync(row => row.Id == audio.Id, cancellationToken);
+            if (!media.IsValid(asset)) { throw new GameRuleException("INVALID_AUDIO", "Narração indisponível."); }
         }
         SoloAdventureCommand command = request.Kind switch
         {
@@ -61,29 +70,33 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             "answer" when request.QuestionInstanceId is { } instanceId && request.OptionKey is { } option =>
                 new SubmitSoloAnswer(request.RequestId, request.ExpectedStateVersion, instanceId, option),
             "continue" => new ContinueSoloAdventure(request.RequestId, request.ExpectedStateVersion),
-            "choose" when request.TransitionKey is { } choice =>
-                new ChooseSoloPath(request.RequestId, request.ExpectedStateVersion, choice),
+            "choose" when request.TransitionKey is { } choice => new ChooseSoloPath(request.RequestId, request.ExpectedStateVersion, choice),
             _ => throw new ArgumentException("Comando inválido.", nameof(request))
         };
         var snapshot = await _adventure.ExecuteAsync(hash, command, cancellationToken);
-        return snapshot is null ? null : Map(snapshot);
+        return snapshot is null ? null : await MapAsync(snapshot, hash, cancellationToken);
     }
 
     private static string? CredentialHash(HttpContext context) =>
-        context.Request.Cookies.TryGetValue(CookieName, out var token) ? Hash(token) : null;
-    private static string Hash(string token) => Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(token)));
+        context.Request.Cookies.TryGetValue(CookieName, out var credential) ? Hash(credential) : null;
+    private static string Hash(string credential) => Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(credential)));
 
-    private AdventureView Map(SoloAdventureSnapshot snapshot)
+    private async Task<AdventureView> MapAsync(SoloAdventureSnapshot snapshot, string hash, CancellationToken token)
     {
-        var (title, number) = DemoStory.Describe(snapshot.SceneKey);
-        var audio = media.Get(snapshot.StoryVersionId, snapshot.SceneKey);
-        return new(snapshot.StoryTitle, snapshot.SceneKey, title, number, snapshot.Narration,
+        var content = await catalog.LoadVersionAsync(snapshot.StoryVersionId, token)
+            ?? throw new GameRuleException("NOT_FOUND", "O conteúdo desta aventura não está disponível.");
+        var checkpoint = (await store.FindAsync(hash, token))?.Checkpoint;
+        var keys = (checkpoint?.Receipts ?? []).Where(receipt => receipt.Snapshot.StateVersion <= snapshot.StateVersion)
+            .OrderBy(receipt => receipt.Snapshot.StateVersion).Select(receipt => receipt.Snapshot.SceneKey)
+            .Append(snapshot.SceneKey).Distinct(StringComparer.Ordinal).ToArray();
+        var audio = content.Audio[snapshot.SceneKey];
+        return new(snapshot.StoryTitle, snapshot.SceneKey, content.SceneTitles[snapshot.SceneKey], keys.Length, snapshot.Narration,
             snapshot.StateVersion, snapshot.Phase.ToString(), snapshot.ServerNowUtc, snapshot.PhaseDeadlineUtc,
             snapshot.Question is { } question
-                ? new(question.InstanceId, question.Prompt, question.Options.Select(option => new OptionView(option.Key, option.Text)).ToArray())
-                : null,
+                ? new(question.InstanceId, question.Prompt, question.Options.Select(option => new OptionView(option.Key, option.Text)).ToArray()) : null,
             snapshot.Answer is { } answer ? new(answer.OptionKey, answer.IsCorrect, answer.TimedOut, answer.Explanation) : null,
             snapshot.Choices.Select(choice => new ChoiceView(choice.Key, choice.Label)).ToArray(),
-            new($"/media/audio/{audio.Sha256}.wav", audio.DurationMs, DemoMediaCatalog.SafetyMarginMilliseconds));
+            new($"/media/catalog/{audio.Id}", audio.DurationMs, SafetyMarginMs),
+            keys.Select(key => new VisitedSceneView(key, content.SceneTitles[key])).ToArray(), snapshot.StoryVersionId);
     }
 }

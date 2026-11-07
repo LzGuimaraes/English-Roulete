@@ -19,7 +19,9 @@ public sealed record AdventureView(
     QuestionView? Question,
     AnswerView? Answer,
     IReadOnlyList<ChoiceView> Choices,
-    AudioView? Audio = null);
+    AudioView? Audio = null,
+    IReadOnlyList<VisitedSceneView>? VisitedScenes = null,
+    Guid? StoryVersionId = null);
 
 public sealed record AdventureCommand(
     Guid RequestId,
@@ -28,3 +30,6 @@ public sealed record AdventureCommand(
     Guid? QuestionInstanceId = null,
     string? OptionKey = null,
     string? TransitionKey = null);
+
+public sealed record VisitedSceneView(string Key, string Title);
+public sealed record CreateAdventureRequest(Guid? StoryVersionId = null);
