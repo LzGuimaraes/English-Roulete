@@ -1,0 +1,52 @@
+name: englishroulette-production
+services:
+  app:
+    image: ${APP_IMAGE:?Set APP_IMAGE to the release image digest}
+    restart: unless-stopped
+    environment:
+      ConnectionStrings__Adventure: Host=postgres;Database=${POSTGRES_DB:?};Username=${POSTGRES_USER:?};Password=${POSTGRES_PASSWORD:?}
+      AllowedHosts: ${APP_DOMAIN:?}
+      Proxy__TrustedNetwork: ${TRUSTED_PROXY_CIDR:?}
+      Logging__LogLevel__Microsoft.EntityFrameworkCore.Database.Command: Warning
+    volumes:
+      - media:/data/media
+      - keys:/data/keys
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [database, proxy]
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: ${TRAEFIK_NETWORK:?}
+      traefik.http.routers.englishroulette.rule: Host(`${APP_DOMAIN:?}`)
+      traefik.http.routers.englishroulette.entrypoints: ${TRAEFIK_ENTRYPOINT:-websecure}
+      traefik.http.routers.englishroulette.tls: "true"
+      traefik.http.routers.englishroulette.tls.certresolver: ${TRAEFIK_CERT_RESOLVER:-letsencrypt}
+      traefik.http.services.englishroulette.loadbalancer.server.port: "8080"
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?}
+      POSTGRES_USER: ${POSTGRES_USER:?}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks: [database]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+networks:
+  database:
+    internal: true
+  proxy:
+    external: true
+    name: ${TRAEFIK_NETWORK:?}
+volumes:
+  postgres:
+  media:
+  keys:

@@ -25,6 +25,10 @@ Abra **http://localhost:5080/admin**. Use `ADMIN_EMAIL` e `ADMIN_PASSWORD` do ar
 
 Para atualizar um ambiente existente, execute `python3 scripts/dev.py migrate` e `python3 scripts/dev.py admin`. Consulte [ADMIN.md](docs/ADMIN.md) para acesso, recuperação de senha, publicação e limites de áudio.
 
+## Hospedar em VPS
+
+A esteira do GitHub Actions verifica o código, publica a imagem no GHCR e pode fazer deploy por SSH com Docker Compose e Traefik. O deploy fica desativado até configurar `DEPLOY_ENABLED=true` e os secrets. Veja [DEPLOY.md](docs/DEPLOY.md) e [infra/.env.production.example](infra/.env.production.example) para o modelo completo de variáveis, domínio, chave SSH, volumes e recuperação.
+
 ## Executar as verificações
 
 Instale o [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0). `global.json` aceita versões estáveis da família 10.0; o SDK 8 não é suficiente.
@@ -76,4 +80,4 @@ A engine permanece independente da interface. A prévia Blazor consome a sessão
 
 ## Arquivos de implementação futuros
 
-`API.md` (contratos REST/SignalR) e `DEPLOY.md` (passo a passo da VPS e recuperação) podem ser detalhados quando o primeiro fluxo vertical estiver pronto. Não são necessários para iniciar o domínio.
+`API.md` (contratos REST/SignalR) pode ser detalhado conforme os próximos incrementos. O passo a passo de VPS e recuperação já está em [DEPLOY.md](docs/DEPLOY.md).

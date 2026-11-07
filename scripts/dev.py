@@ -75,6 +75,7 @@ def main():
     if args.command == "setup":
         run([shutil.which("python3") or "python3", "scripts/generate_demo_audio.py"], env)
     if args.command in {"setup", "admin", "admin-reset"}:
+        env["Admin__SeedDemo"] = "true"
         env["Admin__BootstrapEmail"] = values["ADMIN_EMAIL"]
         env["Admin__BootstrapPassword"] = values["ADMIN_PASSWORD"]
         arguments = [host, "run", "--project", "src/EnglishRoulette.Api", "--configuration", "Release", "--no-launch-profile"]

@@ -29,7 +29,7 @@ internal static class AdminBootstrap
             Check(await users.ResetPasswordAsync(user, token, password));
         }
         if (!await users.IsInRoleAsync(user, "ADMIN")) { Check(await users.AddToRoleAsync(user, "ADMIN")); }
-        await SeedDemoAsync(scope.ServiceProvider, user.Id);
+        if (configuration.GetValue<bool>("Admin:SeedDemo")) { await SeedDemoAsync(scope.ServiceProvider, user.Id); }
         Console.WriteLine("Administrator provisioned. Credentials remain in the local environment file; existing passwords were preserved unless reset was requested.");
     }
 

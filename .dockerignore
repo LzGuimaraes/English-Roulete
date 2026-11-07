@@ -1,0 +1,13 @@
+.git
+.codex
+.agents
+.local
+**/bin
+**/obj
+**/TestResults
+**/__pycache__
+**/.env
+**/.env.*
+media
+infra
+.git*

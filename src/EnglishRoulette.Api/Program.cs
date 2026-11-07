@@ -8,10 +8,13 @@ using EnglishRoulette.Domain;
 using EnglishRoulette.Infrastructure.Admin;
 using EnglishRoulette.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 var bootstrapAdmin = args.Contains("--bootstrap-admin");
+var migrate = args.Contains("--migrate");
 var resetAdmin = args.Contains("--reset-admin-password");
-var builder = WebApplication.CreateBuilder(args.Where(argument => argument is not ("--bootstrap-admin" or "--reset-admin-password")).ToArray());
+var builder = WebApplication.CreateBuilder(args.Where(argument => argument is not ("--bootstrap-admin" or "--reset-admin-password" or "--migrate")).ToArray());
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<DomainRuleExceptionHandler>();
 var connection = builder.Configuration.GetConnectionString("Adventure")
@@ -28,12 +31,38 @@ builder.Services.AddScoped(provider => new CatalogMediaStorage(
     provider.GetRequiredService<AdventureDbContext>(), provider.GetRequiredService<TimeProvider>()));
 builder.Services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(options =>
     options.MultipartBodyLengthLimit = CatalogMediaStorage.MaximumUploadBytes + 16384);
+var proxyNetwork = builder.Configuration["Proxy:TrustedNetwork"];
+if (!string.IsNullOrWhiteSpace(proxyNetwork))
+{
+    builder.Services.Configure<Microsoft.AspNetCore.Builder.ForwardedHeadersOptions>(options =>
+    {
+        options.ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedFor |
+            Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedProto;
+        options.KnownIPNetworks.Add(System.Net.IPNetwork.Parse(proxyNetwork));
+        options.ForwardLimit = 1;
+    });
+}
 var app = builder.Build();
+if (migrate)
+{
+    await using var scope = app.Services.CreateAsyncScope();
+    var database = scope.ServiceProvider.GetRequiredService<AdventureDbContext>();
+    var assembly = database.GetService<IMigrationsAssembly>();
+    foreach (var pending in await database.Database.GetPendingMigrationsAsync())
+    {
+        var migration = assembly.CreateMigration(assembly.Migrations[pending], database.Database.ProviderName!);
+        if (migration.UpOperations.Any(operation => operation.IsDestructiveChange || operation is Microsoft.EntityFrameworkCore.Migrations.Operations.SqlOperation))
+        { throw new InvalidOperationException("Automatic deployment refuses destructive or raw SQL migrations. Review and apply explicitly before deploying."); }
+    }
+    await database.Database.MigrateAsync();
+    return;
+}
 if (bootstrapAdmin)
 {
     await AdminBootstrap.RunAsync(app.Services, builder.Configuration, resetAdmin);
     return;
 }
+app.UseForwardedHeaders();
 app.UseExceptionHandler();
 app.UseAuthentication();
 app.UseAuthorization();
