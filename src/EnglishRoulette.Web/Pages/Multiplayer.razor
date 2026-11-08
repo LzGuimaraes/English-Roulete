@@ -12,7 +12,7 @@
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
 @inject TimeProvider Clock
-<div class="experience game-experience room-experience motion-@(CurrentTheme.Motion) @(Playing ? "in-adventure phase-" + _room!.Match!.Scene.Phase.ToLowerInvariant() : "") @(Playing && _room!.Match!.Scene.Visual is not null ? "has-scene-art" : "") @(ThemePalette.IsHorror(CurrentGenre) ? "horror-experience" : "")" style="@ThemePalette.Style(CurrentTheme)">
+<div class="experience game-experience room-experience @(_room is not null && !Playing ? "in-lobby" : "") motion-@(CurrentTheme.Motion) @(Playing ? "in-adventure phase-" + _room!.Match!.Scene.Phase.ToLowerInvariant() : "") @(Playing && _room!.Match!.Scene.Visual is not null ? "has-scene-art" : "") @(ThemePalette.IsHorror(CurrentGenre) ? "horror-experience" : "")" style="@ThemePalette.Style(CurrentTheme)">
     @if (Playing) { <div class="scene-backdrop"><SceneArtwork Visual="_room!.Match!.Scene.Visual" Background="true" /></div> }
     <header class="site-header"><a class="brand" href="/"><span class="brand-mark">✦</span>english<span class="brand-light">roulette</span></a><div class="header-actions"><GameMenu Horror="@ThemePalette.IsHorror(CurrentGenre)" Narrating="@(_room?.Match?.Scene.Phase == "Narrating")" /><a class="secondary room-solo" href="/">Solo ↗</a></div></header>
     <main class="rooms-main">@if (!Playing) { <div class="eyebrow">MULTIPLAYER · SUA EQUIPE, UM DESTINO</div> }
@@ -54,8 +54,8 @@
                         @if (_stories.Count == 0) { <button class="text-button" disabled="@_busy" @onclick="ReconnectAsync">Recarregar catálogo</button> }
                     </section>
                 }
-                <div class="room-grid"><section class="admin-card"><div class="eyebrow">CONVIDE OS AMIGOS</div><strong class="room-code">@_room.Code</strong><label>Link do convite<input readonly value="@InviteUrl" /></label><button class="secondary" @onclick="CopyAsync">Copiar convite</button>@if (_copied) { <p role="status">Convite copiado.</p> }
-                        <div class="room-members">@foreach (var member in _room.Members) { <div class="room-member"><span class="member-avatar">@member.Avatar</span><div><strong>@member.Nickname @(member.PlayerId == _room.ViewerId ? "(você)" : "")</strong><small>@(member.PlayerId == _room.HostId ? "Anfitrião · " : "")@(member.Connected ? "Conectado" : "Reconectando…")</small></div><span class="member-ready @(member.Ready ? "is-ready" : "")">@(member.Ready ? "Pronto ✓" : "Preparando")</span></div> }</div>
+                <div class="room-grid"><section class="admin-card room-invitation"><div class="eyebrow">CONVIDE OS AMIGOS</div><div class="room-invite-controls"><strong class="room-code">@_room.Code</strong><button class="secondary" @onclick="CopyAsync">@(_copied ? "Convite copiado" : "Copiar convite")</button></div><details class="room-invite-link"><summary>Ver link de convite</summary><label>Link do convite<input readonly value="@InviteUrl" /></label></details>@if (_copied) { <p class="room-copy-status" role="status">Convite copiado.</p> }
+                        <div class="room-members">@foreach (var member in _room.Members) { <div class="room-member"><span class="member-avatar">@member.Avatar</span><div><strong>@member.Nickname @(member.PlayerId == _room.ViewerId ? "(você)" : "")</strong><small>@(member.PlayerId == _room.HostId ? "Anfitrião · " : "")@(member.Connected ? "Conectado" : "Reconectando…")</small></div><span class="member-ready @(member.Ready ? "is-ready" : "")" aria-label="@(member.Ready ? "Pronto" : "Preparando")" title="@(member.Ready ? "Pronto" : "Preparando")"><svg class="member-ready-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" />@if (member.Ready) { <path d="m6 10 3 3 5-6" /> }</svg><span class="member-ready-text">@(member.Ready ? "Pronto ✓" : "Preparando")</span></span></div> }</div>
                     </section><section class="admin-card room-roulette"><div class="eyebrow">NINGUÉM ESCOLHE O DESTINO</div>
                         <StoryWheel Genres="Genres" ResultGenre="@SelectedStory?.Genre" ResultKey="@_room.StoryVersionId?.ToString()" Spinning="WheelSpinning" ElapsedSeconds="SpinElapsed" />
                         @if (SelectedStory is { } selected && !WheelSpinning)
@@ -108,8 +108,8 @@
     }
     private async Task ReconnectAsync() => await Run(async () => { await RefreshAsync(); _stories = await Catalog.CatalogAsync(_life.Token); });
     private async Task IdentifyAsync() => await Run(async () => { _guest = await Client.IdentifyAsync(_nickname, _avatar, _life.Token); _editProfile = false; await RefreshAsync(); });
-    private async Task CreateAsync() => await Run(async () => { _room = await Client.CreateAsync(_capacity, _life.Token); _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
-    private async Task JoinAsync() => await Run(async () => { _room = await Client.JoinAsync(_code, _life.Token); _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
+    private async Task CreateAsync() => await Run(async () => { _room = await Client.CreateAsync(_capacity, _life.Token); _copied = false; _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
+    private async Task JoinAsync() => await Run(async () => { _room = await Client.JoinAsync(_code, _life.Token); _copied = false; _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
     private async Task ReadyAsync() => await Run(async () => { if (_room is { } room) { _room = await Client.ReadyAsync(room, !ViewerReady, _life.Token); } });
     private async Task SpinAsync() => await Run(async () => { if (_room is { } room) { _room = await Client.SpinAsync(room, _life.Token); _receivedAtUtc = Clock.GetUtcNow(); } });
     private async Task CommandAsync(MatchCommandRequest command) => await Run(async () =>

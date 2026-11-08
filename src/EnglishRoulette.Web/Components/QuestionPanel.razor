@@ -17,6 +17,7 @@
         </div>
         @if (State.Answer is { } answer)
         {
+            <div class="question-result-actions">
             <div class="feedback @(answer.IsCorrect ? "correct" : "")" role="status">
                 <strong>@(answer.TimedOut ? "O tempo acabou. Tudo bem, vamos aprender." : answer.IsCorrect ? "Isso mesmo! Você entendeu a pista." : "Quase lá. Veja o que a história diz:")</strong>
                 <p lang="en">@answer.Explanation</p>
@@ -24,6 +25,7 @@
             @if (ShowContinue) { <button class="primary next-button" disabled="@Busy" @onclick="() => OnContinue.InvokeAsync()">
                 Continuar a história <span aria-hidden="true">→</span>
             </button> }
+            </div>
         }
         else { <p class="hint" role="status">@(AnswerSubmitted ? "Resposta registrada. Aguarde os outros jogadores ou o fim do prazo." : "Escolha uma alternativa. Vale o que você compreendeu.")</p> }
     </section>

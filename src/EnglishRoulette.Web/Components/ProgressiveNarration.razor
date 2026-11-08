@@ -1,6 +1,12 @@
 @implements IAsyncDisposable
 @inject IJSRuntime Js
 
+@if (Phase != "Narrating")
+{
+    <details class="scene-review"><summary>Rever texto da cena</summary><div class="scene-review-content"><p class="narration" lang="en">@Text</p></div></details>
+}
+else
+{
 <div class="scene-transcript">
     <p class="narration" lang="en">
         <span class="transcript-accessible">@Text</span>
@@ -14,6 +20,7 @@
         </button>
     }
 </div>
+}
 
 @code {
     [Parameter, EditorRequired] public string Text { get; set; } = "";
@@ -27,6 +34,7 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (_failed || _disposed) { return; }
+        if (Phase != "Narrating") { await ReleaseControllerAsync(); _appliedPhase = null; return; }
         try
         {
             _module ??= await Js.InvokeAsync<IJSObjectReference>("import", "./audio-player.js");

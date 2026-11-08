@@ -13,7 +13,7 @@
             @for (var i = 0; i < Segments.Count; i++)
             {
                 var angle = (i + .5) * 360 / Segments.Count;
-                <span class="wheel-label" style="transform:translate(-50%,-50%) rotate(@(Number(angle))deg) translateY(-120px) rotate(-@(Number(angle))deg)">@Segments[i]</span>
+                <span class="wheel-label" style="transform:translate(-50%,-50%) rotate(@(Number(angle))deg) translateY(var(--wheel-label-radius, -120px)) rotate(-@(Number(angle))deg)">@Segments[i]</span>
             }
         </div>
         <div class="wheel-hub" aria-hidden="true"><span>✦</span><strong>STORY</strong><small>ROULETTE</small></div>

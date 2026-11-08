@@ -3,7 +3,7 @@
 <section class="adventure-heading"><div><div class="eyebrow">STORY BATTLE · @State.Genre</div><h1>@State.Title</h1></div><span class="phase-badge">@PhaseLabel</span></section>
 <div class="game-grid match-grid">
     <article class="story-card">
-        <div class="chapter-heading"><span class="section-label">CENA @State.SceneNumber · JUNTOS NO MESMO CAMINHO</span><span class="phase-badge" role="timer">@(Remaining is { } seconds ? $"{seconds}s" : "")</span></div>
+        <div class="chapter-heading"><span class="section-label">CENA @State.SceneNumber · JUNTOS NO MESMO CAMINHO</span>@if (State.Phase is "QuestionOpen" or "DecisionOpen") { <GameCountdown Seconds="@(Remaining ?? 0)" Label="@(State.Phase == "QuestionOpen" ? "Para responder" : "Para votar")" /> }</div>
         <h2 @ref="_sceneHeading" tabindex="-1">@State.SceneTitle</h2>
         @if (State.Phase == "Cancelled")
         { <div class="error-banner" role="alert"><h3>Partida encerrada</h3><p>@Match.CancellationReason</p><p>Saia da sala para preparar uma nova partida com seus amigos.</p></div> }
@@ -26,16 +26,15 @@
                 </div>
             }
             else if (State.Phase == "Countdown")
-            { <p class="match-countdown" role="status">Prepare os ouvidos. A cena começa em @Remaining…</p> }
+            { <div class="match-countdown"><p>Prepare os ouvidos.</p><GameCountdown Seconds="@(Remaining ?? 0)" Label="Próxima cena em" Large="true" /></div> }
             else
             {
                 <ProgressiveNarration @key="(Match.SceneInstanceId, nameof(ProgressiveNarration))" Text="@State.Narration" Phase="@State.Phase" AudioElementId="@_audioId" />
-                @if (State.Phase == "Narrating") { <p class="reading-note">Pergunta em <strong>@Remaining s</strong></p> }
+                @if (State.Phase == "Narrating") { <GameCountdown Seconds="@(Remaining ?? 0)" Label="Pergunta em" /> }
                 <QuestionPanel State="State" Busy="Busy" AnswerSubmitted="Match.MyAnswerAccepted" AcceptedOptionKey="Match.MyOptionKey" ShowContinue="false" FocusOnOpen="true" OnAnswer="AnswerAsync" />
                 @if (State.Phase == "QuestionReveal")
                 {
-                    <ul class="match-round-results" aria-label="Resultado da pergunta">@foreach (var result in Match.RoundResults) { <li>@Match.Players.Single(player => player.Id == result.PlayerId).Nickname: @(result.Correct ? "acertou" : "sem acerto") · +@result.Points pontos</li> }</ul>
-                    <p role="status">A próxima etapa abre automaticamente.</p>
+                    <div class="match-round-footer"><details class="round-recap"><summary>Resultado da pergunta · @Match.RoundResults.Count jogadores</summary><ul class="match-round-results" aria-label="Resultado da pergunta">@foreach (var result in Match.RoundResults) { <li>@Match.Players.Single(player => player.Id == result.PlayerId).Nickname: @(result.Correct ? "acertou" : "sem acerto") · +@result.Points pontos</li> }</ul></details><GameCountdown Seconds="@(Remaining ?? 0)" Label="Próxima etapa em" /></div>
                 }
                 @if (State.Phase == "DecisionOpen")
                 {
@@ -48,16 +47,19 @@
             }
         }
         @if (_audioError is not null) { <p class="error-banner" role="alert">@_audioError</p> }
-        @if (Match.LastDecision is { } decision)
-        { <p class="match-decision-note">Decisão em @decision.SceneTitle: @decision.Choice.@(decision.NoVotes ? " Sem votos: caminho sorteado no servidor." : decision.Tied ? " Empate: caminho sorteado entre os mais votados." : " Escolha da maioria.")</p> }
     </article>
-    <aside class="match-scoreboard"><h2>@(State.Phase == "StoryResult" ? "Placar final" : "Seu grupo")</h2>
+    <aside class="match-scoreboard @(_showScoreboard ? "scoreboard-expanded" : "")"><div class="scoreboard-heading"><h2>@(State.Phase == "StoryResult" ? "Placar final" : "Seu grupo")</h2><button class="text-button scoreboard-toggle" aria-expanded="@_showScoreboard" aria-controls="shared-scoreboard" @onclick="() => _showScoreboard = !_showScoreboard">@(_showScoreboard ? "Fechar placar" : $"Ver {Match.Players.Count} jogadores")</button></div>
+        <div id="shared-scoreboard" class="scoreboard-content">
         <ol>@foreach (var player in Match.Players.OrderByDescending(player => player.Score).ThenBy(player => player.Nickname))
         { <li class="@(player.Id == Room.ViewerId ? "is-viewer" : "")"><span class="member-avatar">@player.Avatar</span><div><strong>@player.Nickname @(Match.Winners.Contains(player.Id) ? "✦" : "")</strong><small>@PlayerStatus(player) · @player.CorrectAnswers @(player.CorrectAnswers == 1 ? "acerto" : "acertos")</small></div><b>@player.Score<small>pontos</small></b></li> }</ol>
-        <p>Acertos valem 200, 180, 160… pontos pela ordem de chegada. Respostas em até 300 ms empatam na mesma posição.</p>
+        <details class="match-rules"><summary>Como funciona a pontuação</summary><div class="match-disclosure-content"><p>Acertos valem 200, 180, 160… pontos pela ordem de chegada. Respostas em até 300 ms empatam na mesma posição.</p></div></details>
         @if (Match.Players.Count(player => player.Connected && !player.Left) < 2 && State.Phase is not "StoryResult" and not "Cancelled")
         { <p role="status">Aguardando reconexão. Os prazos abertos continuam válidos; a próxima cena aguarda o grupo. A vaga é preservada por até 90 segundos.</p> }
-        <details class="match-journey"><summary>Caminho do grupo · @State.SceneNumber @(State.SceneNumber == 1 ? "cena" : "cenas")</summary>@foreach (var scene in State.VisitedScenes ?? []) { <p>@scene.Title</p> }</details>
+        <details class="match-journey"><summary>Caminho do grupo · @State.SceneNumber @(State.SceneNumber == 1 ? "cena" : "cenas")</summary><div class="match-disclosure-content">@foreach (var scene in State.VisitedScenes ?? []) { <p>@scene.Title</p> }
+            @if (Match.LastDecision is { } decision)
+            { <p class="match-decision-note">Decisão em @decision.SceneTitle: @decision.Choice.@(decision.NoVotes ? " Sem votos: caminho sorteado no servidor." : decision.Tied ? " Empate: caminho sorteado entre os mais votados." : " Escolha da maioria.")</p> }
+        </div></details>
+        </div>
     </aside>
 </div>
 @code {
@@ -80,6 +82,7 @@
         if (State.Phase == "StoryResult") { await _endingHeading.FocusAsync(); }
     }
     private bool _audioReady;
+    private bool _showScoreboard;
     private string? _audioError;
     private DateTimeOffset _receivedAt;
     private DateTimeOffset _snapshotAt;
@@ -93,7 +96,7 @@
         if (_instance != Match.SceneInstanceId) { _instance = Match.SceneInstanceId; _audioReady = false; _audioError = null; }
     }
     private string PlayerStatus(MatchPlayerView player) => player.Left ? "Saiu" : !player.Connected ? "Reconectando" : State.Phase switch
-    { "Preloading" => player.AudioReady ? "Áudio pronto" : "Preparando áudio", "QuestionOpen" => player.Answered ? "Respondeu" : "Respondendo", "DecisionOpen" => player.Voted ? "Votou" : "Votando", _ => "Conectado" };
+    { "Preloading" => player.AudioReady ? "Áudio pronto" : "Preparando", "QuestionOpen" => player.Answered ? "Respondeu" : "Respondendo", "DecisionOpen" => player.Voted ? "Votou" : "Votando", _ => "Conectado" };
     private async Task ConfirmAsync()
     {
         _audioError = null;

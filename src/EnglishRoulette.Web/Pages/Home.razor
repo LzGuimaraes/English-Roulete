@@ -73,7 +73,7 @@
         <div class="game-grid">
             <article class="story-card">
                 @if (_state.Visual is not null && _artFailureUrl == _state.Visual.Url) { <p role="status">A imagem não carregou. Você pode continuar pelo texto e áudio.</p> }
-                <div class="chapter-heading"><span class="section-label">CENA @_state.SceneNumber DO SEU CAMINHO</span><span class="phase-badge" role="@(_state.Phase == "QuestionOpen" ? "timer" : null)">@(_state.Phase == "QuestionOpen" ? $"{RemainingSeconds}s para responder" : PhaseLabel)</span></div>
+                <div class="chapter-heading"><span class="section-label">CENA @_state.SceneNumber DO SEU CAMINHO</span>@if (_state.Phase == "QuestionOpen") { <GameCountdown Seconds="RemainingSeconds" Label="Para responder" /> } else { <span class="phase-badge">@PhaseLabel</span> }</div>
                 <h2>@_state.SceneTitle</h2>
                 @if (_state.Audio is { } audio && _state.Phase != "StoryResult")
                 {
@@ -91,7 +91,7 @@
                 else
                 {
                     <ProgressiveNarration @key="(_state.SceneKey, nameof(ProgressiveNarration))" Text="@_state.Narration" Phase="@_state.Phase" AudioElementId="@_narrationAudioId" />
-                    @if (_state.Phase == "Narrating") { <p class="reading-note">Pergunta em <strong>@RemainingSeconds s</strong></p> }
+                    @if (_state.Phase == "Narrating") { <GameCountdown Seconds="RemainingSeconds" Label="Pergunta em" /> }
                     <QuestionPanel State="_state" Busy="_busy" OnAnswer="AnswerAsync" OnContinue="ContinueAsync" />
                     @if (_state.Phase == "DecisionOpen")
                     {

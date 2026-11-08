@@ -1,0 +1,16 @@
+<div class="game-countdown @(Large ? "countdown-large" : "") @(SafeSeconds <= 3 ? "countdown-urgent" : "")"
+     role="timer" aria-live="off" aria-label="@AccessibleLabel">
+    <span class="countdown-face" aria-hidden="true">
+        <svg class="countdown-impact" viewBox="0 0 100 100" fill="none"><path d="M14 26 6 20M21 14 17 5M85 70l9 4M79 85l4 9" /></svg>
+        <span class="countdown-number" @key="SafeSeconds">@SafeSeconds</span><span class="countdown-unit">s</span>
+    </span>
+    <span class="countdown-label">@(SafeSeconds == 0 ? "Sincronizando…" : Label)</span>
+</div>
+
+@code {
+    [Parameter] public int Seconds { get; set; }
+    [Parameter, EditorRequired] public string Label { get; set; } = "";
+    [Parameter] public bool Large { get; set; }
+    private int SafeSeconds => Math.Max(0, Seconds);
+    private string AccessibleLabel => $"{Label}: {SafeSeconds} {(SafeSeconds == 1 ? "segundo" : "segundos")}";
+}

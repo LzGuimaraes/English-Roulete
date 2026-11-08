@@ -42,14 +42,14 @@
 .game-experience footer { max-width:1400px; margin:auto; padding:26px 5%; font-size:11px; color:#aca0bd; border-top:1px solid #ffffff12; }
 /* The wheel only visualizes a result already drawn by the server. */
 .roulette-stage { position:relative; min-height:470px; display:flex; align-items:center; justify-content:center; flex-direction:column; padding:36px 0 0; }
-.wheel-rim { position:relative; width:350px; height:350px; border-radius:50%; padding:12px; background:linear-gradient(140deg,#ddbf91,#85684d 45%,#e5c090 70%,#735744); border:1px solid #f2d3a2; box-shadow:0 0 0 7px #271d35,0 0 0 8px #d9bca64a,0 0 80px #b18aff25,0 28px 55px #0007; }
+.wheel-rim { position:relative; width:var(--wheel-size,350px); height:var(--wheel-size,350px); border-radius:50%; padding:12px; background:linear-gradient(140deg,#ddbf91,#85684d 45%,#e5c090 70%,#735744); border:1px solid #f2d3a2; box-shadow:0 0 0 7px #271d35,0 0 0 8px #d9bca64a,0 0 80px #b18aff25,0 28px 55px #0007; }
 .wheel-rim::after { content:""; position:absolute; inset:5px; border:3px dotted #ffe4b9b0; border-radius:50%; pointer-events:none; }
 .story-wheel { position:relative; width:100%; height:100%; border-radius:50%; border:2px solid #241d35; box-shadow:inset 0 0 30px #0004; }
 .story-wheel::after { content:""; position:absolute; inset:0; border-radius:50%; background:repeating-conic-gradient(transparent 0deg 59deg,#ffffff22 59.2deg 60deg); opacity:.45; }
 .idle-wheel { transform:rotate(-30deg); }
 .has-result { transform:rotate(var(--wheel-stop)); animation:roulette-spin 5s cubic-bezier(.12,.74,.12,1) both; animation-delay:var(--spin-delay,0s); }
 .wheel-label { position:absolute; left:50%; top:50%; color:#fff; font-size:11px; font-weight:750; text-shadow:0 1px 6px #0008; z-index:1; max-width:100px; overflow-wrap:anywhere; text-align:center; }
-.wheel-hub { position:absolute; inset:calc(50% - 56px); width:112px; height:112px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:3px solid #e2c797; border-radius:50%; background:radial-gradient(#322341,#171022); box-shadow:0 0 0 7px #221a3670,0 4px 20px #0007; color:#f2d4a1; text-align:center; }
+.wheel-hub { position:absolute; inset:calc(50% - var(--wheel-hub-size,112px)/2); width:var(--wheel-hub-size,112px); height:var(--wheel-hub-size,112px); display:flex; flex-direction:column; align-items:center; justify-content:center; border:3px solid #e2c797; border-radius:50%; background:radial-gradient(#322341,#171022); box-shadow:0 0 0 7px #221a3670,0 4px 20px #0007; color:#f2d4a1; text-align:center; }
 .wheel-hub>span { font-size:23px; margin-bottom:2px; }.wheel-hub strong { letter-spacing:3px; font-size:17px; }.wheel-hub small { letter-spacing:2px; font-size:8px; margin-top:4px; }
 .wheel-pointer { position:absolute; top:16px; left:calc(50% - 19px); font-size:38px; color:#ffe1a6; z-index:3; text-shadow:0 3px 6px #0008; filter:drop-shadow(0 0 10px #f9c77750); }
 .orbit { position:absolute; border:1px solid #ba9bea1a; border-radius:50%; width:420px; height:420px; top:1px; pointer-events:none; }
@@ -264,3 +264,248 @@
 
 .room-experience.in-adventure .ending > p { color: #e5dce5; }
 .room-experience.in-adventure .ending .narration { font-size: clamp(17px, 1.3vw, 20px); line-height: 1.7; color: #fff6ef; }
+
+/* A real timer gets one short, elastic beat per new server-derived second. */
+.game-countdown { --countdown-paper:var(--scene-accent,#d0b9f5); --countdown-ink:#24152f; display:inline-flex; align-items:center; gap:10px; flex-shrink:0; color:#f4ecfb; }
+.countdown-face { position:relative; display:inline-flex; align-items:baseline; justify-content:center; min-width:58px; padding:5px 8px; border:2px solid var(--countdown-ink); border-radius:15px 13px 16px 12px; background:var(--countdown-paper); color:var(--countdown-ink); box-shadow:0 3px 9px #0004; }
+.countdown-number { display:inline-block; font:850 22px/1.05 ui-rounded,system-ui,sans-serif; font-variant-numeric:tabular-nums; transform-origin:50% 85%; animation:countdown-squash 360ms cubic-bezier(.16,1,.3,1) both; }
+.countdown-unit { font:700 11px/1 system-ui,sans-serif; margin-left:2px; }
+.countdown-label { font-size:12px; line-height:1.35; max-width:16ch; color:#f0e3f7; }
+.countdown-impact { position:absolute; inset:-10%; width:120%; height:120%; stroke:var(--countdown-paper); stroke-width:3; stroke-linecap:round; pointer-events:none; opacity:0; }
+.countdown-urgent .countdown-impact { opacity:1; }
+.countdown-urgent .countdown-face { --countdown-paper:#f6c27b; }
+.countdown-large { gap:18px; margin-block:12px; }
+.countdown-large .countdown-face { min-width:100px; padding:14px 20px; border-width:3px; border-radius:32px 27px 34px 25px; }
+.countdown-large .countdown-number { font-size:64px; }
+.countdown-large .countdown-unit { font-size:20px; }
+.countdown-large .countdown-label { font-size:18px; max-width:12ch; }
+@keyframes countdown-squash { 0% { transform:scale(.82,1.12) rotate(-7deg); } 45% { transform:scale(1.12,.9) rotate(3deg); } 75% { transform:scale(.98,1.03); } 100% { transform:scale(1) rotate(0); } }
+.motion-none .countdown-number { animation:none; }
+@media(prefers-reduced-motion:reduce) { .game-countdown .countdown-number { animation:none; transform:none; } }
+
+/* Phase content stays focused; scene text and secondary information stay available. */
+.game-experience.in-adventure { --game-panel:#160f20f5; --game-border:#d0b9f540; --game-copy:#f4eaf8; }
+.scene-review { position:relative; margin:0 0 10px; color:var(--game-copy); }
+.scene-review summary,.match-rules summary,.match-journey summary,.round-recap summary { cursor:pointer; min-height:36px; padding:8px 0; font-size:13px; line-height:1.4; color:var(--game-copy); }
+.scene-review-content { padding:16px; border:1px solid var(--game-border); border-radius:12px; background:var(--game-panel); }
+.game-experience.in-adventure .scene-review .narration { margin:0; font-size:17px; line-height:1.65; color:var(--game-copy); }
+.game-experience.in-adventure .story-card > .game-countdown { margin-top:12px; }
+.game-experience.in-adventure .match-countdown { padding:8px 0; margin:0; }
+.match-countdown > p { margin:0; font-size:14px; color:var(--game-copy); }
+.game-experience.in-adventure .question-result-actions { display:flex; align-items:center; gap:16px; margin-top:12px; }
+.game-experience.in-adventure .question-result-actions .feedback { flex:1; margin:0; padding:10px 12px; border-left:0; border-radius:8px; font-size:13px; line-height:1.45; }
+.game-experience.in-adventure .question-result-actions .feedback p { margin-top:4px; font-size:14px; }
+.game-experience.in-adventure .question-result-actions .next-button { flex-shrink:0; margin:0; padding:10px 16px; min-height:44px; font-size:13px; gap:12px; }
+.match-round-footer { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:12px; }
+.round-recap,.match-rules,.match-journey { position:relative; }
+.match-disclosure-content { font-size:13px; line-height:1.6; }
+.match-scoreboard { min-width:0; }
+.match-scoreboard li > div { min-width:0; }
+.game-experience.in-adventure .story-card,.game-experience.in-adventure .adventure-heading > div { min-width:0; overflow-wrap:anywhere; }
+.game-experience.in-adventure .option,.game-experience.in-adventure .choice { overflow-wrap:anywhere; line-height:1.45; }
+.game-experience.in-adventure .adventure-heading h1 { text-wrap:balance; }
+.game-experience.in-adventure summary:focus-visible { outline:2px solid var(--scene-accent); outline-offset:3px; border-radius:4px; }
+.game-experience.in-adventure ::selection { background:var(--scene-accent); color:#24152f; }
+
+@media(min-width:768px) and (min-height:560px) {
+    .game-experience.in-adventure { height:100dvh; min-height:100dvh; display:flex; flex-direction:column; }
+    .game-experience.in-adventure .site-header { flex:none; width:100%; padding:10px clamp(20px,4vw,64px); }
+    .game-experience.in-adventure main { display:flex; flex-direction:column; flex:1; min-height:0; width:100%; padding:10px clamp(20px,4vw,64px) 18px; }
+    .game-experience.in-adventure .adventure-heading { flex:none; padding:6px 0 12px; gap:16px; flex-direction:row; }
+    .game-experience.in-adventure .adventure-heading h1 { font-size:clamp(23px,2.3vw,34px); margin:4px 0 0; }
+    .game-experience.in-adventure .adventure-heading .text-button { min-height:36px; padding:8px 10px; font-size:12px; }
+    .game-experience.in-adventure .arrival-notice { margin:4px 0 0; }
+    .game-experience.in-adventure .game-grid { flex:1; min-height:0; padding:0; margin:0; gap:24px; }
+    .game-experience.in-adventure .story-card { width:min(100%,1120px); padding:0; min-height:0; }
+    .game-experience.in-adventure .story-card > h2 { font-size:clamp(22px,2.2vw,30px); margin:6px 0 10px; }
+    .game-experience.in-adventure .chapter-heading { max-width:none; min-height:32px; }
+    .game-experience.in-adventure .scene-transcript .narration { font-size:clamp(18px,1.5vw,22px); line-height:1.55; max-width:75ch; }
+    .game-experience.in-adventure .audio-player { margin-bottom:10px; }
+    .game-experience.in-adventure .question-panel,.game-experience.in-adventure .decision { padding:14px 16px; margin-top:0; }
+    .game-experience.in-adventure .question-panel h2,.game-experience.in-adventure .decision h2 { margin:6px 0 12px; font-size:clamp(20px,1.8vw,25px); line-height:1.3; }
+    .game-experience.in-adventure .options { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    .game-experience.in-adventure .option { min-height:46px; padding:9px 12px; font-size:14px; gap:10px; }
+    .game-experience.in-adventure .hint { margin:10px 0 0; font-size:13px; line-height:1.45; }
+    .game-experience.in-adventure .decision > p { font-size:14px; margin:0 0 12px; line-height:1.5; }
+    .game-experience.in-adventure .choice { min-height:46px; margin:8px 0 0; padding:10px 14px; font-size:14px; }
+    .game-experience.in-adventure .journey-card { top:0; }
+    .scene-review[open] .scene-review-content { position:absolute; bottom:calc(100% + 8px); left:0; width:min(680px,100%); max-height:min(45dvh,320px); overflow:auto; z-index:5; }
+    .match-rules[open] .match-disclosure-content,.match-journey[open] .match-disclosure-content,.round-recap[open] .match-round-results { position:absolute; bottom:calc(100% + 4px); right:0; width:min(420px,75vw); max-height:40dvh; overflow:auto; padding:14px 16px; margin:0; border:1px solid var(--game-border); border-radius:12px; background:var(--game-panel); z-index:5; }
+    .round-recap[open] .match-round-results { left:0; right:auto; padding-left:28px; }
+    .game-experience.in-adventure .match-grid { grid-template-columns:minmax(0,1fr) clamp(220px,23vw,280px); gap:24px; }
+    .game-experience.in-adventure .rooms-main { padding-top:8px; padding-bottom:16px; }
+    .match-toolbar { flex:none; min-height:30px; font-size:12px; }
+    .match-toolbar .text-button { min-height:30px; padding:4px 0; font-size:12px; }
+    .match-scoreboard { padding:12px; }
+    .match-scoreboard h2 { font-size:18px; margin:0 0 6px; }
+    .match-scoreboard li { padding:4px 0; gap:8px; min-height:40px; }
+    .match-scoreboard .member-avatar { font-size:25px; }
+    .match-scoreboard strong { font-size:13px; line-height:1.3; }
+    .match-scoreboard small { margin-top:1px; font-size:11px; line-height:1.3; }
+    .match-scoreboard b { font-size:16px; }
+    .match-rules summary,.match-journey summary { min-height:26px; padding:4px 0; font-size:12px; }
+    .game-experience.in-adventure.phase-storyresult .story-card { padding:18px; width:100%; }
+    .game-experience.in-adventure .ending { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:10px 24px; text-align:left; }
+    .game-experience.in-adventure .ending > :not(.ending-scene) { grid-column:1; margin:0; }
+    .game-experience.in-adventure .ending > .ending-icon { display:none; }
+    .game-experience.in-adventure .ending > h2 { font-size:clamp(24px,2.5vw,32px); }
+    .game-experience.in-adventure .ending-scene { grid-column:2; grid-row:1 / span 6; width:100%; margin:0; padding:14px; }
+    .game-experience.in-adventure .ending-scene .narration { font-size:17px; line-height:1.55; margin-bottom:0; }
+    .game-experience.in-adventure .ending-scene h3 { font-size:20px; margin-bottom:10px; }
+    .game-experience.in-adventure .ending-stats { padding:8px 0; gap:12px; }
+    .game-experience.in-adventure .ending-stats span { font-size:12px; }
+    .game-experience.in-adventure .ending > .primary { justify-self:start; min-height:44px; padding:10px 18px; }
+    .room-experience.in-adventure .ending { display:block; }
+    .room-experience.in-adventure .ending > p { margin:8px 0; font-size:13px; }
+    .room-experience.in-adventure .ending .narration { font-size:17px; line-height:1.55; }
+}
+@media(min-width:768px) and (max-width:999px) and (min-height:560px) {
+    .game-experience.in-adventure .match-grid { grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(0,1fr) auto; gap:12px; }
+    .match-scoreboard { display:block; padding:12px; }
+    .match-scoreboard h2 { grid-column:1 / -1; margin-bottom:6px; }
+    .match-scoreboard ol { grid-column:1 / -1; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0 12px; }
+    .match-scoreboard strong { font-size:12px; }
+    .match-scoreboard small { font-size:10px; }
+    .match-scoreboard .member-avatar { font-size:22px; }
+}
+@media(max-width:767px) {
+    .game-experience.in-adventure .game-grid { padding-top:clamp(60px,18svh,150px); min-height:0; }
+    .game-experience.in-adventure .match-grid { grid-template-columns:minmax(0,1fr); gap:18px; }
+    .game-experience.in-adventure .question-result-actions { flex-direction:column; align-items:stretch; gap:12px; }
+    .game-experience.in-adventure .question-result-actions .next-button { width:100%; }
+    .game-experience.in-adventure .scene-review summary,.game-experience.in-adventure .match-rules summary,.game-experience.in-adventure .match-journey summary,.game-experience.in-adventure .round-recap summary { min-height:44px; padding-block:12px; }
+    .match-round-footer { align-items:flex-start; flex-direction:column; }
+    .game-countdown { gap:10px; }
+    .countdown-label { font-size:13px; }
+}
+.scoreboard-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.scoreboard-heading h2 { margin-bottom:0; }
+.game-experience .scoreboard-toggle { display:none; }
+.scoreboard-content { margin-top:6px; }
+@media(min-width:1000px) and (min-height:560px) {
+    .game-experience.in-adventure .match-grid { grid-template-columns:minmax(0,1fr) clamp(320px,27vw,360px); }
+    .match-scoreboard ol:has(> li:nth-child(5)) { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 12px; }
+    .match-scoreboard ol:has(> li:nth-child(5)) li { display:block; padding-block:4px; min-width:0; }
+    .match-scoreboard ol:has(> li:nth-child(5)) .member-avatar { float:left; font-size:21px; line-height:1; margin:0 4px 0 0; }
+    .match-scoreboard ol:has(> li:nth-child(5)) li > div { font-size:12px; line-height:1.3; }
+    .match-scoreboard ol:has(> li:nth-child(5)) strong { font-size:12px; }
+    .match-scoreboard ol:has(> li:nth-child(5)) small { font-size:11px; }
+    .match-scoreboard ol:has(> li:nth-child(5)) b { clear:both; display:flex; gap:4px; align-items:baseline; text-align:left; font-size:15px; margin-top:3px; }
+}
+@media(min-width:768px) and (max-width:999px) and (min-height:560px) and (max-height:760px) {
+    .game-experience.in-adventure .match-grid { grid-template-rows:minmax(0,1fr); }
+    .game-experience.in-adventure .match-scoreboard { position:absolute; top:0; right:0; width:max-content; max-width:100%; display:block; padding:4px 12px; }
+    .match-scoreboard .scoreboard-heading h2 { display:none; }
+    .game-experience .scoreboard-toggle { display:inline-flex; min-height:36px; padding:6px 0; font-size:13px; }
+    .match-scoreboard .scoreboard-content { display:none; }
+    .match-scoreboard.scoreboard-expanded .scoreboard-content { display:block; position:absolute; right:0; top:calc(100% + 8px); bottom:auto; width:min(650px,85vw); max-height:65dvh; overflow:auto; margin:0; padding:14px; border:1px solid var(--game-border); border-radius:12px; background:var(--game-panel); z-index:6; }
+    .match-scoreboard .scoreboard-content ol { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+.room-invite-controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; }
+.room-invite-link { position:relative; min-width:0; }
+.room-invite-link summary { cursor:pointer; min-height:44px; padding:12px 0; font-size:13px; }
+@media(min-width:768px) and (min-height:560px) {
+    .game-experience.in-lobby { display:flex; flex-direction:column; height:100dvh; min-height:100dvh; --wheel-size:clamp(200px,32dvh,300px); --wheel-label-radius:calc(var(--wheel-size)*-.34); --wheel-hub-size:calc(var(--wheel-size)*.3); }
+    .game-experience.in-lobby .site-header { width:100%; padding:10px clamp(20px,4vw,64px); min-height:0; flex:none; }
+    .game-experience.in-lobby .rooms-main { display:flex; flex-direction:column; flex:1; min-height:0; width:100%; padding:12px clamp(20px,4vw,64px); }
+    .in-lobby .rooms-main > .eyebrow { display:none; }
+    .in-lobby .room-heading { flex:none; margin-bottom:8px; }
+    .in-lobby .room-heading h1 { font-size:28px; margin:0; }
+    .in-lobby .room-heading p { font-size:12px; margin:4px 0 0; }
+    .in-lobby .room-start-bar { flex:none; padding:8px 12px; margin-bottom:12px; gap:8px 14px; }
+    .in-lobby .room-start-bar strong { font-size:14px; }
+    .in-lobby .room-start-bar p { font-size:12px; line-height:1.4; margin:3px 0 0; }
+    .in-lobby .room-start-bar small { font-size:12px; }
+    .in-lobby .room-start-bar .primary { width:auto; min-height:44px; padding:10px 14px; font-size:13px; }
+    .in-lobby .room-grid { flex:1; min-height:0; grid-template-rows:minmax(0,1fr); grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr); gap:18px; align-items:center; }
+    .in-lobby .admin-card { padding:12px; min-width:0; border-radius:16px; }
+    .in-lobby .room-code { margin:8px 0; font-size:clamp(22px,2.3vw,34px); letter-spacing:2px; }
+    .in-lobby .room-invite-controls .secondary { min-height:36px; padding:8px 10px; font-size:12px; gap:0; }
+    .in-lobby .room-invite-link summary { min-height:32px; padding:6px 0; }
+    .in-lobby .room-invite-link[open] label { position:absolute; top:100%; left:0; width:min(500px,75vw); z-index:5; padding:14px; margin:0; border:1px solid #c2a0ff50; border-radius:12px; background:#211b35; }
+    .in-lobby .room-members { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 10px; margin-top:8px; }
+    .in-lobby .room-member { display:grid; grid-template-columns:22px minmax(0,1fr); gap:2px 6px; padding:5px 0; min-width:0; }
+    .in-lobby .room-member .member-avatar { grid-row:1 / span 2; font-size:22px; }
+    .in-lobby .room-member > div { min-width:0; overflow-wrap:anywhere; }
+    .in-lobby .room-member strong { font-size:12px; line-height:1.3; }
+    .in-lobby .room-member small { margin-top:2px; font-size:11px; line-height:1.3; }
+    .in-lobby .member-ready { grid-column:2; justify-self:start; padding:2px 5px; margin:0; font-size:10px; }
+    .in-lobby .room-roulette { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:4px 18px; align-content:center; margin-top:0; }
+    .in-lobby .room-roulette > :not(.roulette-stage) { grid-column:2; }
+    .in-lobby .room-roulette > .roulette-stage { grid-column:1; grid-row:1 / span 9; width:100%; min-height:0; margin:0; padding:10px 0; transform:none; }
+    .in-lobby .room-roulette > h2 { font-size:22px; line-height:1.25; margin:6px 0; }
+    .in-lobby .room-roulette > p { font-size:13px; line-height:1.5; margin:5px 0; }
+    .in-lobby .room-roulette .eyebrow { font-size:11px; letter-spacing:.04em; }
+    .in-lobby .room-ready { min-height:44px; padding:10px 12px; font-size:13px; margin:8px 0; }
+    .in-lobby .roulette-stage .orbit { width:calc(var(--wheel-size) + 22px); height:calc(var(--wheel-size) + 22px); top:0; }
+    .in-lobby .roulette-stage .orbit-two { width:calc(var(--wheel-size) + 42px); height:calc(var(--wheel-size) + 42px); top:-10px; }
+    .in-lobby .roulette-stage .wheel-pointer { top:-5px; font-size:28px; left:calc(50% - 14px); }
+    .in-lobby .wheel-spark { display:none; }
+    .in-lobby .wheel-hub strong { font-size:12px; letter-spacing:1px; }
+    .in-lobby .wheel-hub small { font-size:7px; letter-spacing:1px; }
+    .in-lobby .wheel-hub > span { font-size:18px; }
+    .in-lobby .wheel-label { font-size:11px; max-width:65px; }
+    .in-lobby .wheel-caption { margin-top:12px; padding:6px; width:100%; }
+    .in-lobby .wheel-caption .section-label { font-size:11px; letter-spacing:.04em; }
+    .in-lobby .wheel-caption strong { font-size:12px; line-height:1.4; }
+    .in-lobby .wheel-legend { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); font-size:11px; gap:4px; margin-top:8px; width:100%; text-align:center; }
+    .in-lobby .wheel-legend li { padding:0; border:0; background:none; border-radius:0; }
+}
+@media(min-width:768px) and (max-width:999px) and (min-height:761px) {
+    .in-lobby .room-grid { grid-template-columns:1fr 1fr; }
+    .in-lobby .room-roulette { grid-template-columns:minmax(0,1fr); }
+    .in-lobby .room-roulette > .roulette-stage { grid-column:1; grid-row:auto; }
+    .in-lobby .room-roulette > :not(.roulette-stage) { grid-column:1; }
+}
+@media(min-width:768px) and (max-width:999px) and (min-height:560px) and (max-height:760px) {
+    .game-experience.in-lobby { --wheel-size:200px; }
+    .in-lobby .room-grid { gap:12px; grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr); }
+    .in-lobby .room-roulette { gap:4px 10px; padding-inline:12px; }
+}
+/* Legible phase labels: the audit found legacy 9–10px functional text. */
+.game-experience.in-adventure .adventure-heading .eyebrow { font-size:12px; letter-spacing:.04em; }
+.game-experience.in-adventure .chapter-heading .section-label,.game-experience.in-adventure .question-panel .section-label,.game-experience.in-adventure .ending .section-label { font-size:12px; letter-spacing:.04em; }
+.game-experience.in-adventure .phase-badge { font-size:12px; }
+.game-experience.in-adventure .journey-card summary span { font-size:12px; }
+.game-experience.in-adventure .audio-player p { font-size:12px; }
+.game-experience.in-adventure .transcript-toggle { font-size:13px; }
+.game-experience.in-adventure:not(.phase-preloading):not(.phase-narrating) .audio-player { display:none; }
+.game-experience.in-adventure.phase-storyresult .chapter-heading,.game-experience.in-adventure.phase-storyresult .story-card > h2 { display:none; }
+.member-ready-icon { display:none; width:18px; height:18px; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+@media(min-width:768px) and (min-height:560px) {
+    .game-experience.in-adventure .game-grid { grid-template-rows:minmax(0,1fr); }
+    .in-lobby .room-member > div { font-size:12px; line-height:1.25; }
+    .in-lobby .room-members:has(> .room-member:nth-child(5)) .room-member { grid-template-rows:auto auto; padding-block:3px; }
+    .in-lobby .room-members:has(> .room-member:nth-child(5)) .member-avatar { grid-row:1; }
+    .in-lobby .room-members:has(> .room-member:nth-child(5)) .room-member > div { grid-column:2; grid-row:1 / span 2; }
+    .in-lobby .room-members:has(> .room-member:nth-child(5)) .member-ready { grid-column:1; grid-row:2; width:20px; height:20px; padding:1px; }
+    .in-lobby .room-members:has(> .room-member:nth-child(5)) .member-ready-text { position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+    .in-lobby .room-members:has(> .room-member:nth-child(5)) .member-ready-icon { display:block; }
+}
+@media(min-width:768px) and (max-height:660px) and (min-height:560px) {
+    .game-experience.in-adventure .story-card > h2 { margin:4px 0 6px; font-size:22px; }
+    .game-experience.in-adventure .question-panel,.game-experience.in-adventure .decision { padding:12px; }
+    .game-experience.in-adventure .scene-review summary { min-height:30px; padding-block:5px; }
+    .game-experience.in-adventure .question-panel h2 { font-size:20px; margin-bottom:10px; }
+    .game-experience.in-adventure .option { min-height:44px; padding-block:8px; }
+    .game-experience.in-adventure .match-round-footer { margin-top:8px; }
+}
+@media(min-width:768px) and (max-width:999px) and (min-height:761px) {
+    .game-experience.in-adventure .match-grid { grid-template-rows:minmax(0,1fr) auto; }
+}
+@media(max-width:767px) {
+    .game-experience.in-adventure .menu-button,.game-experience.in-adventure .text-button,.game-experience.in-adventure .transcript-toggle { min-height:44px; }
+}
+
+@media(min-width:768px) and (min-height:560px) { .in-lobby .room-copy-status { position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; } }
+@media(min-width:768px) and (max-width:999px) and (min-height:560px) and (max-height:760px) {
+    .in-lobby .room-code { font-size:20px; letter-spacing:1px; }
+    .in-lobby .room-invite-controls .secondary { font-size:11px; padding-inline:8px; }
+}
+@media(max-width:767px) { .game-experience.in-adventure .menu-button { font-size:12px; } }
+.game-experience.in-adventure .feedback p { text-wrap:pretty; }
+
+/* Exceptional error/reconnection messages must remain readable rather than clipped. */
+@media(min-width:768px) and (min-height:560px) {
+    .game-experience.in-adventure:has([role="alert"]),.game-experience.in-adventure:has(.match-scoreboard p[role="status"]) { height:auto; }
+}
