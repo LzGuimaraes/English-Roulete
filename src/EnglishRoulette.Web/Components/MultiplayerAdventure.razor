@@ -41,7 +41,8 @@
             { <div class="match-countdown"><p>Prepare os ouvidos.</p><GameCountdown Seconds="@(Remaining ?? 0)" Label="Próxima cena em" Large="true" /></div> }
             else
             {
-                <ProgressiveNarration @key="(Match.SceneInstanceId, nameof(ProgressiveNarration))" Text="@State.Narration" Dialogue="State.Dialogue" Phase="@State.Phase" AudioElementId="@_audioId" />
+                <ProgressiveNarration @key="(Match.SceneInstanceId, nameof(ProgressiveNarration))" Text="@State.Narration" Dialogue="State.Dialogue" Phase="@State.Phase" AudioElementId="@_audioId"
+                    Words="State.WordHints" Cost="State.HintCost" SceneInstanceId="State.SceneInstanceId" Busy="Busy" OnUseHint="UseHintAsync" />
                 @if (State.Phase == "Narrating") { <GameCountdown Seconds="@(Remaining ?? 0)" Label="Pergunta em" /> }
                 <WordHints State="State" Busy="Busy" OnUse="UseHintAsync" />
                 <QuestionPanel State="State" Busy="Busy" AnswerSubmitted="Match.MyAnswerAccepted" AcceptedOptionKey="Match.MyOptionKey" ShowContinue="false" FocusOnOpen="true" OnAnswer="AnswerAsync" />

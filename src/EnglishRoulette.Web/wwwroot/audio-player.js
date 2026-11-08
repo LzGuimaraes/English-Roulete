@@ -31,12 +31,38 @@ export function synchronize(audio, phase, offset) {
 
 // Presentation follows the media clock, never the authoritative question deadline.
 // Published recordings have no word timestamps: this is proportional text reveal.
+function graphemes(text) {
+    return typeof Intl.Segmenter === "function"
+        ? [...new Intl.Segmenter("en", { granularity: "grapheme" }).segment(text)].map(part => part.segment)
+        : Array.from(text);
+}
+
+// Preserve Blazor-owned hint buttons while changing only their presentation text.
+function textRevealer(element) {
+    const parts = [...element.querySelectorAll("[data-reveal-text]")].map(node => ({
+        node, characters: graphemes(node.dataset.revealText), word: node.closest("[data-reveal-word]")
+    }));
+    return count => {
+        for (const { node, characters, word } of parts) {
+            const shown = Math.max(0, Math.min(count, characters.length));
+            const text = characters.slice(0, shown).join("");
+            if (node.textContent !== text) node.textContent = text;
+            if (word) { word.inert = shown < characters.length; word.hidden = shown === 0; }
+            count -= characters.length;
+        }
+    };
+}
+
+export function focusHint(root, key) {
+    [...root.querySelectorAll(".narration-hint")].find(button =>
+        button.dataset.hintKey === key && !button.disabled && !button.inert && button.getClientRects().length
+    )?.focus({ preventScroll: true });
+}
+
 export function createNarrationText(element, audioElementId, text) {
     const audio = document.getElementById(audioElementId);
     if (!audio) throw new Error("Narração indisponível para acompanhar o texto.");
-    const characters = typeof Intl.Segmenter === "function"
-        ? [...new Intl.Segmenter("en", { granularity: "grapheme" }).segment(text)].map(part => part.segment)
-        : Array.from(text);
+    const characters = graphemes(text), reveal = textRevealer(element);
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const editorialReducedMotion = Boolean(element.closest(".motion-none"));
     let phase = "Preloading", full = false, frame = 0, lastCount = -1, disposed = false;
@@ -49,7 +75,7 @@ export function createNarrationText(element, audioElementId, text) {
         const count = phase !== "Narrating" || full || preference.matches || editorialReducedMotion || audio.ended
             ? characters.length : Math.floor(characters.length * progress);
         if (count !== lastCount) {
-            element.textContent = characters.slice(0, count).join("");
+            reveal(count);
             lastCount = count;
         }
     }
@@ -117,9 +143,9 @@ export function createDialogueText(bubble, speaker, copy, audioElementId, cues) 
     if (!audio) throw new Error("Áudio indisponível para acompanhar o diálogo.");
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const editorialReduced = Boolean(bubble.closest(".motion-none"));
-    const segments = cues.map(cue => typeof Intl.Segmenter === "function"
-        ? [...new Intl.Segmenter("en", { granularity: "grapheme" }).segment(cue.text)].map(part => part.segment)
-        : Array.from(cue.text));
+    const segments = cues.map(cue => graphemes(cue.text));
+    const lines = [...copy.querySelectorAll("[data-dialogue-cue]")];
+    const revealers = lines.map(textRevealer);
     let phase, frame = 0, disposed = false, previous = -1, count = -1, entrance;
     function refresh() {
         if (disposed) return;
@@ -130,13 +156,17 @@ export function createDialogueText(bubble, speaker, copy, audioElementId, cues) 
         const fraction = Math.max(0, Math.min(1, (position - cue.startMilliseconds) / (cue.endMilliseconds - cue.startMilliseconds)));
         const next = reduced.matches || editorialReduced || audio.ended ? characters.length : Math.floor(characters.length * fraction);
         if (index !== previous) {
+            for (let line = 0; line < lines.length; line++) {
+                lines[line].hidden = line !== index;
+                if (line !== index) revealers[line](0);
+            }
             speaker.textContent = cue.speaker;
             entrance?.cancel();
             if (!reduced.matches && !editorialReduced) entrance = bubble.animate(
                 [{ transform: "translateY(5px)" }, { transform: "translateY(0)" }],
                 { duration: 260, easing: "cubic-bezier(.16,1,.3,1)" });
         }
-        if (index !== previous || next !== count) copy.textContent = characters.slice(0, next).join("");
+        if (index !== previous || next !== count) revealers[index](next);
         previous = index; count = next;
         if (frame) cancelAnimationFrame(frame);
         frame = !disposed && phase === "Narrating" && !audio.paused && !audio.ended && !audio.seeking && audio.readyState >= 3

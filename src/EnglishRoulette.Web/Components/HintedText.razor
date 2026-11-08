@@ -1,0 +1,52 @@
+@using System.Text.RegularExpressions
+@using EnglishRoulette.Contracts
+<span class="hinted-copy" @ref="Element">
+    @foreach (var part in _parts)
+    {
+        var word = Words?.FirstOrDefault(word => word.Key == part.Key);
+        @if (word is not null && Cost is not null)
+        {
+            <button type="button" class="narration-hint @(word.Translation is not null ? "hint-consumed" : "")"
+                data-hint-key="@word.Key" data-reveal-word inert="@Revealing"
+                aria-label="@(word.Translation is not null ? $"Rever tradução de {word.Term}, sem custo" : $"Traduzir {word.Term}: {Cost.PerWord}")"
+                title="@(word.Translation is not null ? "Rever tradução · grátis" : $"Traduzir · {Cost.PerWord}")"
+                disabled="@(Busy || (word.Translation is null && !Cost.CanUse))" @onclick="() => OnOpen.InvokeAsync(word.Key)"><span data-reveal-text="@part.Text" aria-hidden="@Revealing">@(Revealing ? "" : part.Text)</span></button>
+        }
+        else
+        {
+            <span data-reveal-text="@part.Text" aria-hidden="@Revealing">@(Revealing ? "" : part.Text)</span>
+        }
+    }
+</span>
+@code {
+    [Parameter, EditorRequired] public string Text { get; set; } = "";
+    [Parameter] public IReadOnlyList<WordHintView>? Words { get; set; }
+    [Parameter] public HintCostView? Cost { get; set; }
+    [Parameter] public bool Busy { get; set; }
+    [Parameter] public bool Revealing { get; set; }
+    [Parameter] public EventCallback<string> OnOpen { get; set; }
+    public ElementReference Element;
+    private readonly List<(string Text, string? Key)> _parts = [];
+    private string? _signature;
+
+    protected override void OnParametersSet()
+    {
+        var words = (Words ?? []).OrderByDescending(word => word.Term.Length).ToArray();
+        var signature = Text + "\0" + string.Join("\0", words.Select(word => word.Key + "\0" + word.Term));
+        if (_signature == signature) { return; }
+        _signature = signature;
+        _parts.Clear();
+        if (words.Length == 0) { _parts.Add((Text, null)); return; }
+        // Match complete editorial expressions, preserving original case and punctuation.
+        var pattern = @"(?<![\p{L}\p{N}_])(?:" + string.Join('|', words.Select(word => Regex.Escape(word.Term))) + @")(?![\p{L}\p{N}_])";
+        var position = 0;
+        foreach (Match match in Regex.Matches(Text, pattern, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant, TimeSpan.FromMilliseconds(100)))
+        {
+            if (match.Index > position) { _parts.Add((Text[position..match.Index], null)); }
+            var word = words.First(word => string.Equals(word.Term, match.Value, StringComparison.OrdinalIgnoreCase));
+            _parts.Add((match.Value, word.Key));
+            position = match.Index + match.Length;
+        }
+        if (position < Text.Length) { _parts.Add((Text[position..], null)); }
+    }
+}

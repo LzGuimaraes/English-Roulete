@@ -73,6 +73,27 @@ public sealed partial class AdminCatalogTests
         state = await Send(new(Guid.NewGuid(), state.StateVersion, "continue"));
         Assert.Equal("StoryResult", state.Phase);
         Assert.Equal(135, (await player.GetFromJsonAsync<AdventureView>("/api/demo/session"))!.Score!.Total);
+
+        // Same browser and same story: neither the paid word nor points carry over.
+        var previousScene = state.SceneInstanceId;
+        using var next = await player.PostAsJsonAsync("/api/demo/session", new CreateAdventureRequest(story.Id));
+        next.EnsureSuccessStatusCode();
+        state = (await next.Content.ReadFromJsonAsync<AdventureView>())!;
+        Assert.NotEqual(previousScene, state.SceneInstanceId);
+        Assert.Equal(0, state.HintCost!.UsedCount);
+        Assert.Null(Assert.Single(state.WordHints!).Translation);
+        Assert.Equal(0, state.Score!.Total);
+        state = await Send(new(Guid.NewGuid(), state.StateVersion, "start"));
+        using var stale = await player.PostAsJsonAsync("/api/demo/commands",
+            new AdventureCommand(Guid.NewGuid(), state.StateVersion, "hint", HintKey: "notebook", SceneInstanceId: previousScene));
+        Assert.False(stale.IsSuccessStatusCode);
+        state = await Send(new(Guid.NewGuid(), state.StateVersion, "hint", HintKey: "notebook", SceneInstanceId: state.SceneInstanceId));
+        Assert.Equal(1, state.HintCost!.UsedCount);
+        _clock.Now = state.PhaseDeadlineUtc!.Value;
+        state = (await player.GetFromJsonAsync<AdventureView>("/api/demo/session"))!;
+        state = await Send(new(Guid.NewGuid(), state.StateVersion, "answer", state.Question!.InstanceId, "a"));
+        Assert.Equal(15, state.Score!.RoundDeduction);
+        Assert.Equal(135, state.Score.Total);
     }
 
     [PostgresFact]
@@ -136,5 +157,40 @@ public sealed partial class AdminCatalogTests
         using var stale = await RoomPost(host, $"/api/rooms/{room.Id}/next", next);
         Assert.False(stale.IsSuccessStatusCode);
         Assert.Equal(room.Match.Id, (await host.GetFromJsonAsync<RoomView>("/api/rooms/current"))!.Match!.Id);
+
+        _clock.Now = room.Match.Scene.PhaseDeadlineUtc!.Value;
+        room = (await host.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
+        using var hostReadyAgain = await RoomPost(host, $"/api/rooms/{room.Id}/commands", Command(room, "audio-ready"));
+        hostReadyAgain.EnsureSuccessStatusCode();
+        using var guestReadyAgain = await RoomPost(guest, $"/api/rooms/{room.Id}/commands", Command(room, "audio-ready"));
+        guestReadyAgain.EnsureSuccessStatusCode();
+        room = (await guestReadyAgain.Content.ReadFromJsonAsync<RoomView>())!;
+        _clock.Now = room.Match!.Scene.PhaseDeadlineUtc!.Value;
+        room = (await host.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
+        Assert.Equal(0, room.Match!.Scene.HintCost!.UsedCount);
+        Assert.Null(Assert.Single(room.Match.Scene.WordHints!).Translation);
+        using var oldScene = await RoomPost(host, $"/api/rooms/{room.Id}/commands",
+            Command(room, "hint", "notebook") with { SceneInstanceId = mine.Match.SceneInstanceId });
+        Assert.False(oldScene.IsSuccessStatusCode);
+        // Reverse who buys the word in the second game; purchases stay personal.
+        using var guestHint = await RoomPost(guest, $"/api/rooms/{room.Id}/commands", Command(room, "hint", "notebook"));
+        guestHint.EnsureSuccessStatusCode();
+        mine = (await host.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
+        other = (await guest.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
+        Assert.Equal(0, mine.Match!.Scene.HintCost!.UsedCount);
+        Assert.Null(Assert.Single(mine.Match.Scene.WordHints!).Translation);
+        Assert.Equal(1, other.Match!.Scene.HintCost!.UsedCount);
+        Assert.NotNull(Assert.Single(other.Match.Scene.WordHints!).Translation);
+        _clock.Now = mine.Match.Scene.PhaseDeadlineUtc!.Value;
+        room = (await host.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
+        using var hostAnswerAgain = await RoomPost(host, $"/api/rooms/{room.Id}/commands", Command(room, "answer", "a"));
+        hostAnswerAgain.EnsureSuccessStatusCode();
+        using var guestAnswerAgain = await RoomPost(guest, $"/api/rooms/{room.Id}/commands", Command(room, "answer", "a"));
+        guestAnswerAgain.EnsureSuccessStatusCode();
+        room = (await guestAnswerAgain.Content.ReadFromJsonAsync<RoomView>())!;
+        Assert.Equal(380, room.Match!.Players.Single(player => player.Id == mine.ViewerId).Score);
+        Assert.Equal(380, room.Match.Players.Single(player => player.Id == other.ViewerId).Score);
+        Assert.Equal(200, room.Match.RoundResults.Single(result => result.PlayerId == mine.ViewerId).Points);
+        Assert.Equal(180, room.Match.RoundResults.Single(result => result.PlayerId == other.ViewerId).Points);
     }
 }

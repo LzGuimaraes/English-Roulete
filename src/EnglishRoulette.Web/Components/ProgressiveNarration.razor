@@ -2,9 +2,10 @@
 @implements IAsyncDisposable
 @inject IJSRuntime Js
 
+<div class="progressive-narration" @ref="_root" @onkeydown="CloseOnEscape">
 @if (Phase != "Narrating")
 {
-    <details class="scene-review"><summary>Rever texto da cena</summary><div class="scene-review-content"><p class="narration" lang="en">@Text</p></div></details>
+    <details class="scene-review"><summary>Rever texto da cena</summary><div class="scene-review-content"><p class="narration" lang="en"><HintedText Text="@Text" Words="Words" Cost="Cost" Busy="Busy" OnOpen="OpenWordAsync" /></p></div></details>
 }
 else if (Dialogue is { Count: > 0 } && !_failed)
 {
@@ -12,7 +13,7 @@ else if (Dialogue is { Count: > 0 } && !_failed)
         @if (_showFull)
         {
             <div class="dialogue-review" tabindex="0" aria-label="Diálogo completo">
-                @foreach (var cue in Dialogue) { <p><strong>@cue.Speaker</strong><span lang="en">@cue.Text</span></p> }
+                @foreach (var cue in Dialogue) { <p><strong>@cue.Speaker</strong><span lang="en"><HintedText Text="@cue.Text" Words="Words" Cost="Cost" Busy="Busy" OnOpen="OpenWordAsync" /></span></p> }
             </div>
         }
         else
@@ -20,7 +21,13 @@ else if (Dialogue is { Count: > 0 } && !_failed)
             <div class="dialogue-bubble" @ref="_bubble">
                 <span class="transcript-accessible" lang="en">@Text</span>
                 <strong class="dialogue-speaker" @ref="_speaker" aria-hidden="true"></strong>
-                <p class="dialogue-line" lang="en" @ref="_copy" aria-hidden="true"></p>
+                <p class="dialogue-line" lang="en" @ref="_copy">
+                    @for (var index = 0; index < Dialogue.Count; index++)
+                    {
+                        var cue = Dialogue[index];
+                        <span data-dialogue-cue hidden="@(index > 0)"><HintedText Text="@cue.Text" Words="Words" Cost="Cost" Busy="Busy" Revealing="true" OnOpen="OpenWordAsync" /></span>
+                    }
+                </p>
             </div>
         }
         <button class="transcript-toggle" type="button" aria-pressed="@(_showFull ? "true" : "false")" @onclick="ToggleText">@(_showFull ? "Acompanhar diálogo" : "Mostrar diálogo completo")</button>
@@ -30,9 +37,14 @@ else
 {
 <div class="scene-transcript">
     <p class="narration" lang="en">
-        <span class="transcript-accessible">@Text</span>
-        <span class="narration-layout" aria-hidden="true">@Text</span>
-        <span class="narration-copy" @ref="_copy" aria-hidden="true">@(_failed ? Text : "")</span>
+        @if (_failed)
+        { <HintedText Text="@Text" Words="Words" Cost="Cost" Busy="Busy" OnOpen="OpenWordAsync" /> }
+        else
+        {
+            <span class="transcript-accessible">@Text</span>
+            <span class="narration-layout" aria-hidden="true">@Text</span>
+            <span class="narration-copy" @ref="_copy"><HintedText Text="@Text" Words="Words" Cost="Cost" Busy="Busy" Revealing="true" OnOpen="OpenWordAsync" /></span>
+        }
     </p>
     @if (Phase == "Narrating" && !_failed)
     {
@@ -43,18 +55,90 @@ else
 </div>
 }
 
+@if (Words is { Count: > 0 } && Cost is { } cost)
+{
+    <div class="narration-hint-help">
+        <span>@(cost.CanUse ? $"Toque nas palavras sublinhadas para traduzir · {cost.PerWord}." : "Novas dicas encerradas nesta rodada. Traduções já usadas continuam disponíveis.")</span>
+        @if (Words.FirstOrDefault(word => word.Key == _selectedWord) is { } selected)
+        {
+            <div class="inline-hint-card" role="region" aria-label="Tradução da palavra">
+                <div class="inline-hint-heading"><strong lang="en">@selected.Term</strong><button type="button" class="hint-close" @ref="_hintClose" aria-label="Fechar tradução" @onclick="CloseWordAsync">Fechar</button></div>
+                <div role="status" aria-live="polite">
+                    @if (selected.Translation is { } translation)
+                    { <p class="inline-hint-translation" lang="pt-BR">@translation</p><small>@cost.CurrentDiscount · Reabrir esta dica é grátis.</small> }
+                    else if (_pendingWord is not null || Busy)
+                    { <p>Registrando dica…</p> }
+                    else
+                    { <p>A tradução não foi liberada.</p><button type="button" class="secondary" disabled="@(!cost.CanUse)" @onclick="() => OpenWordAsync(selected.Key)">@(cost.CanUse ? "Tentar traduzir novamente" : "Prazo para novas dicas encerrado")</button> }
+                </div>
+            </div>
+        }
+    </div>
+}
+</div>
+
 @code {
     [Parameter, EditorRequired] public string Text { get; set; } = "";
     [Parameter, EditorRequired] public string AudioElementId { get; set; } = "";
     [Parameter] public IReadOnlyList<DialogueCueView>? Dialogue { get; set; }
     [Parameter] public string Phase { get; set; } = "Narrating";
-    private ElementReference _copy, _speaker, _bubble;
+    [Parameter] public IReadOnlyList<WordHintView>? Words { get; set; }
+    [Parameter] public HintCostView? Cost { get; set; }
+    [Parameter] public Guid SceneInstanceId { get; set; }
+    [Parameter] public bool Busy { get; set; }
+    [Parameter] public EventCallback<string> OnUseHint { get; set; }
+    private ElementReference _copy, _speaker, _bubble, _root, _hintClose;
     private IJSObjectReference? _module, _controller;
     private string? _connectedText, _connectedAudio, _appliedPhase;
     private bool _showFull, _appliedFull, _failed, _disposed;
+    private string? _selectedWord, _pendingWord;
+    private Guid _hintScene;
+    private bool _focusHint;
+
+    protected override void OnParametersSet()
+    {
+        if (_hintScene == SceneInstanceId) { return; }
+        _hintScene = SceneInstanceId;
+        _selectedWord = null;
+        _pendingWord = null;
+        _focusHint = false;
+    }
+
+    private async Task OpenWordAsync(string key)
+    {
+        if (Busy || _pendingWord is not null) { return; }
+        var word = Words?.FirstOrDefault(word => word.Key == key);
+        if (word is null || (word.Translation is null && Cost?.CanUse is not true)) { return; }
+        _selectedWord = key;
+        _focusHint = true;
+        if (word.Translation is not null) { return; }
+        _pendingWord = key;
+        try { await OnUseHint.InvokeAsync(key); }
+        finally { _pendingWord = null; }
+    }
+
+    private async Task CloseWordAsync()
+    {
+        var key = _selectedWord;
+        _selectedWord = null;
+        _focusHint = false;
+        if (key is null || _disposed) { return; }
+        try
+        {
+            _module ??= await Js.InvokeAsync<IJSObjectReference>("import", "./audio-player.js");
+            await _module.InvokeVoidAsync("focusHint", _root, key);
+        }
+        catch (JSException) { }
+    }
+    private async Task CloseOnEscape(KeyboardEventArgs args) { if (args.Key == "Escape") { await CloseWordAsync(); } }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        if (_focusHint && _selectedWord is not null && _pendingWord is null && !Busy && !_disposed)
+        {
+            _focusHint = false;
+            await _hintClose.FocusAsync(preventScroll: true);
+        }
         if (_failed || _disposed) { return; }
         if (Phase != "Narrating") { await ReleaseControllerAsync(); _appliedPhase = null; return; }
         if (Dialogue is { Count: > 0 } && _showFull) { await ReleaseControllerAsync(); return; }

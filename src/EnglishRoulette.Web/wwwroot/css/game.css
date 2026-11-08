@@ -521,7 +521,22 @@
 .dialogue-line { color:var(--game-copy); font-size:clamp(18px,1.5vw,22px); line-height:1.55; min-height:3.1em; max-height:22dvh; overflow:auto; margin:0; overflow-wrap:anywhere; }
 .dialogue-review { max-height:24dvh; overflow:auto; padding:12px 16px; background:var(--game-panel); border-radius:12px; }
 .dialogue-review p { margin:0 0 12px; }
-.dialogue-review strong,.dialogue-review span { display:block; }
+.dialogue-review p>strong,.dialogue-review p>span { display:block; }
+.hinted-copy { display:inline; }
+[data-reveal-word][hidden],[data-dialogue-cue][hidden] { display:none; }
+.narration-hint { display:inline; margin:0; padding:0 1px; border:0; border-radius:3px; background:transparent; color:inherit; font:inherit; line-height:inherit; text-align:inherit; text-decoration:underline dotted var(--scene-accent); text-underline-offset:.2em; cursor:pointer; }
+.narration-hint:hover:enabled,.narration-hint:focus-visible { color:var(--scene-accent); background:color-mix(in srgb,var(--scene-accent) 12%,transparent); }
+.narration-hint:focus-visible,.hint-close:focus-visible { outline:2px solid var(--scene-accent); outline-offset:3px; }
+.narration-hint.hint-consumed { text-decoration-style:solid; }
+.narration-hint:disabled { cursor:default; text-decoration-color:var(--game-copy); }
+.narration-hint[inert] { text-decoration:none; }
+.narration-hint-help { position:relative; max-width:75ch; margin:4px 0 6px; color:var(--game-copy); font-size:12px; line-height:1.5; }
+.inline-hint-card { position:absolute; bottom:calc(100% + 8px); left:0; width:min(340px,100%); padding:12px 16px; z-index:8; border:1px solid var(--game-border); border-radius:12px; background:color-mix(in srgb,var(--game-panel),#160f20); box-shadow:0 8px 24px #0006; overflow-wrap:anywhere; }
+.inline-hint-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.hint-close { min-width:44px; min-height:36px; border:0; border-radius:6px; color:var(--game-copy); background:transparent; cursor:pointer; text-decoration:underline; text-underline-offset:.2em; }
+.inline-hint-card p { margin:6px 0; }
+.inline-hint-translation { font-size:16px; }
+@media (max-width:767px) { .hint-close { min-height:44px; } .narration-hint { padding-block:3px; } }
 .admin-support { margin-block:16px; }
 .admin-support summary { cursor:pointer; min-height:44px; padding-block:12px; }
 .admin-dialogue { padding-block:12px; border-bottom:1px solid var(--game-border,#867599); }

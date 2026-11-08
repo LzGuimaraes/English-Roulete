@@ -90,7 +90,8 @@
                 }
                 else
                 {
-                    <ProgressiveNarration @key="(_state.SceneKey, nameof(ProgressiveNarration))" Text="@_state.Narration" Dialogue="_state.Dialogue" Phase="@_state.Phase" AudioElementId="@_narrationAudioId" />
+                    <ProgressiveNarration @key="(_state.SceneInstanceId, nameof(ProgressiveNarration))" Text="@_state.Narration" Dialogue="_state.Dialogue" Phase="@_state.Phase" AudioElementId="@_narrationAudioId"
+                        Words="_state.WordHints" Cost="_state.HintCost" SceneInstanceId="_state.SceneInstanceId" Busy="_busy" OnUseHint="UseHintAsync" />
                     @if (_state.Phase == "Narrating") { <GameCountdown Seconds="RemainingSeconds" Label="Pergunta em" /> }
                     <WordHints State="_state" Busy="_busy" OnUse="UseHintAsync" />
                     <QuestionPanel State="_state" Busy="_busy" OnAnswer="AnswerAsync" OnContinue="ContinueAsync" />
