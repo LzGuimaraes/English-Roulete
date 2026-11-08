@@ -18,6 +18,7 @@ var bootstrapAdmin = args.Contains("--bootstrap-admin");
 var migrate = args.Contains("--migrate");
 var resetAdmin = args.Contains("--reset-admin-password");
 var builder = WebApplication.CreateBuilder(args.Where(argument => argument is not ("--bootstrap-admin" or "--reset-admin-password" or "--migrate")).ToArray());
+_ = GameAssistance.Rules(builder.Configuration);
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<DomainRuleExceptionHandler>();
 var connection = builder.Configuration.GetConnectionString("Adventure")

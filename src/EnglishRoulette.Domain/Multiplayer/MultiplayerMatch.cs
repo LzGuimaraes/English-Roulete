@@ -1,4 +1,5 @@
 using EnglishRoulette.Domain.Challenges;
+using EnglishRoulette.Domain.Scoring;
 using EnglishRoulette.Domain.Sessions;
 using EnglishRoulette.Domain.Stories;
 
@@ -6,9 +7,9 @@ namespace EnglishRoulette.Domain.Multiplayer;
 
 public enum MultiplayerPhase { Roulette = 0, Preloading = 1, Countdown = 2, Narrating = 3, QuestionOpen = 4, QuestionReveal = 5, DecisionOpen = 6, StoryResult = 7, Cancelled = 8 }
 public sealed record MultiplayerRules(int LoadingSeconds = 45, int CountdownSeconds = 3, int QuestionSeconds = 15,
-    int RevealSeconds = 5, int VoteSeconds = 15, int TieMilliseconds = 300, string ScoringPolicy = "correct-arrival-v1");
-public sealed record MultiplayerPlayer(Guid Id, string Nickname, string Avatar, int Score = 0, int CorrectAnswers = 0, bool Left = false);
-public sealed record MultiplayerAnswer(Guid PlayerId, string OptionKey, bool IsCorrect, DateTimeOffset ReceivedAtUtc, int Points = 0);
+    int RevealSeconds = 5, int VoteSeconds = 15, int TieMilliseconds = 300, string ScoringPolicy = "correct-arrival-v1", AssistanceRules? Hints = null);
+public sealed record MultiplayerPlayer(Guid Id, string Nickname, string Avatar, int Score = 0, int CorrectAnswers = 0, bool Left = false, int StartingScore = 0);
+public sealed record MultiplayerAnswer(Guid PlayerId, string OptionKey, bool IsCorrect, DateTimeOffset ReceivedAtUtc, int Points = 0, int BasePoints = 0, int HintDeduction = 0);
 public sealed record MultiplayerVote(Guid PlayerId, string TransitionKey);
 public sealed record MultiplayerDecision(string SceneKey, string TransitionKey, bool Tied, bool NoVotes, DateTimeOffset ResolvedAtUtc);
 public sealed record MultiplayerRound(Guid InstanceId, string SceneKey, IReadOnlyList<MultiplayerAnswer> Answers, DateTimeOffset ClosedAtUtc);
@@ -23,7 +24,7 @@ public sealed record MultiplayerMatch(
     DateTimeOffset? NarrationStartedAtUtc, IReadOnlyList<Guid> AudioReady,
     IReadOnlyList<MultiplayerAnswer> Answers, IReadOnlyList<MultiplayerVote> Votes,
     IReadOnlyList<string> VisitedScenes, IReadOnlyList<MultiplayerRound> Rounds,
-    IReadOnlyList<MultiplayerDecision> Decisions, IReadOnlyList<MultiplayerReceipt> Receipts, string? CancellationReason = null, DateTimeOffset? QuorumLostAtUtc = null);
+    IReadOnlyList<MultiplayerDecision> Decisions, IReadOnlyList<MultiplayerReceipt> Receipts, string? CancellationReason = null, DateTimeOffset? QuorumLostAtUtc = null, IReadOnlyList<HintUse>? Hints = null);
 
 public static class MultiplayerScoring
 {
@@ -38,17 +39,18 @@ public static class MultiplayerScoring
             for (var index = start; index < end; index++) { points[correct[index].PlayerId] = 200 - 20 * start; }
             start = end;
         }
-        return answers.Select(answer => answer with { Points = points.GetValueOrDefault(answer.PlayerId) }).ToArray();
+        return answers.Select(answer => answer with { Points = points.GetValueOrDefault(answer.PlayerId), BasePoints = points.GetValueOrDefault(answer.PlayerId) }).ToArray();
     }
 }
 
 public static class MultiplayerGame
 {
     public static MultiplayerMatch Create(StoryVersion story, IReadOnlyList<SceneTiming> timings,
-        IReadOnlyList<LobbyMember> members, DateTimeOffset now, DateTimeOffset rouletteEndsAtUtc, MultiplayerRules? rules = null)
+        IReadOnlyList<LobbyMember> members, DateTimeOffset now, DateTimeOffset rouletteEndsAtUtc, MultiplayerRules? rules = null, IReadOnlyList<SeriesPlayer>? startingScores = null)
     {
         StoryFlowEngine.ValidateForPlay(story);
         rules ??= new();
+        rules.Hints?.Validate();
         if (members.Count is < 2 or > 8 || members.Any(member => member.PlayerId == Guid.Empty) || members.Select(member => member.PlayerId).Distinct().Count() != members.Count ||
             rules.LoadingSeconds is < 1 or > 120 || rules.CountdownSeconds is < 1 or > 10 || rules.QuestionSeconds is < 1 or > 60 ||
             rules.RevealSeconds is < 1 or > 30 || rules.VoteSeconds is < 1 or > 60 || rules.TieMilliseconds != 300 ||
@@ -56,8 +58,16 @@ public static class MultiplayerGame
             timings.Select(timing => timing.SceneKey).Distinct(StringComparer.Ordinal).Count() != timings.Count ||
             timings.Any(timing => timing.NarrationDuration <= TimeSpan.Zero || !story.Scenes.Any(scene => scene.Key == timing.SceneKey)))
         { throw new GameRuleException("INVALID_MATCH", "Revise participantes, tempos e conteúdo da partida."); }
+        if (startingScores is not null && (startingScores.Count > 8 || startingScores.Any(player => player.Score < 0 || player.CorrectAnswers < 0) ||
+            startingScores.Select(player => player.PlayerId).Distinct().Count() != startingScores.Count))
+        { throw Invalid("O placar acumulado da sala é inválido."); }
         return new(Guid.NewGuid(), StoryDefinition.Capture(story), timings.ToArray(), rules,
-            members.Select(member => new MultiplayerPlayer(member.PlayerId, member.Nickname, member.Avatar)).ToArray(),
+            members.Select(member =>
+            {
+                var previous = startingScores?.SingleOrDefault(player => player.PlayerId == member.PlayerId);
+                return new MultiplayerPlayer(member.PlayerId, member.Nickname, member.Avatar, previous?.Score ?? 0,
+                    previous?.CorrectAnswers ?? 0, StartingScore: previous?.Score ?? 0);
+            }).ToArray(),
             story.InitialSceneKey, Guid.NewGuid(), 1, MultiplayerPhase.Roulette, now.ToUniversalTime(), rouletteEndsAtUtc.ToUniversalTime(),
             null, [], [], [], [story.InitialSceneKey], [], [], []);
     }
@@ -90,6 +100,15 @@ public static class MultiplayerGame
                 if (match.Answers.Any(answer => answer.PlayerId == actor)) { throw new GameRuleException("ALREADY_ANSWERED", "Sua resposta já foi registrada."); }
                 var evaluation = ChallengeEvaluator.Evaluate(Scene(match).Challenge, command.Key ?? "");
                 match = match with { Answers = match.Answers.Append(new(actor, command.Key!, evaluation.IsCorrect, now)).ToArray() };
+                break;
+            case "hint":
+                if (match.Rules.Hints is null || match.Phase is not (MultiplayerPhase.Narrating or MultiplayerPhase.QuestionOpen) ||
+                    match.Answers.Any(answer => answer.PlayerId == actor))
+                { throw new GameRuleException("HINT_UNAVAILABLE", "Use as dicas durante a cena, antes de responder e dentro do prazo."); }
+                if (Scene(match).Support?.Vocabulary.Any(hint => hint.Key == command.Key) is not true)
+                { throw new GameRuleException("INVALID_HINT", "Escolha uma palavra disponível nesta cena."); }
+                if (!(match.Hints ?? []).Any(hint => hint.PlayerId == actor && hint.SceneInstanceId == match.SceneInstanceId && hint.Key == command.Key))
+                { match = match with { Hints = (match.Hints ?? []).Append(new(actor, match.SceneInstanceId, command.Key!, now)).ToArray() }; }
                 break;
             case "vote":
                 Phase(match, MultiplayerPhase.DecisionOpen);
@@ -178,7 +197,13 @@ public static class MultiplayerGame
 
     private static MultiplayerMatch CloseQuestion(MultiplayerMatch match, DateTimeOffset now)
     {
-        var answers = MultiplayerScoring.Award(match.Answers, match.Rules.TieMilliseconds);
+        // Rank correct arrivals first; assistance never changes another player's rank or points.
+        var answers = MultiplayerScoring.Award(match.Answers, match.Rules.TieMilliseconds).Select(answer =>
+        {
+            var count = (match.Hints ?? []).Count(hint => hint.PlayerId == answer.PlayerId && hint.SceneInstanceId == match.SceneInstanceId);
+            var deduction = match.Rules.Hints?.Discount(answer.BasePoints, count) ?? 0;
+            return answer with { HintDeduction = deduction, Points = answer.BasePoints - deduction };
+        }).ToArray();
         return ChangePhase(match, MultiplayerPhase.QuestionReveal, now, match.Rules.RevealSeconds) with
         {
             Answers = answers,

@@ -89,6 +89,7 @@ public sealed partial class AdminCatalogTests
         var final = (await guest.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
         Assert.Equal("StoryResult", final.Match!.Scene.Phase);
         Assert.Equal(2, final.Match.Winners.Count);
+        Assert.All(final.Match.Standings!, standing => Assert.Equal(1, standing.Position));
         Assert.All(final.Match.Players, player => { Assert.Equal(200, player.Score); Assert.Equal(1, player.CorrectAnswers); });
         using var late = await RoomPost(host, $"/api/rooms/{room.Id}/commands", Command(final, "answer", "a"));
         Assert.Equal(HttpStatusCode.BadRequest, late.StatusCode);

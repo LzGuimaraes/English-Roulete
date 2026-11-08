@@ -2,6 +2,7 @@ using EnglishRoulette.Application.Admin;
 using EnglishRoulette.Application.Presentation;
 using EnglishRoulette.Contracts;
 using EnglishRoulette.Contracts.Admin;
+using EnglishRoulette.Domain.Stories;
 
 namespace EnglishRoulette.Api.Admin;
 
@@ -34,6 +35,8 @@ internal static class AdminContracts
             Title = scene.Title,
             Narration = scene.Narration,
             IsEnding = scene.IsEnding,
+            Vocabulary = (scene.Support?.Vocabulary ?? []).Select(h => new AdminVocabularyHint { Key = h.Key, Term = h.Term, Translation = h.Translation }).ToList(),
+            Dialogue = (scene.Support?.Dialogue ?? []).Select(c => new AdminDialogueCue { Key = c.Key, Speaker = c.Speaker, Text = c.Text, StartMilliseconds = c.StartMilliseconds, EndMilliseconds = c.EndMilliseconds }).ToList(),
             Prompt = scene.Prompt,
             CorrectOptionKey = scene.CorrectOptionKey,
             Explanation = scene.Explanation,
@@ -48,6 +51,7 @@ internal static class AdminContracts
     public static CatalogDraft Draft(AdminStoryEditor editor, Guid id)
     {
         if ((editor.Scenes ?? []).Any(scene => scene is null ||
+            (scene.Vocabulary ?? []).Any(h => h is null) || (scene.Dialogue ?? []).Any(c => c is null) ||
             (scene.Options ?? []).Any(option => option is null) || (scene.Transitions ?? []).Any(transition => transition is null)))
         { throw new EnglishRoulette.Domain.GameRuleException("INVALID_CONTENT", "Revise os campos das cenas."); }
         var metadata = editor.Metadata ?? new();
@@ -59,7 +63,11 @@ internal static class AdminContracts
                 scene.CorrectOptionKey ?? "", scene.Explanation ?? "", (scene.Transitions ?? []).Select(transition =>
                     new CatalogTransition(transition.Key ?? "", transition.Label ?? "", transition.TargetSceneKey ?? "")).ToArray(),
                 scene.Audio is { } audio ? new(audio.Id, audio.DurationMs, audio.Attribution, audio.LicenseEvidence) : null,
-                scene.Visual is { } visual ? new(visual.Id, visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null)).ToArray());
+                scene.Visual is { } visual ? new(visual.Id, visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null, new SceneSupport
+                {
+                    Vocabulary = (scene.Vocabulary ?? []).Select(h => new VocabularyHint(h.Key ?? "", h.Term ?? "", h.Translation ?? "")).ToArray(),
+                    Dialogue = (scene.Dialogue ?? []).Select(c => new DialogueCue(c.Key ?? "", c.Speaker ?? "", c.Text ?? "", c.StartMilliseconds, c.EndMilliseconds)).ToArray()
+                })).ToArray());
     }
 
     public static StoryAppearance Appearance(CatalogAppearance value) => new()

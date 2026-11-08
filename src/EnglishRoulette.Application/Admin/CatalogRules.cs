@@ -33,6 +33,11 @@ public static partial class CatalogRules
                 scene.Options.Any(option => option.Key.Length > 40 || option.Text.Length > 1000) ||
                 scene.Transitions.Any(transition => transition.Key.Length > 80 || transition.Label.Length > 300 || transition.TargetSceneKey.Length > 80)))
         { issues.Add("Revise as chaves, quantidades e tamanhos dos campos das cenas."); }
+        foreach (var scene in draft.Scenes)
+        {
+            try { scene.Support?.Validate(scene.Narration, scene.Audio?.DurationMs); }
+            catch (GameRuleException error) { issues.Add($"Cena {scene.Key}: {error.Message}"); }
+        }
         return issues;
     }
 
@@ -76,7 +81,7 @@ public static partial class CatalogRules
             draft.Id, scene.Key, scene.Narration,
             new(scene.Id, scene.Prompt, scene.Options.Select(option => new EnglishRoulette.Domain.Challenges.AnswerOption(option.Key, option.Text)),
                 scene.CorrectOptionKey, scene.Explanation), scene.IsEnding,
-            scene.Transitions.Select(transition => new SceneTransition(transition.Key, transition.Label, transition.TargetSceneKey)))));
+            scene.Transitions.Select(transition => new SceneTransition(transition.Key, transition.Label, transition.TargetSceneKey)), scene.Support)));
 
     private static bool HasCycle(CatalogDraft draft)
     {

@@ -1,4 +1,5 @@
 using EnglishRoulette.Domain.Challenges;
+using EnglishRoulette.Domain.Scoring;
 using EnglishRoulette.Domain.Stories;
 
 namespace EnglishRoulette.Domain.Sessions;
@@ -45,4 +46,6 @@ public sealed record SoloAdventureSnapshot(
     DateTimeOffset? PhaseDeadlineUtc,
     SoloQuestion? Question,
     SoloAnswerResult? Answer,
-    IReadOnlyList<SceneTransition> Choices);
+    IReadOnlyList<SceneTransition> Choices,
+    Guid SceneInstanceId = default, SoloScoringRules? ScoringRules = null,
+    IReadOnlyList<string>? UsedHintKeys = null, IReadOnlyList<SoloRoundScore>? RoundScores = null);

@@ -267,6 +267,13 @@ namespace EnglishRoulette.Infrastructure.Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("prompt");
 
+                    b.Property<string>("SupportJson")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasDefaultValue("{}")
+                        .HasColumnName("support_json");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text")

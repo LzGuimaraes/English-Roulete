@@ -86,7 +86,7 @@ internal static class RoomEndpoints
             await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
         }).RequireRateLimiting("AdminWrite");
         group.MapPost("/{id:guid}/spin", async (Guid id, SpinRoomRequest request, HttpContext context, ILobbyStore lobbies,
-            IAdminCatalog catalog, RoomGames games, IHubContext<RoomHub> hub) =>
+            IAdminCatalog catalog, RoomGames games, IHubContext<RoomHub> hub, IConfiguration configuration) =>
         {
             var selected = StoryRoulette.Draw(await catalog.PublishedAsync(context.RequestAborted));
             var content = await catalog.LoadPublishedAsync(selected, context.RequestAborted)
@@ -94,8 +94,15 @@ internal static class RoomEndpoints
             var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) =>
             {
                 var spun = LobbyRoom.Spin(state, Actor(context), request.ExpectedStateVersion, selected, now);
-                return spun with { Match = RoomGames.Start(content, spun, now) };
+                return spun with { Match = RoomGames.Start(content, spun, now, GameAssistance.Rules(configuration).Hints) };
             }, context.RequestAborted);
+            await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
+        }).RequireRateLimiting("AdminWrite");
+        group.MapPost("/{id:guid}/next", async (Guid id, NextRoomRequest request, HttpContext context,
+            ILobbyStore lobbies, RoomGames games, IHubContext<RoomHub> hub) =>
+        {
+            var state = await lobbies.ChangeAsync(id, Actor(context), (current, now) =>
+                LobbyRoom.PrepareNext(current, Actor(context), request.ExpectedStateVersion, request.CompletedMatchId, now), context.RequestAborted);
             await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
         }).RequireRateLimiting("AdminWrite");
         group.MapPost("/{id:guid}/commands", async (Guid id, MatchCommandRequest request, HttpContext context,

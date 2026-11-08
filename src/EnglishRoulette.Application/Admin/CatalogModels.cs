@@ -11,7 +11,7 @@ public sealed record CatalogAudio(Guid Id, int DurationMs, string Attribution, s
 public sealed record CatalogVisual(Guid Id, string AltText, bool Animated, string Attribution, string LicenseEvidence);
 public sealed record CatalogScene(Guid Id, string Key, string Title, string Narration, bool IsEnding,
     string Prompt, IReadOnlyList<CatalogOption> Options, string CorrectOptionKey, string Explanation,
-    IReadOnlyList<CatalogTransition> Transitions, CatalogAudio? Audio, CatalogVisual? Visual = null);
+    IReadOnlyList<CatalogTransition> Transitions, CatalogAudio? Audio, CatalogVisual? Visual = null, SceneSupport? Support = null);
 public sealed record CatalogDraft(Guid Id, Guid StoryId, int Number, string Status, long Revision,
     string InitialSceneKey, CatalogMetadata Metadata, IReadOnlyList<CatalogScene> Scenes);
 public sealed record CatalogSummary(Guid Id, Guid StoryId, int Number, string Title, string Genre,

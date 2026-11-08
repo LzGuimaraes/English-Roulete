@@ -38,6 +38,7 @@ public sealed class CatalogSceneRow
     public string Title { get; set; } = "";
     public int Position { get; set; }
     public string Narration { get; set; } = "";
+    public string SupportJson { get; set; } = "{}";
     public bool IsEnding { get; set; }
     public string Prompt { get; set; } = "";
     public string CorrectOptionKey { get; set; } = "";

@@ -12,7 +12,8 @@ public sealed class StoryScene
         string narration,
         MultipleChoiceChallenge challenge,
         bool isEnding,
-        IEnumerable<SceneTransition> transitions)
+        IEnumerable<SceneTransition> transitions,
+        SceneSupport? support = null)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(key);
         ArgumentException.ThrowIfNullOrWhiteSpace(narration);
@@ -40,6 +41,7 @@ public sealed class StoryScene
         Challenge = challenge;
         IsEnding = isEnding;
         Transitions = Array.AsReadOnly(snapshot);
+        Support = support?.Freeze(narration);
     }
 
     public Guid StoryVersionId { get; }
@@ -48,4 +50,5 @@ public sealed class StoryScene
     public MultipleChoiceChallenge Challenge { get; }
     public bool IsEnding { get; }
     public IReadOnlyList<SceneTransition> Transitions { get; }
+    public SceneSupport? Support { get; }
 }

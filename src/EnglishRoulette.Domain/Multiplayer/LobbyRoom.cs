@@ -4,9 +4,11 @@ namespace EnglishRoulette.Domain.Multiplayer;
 
 public sealed record LobbyMember(Guid PlayerId, string Nickname, string Avatar, bool Ready,
     DateTimeOffset JoinedAtUtc, DateTimeOffset LastSeenUtc);
+public sealed record SeriesPlayer(Guid PlayerId, int Score, int CorrectAnswers);
 public sealed record LobbyState(Guid Id, string Code, int Capacity, Guid HostId, long StateVersion,
     Guid? StoryVersionId, IReadOnlyList<LobbyMember> Members, DateTimeOffset LastActivityUtc, string Status = "Lobby",
-    DateTimeOffset? RouletteStartedAtUtc = null, MultiplayerMatch? Match = null);
+    DateTimeOffset? RouletteStartedAtUtc = null, MultiplayerMatch? Match = null, IReadOnlyList<SeriesPlayer>? SeriesScores = null,
+    Guid? PreparedFromMatchId = null, int CompletedGames = 0);
 
 public static class LobbyRoom
 {
@@ -62,6 +64,33 @@ public static class LobbyRoom
             StateVersion = state.StateVersion + 1,
         }, actor, now);
     }
+    public static LobbyState PrepareNext(LobbyState state, Guid actor, long version, Guid completedMatchId, DateTimeOffset now)
+    {
+        Authorize(state, actor);
+        if (state.HostId != actor) { throw new GameRuleException("ROOM_FORBIDDEN", "Só o anfitrião prepara a próxima partida."); }
+        // A lost response may be retried in the prepared lobby. Never reset a newer match.
+        if (state.Match is null && state.PreparedFromMatchId == completedMatchId) { return Touch(state, actor, now); }
+        Version(state, version);
+        if (state.Match is not { Phase: MultiplayerPhase.StoryResult } match || match.Id != completedMatchId)
+        { throw new GameRuleException("INVALID_GAME_PHASE", "A próxima partida pode ser preparada após o resultado final desta história."); }
+        var totals = state.Members.Select(member =>
+        {
+            var player = match.Players.SingleOrDefault(player => player.Id == member.PlayerId);
+            return new SeriesPlayer(member.PlayerId, player?.Score ?? 0, player?.CorrectAnswers ?? 0);
+        }).ToArray();
+        return Touch(state with
+        {
+            Match = null,
+            StoryVersionId = null,
+            RouletteStartedAtUtc = null,
+            SeriesScores = Array.AsReadOnly(totals),
+            PreparedFromMatchId = completedMatchId,
+            CompletedGames = state.CompletedGames + 1,
+            Members = Array.AsReadOnly(state.Members.Select(member => member with { Ready = false }).ToArray()),
+            StateVersion = state.StateVersion + 1
+        }, actor, now);
+    }
+
     public static LobbyState Leave(LobbyState state, Guid player, DateTimeOffset now)
     {
         Authorize(state, player);

@@ -32,7 +32,13 @@ public sealed class AuthoredStoryCatalogTests
                 new CatalogOption(Text(option, "key"), Text(option, "text"))).ToArray(),
             Text(scene, "correctOptionKey"), Text(scene, "explanation"),
             scene.GetProperty("transitions").EnumerateArray().Select(transition => new CatalogTransition(
-                Text(transition, "key"), Text(transition, "label"), Text(transition, "targetSceneKey"))).ToArray(), null)).ToArray();
+                Text(transition, "key"), Text(transition, "label"), Text(transition, "targetSceneKey"))).ToArray(), null, Support: new SceneSupport
+                {
+                    Vocabulary = scene.TryGetProperty("vocabulary", out var vocabulary)
+                    ? JsonSerializer.Deserialize<VocabularyHint[]>(vocabulary.GetRawText(), new JsonSerializerOptions(JsonSerializerDefaults.Web))! : [],
+                    Dialogue = scene.TryGetProperty("dialogue", out var dialogue)
+                    ? JsonSerializer.Deserialize<DialogueCue[]>(dialogue.GetRawText(), new JsonSerializerOptions(JsonSerializerDefaults.Web))! : []
+                })).ToArray();
         var draft = new CatalogDraft(Guid.NewGuid(), Guid.NewGuid(), 1, "Draft", 1, Text(root, "initialSceneKey"),
             new(Text(metadata, "title"), Text(metadata, "synopsis"), Text(metadata, "genre"), Text(metadata, "difficulty"),
                 Text(metadata, "author"), Text(metadata, "licenseType"), Text(metadata, "licenseEvidence"),

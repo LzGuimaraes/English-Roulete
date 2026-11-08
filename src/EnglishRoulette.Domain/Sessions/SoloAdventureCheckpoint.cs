@@ -1,3 +1,4 @@
+using EnglishRoulette.Domain.Scoring;
 using EnglishRoulette.Domain.Stories;
 
 namespace EnglishRoulette.Domain.Sessions;
@@ -18,4 +19,5 @@ public sealed record SoloAdventureCheckpoint(
     DateTimeOffset QuestionOpensAtUtc,
     DateTimeOffset QuestionClosesAtUtc,
     SoloAnswerResult? Answer,
-    IReadOnlyList<SoloCommandReceipt> Receipts);
+    IReadOnlyList<SoloCommandReceipt> Receipts,
+    SoloScoringRules? ScoringRules = null, IReadOnlyList<HintUse>? Hints = null, IReadOnlyList<SoloRoundScore>? RoundScores = null);

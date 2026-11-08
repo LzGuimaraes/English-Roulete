@@ -30,6 +30,7 @@ internal static class AdminModel
         model.Entity<CatalogVersionRow>().Property(row => row.Revision).IsConcurrencyToken();
         model.Entity<CatalogVersionRow>().HasMany(row => row.Scenes).WithOne().HasForeignKey(scene => scene.VersionId).OnDelete(DeleteBehavior.Cascade);
         model.Entity<CatalogSceneRow>().ToTable("catalog_scenes").HasKey(row => row.Id);
+        model.Entity<CatalogSceneRow>().Property(row => row.SupportJson).HasColumnType("jsonb").HasDefaultValue("{}");
         model.Entity<CatalogSceneRow>().HasIndex(row => new { row.VersionId, row.Key }).IsUnique();
         model.Entity<CatalogSceneRow>().HasOne(row => row.Visual).WithMany().HasForeignKey(row => row.VisualId).OnDelete(DeleteBehavior.Restrict);
         model.Entity<CatalogSceneRow>().HasOne(row => row.Audio).WithMany().HasForeignKey(row => row.AudioId).OnDelete(DeleteBehavior.Restrict);

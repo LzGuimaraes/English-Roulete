@@ -14,3 +14,6 @@ public sealed record ContinueSoloAdventure(Guid RequestId, long ExpectedStateVer
 
 public sealed record ChooseSoloPath(Guid RequestId, long ExpectedStateVersion, string TransitionKey)
     : SoloAdventureCommand(RequestId, ExpectedStateVersion);
+
+public sealed record UseSoloHint(Guid RequestId, long ExpectedStateVersion, Guid SceneInstanceId, string HintKey)
+    : SoloAdventureCommand(RequestId, ExpectedStateVersion);

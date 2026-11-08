@@ -5,6 +5,10 @@ public sealed record ChoiceView(string Key, string Label);
 public sealed record QuestionView(Guid InstanceId, string Prompt, IReadOnlyList<OptionView> Options);
 public sealed record AnswerView(string? OptionKey, bool IsCorrect, bool TimedOut, string Explanation);
 public sealed record AudioView(string Url, int DurationMilliseconds, int SafetyMarginMilliseconds);
+public sealed record WordHintView(string Key, string Term, string? Translation);
+public sealed record HintCostView(string PerWord, string Limit, int UsedCount, string CurrentDiscount, bool CanUse);
+public sealed record PlayerScoreView(int Total, int? RoundBase, int? RoundDeduction, int? RoundPoints, string Rules);
+public sealed record DialogueCueView(string Speaker, string Text, int StartMilliseconds, int EndMilliseconds);
 
 public sealed record AdventureView(
     string Title,
@@ -24,7 +28,10 @@ public sealed record AdventureView(
     Guid? StoryVersionId = null,
     StoryAppearance? Appearance = null,
     SceneVisualView? Visual = null,
-    string Genre = "");
+    string Genre = "",
+    IReadOnlyList<DialogueCueView>? Dialogue = null,
+    Guid SceneInstanceId = default,
+    IReadOnlyList<WordHintView>? WordHints = null, HintCostView? HintCost = null, PlayerScoreView? Score = null);
 
 public sealed record AdventureCommand(
     Guid RequestId,
@@ -32,7 +39,7 @@ public sealed record AdventureCommand(
     string Kind,
     Guid? QuestionInstanceId = null,
     string? OptionKey = null,
-    string? TransitionKey = null);
+    string? TransitionKey = null, string? HintKey = null, Guid? SceneInstanceId = null);
 
 public sealed record VisitedSceneView(string Key, string Title);
 public sealed record CreateAdventureRequest(Guid? StoryVersionId = null,

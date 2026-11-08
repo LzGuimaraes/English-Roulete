@@ -17,7 +17,7 @@ using Microsoft.EntityFrameworkCore;
 namespace EnglishRoulette.Api.Demo;
 
 internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timeProvider, IAdminCatalog catalog,
-    AdventureDbContext db, CatalogMediaStorage media)
+    AdventureDbContext db, CatalogMediaStorage media, IConfiguration configuration)
 {
     private const string CookieName = "englishroulette.demo";
     private const int SafetyMarginMs = 2000;
@@ -43,7 +43,7 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             ? guestId : previous?.Checkpoint.PlayerId ?? Guid.NewGuid();
         var timings = content.Story.Scenes.Select(scene => new SceneTiming(scene.Key,
             TimeSpan.FromMilliseconds(content.Audio[scene.Key].DurationMs + SafetyMarginMs), TimeSpan.FromSeconds(20)));
-        var session = new SoloAdventureSession(Guid.NewGuid(), playerId, content.Story, timings);
+        var session = new SoloAdventureSession(Guid.NewGuid(), playerId, content.Story, timings, GameAssistance.Rules(configuration));
         var credential = Convert.ToHexString(RandomNumberGenerator.GetBytes(32));
         var hash = Hash(credential);
         await store.CreateAsync(hash, session.Capture(), previousHash, cancellationToken);
@@ -77,6 +77,8 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             "start" => new StartSoloNarration(request.RequestId, request.ExpectedStateVersion),
             "answer" when request.QuestionInstanceId is { } instanceId && request.OptionKey is { } option =>
                 new SubmitSoloAnswer(request.RequestId, request.ExpectedStateVersion, instanceId, option),
+            "hint" when request.SceneInstanceId is { } sceneInstance && request.HintKey is { } hint =>
+                new UseSoloHint(request.RequestId, request.ExpectedStateVersion, sceneInstance, hint),
             "continue" => new ContinueSoloAdventure(request.RequestId, request.ExpectedStateVersion),
             "choose" when request.TransitionKey is { } choice => new ChooseSoloPath(request.RequestId, request.ExpectedStateVersion, choice),
             _ => throw new ArgumentException("Comando inválido.", nameof(request))
@@ -98,6 +100,9 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             .OrderBy(receipt => receipt.Snapshot.StateVersion).Select(receipt => receipt.Snapshot.SceneKey)
             .Append(snapshot.SceneKey).Distinct(StringComparer.Ordinal).ToArray();
         var audio = content.Audio[snapshot.SceneKey];
+        var scene = content.Story.Scenes.Single(item => item.Key == snapshot.SceneKey);
+        var hints = snapshot.UsedHintKeys ?? [];
+        var round = snapshot.RoundScores?.SingleOrDefault(item => item.SceneInstanceId == snapshot.SceneInstanceId);
         return new(snapshot.StoryTitle, snapshot.SceneKey, content.SceneTitles[snapshot.SceneKey], keys.Length, snapshot.Narration,
             snapshot.StateVersion, snapshot.Phase.ToString(), snapshot.ServerNowUtc, snapshot.PhaseDeadlineUtc,
             snapshot.Question is { } question
@@ -107,6 +112,12 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             new($"/media/catalog/{audio.Id}", audio.DurationMs, SafetyMarginMs),
             keys.Select(key => new VisitedSceneView(key, content.SceneTitles[key])).ToArray(), snapshot.StoryVersionId, AdminContracts.Appearance(content.Metadata.Appearance ?? new()),
             content.Visuals.TryGetValue(snapshot.SceneKey, out var visual) ? new SceneVisualView($"/media/visuals/{visual.Id}", visual.AltText, visual.Animated) : null,
-            content.Metadata.Genre);
+            content.Metadata.Genre,
+            content.Story.Scenes.Single(scene => scene.Key == snapshot.SceneKey).Support?.Dialogue.Select(cue =>
+                new DialogueCueView(cue.Speaker, cue.Text, cue.StartMilliseconds, cue.EndMilliseconds)).ToArray(), snapshot.SceneInstanceId,
+            GameAssistance.Words(scene.Support, hints, snapshot.ScoringRules?.Hints),
+            GameAssistance.Cost(snapshot.ScoringRules?.Hints, hints.Count, snapshot.Phase is SoloAdventurePhase.Narrating or SoloAdventurePhase.QuestionOpen),
+            snapshot.ScoringRules is { } rules ? new((snapshot.RoundScores ?? []).Sum(item => item.Points), round?.BasePoints, round?.Deduction, round?.Points,
+                GameAssistance.SoloDescription(rules)) : null);
     }
 }

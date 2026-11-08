@@ -2,6 +2,7 @@ using System.Text.Json;
 using EnglishRoulette.Application.Admin;
 using EnglishRoulette.Application.Presentation;
 using EnglishRoulette.Domain;
+using EnglishRoulette.Domain.Stories;
 using EnglishRoulette.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -207,7 +208,8 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
             scene.CorrectOptionKey, scene.Explanation, scene.Transitions.OrderBy(transition => transition.Position)
                 .Select(transition => new CatalogTransition(transition.Key, transition.Label, transition.TargetSceneKey)).ToArray(),
             scene.Audio is { } audio ? new CatalogAudio(audio.Id, audio.DurationMs, audio.Attribution, audio.LicenseEvidence) : null,
-            scene.Visual is { } visual ? new CatalogVisual(visual.Id, visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null)).ToArray());
+            scene.Visual is { } visual ? new CatalogVisual(visual.Id, visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null,
+            JsonSerializer.Deserialize<SceneSupport>(scene.SupportJson))).ToArray());
 
     public static CatalogSceneRow SceneRow(CatalogScene scene, Guid versionId, int position, IReadOnlyDictionary<Guid, CatalogMediaRow> assets, IReadOnlyDictionary<Guid, CatalogVisualRow>? visuals = null) => new()
     {
@@ -217,6 +219,7 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
         Title = scene.Title,
         Position = position,
         Narration = scene.Narration,
+        SupportJson = JsonSerializer.Serialize(scene.Support ?? new()),
         IsEnding = scene.IsEnding,
         Prompt = scene.Prompt,
         CorrectOptionKey = scene.CorrectOptionKey,

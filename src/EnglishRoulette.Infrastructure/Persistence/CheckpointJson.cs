@@ -25,7 +25,7 @@ public static class CheckpointJson
                 DerivedTypes =
                 {
                     new(typeof(StartSoloNarration), "start"), new(typeof(SubmitSoloAnswer), "answer"),
-                    new(typeof(ContinueSoloAdventure), "continue"), new(typeof(ChooseSoloPath), "choose")
+                    new(typeof(UseSoloHint), "hint"), new(typeof(ContinueSoloAdventure), "continue"), new(typeof(ChooseSoloPath), "choose")
                 }
             };
         });

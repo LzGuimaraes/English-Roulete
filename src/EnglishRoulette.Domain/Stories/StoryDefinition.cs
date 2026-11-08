@@ -8,7 +8,7 @@ public sealed record ChallengeDefinition(
 
 public sealed record SceneDefinition(
     Guid StoryVersionId, string Key, string Narration, ChallengeDefinition Challenge,
-    bool IsEnding, IReadOnlyList<SceneTransition> Transitions);
+    bool IsEnding, IReadOnlyList<SceneTransition> Transitions, SceneSupport? Support = null);
 
 public sealed record StoryDefinition(
     Guid Id, string Title, PublicationStatus Status, string InitialSceneKey, IReadOnlyList<SceneDefinition> Scenes)
@@ -18,10 +18,10 @@ public sealed record StoryDefinition(
             scene.StoryVersionId, scene.Key, scene.Narration,
             new(scene.Challenge.Id, scene.Challenge.Prompt, scene.Challenge.Options,
                 scene.Challenge.CorrectOptionKey, scene.Challenge.Explanation),
-            scene.IsEnding, scene.Transitions)).ToArray()));
+            scene.IsEnding, scene.Transitions, scene.Support)).ToArray()));
 
     public StoryVersion Restore() => new(Id, Title, Status, InitialSceneKey, Scenes.Select(scene => new StoryScene(
         scene.StoryVersionId, scene.Key, scene.Narration,
         new(scene.Challenge.Id, scene.Challenge.Prompt, scene.Challenge.Options,
-            scene.Challenge.CorrectOptionKey, scene.Challenge.Explanation), scene.IsEnding, scene.Transitions)));
+            scene.Challenge.CorrectOptionKey, scene.Challenge.Explanation), scene.IsEnding, scene.Transitions, scene.Support)));
 }

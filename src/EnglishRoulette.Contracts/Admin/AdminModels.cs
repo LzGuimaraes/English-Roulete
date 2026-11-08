@@ -47,8 +47,24 @@ public sealed class AdminSceneEditor
     public string CorrectOptionKey { get; set; } = "";
     public string Explanation { get; set; } = "";
     public List<AdminTransitionEditor> Transitions { get; set; } = [];
+    public List<AdminVocabularyHint> Vocabulary { get; set; } = [];
+    public List<AdminDialogueCue> Dialogue { get; set; } = [];
     public AdminVisualView? Visual { get; set; }
     public AdminAudioView? Audio { get; set; }
+}
+public sealed class AdminVocabularyHint
+{
+    public string Key { get; set; } = "";
+    public string Term { get; set; } = "";
+    public string Translation { get; set; } = "";
+}
+public sealed class AdminDialogueCue
+{
+    public string Key { get; set; } = "";
+    public string Speaker { get; set; } = "";
+    public string Text { get; set; } = "";
+    public int StartMilliseconds { get; set; }
+    public int EndMilliseconds { get; set; }
 }
 public sealed class AdminOptionEditor
 {
