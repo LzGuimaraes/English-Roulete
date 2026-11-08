@@ -66,7 +66,42 @@
         },
         "cluePurpose": "A figura é uma gravação, não uma personagem interativa oferecida pelo motor do jogo.",
         "questionEvidence": "I helped build this place"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "workshop",
+          "translation": "oficina"
+        },
+        {
+          "key": "word-2",
+          "term": "taken apart",
+          "translation": "desmontada"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "arrival",
+          "speaker": "Narrador",
+          "text": "Sana was checking an old workshop before the station was taken apart. Above a desk projector, a blue figure appeared: an older woman in a work shirt.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 9880
+        },
+        {
+          "key": "builder",
+          "speaker": "A construtora",
+          "text": "\"I helped build this place,\"",
+          "startMilliseconds": 9880,
+          "endMilliseconds": 11702
+        },
+        {
+          "key": "listen",
+          "speaker": "Narrador",
+          "text": "the recording said. Sana stopped by the window bench. The visitor was only light, but its voice sounded pleased to have company again. She decided to hear the whole message.",
+          "startMilliseconds": 11702,
+          "endMilliseconds": 22860
+        }
+      ]
     },
     {
       "key": "window-memory",
@@ -114,7 +149,19 @@
         },
         "cluePurpose": "O banco ancora a memória em um local concreto e o cartão permite as duas rotas.",
         "questionEvidence": "the station was once a home"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "shifts",
+          "translation": "turnos de trabalho"
+        },
+        {
+          "key": "word-2",
+          "term": "drawer",
+          "translation": "gaveta"
+        }
+      ]
     },
     {
       "key": "what-to-save",
@@ -167,7 +214,19 @@
         },
         "cluePurpose": "A decisão contrapõe preservação integral e reutilização, sem perder a mensagem principal.",
         "questionEvidence": "The builder's words would survive either way"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "worn",
+          "translation": "gasto pelo uso"
+        },
+        {
+          "key": "word-2",
+          "term": "preserve",
+          "translation": "preservar; conservar"
+        }
+      ]
     },
     {
       "key": "archive-light",
@@ -209,7 +268,19 @@
         },
         "cluePurpose": "A cópia integral tem um destino claro e encerra a tarefa de preservação sem salvar fisicamente a estação.",
         "questionEvidence": "in the station museum"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "labelled",
+          "translation": "etiquetou; identificou com uma etiqueta"
+        },
+        {
+          "key": "word-2",
+          "term": "mattered",
+          "translation": "tinha importância"
+        }
+      ]
     },
     {
       "key": "workshop-voice",
@@ -251,7 +322,19 @@
         },
         "cluePurpose": "A voz transforma uma prática de convivência no novo lugar; não aparece a projeção integral da outra rota.",
         "questionEvidence": "a place where everyone could sit after a shift"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "workbench",
+          "translation": "bancada de trabalho"
+        },
+        {
+          "key": "word-2",
+          "term": "shift",
+          "translation": "turno de trabalho"
+        }
+      ]
     }
   ],
   "authoringNotes": {

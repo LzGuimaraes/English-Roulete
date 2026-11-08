@@ -50,6 +50,11 @@ def editor_payload(document, draft):
     for source in document["scenes"]:
         old = previous.get(source["key"], {})
         scene = {field: source[field] for field in SCENE_FIELDS}
+        for field in ("vocabulary", "dialogue"):
+            if field in source:
+                scene[field] = copy.deepcopy(source[field])
+            elif field in old:
+                scene[field] = copy.deepcopy(old[field])
         scene.update(id=old.get("id", EMPTY_ID), audio=old.get("audio"), visual=old.get("visual"))
         result["scenes"].append(scene)
     return result

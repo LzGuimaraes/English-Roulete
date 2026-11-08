@@ -124,3 +124,7 @@ python3 scripts/import_story.py content/anthology-01/a-visitor-made-of-light-a2/
 Para importar somente o texto como rascunho, use o mesmo JSON com `--url` e `--email`. Versões publicadas são imutáveis; duplique pelo painel antes de editar. Não use o manifesto de exemplo como pacote pronto.
 
 **Envio à VPS:** este texto e suas mídias já foram enviados. Consulte `../vps-import.json` para o ID real da versão; use esse ID ao retomar a edição, para não criar uma cópia. Os comprovantes `vps-import.json` e `vps-media.json` registram estado, IDs e hashes verificados. Os prompts e os arquivos produzidos estão preservados localmente.
+
+## Vocabulário e falas — 08/11/2026
+
+Foram acrescentadas duas traduções contextuais por cena (dez na história), conferidas contra os termos exatos da narração. Texto inglês, perguntas, gabaritos, escolhas e finais permanecem iguais. Quando há diálogo, as falas cobrem integralmente a narração; os intervalos vêm de PCM concatenado produzido offline, com uma única voz sintética. Publicação em uma nova versão preserva sessões existentes.

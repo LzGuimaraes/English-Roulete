@@ -66,7 +66,19 @@
         },
         "cluePurpose": "O livro deslocado do ambiente é a primeira anomalia; envelope e registro nunca são o mesmo objeto.",
         "questionEvidence": "Dust covered the counter around it, but not the book"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "boarding house",
+          "translation": "pensão; casa que aluga quartos"
+        },
+        {
+          "key": "word-2",
+          "term": "ledger",
+          "translation": "livro de registros"
+        }
+      ]
     },
     {
       "key": "six-empty-rooms",
@@ -114,7 +126,19 @@
         },
         "cluePurpose": "Há conflito entre evidência física e registro; o texto não confirma moradores invisíveis como fato.",
         "questionEvidence": "none of the small signs of ordinary life"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "bare",
+          "translation": "sem roupa de cama; descobertas"
+        },
+        {
+          "key": "word-2",
+          "term": "belongings",
+          "translation": "pertences pessoais"
+        }
+      ]
     },
     {
       "key": "her-name",
@@ -167,7 +191,19 @@
         },
         "cluePurpose": "O nome envolve a protagonista, mas as saídas continuam disponíveis e a decisão profissional é explícita.",
         "questionEvidence": "she would not sign a claim that she could no longer support"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "resembled",
+          "translation": "se parecia com"
+        },
+        {
+          "key": "word-2",
+          "term": "claim",
+          "translation": "afirmação; declaração"
+        }
+      ]
     },
     {
       "key": "ledger-outside",
@@ -209,7 +245,19 @@
         },
         "cluePurpose": "A anomalia do registro é levada a outra pessoa e o contrato fica sem certificação; não se inventa uma explicação ou ameaça nova.",
         "questionEvidence": "pretending she had understood the building"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "account",
+          "translation": "relato"
+        },
+        {
+          "key": "word-2",
+          "term": "pretending",
+          "translation": "fingindo"
+        }
+      ]
     },
     {
       "key": "survey-only",
@@ -251,7 +299,19 @@
         },
         "cluePurpose": "A rota mantém os registros separados e encerra a experiência com um limite pessoal claro.",
         "questionEvidence": "took only her survey envelope and key"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "occupancy unverified",
+          "translation": "ocupação não verificada"
+        },
+        {
+          "key": "word-2",
+          "term": "declined",
+          "translation": "recusou"
+        }
+      ]
     }
   ],
   "authoringNotes": {

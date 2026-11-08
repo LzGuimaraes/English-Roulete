@@ -12,6 +12,13 @@ spec.loader.exec_module(importer)
 SAMPLE = ROOT / "content/examples/green-ribbon-a2.json"
 
 
+publisher_spec = importlib.util.spec_from_file_location("publish_scene_support", ROOT / "scripts/publish_scene_support.py")
+import sys
+sys.modules["import_story"] = importer
+publisher = importlib.util.module_from_spec(publisher_spec)
+publisher_spec.loader.exec_module(publisher)
+
+
 class AuthoringTests(unittest.TestCase):
     def test_example_is_complete_and_speech_script_matches_narration(self):
         document = importer.load_story(SAMPLE)
@@ -37,6 +44,43 @@ class AuthoringTests(unittest.TestCase):
         self.assertEqual(draft["scenes"][0]["id"], "server-scene")
         with self.assertRaises(ValueError):
             importer.editor_payload(document, dict(draft, status="Published"))
+
+    def test_optional_vocabulary_and_dialogue_reach_only_editorial_payload(self):
+        document = importer.load_story(SAMPLE)
+        document["scenes"][0]["vocabulary"] = [{"key": "word", "term": "quiet", "translation": "silencioso"}]
+        document["scenes"][0]["dialogue"] = [{"key": "cue", "speaker": "Narrador", "text": document["scenes"][0]["narration"], "startMilliseconds": 0, "endMilliseconds": 2000}]
+        payload = importer.editor_payload(document, {"status": "Draft", "metadata": {}, "scenes": []})
+        self.assertEqual(payload["scenes"][0]["vocabulary"], document["scenes"][0]["vocabulary"])
+        self.assertEqual(payload["scenes"][0]["dialogue"], document["scenes"][0]["dialogue"])
+        self.assertNotIn("vocabulary", payload["scenes"][1])
+
+    def test_support_publisher_rejects_changed_narration_before_duplicating(self):
+        import copy
+        source = ROOT / "content/anthology-01/the-second-cup-a1/story.json"
+        document = importer.load_story(source)
+        original = {"id": "published", "title": document["metadata"]["title"], "status": "Published", "scenes": copy.deepcopy(document["scenes"])}
+        original["scenes"][0]["narration"] += " Changed."
+        class Api:
+            def request(self, method, path):
+                self_test.assertEqual(method, "GET")
+                return [original] if "?page=" in path else original
+        self_test = self
+        with self.assertRaisesRegex(ValueError, "narration/scene keys differ"):
+            publisher.publish(Api(), source, ROOT / "media/anthology-01", True)
+
+    def test_support_publisher_skips_identical_published_annotations(self):
+        import copy
+        source = ROOT / "content/anthology-01/the-second-cup-a1/story.json"
+        document = importer.load_story(source)
+        original = {"id": "published", "title": document["metadata"]["title"], "status": "Published", "scenes": copy.deepcopy(document["scenes"])}
+        class Api:
+            def request(self, method, path):
+                self_test.assertEqual(method, "GET")
+                return [original] if "?page=" in path else original
+        self_test = self
+        result = publisher.publish(Api(), source, ROOT / "media/anthology-01", True)
+        self.assertEqual(result["id"], "published")
+        self.assertEqual(result["status"], "already-published")
 
     def test_media_requires_complete_package_and_cannot_read_outside_its_directory(self):
         document = importer.load_story(SAMPLE)

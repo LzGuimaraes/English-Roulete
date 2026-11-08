@@ -66,7 +66,19 @@
         },
         "cluePurpose": "A quantidade inicial é explícita e sustenta a estranheza seguinte.",
         "questionEvidence": "one cup of tea"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "steam",
+          "translation": "vapor"
+        },
+        {
+          "key": "word-2",
+          "term": "keys",
+          "translation": "chaves"
+        }
+      ]
     },
     {
       "key": "two-cups",
@@ -114,7 +126,42 @@
         },
         "cluePurpose": "Duas xícaras quentes surgem no lugar onde havia apenas uma; as chaves não mudam de posição.",
         "questionEvidence": "Her keys are on the table"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "beside",
+          "translation": "ao lado de"
+        },
+        {
+          "key": "word-2",
+          "term": "both",
+          "translation": "ambas; as duas"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "nora-call-before",
+          "speaker": "Narrador",
+          "text": "Her keys are on the table. Now there are two white cups beside them. Steam rises from both cups. Nora stops. The front door is closed. She calls,",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10480
+        },
+        {
+          "key": "nora-call",
+          "speaker": "Nora",
+          "text": "\"Hello?\"",
+          "startMilliseconds": 10480,
+          "endMilliseconds": 11110
+        },
+        {
+          "key": "nora-call-after",
+          "speaker": "Narrador",
+          "text": "No one answers. She does not want to stay alone.",
+          "startMilliseconds": 11110,
+          "endMilliseconds": 14883
+        }
+      ]
     },
     {
       "key": "two-exits",
@@ -167,7 +214,19 @@
         },
         "cluePurpose": "As duas saídas existem antes da escolha, e nenhuma exige uma ação imprudente.",
         "questionEvidence": "She leaves both cups on the table"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "bakery",
+          "translation": "padaria"
+        },
+        {
+          "key": "word-2",
+          "term": "courtyard",
+          "translation": "pátio interno"
+        }
+      ]
     },
     {
       "key": "across-the-street",
@@ -209,7 +268,19 @@
         },
         "cluePurpose": "Nora encontra companhia e conclui sua saída; a causa da segunda xícara continua incerta.",
         "questionEvidence": "She stays with the baker until morning"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "shaking",
+          "translation": "tremendo"
+        },
+        {
+          "key": "word-2",
+          "term": "until",
+          "translation": "até"
+        }
+      ]
     },
     {
       "key": "courtyard-exit",
@@ -251,7 +322,42 @@
         },
         "cluePurpose": "A protagonista sai e combina uma volta acompanhada, encerrando sua decisão sem explicar cedo o mistério.",
         "questionEvidence": "He stays on the phone"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "owner",
+          "translation": "proprietário"
+        },
+        {
+          "key": "word-2",
+          "term": "together",
+          "translation": "juntos"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "nora-phone-before",
+          "speaker": "Narrador",
+          "text": "Nora walks through the empty kitchen and leaves by the courtyard gate. Outside, she calls the café owner.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 8254
+        },
+        {
+          "key": "nora-phone",
+          "speaker": "Nora",
+          "text": "\"I only made one cup,\"",
+          "startMilliseconds": 8254,
+          "endMilliseconds": 9833
+        },
+        {
+          "key": "nora-phone-after",
+          "speaker": "Narrador",
+          "text": "she says. He stays on the phone. She reaches the main street and goes home. Tomorrow, they will return together.",
+          "startMilliseconds": 9833,
+          "endMilliseconds": 17426
+        }
+      ]
     }
   ],
   "authoringNotes": {
