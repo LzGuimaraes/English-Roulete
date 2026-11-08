@@ -1,0 +1,115 @@
+{
+  "origin": "https://english.lzguimaraes.com.br",
+  "stories": [
+    {
+      "title": "The Blue Envelope — A1",
+      "previousId": "61ed0b74-b786-4aa7-b612-27ee502d8d9a",
+      "id": "41596f4b-af89-42b5-a378-93ee0ebb88eb",
+      "status": "Published",
+      "sceneCount": 5,
+      "hintCount": 10,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:08.286291+00:00"
+    },
+    {
+      "title": "The Empty Frame — A2",
+      "previousId": "d0148e14-1b7b-4194-a319-1a2cae64dc6c",
+      "id": "14b461e6-5e37-4136-878c-88787c81a2b5",
+      "status": "Published",
+      "sceneCount": 5,
+      "hintCount": 10,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:10.031039+00:00"
+    },
+    {
+      "title": "The Garden Robot — A1",
+      "previousId": "a0ca179c-a904-4085-9991-0c6f5032cbeb",
+      "id": "986372b0-a3c5-465b-82f7-4bb6129b2e37",
+      "status": "Published",
+      "sceneCount": 5,
+      "hintCount": 10,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:11.569308+00:00"
+    },
+    {
+      "title": "The Lantern Walk — A1",
+      "previousId": "dcc801e3-9f26-40b6-9380-5f1ea8924ad8",
+      "id": "7d367e7e-60f0-4dda-9f4b-1f4be4b9a341",
+      "status": "Published",
+      "sceneCount": 5,
+      "hintCount": 10,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:13.422535+00:00"
+    },
+    {
+      "title": "The Lighthouse beyond Earth — B1",
+      "previousId": "80df6a65-5578-4bc0-a1cc-34651c6daa1f",
+      "id": "241a95a0-f314-4022-938b-3762b8dfe27c",
+      "status": "Published",
+      "sceneCount": 5,
+      "hintCount": 10,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:15.458941+00:00"
+    },
+    {
+      "title": "The Listening Booth — A2",
+      "previousId": "227aaa71-c670-4715-946d-26a03a820b9e",
+      "id": "2caf200d-4a88-4724-a3f2-52c6e4856f8f",
+      "status": "Published",
+      "sceneCount": 5,
+      "hintCount": 10,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:17.158730+00:00"
+    },
+    {
+      "title": "The Mountain Post — B1",
+      "previousId": "f2d259a0-58df-4b29-8792-fcf6ca874482",
+      "id": "5a6a5521-eef1-4e51-a63d-c6dfb8c550c6",
+      "status": "Published",
+      "sceneCount": 5,
+      "hintCount": 10,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:18.861843+00:00"
+    },
+    {
+      "title": "The Red Violin Case — A2",
+      "previousId": "9587ee41-c059-495e-8108-b116198486c4",
+      "id": "deeee5cb-19e9-4d2e-b6db-d5614a22736d",
+      "status": "Published",
+      "sceneCount": 5,
+      "hintCount": 10,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:20.433369+00:00"
+    },
+    {
+      "title": "The Seventh Photograph — B1",
+      "previousId": "c9126f19-4607-454f-82f7-cafe9bf59dc5",
+      "id": "078baa10-40a9-45a4-a6eb-bbc2e5c7f1d7",
+      "status": "Published",
+      "sceneCount": 5,
+      "hintCount": 10,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:21.965098+00:00"
+    },
+    {
+      "title": "The Green Ribbon — A2",
+      "previousId": "165e05d6-f339-42c5-b46e-565b60773ec9",
+      "id": "77638b4e-34c0-4499-94b8-5715dee6305e",
+      "status": "Published",
+      "sceneCount": 4,
+      "hintCount": 8,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:23.047772+00:00"
+    },
+    {
+      "title": "The Last Shift — A2",
+      "previousId": "72026fd3-bd7b-4f30-b77a-ea7c11fdbb6e",
+      "id": "2d00899d-f48e-451c-84d6-db7c9c1d6835",
+      "status": "Published",
+      "sceneCount": 4,
+      "hintCount": 8,
+      "mediaPreserved": true,
+      "verifiedAtUtc": "2026-11-08T21:11:25.644322+00:00"
+    }
+  ]
+}

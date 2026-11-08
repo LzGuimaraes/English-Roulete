@@ -66,7 +66,19 @@
         },
         "cluePurpose": "A lanterna resolve uma necessidade apresentada desde o início.",
         "questionEvidence": "carries a green lantern"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "lantern",
+          "translation": "lanterna"
+        },
+        {
+          "key": "word-2",
+          "term": "neighbours",
+          "translation": "vizinhos"
+        }
+      ]
     },
     {
       "key": "map-paths",
@@ -114,7 +126,19 @@
         },
         "cluePurpose": "Os dois trajetos são apresentados e permanecem disponíveis, sem condição de código.",
         "questionEvidence": "The left path goes beside a pond"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "pond",
+          "translation": "lagoa"
+        },
+        {
+          "key": "word-2",
+          "term": "orchard",
+          "translation": "pomar"
+        }
+      ]
     },
     {
       "key": "people-on-paths",
@@ -167,7 +191,19 @@
         },
         "cluePurpose": "A escolha altera a companhia e o lugar onde a ajuda será aproveitada.",
         "questionEvidence": "Two musicians stand by the orchard path"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "bench",
+          "translation": "banco de sentar"
+        },
+        {
+          "key": "word-2",
+          "term": "reach",
+          "translation": "chegar a"
+        }
+      ]
     },
     {
       "key": "picnic-table",
@@ -209,7 +245,19 @@
         },
         "cluePurpose": "O objetivo inicial é cumprido diretamente: iluminar a mesa do encontro.",
         "questionEvidence": "on the food table"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "plates",
+          "translation": "pratos"
+        },
+        {
+          "key": "word-2",
+          "term": "share",
+          "translation": "compartilhar"
+        }
+      ]
     },
     {
       "key": "picnic-stage",
@@ -251,7 +299,19 @@
         },
         "cluePurpose": "A lanterna apoia outra parte do mesmo encontro; a outra lâmpada só existe nesta rota e é apresentada no texto.",
         "questionEvidence": "beside the small stage"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "stage",
+          "translation": "palco"
+        },
+        {
+          "key": "word-2",
+          "term": "glad",
+          "translation": "contente"
+        }
+      ]
     }
   ],
   "authoringNotes": {

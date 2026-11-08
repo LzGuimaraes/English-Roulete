@@ -66,7 +66,19 @@
         },
         "cluePurpose": "A entrega é pequena, mas tem significado pessoal estabelecido antes das escolhas.",
         "questionEvidence": "this final connection to the station mattered to him"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "porch",
+          "translation": "varanda"
+        },
+        {
+          "key": "word-2",
+          "term": "sealed packet",
+          "translation": "envelope fechado; lacrado"
+        }
+      ]
     },
     {
       "key": "old-timetable",
@@ -114,7 +126,19 @@
         },
         "cluePurpose": "O registro antigo e a anotação recente explicam por que há dois destinos razoáveis.",
         "questionEvidence": "hand over the packet directly"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "descending",
+          "translation": "descer"
+        },
+        {
+          "key": "word-2",
+          "term": "hand over",
+          "translation": "entregar em mãos"
+        }
+      ]
     },
     {
       "key": "descent-choice",
@@ -167,7 +191,19 @@
         },
         "cluePurpose": "A escolha diz respeito à forma da devolução, não ao direito de ler correspondência alheia.",
         "questionEvidence": "news of the station's closure"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "junction",
+          "translation": "bifurcação; encontro de caminhos"
+        },
+        {
+          "key": "word-2",
+          "term": "closure",
+          "translation": "fechamento"
+        }
+      ]
     },
     {
       "key": "village-return",
@@ -209,7 +245,19 @@
         },
         "cluePurpose": "O próprio destinatário abre a correspondência, e o trajeto cria um reencontro comunitário.",
         "questionEvidence": "an afternoon of shared memories"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "former colleagues",
+          "translation": "antigos colegas de trabalho"
+        },
+        {
+          "key": "word-2",
+          "term": "borrowed",
+          "translation": "emprestada"
+        }
+      ]
     },
     {
       "key": "farm-return",
@@ -251,7 +299,19 @@
         },
         "cluePurpose": "O conteúdo é idêntico ao outro final, mas o acolhimento acontece em uma conversa privada.",
         "questionEvidence": "left him with his own memories"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "travellers",
+          "translation": "viajantes"
+        },
+        {
+          "key": "word-2",
+          "term": "put the others away",
+          "translation": "guardou as outras"
+        }
+      ]
     }
   ],
   "authoringNotes": {

@@ -6,6 +6,8 @@ Pacote editorial criado para ampliar a variedade da roleta, com quatro gêneros 
 
 **Publicado na VPS:** as 12 histórias estão disponíveis no catálogo público. **Produção concluída:** 60 narrações WAV, 60 ilustrações 2D dark e 60 loops GIF foram produzidos e enviados às 12 histórias na VPS. Cada upload foi relido e comparado por SHA-256. O estado de publicação e os IDs estão em [vps-import.json](vps-import.json); os comprovantes de mídia estão em [vps-media.json](vps-media.json). O responsável autorizou o envio e a publicação direta deste lote.
 
+**Atualização de vocabulário (08/11/2026):** todas as 60 cenas agora têm duas dicas contextuais. Nove histórias receberam novas versões com 90 traduções, preservando textos e mídias. Os comprovantes acima registram o lote original; os IDs dessas atualizações estão em [vps-publication.json](../vocabulary/vps-publication.json). O clique nas palavras e o isolamento entre partidas estão descritos em [INLINE_WORD_HINTS.md](../../docs/increments/INLINE_WORD_HINTS.md).
+
 | Nível proposto | Gênero | História completa para leitura | Premissa |
 |---|---|---|---|
 | A1 | Aventura | [The Lantern Walk](the-lantern-walk-a1/REVIEW.md) | Omar leva uma lanterna ao encontro do bairro e escolhe entre dois caminhos do parque. |

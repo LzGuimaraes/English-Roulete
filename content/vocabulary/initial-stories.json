@@ -1,0 +1,143 @@
+{
+  "note": "Traduções contextuais para as duas histórias iniciais; hashes vinculam cada anotação à narração publicada, que permanece intacta. Criação e publicação autorizadas pelo responsável em 08/11/2026.",
+  "stories": [
+    {
+      "title": "The Green Ribbon — A2",
+      "scenes": [
+        {
+          "key": "quiet-room",
+          "narrationSha256": "2769ad215f505f8d5daffd4a81cff8174dc1d7dbf585bd3e44b01b5c8128bb51",
+          "vocabulary": [
+            {
+              "key": "word-1",
+              "term": "ribbon",
+              "translation": "fita"
+            },
+            {
+              "key": "word-2",
+              "term": "hangs",
+              "translation": "está pendurada"
+            }
+          ]
+        },
+        {
+          "key": "radio-hall",
+          "narrationSha256": "e5336afddc43073787dd97de43847fa0d322160c5312a10bebe50aa1f32998f4",
+          "vocabulary": [
+            {
+              "key": "word-1",
+              "term": "rescue team",
+              "translation": "equipe de resgate"
+            },
+            {
+              "key": "word-2",
+              "term": "hook",
+              "translation": "gancho"
+            }
+          ]
+        },
+        {
+          "key": "garden-rescue",
+          "narrationSha256": "ddefbf21f90087c9d59fd27721c1588f076292caf28d09773178bd3dddfbbe83",
+          "vocabulary": [
+            {
+              "key": "word-1",
+              "term": "gate",
+              "translation": "portão"
+            },
+            {
+              "key": "word-2",
+              "term": "climbs into",
+              "translation": "entra; sobe para dentro de"
+            }
+          ]
+        },
+        {
+          "key": "roof-signal",
+          "narrationSha256": "05e8af109e1b99bb4d375d5a6827170d22732dced619282ab4ef43d49f767f70",
+          "vocabulary": [
+            {
+              "key": "word-1",
+              "term": "roof",
+              "translation": "cobertura; telhado"
+            },
+            {
+              "key": "word-2",
+              "term": "tied",
+              "translation": "amarrada"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Last Shift — A2",
+      "scenes": [
+        {
+          "key": "warm-cup",
+          "narrationSha256": "5c00c340dd1e8d928389a36da6d9765f57964fe9336842ad79a5dccd0c44d3b8",
+          "vocabulary": [
+            {
+              "key": "word-1",
+              "term": "brass",
+              "translation": "latão"
+            },
+            {
+              "key": "word-2",
+              "term": "hook",
+              "translation": "gancho"
+            }
+          ]
+        },
+        {
+          "key": "radio-desk",
+          "narrationSha256": "55582a20bba97a43364f4d4e264960b41c95b7d5b480f67c02a27ebb2cfdc345",
+          "vocabulary": [
+            {
+              "key": "word-1",
+              "term": "lock",
+              "translation": "fechadura"
+            },
+            {
+              "key": "word-2",
+              "term": "roof",
+              "translation": "cobertura; telhado"
+            }
+          ]
+        },
+        {
+          "key": "empty-gate",
+          "narrationSha256": "148b68ce630a9821fe51e5237fc6c1fcfec16544cf1d2d02ba2723abbebee25f",
+          "vocabulary": [
+            {
+              "key": "word-1",
+              "term": "fence",
+              "translation": "cerca"
+            },
+            {
+              "key": "word-2",
+              "term": "trusts",
+              "translation": "confia em"
+            }
+          ]
+        },
+        {
+          "key": "roof-lights",
+          "narrationSha256": "f198db8b9700d7bf6c88f380628bddaa6fad31f863d474b8293bea782002c0da",
+          "vocabulary": [
+            {
+              "key": "word-1",
+              "term": "stairway",
+              "translation": "escadaria"
+            },
+            {
+              "key": "word-2",
+              "term": "lit",
+              "translation": "iluminada"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

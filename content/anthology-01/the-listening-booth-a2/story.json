@@ -66,7 +66,19 @@
         },
         "cluePurpose": "O objetivo afetivo e os aparelhos necessários são apresentados antes da anomalia.",
         "questionEvidence": "to copy her father's old recording"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "booth",
+          "translation": "cabine"
+        },
+        {
+          "key": "word-2",
+          "term": "welcoming",
+          "translation": "acolhedor"
+        }
+      ]
     },
     {
       "key": "unfamiliar-voice",
@@ -114,7 +126,19 @@
         },
         "cluePurpose": "A voz antecede a fala da protagonista; abrir a porta é uma reação concreta e prudente.",
         "questionEvidence": "Leave the door open"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "although",
+          "translation": "embora"
+        },
+        {
+          "key": "word-2",
+          "term": "corridor",
+          "translation": "corredor"
+        }
+      ]
     },
     {
       "key": "copying-choice",
@@ -167,7 +191,19 @@
         },
         "cluePurpose": "A escolha altera o conteúdo levado, não uma regra de pontuação ou um minijogo.",
         "questionEvidence": "Both copies could fit on her black drive"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "evidence",
+          "translation": "prova; evidência"
+        },
+        {
+          "key": "word-2",
+          "term": "whole",
+          "translation": "inteira"
+        }
+      ]
     },
     {
       "key": "full-recording",
@@ -209,7 +245,19 @@
         },
         "cluePurpose": "A cópia integral preserva a busca por evidência e permite que Celia saia acompanhada; a discrepância foi preparada pela voz instável.",
         "questionEvidence": "a click and a faint breath"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "clerk",
+          "translation": "atendente"
+        },
+        {
+          "key": "word-2",
+          "term": "faint breath",
+          "translation": "respiração fraca; quase inaudível"
+        }
+      ]
     },
     {
       "key": "fathers-message",
@@ -251,7 +299,19 @@
         },
         "cluePurpose": "A rota preserva somente a mensagem escolhida e encerra o objetivo pessoal; ela compartilha o medo em vez de permanecer isolada.",
         "questionEvidence": "left the tape in the player"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "onto",
+          "translation": "para dentro de; para"
+        },
+        {
+          "key": "word-2",
+          "term": "to herself",
+          "translation": "só para si mesma"
+        }
+      ]
     }
   ],
   "authoringNotes": {

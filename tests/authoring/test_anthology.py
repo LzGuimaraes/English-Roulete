@@ -15,6 +15,19 @@ LIMITS = {"A1": (30, 50), "A2": (45, 75), "B1": (65, 95)}
 
 
 class AnthologyTests(unittest.TestCase):
+    def test_current_anthologies_have_contextual_words_in_every_scene(self):
+        for path in sorted((ROOT / "content").glob("anthology-*/*/story.json")):
+            document = importer.load_story(path)
+            for scene in document["scenes"]:
+                with self.subTest(story=path.parent.name, scene=scene["key"]):
+                    words = scene.get("vocabulary", [])
+                    self.assertTrue(words, "Missing editorial hints makes assistance disappear between stories.")
+                    self.assertLessEqual(len(words), 12)
+                    self.assertEqual(len({word["key"] for word in words}), len(words))
+                    for word in words:
+                        self.assertIn(word["term"].casefold(), scene["narration"].casefold())
+                        self.assertTrue(word["translation"].strip())
+
     def test_pack_covers_four_genres_and_three_levels_with_distinct_stories(self):
         self.assertEqual(len(STORIES), 12)
         documents = [importer.load_story(path) for path in STORIES]

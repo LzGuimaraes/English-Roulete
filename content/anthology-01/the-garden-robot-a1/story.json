@@ -66,7 +66,19 @@
         },
         "cluePurpose": "Apresenta-se a tarefa, o robô e o pacote sem exigir nenhum conhecimento de Marte.",
         "questionEvidence": "A yellow packet of seeds"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "greenhouse",
+          "translation": "estufa de plantas"
+        },
+        {
+          "key": "word-2",
+          "term": "seeds",
+          "translation": "sementes"
+        }
+      ]
     },
     {
       "key": "open-panel",
@@ -114,7 +126,19 @@
         },
         "cluePurpose": "A falha de voz não impede movimento; ambas as soluções são possíveis.",
         "questionEvidence": "one cable is loose"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "loose",
+          "translation": "solto"
+        },
+        {
+          "key": "word-2",
+          "term": "shelf",
+          "translation": "prateleira"
+        }
+      ]
     },
     {
       "key": "delivery-choice",
@@ -167,7 +191,19 @@
         },
         "cluePurpose": "A escolha distingue reparar a voz de concluir a entrega por gestos, sem inventário jogável.",
         "questionEvidence": "at the back of the greenhouse"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "fix",
+          "translation": "consertar"
+        },
+        {
+          "key": "word-2",
+          "term": "guide",
+          "translation": "guiar"
+        }
+      ]
     },
     {
       "key": "voice-again",
@@ -209,7 +245,19 @@
         },
         "cluePurpose": "A voz volta após a correção descrita; a entrega termina e abre espaço para um vínculo pessoal.",
         "questionEvidence": "closes the panel"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "steady",
+          "translation": "firme; sem se mover"
+        },
+        {
+          "key": "word-2",
+          "term": "Earth",
+          "translation": "Terra; nosso planeta"
+        }
+      ]
     },
     {
       "key": "quiet-team",
@@ -251,7 +299,19 @@
         },
         "cluePurpose": "A entrega termina sem reparar a voz; o estado do painel não é misturado com o outro final.",
         "questionEvidence": "Pip cannot speak"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "follows",
+          "translation": "segue"
+        },
+        {
+          "key": "word-2",
+          "term": "delivery",
+          "translation": "entrega"
+        }
+      ]
     }
   ],
   "authoringNotes": {

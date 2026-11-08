@@ -66,7 +66,19 @@
         },
         "cluePurpose": "A diferença de suporte e conteúdo desperta uma pergunta investigável, sem concluir fraude antes das evidências.",
         "questionEvidence": "Before repeating that claim, she wanted to know"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "glossy",
+          "translation": "brilhantes; em papel fotográfico"
+        },
+        {
+          "key": "word-2",
+          "term": "wooden beam",
+          "translation": "viga de madeira"
+        }
+      ]
     },
     {
       "key": "beam-and-ledger",
@@ -114,7 +126,19 @@
         },
         "cluePurpose": "A marca confirma identidade; o registro de doação não prova autoria material.",
         "questionEvidence": "The picture did belong to this project"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "notch",
+          "translation": "entalhe"
+        },
+        {
+          "key": "word-2",
+          "term": "grant ledger",
+          "translation": "registro contábil de verbas"
+        }
+      ]
     },
     {
       "key": "two-sources",
@@ -167,7 +191,19 @@
         },
         "cluePurpose": "As rotas separam entrevista e pesquisa documental, ambas voltadas a confirmar a mesma história.",
         "questionEvidence": "without replacing one unsupported story with another"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "carpenter",
+          "translation": "carpinteira"
+        },
+        {
+          "key": "word-2",
+          "term": "unsupported",
+          "translation": "sem provas que a sustentem"
+        }
+      ]
     },
     {
       "key": "carpenters-account",
@@ -209,7 +245,19 @@
         },
         "cluePurpose": "A entrevista ganha confirmação material e autorização dentro da ficção, sem apagar a contribuição financeira documentada.",
         "questionEvidence": "gave each contribution its place"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "foundations",
+          "translation": "fundações; base da ponte"
+        },
+        {
+          "key": "word-2",
+          "term": "lend",
+          "translation": "emprestar"
+        }
+      ]
     },
     {
       "key": "construction-records",
@@ -251,7 +299,19 @@
         },
         "cluePurpose": "A rota documental confirma a mesma divisão de trabalho e permite uma conclusão completa sem a entrevista.",
         "questionEvidence": "The mayor's grant covered the foundations"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "timber",
+          "translation": "madeira de construção"
+        },
+        {
+          "key": "word-2",
+          "term": "contributions",
+          "translation": "contribuições"
+        }
+      ]
     }
   ],
   "authoringNotes": {

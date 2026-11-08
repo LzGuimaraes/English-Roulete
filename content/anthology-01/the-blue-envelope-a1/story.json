@@ -66,7 +66,19 @@
         },
         "cluePurpose": "O envelope apresenta o objeto que Lena acompanha até os dois finais.",
         "questionEvidence": "under the front desk"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "cardigan",
+          "translation": "casaco de malha"
+        },
+        {
+          "key": "word-2",
+          "term": "carefully",
+          "translation": "com cuidado"
+        }
+      ]
     },
     {
       "key": "old-photograph",
@@ -114,7 +126,19 @@
         },
         "cluePurpose": "O banco da fotografia corresponde ao banco visível no pátio.",
         "questionEvidence": "a red bench in a garden"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "courtyard",
+          "translation": "pátio interno"
+        },
+        {
+          "key": "word-2",
+          "term": "owner",
+          "translation": "dono; proprietário"
+        }
+      ]
     },
     {
       "key": "two-places",
@@ -167,7 +191,19 @@
         },
         "cluePurpose": "A busca da mulher e o conhecimento do padeiro tornam as duas escolhas plausíveis.",
         "questionEvidence": "looking under the red bench"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "baker",
+          "translation": "padeiro"
+        },
+        {
+          "key": "word-2",
+          "term": "across the street",
+          "translation": "do outro lado da rua"
+        }
+      ]
     },
     {
       "key": "bakery-answer",
@@ -209,7 +245,19 @@
         },
         "cluePurpose": "O padeiro identifica a destinatária indireta e encerra a busca sem contradizer a outra rota.",
         "questionEvidence": "His daughter took the photograph"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "collects",
+          "translation": "vem buscar"
+        },
+        {
+          "key": "word-2",
+          "term": "gift",
+          "translation": "presente"
+        }
+      ]
     },
     {
       "key": "bench-answer",
@@ -251,7 +299,19 @@
         },
         "cluePurpose": "A dona recupera a fotografia e confirma a mesma relação familiar da rota da padaria.",
         "questionEvidence": "He works in the bakery"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "mine",
+          "translation": "meu; minha"
+        },
+        {
+          "key": "word-2",
+          "term": "bakery",
+          "translation": "padaria"
+        }
+      ]
     }
   ],
   "authoringNotes": {

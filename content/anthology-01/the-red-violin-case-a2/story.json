@@ -66,7 +66,19 @@
         },
         "cluePurpose": "A tarefa é devolver um instrumento emprestado, não vencer uma corrida imposta ao jogador.",
         "questionEvidence": "needed to return it at the music hall"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "ferry landing",
+          "translation": "ponto de embarque da balsa"
+        },
+        {
+          "key": "word-2",
+          "term": "borrowed",
+          "translation": "pegou emprestado"
+        }
+      ]
     },
     {
       "key": "other-crossings",
@@ -114,7 +126,19 @@
         },
         "cluePurpose": "As alternativas são oferecidas por pessoas presentes, sem criar uma travessia improvisada.",
         "questionEvidence": "led to a pedestrian bridge"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "upstream",
+          "translation": "rio acima"
+        },
+        {
+          "key": "word-2",
+          "term": "pedestrian bridge",
+          "translation": "ponte para pedestres"
+        }
+      ]
     },
     {
       "key": "a-person-to-help",
@@ -167,7 +191,19 @@
         },
         "cluePurpose": "As companhias mudam a experiência, e a responsabilidade pelo instrumento é comum às duas escolhas.",
         "questionEvidence": "offered to guide Joana"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "offered",
+          "translation": "se ofereceu"
+        },
+        {
+          "key": "word-2",
+          "term": "handle",
+          "translation": "alça"
+        }
+      ]
     },
     {
       "key": "bridge-story",
@@ -209,7 +245,19 @@
         },
         "cluePurpose": "A caminhada conclui a devolução e produz um reencontro preparado pela conversa do percurso.",
         "questionEvidence": "her teacher had once played at the hall with him"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "recognised",
+          "translation": "reconheceram"
+        },
+        {
+          "key": "word-2",
+          "term": "journey",
+          "translation": "trajeto; viagem"
+        }
+      ]
     },
     {
       "key": "boat-arrival",
@@ -251,7 +299,19 @@
         },
         "cluePurpose": "A travessia direta conclui a mesma promessa e permite acompanhar o ensaio, sem exigir a rota da ponte.",
         "questionEvidence": "invited her to stay for the rehearsal"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "rehearsal",
+          "translation": "ensaio musical"
+        },
+        {
+          "key": "word-2",
+          "term": "relieved",
+          "translation": "aliviada"
+        }
+      ]
     }
   ],
   "authoringNotes": {

@@ -66,7 +66,19 @@
         },
         "cluePurpose": "O sinal é diferente do habitual, mas ainda não prova quem ou o que o produziu.",
         "questionEvidence": "something was already trying to be heard"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "outpost",
+          "translation": "posto avançado"
+        },
+        {
+          "key": "word-2",
+          "term": "handing the room over",
+          "translation": "entregar o controle da sala"
+        }
+      ]
     },
     {
       "key": "an-answering-pause",
@@ -114,7 +126,19 @@
         },
         "cluePurpose": "A mudança após o teste sustenta uma hipótese, não uma conclusão infalível sobre origem extraterrestre.",
         "questionEvidence": "this change seemed related to what he had just sent"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "deliberate",
+          "translation": "intencional"
+        },
+        {
+          "key": "word-2",
+          "term": "prevent",
+          "translation": "impedir"
+        }
+      ]
     },
     {
       "key": "choosing-a-language",
@@ -167,7 +191,19 @@
         },
         "cluePurpose": "As duas escolhas têm vantagens explícitas e não dependem de tradução ou fala livre do jogador.",
         "questionEvidence": "a form the unknown source already seemed to recognise"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "incoming crew",
+          "translation": "equipe que está chegando"
+        },
+        {
+          "key": "word-2",
+          "term": "transmitter",
+          "translation": "transmissor"
+        }
+      ]
     },
     {
       "key": "spoken-reply",
@@ -209,7 +245,19 @@
         },
         "cluePurpose": "A resposta dá evidência de relação com a mensagem, sem alegar identidade que o texto não revelou.",
         "questionEvidence": "a reply had changed with his message"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "postponed",
+          "translation": "adiou"
+        },
+        {
+          "key": "word-2",
+          "term": "broadcast",
+          "translation": "transmissão"
+        }
+      ]
     },
     {
       "key": "pulse-reply",
@@ -251,7 +299,19 @@
         },
         "cluePurpose": "O padrão cresce de forma observável e a transferência do posto conclui o objetivo, mantendo a incerteza científica honesta.",
         "questionEvidence": "not the identity of a sender"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "exchange",
+          "translation": "troca de mensagens"
+        },
+        {
+          "key": "word-2",
+          "term": "comforted",
+          "translation": "reconfortado"
+        }
+      ]
     }
   ],
   "authoringNotes": {

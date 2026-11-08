@@ -66,7 +66,19 @@
         },
         "cluePurpose": "A ausência é delimitada: a pintura sumiu, mas moldura e chave continuam nos lugares.",
         "questionEvidence": "the painting was gone"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "frame",
+          "translation": "moldura"
+        },
+        {
+          "key": "word-2",
+          "term": "cord",
+          "translation": "cordão"
+        }
+      ]
     },
     {
       "key": "restoration-log",
@@ -114,7 +126,19 @@
         },
         "cluePurpose": "O registro e as marcas de água sustentam a hipótese de preservação.",
         "questionEvidence": "moved the painting to protect it"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "restoration log",
+          "translation": "registro de restauração"
+        },
+        {
+          "key": "word-2",
+          "term": "water marks",
+          "translation": "marcas de água"
+        }
+      ]
     },
     {
       "key": "two-checks",
@@ -167,7 +191,19 @@
         },
         "cluePurpose": "As duas rotas investigam a mesma causa; o registro não viaja indevidamente entre locais.",
         "questionEvidence": "Wet marks continued towards those stairs"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "attic",
+          "translation": "sótão"
+        },
+        {
+          "key": "word-2",
+          "term": "routes",
+          "translation": "caminhos; trajetos"
+        }
+      ]
     },
     {
       "key": "restorer-explanation",
@@ -209,7 +245,19 @@
         },
         "cluePurpose": "O restaurador confirma a retirada protetiva e a prioridade muda de abrir a exposição para preservar a obra.",
         "questionEvidence": "arranged a roof repair"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "protective cover",
+          "translation": "capa de proteção"
+        },
+        {
+          "key": "word-2",
+          "term": "delayed",
+          "translation": "adiou"
+        }
+      ]
     },
     {
       "key": "attic-storage",
@@ -251,7 +299,19 @@
         },
         "cluePurpose": "A investigação direta confirma a mesma explicação sem depender de visitar a oficina.",
         "questionEvidence": "photographs of the leaking roof"
-      }
+      },
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "leaking roof",
+          "translation": "telhado com vazamento"
+        },
+        {
+          "key": "word-2",
+          "term": "repair request",
+          "translation": "pedido de reparo"
+        }
+      ]
     }
   ],
   "authoringNotes": {
