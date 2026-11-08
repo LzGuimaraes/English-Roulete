@@ -33,16 +33,17 @@ def stored_hash(api, asset, kind):
     return hashlib.sha256(data).hexdigest()
 
 
-def credits(kind, path, scene):
+def credits(kind, path, scene, source_pack="content/anthology-01"):
+    source_pack = str(source_pack)
     if kind == "audio":
         return {"path": path, "file": f"audio/{scene['key']}.wav",
                 "attribution": "Narração sintética original: Piper 1.8.0, en_US-ljspeech-high; modelo treinado com LJ Speech (Keith Ito / Linda Johnson, LibriVox). Texto original English Roulette.",
                 "licenseEvidence": "Produzido offline para esta cena a partir do texto original autorizado pelo responsável. Repositório do modelo declara MIT: https://huggingface.co/rhasspy/piper-voices ; model card declara dataset em domínio público: https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_US/ljspeech/high/MODEL_CARD ; origem: https://keithito.com/LJ-Speech-Dataset/ . Piper GPL-3.0 é ferramenta de produção, não distribuída com o jogo. Cartão e metadados do modelo arquivados no pacote local."}
-    description = scene["productionNotes"]["imagePrompt"].split("SCENE: ", 1)[1].split("SETTING:", 1)[0].strip()
+    description = scene["productionNotes"].get("altText") or scene["productionNotes"]["imagePrompt"].split("SCENE: ", 1)[1].split("SETTING:", 1)[0].strip()
     return {"path": path, "file": f"animations/{scene['key']}.gif", "animated": True,
             "altText": ("Ilustração 2D sombria. " + description)[:300],
             "attribution": "Arte original assistida por IA, OpenAI image_gen; direção de animação 2D dark para English Roulette. Loop de câmera discreto codificado com FFmpeg.",
-            "licenseEvidence": "Ilustração gerada especificamente para esta cena pela ferramenta image_gen, com prompts originais registrados em content/anthology-01. Produção e envio à VPS autorizados expressamente pelo responsável nesta sessão em 07/11/2026; estilo 2D dark solicitado pelo mesmo. Sem imagens de terceiros fornecidas como base. O loop deriva desta arte e mantém objetos, luzes e personagens. Arquivos e hashes preservados no pacote local; não é imagem de pessoa real."}
+            "licenseEvidence": f"Ilustração gerada especificamente para esta cena pela ferramenta image_gen, com prompts originais registrados em {source_pack}. Produção e envio à VPS autorizados expressamente pelo responsável; estilo 2D dark solicitado pelo mesmo. Sem imagens de terceiros fornecidas como base. O loop deriva desta arte e mantém objetos, luzes e personagens. Arquivos e hashes preservados no pacote local; não é imagem de pessoa real."}
 
 
 def main():
@@ -100,7 +101,7 @@ def main():
                 if not existing or stored_hash(api, existing, kind) != expected:
                     if draft["status"] != "Draft":
                         raise ValueError("Published media cannot be replaced: " + slug)
-                    body, content_type = multipart(credits(kind, path, scene), kind)
+                    body, content_type = multipart(credits(kind, path, scene, args.receipt.parent), kind)
                     # If a response is lost, stop. The next run compares stored bytes before retrying.
                     draft = api.request("POST", f"{route}/scenes/{stored_scene['id']}/{kind}?revision={draft['revision']}", body, content_type)
                     stored_scene = next(item for item in draft["scenes"] if item["key"] == scene["key"])

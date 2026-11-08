@@ -1,0 +1,409 @@
+{
+  "metadata": {
+    "title": "The Tide Window — A2",
+    "synopsis": "Bea precisa levar sementes a um jardim-ilha e escolhe entre a passagem da maré e um barco de suprimentos.",
+    "genre": "Aventura",
+    "difficulty": "A2",
+    "author": "English Roulette — texto original assistido por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "História original criada para English Roulette nesta sessão em 08/11/2026, com assistência de IA. O responsável solicitou expressamente gerar e publicar novas histórias completas na VPS. Não adapta obra de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Nível editorial proposto; não constitui certificação CEFR.",
+    "appearance": {
+      "primary": "#ABD5DD",
+      "accent": "#86B9C5",
+      "background": "#0C141B",
+      "surface": "#182A35",
+      "text": "#EFF8FA",
+      "font": "modern",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "harbour-box",
+  "scenes": [
+    {
+      "key": "harbour-box",
+      "title": "Seeds for the Island",
+      "narration": "Bea arrived at the harbour with a sealed orange box of seeds. The island garden needed them for its spring opening. The morning sea was calm, and a marked stone path was beginning to appear as the tide fell. \"The box must stay dry. These seeds have travelled a long way.\" She kept the box under her coat and went to the harbour office.",
+      "isEnding": false,
+      "prompt": "Why does Bea protect the orange box?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The box contains a working radio"
+        },
+        {
+          "key": "b",
+          "text": "The box belongs to the boat captain"
+        },
+        {
+          "key": "c",
+          "text": "The seeds inside must stay dry"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The sealed box contains seeds that need to stay dry.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "harbour-map"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "sealed",
+          "translation": "fechado; lacrado"
+        },
+        {
+          "key": "word-2",
+          "term": "harbour",
+          "translation": "porto"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "harbour-box-line-1",
+          "speaker": "Narrador",
+          "text": "Bea arrived at the harbour with a sealed orange box of seeds. The island garden needed them for its spring opening.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 7140
+        },
+        {
+          "key": "harbour-box-line-2",
+          "speaker": "Narrador",
+          "text": "The morning sea was calm, and a marked stone path was beginning to appear as the tide fell.",
+          "startMilliseconds": 7140,
+          "endMilliseconds": 12852
+        },
+        {
+          "key": "harbour-box-line-3",
+          "speaker": "Bea",
+          "text": "\"The box must stay dry. These seeds have travelled a long way.\"",
+          "startMilliseconds": 12852,
+          "endMilliseconds": 16695
+        },
+        {
+          "key": "harbour-box-line-4",
+          "speaker": "Narrador",
+          "text": "She kept the box under her coat and went to the harbour office.",
+          "startMilliseconds": 16695,
+          "endMilliseconds": 20897
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Bea arrived at the harbour with a sealed orange box of seeds. The island garden needed them for its spring opening. The morning sea was calm, and a marked stone path was beginning to appear as the tide fell. \"The box must stay dry. These seeds have travelled a long way.\" She kept the box under her coat and went to the harbour office.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Bea stands on a calm dawn harbour quay, keeping a small sealed orange seed box under the edge of her teal coat. A marked stone causeway begins to emerge across a sheltered bay toward a distant walled island garden. The sky is overcast, with soft pale light and deep blue shadows. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Bea is present: a 32-year-old woman, olive skin, dark braided hair, teal waterproof coat, dark trousers and brown boots. She holds one small sealed orange seed box. No Jon or other person. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Bea protege uma caixa laranja de sementes enquanto a maré baixa revela uma passagem de pedra.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "harbour-map",
+      "title": "Two Ways Across",
+      "narration": "Jon showed Bea the harbour map. The marked path would be open for another hour. The supply boat would leave in twenty minutes and return from the island later that morning. Both routes reached the garden before opening time. \"The path gives you a quiet walk. The boat carries tools as well.\" Bea thanked him and checked that the orange box was still sealed.",
+      "isEnding": false,
+      "prompt": "What do both routes allow Bea to do?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Return to the harbour before sunrise"
+        },
+        {
+          "key": "b",
+          "text": "Reach the garden before opening time"
+        },
+        {
+          "key": "c",
+          "text": "Avoid carrying the orange box"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Both the path and the supply boat arrive before the garden opens.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "choose-crossing"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "supply boat",
+          "translation": "barco de suprimentos"
+        },
+        {
+          "key": "word-2",
+          "term": "as well",
+          "translation": "também"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "harbour-map-line-1",
+          "speaker": "Narrador",
+          "text": "Jon showed Bea the harbour map. The marked path would be open for another hour. The supply boat would leave in twenty minutes and return from the island later that morning.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10274
+        },
+        {
+          "key": "harbour-map-line-2",
+          "speaker": "Narrador",
+          "text": "Both routes reached the garden before opening time.",
+          "startMilliseconds": 10274,
+          "endMilliseconds": 13432
+        },
+        {
+          "key": "harbour-map-line-3",
+          "speaker": "Jon",
+          "text": "\"The path gives you a quiet walk. The boat carries tools as well.\"",
+          "startMilliseconds": 13432,
+          "endMilliseconds": 17879
+        },
+        {
+          "key": "harbour-map-line-4",
+          "speaker": "Narrador",
+          "text": "Bea thanked him and checked that the orange box was still sealed.",
+          "startMilliseconds": 17879,
+          "endMilliseconds": 21815
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Jon showed Bea the harbour map. The marked path would be open for another hour. The supply boat would leave in twenty minutes and return from the island later that morning. Both routes reached the garden before opening time. \"The path gives you a quiet walk. The boat carries tools as well.\" Bea thanked him and checked that the orange box was still sealed.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Inside the small harbour office, Jon points to a simple illustrated coastal map with a stone causeway and a dark blue boat route to the same island. Bea stands beside him holding the sealed orange seed box. The map has no writing, numbers or readable signs. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly two adults: Bea (olive skin, dark braid, teal waterproof coat) and Jon (56, light brown skin, grey beard, beige sailing jacket, navy cap). One sealed orange seed box. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Jon mostra a Bea as duas rotas até o jardim, ambas com chegada antes da abertura.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "choose-crossing",
+      "title": "The Keeper’s Request",
+      "narration": "The garden keeper called the office radio. She had space ready for the seeds and needed a spare watering can. Bea could take the marked path now, or wait with Jon and carry the can on the boat. \"Either way, the seeds will arrive. I must choose how to help.\" Outside, the sea remained calm. The orange box was light enough for either journey.",
+      "isEnding": false,
+      "prompt": "What extra item does the keeper ask for?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A spare watering can"
+        },
+        {
+          "key": "b",
+          "text": "A larger orange box"
+        },
+        {
+          "key": "c",
+          "text": "A new harbour map"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The keeper asks for a spare watering can in addition to the seeds.",
+      "transitions": [
+        {
+          "key": "route-1",
+          "label": "Take the marked path now",
+          "targetSceneKey": "stone-path"
+        },
+        {
+          "key": "route-2",
+          "label": "Wait and bring the can by boat",
+          "targetSceneKey": "supply-crossing"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "keeper",
+          "translation": "responsável pelo jardim"
+        },
+        {
+          "key": "word-2",
+          "term": "spare",
+          "translation": "reserva; adicional"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "choose-crossing-line-1",
+          "speaker": "Narrador",
+          "text": "The garden keeper called the office radio. She had space ready for the seeds and needed a spare watering can. Bea could take the marked path now, or wait with Jon and carry the can on the boat.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 12492
+        },
+        {
+          "key": "choose-crossing-line-2",
+          "speaker": "Bea",
+          "text": "\"Either way, the seeds will arrive. I must choose how to help.\"",
+          "startMilliseconds": 12492,
+          "endMilliseconds": 16880
+        },
+        {
+          "key": "choose-crossing-line-3",
+          "speaker": "Narrador",
+          "text": "Outside, the sea remained calm. The orange box was light enough for either journey.",
+          "startMilliseconds": 16880,
+          "endMilliseconds": 22465
+        }
+      ],
+      "productionNotes": {
+        "audioText": "The garden keeper called the office radio. She had space ready for the seeds and needed a spare watering can. Bea could take the marked path now, or wait with Jon and carry the can on the boat. \"Either way, the seeds will arrive. I must choose how to help.\" Outside, the sea remained calm. The orange box was light enough for either journey.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Bea and Jon stand by the harbour-office doorway beside a simple working radio. Bea holds the sealed orange seed box. A spare metal watering can sits beside Jon, and the calm causeway and moored dark blue supply boat are visible outside. No gardener is physically present. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly Bea and Jon, no other person: Bea has olive skin, dark braid, teal coat; Jon has a grey beard, beige jacket and navy cap. One orange seed box and one spare metal watering can. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "A responsável pelo jardim pede um regador extra; Bea decide entre caminhar agora ou esperar o barco.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "stone-path",
+      "title": "A Garden Before the Crowd",
+      "narration": "Bea followed the marked stone path and reached the garden while the keeper was arranging empty pots. Together, they put the orange box on a dry workbench. Jon would bring the watering can on the boat. \"I have time to help you prepare the first row.\" They planted the seeds before the visitors arrived. Looking back across the calm water, Bea could see the blue boat leaving the harbour.",
+      "isEnding": true,
+      "prompt": "How will the watering can reach the island?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Bea will carry it back along the path"
+        },
+        {
+          "key": "b",
+          "text": "Jon will bring it on the supply boat"
+        },
+        {
+          "key": "c",
+          "text": "The keeper will collect it after closing"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Jon is bringing the can by boat while Bea helps prepare the garden.",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "workbench",
+          "translation": "bancada de trabalho"
+        },
+        {
+          "key": "word-2",
+          "term": "row",
+          "translation": "fileira"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "stone-path-line-1",
+          "speaker": "Narrador",
+          "text": "Bea followed the marked stone path and reached the garden while the keeper was arranging empty pots. Together, they put the orange box on a dry workbench. Jon would bring the watering can on the boat.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 12178
+        },
+        {
+          "key": "stone-path-line-2",
+          "speaker": "Bea",
+          "text": "\"I have time to help you prepare the first row.\"",
+          "startMilliseconds": 12178,
+          "endMilliseconds": 14709
+        },
+        {
+          "key": "stone-path-line-3",
+          "speaker": "Narrador",
+          "text": "They planted the seeds before the visitors arrived. Looking back across the calm water, Bea could see the blue boat leaving the harbour.",
+          "startMilliseconds": 14709,
+          "endMilliseconds": 22755
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Bea followed the marked stone path and reached the garden while the keeper was arranging empty pots. Together, they put the orange box on a dry workbench. Jon would bring the watering can on the boat. \"I have time to help you prepare the first row.\" They planted the seeds before the visitors arrived. Looking back across the calm water, Bea could see the blue boat leaving the harbour.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: In a quiet walled island garden, Bea and the 44-year-old woman garden keeper with short dark hair, a grey shirt and a charcoal apron prepare a row of empty terracotta pots beside a dry wooden workbench holding the open orange seed box. Beyond the low wall, a small dark blue boat is distant on the calm bay, departing the harbour. The watering can is not yet in the garden. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly Bea and the 44-year-old woman garden keeper. Bea has olive skin, dark braid and teal coat; the keeper is a woman with short dark hair, a grey shirt and a charcoal apron. Jon remains distant on the boat, not at the workbench. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Bea ajuda a preparar os vasos enquanto Jon traz o regador no barco, ao fundo.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "supply-crossing",
+      "title": "An Extra Pair of Hands",
+      "narration": "Bea waited with Jon, then travelled on the supply boat. She kept the orange box on her lap while Jon secured the watering can beside the tools. At the island, the keeper met them at the small landing. \"We brought your watering can, and the seeds are still dry.\" Together, they carried everything into the garden. Bea stayed to help the keeper welcome the first visitors, glad that one journey had carried two kinds of help.",
+      "isEnding": true,
+      "prompt": "What does Bea do during the boat journey?",
+      "options": [
+        {
+          "key": "a",
+          "text": "She plants the seeds in the boat"
+        },
+        {
+          "key": "b",
+          "text": "She opens the box beside the water"
+        },
+        {
+          "key": "c",
+          "text": "She keeps the orange box on her lap"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "Bea protects the seed box on her lap while Jon secures the watering can.",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "lap",
+          "translation": "colo"
+        },
+        {
+          "key": "word-2",
+          "term": "landing",
+          "translation": "pequeno cais de desembarque"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "supply-crossing-line-1",
+          "speaker": "Narrador",
+          "text": "Bea waited with Jon, then travelled on the supply boat. She kept the orange box on her lap while Jon secured the watering can beside the tools. At the island, the keeper met them at the small landing.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 13119
+        },
+        {
+          "key": "supply-crossing-line-2",
+          "speaker": "Bea",
+          "text": "\"We brought your watering can, and the seeds are still dry.\"",
+          "startMilliseconds": 13119,
+          "endMilliseconds": 17031
+        },
+        {
+          "key": "supply-crossing-line-3",
+          "speaker": "Narrador",
+          "text": "Together, they carried everything into the garden. Bea stayed to help the keeper welcome the first visitors, glad that one journey had carried two kinds of help.",
+          "startMilliseconds": 17031,
+          "endMilliseconds": 26586
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Bea waited with Jon, then travelled on the supply boat. She kept the orange box on her lap while Jon secured the watering can beside the tools. At the island, the keeper met them at the small landing. \"We brought your watering can, and the seeds are still dry.\" Together, they carried everything into the garden. Bea stayed to help the keeper welcome the first visitors, glad that one journey had carried two kinds of help.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: On a small calm island landing, Bea steps from a moored dark blue supply boat holding the still-sealed orange seed box. Jon remains on the boat lifting the metal watering can beside a compact tool crate. The 44-year-old woman garden keeper in a charcoal apron welcomes them from the landing. No crowd yet. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly three adults: Bea (olive skin, dark braid, teal coat), Jon (grey beard, beige jacket, navy cap), and woman garden keeper (44, short dark hair, grey shirt, charcoal apron). STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Bea chega de barco com as sementes secas, e Jon entrega o regador solicitado.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    }
+  ],
+  "authoringNotes": {
+    "routes": [
+      [
+        "harbour-box",
+        "harbour-map",
+        "choose-crossing",
+        "stone-path"
+      ],
+      [
+        "harbour-box",
+        "harbour-map",
+        "choose-crossing",
+        "supply-crossing"
+      ]
+    ],
+    "visualContinuity": "Bea is a 32-year-old woman with olive skin, dark braided hair, teal waterproof coat, dark trousers and brown boots; she carries one small sealed orange seed box. Jon is a 56-year-old man with light brown skin, a short grey beard, beige sailing jacket and navy cap. When present the supply boat is small, dark blue and clearly moored or moving as described. No storms or dangerous waves beyond the narrated calm conditions.",
+    "review": "Five physical scenes, four per path, one meaningful decision and two complete endings. All questions are answered by the current narration. Two contextual hints per scene. Character speech uses the same published synthetic voice. No inventory, combat or special events are claimed."
+  }
+}

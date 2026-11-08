@@ -1,0 +1,54 @@
+{
+  "origin": "https://english.lzguimaraes.com.br",
+  "stories": {
+    "the-blue-reel-a1": {
+      "versionId": "bf06f0b8-003d-4dee-8ac3-2ca67ade4443",
+      "status": "Published",
+      "revision": 14,
+      "title": "The Blue Reel — A1",
+      "sceneCount": 5,
+      "sourceSha256": "c16be08ff53db8472a9c270ca6cdd85629c2c23b5314fa815f4688a2df938193",
+      "audioAssetsUploaded": 5,
+      "visualAssetsUploaded": 5,
+      "publicationIssues": [],
+      "verifiedAtUtc": "2026-11-08T17:49:06.452998+00:00"
+    },
+    "the-seed-that-remembered-rain-b1": {
+      "versionId": "4588bfab-8cea-48f9-a443-072a53d961d5",
+      "status": "Published",
+      "revision": 14,
+      "title": "The Seed That Remembered Rain — B1",
+      "sceneCount": 5,
+      "sourceSha256": "3d27eda985a1b124ffeba708d6b5b613b2f7b0c35420427780317edb4ddbb2e9",
+      "audioAssetsUploaded": 5,
+      "visualAssetsUploaded": 5,
+      "publicationIssues": [],
+      "verifiedAtUtc": "2026-11-08T17:49:19.495054+00:00"
+    },
+    "the-tide-window-a2": {
+      "versionId": "ed50d33a-ef64-438b-8aae-649a75340278",
+      "status": "Published",
+      "revision": 14,
+      "title": "The Tide Window — A2",
+      "sceneCount": 5,
+      "sourceSha256": "a7e482e61e59eac77b420730471503739e7392b32bf5f7adcac9c8ce2a952ad3",
+      "audioAssetsUploaded": 5,
+      "visualAssetsUploaded": 5,
+      "publicationIssues": [],
+      "verifiedAtUtc": "2026-11-08T17:49:32.311068+00:00"
+    },
+    "the-voice-in-carriage-nine-a2": {
+      "versionId": "ca97f9b7-cd48-4c11-bb5c-ede35b1be159",
+      "status": "Published",
+      "revision": 14,
+      "title": "The Voice in Carriage Nine — A2",
+      "sceneCount": 5,
+      "sourceSha256": "3dcfc646ea2f4366b0ff18fc88bb468eb8a57b98a8ca12dc55734244db426350",
+      "audioAssetsUploaded": 5,
+      "visualAssetsUploaded": 5,
+      "publicationIssues": [],
+      "verifiedAtUtc": "2026-11-08T17:49:45.149555+00:00"
+    }
+  },
+  "published": true
+}

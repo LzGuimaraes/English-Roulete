@@ -13,7 +13,7 @@ public sealed class AuthoredStoryCatalogTests
         while (directory is not null && !File.Exists(Path.Combine(directory.FullName, "EnglishRoulette.sln")))
         { directory = directory.Parent; }
         if (directory is null) { throw new DirectoryNotFoundException("Run the content tests from a source checkout."); }
-        return Directory.GetFiles(Path.Combine(directory.FullName, "content", "anthology-01"), "story.json", SearchOption.AllDirectories)
+        return Directory.GetFiles(Path.Combine(directory.FullName, "content"), "story.json", SearchOption.AllDirectories)
             .Order(StringComparer.Ordinal).Select(path => new object[] { path });
     }
 

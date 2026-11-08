@@ -1,0 +1,345 @@
+{
+  "origin": "https://english.lzguimaraes.com.br",
+  "stories": {
+    "the-blue-reel-a1": {
+      "versionId": "bf06f0b8-003d-4dee-8ac3-2ca67ade4443",
+      "scenes": {
+        "empty-cinema": {
+          "audio": {
+            "id": "07bd091d-96a5-42b2-92ce-d3c995495166",
+            "sha256": "c12b131aeabf5d58500ba3737426779d8b7684d1ee450924564c3242a281b0ad",
+            "file": "the-blue-reel-a1/audio/empty-cinema.wav",
+            "verifiedAtUtc": "2026-11-08T17:48:54.837772+00:00",
+            "durationMs": 19505
+          },
+          "visual": {
+            "id": "f280032e-e5f1-448d-9b6e-0b011a9d4eb0",
+            "sha256": "32b9c677c0d769dbef292f9c0ca15be154cbc92cb2688d36e7c077efec2252a6",
+            "file": "the-blue-reel-a1/animations/empty-cinema.gif",
+            "verifiedAtUtc": "2026-11-08T17:48:56.029605+00:00"
+          }
+        },
+        "written-note": {
+          "audio": {
+            "id": "dd4cc3d8-f278-45ad-abdc-7bff26b71f6e",
+            "sha256": "27cff21318901a3ce96b2a5b5700880addef52b17be4aedef8707f3c7d1ae7dc",
+            "file": "the-blue-reel-a1/audio/written-note.wav",
+            "verifiedAtUtc": "2026-11-08T17:48:57.155151+00:00",
+            "durationMs": 18669
+          },
+          "visual": {
+            "id": "39b89386-560e-4669-8fe1-b78b057e482d",
+            "sha256": "ce2c9db09378138cfeda49a7603593f620ccfda4302f3067701e2833ce0f45aa",
+            "file": "the-blue-reel-a1/animations/written-note.gif",
+            "verifiedAtUtc": "2026-11-08T17:48:58.385925+00:00"
+          }
+        },
+        "two-ways": {
+          "audio": {
+            "id": "e632919c-9c3d-4d2a-8a47-393de69c437a",
+            "sha256": "f2173e3f2a785cab697e40fd9bc9d0fc6027b365856a6fc3f0505bc4d59370cc",
+            "file": "the-blue-reel-a1/audio/two-ways.wav",
+            "verifiedAtUtc": "2026-11-08T17:48:59.546859+00:00",
+            "durationMs": 16440
+          },
+          "visual": {
+            "id": "1faef133-d287-4ae1-9c12-b70b7db048bd",
+            "sha256": "8c34d7a2f021580252c6c8d19942739faccde22ec585209c7c94f93b502d04df",
+            "file": "the-blue-reel-a1/animations/two-ways.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:00.812256+00:00"
+          }
+        },
+        "film-on-screen": {
+          "audio": {
+            "id": "1d49a740-17c6-4cda-96e8-62e0ae228083",
+            "sha256": "2e5907800d44c0984801b43cb5e4329f634a535f7ed3e7b52a0b628b73e0fe71",
+            "file": "the-blue-reel-a1/audio/film-on-screen.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:02.198666+00:00",
+            "durationMs": 20504
+          },
+          "visual": {
+            "id": "18011041-bac6-4572-ad27-f3267c57feff",
+            "sha256": "1d62c636b501253f43c1def08ca47fe97bb47c295a8cab6111a457aab8740b15",
+            "file": "the-blue-reel-a1/animations/film-on-screen.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:03.538358+00:00"
+          }
+        },
+        "flower-shop": {
+          "audio": {
+            "id": "cac05d85-c32a-4bde-9fae-ec06ec6aa339",
+            "sha256": "fc62085f2588300517e4b99a972e863551c945041dad87e16635f05d28bf8538",
+            "file": "the-blue-reel-a1/audio/flower-shop.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:04.692807+00:00",
+            "durationMs": 19064
+          },
+          "visual": {
+            "id": "d0f58ef2-07c2-48f3-9a64-15f61597f91c",
+            "sha256": "9b154cf57df0f2ecf932db23ce0f5e741c2606d5271ee5b21186d5b8f3296df7",
+            "file": "the-blue-reel-a1/animations/flower-shop.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:05.883305+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "c16be08ff53db8472a9c270ca6cdd85629c2c23b5314fa815f4688a2df938193",
+      "verifiedAtUtc": "2026-11-08T17:49:06.020046+00:00"
+    },
+    "the-seed-that-remembered-rain-b1": {
+      "versionId": "4588bfab-8cea-48f9-a443-072a53d961d5",
+      "scenes": {
+        "silent-nursery": {
+          "audio": {
+            "id": "59f2b9e9-1410-4783-b713-ddc8ea05dbdf",
+            "sha256": "8d959879cdfe1eaa6a279afb6313ba64fce0873285e6cc426b6c1fd162ef6162",
+            "file": "the-seed-that-remembered-rain-b1/audio/silent-nursery.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:07.803600+00:00",
+            "durationMs": 29339
+          },
+          "visual": {
+            "id": "4ba869d7-09f7-40f3-a9df-793f761fd869",
+            "sha256": "67731142f4479c38736293bd9445b686e2de4c37bc1a0599f215aeb403897825",
+            "file": "the-seed-that-remembered-rain-b1/animations/silent-nursery.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:09.094008+00:00"
+          }
+        },
+        "careful-test": {
+          "audio": {
+            "id": "17d859cf-8d22-4d40-a5ec-a2aed6d48bd9",
+            "sha256": "0b185ea395ac57a10b55c2b9f67afbbdf1e38a1fa582979fa4bb79156074977d",
+            "file": "the-seed-that-remembered-rain-b1/audio/careful-test.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:10.303479+00:00",
+            "durationMs": 31464
+          },
+          "visual": {
+            "id": "4ec7c12a-bf58-47d1-94f5-d6ee64f6f4d3",
+            "sha256": "43a89121dde1bf5c6fb2ab8f10606ebc80f0d4a44f5262e35e7339532627ff4f",
+            "file": "the-seed-that-remembered-rain-b1/animations/careful-test.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:11.543861+00:00"
+          }
+        },
+        "two-proposals": {
+          "audio": {
+            "id": "66f08d49-7f59-4f3e-b6c2-3da54c10bb99",
+            "sha256": "3650cb4673f5c543b448823441a5d9dca23a0c72daf615184a583a42383062bc",
+            "file": "the-seed-that-remembered-rain-b1/audio/two-proposals.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:12.808721+00:00",
+            "durationMs": 31614
+          },
+          "visual": {
+            "id": "432e657e-2b70-4908-8e7e-58cc6f829229",
+            "sha256": "2d0c3fbeb39de0d5d92c54adb665ca688d7180bfa1d52fc673859968e6e6c577",
+            "file": "the-seed-that-remembered-rain-b1/animations/two-proposals.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:13.999201+00:00"
+          }
+        },
+        "archive-record": {
+          "audio": {
+            "id": "785d6a8a-9f6e-48a3-90fa-31bf6eeac51e",
+            "sha256": "ddbe7ec33418501c54642d71c0c97c98974d5b12a498ff736797fb3980e391f4",
+            "file": "the-seed-that-remembered-rain-b1/audio/archive-record.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:15.320278+00:00",
+            "durationMs": 32125
+          },
+          "visual": {
+            "id": "d93c55e5-6aaf-4241-a223-aa658dddde4e",
+            "sha256": "75c82384593327a01dd96ef383ff591de64f0648f44e435c0f3488ee9286eda0",
+            "file": "the-seed-that-remembered-rain-b1/animations/archive-record.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:16.563490+00:00"
+          }
+        },
+        "greenhouse-trial": {
+          "audio": {
+            "id": "b26b44fa-0589-43d3-9c1a-46de992d8712",
+            "sha256": "cce7c7bee0f7b9dec5086d2227fe286d1597ba0a630a18b6e3d65550d8043812",
+            "file": "the-seed-that-remembered-rain-b1/audio/greenhouse-trial.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:17.760818+00:00",
+            "durationMs": 35852
+          },
+          "visual": {
+            "id": "9f5f2666-ee55-4a83-9abd-d020d3859f75",
+            "sha256": "6a8873772a7decefeafa24f1caf5d4e1b1e2cf794d2a742e92a88a96a28209aa",
+            "file": "the-seed-that-remembered-rain-b1/animations/greenhouse-trial.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:19.033604+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "3d27eda985a1b124ffeba708d6b5b613b2f7b0c35420427780317edb4ddbb2e9",
+      "verifiedAtUtc": "2026-11-08T17:49:19.147541+00:00"
+    },
+    "the-tide-window-a2": {
+      "versionId": "ed50d33a-ef64-438b-8aae-649a75340278",
+      "scenes": {
+        "harbour-box": {
+          "audio": {
+            "id": "f4cb323a-39d1-468a-b8fd-7764a2337977",
+            "sha256": "06449bd521d54a551f0db16016a5f8f06d63595e69c9f3a483e7e06ce6e9202c",
+            "file": "the-tide-window-a2/audio/harbour-box.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:20.723486+00:00",
+            "durationMs": 20898
+          },
+          "visual": {
+            "id": "c2c1fa23-a676-42e2-abfa-21f1c72f72a8",
+            "sha256": "57c5f75067ae7bc82674215a9f09bfe71f21c11d7dc98e794251d2562e31264f",
+            "file": "the-tide-window-a2/animations/harbour-box.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:21.962656+00:00"
+          }
+        },
+        "harbour-map": {
+          "audio": {
+            "id": "9bf7b16b-abea-4066-88f7-98f8954d3df2",
+            "sha256": "9db0823854b292d28acf9e247e1c8bc28a9e4eebb5451f5bc0351dbf7da70cba",
+            "file": "the-tide-window-a2/audio/harbour-map.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:23.118557+00:00",
+            "durationMs": 21816
+          },
+          "visual": {
+            "id": "8a73fd2c-56a2-4f5f-be3e-fc86b09b3f66",
+            "sha256": "5f4fa76c1ac1d2b45e6dae4d805496b5f160aecd6077b5d5bf923ca9b08ee80b",
+            "file": "the-tide-window-a2/animations/harbour-map.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:24.384565+00:00"
+          }
+        },
+        "choose-crossing": {
+          "audio": {
+            "id": "368ef745-8429-4fbb-991f-94a280a006bd",
+            "sha256": "b4d8c3ca445194d286944dbe09434f4d07fd81fb88bd8bfc1fd5455680a098de",
+            "file": "the-tide-window-a2/audio/choose-crossing.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:25.576194+00:00",
+            "durationMs": 22466
+          },
+          "visual": {
+            "id": "3adbe40d-6c3d-4f89-a9f5-bfe4560e9060",
+            "sha256": "b558db3680927573a00cba7a475fdea67fd67e8f4648796ce0a13eb63a50760c",
+            "file": "the-tide-window-a2/animations/choose-crossing.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:26.858688+00:00"
+          }
+        },
+        "stone-path": {
+          "audio": {
+            "id": "e7beb74a-1a06-4291-87db-3a774eef1ad6",
+            "sha256": "7bb3909adbd897080ca38b876fcbcfbf47b9f8c1e080fbaa44f5050fab115ec3",
+            "file": "the-tide-window-a2/audio/stone-path.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:28.071894+00:00",
+            "durationMs": 22756
+          },
+          "visual": {
+            "id": "efdce211-e972-42a2-9603-fb205ae5faba",
+            "sha256": "e9e6baea71001f130278258bd1e53c08ccb17fb6bb7aa326b6ea6021e0110dab",
+            "file": "the-tide-window-a2/animations/stone-path.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:29.296908+00:00"
+          }
+        },
+        "supply-crossing": {
+          "audio": {
+            "id": "e04149b1-cf99-4624-99fc-cee96e7ea89d",
+            "sha256": "c1d2d07db6eb079958cfa936e086480e081257ffb80f45a66b2ef25d24e0281f",
+            "file": "the-tide-window-a2/audio/supply-crossing.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:30.515803+00:00",
+            "durationMs": 26587
+          },
+          "visual": {
+            "id": "541bb191-5b9e-4204-81bc-8eccc80eb4f5",
+            "sha256": "cf96ae752a225cce32dd4a479bdd1c44ee9f81d911797b7a85e96ec85d3f785b",
+            "file": "the-tide-window-a2/animations/supply-crossing.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:31.828923+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "a7e482e61e59eac77b420730471503739e7392b32bf5f7adcac9c8ce2a952ad3",
+      "verifiedAtUtc": "2026-11-08T17:49:31.963994+00:00"
+    },
+    "the-voice-in-carriage-nine-a2": {
+      "versionId": "ca97f9b7-cd48-4c11-bb5c-ede35b1be159",
+      "scenes": {
+        "last-inspection": {
+          "audio": {
+            "id": "d36a55aa-cd11-4b46-a2a7-137809b37ca1",
+            "sha256": "174d63cdd0e807a48a7e4457592108f2e62571753b2900180f45028ca53bd5ab",
+            "file": "the-voice-in-carriage-nine-a2/audio/last-inspection.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:33.596777+00:00",
+            "durationMs": 21131
+          },
+          "visual": {
+            "id": "2325e2fb-7f60-4214-9110-ba53fe71ed1b",
+            "sha256": "6325feea22b6e4e304f5acac8ac20ae73f85cd4ad20d4d74cb3dc41552750a0c",
+            "file": "the-voice-in-carriage-nine-a2/animations/last-inspection.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:34.866780+00:00"
+          }
+        },
+        "announcement": {
+          "audio": {
+            "id": "29042a4e-fbba-4139-8fd8-23ba2194e517",
+            "sha256": "0956941fd095f04b3da81ebe4d4c270da95851186de2679b8b7bf63e44226e4e",
+            "file": "the-voice-in-carriage-nine-a2/audio/announcement.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:36.039795+00:00",
+            "durationMs": 19006
+          },
+          "visual": {
+            "id": "0f9245b9-adc6-4549-946d-3992248a565c",
+            "sha256": "3778edb0c2d0c3d87585468e88992ccfaa507f9c892dd043ba9ccb96f3f48258",
+            "file": "the-voice-in-carriage-nine-a2/animations/announcement.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:37.325986+00:00"
+          }
+        },
+        "unwritten-choice": {
+          "audio": {
+            "id": "eab69999-769e-4257-8aae-218dca117265",
+            "sha256": "706dbf9734ec93579d3d571b4823fd67d1d74760c3a3cae53964b3fcd0a9c75b",
+            "file": "the-voice-in-carriage-nine-a2/audio/unwritten-choice.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:38.534036+00:00",
+            "durationMs": 21340
+          },
+          "visual": {
+            "id": "aca528b0-35e0-439c-b54b-1fbe77b1f0b1",
+            "sha256": "13ccef2506f2ec14f7ed6525d3c81019f4d15430a9d56dc694582e85fa6be1fc",
+            "file": "the-voice-in-carriage-nine-a2/animations/unwritten-choice.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:39.788964+00:00"
+          }
+        },
+        "taken-picture": {
+          "audio": {
+            "id": "a76b9cdd-380f-466a-a719-c742efb15bea",
+            "sha256": "10e4a8c88bb3accbecb19a1304cdad4a6b41a7a9cc24b705a9ca4a9bb35ce22b",
+            "file": "the-voice-in-carriage-nine-a2/audio/taken-picture.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:40.962813+00:00",
+            "durationMs": 23813
+          },
+          "visual": {
+            "id": "2553bf06-3e23-4d64-8916-b0b4d36c39bf",
+            "sha256": "c2879299fb6ee2a8de7306f42c3b48a998fe8cf935a6ce7d832d5b9a8c3c1704",
+            "file": "the-voice-in-carriage-nine-a2/animations/taken-picture.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:42.243640+00:00"
+          }
+        },
+        "phone-left": {
+          "audio": {
+            "id": "d3337ce3-3de6-4b1a-9e98-48657e19dc3c",
+            "sha256": "8e4b27fa5ab40b2696cf78216a239f5b6f4220c1e01176f4da607a67584c90f0",
+            "file": "the-voice-in-carriage-nine-a2/audio/phone-left.wav",
+            "verifiedAtUtc": "2026-11-08T17:49:43.454908+00:00",
+            "durationMs": 24440
+          },
+          "visual": {
+            "id": "d581dde8-a74f-408e-9601-7b94a185dc59",
+            "sha256": "a65332672e30b950c621d11b279a94844a3d0b72f696699550baf4bb69f257d5",
+            "file": "the-voice-in-carriage-nine-a2/animations/phone-left.gif",
+            "verifiedAtUtc": "2026-11-08T17:49:44.667542+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 14,
+      "publicationIssues": [],
+      "sourceSha256": "3dcfc646ea2f4366b0ff18fc88bb468eb8a57b98a8ca12dc55734244db426350",
+      "verifiedAtUtc": "2026-11-08T17:49:44.800687+00:00"
+    }
+  }
+}

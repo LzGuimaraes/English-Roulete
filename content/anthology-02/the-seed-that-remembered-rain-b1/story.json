@@ -1,0 +1,430 @@
+{
+  "metadata": {
+    "title": "The Seed That Remembered Rain — B1",
+    "synopsis": "Em uma cidade coberta por um domo, uma pesquisadora descobre que uma semente responde a uma gravação antiga de chuva.",
+    "genre": "Ficção científica",
+    "difficulty": "B1",
+    "author": "English Roulette — texto original assistido por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "História original criada para English Roulette nesta sessão em 08/11/2026, com assistência de IA. O responsável solicitou expressamente gerar e publicar novas histórias completas na VPS. Não adapta obra de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Nível editorial proposto; não constitui certificação CEFR.",
+    "appearance": {
+      "primary": "#C9DCA1",
+      "accent": "#B3CB81",
+      "background": "#101713",
+      "surface": "#1E3026",
+      "text": "#F3F8E9",
+      "font": "classic",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "silent-nursery",
+  "scenes": [
+    {
+      "key": "silent-nursery",
+      "title": "A Sound in the Nursery",
+      "narration": "Lena worked in a nursery beneath the city’s glass dome. Rain had been absent for so long that its sound survived mainly in recordings. Most of her seeds remained dormant, despite carefully controlled water and light. One evening, while she was cataloguing an amber data cartridge, a recording of rainfall played through the desk speaker. \"That tray was still this morning. Something has changed.\" A single pale shoot was lifting from the nearest pot. The water setting had not changed.",
+      "isEnding": false,
+      "prompt": "Why does Lena notice the shoot?",
+      "options": [
+        {
+          "key": "a",
+          "text": "It grows outside the glass dome"
+        },
+        {
+          "key": "b",
+          "text": "It appears although she has not changed the water setting"
+        },
+        {
+          "key": "c",
+          "text": "It is the first seed she has watered that day"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The shoot appears while the controlled water setting remains unchanged.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "careful-test"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "nursery",
+          "translation": "viveiro de plantas"
+        },
+        {
+          "key": "word-2",
+          "term": "dormant",
+          "translation": "dormentes; sem germinar"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "silent-nursery-line-1",
+          "speaker": "Narrador",
+          "text": "Lena worked in a nursery beneath the city’s glass dome. Rain had been absent for so long that its sound survived mainly in recordings. Most of her seeds remained dormant, despite carefully controlled water and light.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 13235
+        },
+        {
+          "key": "silent-nursery-line-2",
+          "speaker": "Narrador",
+          "text": "One evening, while she was cataloguing an amber data cartridge, a recording of rainfall played through the desk speaker.",
+          "startMilliseconds": 13235,
+          "endMilliseconds": 20561
+        },
+        {
+          "key": "silent-nursery-line-3",
+          "speaker": "Lena",
+          "text": "\"That tray was still this morning. Something has changed.\"",
+          "startMilliseconds": 20561,
+          "endMilliseconds": 23823
+        },
+        {
+          "key": "silent-nursery-line-4",
+          "speaker": "Narrador",
+          "text": "A single pale shoot was lifting from the nearest pot. The water setting had not changed.",
+          "startMilliseconds": 23823,
+          "endMilliseconds": 29338
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Lena worked in a nursery beneath the city’s glass dome. Rain had been absent for so long that its sound survived mainly in recordings. Most of her seeds remained dormant, despite carefully controlled water and light. One evening, while she was cataloguing an amber data cartridge, a recording of rainfall played through the desk speaker. \"That tray was still this morning. Something has changed.\" A single pale shoot was lifting from the nearest pot. The water setting had not changed.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Lena sits at a shadowy research desk inside a plant nursery beneath a glass city dome. An amber data cartridge lies beside a palm-sized silver speaker. In a small seed tray one pale shoot barely breaks the soil, while the other pots remain bare. Water controls are abstract shapes without writing. No rain or large plants outside. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Lena is present: a 44-year-old Black woman, narrow face, short tightly curled hair, round clear glasses, charcoal research coat and copper scarf. No Arun, no other researcher. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Lena percebe um broto muito pequeno enquanto uma gravação de chuva toca no viveiro sob o domo.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "careful-test",
+      "title": "Changing One Thing",
+      "narration": "The next morning, Lena repeated the test with Arun. They kept the lamps, temperature and water unchanged, then played the same rainfall recording. The small shoot leaned towards the silver speaker. When the recording stopped, it slowly straightened. A recording of traffic produced no visible response. \"It is a pattern worth testing, not an explanation yet.\" Lena agreed. She labelled the tray for observation and saved a copy of the sound, refusing to turn one unusual result into a claim about every seed.",
+      "isEnding": false,
+      "prompt": "What can the researchers reasonably conclude at this point?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The observed response deserves further testing"
+        },
+        {
+          "key": "b",
+          "text": "Every seed needs the sound of rain"
+        },
+        {
+          "key": "c",
+          "text": "Traffic prevents all plants from growing"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "They have observed a repeatable response in one shoot, but do not yet have a general explanation.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "two-proposals"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "straightened",
+          "translation": "voltou à posição reta"
+        },
+        {
+          "key": "word-2",
+          "term": "claim",
+          "translation": "afirmação; conclusão declarada"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "careful-test-line-1",
+          "speaker": "Narrador",
+          "text": "The next morning, Lena repeated the test with Arun. They kept the lamps, temperature and water unchanged, then played the same rainfall recording. The small shoot leaned towards the silver speaker. When the recording stopped, it slowly straightened.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 14814
+        },
+        {
+          "key": "careful-test-line-2",
+          "speaker": "Narrador",
+          "text": "A recording of traffic produced no visible response.",
+          "startMilliseconds": 14814,
+          "endMilliseconds": 18285
+        },
+        {
+          "key": "careful-test-line-3",
+          "speaker": "Arun",
+          "text": "\"It is a pattern worth testing, not an explanation yet.\"",
+          "startMilliseconds": 18285,
+          "endMilliseconds": 21710
+        },
+        {
+          "key": "careful-test-line-4",
+          "speaker": "Narrador",
+          "text": "Lena agreed. She labelled the tray for observation and saved a copy of the sound, refusing to turn one unusual result into a claim about every seed.",
+          "startMilliseconds": 21710,
+          "endMilliseconds": 31463
+        }
+      ],
+      "productionNotes": {
+        "audioText": "The next morning, Lena repeated the test with Arun. They kept the lamps, temperature and water unchanged, then played the same rainfall recording. The small shoot leaned towards the silver speaker. When the recording stopped, it slowly straightened. A recording of traffic produced no visible response. \"It is a pattern worth testing, not an explanation yet.\" Lena agreed. She labelled the tray for observation and saved a copy of the sound, refusing to turn one unusual result into a claim about every seed.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Lena and Arun observe the single small shoot leaning gently toward the palm-sized silver speaker on a laboratory bench. The amber cartridge rests beside the speaker. Other small pots remain unchanged. Both researchers are calm and attentive, not celebrating; the glass-dome nursery background remains dry and dim. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly two adults: Lena (Black woman, short tight curls, round glasses, charcoal coat, copper scarf) and Arun (50-year-old South Asian man, dark-grey hair, neat beard, olive research coat). STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Lena e Arun repetem a observação sem alterar luz, água ou temperatura, evitando conclusões precipitadas.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "two-proposals",
+      "title": "What to Share First",
+      "narration": "The city archive could preserve the rainfall recording together with the experiment notes. A neighbourhood greenhouse had also offered a controlled space for a second trial. Lena had enough time to prepare one delivery that afternoon. Sending the cartridge to the archive would protect its context; taking a copy to the greenhouse would let another team attempt the test. \"Both matter. We must choose which conversation happens first.\" She placed the original amber cartridge beside a clean copy and kept the seed tray inside the nursery.",
+      "isEnding": false,
+      "prompt": "What is the difference between the two proposals?",
+      "options": [
+        {
+          "key": "a",
+          "text": "One changes the water; the other changes the lamps"
+        },
+        {
+          "key": "b",
+          "text": "One destroys the cartridge; the other removes the dome"
+        },
+        {
+          "key": "c",
+          "text": "One preserves the record; the other supports an independent trial"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The archive preserves the recording and notes, while the greenhouse can independently repeat the test.",
+      "transitions": [
+        {
+          "key": "route-1",
+          "label": "Preserve the original and its context in the archive",
+          "targetSceneKey": "archive-record"
+        },
+        {
+          "key": "route-2",
+          "label": "Share a copy for an independent greenhouse trial",
+          "targetSceneKey": "greenhouse-trial"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "trial",
+          "translation": "ensaio; teste experimental"
+        },
+        {
+          "key": "word-2",
+          "term": "context",
+          "translation": "contexto; informações de origem"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "two-proposals-line-1",
+          "speaker": "Narrador",
+          "text": "The city archive could preserve the rainfall recording together with the experiment notes. A neighbourhood greenhouse had also offered a controlled space for a second trial. Lena had enough time to prepare one delivery that afternoon.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 12956
+        },
+        {
+          "key": "two-proposals-line-2",
+          "speaker": "Narrador",
+          "text": "Sending the cartridge to the archive would protect its context; taking a copy to the greenhouse would let another team attempt the test.",
+          "startMilliseconds": 12956,
+          "endMilliseconds": 21002
+        },
+        {
+          "key": "two-proposals-line-3",
+          "speaker": "Lena",
+          "text": "\"Both matter. We must choose which conversation happens first.\"",
+          "startMilliseconds": 21002,
+          "endMilliseconds": 24833
+        },
+        {
+          "key": "two-proposals-line-4",
+          "speaker": "Narrador",
+          "text": "She placed the original amber cartridge beside a clean copy and kept the seed tray inside the nursery.",
+          "startMilliseconds": 24833,
+          "endMilliseconds": 31613
+        }
+      ],
+      "productionNotes": {
+        "audioText": "The city archive could preserve the rainfall recording together with the experiment notes. A neighbourhood greenhouse had also offered a controlled space for a second trial. Lena had enough time to prepare one delivery that afternoon. Sending the cartridge to the archive would protect its context; taking a copy to the greenhouse would let another team attempt the test. \"Both matter. We must choose which conversation happens first.\" She placed the original amber cartridge beside a clean copy and kept the seed tray inside the nursery.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Lena stands at a research bench with the original amber cartridge, a second clearly separate amber copy in a plain sleeve, and a folder of experiment notes. The single-shoot seed tray remains in its nursery position behind her. Arun is not present in this moment. No archive or greenhouse is depicted yet. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Lena is present: a Black woman with short tight curls, round glasses, charcoal research coat and copper scarf. No Arun or other person. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Lena escolhe entre preservar o registro no arquivo e levar uma cópia para um teste independente.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "archive-record",
+      "title": "More Than a Pleasant Sound",
+      "narration": "At the city archive, Lena deposited the original cartridge with her notes and kept the copy for future tests. The archivist found that the recording had been made in a garden which no longer existed. It included the soft rattle of rain against a greenhouse roof, not simply falling water. \"Keep that detail with the sound. We do not know which part matters.\" Back at the nursery, the shoot was still small. Lena had not restored the rain or solved the experiment. She had made sure that the next person could ask a better question.",
+      "isEnding": true,
+      "prompt": "Why does Lena ask the archivist to keep the recording’s context?",
+      "options": [
+        {
+          "key": "a",
+          "text": "They do not yet know which part of the sound may matter"
+        },
+        {
+          "key": "b",
+          "text": "The notes have proved that all rainfall sounds are identical"
+        },
+        {
+          "key": "c",
+          "text": "She wants the archivist to replace the recording with music"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The particular roof sound may matter, so preserving context supports future investigation.",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "rattle",
+          "translation": "ruído leve de batidas repetidas"
+        },
+        {
+          "key": "word-2",
+          "term": "restored",
+          "translation": "restabelecido"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "archive-record-line-1",
+          "speaker": "Narrador",
+          "text": "At the city archive, Lena deposited the original cartridge with her notes and kept the copy for future tests. The archivist found that the recording had been made in a garden which no longer existed.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11842
+        },
+        {
+          "key": "archive-record-line-2",
+          "speaker": "Narrador",
+          "text": "It included the soft rattle of rain against a greenhouse roof, not simply falling water.",
+          "startMilliseconds": 11842,
+          "endMilliseconds": 17612
+        },
+        {
+          "key": "archive-record-line-3",
+          "speaker": "Lena",
+          "text": "\"Keep that detail with the sound. We do not know which part matters.\"",
+          "startMilliseconds": 17612,
+          "endMilliseconds": 21826
+        },
+        {
+          "key": "archive-record-line-4",
+          "speaker": "Narrador",
+          "text": "Back at the nursery, the shoot was still small. Lena had not restored the rain or solved the experiment. She had made sure that the next person could ask a better question.",
+          "startMilliseconds": 21826,
+          "endMilliseconds": 32124
+        }
+      ],
+      "productionNotes": {
+        "audioText": "At the city archive, Lena deposited the original cartridge with her notes and kept the copy for future tests. The archivist found that the recording had been made in a garden which no longer existed. It included the soft rattle of rain against a greenhouse roof, not simply falling water. \"Keep that detail with the sound. We do not know which part matters.\" Back at the nursery, the shoot was still small. Lena had not restored the rain or solved the experiment. She had made sure that the next person could ask a better question.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: In a dim municipal archive, Lena hands the original amber cartridge and a folder of notes to an adult archivist wearing a dark blue cardigan. Archive shelves hold plain folders without readable writing. No live rain, no flourishing plants and no seed tray in this archive. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly two adults: Lena (Black woman, short tight curls, round glasses, charcoal coat, copper scarf) and an archivist in a dark blue cardigan. No Arun. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Lena entrega o registro original e suas anotações ao arquivo, preservando o contexto da gravação.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "greenhouse-trial",
+      "title": "A Question Shared",
+      "narration": "Lena took the copied recording and experiment notes to the neighbourhood greenhouse, leaving the original safely at the nursery. The second team prepared matching trays and agreed to record failures as carefully as successes. Their first trial showed no clear movement, although the water and lamps matched Lena’s settings. \"A result that differs from ours is still useful. Let us compare the details.\" They arranged another observation for the following day. Outside, the dome remained dry, but the sound of rain had become a question that more than one team could investigate.",
+      "isEnding": true,
+      "prompt": "How does Lena respond when the second trial shows no clear movement?",
+      "options": [
+        {
+          "key": "a",
+          "text": "She asks the team to hide the result"
+        },
+        {
+          "key": "b",
+          "text": "She treats it as useful evidence and compares the details"
+        },
+        {
+          "key": "c",
+          "text": "She announces that the city’s rain has returned"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Lena treats a different result as useful evidence rather than hiding it.",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "matching",
+          "translation": "equivalentes; preparados nas mesmas condições"
+        },
+        {
+          "key": "word-2",
+          "term": "failures",
+          "translation": "resultados sem sucesso"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "greenhouse-trial-line-1",
+          "speaker": "Narrador",
+          "text": "Lena took the copied recording and experiment notes to the neighbourhood greenhouse, leaving the original safely at the nursery. The second team prepared matching trays and agreed to record failures as carefully as successes.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 13897
+        },
+        {
+          "key": "greenhouse-trial-line-2",
+          "speaker": "Narrador",
+          "text": "Their first trial showed no clear movement, although the water and lamps matched Lena’s settings.",
+          "startMilliseconds": 13897,
+          "endMilliseconds": 20166
+        },
+        {
+          "key": "greenhouse-trial-line-3",
+          "speaker": "Lena",
+          "text": "\"A result that differs from ours is still useful. Let us compare the details.\"",
+          "startMilliseconds": 20166,
+          "endMilliseconds": 25100
+        },
+        {
+          "key": "greenhouse-trial-line-4",
+          "speaker": "Narrador",
+          "text": "They arranged another observation for the following day. Outside, the dome remained dry, but the sound of rain had become a question that more than one team could investigate.",
+          "startMilliseconds": 25100,
+          "endMilliseconds": 35851
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Lena took the copied recording and experiment notes to the neighbourhood greenhouse, leaving the original safely at the nursery. The second team prepared matching trays and agreed to record failures as carefully as successes. Their first trial showed no clear movement, although the water and lamps matched Lena’s settings. \"A result that differs from ours is still useful. Let us compare the details.\" They arranged another observation for the following day. Outside, the dome remained dry, but the sound of rain had become a question that more than one team could investigate.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Inside a modest neighbourhood greenhouse beneath the same dry glass dome, Lena and two adult local researchers compare two small seed trays and a plain folder beside the silver speaker and copied amber cartridge. All trays are small and unchanged; no shoot dramatically bends. Faces show careful discussion rather than disappointment or celebration. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly three adults: Lena (Black woman, short tight curls, round glasses, charcoal coat, copper scarf) and two local researchers in plain dark workwear. No Arun. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Lena e outra equipe comparam resultados sem esconder um teste que não repetiu o primeiro efeito.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    }
+  ],
+  "authoringNotes": {
+    "routes": [
+      [
+        "silent-nursery",
+        "careful-test",
+        "two-proposals",
+        "archive-record"
+      ],
+      [
+        "silent-nursery",
+        "careful-test",
+        "two-proposals",
+        "greenhouse-trial"
+      ]
+    ],
+    "visualContinuity": "Lena is a 44-year-old Black woman with a narrow face, short tightly curled hair, round clear glasses, a charcoal research coat and muted copper scarf. Arun is a 50-year-old South Asian man with short dark-grey hair, a neat beard and a dark olive research coat. The fictional city is beneath a glass environmental dome, not in space. One small seed tray, an amber data cartridge and a palm-sized silver speaker are the recurring objects. Plants show only the slight narrated shoot, never a sudden forest or magical weather.",
+    "review": "Five physical scenes, four per path, one meaningful decision and two complete endings. All questions are answered by the current narration. Two contextual hints per scene. Character speech uses the same published synthetic voice. No inventory, combat or special events are claimed."
+  }
+}

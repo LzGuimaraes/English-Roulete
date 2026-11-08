@@ -1,0 +1,395 @@
+{
+  "metadata": {
+    "title": "The Voice in Carriage Nine — A2",
+    "synopsis": "Uma funcionária encontra seu casaco em um trem vazio; o anúncio da última viagem parece conhecer seus próximos movimentos.",
+    "genre": "Terror psicológico",
+    "difficulty": "A2",
+    "author": "English Roulette — texto original assistido por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "História original criada para English Roulette nesta sessão em 08/11/2026, com assistência de IA. O responsável solicitou expressamente gerar e publicar novas histórias completas na VPS. Não adapta obra de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Nível editorial proposto; não constitui certificação CEFR.",
+    "appearance": {
+      "primary": "#E0B1B1",
+      "accent": "#CE8A8A",
+      "background": "#130C14",
+      "surface": "#291C28",
+      "text": "#FAECEE",
+      "font": "classic",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "last-inspection",
+  "scenes": [
+    {
+      "key": "last-inspection",
+      "title": "One Coat Too Many",
+      "narration": "Mara checked the empty train before the last lights went out. In carriage nine, a red raincoat hung over a seat. It looked exactly like hers, including the small repair on its sleeve. \"My coat is in my locker. I left it there this morning.\" She lifted her yellow torch. Water was dripping from the coat onto a dry floor.",
+      "isEnding": false,
+      "prompt": "Which detail made Mara think the coat was hers?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A repair on its sleeve"
+        },
+        {
+          "key": "b",
+          "text": "Its size and a new ticket"
+        },
+        {
+          "key": "c",
+          "text": "A name written on the seat"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The coat has the same small sleeve repair as Mara's own coat.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "announcement"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "sleeve",
+          "translation": "manga da roupa"
+        },
+        {
+          "key": "word-2",
+          "term": "locker",
+          "translation": "armário individual"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "last-inspection-line-1",
+          "speaker": "Narrador",
+          "text": "Mara checked the empty train before the last lights went out. In carriage nine, a red raincoat hung over a seat. It looked exactly like hers, including the small repair on its sleeve.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 12051
+        },
+        {
+          "key": "last-inspection-line-2",
+          "speaker": "Mara",
+          "text": "\"My coat is in my locker. I left it there this morning.\"",
+          "startMilliseconds": 12051,
+          "endMilliseconds": 15603
+        },
+        {
+          "key": "last-inspection-line-3",
+          "speaker": "Narrador",
+          "text": "She lifted her yellow torch. Water was dripping from the coat onto a dry floor.",
+          "startMilliseconds": 15603,
+          "endMilliseconds": 21130
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mara checked the empty train before the last lights went out. In carriage nine, a red raincoat hung over a seat. It looked exactly like hers, including the small repair on its sleeve. \"My coat is in my locker. I left it there this morning.\" She lifted her yellow torch. Water was dripping from the coat onto a dry floor.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Mara stands alone inside a dim empty train carriage, aiming a yellow torch at an unoccupied seat with a wet red raincoat draped over its back. Show a small stitched repair on the red sleeve and a few water drops on otherwise dry flooring. No human shape inside the coat. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Mara is present: 36-year-old woman, medium brown skin, tired dark eyes, black hair tied low, navy railway work jacket, grey trousers and small yellow torch. Red coat is empty fabric, never a person. No manager, no ghost, no other human. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Mara ilumina um casaco vermelho molhado, com um pequeno remendo na manga, em um vagão vazio.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "announcement",
+      "title": "A Message Before the Step",
+      "narration": "The ceiling speaker clicked. A calm voice said that Mara would step back from the wet seat. She had not moved yet. Then her foot slid backwards across the floor. \"You will look at the door now. The door will stay open.\" Mara looked. The platform door was open, but the red coat was no longer dripping.",
+      "isEnding": false,
+      "prompt": "Why did the first announcement frighten Mara?",
+      "options": [
+        {
+          "key": "a",
+          "text": "It warned that another train was arriving"
+        },
+        {
+          "key": "b",
+          "text": "It told her the platform door was locked"
+        },
+        {
+          "key": "c",
+          "text": "It described her movement before she made it"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The voice described Mara stepping back before she actually moved.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "unwritten-choice"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "ceiling",
+          "translation": "teto"
+        },
+        {
+          "key": "word-2",
+          "term": "step back",
+          "translation": "recuou"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "announcement-line-1",
+          "speaker": "Narrador",
+          "text": "The ceiling speaker clicked. A calm voice said that Mara would step back from the wet seat. She had not moved yet. Then her foot slid backwards across the floor.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10507
+        },
+        {
+          "key": "announcement-line-2",
+          "speaker": "Alto-falante",
+          "text": "\"You will look at the door now. The door will stay open.\"",
+          "startMilliseconds": 10507,
+          "endMilliseconds": 13711
+        },
+        {
+          "key": "announcement-line-3",
+          "speaker": "Narrador",
+          "text": "Mara looked. The platform door was open, but the red coat was no longer dripping.",
+          "startMilliseconds": 13711,
+          "endMilliseconds": 19005
+        }
+      ],
+      "productionNotes": {
+        "audioText": "The ceiling speaker clicked. A calm voice said that Mara would step back from the wet seat. She had not moved yet. Then her foot slid backwards across the floor. \"You will look at the door now. The door will stay open.\" Mara looked. The platform door was open, but the red coat was no longer dripping.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Mara, still alone in the train, has moved one step back from the red raincoat. She looks up toward a small ceiling speaker; the open platform doorway remains visible to her right. The red coat hangs on the same empty seat, without falling water. No person in the doorway. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Mara is present: 36-year-old woman, medium brown skin, tired dark eyes, black hair tied low, navy railway work jacket, grey trousers and small yellow torch. Red coat is empty fabric, never a person. No manager, no ghost, no other human. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "O alto-falante descreve um movimento de Mara antes que ela o faça; a porta continua aberta.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "unwritten-choice",
+      "title": "A Voice That Waits",
+      "narration": "Her phone camera showed the empty seat. On its screen, the red coat was missing. Mara could photograph the carriage or leave her phone on the seat and walk out. She kept both feet still. \"You will choose the picture. You always choose the picture.\" For the first time, the voice sounded uncertain. The open doorway was only a few steps away.",
+      "isEnding": false,
+      "prompt": "What was different on the phone screen?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The doorway was closed"
+        },
+        {
+          "key": "b",
+          "text": "The red coat was missing"
+        },
+        {
+          "key": "c",
+          "text": "The seat had another passenger"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Mara could see the coat directly, but her camera showed the seat without it.",
+      "transitions": [
+        {
+          "key": "route-1",
+          "label": "Take one photograph and leave",
+          "targetSceneKey": "taken-picture"
+        },
+        {
+          "key": "route-2",
+          "label": "Leave the phone and walk out",
+          "targetSceneKey": "phone-left"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "uncertain",
+          "translation": "incerto; sem segurança"
+        },
+        {
+          "key": "word-2",
+          "term": "doorway",
+          "translation": "vão da porta"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "unwritten-choice-line-1",
+          "speaker": "Narrador",
+          "text": "Her phone camera showed the empty seat. On its screen, the red coat was missing. Mara could photograph the carriage or leave her phone on the seat and walk out. She kept both feet still.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 12132
+        },
+        {
+          "key": "unwritten-choice-line-2",
+          "speaker": "Alto-falante",
+          "text": "\"You will choose the picture. You always choose the picture.\"",
+          "startMilliseconds": 12132,
+          "endMilliseconds": 15243
+        },
+        {
+          "key": "unwritten-choice-line-3",
+          "speaker": "Narrador",
+          "text": "For the first time, the voice sounded uncertain. The open doorway was only a few steps away.",
+          "startMilliseconds": 15243,
+          "endMilliseconds": 21339
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Her phone camera showed the empty seat. On its screen, the red coat was missing. Mara could photograph the carriage or leave her phone on the seat and walk out. She kept both feet still. \"You will choose the picture. You always choose the picture.\" For the first time, the voice sounded uncertain. The open doorway was only a few steps away.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Mara stands near the open train doorway, holding her phone so both a small camera preview and the real seat can be compared. The real seat holds the red raincoat, but the phone preview shows the same seat empty. Make the preview a clear simple drawing, no interface text or extra people. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Mara is present: 36-year-old woman, medium brown skin, tired dark eyes, black hair tied low, navy railway work jacket, grey trousers and small yellow torch. Red coat is empty fabric, never a person. No manager, no ghost, no other human. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "O celular mostra o mesmo banco sem o casaco vermelho que Mara enxerga diante dela.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "taken-picture",
+      "title": "Evidence on the Platform",
+      "narration": "Mara took one picture and stepped onto the platform. The train lights went dark behind her. In the photograph, the coat was finally visible, folded neatly on the seat. Her own yellow torch lay beside it. \"That cannot be right. I am still holding the torch.\" She showed the picture to the night manager and refused to return alone. The camera had recorded a scene she had never seen.",
+      "isEnding": true,
+      "prompt": "What made the photograph impossible for Mara?",
+      "options": [
+        {
+          "key": "a",
+          "text": "It showed her torch on the seat while she held it"
+        },
+        {
+          "key": "b",
+          "text": "It showed daylight on the platform"
+        },
+        {
+          "key": "c",
+          "text": "It showed a different colour of coat"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "Mara is holding her torch, but the photograph also shows it on the seat.",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "neatly",
+          "translation": "de maneira organizada"
+        },
+        {
+          "key": "word-2",
+          "term": "refused",
+          "translation": "recusou"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "taken-picture-line-1",
+          "speaker": "Narrador",
+          "text": "Mara took one picture and stepped onto the platform. The train lights went dark behind her. In the photograph, the coat was finally visible, folded neatly on the seat. Her own yellow torch lay beside it.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 13072
+        },
+        {
+          "key": "taken-picture-line-2",
+          "speaker": "Mara",
+          "text": "\"That cannot be right. I am still holding the torch.\"",
+          "startMilliseconds": 13072,
+          "endMilliseconds": 16474
+        },
+        {
+          "key": "taken-picture-line-3",
+          "speaker": "Narrador",
+          "text": "She showed the picture to the night manager and refused to return alone. The camera had recorded a scene she had never seen.",
+          "startMilliseconds": 16474,
+          "endMilliseconds": 23812
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mara took one picture and stepped onto the platform. The train lights went dark behind her. In the photograph, the coat was finally visible, folded neatly on the seat. Her own yellow torch lay beside it. \"That cannot be right. I am still holding the torch.\" She showed the picture to the night manager and refused to return alone. The camera had recorded a scene she had never seen.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Mara stands alone on a dim platform holding her real yellow torch and her phone. The phone photo shows the train seat with a neatly folded red coat and a small yellow torch beside it. The actual carriage behind her is dark. The night manager has not appeared in this depicted instant. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Mara is present: 36-year-old woman, medium brown skin, tired dark eyes, black hair tied low, navy railway work jacket, grey trousers and small yellow torch. Red coat is empty fabric, never a person. No manager, no ghost, no other human. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Na plataforma, Mara segura a lanterna que também aparece, impossivelmente, dentro da fotografia.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    },
+    {
+      "key": "phone-left",
+      "title": "The Call from the Locker",
+      "narration": "Mara left her phone on the seat and walked onto the platform. The speaker went silent. In the staff room, her own red raincoat was still inside her locker. Something vibrated in its pocket. \"I left my phone on the train. This pocket should be empty.\" She closed the locker without reaching inside and called the night manager from the desk phone. Together, they waited for morning outside the room.",
+      "isEnding": true,
+      "prompt": "What does Mara do after she hears the vibration?",
+      "options": [
+        {
+          "key": "a",
+          "text": "She reaches into the coat pocket"
+        },
+        {
+          "key": "b",
+          "text": "She closes the locker and calls the manager"
+        },
+        {
+          "key": "c",
+          "text": "She returns to the train alone"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Mara leaves the pocket untouched, closes the locker and calls from the desk phone.",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "vibrated",
+          "translation": "vibrou"
+        },
+        {
+          "key": "word-2",
+          "term": "reaching inside",
+          "translation": "colocar a mão dentro"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "phone-left-line-1",
+          "speaker": "Narrador",
+          "text": "Mara left her phone on the seat and walked onto the platform. The speaker went silent. In the staff room, her own red raincoat was still inside her locker. Something vibrated in its pocket.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 12109
+        },
+        {
+          "key": "phone-left-line-2",
+          "speaker": "Mara",
+          "text": "\"I left my phone on the train. This pocket should be empty.\"",
+          "startMilliseconds": 12109,
+          "endMilliseconds": 15650
+        },
+        {
+          "key": "phone-left-line-3",
+          "speaker": "Narrador",
+          "text": "She closed the locker without reaching inside and called the night manager from the desk phone. Together, they waited for morning outside the room.",
+          "startMilliseconds": 15650,
+          "endMilliseconds": 24439
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mara left her phone on the seat and walked onto the platform. The speaker went silent. In the staff room, her own red raincoat was still inside her locker. Something vibrated in its pocket. \"I left my phone on the train. This pocket should be empty.\" She closed the locker without reaching inside and called the night manager from the desk phone. Together, they waited for morning outside the room.",
+        "voiceDirection": "One synthetic English voice, clear and unhurried; character labels identify authored speech, not different voices. Preserve every word.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: In a deserted staff room Mara stands a step away from her open metal locker, looking at her own red raincoat hanging inside. A faint crease at its pocket suggests a vibration, but no phone or device is visible. She holds only her yellow torch; a wired desk phone is visible nearby. No train or second coat in the room. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Mara is present: 36-year-old woman, medium brown skin, tired dark eyes, black hair tied low, navy railway work jacket, grey trousers and small yellow torch. Red coat is empty fabric, never a person. No manager, no ghost, no other human. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "altText": "Mara encontra seu casaco no armário e ouve uma vibração no bolso, embora tenha deixado o celular no trem.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved art. Do not animate mouths or invent character actions, lights or clues."
+      }
+    }
+  ],
+  "authoringNotes": {
+    "routes": [
+      [
+        "last-inspection",
+        "announcement",
+        "unwritten-choice",
+        "taken-picture"
+      ],
+      [
+        "last-inspection",
+        "announcement",
+        "unwritten-choice",
+        "phone-left"
+      ]
+    ],
+    "visualContinuity": "Mara is a 36-year-old woman with medium brown skin, tired dark eyes, straight black hair tied low, a navy railway work jacket, grey trousers and a small yellow torch. Her own red raincoat is a separate garment, never a second person. All railway spaces are empty except for Mara; no visible ghost or monster.",
+    "review": "Five physical scenes, four per path, one meaningful decision and two complete endings. All questions are answered by the current narration. Two contextual hints per scene. Character speech uses the same published synthetic voice. No inventory, combat or special events are claimed."
+  }
+}
