@@ -1,5 +1,6 @@
 // Run against a local QA instance with published, narrated content. See GAME_EXPERIENCE.md.
 const assert = require('node:assert/strict');
+const { watchSolo, soloState } = require('./solo-page.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require(process.env.ENGLISHROULETTE_PLAYWRIGHT_PATH || 'playwright');
@@ -14,6 +15,7 @@ async function screen(page, name) {
 async function open(width = 1440) {
     const context = await browser.newContext({ viewport: { width, height: width < 500 ? 844 : 1000 } });
     const page = await context.newPage();
+    watchSolo(page);
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => { if (/Unhandled exception|crit:/.test(message.text())) errors.push(message.text()); });
     return { context, page };
@@ -36,7 +38,7 @@ async function start(page) {
     await response.finished();
     assert.ok(response.ok());
     // Verify the durable state; Chromium can evict a completed response body during media-heavy runs.
-    const state = await (await page.request.get(base + '/api/demo/session')).json();
+    const state = await soloState(page);
     assert.ok(state.storyVersionId);
     await page.locator('.in-adventure').waitFor({ timeout: 10000 });
     assert.equal(await page.locator('.adventure-heading h1').innerText(), state.title);
@@ -44,7 +46,7 @@ async function start(page) {
     return state;
 }
 async function progressiveText(page) {
-    const snapshot = await (await page.request.get(base + '/api/demo/session')).json();
+    const snapshot = await soloState(page);
     if (snapshot.dialogue?.length) {
         const audio = page.locator('.audio-player audio'), copy = page.locator('.dialogue-line');
         await page.waitForFunction(() => document.querySelector('.dialogue-line')?.textContent.length > 0);
@@ -56,7 +58,7 @@ async function progressiveText(page) {
         await page.getByRole('button', { name:'Mostrar diálogo completo',exact:true }).click();
         assert.equal(await page.locator('.dialogue-review strong').count(),snapshot.dialogue.length);
         await page.getByRole('button', { name:'Acompanhar diálogo',exact:true }).click();
-        await page.reload();await page.locator('.dialogue-line').waitFor();
+        // Keep the page alive: reload deliberately returns to the solo menu.
         await audio.evaluate(a => a.play());return;
     }
     const copy = page.locator('.narration-copy');
@@ -68,7 +70,7 @@ async function progressiveText(page) {
     const pausedText = await copy.textContent();
     await page.waitForTimeout(1100);
     assert.equal(await copy.textContent(), pausedText, 'Paused audio must freeze text.');
-    const paused = await (await page.request.get(base + '/api/demo/session')).json();
+    const paused = await soloState(page);
     assert.equal(paused.phaseDeadlineUtc, snapshot.phaseDeadlineUtc, 'Pausing must not change the server deadline.');
     await page.locator('audio').evaluate(audio => { audio.currentTime = audio.duration / 2; });
     await page.waitForFunction(() => {
@@ -80,18 +82,10 @@ async function progressiveText(page) {
     await page.waitForFunction(() => document.querySelector('.narration-copy').textContent === document.querySelector('.narration-layout').textContent);
     await page.getByRole('button', { name: 'Acompanhar narração', exact: true }).click();
     await page.waitForFunction(() => document.querySelector('.narration-copy').textContent.length < document.querySelector('.narration-layout').textContent.length);
-    await page.reload();
-    await page.locator('.narration-copy').waitFor();
-    await page.waitForFunction(() => {
-        const audio = document.querySelector('audio');
-        const total = document.querySelector('.narration-layout').textContent.length;
-        const count = document.querySelector('.narration-copy').textContent.length;
-        return audio.currentTime > 0 && Math.abs(count - Math.floor(total * audio.currentTime / audio.duration)) <= 3;
-    });
     await page.getByRole('button', { name: 'Mostrar texto completo', exact: true }).click();
     await page.getByRole('button', { name: 'Acompanhar narração', exact: true }).click();
     await page.locator('audio').evaluate(audio => audio.play());
-    console.log('PASS: progressive text follows audio pause, seek, resume, refresh and full-text preference.');
+    console.log('PASS: progressive text follows audio pause, seek, live progress and full-text preference.');
 }
 async function completeAdventure(page) {
     let decisions = 0, questions = 0;
@@ -107,7 +101,7 @@ async function completeAdventure(page) {
         await page.locator('.question-panel .option').first().click();
         await page.locator('.feedback').waitFor(); questions++;
         if (step === 0) {
-            await page.reload(); await page.locator('.feedback').waitFor();
+            // Polls/retries preserve live progress; reload no longer resumes solo.
             assert.ok(await page.locator('.journey-stop').count());
         }
         await page.getByRole('button', { name: /Continuar a história/ }).click();
@@ -116,7 +110,7 @@ async function completeAdventure(page) {
         if (await page.locator('.ending').count()) break;
     }
     assert.ok(await page.locator('.ending').isVisible());
-    const ending = await (await page.request.get(base + '/api/demo/session')).json();
+    const ending = await soloState(page);
     assert.equal(await page.locator('.ending .narration').innerText(), ending.narration);
     assert.equal(await page.locator('.ending-audio').getAttribute('src'), ending.audio.url);
     await page.locator('.ending-audio').evaluate(audio => audio.play());
@@ -164,7 +158,7 @@ async function failedStart(body, status) {
         await page.locator('.journey-card summary').click();
         if (width === 1440) await completeAdventure(page);
         else {
-            await page.reload(); await ready(page);
+            await page.reload(); await home(page); await start(page); await ready(page);
             assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
         }
         await page.getByRole('button', { name: 'Menu principal', exact: true }).click();
@@ -240,5 +234,5 @@ async function failedStart(body, status) {
     }
     await require('./multiplayer.cjs')({ browser, base, errors, screen });
     assert.deepEqual(errors, []);
-    console.log(process.env.ENGLISHROULETTE_ONLY_MULTIPLAYER ? 'PASS: multiplayer checks completed.' : 'PASS: automatic solo start, real story completion, recovery, timeout, catalog, preview, resume, desktop and mobile.');
+    console.log(process.env.ENGLISHROULETTE_ONLY_MULTIPLAYER ? 'PASS: multiplayer checks completed.' : 'PASS: automatic solo start, real story completion, recovery, timeout, catalog, preview, fresh solo visits, desktop and mobile.');
 })().catch(error => { console.error(error); console.error("Browser errors:", errors); process.exitCode = 1; }).finally(async () => { await browser?.close(); });

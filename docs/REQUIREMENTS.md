@@ -263,13 +263,16 @@ Cada fase é definida pelo servidor com identificador e número de versão do es
 - Eventos que dependam de comparação/votação entre jogadores ficam inelegíveis no solo.
 - Evitar repetir um evento consecutivamente e selecionar somente questões já publicadas e compatíveis.
 
-#### RF-SOLO-006 — Salvar, sair e continuar
+#### RF-SOLO-006 — Sair da aventura e começar do zero
 
-- Persistir `GameSession` solo e estado do percurso: história/versão, cena atual, fase, escolhas, respostas, pontos e timestamps.
-- Apresentar `Continue Adventure` ou `Continue Practice` se existir sessão ativa do convidado.
-- Ao interromper Adventure, não permitir explorar a resposta correta e retornar para uma pergunta com pontuação plena; reabrir a pergunta apenas segundo política fixa de retomada, registrando tentativas e deadlines.
-- Em Practice, permitir pausas sem perda; aplicar retomada idempotente (sem duplicar cenas, respostas pontuáveis ou recompensas).
-- A V1 solo **requer conexão à internet**; PWA não significa histórias offline.
+Decisão expressa do responsável em 08/11/2026: a aventura solo não deve ser retomada ao retornar ao site. Substitui a proposta anterior de salvar e continuar Adventure. Practice continua uma proposta futura.
+
+- Estado, respostas, dicas, pontos e prazos permanecem autoritativos no servidor enquanto a página está aberta, para consistência e retries.
+- Sair pelo menu, pelo logotipo ou para outra página encerra a aventura. Recarregar, fechar/reabrir a aba ou voltar a uma página solo restaurada pelo navegador mostra o menu inicial.
+- Uma nova aventura começa na primeira cena, com pontos e dicas zerados. Não apresentar `Continue Adventure` nem restaurar uma aventura usando cookies ou armazenamento do navegador.
+- A credencial da aventura existe somente na memória da página, sem cookie, localStorage, sessionStorage ou URL. Abas diferentes não compartilham essa credencial.
+- A reconexão durante a mesma página pode recuperar o snapshot vigente, sem reiniciar prazos ou duplicar pontos. Isso não habilita retomada após sair.
+- Multiplayer mantém identidade, reconexão e sala existentes. A V1 solo requer conexão à internet; PWA não significa histórias offline.
 
 #### RF-SOLO-007 — Progressão e antirrepetição
 
@@ -293,7 +296,7 @@ HOME → MODE_SELECTION (ADVENTURE | PRACTICE) → STORY_SELECTION
 → PRELOADING → NARRATING_SCENE → QUESTION → FEEDBACK
 → [SOLO_EVENT?] → [PLAYER_CHOICE?] → NEXT_SCENE
 → STORY_FINISHED → SUMMARY → REPLAY / NEW STORY
-                  ↘ SAVE_AND_EXIT → CONTINUE
+                  ↘ EXIT/RELOAD → HOME → NEW_ADVENTURE_FROM_ZERO
 ```
 
 Em Adventure, o servidor administra prazos e pontuação; em Practice, o usuário controla pausas e revisões. Ambos usam a mesma versão publicada da história.

@@ -1,5 +1,7 @@
 # Abertura, roleta e ambientação
 
+**Atualização de 08/11/2026:** a aventura solo agora termina ao sair ou recarregar. O retorno ao site abre o menu e exige começar do zero, sem cookie de progresso. Referências a retomada solo nas entregas abaixo são históricas. Multiplayer continua reconectando à sala. Veja [SOLO_PAGE_LIFETIME.md](increments/SOLO_PAGE_LIFETIME.md).
+
 **Estado atual:** o multiplayer agora inclui uma história jogável, áudio compartilhado, respostas individuais, votação e placar persistido. Veja [o incremento e seus critérios de aceite](increments/MULTIPLAYER_GAMEPLAY.md). As seções anteriores que descrevem apenas lobby/roleta registram entregas históricas. XP, eventos especiais e revanche na mesma sala continuam futuros.
 
 Incremento de RF-006, RF-008 e RF-015 solicitado em 07/11/2026: o jogador inicia antes de descobrir o tema. A escolha manual de história foi removida das telas solo e multiplayer. A seleção explícita da API solo continua disponível para compatibilidade com integrações e testes editoriais.

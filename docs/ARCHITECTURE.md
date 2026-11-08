@@ -74,7 +74,7 @@ Regras de referência: `Domain` não conhece EF, ASP.NET, SignalR ou Blazor; `Ap
 - `SessionCoordinator`: valida e executa uma transição única com controle de concorrência; persiste antes de emitir notificação.
 - `ModeRules` ou enum + estratégias pequenas: introduzir interfaces somente quando regras realmente divergirem; não duplicar o engine.
 
-**No solo:** comandos via API REST, snapshot/retomada da sessão no PostgreSQL, sem necessidade de manter WebSocket aberto. **No multiplayer:** comandos validados pelo backend e notificações de estado via SignalR (grupos por sala; reconectar solicita snapshot).
+**No solo:** comandos via API REST e snapshots no PostgreSQL para a página em andamento, sem WebSocket. Por decisão do responsável em 08/11/2026, a aventura não é retomada ao sair/recarregar: a credencial é mantida somente na memória da página e o retorno ao site exige nova aventura. **No multiplayer:** comandos validados pelo backend e notificações de estado via SignalR (grupos por sala; reconectar solicita snapshot).
 
 ### Concorrência e idempotência
 

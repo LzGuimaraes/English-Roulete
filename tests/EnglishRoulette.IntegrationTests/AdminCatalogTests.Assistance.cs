@@ -43,6 +43,7 @@ public sealed partial class AdminCatalogTests
         using var player = NewClient();
         player.DefaultRequestHeaders.Add("X-English-Roulette", "demo");
         using var created = await player.PostAsJsonAsync("/api/demo/session", new CreateAdventureRequest(story.Id)); created.EnsureSuccessStatusCode();
+        HoldSoloCredential(player, created);
         var state = (await created.Content.ReadFromJsonAsync<AdventureView>())!;
         Assert.DoesNotContain("caderno de anotações", await created.Content.ReadAsStringAsync());
         Assert.Null(Assert.Single(state.WordHints!).Translation);
@@ -78,6 +79,7 @@ public sealed partial class AdminCatalogTests
         var previousScene = state.SceneInstanceId;
         using var next = await player.PostAsJsonAsync("/api/demo/session", new CreateAdventureRequest(story.Id));
         next.EnsureSuccessStatusCode();
+        HoldSoloCredential(player, next);
         state = (await next.Content.ReadFromJsonAsync<AdventureView>())!;
         Assert.NotEqual(previousScene, state.SceneInstanceId);
         Assert.Equal(0, state.HintCost!.UsedCount);

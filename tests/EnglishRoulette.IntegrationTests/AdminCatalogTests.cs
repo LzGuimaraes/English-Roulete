@@ -219,6 +219,7 @@ public sealed partial class AdminCatalogTests : IAsyncLifetime
         _client.DefaultRequestHeaders.Add("X-English-Roulette", "demo");
         var session = await _client.PostAsJsonAsync("/api/demo/session", new CreateAdventureRequest(original.Id));
         Assert.Equal(HttpStatusCode.OK, session.StatusCode);
+        HoldSoloCredential(_client, session);
         var initial = (await session.Content.ReadFromJsonAsync<AdventureView>())!;
         using var duplicate = await Mutate(HttpMethod.Post, $"/api/admin/stories/{original.Id}/duplicate", new { });
         var next = (await duplicate.Content.ReadFromJsonAsync<AdminStoryEditor>())!;
@@ -319,6 +320,7 @@ public sealed partial class AdminCatalogTests : IAsyncLifetime
         Assert.Equal("#BE185D", Assert.Single(catalog!).Appearance?.Primary);
         anonymous.DefaultRequestHeaders.Add("X-English-Roulette", "demo");
         using var created = await anonymous.PostAsJsonAsync("/api/demo/session", new CreateAdventureRequest(editor.Id));
+        HoldSoloCredential(anonymous, created);
         var first = (await created.Content.ReadFromJsonAsync<AdventureView>())!;
         Assert.Equal($"/media/visuals/{visual.Id}", first.Visual?.Url);
         using var image = await anonymous.GetAsync(first.Visual!.Url);
@@ -491,6 +493,11 @@ public sealed partial class AdminCatalogTests : IAsyncLifetime
     private AdventureDbContext Context() => new(new DbContextOptionsBuilder<AdventureDbContext>()
         .UseNpgsql(Connection, options => options.MigrationsHistoryTable("__EFMigrationsHistory", _schema)).Options);
     private HttpClient NewClient() => _factory.CreateClient(new() { BaseAddress = new("https://localhost"), AllowAutoRedirect = false });
+    private static void HoldSoloCredential(HttpClient client, HttpResponseMessage created)
+    {
+        client.DefaultRequestHeaders.Remove(SoloSessionHeaders.Credential);
+        client.DefaultRequestHeaders.Add(SoloSessionHeaders.Credential, Assert.Single(created.Headers.GetValues(SoloSessionHeaders.Credential)));
+    }
     private async Task Login(string email = "admin@test.local", HttpClient? client = null)
     {
         using var response = await Mutate(HttpMethod.Post, "/api/admin/login", new AdminLoginRequest(email, _password), client);

@@ -103,7 +103,7 @@ app.Use(async (context, next) =>
     if (context.Request.Path.StartsWithSegments("/api/demo"))
     {
         context.Response.Headers.CacheControl = "no-store";
-        if (HttpMethods.IsPost(context.Request.Method) && context.Request.Headers["X-English-Roulette"] != "demo")
+        if (!HttpMethods.IsGet(context.Request.Method) && !HttpMethods.IsHead(context.Request.Method) && context.Request.Headers["X-English-Roulette"] != "demo")
         {
             await Results.Problem(statusCode: 403, title: "Requisição inválida.").ExecuteAsync(context);
             return;
@@ -116,6 +116,11 @@ app.MapGet("/api/demo/session", async (HttpContext context, DemoSessions session
     await sessions.GetAsync(context, context.RequestAborted) is { } state ? Results.Ok(state) : Results.NotFound());
 app.MapPost("/api/demo/session", async (HttpContext context, CreateAdventureRequest request, DemoSessions sessions) =>
     Results.Ok(await sessions.CreateAsync(context, request.StoryVersionId, context.RequestAborted)));
+app.MapDelete("/api/demo/session", async (HttpContext context, DemoSessions sessions) =>
+{
+    await sessions.EndAsync(context, context.RequestAborted);
+    return Results.NoContent();
+});
 app.MapPost("/api/demo/commands", async (HttpContext context, AdventureCommand command, DemoSessions sessions) =>
 {
     try

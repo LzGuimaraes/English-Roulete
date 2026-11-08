@@ -6,6 +6,7 @@ public sealed record StoredSoloSession(SoloAdventureCheckpoint Checkpoint, long 
 
 public interface ISoloSessionStore
 {
+    Task DeleteAsync(string credentialHash, CancellationToken cancellationToken);
     Task<StoredSoloSession?> FindAsync(string credentialHash, CancellationToken cancellationToken);
     Task CreateAsync(string credentialHash, SoloAdventureCheckpoint checkpoint,
         string? previousCredentialHash, CancellationToken cancellationToken);

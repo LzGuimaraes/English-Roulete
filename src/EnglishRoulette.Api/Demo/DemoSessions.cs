@@ -23,6 +23,16 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
     private const int SafetyMarginMs = 2000;
     private readonly PersistentSoloAdventure _adventure = new(store, timeProvider);
 
+    public async Task EndAsync(HttpContext context, CancellationToken token)
+    {
+        var hash = CredentialHash(context);
+        if (hash is not null) { await store.DeleteAsync(hash, token); }
+        // Old persistent cookies are accepted only for cleanup, never for play/resume.
+        if (context.Request.Cookies.TryGetValue(CookieName, out var legacy))
+        { await store.DeleteAsync(Hash(legacy), token); }
+        context.Response.Cookies.Delete(CookieName, new CookieOptions { Path = "/api/demo" });
+    }
+
     public async Task<AdventureView?> GetAsync(HttpContext context, CancellationToken cancellationToken)
     {
         var hash = CredentialHash(context);
@@ -47,14 +57,7 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
         var credential = Convert.ToHexString(RandomNumberGenerator.GetBytes(32));
         var hash = Hash(credential);
         await store.CreateAsync(hash, session.Capture(), previousHash, cancellationToken);
-        context.Response.Cookies.Append(CookieName, credential, new CookieOptions
-        {
-            HttpOnly = true,
-            SameSite = SameSiteMode.Strict,
-            Secure = context.Request.IsHttps,
-            Path = "/api/demo",
-            MaxAge = TimeSpan.FromDays(30)
-        });
+        context.Response.Headers[SoloSessionHeaders.Credential] = credential;
         return await MapAsync(session.GetSnapshot(playerId, timeProvider.GetUtcNow()), hash, cancellationToken);
     }
 
@@ -87,8 +90,12 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
         return snapshot is null ? null : await MapAsync(snapshot, hash, cancellationToken);
     }
 
-    private static string? CredentialHash(HttpContext context) =>
-        context.Request.Cookies.TryGetValue(CookieName, out var credential) ? Hash(credential) : null;
+    private static string? CredentialHash(HttpContext context)
+    {
+        var values = context.Request.Headers[SoloSessionHeaders.Credential];
+        var credential = values.Count == 1 ? values[0] : null;
+        return credential is { Length: 64 } && credential.All(char.IsAsciiHexDigit) ? Hash(credential) : null;
+    }
     private static string Hash(string credential) => Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(credential)));
 
     private async Task<AdventureView> MapAsync(SoloAdventureSnapshot snapshot, string hash, CancellationToken token)

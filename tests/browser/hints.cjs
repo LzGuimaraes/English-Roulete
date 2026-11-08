@@ -1,5 +1,6 @@
 // Real media and server timelines in isolated QA. No mocked questions or scores.
 const assert = require('node:assert/strict');
+const { createSolo, soloState: pageState } = require('./solo-page.cjs');
 const fs = require('node:fs'), path = require('node:path'), crypto = require('node:crypto');
 const { chromium } = require(process.env.ENGLISHROULETTE_PLAYWRIGHT_PATH || 'playwright');
 const base = process.env.ENGLISHROULETTE_BASE_URL || 'http://127.0.0.1:5087';
@@ -19,7 +20,7 @@ async function open(width) {
     return { context, page };
 }
 async function json(response) { assert.ok(response.ok(), await response.text()); return response.json(); }
-async function soloState(person) { return json(await person.context.request.get(base + '/api/demo/session')); }
+async function soloState(person) { return pageState(person.page); }
 async function roomState(person) { return json(await person.context.request.get(base + '/api/rooms/current')); }
 async function post(person, route, data) {
     const csrf = await json(await person.context.request.get(base + '/api/rooms/antiforgery'));
@@ -83,11 +84,9 @@ async function solo() {
         const catalog = await json(await context.request.get(base + '/api/catalog'));
         const story = catalog.find(story => story.title.startsWith('A Visitor Made of Light'));
         assert.ok(story, 'Import the reviewed dialogue story into QA.');
-        const create = async () => json(await context.request.post(base + '/api/demo/session', {
-            headers: { 'X-English-Roulette': 'demo' }, data: { storyVersionId: story.id } }));
+        const create = () => createSolo(page,base,story.id);
         let state = await create(); fresh(state);
         const first = state.sceneInstanceId;
-        await page.goto(base);
         for (let scene = 0; scene < 8; scene++) {
             await startSolo(person); state = await soloState(person); fresh(state);
             if (scene === 0) {
@@ -101,12 +100,12 @@ async function solo() {
                 await buy(person, state, soloState, 'solo-desktop', false);
                 await audio.evaluate(audio => audio.play());
                 await page.setViewportSize({ width: 390, height: 844 });
-                await page.reload(); await page.locator('.phase-narrating').waitFor();
+                // Keep this live page; reload now deliberately abandons solo play.
                 state = await soloState(person); assert.equal(state.hintCost.usedCount, 1);
                 await fullText(page);
                 await page.locator(`.narration-hint[data-hint-key="${state.wordHints[0].key}"]:visible`).first().click();
                 await page.locator('.inline-hint-translation').waitFor();
-                await page.screenshot({ path: path.join(output, 'solo-mobile-reload.png'), fullPage: true });
+                await page.screenshot({ path: path.join(output, 'solo-mobile-live.png'), fullPage: true });
                 await page.getByRole('button', { name: 'Fechar tradução', exact: true }).click();
             }
             await page.locator('.phase-questionopen').waitFor({ timeout: 70000 });
@@ -127,14 +126,14 @@ async function solo() {
         state = await soloState(person); assert.ok(state.score.total > 0);
         // Replay the exact same story and same editorial keys in the same browser.
         state = await create(); fresh(state); assert.notEqual(state.sceneInstanceId, first); assert.equal(state.score.total, 0);
-        await page.reload(); await startSolo(person);
+        await startSolo(person);
         state = await soloState(person); fresh(state);
         await buy(person, state, soloState, 'solo-second-game');
         await page.locator('.phase-questionopen').waitFor({ timeout: 70000 }); state = await soloState(person);
         await page.locator('.option').filter({ has: page.locator('.option-letter', { hasText: correct(state).toUpperCase() }) }).click();
         await page.locator('.phase-questionreveal').waitFor(); state = await soloState(person);
         assert.equal(state.score.total, state.score.roundPoints); assert.ok(state.score.roundDeduction > 0);
-        console.log('PASS: solo click/keyboard/reopen/reload, per-scene reset, completed story and new game with fresh paid hint/score.');
+        console.log('PASS: solo click/keyboard/reopen/live snapshots, per-scene reset, completed story and new game with fresh paid hint/score.');
     } finally { await context.close(); }
 }
 async function readyAudio(person) {
@@ -147,9 +146,7 @@ async function recovery() {
         const catalog = await json(await context.request.get(base + '/api/catalog'));
         const story = catalog.find(story => story.title.startsWith('A Visitor Made of Light'));
         assert.ok(story);
-        await json(await context.request.post(base + '/api/demo/session', {
-            headers: { 'X-English-Roulette': 'demo' }, data: { storyVersionId: story.id } }));
-        await page.goto(base); await startSolo(person); await fullText(page);
+        await createSolo(page,base,story.id); await startSolo(person); await fullText(page);
         let reject = true;
         await page.route('**/api/demo/commands', async route => {
             if (reject && route.request().postDataJSON()?.kind === 'hint') {

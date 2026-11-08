@@ -8,10 +8,10 @@
 @inject TimeProvider Clock
 @inject ILogger<Home> Logger
 
-<div class="experience game-experience motion-@(_state?.Appearance?.Motion ?? CurrentTheme.Motion) @(_state is not null ? "in-adventure phase-" + _state.Phase.ToLowerInvariant() : "") @(IsHorror ? "horror-experience" : "") @(_state?.Visual is not null ? "has-scene-art" : "") @(_state?.Phase == "Preloading" ? "scene-intro" : "")" style="@ThemePalette.Style(CurrentTheme)">
+<div data-solo-page class="experience game-experience motion-@(_state?.Appearance?.Motion ?? CurrentTheme.Motion) @(_state is not null ? "in-adventure phase-" + _state.Phase.ToLowerInvariant() : "") @(IsHorror ? "horror-experience" : "") @(_state?.Visual is not null ? "has-scene-art" : "") @(_state?.Phase == "Preloading" ? "scene-intro" : "")" style="@ThemePalette.Style(CurrentTheme)">
 @if (_state is not null) { <div class="scene-backdrop"><SceneArtwork Visual="_state.Visual" Background="true" OnLoadFailure="url => _artFailureUrl = url" /></div> }
 <header class="site-header">
-    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">✦</span><span>english<span class="brand-light">roulette</span><small>GIRE. ESCUTE. EXPLORE.</small></span></a>
+    <a class="brand" href="/" @onclick="BackToCatalogAsync" @onclick:preventDefault><span class="brand-mark" aria-hidden="true">✦</span><span>english<span class="brand-light">roulette</span><small>GIRE. ESCUTE. EXPLORE.</small></span></a>
     <GameMenu Horror="IsHorror" Narrating="@(_state?.Phase == "Narrating")" />
 </header>
 <main>
@@ -21,7 +21,7 @@
     }
     @if (_launchError is not null)
     {
-        <div class="launch-error" role="alert"><p>@_launchError</p><button class="text-button" disabled="@_busy" @onclick="ReconnectAsync">Recuperar minha aventura</button></div>
+        <div class="launch-error" role="alert"><p>@_launchError</p><button class="text-button" disabled="@_busy" @onclick="CreateAsync">Tentar novo sorteio</button></div>
     }
     @if (_loading) { <div class="loading-screen" role="status">Abrindo seu próximo capítulo…</div> }
     else if (_state is null)
@@ -31,7 +31,7 @@
                 <div class="eyebrow"><span class="live-dot"></span> SOLO ADVENTURE · ÁUDIO E TEXTO</div>
                 <h1>Inglês em uma<br /><em>história jogável.</em></h1>
                 <p class="lead">Ouça uma cena em inglês, responda sobre o que entendeu e tome decisões que mudam o caminho da história.</p>
-                <p class="intro">A roleta escolhe a história. Seu progresso fica salvo neste navegador para você continuar depois.</p>
+                <p class="intro">A roleta escolhe a história. Jogue até o final: ao sair ou recarregar a página, a aventura solo recomeça do zero.</p>
                 <div class="hero-actions">
                     <button class="primary start-button" disabled="@(_busy || _catalogLoading || _catalog.Count == 0)" aria-describedby="solo-start-status" @onclick="CreateAsync">@StartLabel <span aria-hidden="true">↗</span></button>
                     <a class="secondary" href="/multiplayer">Jogar com amigos <span aria-hidden="true">↗</span></a>
@@ -113,7 +113,7 @@
         </div>
     }
 </main>
-<footer><span>Inglês, uma cena de cada vez.</span><span>Solo Adventure · progresso salvo · <a href="/admin">Administração</a></span></footer>
+<footer><span>Inglês, uma cena de cada vez.</span><span>Solo Adventure · partida nesta página · <a href="/admin">Administração</a></span></footer>
 </div>
 
 @code {
@@ -165,7 +165,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.WhenAll(LoadCatalogAsync(), RefreshAsync());
+        await EndAdventureAsync();
+        await LoadCatalogAsync();
         _loading = false;
         _pollTask = PollAsync();
     }
@@ -214,7 +215,7 @@
         _browsing = false;
         await RefreshAsync();
         if (_state is not null) { _launchError = null; _launchPhase = LaunchPhase.Idle; _focusAdventure = true; }
-        else if (_error is null) { _launchError = "Não encontramos uma aventura salva neste navegador. Tente iniciar novamente."; }
+        else if (_error is null) { _launchError = "Esta aventura foi encerrada. Inicie uma nova história do zero."; }
     }
 
     private async Task CreateAsync()
@@ -252,12 +253,30 @@
 
     private async Task BackToCatalogAsync()
     {
-        if (_narrator is not null) { await _narrator.StopAsync(); }
-        _browsing = true; _generation++; SetState(null); _pendingAdventure = null;
-        _launchPhase = LaunchPhase.Idle; _launchError = null; _arrivalNotice = null;
-        await LoadCatalogAsync();
+        if (_busy) { return; }
+        _busy = true; _browsing = true; _generation++;
+        try
+        {
+            if (_narrator is not null)
+            {
+                try { await _narrator.StopAsync(); }
+                catch (JSException error) { Logger.LogWarning(error, "Não foi possível parar o áudio ao sair."); }
+            }
+            SetState(null); _pendingAdventure = null;
+            _launchPhase = LaunchPhase.Idle; _launchError = null; _arrivalNotice = null; _error = null;
+            await EndAdventureAsync();
+            await LoadCatalogAsync();
+        }
+        finally { _busy = false; }
     }
     private void AudioReady(bool ready) => _audioReady = ready;
+    private async Task EndAdventureAsync()
+    {
+        using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(2));
+        try { await Client.EndAsync(timeout.Token); }
+        catch (HttpRequestException error) { Logger.LogWarning(error, "Não foi possível confirmar a limpeza da aventura encerrada."); }
+        catch (OperationCanceledException) when (timeout.IsCancellationRequested) { }
+    }
     private async Task StartAsync()
     {
         if (_narrator is null) { return; }
@@ -313,6 +332,7 @@
     public async ValueTask DisposeAsync()
     {
         await _lifetime.CancelAsync();
+        await EndAdventureAsync();
         if (_pollTask is not null) { await _pollTask; }
         _lifetime.Dispose();
     }

@@ -17,7 +17,7 @@ public sealed class AdventureClientTests
             Assert.Equal("/api/demo/session", request.RequestUri?.AbsolutePath);
             var body = await request.Content!.ReadFromJsonAsync<CreateAdventureRequest>(token);
             Assert.Null(body?.StoryVersionId);
-            return new(HttpStatusCode.OK) { Content = JsonContent.Create(snapshot) };
+            return Created(snapshot);
         });
         var result = await new AdventureClient(http).CreateAsync(null, CancellationToken.None);
         Assert.Equal(snapshot.StoryVersionId, result.StoryVersionId);
@@ -42,7 +42,7 @@ public sealed class AdventureClientTests
         var calls = 0;
         using var http = Http((_, _) => Task.FromResult(++calls == 1
             ? new HttpResponseMessage(HttpStatusCode.Conflict) { Content = JsonContent.Create(new { detail = "CONTENT_NOT_PUBLISHED" }) }
-            : new HttpResponseMessage(HttpStatusCode.OK) { Content = JsonContent.Create(Snapshot()) }));
+            : Created(Snapshot())));
         var client = new AdventureClient(http);
         var error = await Assert.ThrowsAsync<AdventureApiException>(() => client.CreateAsync(null, CancellationToken.None));
         Assert.Contains("Não há histórias publicadas", error.Message);
@@ -75,6 +75,48 @@ public sealed class AdventureClientTests
 
     private static AdventureView Snapshot() => new("Story", "start", "Scene", 1, "A real server scene.", 1, "Preloading",
         DateTimeOffset.UnixEpoch, null, null, null, [], StoryVersionId: Guid.NewGuid());
+
+    [Fact]
+    public async Task PageCredential_IsMemoryOnly_AndExitClearsItEvenWhenCleanupFails()
+    {
+        var gets = 0;
+        using var http = Http((request, _) =>
+        {
+            if (request.Method == HttpMethod.Post) { return Task.FromResult(Created(Snapshot())); }
+            Assert.Equal(new string('A', 64), Assert.Single(request.Headers.GetValues(SoloSessionHeaders.Credential)));
+            if (request.Method == HttpMethod.Delete) { return Task.FromResult(new HttpResponseMessage(HttpStatusCode.ServiceUnavailable)); }
+            gets++;
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = JsonContent.Create(Snapshot()) });
+        });
+        var page = new AdventureClient(http);
+        await page.CreateAsync(null, CancellationToken.None);
+        Assert.NotNull(await page.GetAsync(CancellationToken.None));
+        Assert.Null(await new AdventureClient(http).GetAsync(CancellationToken.None));
+        Assert.Equal(1, gets);
+        await Assert.ThrowsAsync<AdventureApiException>(() => page.EndAsync(CancellationToken.None));
+        Assert.Null(await page.GetAsync(CancellationToken.None));
+        Assert.Equal(1, gets);
+    }
+
+    [Fact]
+    public async Task LateCreateResponse_CannotRestoreAnExitedPage()
+    {
+        var pending = new TaskCompletionSource<HttpResponseMessage>(TaskCreationOptions.RunContinuationsAsynchronously);
+        using var http = Http((request, _) => request.Method == HttpMethod.Post
+            ? pending.Task : Task.FromResult(new HttpResponseMessage(HttpStatusCode.NoContent)));
+        var page = new AdventureClient(http);
+        var create = page.CreateAsync(null, CancellationToken.None);
+        await page.EndAsync(CancellationToken.None);
+        pending.SetResult(Created(Snapshot()));
+        await Assert.ThrowsAsync<AdventureApiException>(() => create);
+        Assert.Null(await page.GetAsync(CancellationToken.None));
+    }
+    private static HttpResponseMessage Created(AdventureView state)
+    {
+        var response = new HttpResponseMessage(HttpStatusCode.OK) { Content = JsonContent.Create(state) };
+        response.Headers.Add(SoloSessionHeaders.Credential, new string('A', 64));
+        return response;
+    }
     private static HttpClient Http(Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> respond) =>
         new(new Handler(respond)) { BaseAddress = new("https://test.local") };
     private sealed class Handler(Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> respond) : HttpMessageHandler

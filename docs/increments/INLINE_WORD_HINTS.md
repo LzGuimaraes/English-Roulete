@@ -1,5 +1,7 @@
 # Dicas nas palavras e isolamento entre partidas
 
+Atualização posterior do responsável: sair/recarregar agora encerra a aventura solo, conforme [SOLO_PAGE_LIFETIME.md](SOLO_PAGE_LIFETIME.md). A preservação de dicas abaixo vale para requisições/retries enquanto a mesma página continua aberta; referências a retomada por refresh descrevem o comportamento anterior. Reconexão multiplayer permanece válida.
+
 Solicitação: clicar nas palavras da história para consultar uma tradução e conferir que as dicas funcionam em partidas consecutivas no solo e no grupo.
 
 ## Critérios de aceite

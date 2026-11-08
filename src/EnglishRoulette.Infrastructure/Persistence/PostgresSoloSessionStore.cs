@@ -6,6 +6,9 @@ namespace EnglishRoulette.Infrastructure.Persistence;
 
 public sealed class PostgresSoloSessionStore(AdventureDbContext db, TimeProvider timeProvider) : ISoloSessionStore
 {
+    public async Task DeleteAsync(string credentialHash, CancellationToken cancellationToken) =>
+        await db.SoloSessions.Where(row => row.CredentialHash == credentialHash).ExecuteDeleteAsync(cancellationToken);
+
     public async Task<StoredSoloSession?> FindAsync(string credentialHash, CancellationToken cancellationToken)
     {
         var row = await db.SoloSessions.AsNoTracking().SingleOrDefaultAsync(

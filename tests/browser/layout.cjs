@@ -1,5 +1,6 @@
 // Real API states and published content. No fabricated questions, scores or deadlines.
 const assert = require('node:assert/strict');
+const { createSolo } = require('./solo-page.cjs');
 const fs = require('node:fs'), path = require('node:path'), crypto = require('node:crypto');
 const { chromium } = require(process.env.ENGLISHROULETTE_PLAYWRIGHT_PATH || 'playwright');
 const base = process.env.ENGLISHROULETTE_BASE_URL || 'http://127.0.0.1:5087';
@@ -42,9 +43,7 @@ async function solo() {
     const {context,page}=await open();
     const catalog=await (await context.request.get(base+'/api/catalog')).json();
     const story=catalog.find(s=>s.difficulty==='B1') || catalog[0];
-    const create=await context.request.post(base+'/api/demo/session',{headers:{'X-English-Roulette':'demo'},data:{storyVersionId:story.id}});
-    assert.ok(create.ok());
-    await page.goto(base); await page.locator('.phase-preloading').waitFor();
+    await createSolo(page,base,story.id);
     await check(page,'solo-preloading');
     for(let scene=0;scene<15;scene++) {
         await page.waitForFunction(()=>!document.querySelector('.scene-ready button')?.disabled);

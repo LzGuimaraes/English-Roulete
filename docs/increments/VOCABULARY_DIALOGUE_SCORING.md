@@ -1,5 +1,7 @@
 # Vocabulário assistido, pontuação solo e cenas com diálogos
 
+Atualização do responsável em 08/11/2026: a retomada solo após sair/recarregar foi removida. Checkpoints continuam garantindo consistência da página aberta; uma nova visita exige começar do zero. Veja [SOLO_PAGE_LIFETIME.md](SOLO_PAGE_LIFETIME.md). A reconexão multiplayer continua existente.
+
 Solicitação: dicas contextuais para palavras menos conhecidas, com desconto na pontuação que seria ganha na rodada, pontos no modo individual, cenas mais fluidas e suporte a caixas de diálogo.
 
 ## Critérios de aceite

@@ -1,5 +1,6 @@
 // Real published content, media clocks and server-owned scores. Local QA only.
 const assert = require('node:assert/strict');
+const { createSolo, soloState } = require('./solo-page.cjs');
 const fs = require('node:fs'), path = require('node:path'), crypto = require('node:crypto');
 const { chromium } = require(process.env.ENGLISHROULETTE_PLAYWRIGHT_PATH || 'playwright');
 const base = process.env.ENGLISHROULETTE_BASE_URL || 'http://127.0.0.1:5087';
@@ -49,18 +50,17 @@ async function solo() {
         const catalog=await (await context.request.get(base+'/api/catalog')).json();
         const story=catalog.find(story=>story.title.startsWith('A Visitor Made of Light'));
         assert.ok(story,'Import the reviewed dialogue story into QA.');
-        const response=await context.request.post(base+'/api/demo/session',{headers:{'X-English-Roulette':'demo'},data:{storyVersionId:story.id}});
-        assert.ok(response.ok()); const initial=await response.json();
+        const initial=await createSolo(page,base,story.id);
         assert.ok(initial.dialogue.length>1); assert.ok(initial.wordHints.length>0);
         assert.ok(initial.wordHints.every(h=>h.translation===null));
-        await page.goto(base); await page.getByRole('button',{name:/Ouvir e iniciar cena/}).waitFor();
+        await page.getByRole('button',{name:/Ouvir e iniciar cena/}).waitFor();
         await page.waitForFunction(()=>!document.querySelector('.scene-ready button').disabled);
         await page.getByRole('button',{name:/Ouvir e iniciar cena/}).click();
         await page.locator('.dialogue-bubble').waitFor();
         await page.locator('.word-hints summary').click();
         await page.locator('.hint-word').first().click();
         await page.locator('.hint-translation').waitFor();
-        const used=await (await context.request.get(base+'/api/demo/session')).json();
+        const used=await soloState(page);
         assert.equal(used.hintCost.usedCount,1); assert.ok(used.wordHints[0].translation);
         await page.locator('.word-hints summary').click();
         const audio=page.locator('.audio-player audio'); await audio.evaluate(a=>a.pause());
@@ -83,12 +83,12 @@ async function solo() {
         const authored=sources.find(s=>s.metadata.title===used.title).scenes.find(s=>s.key===used.sceneKey);
         await page.locator('.option').filter({has:page.locator('.option-letter',{hasText:authored.correctOptionKey.toUpperCase()})}).click();
         await page.locator('.phase-questionreveal').waitFor();
-        const scored=await (await context.request.get(base+'/api/demo/session')).json();
+        const scored=await soloState(page);
         assert.ok(scored.score.roundDeduction>0);assert.equal(scored.score.total,scored.score.roundPoints);
         await check(page,'solo-score');
-        await page.reload();await page.locator('.phase-questionreveal').waitFor();
-        assert.equal((await (await context.request.get(base+'/api/demo/session')).json()).score.total,scored.score.total);
-        console.log('PASS: dialogue pause/seek, full text, reduced motion, paid hint, solo score and reload.');
+        // Live-page snapshots retain points; leaving/reloading is covered by solo-lifetime.cjs.
+        assert.equal((await soloState(page)).score.total,scored.score.total);
+        console.log('PASS: dialogue pause/seek, full text, reduced motion, paid hint, solo score and live-page snapshots.');
     } finally {await context.close();}
 }
 async function multiplayer() {
