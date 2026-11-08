@@ -22,7 +22,7 @@ internal sealed class DomainRuleExceptionHandler : IExceptionHandler
         if (exception is not GameRuleException rule) { return false; }
         if (context.Request.Path.StartsWithSegments("/api/rooms"))
         {
-            await Results.Problem(statusCode: rule.Code == "NOT_FOUND" ? 404 : rule.Code == "ROOM_FORBIDDEN" ? 403 : rule.Code == "ROOM_EXPIRED" ? 410 : rule.Code.StartsWith("INVALID_", StringComparison.Ordinal) ? 400 : 409, title: "Não foi possível atualizar a sala.", detail: rule.Message).ExecuteAsync(context);
+            await Results.Problem(statusCode: rule.Code == "NOT_FOUND" ? 404 : rule.Code == "ROOM_FORBIDDEN" ? 403 : rule.Code == "ROOM_EXPIRED" ? 410 : rule.Code.StartsWith("INVALID_", StringComparison.Ordinal) ? 400 : 409, title: "Não foi possível atualizar a sala.", detail: rule.Message, extensions: new Dictionary<string, object?> { ["code"] = rule.Code }).ExecuteAsync(context);
             return true;
         }
         if (admin)

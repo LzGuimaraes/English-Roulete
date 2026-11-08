@@ -6,7 +6,7 @@ public sealed record LobbyMember(Guid PlayerId, string Nickname, string Avatar, 
     DateTimeOffset JoinedAtUtc, DateTimeOffset LastSeenUtc);
 public sealed record LobbyState(Guid Id, string Code, int Capacity, Guid HostId, long StateVersion,
     Guid? StoryVersionId, IReadOnlyList<LobbyMember> Members, DateTimeOffset LastActivityUtc, string Status = "Lobby",
-    DateTimeOffset? RouletteStartedAtUtc = null);
+    DateTimeOffset? RouletteStartedAtUtc = null, MultiplayerMatch? Match = null);
 
 public static class LobbyRoom
 {
@@ -32,6 +32,7 @@ public static class LobbyRoom
     {
         Active(state);
         if (state.Members.Any(item => item.PlayerId == member.PlayerId)) { return Touch(state, member.PlayerId, now); }
+        if (state.Match is not null) { throw new GameRuleException("ROOM_IN_PROGRESS", "Esta partida já começou. Aguarde outra sala."); }
         if (state.Members.Count >= state.Capacity) { throw new GameRuleException("ROOM_FULL", "A sala está lotada."); }
         if (state.Members.Any(item => string.Equals(item.Nickname, member.Nickname, StringComparison.OrdinalIgnoreCase)))
         { throw new GameRuleException("NAME_TAKEN", "Esse apelido já está em uso nesta sala."); }
@@ -42,6 +43,7 @@ public static class LobbyRoom
     public static LobbyState SetReady(LobbyState state, Guid player, long expectedVersion, bool ready, DateTimeOffset now)
     {
         Authorize(state, player); Version(state, expectedVersion);
+        if (state.Match is not null) { throw new GameRuleException("ROOM_IN_PROGRESS", "A prontidão do lobby não muda durante a partida."); }
         if (state.Members.Single(member => member.PlayerId == player).Ready == ready) { return Touch(state, player, now); }
         return Touch(state with { Members = Array.AsReadOnly(state.Members.Select(member => member.PlayerId == player ? member with { Ready = ready } : member).ToArray()), StateVersion = state.StateVersion + 1 }, player, now);
     }

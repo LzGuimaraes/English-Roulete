@@ -15,7 +15,7 @@ using Npgsql;
 
 namespace EnglishRoulette.IntegrationTests;
 
-public sealed class AdminCatalogTests : IAsyncLifetime
+public sealed partial class AdminCatalogTests : IAsyncLifetime
 {
     private readonly string _schema = "admin_test_" + Guid.NewGuid().ToString("N");
     private readonly string _directory = Path.Combine(Path.GetTempPath(), "roulette-admin-" + Guid.NewGuid().ToString("N"));

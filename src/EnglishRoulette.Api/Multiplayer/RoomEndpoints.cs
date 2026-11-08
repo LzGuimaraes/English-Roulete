@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Threading.RateLimiting;
 using EnglishRoulette.Api.Admin;
 using EnglishRoulette.Application.Admin;
@@ -20,6 +21,8 @@ internal static class RoomEndpoints
     public const string PlayerScheme = "Player";
     public static void AddRooms(this WebApplicationBuilder builder)
     {
+        builder.Services.AddScoped<RoomGames>();
+        builder.Services.AddHostedService<RoomMatchWorker>();
         builder.Services.AddSignalR(options => options.MaximumReceiveMessageSize = 4096);
         builder.Services.AddAuthentication().AddCookie(PlayerScheme, options =>
         {
@@ -66,30 +69,46 @@ internal static class RoomEndpoints
         group.MapGet("/me", async (HttpContext context, ILobbyStore lobbies) =>
             await lobbies.GuestAsync(Actor(context), context.RequestAborted) is { } guest
                 ? Results.Ok(new GuestView(guest.Id, guest.Nickname, guest.Avatar)) : Results.Unauthorized());
-        group.MapGet("/current", async (HttpContext context, ILobbyStore lobbies, TimeProvider clock) =>
-            await lobbies.CurrentAsync(Actor(context), context.RequestAborted) is { } state ? Results.Ok(View(state, Actor(context), clock)) : Results.NotFound());
-        group.MapGet("/{id:guid}", async (Guid id, HttpContext context, ILobbyStore lobbies, TimeProvider clock) =>
-            await lobbies.ReadAsync(id, Actor(context), context.RequestAborted) is { } state ? Results.Ok(View(state, Actor(context), clock)) : Results.NotFound());
-        group.MapPost("/", async (CreateRoomRequest request, HttpContext context, ILobbyStore lobbies, TimeProvider clock) =>
-            Results.Ok(View(await lobbies.CreateAsync(Actor(context), request.Capacity, context.RequestAborted), Actor(context), clock))).RequireRateLimiting("RoomEntry");
-        group.MapPost("/join", async (JoinRoomRequest request, HttpContext context, ILobbyStore lobbies, TimeProvider clock, IHubContext<RoomHub> hub) =>
+        group.MapGet("/current", async (HttpContext context, ILobbyStore lobbies, RoomGames games) =>
+            await lobbies.CurrentAsync(Actor(context), context.RequestAborted) is { } state ? Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted)) : Results.NotFound());
+        group.MapGet("/{id:guid}", async (Guid id, HttpContext context, ILobbyStore lobbies, RoomGames games) =>
+            await lobbies.ReadAsync(id, Actor(context), context.RequestAborted) is { } state ? Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted)) : Results.NotFound());
+        group.MapPost("/", async (CreateRoomRequest request, HttpContext context, ILobbyStore lobbies, RoomGames games) =>
+            Results.Ok(await games.ViewAsync(await lobbies.CreateAsync(Actor(context), request.Capacity, context.RequestAborted), Actor(context), context.RequestAborted))).RequireRateLimiting("RoomEntry");
+        group.MapPost("/join", async (JoinRoomRequest request, HttpContext context, ILobbyStore lobbies, RoomGames games, IHubContext<RoomHub> hub) =>
         {
             var state = await lobbies.JoinAsync(Actor(context), request.Code ?? "", context.RequestAborted);
-            await Notify(hub, state); return Results.Ok(View(state, Actor(context), clock));
+            await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
         }).RequireRateLimiting("RoomEntry");
-        group.MapPost("/{id:guid}/ready", async (Guid id, ReadyRoomRequest request, HttpContext context, ILobbyStore lobbies, TimeProvider clock, IHubContext<RoomHub> hub) =>
+        group.MapPost("/{id:guid}/ready", async (Guid id, ReadyRoomRequest request, HttpContext context, ILobbyStore lobbies, RoomGames games, IHubContext<RoomHub> hub) =>
         {
             var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) => LobbyRoom.SetReady(state, Actor(context), request.ExpectedStateVersion, request.Ready, now), context.RequestAborted);
-            await Notify(hub, state); return Results.Ok(View(state, Actor(context), clock));
+            await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
         }).RequireRateLimiting("AdminWrite");
         group.MapPost("/{id:guid}/spin", async (Guid id, SpinRoomRequest request, HttpContext context, ILobbyStore lobbies,
-            IAdminCatalog catalog, TimeProvider clock, IHubContext<RoomHub> hub) =>
+            IAdminCatalog catalog, RoomGames games, IHubContext<RoomHub> hub) =>
         {
             var selected = StoryRoulette.Draw(await catalog.PublishedAsync(context.RequestAborted));
-            if (await catalog.LoadPublishedAsync(selected, context.RequestAborted) is null)
-            { throw new GameRuleException("INVALID_CONTENT", "O catálogo mudou. Tente girar novamente."); }
-            var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) => LobbyRoom.Spin(state, Actor(context), request.ExpectedStateVersion, selected, now), context.RequestAborted);
-            await Notify(hub, state); return Results.Ok(View(state, Actor(context), clock));
+            var content = await catalog.LoadPublishedAsync(selected, context.RequestAborted)
+                ?? throw new GameRuleException("INVALID_CONTENT", "O catálogo mudou. Tente girar novamente.");
+            var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) =>
+            {
+                var spun = LobbyRoom.Spin(state, Actor(context), request.ExpectedStateVersion, selected, now);
+                return spun with { Match = RoomGames.Start(content, spun, now) };
+            }, context.RequestAborted);
+            await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
+        }).RequireRateLimiting("AdminWrite");
+        group.MapPost("/{id:guid}/commands", async (Guid id, MatchCommandRequest request, HttpContext context,
+            ILobbyStore lobbies, RoomGames games, IHubContext<RoomHub> hub) =>
+        {
+            var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) => state with
+            {
+                Match = MultiplayerGame.Execute(state.Match ?? throw new GameRuleException("INVALID_GAME_PHASE", "A partida ainda não começou."),
+                    Actor(context), new(request.RequestId, request.ExpectedStateVersion, request.SceneInstanceId, request.Kind, request.Key),
+                    state.Members, now, RandomNumberGenerator.GetInt32),
+                StateVersion = state.StateVersion + 1
+            }, context.RequestAborted);
+            await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
         }).RequireRateLimiting("AdminWrite");
         group.MapPost("/{id:guid}/leave", async (Guid id, HttpContext context, ILobbyStore lobbies, IHubContext<RoomHub> hub) =>
         {
@@ -100,7 +119,4 @@ internal static class RoomEndpoints
     }
     private static Task Notify(IHubContext<RoomHub> hub, LobbyState state) => hub.Clients.Group(RoomHub.Group(state.Id)).SendAsync("RoomChanged", state.Id, state.StateVersion);
     private static Guid Actor(HttpContext context) => Guid.Parse(context.User.FindFirstValue(ClaimTypes.NameIdentifier)!);
-    private static RoomView View(LobbyState state, Guid actor, TimeProvider clock) => new(state.Id, state.Code, state.Capacity,
-        state.HostId, actor, state.StateVersion, state.StoryVersionId, state.Members.Select(member => new RoomMemberView(member.PlayerId,
-            member.Nickname, member.Avatar, member.Ready, clock.GetUtcNow() - member.LastSeenUtc < LobbyRoom.ConnectedWindow)).ToArray(), clock.GetUtcNow(), state.RouletteStartedAtUtc);
 }

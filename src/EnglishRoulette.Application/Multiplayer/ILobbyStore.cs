@@ -5,6 +5,7 @@ namespace EnglishRoulette.Application.Multiplayer;
 public sealed record GuestProfile(Guid Id, string Nickname, string Avatar);
 public interface ILobbyStore
 {
+    Task<IReadOnlyList<LobbyState>> TickMatchesAsync(CancellationToken token);
     Task<GuestProfile?> GuestAsync(Guid id, CancellationToken token);
     Task<GuestProfile> SaveGuestAsync(Guid? id, string nickname, string avatar, CancellationToken token);
     Task<LobbyState> CreateAsync(Guid player, int capacity, CancellationToken token);
