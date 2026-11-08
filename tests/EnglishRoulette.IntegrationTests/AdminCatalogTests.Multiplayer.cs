@@ -1,7 +1,10 @@
 using System.Net;
 using System.Net.Http.Json;
+using System.Text.Json;
 using EnglishRoulette.Application.Multiplayer;
 using EnglishRoulette.Contracts;
+using EnglishRoulette.Domain.Multiplayer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EnglishRoulette.IntegrationTests;
@@ -73,7 +76,16 @@ public sealed partial class AdminCatalogTests
         }
         _clock.Now = closed.Match.Scene.PhaseDeadlineUtc!.Value;
         await using (var scope = _factory.Services.CreateAsyncScope())
-        { Assert.Contains(await scope.ServiceProvider.GetRequiredService<ILobbyStore>().TickMatchesAsync(default), state => state.Id == room.Id); }
+        { await scope.ServiceProvider.GetRequiredService<ILobbyStore>().TickMatchesAsync(default); }
+        // The hosted worker may win the lock first. Verify the committed result,
+        // without another advancing read, rather than which caller performed it.
+        await using (var db = Context())
+        {
+            var json = await db.Lobbies.AsNoTracking().Where(row => row.Id == room.Id).Select(row => row.StateJson).SingleAsync();
+            var persisted = JsonSerializer.Deserialize<LobbyState>(json)!;
+            Assert.Equal(MultiplayerPhase.StoryResult, persisted.Match!.Phase);
+            Assert.Single(persisted.Match.Rounds);
+        }
         var final = (await guest.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;
         Assert.Equal("StoryResult", final.Match!.Scene.Phase);
         Assert.Equal(2, final.Match.Winners.Count);
