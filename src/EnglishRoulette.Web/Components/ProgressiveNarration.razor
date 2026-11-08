@@ -1,9 +1,30 @@
+@using EnglishRoulette.Contracts
 @implements IAsyncDisposable
 @inject IJSRuntime Js
 
 @if (Phase != "Narrating")
 {
     <details class="scene-review"><summary>Rever texto da cena</summary><div class="scene-review-content"><p class="narration" lang="en">@Text</p></div></details>
+}
+else if (Dialogue is { Count: > 0 } && !_failed)
+{
+    <div class="scene-dialogue">
+        @if (_showFull)
+        {
+            <div class="dialogue-review" tabindex="0" aria-label="Diálogo completo">
+                @foreach (var cue in Dialogue) { <p><strong>@cue.Speaker</strong><span lang="en">@cue.Text</span></p> }
+            </div>
+        }
+        else
+        {
+            <div class="dialogue-bubble" @ref="_bubble">
+                <span class="transcript-accessible" lang="en">@Text</span>
+                <strong class="dialogue-speaker" @ref="_speaker" aria-hidden="true"></strong>
+                <p class="dialogue-line" lang="en" @ref="_copy" aria-hidden="true"></p>
+            </div>
+        }
+        <button class="transcript-toggle" type="button" aria-pressed="@(_showFull ? "true" : "false")" @onclick="ToggleText">@(_showFull ? "Acompanhar diálogo" : "Mostrar diálogo completo")</button>
+    </div>
 }
 else
 {
@@ -25,8 +46,9 @@ else
 @code {
     [Parameter, EditorRequired] public string Text { get; set; } = "";
     [Parameter, EditorRequired] public string AudioElementId { get; set; } = "";
+    [Parameter] public IReadOnlyList<DialogueCueView>? Dialogue { get; set; }
     [Parameter] public string Phase { get; set; } = "Narrating";
-    private ElementReference _copy;
+    private ElementReference _copy, _speaker, _bubble;
     private IJSObjectReference? _module, _controller;
     private string? _connectedText, _connectedAudio, _appliedPhase;
     private bool _showFull, _appliedFull, _failed, _disposed;
@@ -35,6 +57,7 @@ else
     {
         if (_failed || _disposed) { return; }
         if (Phase != "Narrating") { await ReleaseControllerAsync(); _appliedPhase = null; return; }
+        if (Dialogue is { Count: > 0 } && _showFull) { await ReleaseControllerAsync(); return; }
         try
         {
             _module ??= await Js.InvokeAsync<IJSObjectReference>("import", "./audio-player.js");
@@ -42,7 +65,9 @@ else
             if (_controller is null || _connectedText != Text || _connectedAudio != AudioElementId)
             {
                 await ReleaseControllerAsync();
-                _controller = await _module.InvokeAsync<IJSObjectReference>("createNarrationText", _copy, AudioElementId, Text);
+                _controller = Dialogue is { Count: > 0 }
+                    ? await _module.InvokeAsync<IJSObjectReference>("createDialogueText", _bubble, _speaker, _copy, AudioElementId, Dialogue)
+                    : await _module.InvokeAsync<IJSObjectReference>("createNarrationText", _copy, AudioElementId, Text);
                 _connectedText = Text;
                 _connectedAudio = AudioElementId;
                 _appliedPhase = null;

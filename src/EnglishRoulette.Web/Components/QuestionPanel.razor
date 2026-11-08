@@ -21,6 +21,8 @@
             <div class="feedback @(answer.IsCorrect ? "correct" : "")" role="status">
                 <strong>@(answer.TimedOut ? "O tempo acabou. Tudo bem, vamos aprender." : answer.IsCorrect ? "Isso mesmo! Você entendeu a pista." : "Quase lá. Veja o que a história diz:")</strong>
                 <p lang="en">@answer.Explanation</p>
+                @if (State.Score is { RoundPoints: not null } score)
+                { <p class="round-points">@score.RoundBase pontos − @score.RoundDeduction de dicas = <strong>+@score.RoundPoints</strong> · Total: @score.Total</p> }
             </div>
             @if (ShowContinue) { <button class="primary next-button" disabled="@Busy" @onclick="() => OnContinue.InvokeAsync()">
                 Continuar a história <span aria-hidden="true">→</span>

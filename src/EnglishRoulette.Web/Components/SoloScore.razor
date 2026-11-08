@@ -1,0 +1,9 @@
+@using EnglishRoulette.Contracts
+@if (Score is { } score)
+{
+    <details class="solo-score">
+        <summary><strong>@score.Total pontos</strong> <span>Como pontuar</span></summary>
+        <div><p>@score.Rules</p><p>Usar dicas reduz somente o ganho da rodada. O total acompanha esta aventura neste navegador.</p></div>
+    </details>
+}
+@code { [Parameter] public PlayerScoreView? Score { get; set; } }

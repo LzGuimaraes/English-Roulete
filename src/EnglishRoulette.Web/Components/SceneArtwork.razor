@@ -1,10 +1,13 @@
 @using EnglishRoulette.Contracts
+@implements IDisposable
 @if (Visual is { } visual)
 {
     <figure class="scene-artwork @(visual.Animated ? "is-animated" : "")" aria-hidden="@(Background ? "true" : null)">
         @if (Background || !visual.Animated || _playing)
         {
-            <img @key="visual.Url" src="@visual.Url" alt="@(Background ? "" : visual.AltText)" loading="@(Background ? "eager" : "lazy")" @onerror="FailedAsync" />
+            @if (Background && _previous is { } previous)
+            { <img class="artwork-previous" src="@previous.Url" alt="" /> }
+            <img @key="visual.Url" class="@(Background ? $"artwork-incoming {(_loaded ? "is-loaded" : "")}" : "")" src="@visual.Url" alt="@(Background ? "" : visual.AltText)" loading="@(Background ? "eager" : "lazy")" decoding="async" @onload="() => LoadedAsync(visual)" @onerror="FailedAsync" />
         }
         @if (_failed && !Background) { <figcaption role="status">A imagem não carregou. A aventura continua pelo texto e áudio.</figcaption> }
         @if (visual.Animated && !Background)
@@ -19,9 +22,27 @@
     [Parameter] public bool Background { get; set; }
     [Parameter] public EventCallback<string> OnLoadFailure { get; set; }
     private string? _url;
-    private bool _playing, _failed;
+    private bool _playing, _failed, _loaded;
+    private SceneVisualView? _previous, _displayed;
+    private CancellationTokenSource? _transition;
     protected override void OnParametersSet()
-    { if (_url != Visual?.Url) { _url = Visual?.Url; _playing = _failed = false; } }
+    { if (_url != Visual?.Url) { _transition?.Cancel(); _previous = _displayed; _url = Visual?.Url; _playing = _failed = _loaded = false; } }
+    private async Task LoadedAsync(SceneVisualView visual)
+    {
+        if (visual.Url != _url) { return; }
+        _loaded = true; _displayed = visual;
+        if (_previous is null) { return; }
+        _transition?.Cancel(); _transition?.Dispose();
+        var transition = _transition = new();
+        StateHasChanged();
+        try
+        {
+            await Task.Delay(700, transition.Token);
+            if (visual.Url == _url) { _previous = null; }
+        }
+        catch (OperationCanceledException) when (transition.IsCancellationRequested) { }
+    }
+    public void Dispose() { _transition?.Cancel(); _transition?.Dispose(); }
     private async Task FailedAsync()
     {
         _failed = true;

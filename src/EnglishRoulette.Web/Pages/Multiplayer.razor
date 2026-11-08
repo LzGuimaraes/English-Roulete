@@ -39,23 +39,23 @@
             }
             else if (Playing)
             {
-                <div class="match-toolbar"><span class="room-live">@(_live ? "● Ao vivo" : "○ Sincronização por consulta") · Sala @_room.Code</span><button class="text-button danger" disabled="@_busy" @onclick="LeaveAsync">Sair da sala</button></div>
-                <MultiplayerAdventure Room="_room" ReceivedAtUtc="_receivedAtUtc" Busy="_busy" OnCommand="CommandAsync" />
+                <div class="match-toolbar"><span class="room-live">@(_live ? "● Sala conectada" : "○ Atualizando sala") · Sala @_room.Code · Partida @_room.GameNumber</span><button class="text-button danger" disabled="@_busy" @onclick="LeaveAsync">Sair da sala</button></div>
+                <MultiplayerAdventure Room="_room" ReceivedAtUtc="_receivedAtUtc" Busy="_busy" OnCommand="CommandAsync" OnNext="NextAsync" OnMenu="BackToMenuAsync" />
             }
             else
             {
-                <div class="room-heading"><div><h1>Seu grupo chegou.</h1><p><span class="room-live">@(_live ? "● Ao vivo" : "○ Sincronização por consulta")</span> · @_room.Members.Count de @_room.Capacity jogadores</p></div><button class="text-button danger" disabled="@_busy" @onclick="LeaveAsync">Sair da sala</button></div>
+                <div class="room-heading"><div><h1>@(_room.GameNumber > 1 ? $"Vamos para a partida {_room.GameNumber}?" : "Seu grupo chegou.")</h1><p><span class="room-live">@(_live ? "● Sala conectada" : "○ Atualizando sala")</span> · @_room.Members.Count de @_room.Capacity jogadores</p></div><button class="text-button danger" disabled="@_busy" @onclick="LeaveAsync">Sair da sala</button></div>
                 @if (_room.StoryVersionId is null)
                 {
                     <section class="room-start-bar" aria-label="Início da partida">
-                        <div><strong>@(CanSpin ? "Todos prontos. Vamos começar!" : "Preparem o grupo para começar.")</strong><p>@(_room.HostId == _room.ViewerId ? "Você é o anfitrião: inicie a roleta quando todos estiverem prontos." : "O anfitrião inicia a roleta quando todos estiverem prontos.")</p></div>
+                        <div><strong>@(_room.GameNumber > 1 ? CanSpin ? "Pontos mantidos. Todos prontos!" : "Pontos mantidos. Confirmem “Estou pronto!”" : CanSpin ? "Todos prontos. Vamos começar!" : "Preparem o grupo para começar.")</strong><p>@(_room.HostId == _room.ViewerId ? "Mínimo de 2 pessoas conectadas e todos prontos. Você gira a roleta." : "Mínimo de 2 pessoas conectadas e todos prontos. O anfitrião gira.")</p></div>
                         @if (_room.HostId == _room.ViewerId) { <button class="primary" disabled="@(_busy || !CanSpin)" @onclick="SpinAsync">Iniciar e girar a roleta ↗</button> }
-                        @if (!CanSpin) { <small>É preciso ter pelo menos 2 jogadores conectados e todos prontos.@(_stories.Count == 0 ? " Nenhuma história disponível no catálogo." : "")</small> }
+                        @if (_stories.Count == 0) { <small>Nenhuma história disponível no catálogo.</small> }
                         @if (_stories.Count == 0) { <button class="text-button" disabled="@_busy" @onclick="ReconnectAsync">Recarregar catálogo</button> }
                     </section>
                 }
                 <div class="room-grid"><section class="admin-card room-invitation"><div class="eyebrow">CONVIDE OS AMIGOS</div><div class="room-invite-controls"><strong class="room-code">@_room.Code</strong><button class="secondary" @onclick="CopyAsync">@(_copied ? "Convite copiado" : "Copiar convite")</button></div><details class="room-invite-link"><summary>Ver link de convite</summary><label>Link do convite<input readonly value="@InviteUrl" /></label></details>@if (_copied) { <p class="room-copy-status" role="status">Convite copiado.</p> }
-                        <div class="room-members">@foreach (var member in _room.Members) { <div class="room-member"><span class="member-avatar">@member.Avatar</span><div><strong>@member.Nickname @(member.PlayerId == _room.ViewerId ? "(você)" : "")</strong><small>@(member.PlayerId == _room.HostId ? "Anfitrião · " : "")@(member.Connected ? "Conectado" : "Reconectando…")</small></div><span class="member-ready @(member.Ready ? "is-ready" : "")" aria-label="@(member.Ready ? "Pronto" : "Preparando")" title="@(member.Ready ? "Pronto" : "Preparando")"><svg class="member-ready-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" />@if (member.Ready) { <path d="m6 10 3 3 5-6" /> }</svg><span class="member-ready-text">@(member.Ready ? "Pronto ✓" : "Preparando")</span></span></div> }</div>
+                        <div class="room-members">@foreach (var member in _room.Members) { <div class="room-member"><span class="member-avatar">@member.Avatar</span><div><strong>@member.Nickname @(member.PlayerId == _room.ViewerId ? "(você)" : "")</strong><small class="member-status-detail">@(member.PlayerId == _room.HostId ? "Anfitrião · " : "")@(member.Connected ? "Conectado" : "Reconectando…")@(_room.GameNumber > 1 ? $" · {member.Score} pontos" : "")</small>@if (_room.GameNumber > 1) { <small class="member-status-compact">@if (member.PlayerId == _room.HostId) { <span class="member-host-compact">Anfitrião</span> }<span class="member-presence @(member.Connected ? "is-online" : "is-offline")" title="@(member.Connected ? "Conectado" : "Reconectando")"><svg viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" /></svg><span class="transcript-accessible">@(member.Connected ? "Conectado" : "Reconectando")</span></span> @member.Score pontos</small> }</div><span class="member-ready @(member.Ready ? "is-ready" : "")" aria-label="@(member.Ready ? "Pronto" : "Preparando")" title="@(member.Ready ? "Pronto" : "Preparando")"><svg class="member-ready-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" />@if (member.Ready) { <path d="m6 10 3 3 5-6" /> }</svg><span class="member-ready-text">@(member.Ready ? "Pronto ✓" : "Preparando")</span></span></div> }</div>
                     </section><section class="admin-card room-roulette"><div class="eyebrow">NINGUÉM ESCOLHE O DESTINO</div>
                         <StoryWheel Genres="Genres" ResultGenre="@SelectedStory?.Genre" ResultKey="@_room.StoryVersionId?.ToString()" Spinning="WheelSpinning" ElapsedSeconds="SpinElapsed" />
                         @if (SelectedStory is { } selected && !WheelSpinning)
@@ -64,7 +64,6 @@
                         {
                             <h2>Prontos para o inesperado?</h2><p>Confirmem a presença. A roleta escolhe o gênero e a história para todo o grupo.</p>
                             <button class="primary room-ready" disabled="@_busy" @onclick="ReadyAsync">@(ViewerReady ? "Ainda estou me preparando" : "Estou pronto! ✓")</button>
-                            @if (!CanSpin) { <p class="catalog-note">É preciso ter pelo menos 2 jogadores conectados e todos prontos.</p> }
                         }
                         @if (Genres.Count == 1) { <p class="catalog-note">Catálogo em expansão: só há histórias de @Genres[0] no momento. Pode haver repetição.</p> }
                         <p class="catalog-note">A mesma história para todos: ouçam as cenas, respondam às perguntas e votem nos caminhos. O placar considera acertos e ordem de chegada.</p>
@@ -112,6 +111,15 @@
     private async Task JoinAsync() => await Run(async () => { _room = await Client.JoinAsync(_code, _life.Token); _copied = false; _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
     private async Task ReadyAsync() => await Run(async () => { if (_room is { } room) { _room = await Client.ReadyAsync(room, !ViewerReady, _life.Token); } });
     private async Task SpinAsync() => await Run(async () => { if (_room is { } room) { _room = await Client.SpinAsync(room, _life.Token); _receivedAtUtc = Clock.GetUtcNow(); } });
+    private async Task NextAsync() => await Run(async () =>
+    { if (_room is { } room) { _room = await Client.NextAsync(room, _life.Token); _receivedAtUtc = Clock.GetUtcNow(); } });
+    private async Task BackToMenuAsync() => await Run(async () =>
+    {
+        if (_room is { } room) { await Client.LeaveAsync(room.Id, _life.Token); _room = null; }
+        if (_hub is not null) { await _hub.DisposeAsync(); _hub = null; }
+        _live = false;
+        Navigation.NavigateTo("/");
+    });
     private async Task CommandAsync(MatchCommandRequest command) => await Run(async () =>
     { if (_room is { } room) { _room = await Client.CommandAsync(room, command, _life.Token); _receivedAtUtc = Clock.GetUtcNow(); } });
     private async Task LeaveAsync() => await Run(async () => { if (_room is { } room) { await Client.LeaveAsync(room.Id, _life.Token); _room = null; _live = false; if (_hub is not null) { await _hub.DisposeAsync(); _hub = null; } } });

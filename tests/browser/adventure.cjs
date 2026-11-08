@@ -33,7 +33,10 @@ async function start(page) {
         page.waitForResponse(r => r.url().endsWith('/api/demo/session') && r.request().method() === 'POST'),
         page.getByRole('button', { name: /Iniciar aventura solo|Tentar iniciar novamente/ }).click()
     ]);
-    const state = await response.json();
+    await response.finished();
+    assert.ok(response.ok());
+    // Verify the durable state; Chromium can evict a completed response body during media-heavy runs.
+    const state = await (await page.request.get(base + '/api/demo/session')).json();
     assert.ok(state.storyVersionId);
     await page.locator('.in-adventure').waitFor({ timeout: 10000 });
     assert.equal(await page.locator('.adventure-heading h1').innerText(), state.title);
@@ -42,6 +45,20 @@ async function start(page) {
 }
 async function progressiveText(page) {
     const snapshot = await (await page.request.get(base + '/api/demo/session')).json();
+    if (snapshot.dialogue?.length) {
+        const audio = page.locator('.audio-player audio'), copy = page.locator('.dialogue-line');
+        await page.waitForFunction(() => document.querySelector('.dialogue-line')?.textContent.length > 0);
+        await audio.evaluate(a => a.pause()); await page.waitForTimeout(100);
+        const paused = await copy.textContent(); await page.waitForTimeout(400);
+        assert.equal(await copy.textContent(), paused);
+        const cue = snapshot.dialogue[0];
+        await audio.evaluate((a,time) => { a.currentTime=time; }, (cue.startMilliseconds+cue.endMilliseconds)/2000);
+        await page.getByRole('button', { name:'Mostrar diálogo completo',exact:true }).click();
+        assert.equal(await page.locator('.dialogue-review strong').count(),snapshot.dialogue.length);
+        await page.getByRole('button', { name:'Acompanhar diálogo',exact:true }).click();
+        await page.reload();await page.locator('.dialogue-line').waitFor();
+        await audio.evaluate(a => a.play());return;
+    }
     const copy = page.locator('.narration-copy');
     await page.waitForFunction(() => document.querySelector('.narration-copy')?.textContent.length > 0);
     assert.ok((await copy.textContent()).length < snapshot.narration.length);
@@ -82,7 +99,7 @@ async function completeAdventure(page) {
         if (await page.locator('.ending').count()) break;
         await ready(page);
         await page.getByRole('button', { name: /Ouvir e iniciar cena/ }).click();
-        await page.locator('.narration').waitFor();
+        await page.locator('.narration, .dialogue-line').first().waitFor();
         assert.ok(await page.locator('audio').evaluate(audio => !audio.paused));
         if (step === 0) await progressiveText(page);
         await screen(page, `scene-${step}`);
@@ -205,7 +222,8 @@ async function failedStart(body, status) {
         await page.getByRole('button', { name: /Ouvir e iniciar cena/ }).click();
         await page.waitForFunction(() => {
             const copy = document.querySelector('.narration-copy'), layout = document.querySelector('.narration-layout');
-            return copy && layout && copy.textContent === layout.textContent;
+            const dialogue = document.querySelector('.dialogue-line');
+            return copy && layout && copy.textContent === layout.textContent || dialogue && dialogue.textContent.length > 0;
         });
         await context.close();
     }

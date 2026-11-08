@@ -20,6 +20,8 @@ public sealed class RoomClient(HttpClient http)
     public Task<RoomView> JoinAsync(string code, CancellationToken token) => Send<RoomView>("api/rooms/join", new JoinRoomRequest(code), token);
     public Task<RoomView> ReadyAsync(RoomView room, bool ready, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/ready", new ReadyRoomRequest(room.StateVersion, ready), token);
     public Task<RoomView> SpinAsync(RoomView room, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/spin", new SpinRoomRequest(room.StateVersion), token);
+    public Task<RoomView> NextAsync(RoomView room, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/next",
+        new NextRoomRequest(room.StateVersion, room.Match?.Id ?? throw new RoomApiException("Atualize o resultado antes de preparar outra partida.")), token);
     public Task<RoomView> CommandAsync(RoomView room, MatchCommandRequest command, CancellationToken token) =>
         Send<RoomView>($"api/rooms/{room.Id}/commands", command, token);
     public async Task LeaveAsync(Guid id, CancellationToken token)

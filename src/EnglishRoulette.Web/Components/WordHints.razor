@@ -1,0 +1,36 @@
+@using EnglishRoulette.Contracts
+@if (State.WordHints is { Count: > 0 } words && State.HintCost is { } cost)
+{
+    <details class="word-hints" @key="State.SceneInstanceId">
+        <summary>Ajuda com palavras <span>@cost.UsedCount @(cost.UsedCount == 1 ? "dica usada" : "dicas usadas") · @cost.PerWord</span></summary>
+        <div class="word-hints-content">
+            <p>@cost.Limit Reabrir uma tradução já usada é gratuito.</p>
+            @if (!cost.CanUse) { <p>Novas dicas ficam disponíveis durante a narração e antes de responder, dentro do prazo.</p> }
+            <ul>
+                @foreach (var word in words)
+                {
+                    <li @key="word.Key">
+                        @if (word.Translation is { } translation)
+                        { <strong lang="en">@word.Term</strong><span class="hint-translation" role="status">@translation</span> }
+                        else
+                        { <button type="button" class="hint-word" disabled="@(Busy || !cost.CanUse)" @onclick="() => UseAsync(word.Key)"><span lang="en">@word.Term</span><small>@(_pending == word.Key ? "Registrando dica…" : $"Traduzir · {cost.PerWord}")</small></button> }
+                    </li>
+                }
+            </ul>
+            <p class="hint-discount">@cost.CurrentDiscount</p>
+        </div>
+    </details>
+}
+@code {
+    [Parameter, EditorRequired] public AdventureView State { get; set; } = default!;
+    [Parameter] public bool Busy { get; set; }
+    [Parameter] public EventCallback<string> OnUse { get; set; }
+    private string? _pending;
+    private async Task UseAsync(string key)
+    {
+        if (Busy || _pending is not null) { return; }
+        _pending = key;
+        try { await OnUse.InvokeAsync(key); }
+        finally { _pending = null; }
+    }
+}

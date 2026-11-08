@@ -7,6 +7,30 @@
     <fieldset disabled="@(ReadOnly || Busy)">
         <div class="admin-form-grid"><label>Chave da cena<input @bind="Scene.Key" @bind:after="Changed" maxlength="80" placeholder="estacao" /></label><label>Título da cena<input @bind="Scene.Title" @bind:after="Changed" maxlength="200" /></label></div>
         <label>Texto da narração em inglês<textarea rows="5" @bind="Scene.Narration" @bind:after="Changed" maxlength="10000"></textarea></label>
+        <details class="admin-support"><summary>Vocabulário e diálogos</summary>
+            <p class="hint">Dicas são traduções contextuais de termos presentes nesta cena. O jogador vê o custo antes de usar.</p>
+            @foreach (var hint in Scene.Vocabulary)
+            {
+                <div class="admin-form-grid" @key="hint.Key">
+                    <label>Palavra ou expressão<input @bind="hint.Term" @bind:after="Changed" maxlength="80" /></label>
+                    <label>Tradução em português<input @bind="hint.Translation" @bind:after="Changed" maxlength="300" /></label>
+                    <button type="button" class="text-button danger" @onclick="() => RemoveHint(hint)">Remover dica</button>
+                </div>
+            }
+            <button type="button" class="secondary" disabled="@(Scene.Vocabulary.Count >= 12)" @onclick="AddHint">Adicionar palavra</button>
+            <h4>Falas no áudio</h4>
+            <p class="hint">Divida todo o texto da narração em falas, na mesma ordem. Informe os intervalos reais da gravação em milissegundos. Os nomes identificam personagens; o áudio continua sendo o enviado abaixo.</p>
+            @foreach (var cue in Scene.Dialogue)
+            {
+                <div class="admin-dialogue" @key="cue.Key">
+                    <label>Personagem / narrador<input @bind="cue.Speaker" @bind:after="Changed" maxlength="60" /></label>
+                    <label>Texto exato da fala<textarea rows="2" @bind="cue.Text" @bind:after="Changed" maxlength="3000"></textarea></label>
+                    <div class="admin-form-grid"><label>Início (ms)<input type="number" min="0" @bind="cue.StartMilliseconds" @bind:after="Changed" /></label><label>Fim (ms)<input type="number" min="1" @bind="cue.EndMilliseconds" @bind:after="Changed" /></label></div>
+                    <button type="button" class="text-button danger" @onclick="() => RemoveCue(cue)">Remover fala</button>
+                </div>
+            }
+            <button type="button" class="secondary" disabled="@(Scene.Dialogue.Count >= 40)" @onclick="AddCue">Adicionar fala</button>
+        </details>
         <label class="admin-check"><input type="checkbox" @bind="Scene.IsEnding" @bind:after="Changed" /> Esta cena é um final</label>
         <label>Pergunta em inglês<input @bind="Scene.Prompt" @bind:after="Changed" maxlength="1000" /></label>
         <div class="section-label">ALTERNATIVAS</div>
@@ -75,6 +99,10 @@
     private string _attribution = "", _evidence = "";
     protected override void OnInitialized() { _altText = Scene.Visual?.AltText ?? ""; _visualAttribution = Scene.Visual?.Attribution ?? ""; _visualEvidence = Scene.Visual?.LicenseEvidence ?? ""; _attribution = Scene.Audio?.Attribution ?? ""; _evidence = Scene.Audio?.LicenseEvidence ?? ""; }
     private async Task Changed() => await OnChanged.InvokeAsync();
+    private async Task AddHint() { Scene.Vocabulary.Add(new() { Key = "word-" + Guid.NewGuid().ToString("N")[..8] }); await Changed(); }
+    private async Task RemoveHint(AdminVocabularyHint hint) { Scene.Vocabulary.Remove(hint); await Changed(); }
+    private async Task AddCue() { Scene.Dialogue.Add(new() { Key = "cue-" + Guid.NewGuid().ToString("N")[..8], StartMilliseconds = Scene.Dialogue.LastOrDefault()?.EndMilliseconds ?? 0 }); await Changed(); }
+    private async Task RemoveCue(AdminDialogueCue cue) { Scene.Dialogue.Remove(cue); await Changed(); }
     private async Task AddOption()
     {
         var key = Enumerable.Range(0, 8).Select(index => ((char)('a' + index)).ToString()).First(value => Scene.Options.All(option => option.Key != value));

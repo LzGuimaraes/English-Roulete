@@ -109,3 +109,50 @@ export function alignShared(audio, offset) {
         audio.currentTime = Math.max(0, Math.min(offset, audio.duration));
     }
 }
+
+// Explicit editorial intervals follow the actual media position (including pause/seek).
+// Within each cue, reveal is proportional; it is not phonetic word alignment.
+export function createDialogueText(bubble, speaker, copy, audioElementId, cues) {
+    const audio = document.getElementById(audioElementId);
+    if (!audio) throw new Error("Áudio indisponível para acompanhar o diálogo.");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const editorialReduced = Boolean(bubble.closest(".motion-none"));
+    const segments = cues.map(cue => typeof Intl.Segmenter === "function"
+        ? [...new Intl.Segmenter("en", { granularity: "grapheme" }).segment(cue.text)].map(part => part.segment)
+        : Array.from(cue.text));
+    let phase, frame = 0, disposed = false, previous = -1, count = -1, entrance;
+    function refresh() {
+        if (disposed) return;
+        const position = audio.currentTime * 1000;
+        let index = cues.findLastIndex(cue => cue.startMilliseconds <= position);
+        index = Math.max(0, index);
+        const cue = cues[index], characters = segments[index];
+        const fraction = Math.max(0, Math.min(1, (position - cue.startMilliseconds) / (cue.endMilliseconds - cue.startMilliseconds)));
+        const next = reduced.matches || editorialReduced || audio.ended ? characters.length : Math.floor(characters.length * fraction);
+        if (index !== previous) {
+            speaker.textContent = cue.speaker;
+            entrance?.cancel();
+            if (!reduced.matches && !editorialReduced) entrance = bubble.animate(
+                [{ transform: "translateY(5px)" }, { transform: "translateY(0)" }],
+                { duration: 260, easing: "cubic-bezier(.16,1,.3,1)" });
+        }
+        if (index !== previous || next !== count) copy.textContent = characters.slice(0, next).join("");
+        previous = index; count = next;
+        if (frame) cancelAnimationFrame(frame);
+        frame = !disposed && phase === "Narrating" && !audio.paused && !audio.ended && !audio.seeking && audio.readyState >= 3
+            ? requestAnimationFrame(refresh) : 0;
+    }
+    const events = ["timeupdate", "playing", "pause", "seeking", "seeked", "loadedmetadata", "ended", "waiting"];
+    for (const event of events) audio.addEventListener(event, refresh);
+    reduced.addEventListener("change", refresh);
+    return {
+        update(nextPhase) { phase = nextPhase; refresh(); },
+        dispose() {
+            disposed = true;
+            if (frame) cancelAnimationFrame(frame);
+            entrance?.cancel();
+            for (const event of events) audio.removeEventListener(event, refresh);
+            reduced.removeEventListener("change", refresh);
+        }
+    };
+}

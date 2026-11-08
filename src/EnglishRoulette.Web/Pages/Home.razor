@@ -68,7 +68,7 @@
     {
         <section class="adventure-heading">
             <div><div class="eyebrow">AVENTURA SOLO · @_state.Genre</div><h1 @ref="_adventureTitle" tabindex="-1">@_state.Title</h1>@if (_arrivalNotice is not null) { <p class="arrival-notice" role="status">@_arrivalNotice</p> }</div>
-            <div><button class="text-button" disabled="@_busy" @onclick="CreateAsync">Sortear nova aventura ↻</button><button class="text-button" disabled="@_busy" @onclick="BackToCatalogAsync">Menu principal</button></div>
+            <div><SoloScore Score="_state.Score" /><button class="text-button" disabled="@_busy" @onclick="CreateAsync">Sortear nova aventura ↻</button><button class="text-button" disabled="@_busy" @onclick="BackToCatalogAsync">Menu principal</button></div>
         </section>
         <div class="game-grid">
             <article class="story-card">
@@ -86,12 +86,13 @@
                 }
                 else if (_state.Phase == "StoryResult")
                 {
-                    <div class="ending"><span class="ending-icon" aria-hidden="true">✦</span><div class="section-label">THE END · OU UM NOVO COMEÇO</div><h2>Você completou<br />esta história.</h2><p>Cada cena trouxe novas palavras e descobertas. Continue explorando outros caminhos.</p><section class="ending-scene" aria-label="Desfecho da história"><h3>@_state.SceneTitle</h3><p class="narration" lang="en">@_state.Narration</p>@if (_state.Audio is { } endingAudio) { <audio class="ending-audio" src="@endingAudio.Url" controls preload="metadata" aria-label="Narração do desfecho em inglês"></audio> }</section><div class="ending-stats"><span>@_state.SceneNumber cenas exploradas</span><span>1 final descoberto</span></div><button class="primary" disabled="@_busy" @onclick="CreateAsync">Jogar novamente ↗</button></div>
+                    <div class="ending"><span class="ending-icon" aria-hidden="true">✦</span><div class="section-label">THE END · OU UM NOVO COMEÇO</div><h2>Você completou<br />esta história.</h2><p>Cada cena trouxe novas palavras e descobertas. Continue explorando outros caminhos.</p><section class="ending-scene" aria-label="Desfecho da história"><h3>@_state.SceneTitle</h3><p class="narration" lang="en">@_state.Narration</p>@if (_state.Audio is { } endingAudio) { <audio class="ending-audio" src="@endingAudio.Url" controls preload="metadata" aria-label="Narração do desfecho em inglês"></audio> }</section><div class="ending-stats"><span>@_state.SceneNumber cenas exploradas</span><span>1 final descoberto</span>@if (_state.Score is { } finalScore) { <span>@finalScore.Total pontos</span> }</div><button class="primary" disabled="@_busy" @onclick="CreateAsync">Jogar novamente ↗</button></div>
                 }
                 else
                 {
-                    <ProgressiveNarration @key="(_state.SceneKey, nameof(ProgressiveNarration))" Text="@_state.Narration" Phase="@_state.Phase" AudioElementId="@_narrationAudioId" />
+                    <ProgressiveNarration @key="(_state.SceneKey, nameof(ProgressiveNarration))" Text="@_state.Narration" Dialogue="_state.Dialogue" Phase="@_state.Phase" AudioElementId="@_narrationAudioId" />
                     @if (_state.Phase == "Narrating") { <GameCountdown Seconds="RemainingSeconds" Label="Pergunta em" /> }
+                    <WordHints State="_state" Busy="_busy" OnUse="UseHintAsync" />
                     <QuestionPanel State="_state" Busy="_busy" OnAnswer="AnswerAsync" OnContinue="ContinueAsync" />
                     @if (_state.Phase == "DecisionOpen")
                     {
@@ -157,7 +158,7 @@
         ? Math.Max(0, (int)Math.Ceiling((deadline - _state.ServerNowUtc - (Clock.GetUtcNow() - _receivedAtUtc)).TotalSeconds)) : 0;
     private string PhaseLabel => _state?.Phase switch
     {
-        "Preloading" => "Uma nova cena", "Narrating" => "Hora da leitura", "QuestionOpen" => "Siga a pista",
+        "Preloading" => "Uma nova cena", "Narrating" => "Ouça a cena", "QuestionOpen" => "Siga a pista",
         "QuestionReveal" => "Uma descoberta", "DecisionOpen" => "Escolha seu caminho", _ => "História concluída"
     };
 
@@ -269,13 +270,14 @@
         catch (JSException) { _error = "Não foi possível reproduzir o áudio. Tente tocar novamente para iniciar."; }
     }
     private async Task AnswerAsync(string option) => await SendAsync("answer", option: option);
+    private Task UseHintAsync(string key) => SendAsync("hint", hint: key);
     private async Task ContinueAsync() => await SendAsync("continue");
     private async Task ChooseAsync(string choice) => await SendAsync("choose", choice: choice);
 
-    private async Task SendAsync(string kind, string? option = null, string? choice = null)
+    private async Task SendAsync(string kind, string? option = null, string? choice = null, string? hint = null)
     {
         if (_state is not { } state) { return; }
-        var command = new AdventureCommand(Guid.NewGuid(), state.StateVersion, kind, state.Question?.InstanceId, option, choice);
+        var command = new AdventureCommand(Guid.NewGuid(), state.StateVersion, kind, state.Question?.InstanceId, option, choice, hint, state.SceneInstanceId);
         await PerformAsync(() => Client.SendAsync(command, _lifetime.Token));
     }
 

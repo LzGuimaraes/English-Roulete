@@ -1,7 +1,7 @@
 @using EnglishRoulette.Contracts
 @inject TimeProvider Clock
 <section class="adventure-heading"><div><div class="eyebrow">STORY BATTLE · @State.Genre</div><h1>@State.Title</h1></div><span class="phase-badge">@PhaseLabel</span></section>
-<div class="game-grid match-grid">
+<div class="game-grid match-grid @(State.Phase == "StoryResult" ? "match-final-grid" : "")">
     <article class="story-card">
         <div class="chapter-heading"><span class="section-label">CENA @State.SceneNumber · JUNTOS NO MESMO CAMINHO</span>@if (State.Phase is "QuestionOpen" or "DecisionOpen") { <GameCountdown Seconds="@(Remaining ?? 0)" Label="@(State.Phase == "QuestionOpen" ? "Para responder" : "Para votar")" /> }</div>
         <h2 @ref="_sceneHeading" tabindex="-1">@State.SceneTitle</h2>
@@ -9,7 +9,19 @@
         { <div class="error-banner" role="alert"><h3>Partida encerrada</h3><p>@Match.CancellationReason</p><p>Saia da sala para preparar uma nova partida com seus amigos.</p></div> }
         else if (State.Phase == "StoryResult")
         {
-            <div class="ending"><div class="section-label">THE END · PLACAR FINAL</div><h2 @ref="_endingHeading" tabindex="-1">@(Match.Winners.Count > 1 ? "Vitória compartilhada" : "História concluída")</h2><p>@string.Join(" e ", Match.Players.Where(player => Match.Winners.Contains(player.Id)).Select(player => player.Nickname))</p><p lang="en" class="narration">@State.Narration</p>@if (State.Audio is { } finalAudio) { <audio class="ending-audio" src="@finalAudio.Url" controls preload="metadata" aria-label="Narração do desfecho em inglês"></audio> }<p>@State.SceneNumber cenas · @State.SceneTitle</p><p>O placar fica salvo nesta sala. Para jogar outra história, saiam e criem uma nova sala.</p></div>
+            <section class="match-finale">
+                <h2 @ref="_endingHeading" tabindex="-1">História concluída!</h2>
+                <MatchPodium Match="Match" ViewerId="Room.ViewerId" />
+                <div class="match-final-actions">
+                    @if (Room.HostId == Room.ViewerId)
+                    { <button class="primary" disabled="@Busy" @onclick="() => OnNext.InvokeAsync()">Jogar outra história <span aria-hidden="true">→</span></button> }
+                    else
+                    { <p role="status">@Room.Members.Single(member => member.PlayerId == Room.HostId).Nickname pode preparar a próxima história. Seus pontos continuam nesta sala.</p> }
+                    <button class="secondary" disabled="@Busy" @onclick="() => OnMenu.InvokeAsync()">Sair e voltar ao menu</button>
+                </div>
+                <p class="next-match-note">Na próxima partida, todos confirmam que estão prontos e a roleta sorteia outra história. Ao sair, você deixa esta sala.</p>
+                <details class="scene-review final-story-review"><summary>Rever o desfecho · @State.SceneTitle</summary><div class="scene-review-content"><p lang="en" class="narration">@State.Narration</p>@if (State.Audio is { } finalAudio) { <audio class="ending-audio" src="@finalAudio.Url" controls preload="metadata" aria-label="Narração do desfecho em inglês"></audio> }</div></details>
+            </section>
         }
         else
         {
@@ -29,8 +41,9 @@
             { <div class="match-countdown"><p>Prepare os ouvidos.</p><GameCountdown Seconds="@(Remaining ?? 0)" Label="Próxima cena em" Large="true" /></div> }
             else
             {
-                <ProgressiveNarration @key="(Match.SceneInstanceId, nameof(ProgressiveNarration))" Text="@State.Narration" Phase="@State.Phase" AudioElementId="@_audioId" />
+                <ProgressiveNarration @key="(Match.SceneInstanceId, nameof(ProgressiveNarration))" Text="@State.Narration" Dialogue="State.Dialogue" Phase="@State.Phase" AudioElementId="@_audioId" />
                 @if (State.Phase == "Narrating") { <GameCountdown Seconds="@(Remaining ?? 0)" Label="Pergunta em" /> }
+                <WordHints State="State" Busy="Busy" OnUse="UseHintAsync" />
                 <QuestionPanel State="State" Busy="Busy" AnswerSubmitted="Match.MyAnswerAccepted" AcceptedOptionKey="Match.MyOptionKey" ShowContinue="false" FocusOnOpen="true" OnAnswer="AnswerAsync" />
                 @if (State.Phase == "QuestionReveal")
                 {
@@ -48,6 +61,8 @@
         }
         @if (_audioError is not null) { <p class="error-banner" role="alert">@_audioError</p> }
     </article>
+    @if (State.Phase != "StoryResult")
+    {
     <aside class="match-scoreboard @(_showScoreboard ? "scoreboard-expanded" : "")"><div class="scoreboard-heading"><h2>@(State.Phase == "StoryResult" ? "Placar final" : "Seu grupo")</h2><button class="text-button scoreboard-toggle" aria-expanded="@_showScoreboard" aria-controls="shared-scoreboard" @onclick="() => _showScoreboard = !_showScoreboard">@(_showScoreboard ? "Fechar placar" : $"Ver {Match.Players.Count} jogadores")</button></div>
         <div id="shared-scoreboard" class="scoreboard-content">
         <ol>@foreach (var player in Match.Players.OrderByDescending(player => player.Score).ThenBy(player => player.Nickname))
@@ -61,11 +76,14 @@
         </div></details>
         </div>
     </aside>
+    }
 </div>
 @code {
     [Parameter, EditorRequired] public RoomView Room { get; set; } = default!;
     [Parameter] public DateTimeOffset ReceivedAtUtc { get; set; }
     [Parameter] public bool Busy { get; set; }
+    [Parameter] public EventCallback OnNext { get; set; }
+    [Parameter] public EventCallback OnMenu { get; set; }
     [Parameter] public EventCallback<MatchCommandRequest> OnCommand { get; set; }
     private MultiplayerMatchView Match => Room.Match!;
     private AdventureView State => Match.Scene;
@@ -105,5 +123,6 @@
     }
     private Task SendAsync(string kind, string? key = null) => OnCommand.InvokeAsync(new(Guid.NewGuid(), State.StateVersion, Match.SceneInstanceId, kind, key));
     private Task AnswerAsync(string key) => SendAsync("answer", key);
+    private Task UseHintAsync(string key) => SendAsync("hint", key);
     private Task VoteAsync(string key) => SendAsync("vote", key);
 }

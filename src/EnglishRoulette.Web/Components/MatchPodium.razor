@@ -1,0 +1,35 @@
+@using EnglishRoulette.Contracts
+<section class="match-podium" aria-label="Pódio e classificação final">
+    <div class="podium-places">
+        @foreach (var place in new[] { 1, 2, 3 })
+        {
+            var standings = (Match.Standings ?? []).Where(player => player.Position == place).ToArray();
+            <section class="podium-place podium-place-@place" aria-label="@($"{place}º lugar")">
+                <h3><span class="podium-number">@place</span><span>@(place == 1 ? "Primeiro lugar" : place == 2 ? "Segundo lugar" : "Terceiro lugar")</span></h3>
+                <ul>
+                    @foreach (var standing in standings)
+                    {
+                        var player = Match.Players.Single(player => player.Id == standing.PlayerId);
+                        <li class="@(player.Id == ViewerId ? "is-viewer" : "")"><span class="member-avatar" aria-hidden="true">@player.Avatar</span><strong>@player.Nickname @(player.Id == ViewerId ? "(você)" : "")</strong><b>@standing.Score <small>pontos</small></b><small>+@standing.MatchPoints nesta história</small></li>
+                    }
+                    @if (standings.Length == 0) { <li class="podium-empty">Sem colocação@(Match.Players.Count < place ? " · grupo menor" : " · houve empate")</li> }
+                </ul>
+            </section>
+        }
+    </div>
+    @if ((Match.Standings ?? []).Any(player => player.Position > 3 || player.Left))
+    {
+        <div class="remaining-standings" tabindex="0" aria-label="Demais participantes"><table><caption>Demais participantes · @((Match.Standings ?? []).Count(player => player.Position > 3 || player.Left)) <span class="standings-scroll-note">Role a lista para ver todos.</span></caption><thead><tr><th scope="col">Lugar</th><th scope="col">Jogador</th><th scope="col">Nesta história</th><th scope="col">Total</th></tr></thead><tbody>
+        @foreach (var standing in (Match.Standings ?? []).Where(player => player.Position > 3 || player.Left))
+        {
+            var player = Match.Players.Single(player => player.Id == standing.PlayerId);
+            <tr class="@(player.Id == ViewerId ? "is-viewer" : "")"><td>@(standing.Left ? "Saiu" : $"{standing.Position}º")</td><th scope="row">@player.Nickname</th><td>+@standing.MatchPoints</td><td>@standing.Score</td></tr>
+        }
+        </tbody></table></div>
+    }
+    <p class="podium-note">O total acumula as histórias desta sala. Pontuações iguais compartilham a colocação; a próxima posição pode ser pulada.</p>
+</section>
+@code {
+    [Parameter, EditorRequired] public MultiplayerMatchView Match { get; set; } = default!;
+    [Parameter] public Guid ViewerId { get; set; }
+}

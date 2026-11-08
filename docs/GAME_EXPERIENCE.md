@@ -160,3 +160,13 @@ Consultas de estado não bloqueiam cliques de resposta/voto e snapshots antigos 
 Detalhes do contrato, critérios de aceite e validação manual estão em [MULTIPLAYER_GAMEPLAY.md](increments/MULTIPLAYER_GAMEPLAY.md). O incremento não muda dependências, tabelas ou mídias publicadas. XP, eventos especiais, desempates extras e revanche na mesma sala continuam `DECISION NEEDED`; a interface não os anuncia como disponíveis.
 
 Validação local: restore locked, build Release sem warnings, 107 testes unitários, 42 de integração com PostgreSQL, 10 de deploy e 11 de ferramentas editoriais aprovados; formatação conferida. A regressão Chrome em viewports de 1440 e 390px concluiu o solo e o multiplayer com histórias reais, perguntas, bifurcação, mídia, refresh, falhas e fallback sem SignalR. Screenshots e resultados permanecem fora do Git.
+
+## Vocabulário, diálogos e continuação do grupo — 08/11/2026
+
+Nas novas aventuras, “Ajuda com palavras” oferece traduções contextuais preparadas para aquela cena. O custo aparece antes de confirmar; consultar novamente a mesma palavra na rodada não cobra outra vez. O desconto afeta somente o ganho da rodada. Solo agora apresenta total, regra e cálculo do resultado da pergunta. Os valores iniciais configuráveis e as decisões ainda abertas estão em [VOCABULARY_DIALOGUE_SCORING.md](increments/VOCABULARY_DIALOGUE_SCORING.md).
+
+Cenas com falas editoriais mostram personagem e texto seguindo a posição real do áudio, inclusive pause/seek no solo e sincronização no multiplayer. É possível abrir o diálogo completo. A gravação continua sendo a voz publicada; nomes não significam vozes diferentes. A passagem entre artes aguarda a imagem nova carregar, faz uma transição curta e libera a arte anterior.
+
+Ao concluir uma história em grupo, o pódio mostra as três primeiras posições e os demais participantes, com total acumulado e ganho naquela história. Empates compartilham colocação. O anfitrião usa “Jogar outra história”: a mesma sala/código e os pontos continuam, todos confirmam prontidão de novo, e a roleta faz um novo sorteio. “Sair e voltar ao menu” encerra a participação antes de navegar. A nova partida não reutiliza respostas, votos ou dicas consumidas.
+
+Editor administrativo: abra “Vocabulário e diálogos” em cada cena para cadastrar palavras e falas. Falas devem reproduzir todo o texto da narração e ter intervalos ordenados dentro do áudio. Duplique versões publicadas para editar; não altere a versão de uma partida em andamento. Partidas anteriores continuam usando seu conteúdo e suas regras originais.
