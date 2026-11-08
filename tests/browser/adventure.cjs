@@ -220,31 +220,7 @@ async function failedStart(body, status) {
         await context.close();
     }
     }
-    {
-        const host = await open(390), guest = await open(1440);
-        await host.page.goto(base + '/multiplayer');
-        await host.page.getByLabel('Seu apelido').fill('QAHost');
-        await host.page.getByRole('button', { name: 'Entrar no lobby →', exact: true }).click();
-        await host.page.getByRole('button', { name: 'Criar sala →', exact: true }).click();
-        await host.page.locator('.room-code').waitFor();
-        const code = (await host.page.locator('.room-code').innerText()).trim();
-        await guest.page.goto(base + '/join/' + code);
-        await guest.page.getByLabel('Seu apelido').fill('QAGuest');
-        await guest.page.getByRole('button', { name: 'Entrar no lobby →', exact: true }).click();
-        await guest.page.getByRole('button', { name: 'Entrar na sala →', exact: true }).click();
-        await guest.page.getByRole('button', { name: 'Estou pronto! ✓', exact: true }).click();
-        await host.page.locator('.room-member').filter({ hasText: 'QAGuest' }).locator('.member-ready.is-ready').waitFor();
-        await host.page.getByRole('button', { name: 'Estou pronto! ✓', exact: true }).click();
-        await host.page.waitForFunction(() => ![...document.querySelectorAll('button')].find(button => button.textContent.includes('Iniciar e girar'))?.disabled);
-        await host.page.getByRole('button', { name: /Iniciar e girar/ }).click();
-        await host.page.getByText('Resultado compartilhado por toda a sala.', { exact: false }).waitFor({ timeout: 15000 });
-        await guest.page.getByText('Resultado compartilhado por toda a sala.', { exact: false }).waitFor({ timeout: 15000 });
-        assert.equal(await host.page.locator('.room-roulette>h2').innerText(), await guest.page.locator('.room-roulette>h2').innerText());
-        assert.equal(await host.page.locator('.in-adventure').count(), 0);
-        await screen(host.page, 'multiplayer-mobile');
-        await host.context.close(); await guest.context.close();
-        console.log('PASS: multiplayer lobby and shared roulette preserved.');
-    }
+    await require('./multiplayer.cjs')({ browser, base, errors, screen });
     assert.deepEqual(errors, []);
     console.log(process.env.ENGLISHROULETTE_ONLY_MULTIPLAYER ? 'PASS: multiplayer checks completed.' : 'PASS: automatic solo start, real story completion, recovery, timeout, catalog, preview, resume, desktop and mobile.');
 })().catch(error => { console.error(error); console.error("Browser errors:", errors); process.exitCode = 1; }).finally(async () => { await browser?.close(); });

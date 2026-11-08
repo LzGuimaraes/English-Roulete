@@ -4,12 +4,12 @@
 {
     <section class="question-panel" aria-labelledby="question-title">
         <div class="section-label">CHECK YOUR UNDERSTANDING</div>
-        <h2 id="question-title">@question.Prompt</h2>
+        <h2 id="question-title" @ref="_heading" tabindex="-1">@question.Prompt</h2>
         <div class="options">
             @foreach (var option in question.Options)
             {
-                <button class="option @(State.Answer?.OptionKey == option.Key ? "selected" : "")"
-                        disabled="@(Busy || State.Phase != "QuestionOpen")"
+                <button class="option @((State.Answer?.OptionKey ?? AcceptedOptionKey) == option.Key ? "selected" : "")"
+                        disabled="@(Busy || AnswerSubmitted || State.Phase != "QuestionOpen")"
                         @onclick="() => OnAnswer.InvokeAsync(option.Key)">
                     <span class="option-letter">@option.Key.ToUpperInvariant()</span><span>@option.Text</span>
                 </button>
@@ -21,16 +21,27 @@
                 <strong>@(answer.TimedOut ? "O tempo acabou. Tudo bem, vamos aprender." : answer.IsCorrect ? "Isso mesmo! Você entendeu a pista." : "Quase lá. Veja o que a história diz:")</strong>
                 <p lang="en">@answer.Explanation</p>
             </div>
-            <button class="primary next-button" disabled="@Busy" @onclick="() => OnContinue.InvokeAsync()">
+            @if (ShowContinue) { <button class="primary next-button" disabled="@Busy" @onclick="() => OnContinue.InvokeAsync()">
                 Continuar a história <span aria-hidden="true">→</span>
-            </button>
+            </button> }
         }
-        else { <p class="hint">Escolha uma alternativa. Vale o que você compreendeu.</p> }
+        else { <p class="hint" role="status">@(AnswerSubmitted ? "Resposta registrada. Aguarde os outros jogadores ou o fim do prazo." : "Escolha uma alternativa. Vale o que você compreendeu.")</p> }
     </section>
 }
 
 @code {
     [Parameter, EditorRequired] public AdventureView State { get; set; } = default!;
+    [Parameter] public bool FocusOnOpen { get; set; }
+    private ElementReference _heading;
+    private Guid _focusedInstance;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (FocusOnOpen && State.Phase == "QuestionOpen" && State.Question is { } question && _focusedInstance != question.InstanceId)
+        { _focusedInstance = question.InstanceId; await _heading.FocusAsync(); }
+    }
+    [Parameter] public bool AnswerSubmitted { get; set; }
+    [Parameter] public string? AcceptedOptionKey { get; set; }
+    [Parameter] public bool ShowContinue { get; set; } = true;
     [Parameter] public bool Busy { get; set; }
     [Parameter] public EventCallback<string> OnAnswer { get; set; }
     [Parameter] public EventCallback OnContinue { get; set; }

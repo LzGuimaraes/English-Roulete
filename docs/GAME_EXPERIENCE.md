@@ -1,5 +1,7 @@
 # Abertura, roleta e ambientação
 
+**Estado atual:** o multiplayer agora inclui uma história jogável, áudio compartilhado, respostas individuais, votação e placar persistido. Veja [o incremento e seus critérios de aceite](increments/MULTIPLAYER_GAMEPLAY.md). As seções anteriores que descrevem apenas lobby/roleta registram entregas históricas. XP, eventos especiais e revanche na mesma sala continuam futuros.
+
 Incremento de RF-006, RF-008 e RF-015 solicitado em 07/11/2026: o jogador inicia antes de descobrir o tema. A escolha manual de história foi removida das telas solo e multiplayer. A seleção explícita da API solo continua disponível para compatibilidade com integrações e testes editoriais.
 
 ## Critérios de aceite
@@ -99,7 +101,7 @@ ENGLISHROULETTE_SCREENSHOTS=/tmp/englishroulette-qa \
 node tests/browser/adventure.cjs
 ```
 
-O Playwright pode ser fornecido por um ambiente de QA já instalado; o caminho é opcional quando `require('playwright')` está disponível. `ENGLISHROULETTE_ONLY_MULTIPLAYER=1` executa apenas a verificação de lobby em duas sessões. Screenshots são opcionais e ficam fora do Git. Execute também restore locked, build Release, testes com `ENGLISHROULETTE_TEST_CONNECTION` e verificação de formatação conforme os comandos acima.
+O Playwright pode ser fornecido por um ambiente de QA já instalado; o caminho é opcional quando `require('playwright')` está disponível. `ENGLISHROULETTE_ONLY_MULTIPLAYER=1` executa apenas o percurso multiplayer completo em duas sessões. Screenshots são opcionais e ficam fora do Git. Execute também restore locked, build Release, testes com `ENGLISHROULETTE_TEST_CONNECTION` e verificação de formatação conforme os comandos acima.
 
 
 ### Evidência da correção
@@ -133,3 +135,28 @@ Incremento solicitado pelo responsável com uma referência visual de The Second
 Os WAVs publicados não incluem alinhamento por palavra/fonema. A revelação é proporcional ao progresso real do áudio, não uma transcrição temporizada precisa. Não é guiada pelo contador da pergunta e não altera o relógio, as respostas, as fases ou o checkpoint do servidor. Pausar o áudio continua sem suspender o prazo do Solo Adventure.
 
 Critérios de aceite: player compacto em desktop/celular; cenário visível sem o cartão opaco; letras acompanhando reprodução/pausa/busca/retomada; alternativa de texto completo e movimento reduzido; percurso expansível; pergunta, escolha, desfecho, retry e lobby preservados. `tests/browser/adventure.cjs` verifica esses comportamentos com narração real, incluindo a igualdade do deadline antes/depois de pausar. Para uma revisão visual do tema de terror, The Second Cup pode ser copiada ao catálogo isolado de QA pela API ADMIN, sem editar versões da VPS.
+
+## Multiplayer jogável — entrega atual
+
+A causa da parada após todos ficarem prontos era a ausência da partida: o lobby persistia somente o resultado da roleta e não criava fases de narração, pergunta, votação ou conclusão. O início agora fica visível para o anfitrião e cria uma partida real no mesmo commit transacional do sorteio.
+
+O percurso entregue é `roleta → preparação do áudio → contagem → narração → pergunta → resultado → votação/próxima cena → final e placar`. Cada cena usa áudio, imagem, texto, pergunta e transições publicados. A pergunta fecha quando todos os participantes elegíveis responderem ou vencer o prazo. Acertos recebem 200/180/160/140/120/100/80/60 por posição, com empate ancorado em 300 ms, conforme a regra confirmada. Somente o servidor calcula os pontos, escolhe a história e resolve empates da votação.
+
+A interface reutiliza `SceneArtwork`, `NarrationPlayer`, `ProgressiveNarration` e `QuestionPanel`. O áudio competitivo tem mute e retomada sincronizada por gesto quando necessário; não tem pause/seek local. O texto continua seguindo o relógio real da mídia. A preparação é confirmada por cena. A pergunta e a votação recebem foco ao abrir, e uma cena nova leva a atenção para a preparação. O grupo acompanha respostas/votos recebidos e placar, sem receber o acerto antes do fechamento.
+
+Consultas de estado não bloqueiam cliques de resposta/voto e snapshots antigos não substituem comandos mais recentes. O tempo entre a chegada do snapshot e sua apresentação entra no alinhamento de áudio, inclusive durante tentativas de conexão SignalR. Falhas de catálogo, JSON, rede, timeout ou mídia mostram mensagem e tentativa de recuperação. O fallback por consulta permanece disponível. A tolerância de presença é 90s; uma reconexão durante preparação recebe uma nova janela de confirmação, sem reabrir perguntas vencidas.
+
+| Arquivos | Responsabilidade |
+|---|---|
+| `Domain/Multiplayer/MultiplayerMatch.cs`, `LobbyRoom.cs` | Fases, idempotência, prazos, pontuação, decisões e participantes congelados. |
+| `Application/Multiplayer/ILobbyStore.cs`, `Infrastructure/Multiplayer/LobbyStore.cs` | Checkpoint JSON e avanço transacional com lock PostgreSQL. |
+| `Contracts/Rooms.cs` | Snapshots pessoais e comandos públicos sem gabaritos. |
+| `Api/Multiplayer/RoomGames.cs`, `RoomEndpoints.cs`, `DomainRuleExceptionHandler.cs` | Projeção pública, worker de fases, autenticação/CSRF e erros úteis. |
+| `Web/Pages/Multiplayer.razor`, `Components/MultiplayerAdventure.razor`, `Services/RoomClient.cs` | Lobby, partida, placar, consultas e recuperação da conexão. |
+| `Web/Components/NarrationPlayer.razor`, `QuestionPanel.razor`, `GameMenu.razor` | Componentes compartilhados com o solo e instruções atualizadas. |
+| `Web/wwwroot/audio-player.js`, `css/game.css` | Reprodução sincronizada, texto progressivo existente e apresentação responsiva. |
+| `tests/EnglishRoulette.UnitTests/MultiplayerGameTests.cs`, `IntegrationTests/AdminCatalogTests*.cs`, `browser/multiplayer.cjs`, `browser/adventure.cjs` | Regras, concorrência/persistência/API e percurso real em navegador. |
+
+Detalhes do contrato, critérios de aceite e validação manual estão em [MULTIPLAYER_GAMEPLAY.md](increments/MULTIPLAYER_GAMEPLAY.md). O incremento não muda dependências, tabelas ou mídias publicadas. XP, eventos especiais, desempates extras e revanche na mesma sala continuam `DECISION NEEDED`; a interface não os anuncia como disponíveis.
+
+Validação local: restore locked, build Release sem warnings, 107 testes unitários, 42 de integração com PostgreSQL, 10 de deploy e 11 de ferramentas editoriais aprovados; formatação conferida. A regressão Chrome em viewports de 1440 e 390px concluiu o solo e o multiplayer com histórias reais, perguntas, bifurcação, mídia, refresh, falhas e fallback sem SignalR. Screenshots e resultados permanecem fora do Git.

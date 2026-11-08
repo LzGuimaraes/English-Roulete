@@ -88,3 +88,24 @@ export function createNarrationText(element, audioElementId, text) {
         }
     };
 }
+
+// A trusted click unlocks this element before the shared server countdown.
+export async function unlock(audio) {
+    const muted = audio.muted;
+    try { audio.muted = true; await audio.play(); audio.pause(); audio.currentTime = 0; }
+    finally { audio.muted = muted; }
+}
+export function mute(audio, muted) { audio.muted = muted; }
+export async function synchronizeShared(audio, phase, offset) {
+    if (phase !== "Narrating") { synchronize(audio, phase, offset); return true; }
+    if (audio.readyState < 3) return false;
+    audio.currentTime = Math.max(0, Math.min(offset, audio.duration));
+    try { await audio.play(); return true; } catch { return false; }
+}
+
+export function alignShared(audio, offset) {
+    // Rebuffering/background tabs may lag. Never retry a blocked play without a gesture.
+    if (!audio.paused && audio.readyState >= 3 && Number.isFinite(audio.duration) && Math.abs(audio.currentTime - offset) > .75) {
+        audio.currentTime = Math.max(0, Math.min(offset, audio.duration));
+    }
+}

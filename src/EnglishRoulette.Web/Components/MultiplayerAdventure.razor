@@ -1,0 +1,106 @@
+@using EnglishRoulette.Contracts
+@inject TimeProvider Clock
+<section class="adventure-heading"><div><div class="eyebrow">STORY BATTLE · @State.Genre</div><h1>@State.Title</h1></div><span class="phase-badge">@PhaseLabel</span></section>
+<div class="game-grid match-grid">
+    <article class="story-card">
+        <div class="chapter-heading"><span class="section-label">CENA @State.SceneNumber · JUNTOS NO MESMO CAMINHO</span><span class="phase-badge" role="timer">@(Remaining is { } seconds ? $"{seconds}s" : "")</span></div>
+        <h2 @ref="_sceneHeading" tabindex="-1">@State.SceneTitle</h2>
+        @if (State.Phase == "Cancelled")
+        { <div class="error-banner" role="alert"><h3>Partida encerrada</h3><p>@Match.CancellationReason</p><p>Saia da sala para preparar uma nova partida com seus amigos.</p></div> }
+        else if (State.Phase == "StoryResult")
+        {
+            <div class="ending"><div class="section-label">THE END · PLACAR FINAL</div><h2 @ref="_endingHeading" tabindex="-1">@(Match.Winners.Count > 1 ? "Vitória compartilhada" : "História concluída")</h2><p>@string.Join(" e ", Match.Players.Where(player => Match.Winners.Contains(player.Id)).Select(player => player.Nickname))</p><p lang="en" class="narration">@State.Narration</p>@if (State.Audio is { } finalAudio) { <audio class="ending-audio" src="@finalAudio.Url" controls preload="metadata" aria-label="Narração do desfecho em inglês"></audio> }<p>@State.SceneNumber cenas · @State.SceneTitle</p><p>O placar fica salvo nesta sala. Para jogar outra história, saiam e criem uma nova sala.</p></div>
+        }
+        else
+        {
+            @if (State.Audio is { } audio)
+            {
+                <NarrationPlayer @key="Match.SceneInstanceId" @ref="_narrator" Audio="audio" AudioElementId="@_audioId" Phase="@State.Phase" Synchronized="true"
+                    ServerNowUtc="PresentationNow" PhaseDeadlineUtc="State.PhaseDeadlineUtc" OnReady="ready => _audioReady = ready" />
+            }
+            @if (State.Phase == "Preloading")
+            {
+                <div class="scene-ready"><p>Carregue e ative o áudio. A contagem começa quando os jogadores conectados confirmarem.</p>
+                    <button class="primary" disabled="@(Busy || !_audioReady || Match.MyAudioReady)" @onclick="ConfirmAsync">@(Match.MyAudioReady ? "Áudio confirmado ✓" : "Ativar áudio e confirmar")</button>
+                    <p role="status">@(!_audioReady ? "Aguardando a narração carregar. Se falhar, tente carregar o áudio novamente." : Match.MyAudioReady ? "Aguardando os outros jogadores confirmarem o áudio." : "Toque para permitir a reprodução da narração.")</p>
+                </div>
+            }
+            else if (State.Phase == "Countdown")
+            { <p class="match-countdown" role="status">Prepare os ouvidos. A cena começa em @Remaining…</p> }
+            else
+            {
+                <ProgressiveNarration @key="(Match.SceneInstanceId, nameof(ProgressiveNarration))" Text="@State.Narration" Phase="@State.Phase" AudioElementId="@_audioId" />
+                @if (State.Phase == "Narrating") { <p class="reading-note">Pergunta em <strong>@Remaining s</strong></p> }
+                <QuestionPanel State="State" Busy="Busy" AnswerSubmitted="Match.MyAnswerAccepted" AcceptedOptionKey="Match.MyOptionKey" ShowContinue="false" FocusOnOpen="true" OnAnswer="AnswerAsync" />
+                @if (State.Phase == "QuestionReveal")
+                {
+                    <ul class="match-round-results" aria-label="Resultado da pergunta">@foreach (var result in Match.RoundResults) { <li>@Match.Players.Single(player => player.Id == result.PlayerId).Nickname: @(result.Correct ? "acertou" : "sem acerto") · +@result.Points pontos</li> }</ul>
+                    <p role="status">A próxima etapa abre automaticamente.</p>
+                }
+                @if (State.Phase == "DecisionOpen")
+                {
+                    <section class="decision"><div class="section-label">DECISÃO DO GRUPO</div><h2 @ref="_decisionHeading" tabindex="-1">Por onde vamos?</h2><p>Um voto por pessoa. Em empate ou sem votos, o servidor sorteia entre os caminhos mais votados.</p>
+                        @foreach (var choice in State.Choices)
+                        { <button class="choice @(Match.MyVoteKey == choice.Key ? "selected" : "")" disabled="@(Busy || Match.MyVoteAccepted)" @onclick="() => VoteAsync(choice.Key)">@choice.Label @(Match.MyVoteKey == choice.Key ? "✓" : "→")</button> }
+                        @if (Match.MyVoteAccepted) { <p role="status">Voto registrado. Aguardando o grupo ou o fim do prazo.</p> }
+                    </section>
+                }
+            }
+        }
+        @if (_audioError is not null) { <p class="error-banner" role="alert">@_audioError</p> }
+        @if (Match.LastDecision is { } decision)
+        { <p class="match-decision-note">Decisão em @decision.SceneTitle: @decision.Choice.@(decision.NoVotes ? " Sem votos: caminho sorteado no servidor." : decision.Tied ? " Empate: caminho sorteado entre os mais votados." : " Escolha da maioria.")</p> }
+    </article>
+    <aside class="match-scoreboard"><h2>@(State.Phase == "StoryResult" ? "Placar final" : "Seu grupo")</h2>
+        <ol>@foreach (var player in Match.Players.OrderByDescending(player => player.Score).ThenBy(player => player.Nickname))
+        { <li class="@(player.Id == Room.ViewerId ? "is-viewer" : "")"><span class="member-avatar">@player.Avatar</span><div><strong>@player.Nickname @(Match.Winners.Contains(player.Id) ? "✦" : "")</strong><small>@PlayerStatus(player) · @player.CorrectAnswers @(player.CorrectAnswers == 1 ? "acerto" : "acertos")</small></div><b>@player.Score<small>pontos</small></b></li> }</ol>
+        <p>Acertos valem 200, 180, 160… pontos pela ordem de chegada. Respostas em até 300 ms empatam na mesma posição.</p>
+        @if (Match.Players.Count(player => player.Connected && !player.Left) < 2 && State.Phase is not "StoryResult" and not "Cancelled")
+        { <p role="status">Aguardando reconexão. Os prazos abertos continuam válidos; a próxima cena aguarda o grupo. A vaga é preservada por até 90 segundos.</p> }
+        <details class="match-journey"><summary>Caminho do grupo · @State.SceneNumber @(State.SceneNumber == 1 ? "cena" : "cenas")</summary>@foreach (var scene in State.VisitedScenes ?? []) { <p>@scene.Title</p> }</details>
+    </aside>
+</div>
+@code {
+    [Parameter, EditorRequired] public RoomView Room { get; set; } = default!;
+    [Parameter] public DateTimeOffset ReceivedAtUtc { get; set; }
+    [Parameter] public bool Busy { get; set; }
+    [Parameter] public EventCallback<MatchCommandRequest> OnCommand { get; set; }
+    private MultiplayerMatchView Match => Room.Match!;
+    private AdventureView State => Match.Scene;
+    private readonly string _audioId = "shared-narration-" + Guid.NewGuid().ToString("N");
+    private NarrationPlayer? _narrator;
+    private ElementReference _decisionHeading, _endingHeading, _sceneHeading;
+    private string? _focusedPhase;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (_focusedPhase == State.Phase) { return; }
+        _focusedPhase = State.Phase;
+        if (State.Phase == "Preloading") { await _sceneHeading.FocusAsync(); }
+        if (State.Phase == "DecisionOpen") { await _decisionHeading.FocusAsync(); }
+        if (State.Phase == "StoryResult") { await _endingHeading.FocusAsync(); }
+    }
+    private bool _audioReady;
+    private string? _audioError;
+    private DateTimeOffset _receivedAt;
+    private DateTimeOffset _snapshotAt;
+    private Guid _instance;
+    private DateTimeOffset PresentationNow => State.ServerNowUtc + (Clock.GetUtcNow() - _receivedAt);
+    private int? Remaining => State.PhaseDeadlineUtc is { } deadline ? Math.Max(0, (int)Math.Ceiling((deadline - PresentationNow).TotalSeconds)) : null;
+    private string PhaseLabel => State.Phase switch { "Preloading" => "Preparando áudio", "Countdown" => "Contagem regressiva", "Narrating" => "Ouça a cena", "QuestionOpen" => "Responda agora", "QuestionReveal" => "Resultado da pergunta", "DecisionOpen" => "Votação aberta", "StoryResult" => "Final alcançado", _ => "Partida encerrada" };
+    protected override void OnParametersSet()
+    {
+        if (_snapshotAt != State.ServerNowUtc) { _snapshotAt = State.ServerNowUtc; _receivedAt = ReceivedAtUtc; }
+        if (_instance != Match.SceneInstanceId) { _instance = Match.SceneInstanceId; _audioReady = false; _audioError = null; }
+    }
+    private string PlayerStatus(MatchPlayerView player) => player.Left ? "Saiu" : !player.Connected ? "Reconectando" : State.Phase switch
+    { "Preloading" => player.AudioReady ? "Áudio pronto" : "Preparando áudio", "QuestionOpen" => player.Answered ? "Respondeu" : "Respondendo", "DecisionOpen" => player.Voted ? "Votou" : "Votando", _ => "Conectado" };
+    private async Task ConfirmAsync()
+    {
+        _audioError = null;
+        try { if (_narrator is not null) { await _narrator.UnlockAsync(); await SendAsync("audio-ready"); } }
+        catch (JSException) { _audioError = "O navegador não liberou o áudio. Toque novamente para ativar e confirmar."; }
+    }
+    private Task SendAsync(string kind, string? key = null) => OnCommand.InvokeAsync(new(Guid.NewGuid(), State.StateVersion, Match.SceneInstanceId, kind, key));
+    private Task AnswerAsync(string key) => SendAsync("answer", key);
+    private Task VoteAsync(string key) => SendAsync("vote", key);
+}
