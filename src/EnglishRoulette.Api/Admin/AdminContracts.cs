@@ -36,6 +36,7 @@ internal static class AdminContracts
             Title = scene.Title,
             Narration = scene.Narration,
             IsEnding = scene.IsEnding,
+            VisualDescription = scene.Support?.VisualDescription,
             Vocabulary = (scene.Support?.Vocabulary ?? []).Select(h => new AdminVocabularyHint { Key = h.Key, Term = h.Term, Translation = h.Translation }).ToList(),
             Dialogue = (scene.Support?.Dialogue ?? []).Select(c => new AdminDialogueCue { Key = c.Key, Speaker = c.Speaker, Text = c.Text, StartMilliseconds = c.StartMilliseconds, EndMilliseconds = c.EndMilliseconds }).ToList(),
             Prompt = scene.Prompt,
@@ -44,7 +45,7 @@ internal static class AdminContracts
             Options = scene.Options.Select(option => new AdminOptionEditor { Key = option.Key, Text = option.Text }).ToList(),
             Transitions = scene.Transitions.Select(transition => new AdminTransitionEditor
             { Key = transition.Key, Label = transition.Label, TargetSceneKey = transition.TargetSceneKey }).ToList(),
-            Visual = scene.Visual is { } visual ? new(visual.Id, $"/api/admin/visuals/{visual.Id}", visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null,
+            Visual = scene.Visual is { } visual ? new(visual.Id, $"/api/admin/visuals/{visual.Id}", scene.Support?.VisualDescription ?? visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null,
             Audio = scene.Audio is { } audio ? new(audio.Id, audio.DurationMs, $"/api/admin/media/{audio.Id}", audio.Attribution, audio.LicenseEvidence) : null
         }).ToList()
     };
@@ -66,6 +67,7 @@ internal static class AdminContracts
                 scene.Audio is { } audio ? new(audio.Id, audio.DurationMs, audio.Attribution, audio.LicenseEvidence) : null,
                 scene.Visual is { } visual ? new(visual.Id, visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null, new SceneSupport
                 {
+                    VisualDescription = string.IsNullOrWhiteSpace(scene.VisualDescription) ? null : scene.VisualDescription.Trim(),
                     Vocabulary = (scene.Vocabulary ?? []).Select(h => new VocabularyHint(h.Key ?? "", h.Term ?? "", h.Translation ?? "")).ToArray(),
                     Dialogue = (scene.Dialogue ?? []).Select(c => new DialogueCue(c.Key ?? "", c.Speaker ?? "", c.Text ?? "", c.StartMilliseconds, c.EndMilliseconds)).ToArray()
                 })).ToArray());

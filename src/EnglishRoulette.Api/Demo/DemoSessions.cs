@@ -122,7 +122,7 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             snapshot.Choices.Select(choice => new ChoiceView(choice.Key, choice.Label)).ToArray(),
             new($"/media/catalog/{audio.Id}", audio.DurationMs, SafetyMarginMs),
             keys.Select(key => new VisitedSceneView(key, content.SceneTitles[key])).ToArray(), snapshot.StoryVersionId, AdminContracts.Appearance(content.Metadata.Appearance ?? new()),
-            content.Visuals.TryGetValue(snapshot.SceneKey, out var visual) ? new SceneVisualView($"/media/visuals/{visual.Id}", visual.AltText, visual.Animated) : null,
+            content.Visuals.TryGetValue(snapshot.SceneKey, out var visual) ? new SceneVisualView($"/media/visuals/{visual.Id}", scene.Support?.VisualDescription ?? visual.AltText, visual.Animated) : null,
             content.Metadata.Genre,
             content.Story.Scenes.Single(scene => scene.Key == snapshot.SceneKey).Support?.Dialogue.Select(cue =>
                 new DialogueCueView(cue.Speaker, cue.Text, cue.StartMilliseconds, cue.EndMilliseconds)).ToArray(), snapshot.SceneInstanceId,

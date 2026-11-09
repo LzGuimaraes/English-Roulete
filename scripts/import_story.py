@@ -46,13 +46,14 @@ def editor_payload(document, draft):
         raise ValueError("A versão precisa ser um rascunho. Duplique versões publicadas pelo painel.")
     result = copy.deepcopy(draft)
     result["metadata"].update({key: value for key, value in document["metadata"].items() if key in METADATA_FIELDS})
+    result["metadata"]["language"] = document["metadata"].get("language", "en")
     result["initialSceneKey"] = document["initialSceneKey"]
     previous = {scene["key"]: scene for scene in draft["scenes"]}
     result["scenes"] = []
     for source in document["scenes"]:
         old = previous.get(source["key"], {})
         scene = {field: source[field] for field in SCENE_FIELDS}
-        for field in ("vocabulary", "dialogue"):
+        for field in ("vocabulary", "dialogue", "visualDescription"):
             if field in source:
                 scene[field] = copy.deepcopy(source[field])
             elif field in old:

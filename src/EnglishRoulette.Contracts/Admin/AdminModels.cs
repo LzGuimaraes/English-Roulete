@@ -43,6 +43,7 @@ public sealed class AdminSceneEditor
     public string Title { get; set; } = "";
     public string Narration { get; set; } = "";
     public bool IsEnding { get; set; }
+    public string? VisualDescription { get; set; }
     public string Prompt { get; set; } = "";
     public List<AdminOptionEditor> Options { get; set; } = [];
     public string CorrectOptionKey { get; set; } = "";

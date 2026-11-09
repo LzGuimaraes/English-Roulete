@@ -93,7 +93,7 @@ internal static class AdminEndpoints
                 scene.Challenge.Prompt, scene.Challenge.Options.Select(option => new OptionView(option.Key, option.Text)).ToArray(),
                 scene.Transitions.Select(choice => new ChoiceView(choice.Key, choice.Label)).ToArray(),
                 source.Audio is { } audio ? $"/api/admin/media/{audio.Id}" : null,
-                source.Visual is { } visual ? new SceneVisualView($"/api/admin/visuals/{visual.Id}", visual.AltText, visual.Animated) : null,
+                source.Visual is { } visual ? new SceneVisualView($"/api/admin/visuals/{visual.Id}", source.Support?.VisualDescription ?? visual.AltText, visual.Animated) : null,
                 AdminContracts.Appearance(draft.Metadata.Appearance ?? new()), draft.Metadata.Language));
         });
         group.MapPost("/stories/{id:guid}/preview-answer", async (Guid id, PreviewAnswerRequest request,

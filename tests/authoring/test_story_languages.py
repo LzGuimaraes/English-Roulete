@@ -10,13 +10,23 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from import_story import editor_payload, load_story
 from upload_anthology_media import credits
 from verify_anthology_narration import words
+from produce_story_pack_audio import portuguese_rhotic_compatibility
 
 
 class LanguageToolsTests(unittest.TestCase):
+    def test_portuguese_rhotic_adjustment_keeps_intervocalic_taps_and_stress(self):
+        # Contrast furo (intervocalic tap), trabalho (cluster), and cartão (coda).
+        phones = [list("fˈuɾʊ"), list("tɾabˈaʎʊ"), list("kaɾtˈɐ̃ʊ̃"), list("maɾ.")]
+        self.assertEqual(portuguese_rhotic_compatibility(phones),
+                         [list("fˈuɾʊ"), list("trabˈaʎʊ"), list("kartˈɐ̃ʊ̃"), list("mar.")])
+        self.assertEqual(phones[1], list("tɾabˈaʎʊ"))  # Input is never mutated.
+
     def test_import_keeps_explicit_language_and_rejects_unsupported_language(self):
         source = ROOT / "content/anthology-03/a-very-important-rehearsal-a1/story.json"
         document = load_story(source)
         self.assertNotIn("language", document["metadata"])
+        legacy = editor_payload(document, {"status": "Draft", "metadata": {"language": "pt-BR"}, "scenes": []})
+        self.assertEqual(legacy["metadata"]["language"], "en")
         portuguese = copy.deepcopy(document)
         portuguese["metadata"]["language"] = "pt-BR"
         draft = {"status": "Draft", "metadata": {}, "scenes": []}

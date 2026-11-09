@@ -34,6 +34,7 @@ public sealed class AuthoredStoryCatalogTests
             scene.GetProperty("transitions").EnumerateArray().Select(transition => new CatalogTransition(
                 Text(transition, "key"), Text(transition, "label"), Text(transition, "targetSceneKey"))).ToArray(), null, Support: new SceneSupport
                 {
+                    VisualDescription = scene.TryGetProperty("visualDescription", out var description) ? description.GetString() : null,
                     Vocabulary = scene.TryGetProperty("vocabulary", out var vocabulary)
                     ? JsonSerializer.Deserialize<VocabularyHint[]>(vocabulary.GetRawText(), new JsonSerializerOptions(JsonSerializerDefaults.Web))! : [],
                     Dialogue = scene.TryGetProperty("dialogue", out var dialogue)

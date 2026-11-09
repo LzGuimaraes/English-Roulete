@@ -58,7 +58,7 @@ internal sealed class RoomGames(IAdminCatalog catalog, ILobbyStore lobbies, Time
             new($"/media/catalog/{audio.Id}", audio.DurationMs, 2000),
             match.VisitedScenes.Select(key => new VisitedSceneView(key, content.SceneTitles[key])).ToArray(), content.Story.Id,
             AdminContracts.Appearance(content.Metadata.Appearance ?? new()),
-            content.Visuals.TryGetValue(match.SceneKey, out var visual) ? new($"/media/visuals/{visual.Id}", visual.AltText, visual.Animated) : null,
+            content.Visuals.TryGetValue(match.SceneKey, out var visual) ? new($"/media/visuals/{visual.Id}", scene.Support?.VisualDescription ?? visual.AltText, visual.Animated) : null,
             content.Metadata.Genre, scene.Support?.Dialogue.Select(cue =>
                 new DialogueCueView(cue.Speaker, cue.Text, cue.StartMilliseconds, cue.EndMilliseconds)).ToArray(), match.SceneInstanceId,
             GameAssistance.Words(scene.Support, consumed, match.Rules.Hints),

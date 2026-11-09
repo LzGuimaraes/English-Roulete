@@ -19,9 +19,13 @@ public sealed partial class AdminCatalogTests
         scene.Prompt = "O que Lia encontrou?";
         scene.Options = [new() { Key = "a", Text = "Um caderno" }, new() { Key = "b", Text = "Um ingresso" }];
         scene.Explanation = "Lia encontrou um caderno azul.";
+        scene.VisualDescription = "Um caderno azul sobre a mesa da biblioteca.";
         scene.Vocabulary = [new() { Key = "caderno", Term = "caderno", Translation = "Conjunto de folhas para escrever." }];
         scene.Dialogue = [new() { Key = "narrador", Speaker = "Narrador", Text = scene.Narration, StartMilliseconds = 0, EndMilliseconds = 1000 }];
-        return await Upload(await Save(story));
+        story = await Upload(await Save(story));
+        using var visual = await UploadVisual(story, ImageInspectionTests.Png());
+        visual.EnsureSuccessStatusCode();
+        return (await visual.Content.ReadFromJsonAsync<AdminStoryEditor>())!;
     }
 
     [PostgresFact]
@@ -68,6 +72,8 @@ public sealed partial class AdminCatalogTests
         Assert.Equal("pt-BR", state.Language); Assert.Equal(portuguese.Id, state.StoryVersionId);
         Assert.Equal("Lia encontrou um caderno azul.", state.Narration);
         Assert.Equal($"/media/catalog/{portuguese.Scenes[0].Audio!.Id}", state.Audio!.Url);
+        Assert.Equal("Um caderno azul sobre a mesa da biblioteca.", state.Visual!.AltText);
+        Assert.Equal(state.Visual.AltText, portuguese.Scenes[0].Visual!.AltText);
         Assert.Null(Assert.Single(state.WordHints!).Translation);
         async Task<AdventureView> Send(string kind, string? hint = null, string? answer = null)
         {
@@ -99,6 +105,7 @@ public sealed partial class AdminCatalogTests
         var room = await StartRoom(host, guest, "pt-BR");
         Assert.Equal("pt-BR", room.Language); Assert.Equal(portuguese.Id, room.StoryVersionId);
         Assert.Equal("pt-BR", room.Match!.Scene.Language);
+        Assert.Equal("Um caderno azul sobre a mesa da biblioteca.", room.Match.Scene.Visual!.AltText);
         Assert.Equal("pt-BR", (await guest.GetFromJsonAsync<RoomView>("/api/rooms/current"))!.Language);
         _clock.Now = room.Match.Scene.PhaseDeadlineUtc!.Value;
         room = (await host.GetFromJsonAsync<RoomView>("/api/rooms/current"))!;

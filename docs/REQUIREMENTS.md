@@ -11,6 +11,8 @@
 
 O **English Roulette — Story Battle** é um jogo educacional single player e multiplayer de compreensão de inglês. No multiplayer, participantes entram em uma sala; no single player, a aventura começa diretamente. Em ambos, acompanham **histórias em inglês narradas por áudio**, com texto na tela quando o desafio permitir. Em momentos definidos da narrativa, respondem a perguntas sobre o que ouviram e leram — simultaneamente quando há vários jogadores. **Acerto e velocidade** influenciam a pontuação conforme o modo escolhido. Em cenas específicas, cada jogador solo **escolhe o próprio caminho**; no multiplayer, o grupo **vota nos caminhos da história**, podendo alcançar finais distintos. Eventos e minijogos variam o ritmo para evitar partidas maçantes.
 
+A pedido do responsável, em 09/11/2026 o conteúdo também passa a ter versões em português brasileiro, com catálogo, prévia e sorteio separados por idioma. A escolha ocorre antes do solo ou da criação da sala; texto, perguntas e áudio pertencem ao mesmo idioma. Ver [PORTUGUESE_MODE.md](PORTUGUESE_MODE.md) para critérios e compatibilidade. O inglês continua disponível como experiência de aprendizado.
+
 ### 1.1 Objetivos
 
 - Treinar principalmente **listening** e **reading**, com vocabulário e interpretação como habilidades complementares.
@@ -39,7 +41,7 @@ O **English Roulette — Story Battle** é um jogo educacional single player e m
 | Acesso ao jogo | Convidados com apelido e avatar; não exigir conta para iniciar |
 | Administração | Login protegido para editar e publicar conteúdo |
 | Experiência central | História narrada, cenas e perguntas; **solo com decisões próprias e recordes**, multiplayer com ranking e decisões coletivas |
-| Língua do conteúdo | Áudio, texto e desafios em inglês; interface pode ter tradução PT-BR |
+| Língua do conteúdo | Inglês ou português brasileiro, em catálogos separados; texto, áudio e desafios no mesmo idioma |
 | Níveis iniciais | A1, A2 e B1; estrutura preparada para B2/C1 |
 | Conteúdo | Produzido/importado e revisado antes da publicação; sem IA integrada ao jogo |
 | Banco de dados | **PostgreSQL** exclusivamente |
@@ -176,7 +178,7 @@ Cada fase é definida pelo servidor com identificador e número de versão do es
 
 ### RF-007 — Preparação da narração
 
-- Cada cena publicada possui áudio em inglês associado, texto correspondente, duração e opção de imagem/ilustração.
+- Cada cena publicada possui áudio no idioma da versão associado, texto correspondente, duração e opção de imagem/ilustração.
 - O cliente pré-carrega o áudio da cena **antes** do início; sinaliza `AUDIO_READY` ao servidor.
 - Antes da primeira cena, mostrar botão **“Enable audio / Ready to listen”** que exige interação real do usuário, pois navegadores podem bloquear reprodução automática.
 - Após carregamento dos participantes (ou tempo limite), o servidor envia instante de início e contagem regressiva para todos.
@@ -185,7 +187,7 @@ Cada fase é definida pelo servidor com identificador e número de versão do es
 
 ### RF-008 — Cena narrada e texto
 
-- Exibir título/cena, ilustração, progressão da história e texto em inglês alinhado à narração.
+- Exibir título/cena, ilustração, progressão da história e texto no idioma da história alinhado à narração.
 - Controles locais: volume, mute, preferência de fonte e legendas conforme a regra da cena.
 - **Não permitir avançar ou pausar apenas para um jogador** em partida competitiva; controles individuais não alteram a linha do tempo global.
 - Nas cenas normais, mostrar **texto + áudio**; em eventos `Blind Listening`, ocultar texto durante a narração e liberar após o desafio.
