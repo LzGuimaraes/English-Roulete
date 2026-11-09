@@ -8,8 +8,8 @@
         {
             <button type="button" class="narration-hint @(word.Translation is not null ? "hint-consumed" : "")"
                 data-hint-key="@word.Key" data-reveal-word inert="@Revealing"
-                aria-label="@(word.Translation is not null ? $"Rever tradução de {word.Term}, sem custo" : $"Traduzir {word.Term}: {Cost.PerWord}")"
-                title="@(word.Translation is not null ? "Rever tradução · grátis" : $"Traduzir · {Cost.PerWord}")"
+                aria-label="@(word.Translation is not null ? $"Rever {(Language == "pt-BR" ? "significado" : "tradução")} de {word.Term}, sem custo" : $"{(Language == "pt-BR" ? "Ver significado de" : "Traduzir")} {word.Term}: {Cost.PerWord}")"
+                title="@(word.Translation is not null ? $"Rever {(Language == "pt-BR" ? "significado" : "tradução")} · grátis" : $"{(Language == "pt-BR" ? "Ver significado" : "Traduzir")} · {Cost.PerWord}")"
                 disabled="@(Busy || (word.Translation is null && !Cost.CanUse))" @onclick="() => OnOpen.InvokeAsync(word.Key)"><span data-reveal-text="@part.Text" aria-hidden="@Revealing">@(Revealing ? "" : part.Text)</span></button>
         }
         else
@@ -19,6 +19,7 @@
     }
 </span>
 @code {
+    [Parameter] public string Language { get; set; } = "en";
     [Parameter, EditorRequired] public string Text { get; set; } = "";
     [Parameter] public IReadOnlyList<WordHintView>? Words { get; set; }
     [Parameter] public HintCostView? Cost { get; set; }

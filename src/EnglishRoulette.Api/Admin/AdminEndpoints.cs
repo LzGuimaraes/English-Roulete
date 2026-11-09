@@ -94,7 +94,7 @@ internal static class AdminEndpoints
                 scene.Transitions.Select(choice => new ChoiceView(choice.Key, choice.Label)).ToArray(),
                 source.Audio is { } audio ? $"/api/admin/media/{audio.Id}" : null,
                 source.Visual is { } visual ? new SceneVisualView($"/api/admin/visuals/{visual.Id}", visual.AltText, visual.Animated) : null,
-                AdminContracts.Appearance(draft.Metadata.Appearance ?? new())));
+                AdminContracts.Appearance(draft.Metadata.Appearance ?? new()), draft.Metadata.Language));
         });
         group.MapPost("/stories/{id:guid}/preview-answer", async (Guid id, PreviewAnswerRequest request,
             IAdminCatalog catalog, CancellationToken token) =>
@@ -161,18 +161,21 @@ internal static class AdminEndpoints
         app.MapGet("/media/catalog/{id:guid}", async (Guid id, AdventureDbContext db, CatalogMediaStorage storage, CancellationToken token) =>
             await db.CatalogMedia.AsNoTracking().SingleOrDefaultAsync(asset => asset.Id == id && asset.Published, token) is { } asset && storage.PathFor(asset) is { } path
                 ? Results.File(path, "audio/wav", enableRangeProcessing: true) : Results.NotFound());
-        app.MapGet("/api/catalog", async (AdventureDbContext db, CancellationToken token) =>
+        app.MapGet("/api/catalog", async (string? language, AdventureDbContext db, CancellationToken token) =>
         {
-            var rows = await db.CatalogVersions.AsNoTracking().Where(version => version.Status == "Published")
+            language = StoryLanguage.Require(language);
+            var rows = await db.CatalogVersions.AsNoTracking().Where(version => version.Status == "Published" && version.Language == language)
                 .OrderBy(version => version.CreatedAtUtc).Take(100).Select(version => new
-                { version.Id, version.Title, version.Synopsis, version.Genre, version.Difficulty, Count = version.Scenes.Count, version.AppearanceJson }).ToListAsync(token);
+                { version.Id, version.Title, version.Synopsis, version.Genre, version.Difficulty, Count = version.Scenes.Count, version.AppearanceJson, version.Language }).ToListAsync(token);
             return Results.Ok(rows.Select(version => new PublicStoryView(version.Id, version.Title, version.Synopsis, version.Genre,
-                version.Difficulty, version.Count, AdminContracts.Appearance(CatalogService.AppearanceFromJson(version.AppearanceJson)))));
+                version.Difficulty, version.Count, AdminContracts.Appearance(CatalogService.AppearanceFromJson(version.AppearanceJson)), version.Language)));
         });
-        app.MapGet("/api/catalog/round-preview", async (IAdminCatalog catalog, HttpContext context) =>
+        app.MapGet("/api/catalog/round-preview", async (string? language, IAdminCatalog catalog, HttpContext context) =>
         {
             context.Response.Headers.CacheControl = "no-store";
-            var content = await catalog.LoadPublishedAsync(null, context.RequestAborted);
+            language = StoryLanguage.Require(language);
+            var first = (await catalog.PublishedAsync(context.RequestAborted)).FirstOrDefault(story => story.Language == language);
+            var content = first is null ? null : await catalog.LoadPublishedAsync(first.Id, context.RequestAborted);
             if (content is null) { return Results.NoContent(); }
             var scene = StoryFlowEngine.GetInitialScene(content.Story);
             const int maximumExcerptLength = 420;
@@ -184,7 +187,7 @@ internal static class AdminEndpoints
             }
             return Results.Ok(new RoundPreviewView(content.Metadata.Title, content.SceneTitles[scene.Key],
                 content.Metadata.Genre, content.Metadata.Difficulty, excerpt, scene.Challenge.Prompt,
-                scene.Challenge.Options.Select(option => option.Text).ToArray()));
+                scene.Challenge.Options.Select(option => option.Text).ToArray(), content.Metadata.Language));
         });
     }
 

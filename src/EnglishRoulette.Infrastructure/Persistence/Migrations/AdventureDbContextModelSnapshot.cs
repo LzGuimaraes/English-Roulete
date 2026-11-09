@@ -403,6 +403,14 @@ namespace EnglishRoulette.Infrastructure.Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("initial_scene_key");
 
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)")
+                        .HasDefaultValue("en")
+                        .HasColumnName("language");
+
                     b.Property<string>("LicenseEvidence")
                         .IsRequired()
                         .HasColumnType("text")
@@ -460,6 +468,8 @@ namespace EnglishRoulette.Infrastructure.Persistence.Migrations
 
                     b.ToTable("catalog_versions", null, t =>
                         {
+                            t.HasCheckConstraint("ck_catalog_language", "language IN ('en','pt-BR')");
+
                             t.HasCheckConstraint("ck_catalog_revision", "revision > 0 AND number > 0");
 
                             t.HasCheckConstraint("ck_catalog_status", "status IN ('Draft','Published','Archived')");

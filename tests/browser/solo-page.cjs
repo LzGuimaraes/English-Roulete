@@ -23,12 +23,16 @@ async function soloState(page) {
     const response = await soloResponse(page);
     assert.ok(response.ok(), await response.text()); return response.json();
 }
-async function createSolo(page, base, storyVersionId, navigate = true) {
+async function createSolo(page, base, storyVersionId, navigate = true, language = 'en') {
     watchSolo(page);
     if (navigate) await page.goto(base);
+    if (language === 'pt-BR') {
+        await page.getByRole('button', { name: 'Português', exact: true }).click();
+        await page.waitForFunction(() => document.querySelector('.language-selector')?.disabled === false);
+    }
     await page.getByRole('button', { name: /Iniciar aventura solo/ }).waitFor();
     const route = async route => route.request().method() === 'POST'
-        ? route.continue({ postData: JSON.stringify({ storyVersionId }) }) : route.continue();
+        ? route.continue({ postData: JSON.stringify({ storyVersionId, language }) }) : route.continue();
     await page.route('**/api/demo/session', route);
     try {
         await page.getByRole('button', { name: /Iniciar aventura solo/ }).click();

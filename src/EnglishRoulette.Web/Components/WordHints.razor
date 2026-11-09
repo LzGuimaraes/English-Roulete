@@ -4,16 +4,16 @@
     <details class="word-hints" @key="State.SceneInstanceId">
         <summary>Ajuda com palavras <span>@cost.UsedCount @(cost.UsedCount == 1 ? "dica usada" : "dicas usadas") · @cost.PerWord</span></summary>
         <div class="word-hints-content">
-            <p>@cost.Limit Reabrir uma tradução já usada é gratuito.</p>
+            <p>@cost.Limit Reabrir uma dica já usada é gratuito.</p>
             @if (!cost.CanUse) { <p>Novas dicas ficam disponíveis durante a narração e antes de responder, dentro do prazo.</p> }
             <ul>
                 @foreach (var word in words)
                 {
                     <li @key="word.Key">
                         @if (word.Translation is { } translation)
-                        { <strong lang="en">@word.Term</strong><span class="hint-translation" role="status">@translation</span> }
+                        { <strong lang="@State.Language">@word.Term</strong><span class="hint-translation" role="status">@translation</span> }
                         else
-                        { <button type="button" class="hint-word" disabled="@(Busy || !cost.CanUse)" @onclick="() => UseAsync(word.Key)"><span lang="en">@word.Term</span><small>@(_pending == word.Key ? "Registrando dica…" : $"Traduzir · {cost.PerWord}")</small></button> }
+                        { <button type="button" class="hint-word" disabled="@(Busy || !cost.CanUse)" @onclick="() => UseAsync(word.Key)"><span lang="@State.Language">@word.Term</span><small>@(_pending == word.Key ? "Registrando dica…" : $"{(State.Language == "pt-BR" ? "Ver significado" : "Traduzir")} · {cost.PerWord}")</small></button> }
                     </li>
                 }
             </ul>

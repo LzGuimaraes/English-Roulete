@@ -18,6 +18,7 @@ public sealed class CatalogVersionRow
     public string Synopsis { get; set; } = "";
     public string Genre { get; set; } = "Mistério";
     public string Difficulty { get; set; } = "A2";
+    public string Language { get; set; } = "en";
     public string Author { get; set; } = "";
     public string LicenseType { get; set; } = "Original";
     public string LicenseEvidence { get; set; } = "";

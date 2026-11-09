@@ -8,14 +8,14 @@ from pathlib import Path
 import wave
 
 
-def produce(document, scene_key, model, output, pace):
+def produce(document, scene_key, model, output, pace, *, voice=None):
     from piper import PiperVoice, SynthesisConfig
     scene = next(scene for scene in document["scenes"] if scene["key"] == scene_key)
     cues = scene.get("dialogue", [])
     normalize = lambda text: " ".join(text.split())
     if not cues or normalize(" ".join(cue["text"] for cue in cues)) != normalize(scene["narration"]):
         raise ValueError("Dialogue must reproduce the entire narration in order.")
-    voice = PiperVoice.load(model)
+    voice = voice or PiperVoice.load(model)
     chunks, frames, sample_rate = [], 0, voice.config.sample_rate
     for cue in cues:
         buffer = io.BytesIO()

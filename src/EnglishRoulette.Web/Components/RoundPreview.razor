@@ -7,7 +7,7 @@
     <div class="preview-intro">
         <span class="section-label">UMA RODADA POR DENTRO</span>
         <h2 id="round-preview-title">É assim que você joga.</h2>
-        <p>Na aventura, você acompanha uma cena em inglês. Depois, responde sobre o que entendeu e, quando houver uma bifurcação, escolhe como seguir.</p>
+        <p>Na aventura, você acompanha uma cena em @(Language == "pt-BR" ? "português" : "inglês"). Depois, responde sobre o que entendeu e, quando houver uma bifurcação, escolhe como seguir.</p>
         <p class="preview-note">Esta é uma prévia de leitura. Ela não inicia uma partida nem altera seu progresso.</p>
     </div>
     <div class="round-sample">
@@ -18,19 +18,20 @@
         }
         else if (_preview is { } preview)
         {
-            <div class="sample-meta"><span>Trecho real · @preview.Difficulty · @preview.Genre</span><span>@preview.StoryTitle</span></div>
-            <h3 lang="en">@preview.SceneTitle</h3>
-            <blockquote lang="en">@preview.NarrationExcerpt</blockquote>
-            <div class="sample-question"><span class="section-label">EXEMPLO DE PERGUNTA · SOMENTE LEITURA</span><h3 lang="en">@preview.QuestionPrompt</h3>
-                <ul class="preview-options" lang="en">@foreach (var option in preview.Options) { <li>@option</li> }</ul>
+            <div class="sample-meta"><span>Trecho real · @(Language == "pt-BR" ? "Português" : preview.Difficulty) · @preview.Genre</span><span>@preview.StoryTitle</span></div>
+            <h3 lang="@Language">@preview.SceneTitle</h3>
+            <blockquote lang="@Language">@preview.NarrationExcerpt</blockquote>
+            <div class="sample-question"><span class="section-label">EXEMPLO DE PERGUNTA · SOMENTE LEITURA</span><h3 lang="@Language">@preview.QuestionPrompt</h3>
+                <ul class="preview-options" lang="@Language">@foreach (var option in preview.Options) { <li>@option</li> }</ul>
             </div>
             <p class="preview-note">Na partida, as alternativas ficam disponíveis depois da narração. Você confirma uma resposta e vê a explicação.</p>
         }
-        else { <p>A prévia aparece quando houver uma história publicada no catálogo.</p> }
+        else { <p>A prévia aparece quando houver uma história publicada neste idioma.</p> }
     </div>
 </section>
 
 @code {
+    [Parameter] public string Language { get; set; } = "en";
     private readonly CancellationTokenSource _life = new();
     private RoundPreviewView? _preview;
     private bool _loading = true;
@@ -39,7 +40,7 @@
     private async Task LoadAsync()
     {
         _loading = true; _error = null;
-        try { _preview = await Client.PreviewAsync(_life.Token); }
+        try { _preview = await Client.PreviewAsync(_life.Token, Language); }
         catch (HttpRequestException error) { _error = error.Message; }
         catch (OperationCanceledException) when (_life.IsCancellationRequested) { }
         finally { _loading = false; }

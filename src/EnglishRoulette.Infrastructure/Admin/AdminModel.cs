@@ -23,11 +23,13 @@ internal static class AdminModel
         {
             table.HasCheckConstraint("ck_catalog_status", "status IN ('Draft','Published','Archived')");
             table.HasCheckConstraint("ck_catalog_revision", "revision > 0 AND number > 0");
+            table.HasCheckConstraint("ck_catalog_language", "language IN ('en','pt-BR')");
         }).HasKey(row => row.Id);
         model.Entity<CatalogVersionRow>().HasOne<CatalogStoryRow>().WithMany().HasForeignKey(row => row.StoryId).OnDelete(DeleteBehavior.Restrict);
         model.Entity<CatalogVersionRow>().HasIndex(row => new { row.StoryId, row.Number }).IsUnique();
         model.Entity<CatalogVersionRow>().HasIndex(row => row.StoryId).IsUnique().HasFilter("status = 'Published'");
         model.Entity<CatalogVersionRow>().Property(row => row.Revision).IsConcurrencyToken();
+        model.Entity<CatalogVersionRow>().Property(row => row.Language).HasMaxLength(10).HasDefaultValue("en");
         model.Entity<CatalogVersionRow>().HasMany(row => row.Scenes).WithOne().HasForeignKey(scene => scene.VersionId).OnDelete(DeleteBehavior.Cascade);
         model.Entity<CatalogSceneRow>().ToTable("catalog_scenes").HasKey(row => row.Id);
         model.Entity<CatalogSceneRow>().Property(row => row.SupportJson).HasColumnType("jsonb").HasDefaultValue("{}");

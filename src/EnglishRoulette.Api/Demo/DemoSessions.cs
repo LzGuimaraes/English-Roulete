@@ -9,6 +9,7 @@ using EnglishRoulette.Application.Solo;
 using EnglishRoulette.Contracts;
 using EnglishRoulette.Domain;
 using EnglishRoulette.Domain.Sessions;
+using EnglishRoulette.Domain.Stories;
 using EnglishRoulette.Infrastructure.Admin;
 using EnglishRoulette.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication;
@@ -41,13 +42,16 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
         return snapshot is null ? null : await MapAsync(snapshot, hash, cancellationToken);
     }
 
-    public async Task<AdventureView> CreateAsync(HttpContext context, Guid? versionId, CancellationToken cancellationToken)
+    public async Task<AdventureView> CreateAsync(HttpContext context, Guid? versionId, CancellationToken cancellationToken, string language = StoryLanguage.English)
     {
+        language = StoryLanguage.Require(language);
         var previousHash = CredentialHash(context);
         var previous = previousHash is null ? null : await store.FindAsync(previousHash, cancellationToken);
-        versionId ??= StoryRoulette.Draw(await catalog.PublishedAsync(cancellationToken));
+        versionId ??= StoryRoulette.Draw(await catalog.PublishedAsync(cancellationToken), language: language);
         var content = await catalog.LoadPublishedAsync(versionId, cancellationToken)
             ?? throw new GameRuleException("CONTENT_NOT_PUBLISHED", "Escolha uma história publicada no catálogo.");
+        if (content.Metadata.Language != language)
+        { throw new GameRuleException("LANGUAGE_MISMATCH", "Esta história pertence a outro idioma. Volte ao catálogo e escolha o idioma desejado."); }
         var guest = await context.AuthenticateAsync(RoomEndpoints.PlayerScheme);
         var playerId = Guid.TryParse(guest.Principal?.FindFirstValue(ClaimTypes.NameIdentifier), out var guestId)
             ? guestId : previous?.Checkpoint.PlayerId ?? Guid.NewGuid();
@@ -125,6 +129,6 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             GameAssistance.Words(scene.Support, hints, snapshot.ScoringRules?.Hints),
             GameAssistance.Cost(snapshot.ScoringRules?.Hints, hints.Count, snapshot.Phase is SoloAdventurePhase.Narrating or SoloAdventurePhase.QuestionOpen),
             snapshot.ScoringRules is { } rules ? new((snapshot.RoundScores ?? []).Sum(item => item.Points), round?.BasePoints, round?.Deduction, round?.Points,
-                GameAssistance.SoloDescription(rules)) : null);
+                GameAssistance.SoloDescription(rules)) : null, content.Metadata.Language);
     }
 }

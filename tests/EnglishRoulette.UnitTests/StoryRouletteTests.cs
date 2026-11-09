@@ -1,11 +1,25 @@
 using EnglishRoulette.Application.Admin;
 using EnglishRoulette.Application.Presentation;
 using EnglishRoulette.Domain;
+using EnglishRoulette.Domain.Stories;
 
 namespace EnglishRoulette.UnitTests;
 
 public sealed class StoryRouletteTests
 {
+    [Fact]
+    public void Draw_FiltersLanguageBeforeGenre_AndDoesNotFallbackToAnotherLanguage()
+    {
+        var english = Story("Mistério");
+        var portuguese = Story("Comédia") with { Language = StoryLanguage.Portuguese };
+        Assert.Equal(english.Id, StoryRoulette.Draw([english, portuguese]));
+        Assert.Equal(portuguese.Id, StoryRoulette.Draw([english, portuguese], language: StoryLanguage.Portuguese));
+        Assert.Equal("CONTENT_NOT_PUBLISHED", Assert.Throws<GameRuleException>(() =>
+            StoryRoulette.Draw([english], language: StoryLanguage.Portuguese)).Code);
+        Assert.Equal("INVALID_LANGUAGE", Assert.Throws<GameRuleException>(() =>
+            StoryRoulette.Draw([english, portuguese], language: "es")).Code);
+    }
+
     private static CatalogSummary Story(string genre, string status = "Published") =>
         new(Guid.NewGuid(), Guid.NewGuid(), 1, "Story", genre, "A2", status, 1, DateTimeOffset.UnixEpoch);
 

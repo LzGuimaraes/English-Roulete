@@ -10,12 +10,13 @@ import subprocess
 
 
 def words(text):
-    return re.findall(r"[a-z0-9]+", text.lower().replace("’", "'"))
+    return re.findall(r"[^\W_]+", text.lower().replace("’", "'"), flags=re.UNICODE)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", default="base.en")
+    parser.add_argument("--language", choices=["en", "pt"], default="en")
     parser.add_argument("--models", type=Path, default=Path(".local/media-tools/whisper"))
     parser.add_argument("--pack", type=Path, default=Path("content/anthology-01"))
     parser.add_argument("--media", type=Path, default=Path("media/anthology-01"))
@@ -40,7 +41,7 @@ def main():
                 "-i", str(audio), "-f", "f32le", "-ac", "1", "-ar", "16000", "pipe:1"],
                 check=True, stdout=subprocess.PIPE, timeout=30).stdout
             samples = np.frombuffer(decoded, dtype="<f4")
-            segments, _ = model.transcribe(samples, language="en", beam_size=5,
+            segments, _ = model.transcribe(samples, language=args.language, beam_size=5,
                 condition_on_previous_text=False, vad_filter=False)
             transcript = " ".join(segment.text.strip() for segment in segments)
             expected, actual = words(scene["narration"]), words(transcript)
@@ -49,12 +50,12 @@ def main():
                 if tag != "equal":
                     differences.append({"kind": tag, "source": " ".join(expected[i:j]), "heard": " ".join(actual[k:m])})
             report[identity] = {"sha256": checksum, "source": scene["narration"], "transcript": transcript,
-                "differences": differences, "recognizer": args.model,
+                "differences": differences, "recognizer": args.model, "language": args.language,
                 "note": "Automatic recognition can mishear names and punctuation; differences require review, not automatic text replacement."}
             temporary = args.report.with_suffix(".json.tmp")
             temporary.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
             temporary.replace(args.report)
-            print(f"Transcribed {len(report):02d}/60 {identity}; differences: {len(differences)}", flush=True)
+            print(f"Transcribed {len(report):02d} {identity}; differences: {len(differences)}", flush=True)
 
 
 if __name__ == "__main__":

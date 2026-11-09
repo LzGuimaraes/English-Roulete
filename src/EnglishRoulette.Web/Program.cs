@@ -16,6 +16,7 @@ builder.Services.AddScoped(_ =>
 builder.Services.AddScoped<AdventureClient>();
 builder.Services.AddScoped<AdminClient>();
 builder.Services.AddScoped<RoomClient>();
+builder.Services.AddScoped<StoryLanguagePreference>();
 builder.Services.AddSingleton(TimeProvider.System);
 
 await builder.Build().RunAsync();

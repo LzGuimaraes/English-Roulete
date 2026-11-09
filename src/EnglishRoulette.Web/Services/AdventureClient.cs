@@ -14,23 +14,24 @@ public sealed class AdventureClient(HttpClient http)
     private string? _credential;
     private long _generation;
 
-    public Task<List<PublicStoryView>> CatalogAsync(CancellationToken token) => RequestAsync(async bounded =>
+    public Task<List<PublicStoryView>> CatalogAsync(CancellationToken token, string language = "en") => RequestAsync(async bounded =>
     {
-        using var response = await http.GetAsync("api/catalog", bounded);
+        using var response = await http.GetAsync(language == "en" ? "api/catalog" : "api/catalog?language=" + Uri.EscapeDataString(language), bounded);
         await EnsureAsync(response, bounded);
         var stories = await response.Content.ReadFromJsonAsync<List<PublicStoryView>>(bounded) ?? throw InvalidResponse();
         if (stories.Any(story => story is null || story.Id == Guid.Empty || string.IsNullOrWhiteSpace(story.Title) ||
-            string.IsNullOrWhiteSpace(story.Genre) || string.IsNullOrWhiteSpace(story.Difficulty)))
+            string.IsNullOrWhiteSpace(story.Genre) || string.IsNullOrWhiteSpace(story.Difficulty) || story.Language != language))
         { throw InvalidResponse(); }
         return stories;
     }, token);
 
-    public Task<RoundPreviewView?> PreviewAsync(CancellationToken token) => RequestAsync(async bounded =>
+    public Task<RoundPreviewView?> PreviewAsync(CancellationToken token, string language = "en") => RequestAsync(async bounded =>
     {
-        using var response = await http.GetAsync("api/catalog/round-preview", bounded);
+        using var response = await http.GetAsync(language == "en" ? "api/catalog/round-preview" : "api/catalog/round-preview?language=" + Uri.EscapeDataString(language), bounded);
         if (response.StatusCode == HttpStatusCode.NoContent) { return null; }
         await EnsureAsync(response, bounded);
-        return await response.Content.ReadFromJsonAsync<RoundPreviewView>(bounded) ?? throw InvalidResponse();
+        var preview = await response.Content.ReadFromJsonAsync<RoundPreviewView>(bounded) ?? throw InvalidResponse();
+        return preview.Language == language ? preview : throw InvalidResponse();
     }, token);
 
     public Task<AdventureView?> GetAsync(CancellationToken token) => RequestAsync<AdventureView?>(async bounded =>
@@ -43,14 +44,15 @@ public sealed class AdventureClient(HttpClient http)
         return await ReadAsync(response, bounded);
     }, token);
 
-    public Task<AdventureView> CreateAsync(Guid? versionId, CancellationToken token) => RequestAsync(async bounded =>
+    public Task<AdventureView> CreateAsync(Guid? versionId, CancellationToken token, string language = "en") => RequestAsync(async bounded =>
     {
         var generation = _generation;
         using var request = SessionRequest(HttpMethod.Post, "api/demo/session");
-        request.Content = JsonContent.Create(new CreateAdventureRequest(versionId));
+        request.Content = JsonContent.Create(new CreateAdventureRequest(versionId, Language: language));
         using var response = await http.SendAsync(request, bounded);
         await EnsureAsync(response, bounded);
         var state = await ReadAsync(response, bounded);
+        if (state.Language != language) { throw InvalidResponse(); }
         var credentials = response.Headers.TryGetValues(SoloSessionHeaders.Credential, out var values) ? values.ToArray() : [];
         var credential = credentials.Length == 1 ? credentials[0] : null;
         if (credential is not { Length: 64 } || !credential.All(char.IsAsciiHexDigit)) { throw InvalidResponse(); }
@@ -115,7 +117,8 @@ public sealed class AdventureClient(HttpClient http)
         catch (JsonException) { }
         var message = code switch
         {
-            "CONTENT_NOT_PUBLISHED" => "Não há histórias publicadas disponíveis para iniciar. Atualize o catálogo e tente novamente mais tarde.",
+            "CONTENT_NOT_PUBLISHED" => "Não há histórias publicadas neste idioma. Atualize o catálogo ou escolha outro idioma.",
+            "INVALID_LANGUAGE" or "LANGUAGE_MISMATCH" => "O idioma solicitado não corresponde à história. Volte ao menu e escolha inglês ou português.",
             "INVALID_AUDIO" or "MEDIA_UNAVAILABLE" => "A narração desta história está indisponível. Tente novamente em instantes.",
             _ when response.StatusCode == HttpStatusCode.TooManyRequests => "Muitas tentativas em pouco tempo. Aguarde um minuto e tente novamente.",
             _ => "O jogo não conseguiu concluir a solicitação. Tente novamente enquanto esta página estiver aberta."
@@ -127,7 +130,7 @@ public sealed class AdventureClient(HttpClient http)
     {
         var state = await response.Content.ReadFromJsonAsync<AdventureView>(token);
         if (state is null || string.IsNullOrWhiteSpace(state.Title) || string.IsNullOrWhiteSpace(state.SceneKey) ||
-            state.StoryVersionId is null || state.Choices is null ||
+            state.StoryVersionId is null || state.Choices is null || state.Language is not ("en" or "pt-BR") ||
             state.Phase is not ("Preloading" or "Narrating" or "QuestionOpen" or "QuestionReveal" or "DecisionOpen" or "StoryResult"))
         { throw InvalidResponse(); }
         return state;

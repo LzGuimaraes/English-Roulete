@@ -36,6 +36,10 @@ def stored_hash(api, asset, kind):
 def credits(kind, path, scene, source_pack="content/anthology-01"):
     source_pack = str(source_pack)
     if kind == "audio":
+        if scene.get("productionNotes", {}).get("audioLanguage") == "pt-BR":
+            return {"path": path, "file": f"audio/{scene['key']}.wav",
+                    "attribution": "Narração sintética em português brasileiro: Piper 1.8.0, pt_BR-cadu-medium. Roteiro adaptado de história original English Roulette.",
+                    "licenseEvidence": "Produzido offline a partir da adaptação autorizada para português brasileiro. Model card Cadu informa dataset CC0: https://huggingface.co/rhasspy/piper-voices/blob/main/pt/pt_BR/cadu/medium/MODEL_CARD ; dataset: https://github.com/OHF-Voice/voice-datasets . Repositório de modelos declara MIT: https://huggingface.co/rhasspy/piper-voices . Piper GPL-3.0 é ferramenta de produção e não é distribuída no jogo. Modelo, configuração, cartão e hashes arquivados no pacote local."}
         return {"path": path, "file": f"audio/{scene['key']}.wav",
                 "attribution": "Narração sintética original: Piper 1.8.0, en_US-ljspeech-high; modelo treinado com LJ Speech (Keith Ito / Linda Johnson, LibriVox). Texto original English Roulette.",
                 "licenseEvidence": "Produzido offline para esta cena a partir do texto original autorizado pelo responsável. Repositório do modelo declara MIT: https://huggingface.co/rhasspy/piper-voices ; model card declara dataset em domínio público: https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_US/ljspeech/high/MODEL_CARD ; origem: https://keithito.com/LJ-Speech-Dataset/ . Piper GPL-3.0 é ferramenta de produção, não distribuída com o jogo. Cartão e metadados do modelo arquivados no pacote local."}

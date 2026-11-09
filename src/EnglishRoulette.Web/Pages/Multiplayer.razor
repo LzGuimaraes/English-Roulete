@@ -12,9 +12,10 @@
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
 @inject TimeProvider Clock
+@inject StoryLanguagePreference LanguagePreference
 <div class="experience game-experience room-experience @(_room is not null && !Playing ? "in-lobby" : "") motion-@(CurrentTheme.Motion) @(Playing ? "in-adventure phase-" + _room!.Match!.Scene.Phase.ToLowerInvariant() : "") @(Playing && _room!.Match!.Scene.Visual is not null ? "has-scene-art" : "") @(ThemePalette.IsHorror(CurrentGenre) ? "horror-experience" : "")" style="@ThemePalette.Style(CurrentTheme)">
     @if (Playing) { <div class="scene-backdrop"><SceneArtwork Visual="_room!.Match!.Scene.Visual" Background="true" /></div> }
-    <header class="site-header"><a class="brand" href="/"><span class="brand-mark">✦</span>english<span class="brand-light">roulette</span></a><div class="header-actions"><GameMenu Horror="@ThemePalette.IsHorror(CurrentGenre)" Narrating="@(_room?.Match?.Scene.Phase == "Narrating")" /><a class="secondary room-solo" href="/">Solo ↗</a></div></header>
+    <header class="site-header"><a class="brand" href="/"><span class="brand-mark">✦</span>english<span class="brand-light">roulette</span></a><div class="header-actions"><GameMenu Horror="@ThemePalette.IsHorror(CurrentGenre)" Narrating="@(_room?.Match?.Scene.Phase == "Narrating")" Language="@CurrentLanguage" /><a class="secondary room-solo" href="/">Solo ↗</a></div></header>
     <main class="rooms-main">@if (!Playing) { <div class="eyebrow">MULTIPLAYER · SUA EQUIPE, UM DESTINO</div> }
         @if (_loading) { <p role="status">Preparando o ponto de encontro…</p> }
         else
@@ -33,24 +34,24 @@
             else if (_room is null)
             {
                 <h1>Olá, @_guest.Nickname <span>@_guest.Avatar</span></h1><p>Prepare o grupo. Você pode criar uma sala privada ou usar um convite.</p>
-                <div class="room-entry"><section class="admin-card"><div class="eyebrow">SEU GRUPO, SUA SALA</div><h2>Crie o ponto de encontro.</h2><label>Vagas<select @bind="_capacity">@for (var size = 2; size <= 8; size++) { <option value="@size">@size jogadores</option> }</select></label><button class="primary" disabled="@_busy" @onclick="CreateAsync">Criar sala →</button></section>
+                <div class="room-entry"><section class="admin-card"><div class="eyebrow">SEU GRUPO, SUA SALA</div><h2>Crie o ponto de encontro.</h2><LanguageSelector Value="@CurrentLanguage" ValueChanged="ChangeLanguageAsync" Disabled="_busy" /><p class="catalog-note">Texto e áudio no idioma escolhido para todo o grupo.</p><label>Vagas<select @bind="_capacity">@for (var size = 2; size <= 8; size++) { <option value="@size">@size jogadores</option> }</select></label><button class="primary" disabled="@_busy" @onclick="CreateAsync">Criar sala →</button></section>
                     <form class="admin-card" @onsubmit="JoinAsync" @onsubmit:preventDefault><div class="eyebrow">JÁ TEM UM CONVITE?</div><h2>Chegue mais.</h2><label>Código da sala<input @bind="_code" required maxlength="8" minlength="8" autocapitalize="characters" /></label><button class="secondary" disabled="@_busy" type="submit">Entrar na sala →</button></form></div>
                 <button class="text-button" @onclick="() => _editProfile = true">Trocar apelido ou avatar</button>
             }
             else if (Playing)
             {
-                <div class="match-toolbar"><span class="room-live">@(_live ? "● Sala conectada" : "○ Atualizando sala") · Sala @_room.Code · Partida @_room.GameNumber</span><button class="text-button danger" disabled="@_busy" @onclick="LeaveAsync">Sair da sala</button></div>
+                <div class="match-toolbar"><span class="room-live">@(_live ? "● Sala conectada" : "○ Atualizando sala") · Sala @_room.Code · Partida @_room.GameNumber · @LanguageName</span><button class="text-button danger" disabled="@_busy" @onclick="LeaveAsync">Sair da sala</button></div>
                 <MultiplayerAdventure Room="_room" ReceivedAtUtc="_receivedAtUtc" Busy="_busy" OnCommand="CommandAsync" OnNext="NextAsync" OnMenu="BackToMenuAsync" />
             }
             else
             {
-                <div class="room-heading"><div><h1>@(_room.GameNumber > 1 ? $"Vamos para a partida {_room.GameNumber}?" : "Seu grupo chegou.")</h1><p><span class="room-live">@(_live ? "● Sala conectada" : "○ Atualizando sala")</span> · @_room.Members.Count de @_room.Capacity jogadores</p></div><button class="text-button danger" disabled="@_busy" @onclick="LeaveAsync">Sair da sala</button></div>
+                <div class="room-heading"><div><h1>@(_room.GameNumber > 1 ? $"Vamos para a partida {_room.GameNumber}?" : "Seu grupo chegou.")</h1><p><span class="room-live">@(_live ? "● Sala conectada" : "○ Atualizando sala")</span> · @_room.Members.Count de @_room.Capacity jogadores · @LanguageName</p></div><button class="text-button danger" disabled="@_busy" @onclick="LeaveAsync">Sair da sala</button></div>
                 @if (_room.StoryVersionId is null)
                 {
                     <section class="room-start-bar" aria-label="Início da partida">
                         <div><strong>@(_room.GameNumber > 1 ? CanSpin ? "Pontos mantidos. Todos prontos!" : "Pontos mantidos. Confirmem “Estou pronto!”" : CanSpin ? "Todos prontos. Vamos começar!" : "Preparem o grupo para começar.")</strong><p>@(_room.HostId == _room.ViewerId ? "Mínimo de 2 pessoas conectadas e todos prontos. Você gira a roleta." : "Mínimo de 2 pessoas conectadas e todos prontos. O anfitrião gira.")</p></div>
                         @if (_room.HostId == _room.ViewerId) { <button class="primary" disabled="@(_busy || !CanSpin)" @onclick="SpinAsync">Iniciar e girar a roleta ↗</button> }
-                        @if (_stories.Count == 0) { <small>Nenhuma história disponível no catálogo.</small> }
+                        @if (_stories.Count == 0) { <small>Nenhuma história disponível neste idioma.</small> }
                         @if (_stories.Count == 0) { <button class="text-button" disabled="@_busy" @onclick="ReconnectAsync">Recarregar catálogo</button> }
                     </section>
                 }
@@ -59,7 +60,7 @@
                     </section><section class="admin-card room-roulette"><div class="eyebrow">NINGUÉM ESCOLHE O DESTINO</div>
                         <StoryWheel Genres="Genres" ResultGenre="@SelectedStory?.Genre" ResultKey="@_room.StoryVersionId?.ToString()" Spinning="WheelSpinning" ElapsedSeconds="SpinElapsed" />
                         @if (SelectedStory is { } selected && !WheelSpinning)
-                        { <h2>@selected.Title</h2><p>@selected.Synopsis</p><p class="catalog-note">@selected.Difficulty · @selected.Genre · Resultado compartilhado por toda a sala.</p> }
+                        { <h2>@selected.Title</h2><p>@selected.Synopsis</p><p class="catalog-note">@(CurrentLanguage == "pt-BR" ? "Português" : selected.Difficulty) · @selected.Genre · Resultado compartilhado por toda a sala.</p> }
                         else if (_room.StoryVersionId is null)
                         {
                             <h2>Prontos para o inesperado?</h2><p>Confirmem a presença. A roleta escolhe o gênero e a história para todo o grupo.</p>
@@ -86,6 +87,9 @@
     private int _capacity = 8;
     private bool _loading = true, _busy, _refreshing, _connectionError, _editProfile, _live, _copied;
     private string? _error;
+    private string CurrentLanguage => _room?.Language ?? LanguagePreference.Value;
+    private string LanguageName => StoryLanguagePreference.Name(CurrentLanguage);
+    private string? _requestedCatalogLanguage;
     private StoryAppearance CurrentTheme => ThemePalette.IsHorror(CurrentGenre) ? ThemePalette.Horror : _room?.Match?.Scene.Appearance ?? ThemePalette.Arcade;
     private string? CurrentGenre => _room?.Match?.Scene.Genre ?? SelectedStory?.Genre;
     private PublicStoryView? SelectedStory => _stories.FirstOrDefault(story => story.Id == _room?.StoryVersionId);
@@ -102,13 +106,27 @@
         _code = Code ?? "";
         await Run(async () => { _guest = await Client.MeAsync(_life.Token);
             if (_guest is not null) { _nickname = _guest.Nickname; _avatar = _guest.Avatar; await RefreshAsync(); }
-            _stories = await Catalog.CatalogAsync(_life.Token); });
+            await LoadCatalogAsync(); });
         _loading = false; _poll = PollAsync();
     }
-    private async Task ReconnectAsync() => await Run(async () => { await RefreshAsync(); _stories = await Catalog.CatalogAsync(_life.Token); });
+    private async Task LoadCatalogAsync()
+    {
+        var language = CurrentLanguage;
+        _stories = [];
+        _requestedCatalogLanguage = language;
+        var stories = await Catalog.CatalogAsync(_life.Token, language);
+        if (language == CurrentLanguage) { _stories = stories; }
+    }
+    private Task ChangeLanguageAsync(string language) => Run(async () =>
+    {
+        if (_room is not null) { return; }
+        LanguagePreference.Value = language;
+        await LoadCatalogAsync();
+    });
+    private async Task ReconnectAsync() => await Run(async () => { await RefreshAsync(); await LoadCatalogAsync(); });
     private async Task IdentifyAsync() => await Run(async () => { _guest = await Client.IdentifyAsync(_nickname, _avatar, _life.Token); _editProfile = false; await RefreshAsync(); });
-    private async Task CreateAsync() => await Run(async () => { _room = await Client.CreateAsync(_capacity, _life.Token); _copied = false; _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
-    private async Task JoinAsync() => await Run(async () => { _room = await Client.JoinAsync(_code, _life.Token); _copied = false; _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
+    private async Task CreateAsync() => await Run(async () => { _room = await Client.CreateAsync(_capacity, _life.Token, CurrentLanguage); _copied = false; _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
+    private async Task JoinAsync() => await Run(async () => { _room = await Client.JoinAsync(_code, _life.Token); LanguagePreference.Value = _room.Language; await LoadCatalogAsync(); _copied = false; _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
     private async Task ReadyAsync() => await Run(async () => { if (_room is { } room) { _room = await Client.ReadyAsync(room, !ViewerReady, _life.Token); } });
     private async Task SpinAsync() => await Run(async () => { if (_room is { } room) { _room = await Client.SpinAsync(room, _life.Token); _receivedAtUtc = Clock.GetUtcNow(); } });
     private async Task NextAsync() => await Run(async () =>
@@ -134,6 +152,8 @@
         if (_room?.Id != previous || (_room is { } current && next is not null &&
             (next.StateVersion < current.StateVersion || next.StateVersion == current.StateVersion && next.ServerNowUtc < current.ServerNowUtc))) { return; }
         _room = next; _receivedAtUtc = Clock.GetUtcNow();
+        if (_room is not null) { LanguagePreference.Value = _room.Language; }
+        if (_requestedCatalogLanguage != CurrentLanguage) { await LoadCatalogAsync(); }
         if (previous != _room?.Id && _hub is not null) { await _hub.DisposeAsync(); _hub = null; _live = false; }
         if (_room is not null && _hub is null) { await ConnectAsync(); }
     }

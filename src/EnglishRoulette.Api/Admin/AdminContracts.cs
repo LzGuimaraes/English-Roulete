@@ -23,6 +23,7 @@ internal static class AdminContracts
             Synopsis = draft.Metadata.Synopsis,
             Genre = draft.Metadata.Genre,
             Difficulty = draft.Metadata.Difficulty,
+            Language = draft.Metadata.Language,
             Author = draft.Metadata.Author,
             LicenseType = draft.Metadata.LicenseType,
             LicenseEvidence = draft.Metadata.LicenseEvidence,
@@ -57,7 +58,7 @@ internal static class AdminContracts
         var metadata = editor.Metadata ?? new();
         return new(id, editor.StoryId, editor.Number, editor.Status ?? "", editor.Revision, editor.InitialSceneKey ?? "",
             new(metadata.Title ?? "", metadata.Synopsis ?? "", metadata.Genre ?? "", metadata.Difficulty ?? "",
-                metadata.Author ?? "", metadata.LicenseType ?? "", metadata.LicenseEvidence ?? "", metadata.Attribution ?? "", Appearance(metadata.Appearance ?? new())),
+                metadata.Author ?? "", metadata.LicenseType ?? "", metadata.LicenseEvidence ?? "", metadata.Attribution ?? "", Appearance(metadata.Appearance ?? new()), metadata.Language ?? ""),
             (editor.Scenes ?? []).Select(scene => new CatalogScene(scene.Id, scene.Key ?? "", scene.Title ?? "", scene.Narration ?? "", scene.IsEnding,
                 scene.Prompt ?? "", (scene.Options ?? []).Select(option => new CatalogOption(option.Key ?? "", option.Text ?? "")).ToArray(),
                 scene.CorrectOptionKey ?? "", scene.Explanation ?? "", (scene.Transitions ?? []).Select(transition =>
@@ -76,5 +77,5 @@ internal static class AdminContracts
     { Primary = value.Primary, Accent = value.Accent, Background = value.Background, Surface = value.Surface, Text = value.Text, Font = value.Font, Motion = value.Motion };
 
     public static AdminStorySummary Summary(CatalogSummary row) => new(row.Id, row.StoryId, row.Number,
-        row.Title, row.Genre, row.Difficulty, row.Status, row.Revision, row.UpdatedAtUtc);
+        row.Title, row.Genre, row.Difficulty, row.Status, row.Revision, row.UpdatedAtUtc, row.Language);
 }

@@ -1,3 +1,5 @@
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using EnglishRoulette.Domain;
 using EnglishRoulette.Domain.Multiplayer;
 
@@ -7,6 +9,20 @@ public sealed class LobbyRoomTests
 {
     private static readonly DateTimeOffset Start = new(2026, 11, 7, 1, 0, 0, TimeSpan.Zero);
     private static LobbyMember Member(string name) => new(Guid.NewGuid(), name, "🦊", false, Start, Start);
+    [Fact]
+    public void Language_OldCheckpointsDefaultToEnglish_AndNewRoomsValidateLanguage()
+    {
+        var host = Member("Host");
+        var room = LobbyRoom.Create(Guid.NewGuid(), "ABCDEFGH", 2, host, Start);
+        var legacy = JsonSerializer.SerializeToNode(room)!.AsObject();
+        legacy.Remove("Language");
+        Assert.Equal("en", legacy.Deserialize<LobbyState>()!.Language);
+        var portuguese = LobbyRoom.Create(Guid.NewGuid(), "ABCDEFGH", 2, host, Start, "pt-BR");
+        Assert.Equal("pt-BR", JsonSerializer.Deserialize<LobbyState>(JsonSerializer.Serialize(portuguese))!.Language);
+        Assert.Equal("INVALID_LANGUAGE", Assert.Throws<GameRuleException>(() =>
+            LobbyRoom.Create(Guid.NewGuid(), "ABCDEFGH", 2, host, Start, "es")).Code);
+    }
+
     [Theory]
     [InlineData(1)]
     [InlineData(9)]

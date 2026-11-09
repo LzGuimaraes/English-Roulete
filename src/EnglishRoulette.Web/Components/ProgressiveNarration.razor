@@ -5,7 +5,7 @@
 <div class="progressive-narration" @ref="_root" @onkeydown="CloseOnEscape">
 @if (Phase != "Narrating")
 {
-    <details class="scene-review"><summary>Rever texto da cena</summary><div class="scene-review-content"><p class="narration" lang="en"><HintedText Text="@Text" Words="Words" Cost="Cost" Busy="Busy" OnOpen="OpenWordAsync" /></p></div></details>
+    <details class="scene-review"><summary>Rever texto da cena</summary><div class="scene-review-content"><p class="narration" lang="@Language"><HintedText Language="@Language" Text="@Text" Words="Words" Cost="Cost" Busy="Busy" OnOpen="OpenWordAsync" /></p></div></details>
 }
 else if (Dialogue is { Count: > 0 } && !_failed)
 {
@@ -13,19 +13,19 @@ else if (Dialogue is { Count: > 0 } && !_failed)
         @if (_showFull)
         {
             <div class="dialogue-review" tabindex="0" aria-label="Diálogo completo">
-                @foreach (var cue in Dialogue) { <p><strong>@cue.Speaker</strong><span lang="en"><HintedText Text="@cue.Text" Words="Words" Cost="Cost" Busy="Busy" OnOpen="OpenWordAsync" /></span></p> }
+                @foreach (var cue in Dialogue) { <p><strong>@cue.Speaker</strong><span lang="@Language"><HintedText Language="@Language" Text="@cue.Text" Words="Words" Cost="Cost" Busy="Busy" OnOpen="OpenWordAsync" /></span></p> }
             </div>
         }
         else
         {
             <div class="dialogue-bubble" @ref="_bubble">
-                <span class="transcript-accessible" lang="en">@Text</span>
+                <span class="transcript-accessible" lang="@Language">@Text</span>
                 <strong class="dialogue-speaker" @ref="_speaker" aria-hidden="true"></strong>
-                <p class="dialogue-line" lang="en" @ref="_copy">
+                <p class="dialogue-line" lang="@Language" @ref="_copy">
                     @for (var index = 0; index < Dialogue.Count; index++)
                     {
                         var cue = Dialogue[index];
-                        <span data-dialogue-cue hidden="@(index > 0)"><HintedText Text="@cue.Text" Words="Words" Cost="Cost" Busy="Busy" Revealing="true" OnOpen="OpenWordAsync" /></span>
+                        <span data-dialogue-cue hidden="@(index > 0)"><HintedText Language="@Language" Text="@cue.Text" Words="Words" Cost="Cost" Busy="Busy" Revealing="true" OnOpen="OpenWordAsync" /></span>
                     }
                 </p>
             </div>
@@ -36,14 +36,14 @@ else if (Dialogue is { Count: > 0 } && !_failed)
 else
 {
 <div class="scene-transcript">
-    <p class="narration" lang="en">
+    <p class="narration" lang="@Language">
         @if (_failed)
-        { <HintedText Text="@Text" Words="Words" Cost="Cost" Busy="Busy" OnOpen="OpenWordAsync" /> }
+        { <HintedText Language="@Language" Text="@Text" Words="Words" Cost="Cost" Busy="Busy" OnOpen="OpenWordAsync" /> }
         else
         {
             <span class="transcript-accessible">@Text</span>
             <span class="narration-layout" aria-hidden="true">@Text</span>
-            <span class="narration-copy" @ref="_copy"><HintedText Text="@Text" Words="Words" Cost="Cost" Busy="Busy" Revealing="true" OnOpen="OpenWordAsync" /></span>
+            <span class="narration-copy" @ref="_copy"><HintedText Language="@Language" Text="@Text" Words="Words" Cost="Cost" Busy="Busy" Revealing="true" OnOpen="OpenWordAsync" /></span>
         }
     </p>
     @if (Phase == "Narrating" && !_failed)
@@ -58,18 +58,18 @@ else
 @if (Words is { Count: > 0 } && Cost is { } cost)
 {
     <div class="narration-hint-help">
-        <span>@(cost.CanUse ? $"Toque nas palavras sublinhadas para traduzir · {cost.PerWord}." : "Novas dicas encerradas nesta rodada. Traduções já usadas continuam disponíveis.")</span>
+        <span>@(cost.CanUse ? $"Toque nas palavras sublinhadas para {(Language == "pt-BR" ? "ver o significado" : "traduzir")} · {cost.PerWord}." : "Novas dicas encerradas nesta rodada. Dicas já usadas continuam disponíveis.")</span>
         @if (Words.FirstOrDefault(word => word.Key == _selectedWord) is { } selected)
         {
-            <div class="inline-hint-card" role="region" aria-label="Tradução da palavra">
-                <div class="inline-hint-heading"><strong lang="en">@selected.Term</strong><button type="button" class="hint-close" @ref="_hintClose" aria-label="Fechar tradução" @onclick="CloseWordAsync">Fechar</button></div>
+            <div class="inline-hint-card" role="region" aria-label="@(Language == "pt-BR" ? "Significado da palavra" : "Tradução da palavra")">
+                <div class="inline-hint-heading"><strong lang="@Language">@selected.Term</strong><button type="button" class="hint-close" @ref="_hintClose" aria-label="@(Language == "pt-BR" ? "Fechar dica" : "Fechar tradução")" @onclick="CloseWordAsync">Fechar</button></div>
                 <div role="status" aria-live="polite">
                     @if (selected.Translation is { } translation)
                     { <p class="inline-hint-translation" lang="pt-BR">@translation</p><small>@cost.CurrentDiscount · Reabrir esta dica é grátis.</small> }
                     else if (_pendingWord is not null || Busy)
                     { <p>Registrando dica…</p> }
                     else
-                    { <p>A tradução não foi liberada.</p><button type="button" class="secondary" disabled="@(!cost.CanUse)" @onclick="() => OpenWordAsync(selected.Key)">@(cost.CanUse ? "Tentar traduzir novamente" : "Prazo para novas dicas encerrado")</button> }
+                    { <p>A dica não foi liberada.</p><button type="button" class="secondary" disabled="@(!cost.CanUse)" @onclick="() => OpenWordAsync(selected.Key)">@(cost.CanUse ? "Tentar abrir a dica novamente" : "Prazo para novas dicas encerrado")</button> }
                 </div>
             </div>
         }
@@ -78,6 +78,7 @@ else
 </div>
 
 @code {
+    [Parameter] public string Language { get; set; } = "en";
     [Parameter, EditorRequired] public string Text { get; set; } = "";
     [Parameter, EditorRequired] public string AudioElementId { get; set; } = "";
     [Parameter] public IReadOnlyList<DialogueCueView>? Dialogue { get; set; }

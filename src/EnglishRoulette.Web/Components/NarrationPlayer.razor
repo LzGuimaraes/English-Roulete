@@ -3,8 +3,8 @@
 @inject IJSRuntime Js
 @inject TimeProvider Clock
 
-<section class="audio-player" aria-label="Narração em inglês">
-    <div class="audio-heading"><strong>Narração em inglês</strong><span>Ouça a cena antes de responder</span></div>
+<section class="audio-player" aria-label="@NarrationLabel">
+    <div class="audio-heading"><strong>@NarrationLabel</strong><span>Ouça a cena antes de responder</span></div>
     <audio id="@AudioElementId" @ref="_audio" @key="Audio.Url" src="@Audio.Url" preload="auto"
            controls="@(Phase == "Narrating" && !Synchronized)" @oncanplay="ReadyAsync" @onerror="FailedAsync"></audio>
     @if (_failed)
@@ -29,6 +29,8 @@
 </section>
 
 @code {
+    [Parameter] public string Language { get; set; } = "en";
+    private string NarrationLabel => Language == "pt-BR" ? "Narração em português" : "Narração em inglês";
     [Parameter, EditorRequired] public AudioView Audio { get; set; } = default!;
     [Parameter] public string AudioElementId { get; set; } = "narration-" + Guid.NewGuid().ToString("N");
     [Parameter] public string Phase { get; set; } = "Preloading";

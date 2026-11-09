@@ -32,7 +32,7 @@ internal sealed class DomainRuleExceptionHandler : IExceptionHandler
                 extensions: new Dictionary<string, object?> { ["code"] = rule.Code }).ExecuteAsync(context);
             return true;
         }
-        await Results.Problem(statusCode: rule.Code == "MEDIA_UNAVAILABLE" ? 503 : 409,
+        await Results.Problem(statusCode: rule.Code == "MEDIA_UNAVAILABLE" ? 503 : rule.Code is "INVALID_LANGUAGE" or "LANGUAGE_MISMATCH" ? 400 : 409,
             title: rule.Code == "MEDIA_UNAVAILABLE" ? "Narração indisponível. Tente novamente." : "O estado da aventura mudou.",
             detail: rule.Code).ExecuteAsync(context);
         return true;

@@ -4,7 +4,8 @@ using EnglishRoulette.Domain.Stories;
 namespace EnglishRoulette.Application.Admin;
 
 public sealed record CatalogMetadata(string Title, string Synopsis, string Genre, string Difficulty,
-    string Author, string LicenseType, string LicenseEvidence, string Attribution, CatalogAppearance? Appearance = null);
+    string Author, string LicenseType, string LicenseEvidence, string Attribution, CatalogAppearance? Appearance = null,
+    string Language = StoryLanguage.English);
 public sealed record CatalogOption(string Key, string Text);
 public sealed record CatalogTransition(string Key, string Label, string TargetSceneKey);
 public sealed record CatalogAudio(Guid Id, int DurationMs, string Attribution, string LicenseEvidence);
@@ -15,7 +16,7 @@ public sealed record CatalogScene(Guid Id, string Key, string Title, string Narr
 public sealed record CatalogDraft(Guid Id, Guid StoryId, int Number, string Status, long Revision,
     string InitialSceneKey, CatalogMetadata Metadata, IReadOnlyList<CatalogScene> Scenes);
 public sealed record CatalogSummary(Guid Id, Guid StoryId, int Number, string Title, string Genre,
-    string Difficulty, string Status, long Revision, DateTimeOffset UpdatedAtUtc);
+    string Difficulty, string Status, long Revision, DateTimeOffset UpdatedAtUtc, string Language = StoryLanguage.English);
 public sealed record PublicationCheck(IReadOnlyList<string> Issues)
 {
     public bool CanPublish => Issues.Count == 0;

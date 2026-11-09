@@ -31,7 +31,7 @@ public sealed record AdventureView(
     string Genre = "",
     IReadOnlyList<DialogueCueView>? Dialogue = null,
     Guid SceneInstanceId = default,
-    IReadOnlyList<WordHintView>? WordHints = null, HintCostView? HintCost = null, PlayerScoreView? Score = null);
+    IReadOnlyList<WordHintView>? WordHints = null, HintCostView? HintCost = null, PlayerScoreView? Score = null, string Language = "en");
 
 public sealed record AdventureCommand(
     Guid RequestId,
@@ -44,4 +44,4 @@ public sealed record AdventureCommand(
 public sealed record VisitedSceneView(string Key, string Title);
 public sealed record CreateAdventureRequest(Guid? StoryVersionId = null,
     StoryAppearance? Appearance = null,
-    SceneVisualView? Visual = null);
+    SceneVisualView? Visual = null, string Language = "en");

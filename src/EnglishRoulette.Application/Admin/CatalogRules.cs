@@ -9,6 +9,8 @@ public static partial class CatalogRules
     public static IReadOnlyList<string> DraftIssues(CatalogDraft draft)
     {
         var issues = new List<string>();
+        if (!StoryLanguage.IsSupported(draft.Metadata.Language))
+        { issues.Add("Escolha o idioma en ou pt-BR para o conteúdo."); }
         if (draft.Metadata.Appearance is { } appearance && !appearance.IsValid())
         { issues.Add("Escolha cores válidas com contraste de texto legível, fonte e movimento permitidos."); }
         if (string.IsNullOrWhiteSpace(draft.Metadata.Title) || draft.Metadata.Title.Length > 200)

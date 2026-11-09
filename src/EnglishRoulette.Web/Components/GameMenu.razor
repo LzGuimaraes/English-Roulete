@@ -9,15 +9,15 @@
 <dialog @ref="_dialog" class="help-dialog" aria-labelledby="help-title">
     <div class="help-heading"><span class="eyebrow">MANUAL DO EXPLORADOR</span><button class="menu-button" autofocus @onclick="CloseAsync" aria-label="Fechar instruções">Fechar ✕</button></div>
     <h2 id="help-title">Uma roleta.<br />Muitos caminhos.</h2>
-    <p>Seu inglês é a chave. A curiosidade faz o resto.</p>
+    <p>@(Language == "pt-BR" ? "Acompanhe a história em português e escolha como seguir." : "Seu inglês é a chave. A curiosidade faz o resto.")</p>
     <ol class="help-steps">
-        <li><strong>Inicie e gire.</strong> A roleta sorteia um gênero e uma história do catálogo publicado. Você descobre o tema depois de começar.</li>
-        <li><strong>Entre na cena.</strong> Ative a narração pelo botão “Ouvir e iniciar cena”. Ouça e acompanhe o texto em inglês.</li>
+        <li><strong>Inicie e gire.</strong> Escolha Inglês ou Português antes de começar. A roleta sorteia um gênero e uma história publicada no idioma escolhido. Você descobre o tema depois de começar.</li>
+        <li><strong>Entre na cena.</strong> Ative a narração pelo botão “Ouvir e iniciar cena”. Ouça e acompanhe o texto no idioma escolhido.</li>
         <li><strong>Mostre o que entendeu.</strong> A pergunta aparece após a narração. Escolha uma alternativa antes do prazo; depois, confira a explicação.</li>
-        <li><strong>Peça ajuda se precisar.</strong> Nas cenas com vocabulário preparado, abra “Ajuda com palavras”. O custo aparece antes de traduzir; a mesma palavra é cobrada uma vez por rodada. O desconto reduz o ganho da rodada, sem deixar pontos negativos.</li>
+        <li><strong>Peça ajuda se precisar.</strong> Nas cenas com vocabulário preparado, abra “Ajuda com palavras”. O custo aparece antes de abrir a dica; a mesma palavra é cobrada uma vez por rodada. O desconto reduz o ganho da rodada, sem deixar pontos negativos.</li>
         <li><strong>Mude o rumo.</strong> Nas bifurcações, escolha seu caminho. Escolhas narrativas não têm resposta errada. Explore outros finais ao jogar de novo.</li>
     </ol>
-    <div class="help-callout"><strong>Vai jogar com amigos?</strong><p>Crie uma sala, compartilhe o convite e confirme “Estou pronto”. Com pelo menos duas pessoas e todos prontos, o anfitrião inicia a roleta. O mesmo resultado aparece para todos. Depois, cada pessoa ativa o áudio. As cenas começam juntas, as respostas são individuais e os caminhos são decididos por votação. Empates de votação são sorteados pelo servidor. Ao final, confira o pódio. O anfitrião pode preparar outra história mantendo os pontos da sala; todos confirmam a prontidão novamente. “Sair e voltar ao menu” deixa a sala.</p></div>
+    <div class="help-callout"><strong>Vai jogar com amigos?</strong><p>Escolha o idioma ao criar a sala; ele será o mesmo para todos, inclusive nas próximas partidas. Compartilhe o convite e confirme “Estou pronto”. Com pelo menos duas pessoas e todos prontos, o anfitrião inicia a roleta. O mesmo resultado aparece para todos. Depois, cada pessoa ativa o áudio. As cenas começam juntas, as respostas são individuais e os caminhos são decididos por votação. Empates de votação são sorteados pelo servidor. Ao final, confira o pódio. O anfitrião pode preparar outra história mantendo os pontos da sala; todos confirmam a prontidão novamente. “Sair e voltar ao menu” deixa a sala.</p></div>
     <h3>O que pode acontecer na história?</h3>
     <div class="event-guide">
         <article><span>↗</span><div><strong>Caminhos e finais alternativos</strong><small>Disponível quando a história tem bifurcações.</small><p>Uma decisão muda as próximas cenas e o final que você encontra.</p></div></article>
@@ -32,6 +32,7 @@
 </dialog>
 
 @code {
+    [Parameter] public string Language { get; set; } = "en";
     [Parameter] public bool Horror { get; set; }
     [Parameter] public bool Narrating { get; set; }
     private ElementReference _dialog;

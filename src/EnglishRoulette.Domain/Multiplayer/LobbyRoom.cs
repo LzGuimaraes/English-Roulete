@@ -1,4 +1,5 @@
 using System.Text;
+using EnglishRoulette.Domain.Stories;
 
 namespace EnglishRoulette.Domain.Multiplayer;
 
@@ -8,7 +9,7 @@ public sealed record SeriesPlayer(Guid PlayerId, int Score, int CorrectAnswers);
 public sealed record LobbyState(Guid Id, string Code, int Capacity, Guid HostId, long StateVersion,
     Guid? StoryVersionId, IReadOnlyList<LobbyMember> Members, DateTimeOffset LastActivityUtc, string Status = "Lobby",
     DateTimeOffset? RouletteStartedAtUtc = null, MultiplayerMatch? Match = null, IReadOnlyList<SeriesPlayer>? SeriesScores = null,
-    Guid? PreparedFromMatchId = null, int CompletedGames = 0);
+    Guid? PreparedFromMatchId = null, int CompletedGames = 0, string Language = StoryLanguage.English);
 
 public static class LobbyRoom
 {
@@ -25,10 +26,10 @@ public static class LobbyRoom
     }
     public static void ValidateAvatar(string avatar)
     { if (!Avatars.Contains(avatar, StringComparer.Ordinal)) { throw new GameRuleException("INVALID_PROFILE", "Escolha um avatar do catálogo."); } }
-    public static LobbyState Create(Guid id, string code, int capacity, LobbyMember host, DateTimeOffset now)
+    public static LobbyState Create(Guid id, string code, int capacity, LobbyMember host, DateTimeOffset now, string language = StoryLanguage.English)
     {
         if (capacity is < 2 or > 8) { throw new GameRuleException("INVALID_CAPACITY", "Escolha de 2 a 8 vagas."); }
-        return new(id, code, capacity, host.PlayerId, 1, null, Array.AsReadOnly(new[] { host }), now);
+        return new(id, code, capacity, host.PlayerId, 1, null, Array.AsReadOnly(new[] { host }), now, Language: StoryLanguage.Require(language));
     }
     public static LobbyState Join(LobbyState state, LobbyMember member, DateTimeOffset now)
     {

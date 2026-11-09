@@ -1,0 +1,15 @@
+<fieldset class="language-selector" disabled="@Disabled">
+    <legend>Idioma da história</legend>
+    <div class="language-options">
+        <button type="button" aria-pressed="@(Value == "en" ? "true" : "false")" @onclick="EnglishAsync">Inglês</button>
+        <button type="button" aria-pressed="@(Value == "pt-BR" ? "true" : "false")" @onclick="PortugueseAsync">Português</button>
+    </div>
+</fieldset>
+
+@code {
+    [Parameter] public string Value { get; set; } = "en";
+    [Parameter] public bool Disabled { get; set; }
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+    private Task EnglishAsync() => ValueChanged.InvokeAsync("en");
+    private Task PortugueseAsync() => ValueChanged.InvokeAsync("pt-BR");
+}

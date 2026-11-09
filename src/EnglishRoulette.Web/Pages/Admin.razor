@@ -47,7 +47,7 @@
                     <div class="admin-table"><table><thead><tr><th>História</th><th>Nível / gênero</th><th>Status</th><th></th></tr></thead><tbody>
                         @foreach (var story in _stories)
                         {
-                            <tr><td><strong>@story.Title</strong><small>Versão @story.Number · @story.UpdatedAtUtc.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</small></td><td>@story.Difficulty<small>@story.Genre</small></td><td><span class="status-tag @story.Status.ToLowerInvariant()">@Status(story.Status)</span></td><td><button class="text-button" disabled="@_busy" @onclick="() => OpenAsync(story.Id)">@(story.Status == "Draft" ? "Editar" : "Ver versão") →</button></td></tr>
+                            <tr><td><strong>@story.Title</strong><small>Versão @story.Number · @story.UpdatedAtUtc.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</small></td><td>@(story.Language == "pt-BR" ? "Português" : "Inglês") · @story.Difficulty<small>@story.Genre</small></td><td><span class="status-tag @story.Status.ToLowerInvariant()">@Status(story.Status)</span></td><td><button class="text-button" disabled="@_busy" @onclick="() => OpenAsync(story.Id)">@(story.Status == "Draft" ? "Editar" : "Ver versão") →</button></td></tr>
                         }
                     </tbody></table>@if (_stories.Count == 0) { <p class="admin-empty">Seu catálogo está pronto para a primeira história.</p> }</div>
                     <div class="admin-pagination"><button disabled="@(_page == 1 || _busy)" @onclick="PreviousAsync">← Anterior</button><span>Página @_page</span><button disabled="@(_stories.Count < 25 || _busy)" @onclick="NextAsync">Próxima →</button></div>

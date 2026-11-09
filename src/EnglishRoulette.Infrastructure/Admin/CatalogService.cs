@@ -20,7 +20,7 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
         await db.CatalogVersions.AsNoTracking().OrderByDescending(version => version.UpdatedAtUtc).ThenBy(version => version.Id)
             .Skip((Math.Clamp(page, 1, 10000) - 1) * 25).Take(25).Select(version => new CatalogSummary(
                 version.Id, version.StoryId, version.Number, version.Title, version.Genre, version.Difficulty,
-                version.Status, version.Revision, version.UpdatedAtUtc)).ToListAsync(cancellationToken);
+                version.Status, version.Revision, version.UpdatedAtUtc, version.Language)).ToListAsync(cancellationToken);
 
     public async Task<CatalogDraft?> FindAsync(Guid id, CancellationToken cancellationToken) =>
         await Complete().SingleOrDefaultAsync(version => version.Id == id, cancellationToken) is { } row ? Map(row) : null;
@@ -176,7 +176,7 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
         await db.CatalogVersions.AsNoTracking().Where(version => version.Status == "Published")
             .OrderBy(version => version.CreatedAtUtc).Take(100).Select(version => new CatalogSummary(version.Id,
                 version.StoryId, version.Number, version.Title, version.Genre, version.Difficulty, version.Status,
-                version.Revision, version.UpdatedAtUtc)).ToListAsync(cancellationToken);
+                version.Revision, version.UpdatedAtUtc, version.Language)).ToListAsync(cancellationToken);
 
     public async Task<PublishedAdventure?> LoadPublishedAsync(Guid? id, CancellationToken cancellationToken)
     {
@@ -202,7 +202,7 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
         ? new() : JsonSerializer.Deserialize<CatalogAppearance>(json) ?? new();
 
     public static CatalogDraft Map(CatalogVersionRow row) => new(row.Id, row.StoryId, row.Number, row.Status, row.Revision,
-        row.InitialSceneKey, new(row.Title, row.Synopsis, row.Genre, row.Difficulty, row.Author, row.LicenseType, row.LicenseEvidence, row.Attribution, AppearanceFromJson(row.AppearanceJson)),
+        row.InitialSceneKey, new(row.Title, row.Synopsis, row.Genre, row.Difficulty, row.Author, row.LicenseType, row.LicenseEvidence, row.Attribution, AppearanceFromJson(row.AppearanceJson), row.Language),
         row.Scenes.OrderBy(scene => scene.Position).Select(scene => new CatalogScene(scene.Id, scene.Key, scene.Title, scene.Narration, scene.IsEnding,
             scene.Prompt, scene.Options.OrderBy(option => option.Position).Select(option => new CatalogOption(option.Key, option.Text)).ToArray(),
             scene.CorrectOptionKey, scene.Explanation, scene.Transitions.OrderBy(transition => transition.Position)
@@ -242,6 +242,7 @@ public sealed class CatalogService(AdventureDbContext db, TimeProvider timeProvi
     private static void ApplyMetadata(CatalogVersionRow row, CatalogMetadata metadata)
     {
         row.AppearanceJson = JsonSerializer.Serialize(metadata.Appearance ?? new());
+        row.Language = metadata.Language;
         row.Title = metadata.Title; row.Synopsis = metadata.Synopsis; row.Genre = metadata.Genre; row.Difficulty = metadata.Difficulty;
         row.Author = metadata.Author; row.LicenseType = metadata.LicenseType; row.LicenseEvidence = metadata.LicenseEvidence; row.Attribution = metadata.Attribution;
     }

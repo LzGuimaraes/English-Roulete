@@ -42,7 +42,7 @@ public sealed class AuthoredStoryCatalogTests
         var draft = new CatalogDraft(Guid.NewGuid(), Guid.NewGuid(), 1, "Draft", 1, Text(root, "initialSceneKey"),
             new(Text(metadata, "title"), Text(metadata, "synopsis"), Text(metadata, "genre"), Text(metadata, "difficulty"),
                 Text(metadata, "author"), Text(metadata, "licenseType"), Text(metadata, "licenseEvidence"),
-                Text(metadata, "attribution"), appearance), scenes);
+                Text(metadata, "attribution"), appearance, metadata.TryGetProperty("language", out var language) ? language.GetString()! : StoryLanguage.English), scenes);
         Assert.Empty(CatalogRules.DraftIssues(draft));
         var story = CatalogRules.ToStory(draft);
         StoryFlowEngine.ValidateForPlay(story);
@@ -50,7 +50,7 @@ public sealed class AuthoredStoryCatalogTests
         foreach (var route in root.GetProperty("authoringNotes").GetProperty("routes").EnumerateArray())
         {
             var keys = route.EnumerateArray().Select(key => key.GetString() ?? throw new InvalidDataException("Route key missing.")).ToArray();
-            Assert.Equal(4, keys.Length);
+            Assert.InRange(keys.Length, 2, 40);
             var current = StoryFlowEngine.GetInitialScene(story);
             Assert.Equal(keys[0], current.Key);
             foreach (var nextKey in keys.Skip(1))

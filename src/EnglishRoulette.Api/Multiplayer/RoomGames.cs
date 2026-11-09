@@ -38,7 +38,7 @@ internal sealed class RoomGames(IAdminCatalog catalog, ILobbyStore lobbies, Time
                 nowUtc - member.LastSeenUtc < LobbyRoom.ConnectedWindow,
                 state.Match?.Players.SingleOrDefault(player => player.Id == member.PlayerId)?.Score ??
                     state.SeriesScores?.SingleOrDefault(player => player.PlayerId == member.PlayerId)?.Score ?? 0)).ToArray(), nowUtc, state.RouletteStartedAtUtc,
-            state.Match is { } match && content is not null ? Map(match, content, state, actor, nowUtc) : null, state.CompletedGames + 1);
+            state.Match is { } match && content is not null ? Map(match, content, state, actor, nowUtc) : null, state.CompletedGames + 1, state.Language);
     }
     private static MultiplayerMatchView Map(MultiplayerMatch match, PublishedAdventure content, LobbyState room, Guid actor, DateTimeOffset now)
     {
@@ -65,7 +65,7 @@ internal sealed class RoomGames(IAdminCatalog catalog, ILobbyStore lobbies, Time
             GameAssistance.Cost(match.Rules.Hints, consumed.Length, answer is null && match.Phase is MultiplayerPhase.Narrating or MultiplayerPhase.QuestionOpen),
             new(match.Players.Single(player => player.Id == actor).Score, revealed ? answer is { BasePoints: 0, Points: > 0 } legacy ? legacy.Points : answer?.BasePoints ?? 0 : null,
                 revealed ? answer?.HintDeduction ?? 0 : null, revealed ? answer?.Points ?? 0 : null,
-                "Acertos: 200, 180, 160… por ordem de chegada. Empate em até 300 ms. Erro ou prazo encerrado: 0."));
+                "Acertos: 200, 180, 160… por ordem de chegada. Empate em até 300 ms. Erro ou prazo encerrado: 0."), content.Metadata.Language);
         var last = match.Decisions.LastOrDefault();
         var lastChoice = last is null ? null : match.Story.Restore().Scenes.Single(item => item.Key == last.SceneKey)
             .Transitions.Single(item => item.Key == last.TransitionKey);

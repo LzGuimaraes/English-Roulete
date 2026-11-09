@@ -1,10 +1,10 @@
 @using EnglishRoulette.Contracts
 @inject TimeProvider Clock
-<section class="adventure-heading"><div><div class="eyebrow">STORY BATTLE · @State.Genre</div><h1>@State.Title</h1></div><span class="phase-badge">@PhaseLabel</span></section>
+<section class="adventure-heading"><div><div class="eyebrow">STORY BATTLE · @State.Genre · @(State.Language == "pt-BR" ? "Português" : "Inglês")</div><h1 lang="@State.Language">@State.Title</h1></div><span class="phase-badge">@PhaseLabel</span></section>
 <div class="game-grid match-grid @(State.Phase == "StoryResult" ? "match-final-grid" : "")">
     <article class="story-card">
         <div class="chapter-heading"><span class="section-label">CENA @State.SceneNumber · JUNTOS NO MESMO CAMINHO</span>@if (State.Phase is "QuestionOpen" or "DecisionOpen") { <GameCountdown Seconds="@(Remaining ?? 0)" Label="@(State.Phase == "QuestionOpen" ? "Para responder" : "Para votar")" /> }</div>
-        <h2 @ref="_sceneHeading" tabindex="-1">@State.SceneTitle</h2>
+        <h2 lang="@State.Language" @ref="_sceneHeading" tabindex="-1">@State.SceneTitle</h2>
         @if (State.Phase == "Cancelled")
         { <div class="error-banner" role="alert"><h3>Partida encerrada</h3><p>@Match.CancellationReason</p><p>Saia da sala para preparar uma nova partida com seus amigos.</p></div> }
         else if (State.Phase == "StoryResult")
@@ -20,14 +20,14 @@
                     <button class="secondary" disabled="@Busy" @onclick="() => OnMenu.InvokeAsync()">Sair e voltar ao menu</button>
                 </div>
                 <p class="next-match-note">Na próxima partida, todos confirmam que estão prontos e a roleta sorteia outra história. Ao sair, você deixa esta sala.</p>
-                <details class="scene-review final-story-review"><summary>Rever o desfecho · @State.SceneTitle</summary><div class="scene-review-content"><p lang="en" class="narration">@State.Narration</p>@if (State.Audio is { } finalAudio) { <audio class="ending-audio" src="@finalAudio.Url" controls preload="metadata" aria-label="Narração do desfecho em inglês"></audio> }</div></details>
+                <details class="scene-review final-story-review"><summary>Rever o desfecho · @State.SceneTitle</summary><div class="scene-review-content"><p lang="@State.Language" class="narration">@State.Narration</p>@if (State.Audio is { } finalAudio) { <audio class="ending-audio" src="@finalAudio.Url" controls preload="metadata" aria-label="@(State.Language == "pt-BR" ? "Narração do desfecho em português" : "Narração do desfecho em inglês")"></audio> }</div></details>
             </section>
         }
         else
         {
             @if (State.Audio is { } audio)
             {
-                <NarrationPlayer @key="Match.SceneInstanceId" @ref="_narrator" Audio="audio" AudioElementId="@_audioId" Phase="@State.Phase" Synchronized="true"
+                <NarrationPlayer @key="Match.SceneInstanceId" @ref="_narrator" Audio="audio" AudioElementId="@_audioId" Phase="@State.Phase" Synchronized="true" Language="@State.Language"
                     ServerNowUtc="PresentationNow" PhaseDeadlineUtc="State.PhaseDeadlineUtc" OnReady="ready => _audioReady = ready" />
             }
             @if (State.Phase == "Preloading")
@@ -42,7 +42,7 @@
             else
             {
                 <ProgressiveNarration @key="(Match.SceneInstanceId, nameof(ProgressiveNarration))" Text="@State.Narration" Dialogue="State.Dialogue" Phase="@State.Phase" AudioElementId="@_audioId"
-                    Words="State.WordHints" Cost="State.HintCost" SceneInstanceId="State.SceneInstanceId" Busy="Busy" OnUseHint="UseHintAsync" />
+                    Words="State.WordHints" Cost="State.HintCost" SceneInstanceId="State.SceneInstanceId" Busy="Busy" OnUseHint="UseHintAsync" Language="@State.Language" />
                 @if (State.Phase == "Narrating") { <GameCountdown Seconds="@(Remaining ?? 0)" Label="Pergunta em" /> }
                 <WordHints State="State" Busy="Busy" OnUse="UseHintAsync" />
                 <QuestionPanel State="State" Busy="Busy" AnswerSubmitted="Match.MyAnswerAccepted" AcceptedOptionKey="Match.MyOptionKey" ShowContinue="false" FocusOnOpen="true" OnAnswer="AnswerAsync" />

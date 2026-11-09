@@ -16,7 +16,8 @@
 @if (_confirmLeave) { <div class="admin-error"><p>Existem alterações não salvas. Deseja descartá-las?</p><button class="secondary" @onclick="() => _confirmLeave = false">Continuar editando</button><button class="text-button" @onclick="DiscardAsync">Descartar e voltar</button></div> }
 <fieldset class="admin-card" disabled="@(ReadOnly || _busy)">
     <h2>Sobre a história</h2><label>Título<input @bind="_draft.Metadata.Title" @bind:after="Dirty" maxlength="200" /></label><label>Sinopse<textarea rows="3" @bind="_draft.Metadata.Synopsis" @bind:after="Dirty" maxlength="2000"></textarea></label>
-    <div class="admin-form-grid"><label>Gênero<input @bind="_draft.Metadata.Genre" @bind:after="Dirty" maxlength="120" /></label><label>Nível<select @bind="_draft.Metadata.Difficulty" @bind:after="Dirty">@foreach (var level in new[] { "A1", "A2", "B1", "B2", "C1" }) { <option>@level</option> }</select></label></div>
+    <div class="admin-form-grid"><label>Gênero<input @bind="_draft.Metadata.Genre" @bind:after="Dirty" maxlength="120" /></label><label>Idioma do texto e áudio<select @bind="_draft.Metadata.Language" @bind:after="Dirty"><option value="en">Inglês</option><option value="pt-BR">Português brasileiro</option></select></label><label>Nível editorial<select @bind="_draft.Metadata.Difficulty" @bind:after="Dirty">@foreach (var level in new[] { "A1", "A2", "B1", "B2", "C1" }) { <option>@level</option> }</select></label></div>
+    @if (_draft.Metadata.Language == "pt-BR") { <p class="admin-note">A classificação mantém o nível editorial do original; não representa certificação CEFR de português. As dicas explicam palavras em português.</p> }
     <label>Autoria<input @bind="_draft.Metadata.Author" @bind:after="Dirty" maxlength="200" /></label><div class="admin-form-grid"><label>Categoria de direitos<select @bind="_draft.Metadata.LicenseType" @bind:after="Dirty"><option value="Original">Original</option><option value="PublicDomain">Domínio público verificado</option><option value="Authorized">Licença / autorização</option></select></label><label>Evidência / autorização<input @bind="_draft.Metadata.LicenseEvidence" @bind:after="Dirty" maxlength="2000" /></label></div>
     <label>Créditos e atribuição<textarea rows="2" @bind="_draft.Metadata.Attribution" @bind:after="Dirty" maxlength="2000"></textarea></label>
     <label>Cena inicial<select @bind="_draft.InitialSceneKey" @bind:after="Dirty"><option value="">Escolha uma cena</option>@foreach (var scene in _draft.Scenes) { <option value="@scene.Key">@scene.Key · @scene.Title</option> }</select></label>
@@ -33,7 +34,7 @@
     @if (_preview is { } preview)
     {
         <SceneArtwork Visual="preview.Visual" />
-        <h3>@preview.Title</h3><p class="narration" lang="en">@preview.Narration</p>
+        <h3 lang="@preview.Language">@preview.Title</h3><p class="narration" lang="@preview.Language">@preview.Narration</p>
         @if (preview.AudioUrl is { } url) { <audio @key="url" controls src="@url"></audio> }
         <h4>@preview.Prompt</h4>
         @foreach (var option in preview.Options) { <button class="choice" disabled="@_busy" @onclick="() => PreviewAnswerAsync(option.Key)">@option.Text</button> }

@@ -74,7 +74,7 @@ internal static class RoomEndpoints
         group.MapGet("/{id:guid}", async (Guid id, HttpContext context, ILobbyStore lobbies, RoomGames games) =>
             await lobbies.ReadAsync(id, Actor(context), context.RequestAborted) is { } state ? Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted)) : Results.NotFound());
         group.MapPost("/", async (CreateRoomRequest request, HttpContext context, ILobbyStore lobbies, RoomGames games) =>
-            Results.Ok(await games.ViewAsync(await lobbies.CreateAsync(Actor(context), request.Capacity, context.RequestAborted), Actor(context), context.RequestAborted))).RequireRateLimiting("RoomEntry");
+            Results.Ok(await games.ViewAsync(await lobbies.CreateAsync(Actor(context), request.Capacity, context.RequestAborted, request.Language), Actor(context), context.RequestAborted))).RequireRateLimiting("RoomEntry");
         group.MapPost("/join", async (JoinRoomRequest request, HttpContext context, ILobbyStore lobbies, RoomGames games, IHubContext<RoomHub> hub) =>
         {
             var state = await lobbies.JoinAsync(Actor(context), request.Code ?? "", context.RequestAborted);
@@ -88,11 +88,15 @@ internal static class RoomEndpoints
         group.MapPost("/{id:guid}/spin", async (Guid id, SpinRoomRequest request, HttpContext context, ILobbyStore lobbies,
             IAdminCatalog catalog, RoomGames games, IHubContext<RoomHub> hub, IConfiguration configuration) =>
         {
-            var selected = StoryRoulette.Draw(await catalog.PublishedAsync(context.RequestAborted));
+            var room = await lobbies.ReadAsync(id, Actor(context), context.RequestAborted)
+                ?? throw new GameRuleException("ROOM_FORBIDDEN", "Você não participa desta sala.");
+            var selected = StoryRoulette.Draw(await catalog.PublishedAsync(context.RequestAborted), language: room.Language);
             var content = await catalog.LoadPublishedAsync(selected, context.RequestAborted)
                 ?? throw new GameRuleException("INVALID_CONTENT", "O catálogo mudou. Tente girar novamente.");
             var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) =>
             {
+                if (content.Metadata.Language != state.Language)
+                { throw new GameRuleException("LANGUAGE_MISMATCH", "O idioma da história deve ser o mesmo da sala."); }
                 var spun = LobbyRoom.Spin(state, Actor(context), request.ExpectedStateVersion, selected, now);
                 return spun with { Match = RoomGames.Start(content, spun, now, GameAssistance.Rules(configuration).Hints) };
             }, context.RequestAborted);

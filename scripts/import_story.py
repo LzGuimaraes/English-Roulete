@@ -17,7 +17,7 @@ from uuid import UUID
 
 EMPTY_ID = "00000000-0000-0000-0000-000000000000"
 SCENE_FIELDS = ["key", "title", "narration", "isEnding", "prompt", "options", "correctOptionKey", "explanation", "transitions"]
-METADATA_FIELDS = ["title", "synopsis", "genre", "difficulty", "author", "licenseType", "licenseEvidence", "attribution", "appearance"]
+METADATA_FIELDS = ["title", "synopsis", "genre", "difficulty", "author", "licenseType", "licenseEvidence", "attribution", "appearance", "language"]
 
 
 def load_story(path):
@@ -28,6 +28,8 @@ def load_story(path):
         raise ValueError("O JSON precisa de metadata e scenes.")
     if document["metadata"].get("difficulty") not in {"A1", "A2", "B1", "B2", "C1"}:
         raise ValueError("Use difficulty A1, A2, B1, B2 ou C1.")
+    if document["metadata"].get("language", "en") not in {"en", "pt-BR"}:
+        raise ValueError("Use language en ou pt-BR.")
     scenes = document.get("scenes")
     if not isinstance(scenes, list) or not 1 <= len(scenes) <= 40:
         raise ValueError("Use uma lista scenes com 1 a 40 cenas.")

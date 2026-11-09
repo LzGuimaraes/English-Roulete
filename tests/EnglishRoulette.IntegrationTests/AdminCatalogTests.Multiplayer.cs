@@ -125,9 +125,9 @@ public sealed partial class AdminCatalogTests
 
     private static MatchCommandRequest Command(RoomView room, string kind, string? key = null) =>
         new(Guid.NewGuid(), room.Match!.Scene.StateVersion, room.Match.SceneInstanceId, kind, key);
-    private async Task<RoomView> StartRoom(HttpClient host, HttpClient guest)
+    private async Task<RoomView> StartRoom(HttpClient host, HttpClient guest, string language = "en")
     {
-        using var create = await RoomPost(host, "/api/rooms/", new CreateRoomRequest(2)); create.EnsureSuccessStatusCode();
+        using var create = await RoomPost(host, "/api/rooms/", new CreateRoomRequest(2, language)); create.EnsureSuccessStatusCode();
         var room = (await create.Content.ReadFromJsonAsync<RoomView>())!;
         using var join = await RoomPost(guest, "/api/rooms/join", new JoinRoomRequest(room.Code)); join.EnsureSuccessStatusCode();
         room = (await join.Content.ReadFromJsonAsync<RoomView>())!;

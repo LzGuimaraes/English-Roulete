@@ -7,12 +7,13 @@
 @inject AdventureClient Client
 @inject TimeProvider Clock
 @inject ILogger<Home> Logger
+@inject StoryLanguagePreference LanguagePreference
 
 <div data-solo-page class="experience game-experience motion-@(_state?.Appearance?.Motion ?? CurrentTheme.Motion) @(_state is not null ? "in-adventure phase-" + _state.Phase.ToLowerInvariant() : "") @(IsHorror ? "horror-experience" : "") @(_state?.Visual is not null ? "has-scene-art" : "") @(_state?.Phase == "Preloading" ? "scene-intro" : "")" style="@ThemePalette.Style(CurrentTheme)">
 @if (_state is not null) { <div class="scene-backdrop"><SceneArtwork Visual="_state.Visual" Background="true" OnLoadFailure="url => _artFailureUrl = url" /></div> }
 <header class="site-header">
     <a class="brand" href="/" @onclick="BackToCatalogAsync" @onclick:preventDefault><span class="brand-mark" aria-hidden="true">✦</span><span>english<span class="brand-light">roulette</span><small>GIRE. ESCUTE. EXPLORE.</small></span></a>
-    <GameMenu Horror="IsHorror" Narrating="@(_state?.Phase == "Narrating")" />
+    <GameMenu Horror="IsHorror" Narrating="@(_state?.Phase == "Narrating")" Language="@CurrentLanguage" />
 </header>
 <main>
     @if (_error is not null)
@@ -28,9 +29,11 @@
     {
         <section class="welcome game-welcome">
             <div class="welcome-copy">
+                <LanguageSelector Value="@CurrentLanguage" ValueChanged="ChangeLanguageAsync" Disabled="@(_busy || _catalogLoading)" />
                 <div class="eyebrow"><span class="live-dot"></span> SOLO ADVENTURE · ÁUDIO E TEXTO</div>
-                <h1>Inglês em uma<br /><em>história jogável.</em></h1>
-                <p class="lead">Ouça uma cena em inglês, responda sobre o que entendeu e tome decisões que mudam o caminho da história.</p>
+                @if (CurrentLanguage == "pt-BR") { <h1>Uma história.<br /><em>Seu próximo caminho.</em></h1> }
+                else { <h1>Inglês em uma<br /><em>história jogável.</em></h1> }
+                <p class="lead">Ouça uma cena em @LanguageName.ToLowerInvariant(), responda sobre o que entendeu e tome decisões que mudam o caminho da história.</p>
                 <p class="intro">A roleta escolhe a história. Jogue até o final: ao sair ou recarregar a página, a aventura solo recomeça do zero.</p>
                 <div class="hero-actions">
                     <button class="primary start-button" disabled="@(_busy || _catalogLoading || _catalog.Count == 0)" aria-describedby="solo-start-status" @onclick="CreateAsync">@StartLabel <span aria-hidden="true">↗</span></button>
@@ -39,12 +42,13 @@
                 <div id="solo-start-status" class="start-status" role="status" aria-live="polite">
                     @if (_catalogLoading) { <p>Buscando histórias publicadas…</p> }
                     else if (_catalogError is not null) { <p>@_catalogError</p><button class="text-button" @onclick="LoadCatalogAsync">Tentar carregar histórias</button> }
-                    else if (_catalog.Count == 0) { <p>Ainda não há histórias publicadas para jogar. Você pode atualizar o catálogo e tentar novamente mais tarde.</p><button class="text-button" @onclick="LoadCatalogAsync">Atualizar catálogo</button> }
+                    else if (_catalog.Count == 0) { <p>Ainda não há histórias publicadas em @LanguageName.ToLowerInvariant(). Atualize o catálogo ou escolha outro idioma.</p><button class="text-button" @onclick="LoadCatalogAsync">Atualizar catálogo</button> }
                     else if (_launchPhase == LaunchPhase.Requesting) { <p>Buscando uma história disponível para sua aventura…</p> }
                     else if (_launchPhase == LaunchPhase.Spinning) { <p>História encontrada. A roleta apresenta o resultado; a cena abre em seguida.</p> }
                     else { <p>Sem cadastro. O áudio começa quando você tocar em “Ouvir e iniciar cena”.</p> }
                 </div>
-                @if (_catalog.Count > 0) { <p class="level-note"><strong>@LevelSummary</strong> O nível indica a complexidade do inglês. A roleta usa os níveis disponíveis no catálogo.</p> }
+                @if (_catalog.Count > 0 && CurrentLanguage == "en") { <p class="level-note"><strong>@LevelSummary</strong> O nível indica a complexidade do inglês. A roleta usa os níveis disponíveis no catálogo.</p> }
+                else if (_catalog.Count > 0) { <p class="level-note">Texto, perguntas e narração em português brasileiro. A roleta sorteia apenas histórias deste idioma.</p> }
                 <a class="preview-link" href="#round-preview">Ver uma rodada de exemplo ↓</a>
             </div>
             <div class="roulette-column">
@@ -57,9 +61,9 @@
                 else if (Genres.Count == 1) { <p class="catalog-note">Só há histórias de @Genres[0] no momento. Pode haver repetição.</p> }
             </div>
         </section>
-        <RoundPreview />
+        <RoundPreview @key="CurrentLanguage" Language="@CurrentLanguage" />
         <section class="game-features" aria-label="Sua próxima missão">
-            <div><span class="feature-icon">◉</span><div><span class="section-label">01 / CENA</span><h2>Ouça e acompanhe.</h2><p>Narração e texto em inglês apresentam a história.</p></div></div>
+            <div><span class="feature-icon">◉</span><div><span class="section-label">01 / CENA</span><h2>Ouça e acompanhe.</h2><p>Narração e texto em @LanguageName.ToLowerInvariant() apresentam a história.</p></div></div>
             <div><span class="feature-icon">⌕</span><div><span class="section-label">02 / PERGUNTA</span><h2>Responda e aprenda.</h2><p>Confira sua compreensão e leia a explicação.</p></div></div>
             <div><span class="feature-icon">⑂</span><div><span class="section-label">03 / DECISÃO</span><h2>Escolha como seguir.</h2><p>Nas bifurcações, sua decisão muda as próximas cenas.</p></div></div>
         </section>
@@ -67,18 +71,18 @@
     else
     {
         <section class="adventure-heading">
-            <div><div class="eyebrow">AVENTURA SOLO · @_state.Genre</div><h1 @ref="_adventureTitle" tabindex="-1">@_state.Title</h1>@if (_arrivalNotice is not null) { <p class="arrival-notice" role="status">@_arrivalNotice</p> }</div>
+            <div><div class="eyebrow">AVENTURA SOLO · @_state.Genre · @LanguageName</div><h1 lang="@_state.Language" @ref="_adventureTitle" tabindex="-1">@_state.Title</h1>@if (_arrivalNotice is not null) { <p class="arrival-notice" role="status">@_arrivalNotice</p> }</div>
             <div><SoloScore Score="_state.Score" /><button class="text-button" disabled="@_busy" @onclick="CreateAsync">Sortear nova aventura ↻</button><button class="text-button" disabled="@_busy" @onclick="BackToCatalogAsync">Menu principal</button></div>
         </section>
         <div class="game-grid">
             <article class="story-card">
                 @if (_state.Visual is not null && _artFailureUrl == _state.Visual.Url) { <p role="status">A imagem não carregou. Você pode continuar pelo texto e áudio.</p> }
                 <div class="chapter-heading"><span class="section-label">CENA @_state.SceneNumber DO SEU CAMINHO</span>@if (_state.Phase == "QuestionOpen") { <GameCountdown Seconds="RemainingSeconds" Label="Para responder" /> } else { <span class="phase-badge">@PhaseLabel</span> }</div>
-                <h2>@_state.SceneTitle</h2>
+                <h2 lang="@_state.Language">@_state.SceneTitle</h2>
                 @if (_state.Audio is { } audio && _state.Phase != "StoryResult")
                 {
                     <NarrationPlayer @key="_state.SceneKey" @ref="_narrator" Audio="audio" Phase="@_state.Phase" AudioElementId="@_narrationAudioId"
-                        ServerNowUtc="_state.ServerNowUtc" PhaseDeadlineUtc="_state.PhaseDeadlineUtc" OnReady="AudioReady" />
+                        ServerNowUtc="_state.ServerNowUtc" PhaseDeadlineUtc="_state.PhaseDeadlineUtc" OnReady="AudioReady" Language="@_state.Language" />
                 }
                 @if (_state.Phase == "Preloading")
                 {
@@ -86,12 +90,12 @@
                 }
                 else if (_state.Phase == "StoryResult")
                 {
-                    <div class="ending"><span class="ending-icon" aria-hidden="true">✦</span><div class="section-label">THE END · OU UM NOVO COMEÇO</div><h2>Você completou<br />esta história.</h2><p>Cada cena trouxe novas palavras e descobertas. Continue explorando outros caminhos.</p><section class="ending-scene" aria-label="Desfecho da história"><h3>@_state.SceneTitle</h3><p class="narration" lang="en">@_state.Narration</p>@if (_state.Audio is { } endingAudio) { <audio class="ending-audio" src="@endingAudio.Url" controls preload="metadata" aria-label="Narração do desfecho em inglês"></audio> }</section><div class="ending-stats"><span>@_state.SceneNumber cenas exploradas</span><span>1 final descoberto</span>@if (_state.Score is { } finalScore) { <span>@finalScore.Total pontos</span> }</div><button class="primary" disabled="@_busy" @onclick="CreateAsync">Jogar novamente ↗</button></div>
+                    <div class="ending"><span class="ending-icon" aria-hidden="true">✦</span><div class="section-label">@(_state.Language == "pt-BR" ? "FIM · OU UM NOVO COMEÇO" : "THE END · OU UM NOVO COMEÇO")</div><h2>Você completou<br />esta história.</h2><p>Cada cena trouxe novas palavras e descobertas. Continue explorando outros caminhos.</p><section class="ending-scene" aria-label="Desfecho da história"><h3>@_state.SceneTitle</h3><p class="narration" lang="@_state.Language">@_state.Narration</p>@if (_state.Audio is { } endingAudio) { <audio class="ending-audio" src="@endingAudio.Url" controls preload="metadata" aria-label="@($"Narração do desfecho em {LanguageName.ToLowerInvariant()}")"></audio> }</section><div class="ending-stats"><span>@_state.SceneNumber cenas exploradas</span><span>1 final descoberto</span>@if (_state.Score is { } finalScore) { <span>@finalScore.Total pontos</span> }</div><button class="primary" disabled="@_busy" @onclick="CreateAsync">Jogar novamente ↗</button></div>
                 }
                 else
                 {
                     <ProgressiveNarration @key="(_state.SceneInstanceId, nameof(ProgressiveNarration))" Text="@_state.Narration" Dialogue="_state.Dialogue" Phase="@_state.Phase" AudioElementId="@_narrationAudioId"
-                        Words="_state.WordHints" Cost="_state.HintCost" SceneInstanceId="_state.SceneInstanceId" Busy="_busy" OnUseHint="UseHintAsync" />
+                        Words="_state.WordHints" Cost="_state.HintCost" SceneInstanceId="_state.SceneInstanceId" Busy="_busy" OnUseHint="UseHintAsync" Language="@_state.Language" />
                     @if (_state.Phase == "Narrating") { <GameCountdown Seconds="RemainingSeconds" Label="Pergunta em" /> }
                     <WordHints State="_state" Busy="_busy" OnUse="UseHintAsync" />
                     <QuestionPanel State="_state" Busy="_busy" OnAnswer="AnswerAsync" OnContinue="ContinueAsync" />
@@ -113,11 +117,13 @@
         </div>
     }
 </main>
-<footer><span>Inglês, uma cena de cada vez.</span><span>Solo Adventure · partida nesta página · <a href="/admin">Administração</a></span></footer>
+<footer><span>@(CurrentLanguage == "pt-BR" ? "Histórias em português, um caminho de cada vez." : "Inglês, uma cena de cada vez.")</span><span>Solo Adventure · partida nesta página · <a href="/admin">Administração</a></span></footer>
 </div>
 
 @code {
     private readonly CancellationTokenSource _lifetime = new();
+    private string CurrentLanguage => _state?.Language ?? LanguagePreference.Value;
+    private string LanguageName => StoryLanguagePreference.Name(CurrentLanguage);
     private StoryAppearance CurrentTheme => IsHorror ? ThemePalette.Horror : _state?.Appearance ?? ThemePalette.Arcade;
     private bool IsHorror => ThemePalette.IsHorror(_state?.Genre);
     private IReadOnlyList<string> Genres => _catalog.Select(story => story.Genre.Trim()).Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
@@ -204,10 +210,19 @@
     private async Task LoadCatalogAsync()
     {
         _catalogLoading = true; _catalogError = null;
-        try { _catalog = await Client.CatalogAsync(_lifetime.Token); }
+        _catalog = [];
+        try { _catalog = await Client.CatalogAsync(_lifetime.Token, LanguagePreference.Value); }
         catch (HttpRequestException error) { _catalogError = error.Message; }
         catch (OperationCanceledException) when (_lifetime.IsCancellationRequested) { }
         finally { _catalogLoading = false; }
+    }
+
+    private async Task ChangeLanguageAsync(string language)
+    {
+        if (_busy || _catalogLoading || _state is not null || language == LanguagePreference.Value) { return; }
+        LanguagePreference.Value = language;
+        _launchError = null; _launchPhase = LaunchPhase.Idle;
+        await LoadCatalogAsync();
     }
 
     private async Task ReconnectAsync()
@@ -227,7 +242,7 @@
         {
             if (_narrator is not null) { await _narrator.StopAsync(); }
             // Only a successful server snapshot can put the wheel in the spinning state.
-            var adventure = await Client.CreateAsync(null, _lifetime.Token);
+            var adventure = await Client.CreateAsync(null, _lifetime.Token, CurrentLanguage);
             _browsing = true; SetState(null); _pendingAdventure = adventure;
             _launchPhase = LaunchPhase.Spinning; _error = null;
             using var spin = CancellationTokenSource.CreateLinkedTokenSource(_lifetime.Token);
