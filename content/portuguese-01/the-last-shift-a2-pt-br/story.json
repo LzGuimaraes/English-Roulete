@@ -1,0 +1,346 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#86B6A4",
+      "accent": "#C49A6C",
+      "background": "#101418",
+      "surface": "#1B2427",
+      "text": "#E9EFEB",
+      "font": "modern",
+      "motion": "gentle"
+    },
+    "title": "O Último Turno",
+    "synopsis": "Mara desperta em um hospital vazio e recebe orientações de uma voz que conhece seu nome. Segui-la talvez não seja a única saída.",
+    "genre": "Terror psicológico",
+    "difficulty": "A2",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "warm-cup",
+  "scenes": [
+    {
+      "key": "warm-cup",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Um pano branco"
+        },
+        {
+          "key": "b",
+          "text": "Um cordão azul"
+        },
+        {
+          "key": "c",
+          "text": "Uma fita vermelha"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "enter-corridor",
+          "label": "Abrir a porta e verificar o corredor",
+          "targetSceneKey": "radio-desk"
+        }
+      ],
+      "title": "A xícara ainda quente",
+      "narration": "Mara acorda em um quarto de hospital depois de uma longa noite. Lembra que passou mal no trabalho. Agora todas as outras camas estão vazias. Uma luz fraca na parede ilumina sua jaqueta azul-marinho na cadeira. Ao lado, uma xícara de chá ainda está quente. Uma chave de latão com um cordão azul pende de um gancho perto da porta. Mara pega a jaqueta e a chave. Precisa sair dali.",
+      "prompt": "O que está amarrado à chave de latão?",
+      "explanation": "A chave de latão tem um cordão azul amarrado nela.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Mara acorda em um quarto de hospital depois de uma longa noite. Lembra que passou mal no trabalho. Agora todas as outras camas estão vazias. Uma luz fraca na parede ilumina sua jaqueta azul-marinho na cadeira. Ao lado, uma xícara de chá ainda está quente. Uma chave de latão com um cordão azul pende de um gancho perto da porta. Mara pega a jaqueta e a chave. Precisa sair dali.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 27167
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "azul-marinho",
+          "translation": "Tom de azul bem escuro."
+        },
+        {
+          "key": "word-2",
+          "term": "latão",
+          "translation": "Metal amarelado usado em peças como chaves e fechaduras."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mara acorda em um quarto de hospital depois de uma longa noite. Lembra que passou mal no trabalho. Agora todas as outras camas estão vazias. Uma luz fraca na parede ilumina sua jaqueta azul-marinho na cadeira. Ao lado, uma xícara de chá ainda está quente. Uma chave de latão com um cordão azul pende de um gancho perto da porta. Mara pega a jaqueta e a chave. Precisa sair dali.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Uma chave de latão com um cordão azul",
+        "altText": "Mara veste uma jaqueta azul-marinho em uma enfermaria vazia; uma xícara está ao lado da cadeira e uma chave de latão com cordão azul pende do gancho junto à porta.",
+        "reusedVisualId": "6c612c6b-6b3e-47d1-a88a-c7faf6ec8d4e",
+        "sourceVersionId": "2d00899d-f48e-451c-84d6-db7c9c1d6835",
+        "sourceSceneKey": "warm-cup",
+        "imagePrompt": "Reutilizar a ilustração original desta cena, sem gerar uma nova imagem.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Mara veste uma jaqueta azul-marinho em uma enfermaria vazia; uma xícara está ao lado da cadeira e uma chave de latão com cordão azul pende do gancho junto à porta."
+    },
+    {
+      "key": "radio-desk",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Perto do portão"
+        },
+        {
+          "key": "b",
+          "text": "No terraço"
+        },
+        {
+          "key": "c",
+          "text": "No posto de enfermagem"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "unlock-exit",
+          "label": "Tentar a chave de latão na porta externa",
+          "targetSceneKey": "empty-gate"
+        },
+        {
+          "key": "check-roof",
+          "label": "Subir a escada e verificar o terraço",
+          "targetSceneKey": "roof-lights"
+        }
+      ],
+      "title": "Uma voz que sabe seu nome",
+      "narration": "No posto de enfermagem, Mara encontra um pequeno rádio preto. Uma voz diz seu nome duas vezes. \"Use a porta de fora. Vou esperar perto do portão.\" Pela janela, ela vê um pátio vazio. A porta externa tem uma fechadura de latão. Uma escada livre leva ao terraço. Mara coloca o rádio no bolso. Pode tentar a chave ou procurar outra saída lá de cima.",
+      "prompt": "Onde a voz diz que vai esperar?",
+      "explanation": "A voz promete esperar por Mara perto do portão.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "No posto de enfermagem, Mara encontra um pequeno rádio preto. Uma voz diz seu nome duas vezes.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 6768
+        },
+        {
+          "key": "cue-2",
+          "speaker": "A voz do rádio",
+          "text": "\"Use a porta de fora. Vou esperar perto do portão.\"",
+          "startMilliseconds": 6768,
+          "endMilliseconds": 10994
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Pela janela, ela vê um pátio vazio. A porta externa tem uma fechadura de latão. Uma escada livre leva ao terraço. Mara coloca o rádio no bolso. Pode tentar a chave ou procurar outra saída lá de cima.",
+          "startMilliseconds": 10994,
+          "endMilliseconds": 26517
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "posto de enfermagem",
+          "translation": "Área onde a equipe de enfermagem organiza o atendimento."
+        },
+        {
+          "key": "word-2",
+          "term": "externa",
+          "translation": "Que leva ao lado de fora ou fica nele."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "No posto de enfermagem, Mara encontra um pequeno rádio preto. Uma voz diz seu nome duas vezes. \"Use a porta de fora. Vou esperar perto do portão.\" Pela janela, ela vê um pátio vazio. A porta externa tem uma fechadura de latão. Uma escada livre leva ao terraço. Mara coloca o rádio no bolso. Pode tentar a chave ou procurar outra saída lá de cima.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Vou esperar perto do portão.",
+        "altText": "Mara observa um rádio preto no balcão de enfermagem e segura a chave pelo cordão azul; uma janela mostra o pátio vazio, com porta externa e escada ao fundo.",
+        "reusedVisualId": "07100263-2985-41fd-89a5-5ddba923c81d",
+        "sourceVersionId": "2d00899d-f48e-451c-84d6-db7c9c1d6835",
+        "sourceSceneKey": "radio-desk",
+        "imagePrompt": "Reutilizar a ilustração original desta cena, sem gerar uma nova imagem.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Mara observa um rádio preto no balcão de enfermagem e segura a chave pelo cordão azul; uma janela mostra o pátio vazio, com porta externa e escada ao fundo."
+    },
+    {
+      "key": "empty-gate",
+      "isEnding": true,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Ela diz que a chave está quebrada"
+        },
+        {
+          "key": "b",
+          "text": "Ela pede que Mara se sente no banco"
+        },
+        {
+          "key": "c",
+          "text": "Ela diz que vê Mara, mas não há ninguém ali"
+        }
+      ],
+      "transitions": [],
+      "title": "Ninguém no portão",
+      "narration": "A chave gira. Mara sai para o pátio do hospital. A luz fraca do portão mostra um banco vazio e o portão fechado. Além da cerca, todas as ruas estão escuras. Do bolso, o rádio fala: \"Estou vendo você.\" Ela o tira e desliga. Então abre o portão e vai embora. Mara está do lado de fora, mas já não confia na voz que prometera ajudar.",
+      "prompt": "Por que Mara deixa de confiar na voz?",
+      "explanation": "O portão está vazio, embora a voz afirme que está vendo Mara.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "A chave gira. Mara sai para o pátio do hospital. A luz fraca do portão mostra um banco vazio e o portão fechado. Além da cerca, todas as ruas estão escuras. Do bolso, o rádio fala:",
+          "startMilliseconds": 0,
+          "endMilliseconds": 14640
+        },
+        {
+          "key": "cue-2",
+          "speaker": "A voz do rádio",
+          "text": "\"Estou vendo você.\"",
+          "startMilliseconds": 14640,
+          "endMilliseconds": 16428
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ela o tira e desliga. Então abre o portão e vai embora. Mara está do lado de fora, mas já não confia na voz que prometera ajudar.",
+          "startMilliseconds": 16428,
+          "endMilliseconds": 25867
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "além",
+          "translation": "Do outro lado de algo; mais adiante."
+        },
+        {
+          "key": "word-2",
+          "term": "confia",
+          "translation": "Acredita que alguém é verdadeiro ou pode ajudá-la."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "A chave gira. Mara sai para o pátio do hospital. A luz fraca do portão mostra um banco vazio e o portão fechado. Além da cerca, todas as ruas estão escuras. Do bolso, o rádio fala: \"Estou vendo você.\" Ela o tira e desliga. Então abre o portão e vai embora. Mara está do lado de fora, mas já não confia na voz que prometera ajudar.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "um banco vazio e o portão fechado.",
+        "altText": "Sozinha no pátio do hospital, Mara segura o rádio preto e a chave com cordão azul diante de um portão fechado e um banco vazio, sob uma luz fraca.",
+        "reusedVisualId": "296bac56-c767-43cc-a647-f6d646217f07",
+        "sourceVersionId": "2d00899d-f48e-451c-84d6-db7c9c1d6835",
+        "sourceSceneKey": "empty-gate",
+        "imagePrompt": "Reutilizar a ilustração original desta cena, sem gerar uma nova imagem.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Sozinha no pátio do hospital, Mara segura o rádio preto e a chave com cordão azul diante de um portão fechado e um banco vazio, sob uma luz fraca."
+    },
+    {
+      "key": "roof-lights",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Diz que a rodoviária está fechada"
+        },
+        {
+          "key": "b",
+          "text": "Diz que as enfermeiras esperam, mas o hospital está escuro"
+        },
+        {
+          "key": "c",
+          "text": "Diz que a escada externa está quebrada"
+        }
+      ],
+      "transitions": [],
+      "title": "Luzes do outro lado da rua",
+      "narration": "No terraço, Mara vê luzes na rodoviária do outro lado da rua. O hospital abaixo está completamente escuro. Mesmo assim, o rádio diz: \"As enfermeiras estão esperando no seu quarto.\" Ela o desliga. Uma escada externa segue na direção da rodoviária. Mara desce por ela e chega à entrada iluminada. Finalmente está longe do hospital, mas não consegue explicar quem sabia seu nome.",
+      "prompt": "Por que a voz parece errada para Mara?",
+      "explanation": "A voz afirma que há enfermeiras esperando no quarto, embora o hospital esteja totalmente escuro.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "No terraço, Mara vê luzes na rodoviária do outro lado da rua. O hospital abaixo está completamente escuro. Mesmo assim, o rádio diz:",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10657
+        },
+        {
+          "key": "cue-2",
+          "speaker": "A voz do rádio",
+          "text": "\"As enfermeiras estão esperando no seu quarto.\"",
+          "startMilliseconds": 10657,
+          "endMilliseconds": 14059
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ela o desliga. Uma escada externa segue na direção da rodoviária. Mara desce por ela e chega à entrada iluminada. Finalmente está longe do hospital, mas não consegue explicar quem sabia seu nome.",
+          "startMilliseconds": 14059,
+          "endMilliseconds": 28119
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "rodoviária",
+          "translation": "Estação de embarque e desembarque de ônibus de viagem."
+        },
+        {
+          "key": "word-2",
+          "term": "iluminada",
+          "translation": "Com luz suficiente para ser vista."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "No terraço, Mara vê luzes na rodoviária do outro lado da rua. O hospital abaixo está completamente escuro. Mesmo assim, o rádio diz: \"As enfermeiras estão esperando no seu quarto.\" Ela o desliga. Uma escada externa segue na direção da rodoviária. Mara desce por ela e chega à entrada iluminada. Finalmente está longe do hospital, mas não consegue explicar quem sabia seu nome.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "O hospital abaixo está completamente escuro.",
+        "altText": "No terraço escuro, Mara segura o rádio e a chave com cordão azul; uma escada externa leva à rua e à entrada iluminada da rodoviária em frente.",
+        "reusedVisualId": "5fe471dc-3a68-46ff-b10d-23b9a529581b",
+        "sourceVersionId": "2d00899d-f48e-451c-84d6-db7c9c1d6835",
+        "sourceSceneKey": "roof-lights",
+        "imagePrompt": "Reutilizar a ilustração original desta cena, sem gerar uma nova imagem.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "No terraço escuro, Mara segura o rádio e a chave com cordão azul; uma escada externa leva à rua e à entrada iluminada da rodoviária em frente."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "2d00899d-f48e-451c-84d6-db7c9c1d6835",
+    "sourceTitle": "The Last Shift — A2",
+    "sourceSnapshotSha256": "ac48ca6883f12f6dae7a97acfce66aecd3277ba3b7cf36805e492496e3f19510",
+    "sourcePath": "Catálogo legado exportado pela API administrativa",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "warm-cup",
+        "radio-desk",
+        "empty-gate"
+      ],
+      [
+        "warm-cup",
+        "radio-desk",
+        "roof-lights"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

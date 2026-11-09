@@ -1,0 +1,1845 @@
+{
+  "origin": "https://english.lzguimaraes.com.br",
+  "stories": {
+    "a-table-for-two-beginners-a2-pt-br": {
+      "versionId": "c8a13a31-91ea-42be-87a1-0340fa3280bc",
+      "scenes": {
+        "first-bowls": {
+          "audio": {
+            "id": "d60e7dc3-8f67-4a21-9d39-9051bf7806e0",
+            "sha256": "d07d787fb3c12fa962650bf3a09ae49159f1a7ea0310c4e6cad9cb1c67a37949",
+            "file": "a-table-for-two-beginners-a2-pt-br/audio/first-bowls.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:05.551405+00:00",
+            "durationMs": 25809
+          },
+          "visual": {
+            "id": "aa03409b-da3d-4e03-bdf3-d5b79153b3f9",
+            "sha256": "69fa04da957e16e5632b2bba03be4acff55a157f46bf90db9da9dae0ae9380f8",
+            "file": "a-table-for-two-beginners-a2-pt-br/animations/first-bowls.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:06.137418+00:00"
+          }
+        },
+        "cleaning-together": {
+          "audio": {
+            "id": "bb09f561-208a-4fb1-b271-55be16fe013e",
+            "sha256": "d5ab6daaf87d1931745e7cdf29e3f3b18971534f2e17256f46a6555c9cc53b02",
+            "file": "a-table-for-two-beginners-a2-pt-br/audio/cleaning-together.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:07.343879+00:00",
+            "durationMs": 27586
+          },
+          "visual": {
+            "id": "3171689d-7888-4844-bb13-214d8e84c990",
+            "sha256": "a984a255344b349af97958e41c48894dbea803a2e5c4cec6e5bd9d67ea3b7781",
+            "file": "a-table-for-two-beginners-a2-pt-br/animations/cleaning-together.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:07.884875+00:00"
+          }
+        },
+        "outside-studio": {
+          "audio": {
+            "id": "07dd0900-3f02-421a-8a09-4f66f4795c96",
+            "sha256": "ff3bd390da539fd0d29c6b1dad6c0728e57648fc4b66730453e60150a97e01d7",
+            "file": "a-table-for-two-beginners-a2-pt-br/audio/outside-studio.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:09.108441+00:00",
+            "durationMs": 20689
+          },
+          "visual": {
+            "id": "23653ded-e9d7-4e86-8c2b-187614d03d7d",
+            "sha256": "635a4192c6f2b9e1d3056107f6cde5acbfaff0d4c5a6755c5605c1355b6c54eb",
+            "file": "a-table-for-two-beginners-a2-pt-br/animations/outside-studio.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:09.672226+00:00"
+          }
+        },
+        "canal-walk": {
+          "audio": {
+            "id": "40e78252-9b0a-4cd1-b63d-deb537a0380a",
+            "sha256": "81a4197e75efd011fece74d13e94cf389a5419fdb4ed0430713580382b91a1ea",
+            "file": "a-table-for-two-beginners-a2-pt-br/audio/canal-walk.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:10.929329+00:00",
+            "durationMs": 24323
+          },
+          "visual": {
+            "id": "428d4f48-ba4c-45e1-ab0b-2fd96c5e963d",
+            "sha256": "046ffccaf6179369903dce33e5ce0f3af72b4485987a0611a610c69ab710bc0f",
+            "file": "a-table-for-two-beginners-a2-pt-br/animations/canal-walk.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:11.492471+00:00"
+          }
+        },
+        "next-saturday": {
+          "audio": {
+            "id": "e47a4b46-1f4b-4bf1-b3f8-56e95106684d",
+            "sha256": "684b3b80ece8be9a2f39f0a67a4e098b067020e2cb1757aba24a4b2b6110ccb4",
+            "file": "a-table-for-two-beginners-a2-pt-br/audio/next-saturday.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:12.726684+00:00",
+            "durationMs": 25902
+          },
+          "visual": {
+            "id": "f675dbd1-4bb1-498e-891f-43e4468e7830",
+            "sha256": "991fc6786f366b894d20904250bc2b2e795f017095224da582ae956b0fdbeae7",
+            "file": "a-table-for-two-beginners-a2-pt-br/animations/next-saturday.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:13.352373+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "3ee2a3da31f21bb9776263979f8b1978c9f4af1f464f6592cdb0b288934717d7",
+      "verifiedAtUtc": "2026-11-09T04:07:13.513012+00:00"
+    },
+    "a-very-important-rehearsal-a1-pt-br": {
+      "versionId": "d0474c8b-3404-4bd2-98f0-afa78337ea2c",
+      "scenes": {
+        "royal-entrance": {
+          "audio": {
+            "id": "ba6e61b3-084f-4e9e-9568-127beacb4c63",
+            "sha256": "d819fd6ff3694446ba3be51dcb6f1ef1d7387f6f4a49045fbe6d0b852241f89d",
+            "file": "a-very-important-rehearsal-a1-pt-br/audio/royal-entrance.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:15.265186+00:00",
+            "durationMs": 14919
+          },
+          "visual": {
+            "id": "0b983156-893b-412d-8445-e4d96742435a",
+            "sha256": "d5026ed03620a627020dbe63a768ac949c6880521139a8c7eb723f5d14a22acd",
+            "file": "a-very-important-rehearsal-a1-pt-br/animations/royal-entrance.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:15.850935+00:00"
+          }
+        },
+        "small-singer": {
+          "audio": {
+            "id": "6ffa59d2-f926-42b6-817e-4f55e50f3baf",
+            "sha256": "73cbaa0549ee73753ac21d069a0b5556b7dc2dd6681e8dd393bcfb78a2e2681e",
+            "file": "a-very-important-rehearsal-a1-pt-br/audio/small-singer.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:17.047827+00:00",
+            "durationMs": 16812
+          },
+          "visual": {
+            "id": "df04fa32-c176-4a4d-babe-098a8811f27a",
+            "sha256": "db72ab7f8bfdb9d8306aad98614d0212d430a5e4f3bfe2fb69474cde69c0c92f",
+            "file": "a-very-important-rehearsal-a1-pt-br/animations/small-singer.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:17.663030+00:00"
+          }
+        },
+        "entrance-choice": {
+          "audio": {
+            "id": "5c131c85-3886-4001-9bb5-91576cee27be",
+            "sha256": "2de5403302245381deeb9f78394c02f237eaf3eeee7c1f0befa24d48fd56f398",
+            "file": "a-very-important-rehearsal-a1-pt-br/audio/entrance-choice.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:18.811322+00:00",
+            "durationMs": 16475
+          },
+          "visual": {
+            "id": "1c85afcf-3be6-463a-a0b4-c78c787f1291",
+            "sha256": "9a38f0dcb998b00e5d7d8cc86837bc794caaa8d5f4cbfa6d0ee82c6853c7d150",
+            "file": "a-very-important-rehearsal-a1-pt-br/animations/entrance-choice.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:19.362766+00:00"
+          }
+        },
+        "duck-king": {
+          "audio": {
+            "id": "33e792b7-8375-441e-86c0-8781232f9ee6",
+            "sha256": "eae345ef994f77427ed177a524ecb51f40407e39a27f681f05ffc1ea9ce2dea4",
+            "file": "a-very-important-rehearsal-a1-pt-br/audio/duck-king.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:20.552224+00:00",
+            "durationMs": 16614
+          },
+          "visual": {
+            "id": "ca2200c0-623c-40c5-a12b-36ffbb8e8c2d",
+            "sha256": "b481ed6653cab5ba3205976a6341e8c9aba29058e3d9adf09954d87670ff5bed",
+            "file": "a-very-important-rehearsal-a1-pt-br/animations/duck-king.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:21.157648+00:00"
+          }
+        },
+        "quiet-practice": {
+          "audio": {
+            "id": "3f47b868-bc94-4753-9e73-cfc2fd9b736d",
+            "sha256": "c684e1f893415234ca4e23a548078582a113c1ef63fc3f2e508d0647ff8eaa65",
+            "file": "a-very-important-rehearsal-a1-pt-br/audio/quiet-practice.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:22.344099+00:00",
+            "durationMs": 19111
+          },
+          "visual": {
+            "id": "b8f52c72-5fb6-4605-8ebf-ef3e007edf56",
+            "sha256": "ff8a82cf3c1df7d57799e3a639c110cac73e31cbb22a57fbe36883f00faaa7dc",
+            "file": "a-very-important-rehearsal-a1-pt-br/animations/quiet-practice.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:22.957554+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "64f242fed61612fb0cf8536bbc6e03ff874b368177608752ab8219c3807deae5",
+      "verifiedAtUtc": "2026-11-09T04:07:23.095214+00:00"
+    },
+    "a-visitor-made-of-light-a2-pt-br": {
+      "versionId": "8925ca18-55d5-455a-8e75-b63b31ddb83a",
+      "scenes": {
+        "old-workshop": {
+          "audio": {
+            "id": "ec50fa3b-692a-4638-acb7-2f923c94f499",
+            "sha256": "2b98e82ff198478af14baddfc0cc14cd576b5bc8a5ef57c568db04866cd2f755",
+            "file": "a-visitor-made-of-light-a2-pt-br/audio/old-workshop.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:24.843679+00:00",
+            "durationMs": 27145
+          },
+          "visual": {
+            "id": "1bbc0fb3-1873-4154-8a36-9304682cae0f",
+            "sha256": "a3726f92f5e000a0ac0592a331a41c9249457a5f00467305971e35e21aad500f",
+            "file": "a-visitor-made-of-light-a2-pt-br/animations/old-workshop.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:25.367153+00:00"
+          }
+        },
+        "window-memory": {
+          "audio": {
+            "id": "9571bc6e-ef91-41b6-87e9-49bbd5c0a233",
+            "sha256": "b0c4866a3ca8b0f9965eaf4807803325cd7e9ed355a7f2e0778d08921cc8ba18",
+            "file": "a-visitor-made-of-light-a2-pt-br/audio/window-memory.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:26.629579+00:00",
+            "durationMs": 24916
+          },
+          "visual": {
+            "id": "60907755-6953-4f94-b630-302e02fa08db",
+            "sha256": "10e769a9f80d7db21a15b2e2f1c767b7791719357953bc519490216826f79fb7",
+            "file": "a-visitor-made-of-light-a2-pt-br/animations/window-memory.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:27.174041+00:00"
+          }
+        },
+        "what-to-save": {
+          "audio": {
+            "id": "d7dfe38c-65a2-46a0-ab75-30259c405719",
+            "sha256": "6b7228fee80e5b4e68ec1a73f305321c5487c9a14a95152c4c6dfde230a8b7c7",
+            "file": "a-visitor-made-of-light-a2-pt-br/audio/what-to-save.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:28.411134+00:00",
+            "durationMs": 25809
+          },
+          "visual": {
+            "id": "a1d4864f-5bb1-4925-9a9f-d9d8e0207810",
+            "sha256": "291ad5bbeb9d0466eb523758dfe4e633d8fa447c6f06accaf0a53026dc2c2f60",
+            "file": "a-visitor-made-of-light-a2-pt-br/animations/what-to-save.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:28.933008+00:00"
+          }
+        },
+        "archive-light": {
+          "audio": {
+            "id": "ade69e66-b6d7-4170-af0a-686a3c16c8ba",
+            "sha256": "59e956bca7220bba0af1d088079bd722d1db7a678cbc14be5ed7dd506cc2337c",
+            "file": "a-visitor-made-of-light-a2-pt-br/audio/archive-light.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:30.184840+00:00",
+            "durationMs": 23859
+          },
+          "visual": {
+            "id": "e82e4832-2930-43f9-99fb-d2514b5f2a2b",
+            "sha256": "6403fbdb769213b8b2f8655f9a2663a6d949a293833dd49a61823ae5071d3f8a",
+            "file": "a-visitor-made-of-light-a2-pt-br/animations/archive-light.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:30.794248+00:00"
+          }
+        },
+        "workshop-voice": {
+          "audio": {
+            "id": "2fb94636-0085-44ab-b41b-c57e43cbefe0",
+            "sha256": "adbbbdb84d772acd3f4b4a7c8970ed548c07bf09d0e4210f7a42d810cefc8365",
+            "file": "a-visitor-made-of-light-a2-pt-br/audio/workshop-voice.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:32.041652+00:00",
+            "durationMs": 25577
+          },
+          "visual": {
+            "id": "74155526-1a2b-44a5-8032-da2f173d4086",
+            "sha256": "978af46650ca916be0332b2771e372ee0040fb4947a0d1e4cc11817bcecbb828",
+            "file": "a-visitor-made-of-light-a2-pt-br/animations/workshop-voice.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:32.629405+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "a21c0a39fdaf3137e0c05830b27f800b5d4975b6f0fad904a93e17d3c3e17dfb",
+      "verifiedAtUtc": "2026-11-09T04:07:32.745776+00:00"
+    },
+    "the-blue-envelope-a1-pt-br": {
+      "versionId": "1cb14ffd-ee23-4360-9914-37c7c62d004c",
+      "scenes": {
+        "under-the-desk": {
+          "audio": {
+            "id": "d2be1101-c3ed-4096-95f0-357b626c2a62",
+            "sha256": "de07e56a4bb211c93df7c4bc2ea8a3a2001bd9744f98c071b5e7dc9fb3f747fd",
+            "file": "the-blue-envelope-a1-pt-br/audio/under-the-desk.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:34.407979+00:00",
+            "durationMs": 17230
+          },
+          "visual": {
+            "id": "78fd635a-d019-46fa-ba4e-52ee5e28f02e",
+            "sha256": "bdb06555dfad4131adce520c7ac6654af9886e945b6c712a350542bb5926105b",
+            "file": "the-blue-envelope-a1-pt-br/animations/under-the-desk.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:34.918007+00:00"
+          }
+        },
+        "old-photograph": {
+          "audio": {
+            "id": "a37e38ed-d78b-4e50-8d71-29a26989003d",
+            "sha256": "09939c6f9b30a74421c77ddcbf850e6f7fede6803b580f5e9d4786a501ac78d9",
+            "file": "the-blue-envelope-a1-pt-br/audio/old-photograph.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:36.071531+00:00",
+            "durationMs": 17090
+          },
+          "visual": {
+            "id": "afad9c37-41b7-4242-aabb-cad530b251c7",
+            "sha256": "0a57cb6c6172f779131559caab64507ee18353dd35e949bcf2a5c297c847b0cf",
+            "file": "the-blue-envelope-a1-pt-br/animations/old-photograph.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:36.675166+00:00"
+          }
+        },
+        "two-places": {
+          "audio": {
+            "id": "4c294f6c-698b-4549-ad3a-91432d431a67",
+            "sha256": "37398baf6ffd15cac4c9318116e991fa4a2b7e597e3c25f5c7aa138f26b57c2a",
+            "file": "the-blue-envelope-a1-pt-br/audio/two-places.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:37.856915+00:00",
+            "durationMs": 17474
+          },
+          "visual": {
+            "id": "1147694e-f6cd-4cf4-b614-ecb8c9a69156",
+            "sha256": "202a5e7c1bf51ba5bcc97822932406567f5a02b2b8e91a32c641d121731a3bda",
+            "file": "the-blue-envelope-a1-pt-br/animations/two-places.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:38.502826+00:00"
+          }
+        },
+        "bakery-answer": {
+          "audio": {
+            "id": "cf7ee8f6-3c9d-4222-a0dd-f0046c234aa0",
+            "sha256": "096aaad712ba1984f957360096b0c421e203a3c361f8720766e33d41699e52d0",
+            "file": "the-blue-envelope-a1-pt-br/audio/bakery-answer.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:39.647215+00:00",
+            "durationMs": 15883
+          },
+          "visual": {
+            "id": "54e04113-6f97-479a-bfbc-065ad9de3bab",
+            "sha256": "a79fcca03286af36f8de450df16327ccb1c4cfc2e402af552378bd1989d1cca2",
+            "file": "the-blue-envelope-a1-pt-br/animations/bakery-answer.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:40.171828+00:00"
+          }
+        },
+        "bench-answer": {
+          "audio": {
+            "id": "b630e4f5-2cdf-4eb3-93f2-69dbebb4ef21",
+            "sha256": "f7b3fa334fb746d5d8a9baf64324c52ed53c612f9833844e36e76d11eece35d2",
+            "file": "the-blue-envelope-a1-pt-br/audio/bench-answer.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:41.362687+00:00",
+            "durationMs": 14165
+          },
+          "visual": {
+            "id": "f4d02ca6-6f03-4f1a-86d5-21230f61a901",
+            "sha256": "4085845d5ef6c63616aac33a5b2db8b1c8fc58c581294a435e3046e53251ab73",
+            "file": "the-blue-envelope-a1-pt-br/animations/bench-answer.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:41.958615+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "fae3273a167a9e5792029aae1abaa428acef395ecb334a4756ae4355a0f8a37d",
+      "verifiedAtUtc": "2026-11-09T04:07:42.092935+00:00"
+    },
+    "the-blue-reel-a1-pt-br": {
+      "versionId": "161784ad-7af8-44d8-8661-7e84039ef386",
+      "scenes": {
+        "empty-cinema": {
+          "audio": {
+            "id": "079ee7f9-71c5-45af-850e-65726f4585f0",
+            "sha256": "9c09435236684b511a07d349178baada03b0f73d0479291f88684a47a2f62006",
+            "file": "the-blue-reel-a1-pt-br/audio/empty-cinema.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:43.843730+00:00",
+            "durationMs": 20852
+          },
+          "visual": {
+            "id": "f280032e-e5f1-448d-9b6e-0b011a9d4eb0",
+            "sha256": "32b9c677c0d769dbef292f9c0ca15be154cbc92cb2688d36e7c077efec2252a6",
+            "file": "the-blue-reel-a1-pt-br/animations/empty-cinema.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:44.354041+00:00"
+          }
+        },
+        "written-note": {
+          "audio": {
+            "id": "9054006f-3ed0-4b32-b2bd-9715d4555ff6",
+            "sha256": "bd1a346d296a3a2afc5df42490af08451db558296d769209a2cda094163d84b1",
+            "file": "the-blue-reel-a1-pt-br/audio/written-note.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:45.596877+00:00",
+            "durationMs": 19679
+          },
+          "visual": {
+            "id": "39b89386-560e-4669-8fe1-b78b057e482d",
+            "sha256": "ce2c9db09378138cfeda49a7603593f620ccfda4302f3067701e2833ce0f45aa",
+            "file": "the-blue-reel-a1-pt-br/animations/written-note.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:46.131997+00:00"
+          }
+        },
+        "two-ways": {
+          "audio": {
+            "id": "92ab10e7-bfd1-460f-af1b-13e9e49f31aa",
+            "sha256": "64a8830965c757c45f34639d6312aea496ae976476967d94cf72940ae84982a8",
+            "file": "the-blue-reel-a1-pt-br/audio/two-ways.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:47.351879+00:00",
+            "durationMs": 18391
+          },
+          "visual": {
+            "id": "1faef133-d287-4ae1-9c12-b70b7db048bd",
+            "sha256": "8c34d7a2f021580252c6c8d19942739faccde22ec585209c7c94f93b502d04df",
+            "file": "the-blue-reel-a1-pt-br/animations/two-ways.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:47.917712+00:00"
+          }
+        },
+        "film-on-screen": {
+          "audio": {
+            "id": "bccd2906-6152-46cb-b3e4-40d3d9fc4b31",
+            "sha256": "e3bb1230639e6074d05681609691ae996e9d66b1e24064d4b4ccd63042e0ccac",
+            "file": "the-blue-reel-a1-pt-br/audio/film-on-screen.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:49.098683+00:00",
+            "durationMs": 20957
+          },
+          "visual": {
+            "id": "18011041-bac6-4572-ad27-f3267c57feff",
+            "sha256": "1d62c636b501253f43c1def08ca47fe97bb47c295a8cab6111a457aab8740b15",
+            "file": "the-blue-reel-a1-pt-br/animations/film-on-screen.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:49.663604+00:00"
+          }
+        },
+        "flower-shop": {
+          "audio": {
+            "id": "7d2cb032-df6c-4726-8498-915e6fd58ed5",
+            "sha256": "e9584e90c9d7571d9dd6e68ad255ba7ca053f6b23647e5e1bb0845d0bc1fd56c",
+            "file": "the-blue-reel-a1-pt-br/audio/flower-shop.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:50.876279+00:00",
+            "durationMs": 19981
+          },
+          "visual": {
+            "id": "d0f58ef2-07c2-48f3-9a64-15f61597f91c",
+            "sha256": "9b154cf57df0f2ecf932db23ce0f5e741c2606d5271ee5b21186d5b8f3296df7",
+            "file": "the-blue-reel-a1-pt-br/animations/flower-shop.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:51.458341+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "0382c636c5a51217584237737911bf0707d73849849c9607dcc09d0536a453ee",
+      "verifiedAtUtc": "2026-11-09T04:07:51.580435+00:00"
+    },
+    "the-captains-quiet-match-a2-pt-br": {
+      "versionId": "a3cfbd64-7f0e-45e3-88c0-25b33df23dc4",
+      "scenes": {
+        "too-many-words": {
+          "audio": {
+            "id": "0dd5c86e-04fe-4664-b282-f2cce4cf0403",
+            "sha256": "3612f7cefb29016226b1cc3a49cb4d6737045b1982f4016a7b237e4c37330ac0",
+            "file": "the-captains-quiet-match-a2-pt-br/audio/too-many-words.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:53.291982+00:00",
+            "durationMs": 24254
+          },
+          "visual": {
+            "id": "48e91967-417a-4e14-ba72-b429866acd23",
+            "sha256": "a903751f85b04e0e254dc79d82b19c1ecc9a2ec5250e25d37d40df500fa3cf9c",
+            "file": "the-captains-quiet-match-a2-pt-br/animations/too-many-words.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:53.822382+00:00"
+          }
+        },
+        "one-arrow": {
+          "audio": {
+            "id": "a7e8e90a-c29d-40ca-905f-e08b4bee0341",
+            "sha256": "e0856c529316a950023eb55c7ba3f1deb9ff27dad022655c398d75e9383b4d11",
+            "file": "the-captains-quiet-match-a2-pt-br/audio/one-arrow.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:55.085585+00:00",
+            "durationMs": 25368
+          },
+          "visual": {
+            "id": "fceca48a-548c-4cf2-b150-2b6c22f5c6ac",
+            "sha256": "134b7a1a021d49d8fc4abdb11f8a0f4dd970f88b450da875ba3bc103704abc8f",
+            "file": "the-captains-quiet-match-a2-pt-br/animations/one-arrow.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:55.630511+00:00"
+          }
+        },
+        "captains-choice": {
+          "audio": {
+            "id": "7b14dc70-5875-4152-bd44-7fd3580c1394",
+            "sha256": "8d4ab4efe1ff80fdb530a87094512f5e0954ad57137d73666990cd4d71281349",
+            "file": "the-captains-quiet-match-a2-pt-br/audio/captains-choice.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:56.881750+00:00",
+            "durationMs": 23464
+          },
+          "visual": {
+            "id": "f6ae79d8-ad09-4a3d-9fec-b2634ad4d8a3",
+            "sha256": "fdd0ceb0fb1aa927cb551cf35ed80cfa11435306fb9fc7d8303d9229fc2943ad",
+            "file": "the-captains-quiet-match-a2-pt-br/animations/captains-choice.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:57.427994+00:00"
+          }
+        },
+        "short-calls": {
+          "audio": {
+            "id": "48fd0495-1f6b-459b-a523-ab3587db5746",
+            "sha256": "5b01aa6235fdb382741f395f84640baa03dcf4106fa640becef12cf6ef1376c5",
+            "file": "the-captains-quiet-match-a2-pt-br/audio/short-calls.wav",
+            "verifiedAtUtc": "2026-11-09T04:07:58.654067+00:00",
+            "durationMs": 25705
+          },
+          "visual": {
+            "id": "047d9a4c-50dc-464c-9df6-e2658f975c89",
+            "sha256": "af2c0156aaf54f7c000982015fceb8c3924acc02e5f18e7d60aba35000e8fc34",
+            "file": "the-captains-quiet-match-a2-pt-br/animations/short-calls.gif",
+            "verifiedAtUtc": "2026-11-09T04:07:59.255127+00:00"
+          }
+        },
+        "junes-plan": {
+          "audio": {
+            "id": "41b4ed92-87d2-424a-bb2e-913cc60acba0",
+            "sha256": "376e9b0c02f3d99709b9a1fb151ae3186dab3b26e0fd48f1deab317cf825677c",
+            "file": "the-captains-quiet-match-a2-pt-br/audio/junes-plan.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:00.484544+00:00",
+            "durationMs": 26471
+          },
+          "visual": {
+            "id": "cd76c370-0e73-4e4a-999a-b6a33be7e95a",
+            "sha256": "265796ceda9ac50e2609d5718eb4e4478b90a79a2ac147e165b9d331648293a7",
+            "file": "the-captains-quiet-match-a2-pt-br/animations/junes-plan.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:01.076785+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "055f271679ca977a3da318c91fa5c19a0544703f214266d4e1c6eac8603bb289",
+      "verifiedAtUtc": "2026-11-09T04:08:01.263637+00:00"
+    },
+    "the-empty-frame-a2-pt-br": {
+      "versionId": "c808fc85-0c91-4870-ac42-224d5645a1e8",
+      "scenes": {
+        "gallery-morning": {
+          "audio": {
+            "id": "925019ad-1841-4183-90d2-b00e476a2561",
+            "sha256": "e810e68eab0d7b32e84a9e8384969a249fc1c0547ac956371af68650342712bf",
+            "file": "the-empty-frame-a2-pt-br/audio/gallery-morning.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:03.547234+00:00",
+            "durationMs": 23302
+          },
+          "visual": {
+            "id": "34879827-d62e-4719-be12-5dc541114b75",
+            "sha256": "19b5298a8d6da0bd98e00f3bdc25781aa18e4ac89a3d1705c6e517851b6d20ef",
+            "file": "the-empty-frame-a2-pt-br/animations/gallery-morning.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:04.129864+00:00"
+          }
+        },
+        "restoration-log": {
+          "audio": {
+            "id": "ec2b578e-8512-433b-a4fa-233c2fcbfa73",
+            "sha256": "4984c0add5eb321fac03f2a1399035e535a09a0ef8fbbb2e6e6f21ce7438d805",
+            "file": "the-empty-frame-a2-pt-br/audio/restoration-log.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:05.505154+00:00",
+            "durationMs": 24672
+          },
+          "visual": {
+            "id": "fc078d49-dbb8-4961-85ed-ccec224cab0f",
+            "sha256": "1aad9b2645d4ee1d86946e61c9a3f9768dfa21f6aa7be250784fa0d5b03ee766",
+            "file": "the-empty-frame-a2-pt-br/animations/restoration-log.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:06.026210+00:00"
+          }
+        },
+        "two-checks": {
+          "audio": {
+            "id": "b23b9ad0-e263-4dd1-92dc-46a866a62874",
+            "sha256": "6f4dd1b92e6e97ecc07c07bb9bb2da27745d0e8392ee227d2ed23bcfd2039e0b",
+            "file": "the-empty-frame-a2-pt-br/audio/two-checks.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:07.239072+00:00",
+            "durationMs": 26088
+          },
+          "visual": {
+            "id": "7073fd9d-d2a1-4097-a845-4e1a039178a9",
+            "sha256": "6e1c2154d982d66017eafb579ecc33a38c4af49123dfd76d5b13016a21886cef",
+            "file": "the-empty-frame-a2-pt-br/animations/two-checks.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:07.803450+00:00"
+          }
+        },
+        "restorer-explanation": {
+          "audio": {
+            "id": "ad82106d-e713-4ed0-afae-d7797780ee6d",
+            "sha256": "354441bfbef2822d5bcedda0808dfe301f8fc47801fc1715bf257c7d84d6c487",
+            "file": "the-empty-frame-a2-pt-br/audio/restorer-explanation.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:09.003463+00:00",
+            "durationMs": 24405
+          },
+          "visual": {
+            "id": "ae1e53de-18ab-4f2c-8bcd-3b7dd4e54409",
+            "sha256": "559194d33a8962bb6d388232774d6f0f1e1748845d568eb28c92bf65d4085446",
+            "file": "the-empty-frame-a2-pt-br/animations/restorer-explanation.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:09.652598+00:00"
+          }
+        },
+        "attic-storage": {
+          "audio": {
+            "id": "430a702b-08f7-4c24-8293-da7ddb77ba6d",
+            "sha256": "e7a843f59b9bec69ab2c289fd8ed08c2ae9aa7e4067f7b91d89f8b580aea9e35",
+            "file": "the-empty-frame-a2-pt-br/audio/attic-storage.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:10.863194+00:00",
+            "durationMs": 24370
+          },
+          "visual": {
+            "id": "a976a04a-bd4b-4138-b85f-c44358e55b10",
+            "sha256": "0fdb5c6f1d58afbee5a122dbd6c6c2d890575746603e351c0b77b7529cf5492e",
+            "file": "the-empty-frame-a2-pt-br/animations/attic-storage.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:11.478399+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "0c7b1134eaae740b99e5d0df35d406fbbf92c0d2dc819ca4f0580aaae3d2ee24",
+      "verifiedAtUtc": "2026-11-09T04:08:11.603322+00:00"
+    },
+    "the-garden-robot-a1-pt-br": {
+      "versionId": "55d01953-1adb-44a4-9f19-fc1ddbe1120d",
+      "scenes": {
+        "greenhouse-door": {
+          "audio": {
+            "id": "55d1d753-76ba-4cf6-8e55-3fa8a2044c2b",
+            "sha256": "f48dce3fede18a7282e744044ff65f64e0d8a2f4feaf6f0f04b53deaa82e26eb",
+            "file": "the-garden-robot-a1-pt-br/audio/greenhouse-door.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:13.239957+00:00",
+            "durationMs": 18530
+          },
+          "visual": {
+            "id": "fab4951b-a64a-4c09-bf05-b6a3afac595a",
+            "sha256": "f932e957c766b7bb2046c9894d32a94925814d76326c76aa80b6ff2ee24c87f8",
+            "file": "the-garden-robot-a1-pt-br/animations/greenhouse-door.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:13.785448+00:00"
+          }
+        },
+        "open-panel": {
+          "audio": {
+            "id": "643b2af4-deb3-49ce-bda0-338471fafc52",
+            "sha256": "e0602135a279c15e3d92febd732c5de54e1b3eccbf940b0a13629de8242e9ea0",
+            "file": "the-garden-robot-a1-pt-br/audio/open-panel.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:14.961452+00:00",
+            "durationMs": 20457
+          },
+          "visual": {
+            "id": "04962ae0-3090-4982-a17a-6c0ecab1de6c",
+            "sha256": "1dcf5e44c6db2d60f47d70a8df138dfbd35d259a6b609878b4d92480a5bd0338",
+            "file": "the-garden-robot-a1-pt-br/animations/open-panel.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:15.572709+00:00"
+          }
+        },
+        "delivery-choice": {
+          "audio": {
+            "id": "0741016f-3e2a-44a2-96d9-d56978d53b89",
+            "sha256": "ff90c0e48e95d684c883478bf2ab320fb42a96c0220a5133a1d683d9274ecfc7",
+            "file": "the-garden-robot-a1-pt-br/audio/delivery-choice.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:16.810067+00:00",
+            "durationMs": 16173
+          },
+          "visual": {
+            "id": "a0de1e2d-66d9-45ad-85d3-0f30edae36fe",
+            "sha256": "39d2536ee86221b0f5d71ec99f677ca48f438acd1e55da77eed3b9626e2cabf7",
+            "file": "the-garden-robot-a1-pt-br/animations/delivery-choice.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:17.350079+00:00"
+          }
+        },
+        "voice-again": {
+          "audio": {
+            "id": "afc8f814-2a87-49c6-b63d-7fcc1f6753ed",
+            "sha256": "b42239165d7d63b9b2e060b98a8fe2c3fd16bc483de0a4c6b03ccb481bd9622d",
+            "file": "the-garden-robot-a1-pt-br/audio/voice-again.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:18.528982+00:00",
+            "durationMs": 18054
+          },
+          "visual": {
+            "id": "c234c5b9-6bdd-4ca1-95a9-76d20a4bc9c2",
+            "sha256": "77faa8e91f57977afdfbfdbbded3bf761db6530a16ba4d6e62f7ce7615a0463a",
+            "file": "the-garden-robot-a1-pt-br/animations/voice-again.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:19.091427+00:00"
+          }
+        },
+        "quiet-team": {
+          "audio": {
+            "id": "d0558e3f-a967-473b-8efe-2bd685908ea8",
+            "sha256": "d3bea86171ceb81aecf627e7c6ecb503faeed582442cd83ba10f667732b69fb9",
+            "file": "the-garden-robot-a1-pt-br/audio/quiet-team.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:20.299177+00:00",
+            "durationMs": 18704
+          },
+          "visual": {
+            "id": "eea25593-62bd-4fa1-af47-2c797d1db54c",
+            "sha256": "f5b5a5f16edb569a6a7b6129e9544d88effb94d7ad2b25ba02ff805e1a035fe7",
+            "file": "the-garden-robot-a1-pt-br/animations/quiet-team.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:20.858225+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "52c0cd77e44f7743172291e41bb864de0d4fb21ed517ba89ef4366ad90d51488",
+      "verifiedAtUtc": "2026-11-09T04:08:20.982858+00:00"
+    },
+    "the-green-ribbon-a2-pt-br": {
+      "versionId": "474849bf-d9cd-4917-8eb6-c99405dc970e",
+      "scenes": {
+        "quiet-room": {
+          "audio": {
+            "id": "032ad935-6ada-4c83-b8da-a0a8c6a43dee",
+            "sha256": "876a5f7429f61ca2096ebf99016d74b7de8dc16b3d31ebf235c632b81d7793bb",
+            "file": "the-green-ribbon-a2-pt-br/audio/quiet-room.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:22.626372+00:00",
+            "durationMs": 21688
+          },
+          "visual": {
+            "id": "d4f1025a-fac7-414f-b17e-911faceb7c03",
+            "sha256": "a3510007c22c5ff2a51a281951827a06ff258bb2220f12d2b98be20fdcfbb616",
+            "file": "the-green-ribbon-a2-pt-br/animations/quiet-room.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:23.119281+00:00"
+          }
+        },
+        "radio-hall": {
+          "audio": {
+            "id": "95385c93-fd0f-4a20-9691-489959fb1edd",
+            "sha256": "9b15d3306bd12b17fa9fd783ab53001b334fc0e49198b139b9eb1738a5ee2d9f",
+            "file": "the-green-ribbon-a2-pt-br/audio/radio-hall.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:24.306678+00:00",
+            "durationMs": 22652
+          },
+          "visual": {
+            "id": "477ebc78-2528-470a-8a65-8bfeee5a4c66",
+            "sha256": "c3572fcf074422c43d73ab9ba74b1ee409e55fbb4e9141bb45e95c730d7ad44f",
+            "file": "the-green-ribbon-a2-pt-br/animations/radio-hall.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:24.843841+00:00"
+          }
+        },
+        "garden-rescue": {
+          "audio": {
+            "id": "9617d144-cf9c-41f2-98d7-e99e0de3a538",
+            "sha256": "635db0516dc6ad49b0dde773727a759c23b82a4bc58336fdb06ee91143412165",
+            "file": "the-green-ribbon-a2-pt-br/audio/garden-rescue.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:26.062973+00:00",
+            "durationMs": 24440
+          },
+          "visual": {
+            "id": "43e28a7f-c0e9-4587-82a8-9c902b9ad25e",
+            "sha256": "028c70ec40ab818b3f2402dd91aa7568aafd0c52860a08907ffcb756d8116433",
+            "file": "the-green-ribbon-a2-pt-br/animations/garden-rescue.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:26.555940+00:00"
+          }
+        },
+        "roof-signal": {
+          "audio": {
+            "id": "9597f767-3524-48fa-82e3-b9ec52fb4082",
+            "sha256": "8338022db62415423f755333271d64de3d5ec30d3379d8d40fef2eb86040f376",
+            "file": "the-green-ribbon-a2-pt-br/audio/roof-signal.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:27.792124+00:00",
+            "durationMs": 23255
+          },
+          "visual": {
+            "id": "dae5a863-8652-47df-a519-6943624491d5",
+            "sha256": "b4b76f94747768a9da3a996d01187728daecadc12e3213dcb48d20ddb5130aa1",
+            "file": "the-green-ribbon-a2-pt-br/animations/roof-signal.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:28.275791+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 8,
+      "publicationIssues": [],
+      "sourceSha256": "5ef79817f99e48594d8a1a79471215d614c65f145ee6b981ac182a0cc52cd853",
+      "verifiedAtUtc": "2026-11-09T04:08:28.403829+00:00"
+    },
+    "the-inventory-of-empty-rooms-b1-pt-br": {
+      "versionId": "a7e5835b-283b-4039-b03f-9d5fc545d87e",
+      "scenes": {
+        "inspection-kit": {
+          "audio": {
+            "id": "967b0521-13a9-429b-a45d-e515f66d2f37",
+            "sha256": "30e6b9464dd243cd234d859261d535050df60b554339ca1d01e824d6fba61d8b",
+            "file": "the-inventory-of-empty-rooms-b1-pt-br/audio/inspection-kit.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:30.224219+00:00",
+            "durationMs": 28712
+          },
+          "visual": {
+            "id": "a8fad582-a0da-44be-99cf-11e4772a4421",
+            "sha256": "0661e60feb02b453eb1ca304719c4d7909dd1fb007b0bd9520a2cc60a61af6c9",
+            "file": "the-inventory-of-empty-rooms-b1-pt-br/animations/inspection-kit.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:30.783168+00:00"
+          }
+        },
+        "six-empty-rooms": {
+          "audio": {
+            "id": "672035ac-5698-4b9f-aa9d-53ea509c54a1",
+            "sha256": "89d121e981cf0a77c32b3291f8a5d76379a840ac242e643f21143018e76139d0",
+            "file": "the-inventory-of-empty-rooms-b1-pt-br/audio/six-empty-rooms.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:32.118231+00:00",
+            "durationMs": 34192
+          },
+          "visual": {
+            "id": "3c8f7839-db7a-4208-be91-d9c6fca624eb",
+            "sha256": "02a25c6096b5441f668bd149a5f9488ccdfa4b677ad02eb2a074f87833817594",
+            "file": "the-inventory-of-empty-rooms-b1-pt-br/animations/six-empty-rooms.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:32.703174+00:00"
+          }
+        },
+        "her-name": {
+          "audio": {
+            "id": "c675b839-d49c-44ae-aa47-a1cd216c1d39",
+            "sha256": "0b1bc6b29cf46d2091bde6c87061361e546899248e912e198b453ff96b7d40c5",
+            "file": "the-inventory-of-empty-rooms-b1-pt-br/audio/her-name.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:33.958558+00:00",
+            "durationMs": 31475
+          },
+          "visual": {
+            "id": "ec85c021-fd4f-482f-b647-7868dcf11412",
+            "sha256": "611ee830431a6875021ffa4958cd79d25dbed6ec7abab2eb0d0da50e3cd98fd4",
+            "file": "the-inventory-of-empty-rooms-b1-pt-br/animations/her-name.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:34.578981+00:00"
+          }
+        },
+        "ledger-outside": {
+          "audio": {
+            "id": "991e7a70-6081-4c50-953e-8ba06c637ae7",
+            "sha256": "2c7f2bb4670c87b32ed09c03b6e6dcf80a82ad60d13066891f4341a0b62b3089",
+            "file": "the-inventory-of-empty-rooms-b1-pt-br/audio/ledger-outside.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:35.790906+00:00",
+            "durationMs": 29687
+          },
+          "visual": {
+            "id": "a1aaac76-1e0e-4d72-8563-42f017afef1f",
+            "sha256": "23e1c5ba110a4c252abe9aa8f32ba8fc1c60258ee47e1a9366eedad117f33623",
+            "file": "the-inventory-of-empty-rooms-b1-pt-br/animations/ledger-outside.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:36.391552+00:00"
+          }
+        },
+        "survey-only": {
+          "audio": {
+            "id": "426ee462-145b-4af0-9b45-c75c268581c2",
+            "sha256": "d9d7fecffb1540af1c4a34d3d46f6fe4544a697108fc07135f8a5b38471cf3ff",
+            "file": "the-inventory-of-empty-rooms-b1-pt-br/audio/survey-only.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:37.616515+00:00",
+            "durationMs": 31556
+          },
+          "visual": {
+            "id": "a36ba72b-08e8-4805-8376-a533ac46f79f",
+            "sha256": "375cce02efa9d284f60cbf1d495009227388054fa547f689b3e104fb45a26e77",
+            "file": "the-inventory-of-empty-rooms-b1-pt-br/animations/survey-only.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:38.231473+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "0f12843879bd0f93b42148a58f938a060a70576c692b4d80e0c6d9ab02f9ff07",
+      "verifiedAtUtc": "2026-11-09T04:08:38.351445+00:00"
+    },
+    "the-lantern-walk-a1-pt-br": {
+      "versionId": "324bd49e-970a-45bc-b90c-df3827b9cba3",
+      "scenes": {
+        "park-entrance": {
+          "audio": {
+            "id": "7ca2c85f-f814-43fa-8d6b-36bc7e15908b",
+            "sha256": "071f454722fc5dea7b2ce455616a7c832f9ce4d55ffece2c025b1df4b735984f",
+            "file": "the-lantern-walk-a1-pt-br/audio/park-entrance.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:39.974026+00:00",
+            "durationMs": 16928
+          },
+          "visual": {
+            "id": "badedc08-8a84-4eb1-9b1a-784ad06fa7f4",
+            "sha256": "e155aee5edcd37da03a93df2adec4614927cf7f5e792dd774763adecf043c23f",
+            "file": "the-lantern-walk-a1-pt-br/animations/park-entrance.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:40.488397+00:00"
+          }
+        },
+        "map-paths": {
+          "audio": {
+            "id": "3a1003ae-0c7d-4459-ab9a-f89af1e81a85",
+            "sha256": "18c4e88a480094ec1d312c91c83b7ca9a424893d912141bc0183dffaf728bffe",
+            "file": "the-lantern-walk-a1-pt-br/audio/map-paths.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:41.629629+00:00",
+            "durationMs": 16951
+          },
+          "visual": {
+            "id": "82cb6481-5b73-4ef6-9127-703ac63230fc",
+            "sha256": "321710314d014d5cb15dbfafeda6524ca188e6b52ad89b4722555af78d4d2db1",
+            "file": "the-lantern-walk-a1-pt-br/animations/map-paths.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:42.261675+00:00"
+          }
+        },
+        "people-on-paths": {
+          "audio": {
+            "id": "098b4d30-06ff-4899-af14-7aab5735106a",
+            "sha256": "f4e7a58924be934696e36d0595e020d320831dce55fe29f45055aa3c29e4817e",
+            "file": "the-lantern-walk-a1-pt-br/audio/people-on-paths.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:43.442206+00:00",
+            "durationMs": 15628
+          },
+          "visual": {
+            "id": "0a3e89b0-4ea1-4410-bf43-c1ae8e59689a",
+            "sha256": "a8b68d2958d54fa78a14f0cc94bb18fd068b23e565accd3e7395fb24cef9d300",
+            "file": "the-lantern-walk-a1-pt-br/animations/people-on-paths.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:43.988990+00:00"
+          }
+        },
+        "picnic-table": {
+          "audio": {
+            "id": "cfffd3f2-c035-4345-ab01-b1817cd1cf4b",
+            "sha256": "afcdbbbb050097bc195117cc11fa6a1cc98db0b5567168217f627626b8c8ca14",
+            "file": "the-lantern-walk-a1-pt-br/audio/picnic-table.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:45.167806+00:00",
+            "durationMs": 18008
+          },
+          "visual": {
+            "id": "ceff0a1e-cb19-4d35-a602-4dfd47f28b8c",
+            "sha256": "dc02ec038e5d5e740240d2f5fc42d00c8c9a5b4d244408aaaa264f8f4c4d6315",
+            "file": "the-lantern-walk-a1-pt-br/animations/picnic-table.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:45.844730+00:00"
+          }
+        },
+        "picnic-stage": {
+          "audio": {
+            "id": "2f61c928-ed5c-42e8-a040-1b10b6d6b069",
+            "sha256": "e3e2baf88428ab05258ebed408f12f2e05f4086f6df5c3c6044ae3c3daaecd9b",
+            "file": "the-lantern-walk-a1-pt-br/audio/picnic-stage.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:47.084569+00:00",
+            "durationMs": 18217
+          },
+          "visual": {
+            "id": "6add196e-a64c-4c4a-8b3d-38d89e857872",
+            "sha256": "64f583203c12fb4bdb6831bf498efe707d4f371b9da0b6a0d1c9d6035672776f",
+            "file": "the-lantern-walk-a1-pt-br/animations/picnic-stage.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:47.661053+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "08558ac7503f38ed07b18211332ea3e9c8b242f171daf7f16dcddf060122c6af",
+      "verifiedAtUtc": "2026-11-09T04:08:47.789628+00:00"
+    },
+    "the-last-shift-a2-pt-br": {
+      "versionId": "effe6a42-6b17-447a-9cf4-f8e5b66698fd",
+      "scenes": {
+        "warm-cup": {
+          "audio": {
+            "id": "584ef274-0563-401d-8861-0d22e89968a7",
+            "sha256": "8517b3a0d1a4f10a0f62c4ed8398db2dcb6a2499ed0234a7e032a43a84a4b2f1",
+            "file": "the-last-shift-a2-pt-br/audio/warm-cup.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:49.473159+00:00",
+            "durationMs": 27168
+          },
+          "visual": {
+            "id": "6c612c6b-6b3e-47d1-a88a-c7faf6ec8d4e",
+            "sha256": "7d123d4000f6f2aac27ab2a725b0b1518afbe1a217b6110ab2c45077453036c2",
+            "file": "the-last-shift-a2-pt-br/animations/warm-cup.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:50.428923+00:00"
+          }
+        },
+        "radio-desk": {
+          "audio": {
+            "id": "0f1e8092-1b8b-49a4-bc98-9272f0364f28",
+            "sha256": "56bfc558db2086181276bdd894028e0d7ca7d0e2701b1dbffd89b8b3d275fdff",
+            "file": "the-last-shift-a2-pt-br/audio/radio-desk.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:51.632192+00:00",
+            "durationMs": 26518
+          },
+          "visual": {
+            "id": "07100263-2985-41fd-89a5-5ddba923c81d",
+            "sha256": "8b71366ca41027c4b1aac921a62d244681310df216279b5c060ca0095a200d95",
+            "file": "the-last-shift-a2-pt-br/animations/radio-desk.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:52.496584+00:00"
+          }
+        },
+        "empty-gate": {
+          "audio": {
+            "id": "1d6599cc-0d72-43eb-85b7-cde24bc867d2",
+            "sha256": "20b54f0fe267f884921adc3fa1041d79af34200946e59442e4d1b346c7470229",
+            "file": "the-last-shift-a2-pt-br/audio/empty-gate.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:53.709939+00:00",
+            "durationMs": 25868
+          },
+          "visual": {
+            "id": "296bac56-c767-43cc-a647-f6d646217f07",
+            "sha256": "4fa20fd8d6af531486d9e6826b169470b13542905192767ade030e0d99fb783b",
+            "file": "the-last-shift-a2-pt-br/animations/empty-gate.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:54.884069+00:00"
+          }
+        },
+        "roof-lights": {
+          "audio": {
+            "id": "e5bb4689-dbfc-467d-b10a-2c3c2290116b",
+            "sha256": "efb3f5a36f73d4fbe7e989912ebb558cccb5d1a87453419e55e4a41270cb1cea",
+            "file": "the-last-shift-a2-pt-br/audio/roof-lights.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:56.114892+00:00",
+            "durationMs": 28120
+          },
+          "visual": {
+            "id": "5fe471dc-3a68-46ff-b10d-23b9a529581b",
+            "sha256": "ea14617d6dd1739ef4ce73aeaae2e6f35f19c4fa907d0811f46ef4cea1e56040",
+            "file": "the-last-shift-a2-pt-br/animations/roof-lights.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:57.041130+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 8,
+      "publicationIssues": [],
+      "sourceSha256": "91845476522384bd78d6305064f4b766ae59102a3deaa610b39df27877242893",
+      "verifiedAtUtc": "2026-11-09T04:08:57.195290+00:00"
+    },
+    "the-lighthouse-beyond-earth-b1-pt-br": {
+      "versionId": "17ada93c-5925-4654-8ff5-e42bb54f9084",
+      "scenes": {
+        "outpost-shift": {
+          "audio": {
+            "id": "1fe83b4f-4ac0-4914-81a9-5653d4a13b3d",
+            "sha256": "14b20a7797836f332724b806fe2a96185172b5f750d608d93520541e81e778c9",
+            "file": "the-lighthouse-beyond-earth-b1-pt-br/audio/outpost-shift.wav",
+            "verifiedAtUtc": "2026-11-09T04:08:59.294787+00:00",
+            "durationMs": 33089
+          },
+          "visual": {
+            "id": "31f307d9-a166-48d5-9ce8-f7510a0b9142",
+            "sha256": "7ca1e89b8b6f66b78a1eecad4de4441cc66a79b391005ad4f191496f4be21cf0",
+            "file": "the-lighthouse-beyond-earth-b1-pt-br/animations/outpost-shift.gif",
+            "verifiedAtUtc": "2026-11-09T04:08:59.897700+00:00"
+          }
+        },
+        "an-answering-pause": {
+          "audio": {
+            "id": "3ff4d195-696d-4b76-ae37-850de3971eed",
+            "sha256": "e4e2627d80d79d753c6fb984e0d2a8cf3da39b1454524b19e8591df880b0aec7",
+            "file": "the-lighthouse-beyond-earth-b1-pt-br/audio/an-answering-pause.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:01.174510+00:00",
+            "durationMs": 31916
+          },
+          "visual": {
+            "id": "d4792b38-a5bd-4d52-82ad-80475b926ad3",
+            "sha256": "5a7a080299c4553b3233577f76098cb846e0dd53d816fed52be3382ab9894e88",
+            "file": "the-lighthouse-beyond-earth-b1-pt-br/animations/an-answering-pause.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:01.726393+00:00"
+          }
+        },
+        "choosing-a-language": {
+          "audio": {
+            "id": "40477b44-68eb-4fb2-806f-1b08c4012b99",
+            "sha256": "f710776cbda5d8a883b015cd2069c8ba3aa923193ca7da99f58f9a68e7cfe8c8",
+            "file": "the-lighthouse-beyond-earth-b1-pt-br/audio/choosing-a-language.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:03.156056+00:00",
+            "durationMs": 31638
+          },
+          "visual": {
+            "id": "13a365a6-20ae-4d2d-a020-40838082a9b7",
+            "sha256": "45b6f00182f3926ae47528eb1a1efff0127a95e4f8098fafd01cac283083a125",
+            "file": "the-lighthouse-beyond-earth-b1-pt-br/animations/choosing-a-language.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:03.716293+00:00"
+          }
+        },
+        "spoken-reply": {
+          "audio": {
+            "id": "eae230b8-72a7-4088-ba3f-3791ec8a6bb7",
+            "sha256": "eac0aa64447ee08c8f0a509ecb0ecb017b226f6e0f869fbded4e8402842eb6f8",
+            "file": "the-lighthouse-beyond-earth-b1-pt-br/audio/spoken-reply.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:05.119368+00:00",
+            "durationMs": 35980
+          },
+          "visual": {
+            "id": "97793dea-113e-487e-b162-e8ee7f8d066f",
+            "sha256": "358917d7116d99e64860c5fe7cbde080bc526d38e179a8c6bdd2acd7343190f0",
+            "file": "the-lighthouse-beyond-earth-b1-pt-br/animations/spoken-reply.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:05.676469+00:00"
+          }
+        },
+        "pulse-reply": {
+          "audio": {
+            "id": "a583de79-3303-4077-a091-e97701246b89",
+            "sha256": "267af3ba460d35e6ec5f9252c58332d51820eeece6a1c1669fa49bd64fb9d90f",
+            "file": "the-lighthouse-beyond-earth-b1-pt-br/audio/pulse-reply.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:06.970666+00:00",
+            "durationMs": 33333
+          },
+          "visual": {
+            "id": "4568b941-9243-4641-9847-f634a23bd719",
+            "sha256": "ccb194bf1b004d1286f153f895e3a5ea7f58e6a748c01278e5af3189751ebecb",
+            "file": "the-lighthouse-beyond-earth-b1-pt-br/animations/pulse-reply.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:07.487816+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "f3c3896c5300a0736dfa2277955a15d2be5c743e27187ca6d4afa44db94510ec",
+      "verifiedAtUtc": "2026-11-09T04:09:07.615405+00:00"
+    },
+    "the-listening-booth-a2-pt-br": {
+      "versionId": "a5b9354f-ef12-4d42-9813-d48f564b07e9",
+      "scenes": {
+        "archive-visit": {
+          "audio": {
+            "id": "98523ab2-713c-4e18-956a-5434112bb774",
+            "sha256": "adb9be3608d562592db8415c38e65e425a037dcc8b97e452e021880764151b00",
+            "file": "the-listening-booth-a2-pt-br/audio/archive-visit.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:09.346722+00:00",
+            "durationMs": 23824
+          },
+          "visual": {
+            "id": "f4a46ec9-931c-4691-9aed-cfdb9b4b6bf0",
+            "sha256": "8a26afbedde5c9fbb29387ad8230e0504d77e259e4e9862d44865f130f20f017",
+            "file": "the-listening-booth-a2-pt-br/animations/archive-visit.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:09.936042+00:00"
+          }
+        },
+        "unfamiliar-voice": {
+          "audio": {
+            "id": "e2fbdb9c-dc2c-46e2-a9e9-3e854318cf26",
+            "sha256": "30f163a77a56f6647a9ebd239a2f8daf7dc64aba687994bf529b9ce2fec859db",
+            "file": "the-listening-booth-a2-pt-br/audio/unfamiliar-voice.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:11.183425+00:00",
+            "durationMs": 24103
+          },
+          "visual": {
+            "id": "5d54385d-19cc-46a5-8e39-9e1117081c9b",
+            "sha256": "58cc1f39f5c6484235c0fb99d5db9a1f2323065f484db8ebcea938c86191cb0f",
+            "file": "the-listening-booth-a2-pt-br/animations/unfamiliar-voice.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:11.808366+00:00"
+          }
+        },
+        "copying-choice": {
+          "audio": {
+            "id": "a346a526-f867-439c-9914-932dd6afb534",
+            "sha256": "9cae4844323274c33be54734e049ceb6193eb4c61573f592538fd0d6f948e855",
+            "file": "the-listening-booth-a2-pt-br/audio/copying-choice.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:13.027454+00:00",
+            "durationMs": 22756
+          },
+          "visual": {
+            "id": "d73e4222-38a1-48d2-a3e9-d8a54aba0da3",
+            "sha256": "6513b913a76fa8261ba7d1cbe663e586f3f19a537c948c7adb34c516a1e7f52c",
+            "file": "the-listening-booth-a2-pt-br/animations/copying-choice.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:13.669371+00:00"
+          }
+        },
+        "full-recording": {
+          "audio": {
+            "id": "782363bf-7910-4800-869c-047154d1b424",
+            "sha256": "95578e0d98c7e6bc6f1b9058e8bfaac0b68676b395842f1682d68c8443a21327",
+            "file": "the-listening-booth-a2-pt-br/audio/full-recording.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:14.870073+00:00",
+            "durationMs": 26390
+          },
+          "visual": {
+            "id": "ecd20269-2a98-4b84-926f-8a915bcb105d",
+            "sha256": "7003a082b9f2398528448f9a5c1c8be7b20301b643adcccab3f97d1fbc575a7a",
+            "file": "the-listening-booth-a2-pt-br/animations/full-recording.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:15.468001+00:00"
+          }
+        },
+        "fathers-message": {
+          "audio": {
+            "id": "211a2347-b898-453c-ace9-3846b65283cb",
+            "sha256": "488cfdf378cde50d2ded64db61cbb4411a62da15882add94e3f5660a5b8af10d",
+            "file": "the-listening-booth-a2-pt-br/audio/fathers-message.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:16.652529+00:00",
+            "durationMs": 22535
+          },
+          "visual": {
+            "id": "82d56f18-f163-4f09-9a9c-8ddfd0228c1c",
+            "sha256": "e117968c9838d45b153ee0dd45d5acdec65ef1574e3c1b2856acf16f778cb6ab",
+            "file": "the-listening-booth-a2-pt-br/animations/fathers-message.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:17.240411+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "b7d8bce084faa3e4fd2b5438fa75cefc28d4f34248ea8ae786725f07238e8ffc",
+      "verifiedAtUtc": "2026-11-09T04:09:17.363490+00:00"
+    },
+    "the-mountain-post-b1-pt-br": {
+      "versionId": "415a1776-f9b2-4255-963d-5cd12efd2cd5",
+      "scenes": {
+        "last-collection": {
+          "audio": {
+            "id": "4fc38bab-7378-4f4e-8ddd-b13b9e31d11f",
+            "sha256": "3657d0144b0aa5c00f03bb770dccfc1f742da5565c6fcdcca4f163b68abd2e38",
+            "file": "the-mountain-post-b1-pt-br/audio/last-collection.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:19.018474+00:00",
+            "durationMs": 30210
+          },
+          "visual": {
+            "id": "f88bc2d8-cd8e-421e-be9b-a8fa6b0fdd1c",
+            "sha256": "8ce0c795de8a06226f446a82925ba7b0c28685cc688d8793da04849d06e12724",
+            "file": "the-mountain-post-b1-pt-br/animations/last-collection.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:19.840376+00:00"
+          }
+        },
+        "old-timetable": {
+          "audio": {
+            "id": "8a1facd1-7c63-4bbc-a855-4eba71163c68",
+            "sha256": "220effe22f2f29d9ff2bba0ce628adf6e5ce01f99534999ed91a6df0a308c21e",
+            "file": "the-mountain-post-b1-pt-br/audio/old-timetable.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:21.131936+00:00",
+            "durationMs": 31092
+          },
+          "visual": {
+            "id": "f3e5d305-9db4-43db-a8e6-2e03a086b81b",
+            "sha256": "fe76c58123601b2858f4189366c4d94febe27e8b2ad7788a50454bc1159cf552",
+            "file": "the-mountain-post-b1-pt-br/animations/old-timetable.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:21.658571+00:00"
+          }
+        },
+        "descent-choice": {
+          "audio": {
+            "id": "456f68e7-9b7c-4708-85b5-beb3936ca9c5",
+            "sha256": "8fe52e4f0c955ebda27f92b4726660f9ee3b47e6b59f06b06b6ce6c622ab6274",
+            "file": "the-mountain-post-b1-pt-br/audio/descent-choice.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:22.904521+00:00",
+            "durationMs": 28979
+          },
+          "visual": {
+            "id": "87d7a3ca-f1ec-4ea9-b9df-9b1ded8ab541",
+            "sha256": "2f68c2c65d8f5c553ddc893c6225301726237ec7933f498cdcae39a72312e9f4",
+            "file": "the-mountain-post-b1-pt-br/animations/descent-choice.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:23.489728+00:00"
+          }
+        },
+        "village-return": {
+          "audio": {
+            "id": "0f741166-99c7-495d-86cf-afd5404ab502",
+            "sha256": "a3513fd1e2a878fcc0e6c247d82c69b26d4720ad530e22c5cc64127045b42c89",
+            "file": "the-mountain-post-b1-pt-br/audio/village-return.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:24.755422+00:00",
+            "durationMs": 29699
+          },
+          "visual": {
+            "id": "86a9395c-68a0-47af-bdf2-8188fa9fe95f",
+            "sha256": "8c8503cd3c72e74572712332daaf67da43d88aa685ae11231fdca8eaf80c28cd",
+            "file": "the-mountain-post-b1-pt-br/animations/village-return.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:25.268399+00:00"
+          }
+        },
+        "farm-return": {
+          "audio": {
+            "id": "abfab25b-a7ba-48f6-95f8-cf473eba9f9a",
+            "sha256": "c268a818e44249582dca782092fded9a6a35ee291c79a103d15298b8e9d75d9f",
+            "file": "the-mountain-post-b1-pt-br/audio/farm-return.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:26.540992+00:00",
+            "durationMs": 30337
+          },
+          "visual": {
+            "id": "34ddbc73-29e2-46a1-b679-d76b2a4e84f6",
+            "sha256": "6265f00ab07f9bbb2ccf7c570d0042c3424007c15e0153432dc8a8859ef54536",
+            "file": "the-mountain-post-b1-pt-br/animations/farm-return.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:27.041183+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "5a320cb7d5f85aacb3fb59ae59e01a60c807944d76881b581c60b3f54617550d",
+      "verifiedAtUtc": "2026-11-09T04:09:27.172591+00:00"
+    },
+    "the-red-violin-case-a2-pt-br": {
+      "versionId": "334c0a40-17ec-418c-b70a-12873c65d3df",
+      "scenes": {
+        "ferry-delay": {
+          "audio": {
+            "id": "c6aadeb1-c9aa-4c1d-801c-f8f980f2bb6b",
+            "sha256": "0cfa3985e90eae3c5171bf788895f3f048730878104b6322da4300dc1f3194a5",
+            "file": "the-red-violin-case-a2-pt-br/audio/ferry-delay.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:28.889163+00:00",
+            "durationMs": 23987
+          },
+          "visual": {
+            "id": "64e83c5b-5280-45b1-aeb2-c6d2650f63df",
+            "sha256": "eda123c18e25885c084b61b6a2726afacb732d7e117bb4cccfaa5665914f251e",
+            "file": "the-red-violin-case-a2-pt-br/animations/ferry-delay.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:29.442535+00:00"
+          }
+        },
+        "other-crossings": {
+          "audio": {
+            "id": "c07f31e7-78b6-49e3-a428-53dde073dc70",
+            "sha256": "5ab3eafd7bf1973cd5e5faec530345c9d68c76c185fd416d726853800950c13d",
+            "file": "the-red-violin-case-a2-pt-br/audio/other-crossings.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:30.659797+00:00",
+            "durationMs": 24614
+          },
+          "visual": {
+            "id": "c37dd41c-cf17-4d8c-8ada-71e76089e2ad",
+            "sha256": "df7ea9b14e33d99842a2c0e577db94fdb62b5193bcd795663ede1000d43d2fcc",
+            "file": "the-red-violin-case-a2-pt-br/animations/other-crossings.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:31.243939+00:00"
+          }
+        },
+        "a-person-to-help": {
+          "audio": {
+            "id": "3ea9dfd1-3786-4c31-9210-7ad277870012",
+            "sha256": "bb63aac216cf2a731007346b125e0388b9e9501d8ac54533f91f34062f20d043",
+            "file": "the-red-violin-case-a2-pt-br/audio/a-person-to-help.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:32.480766+00:00",
+            "durationMs": 22338
+          },
+          "visual": {
+            "id": "253b89f4-132f-4024-9ee1-cf5f3b0a55d9",
+            "sha256": "686fe932695d457835db18f6cbbccb1818d28d0ccb077a9d57d561e178f37e16",
+            "file": "the-red-violin-case-a2-pt-br/animations/a-person-to-help.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:33.107188+00:00"
+          }
+        },
+        "bridge-story": {
+          "audio": {
+            "id": "3f116c15-fbab-4f38-ac88-a51040dab975",
+            "sha256": "fe99f5444449cc44aeb653265463eb6fc788bd9280f82e91589f3dec16508261",
+            "file": "the-red-violin-case-a2-pt-br/audio/bridge-story.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:34.317293+00:00",
+            "durationMs": 24672
+          },
+          "visual": {
+            "id": "7766768e-b4d4-4da4-b267-46c2ef51c318",
+            "sha256": "a155c7234c454d1150c434af833f35a315b9a9464e4aad1a7684050127b563f1",
+            "file": "the-red-violin-case-a2-pt-br/animations/bridge-story.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:34.818262+00:00"
+          }
+        },
+        "boat-arrival": {
+          "audio": {
+            "id": "0e07e671-e40a-47e2-8653-16ea70cc4e55",
+            "sha256": "b87b6cc7965df9a7dd452455288b47fe31bf833d69fd21ce1210ca8d6af1ed48",
+            "file": "the-red-violin-case-a2-pt-br/audio/boat-arrival.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:36.006645+00:00",
+            "durationMs": 23813
+          },
+          "visual": {
+            "id": "b6b88492-1867-4287-9d9c-5aa2dbbeeb38",
+            "sha256": "d04e01fba9094fbd890ce6f3e293a9311d10c9e05a43de622c388b46e3f8bf69",
+            "file": "the-red-violin-case-a2-pt-br/animations/boat-arrival.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:36.553758+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "1c6ae16ad3296e93f2ac18d4d33e2cf0e1feb8b85fdd41c298d7e731811e31ca",
+      "verifiedAtUtc": "2026-11-09T04:09:36.690408+00:00"
+    },
+    "the-second-cup-a1-pt-br": {
+      "versionId": "e43923e5-f209-41d8-823b-44ea609c9bb0",
+      "scenes": {
+        "closing-time": {
+          "audio": {
+            "id": "625a3116-c94e-4441-b59d-1d032172b8ea",
+            "sha256": "65972e242ca6140121b368142711dc35b0f8102769091fa1b8dbcf606978670a",
+            "file": "the-second-cup-a1-pt-br/audio/closing-time.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:38.343634+00:00",
+            "durationMs": 17404
+          },
+          "visual": {
+            "id": "ca92c9ec-a970-427c-b28c-20c4ba07db36",
+            "sha256": "182efcf245581795d2c03391440d2851e35004549fcc1962b904d10cbf05c9ea",
+            "file": "the-second-cup-a1-pt-br/animations/closing-time.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:38.865285+00:00"
+          }
+        },
+        "two-cups": {
+          "audio": {
+            "id": "d8246cd5-a22c-4eb7-ba24-085c68c8b5a2",
+            "sha256": "22e75c6cd10e36a52a2ff6ffe0891332de0a001d370e09806dc348471f0a3d7f",
+            "file": "the-second-cup-a1-pt-br/audio/two-cups.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:40.068344+00:00",
+            "durationMs": 19668
+          },
+          "visual": {
+            "id": "987a3046-9d2a-46b2-9396-ef8f6cdae8ee",
+            "sha256": "a214848e60f72b19a10516ebc18445eaf6a36ff12ee453ed4d7ceaac9c8e37f2",
+            "file": "the-second-cup-a1-pt-br/animations/two-cups.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:40.605430+00:00"
+          }
+        },
+        "two-exits": {
+          "audio": {
+            "id": "a9159092-7c2a-437d-9fb2-79cc2b565195",
+            "sha256": "023933412f8be1c10d17fe0c9bd434a1bc75d7699363f3ce40e5437df4bb5f7d",
+            "file": "the-second-cup-a1-pt-br/audio/two-exits.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:41.807152+00:00",
+            "durationMs": 18031
+          },
+          "visual": {
+            "id": "0b5ab3c7-7c57-46f3-8876-1a5fedc37e39",
+            "sha256": "a261c6ea26fe68177e2c6580474d5790cda9d4867b502a51d4e91c168aa092c0",
+            "file": "the-second-cup-a1-pt-br/animations/two-exits.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:42.310509+00:00"
+          }
+        },
+        "across-the-street": {
+          "audio": {
+            "id": "14ab94a3-b340-49b5-b973-50b0c94b7704",
+            "sha256": "720049ff8bb9fec840b0cb2096a60ec6a265d249351c46cc9e0d77ac6c3ff2e8",
+            "file": "the-second-cup-a1-pt-br/audio/across-the-street.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:43.507999+00:00",
+            "durationMs": 17195
+          },
+          "visual": {
+            "id": "0cd6632a-6e5e-4e15-98f6-135f8ff01d34",
+            "sha256": "61cf55d21b27199c7e575d75c97463099393d3944fbb1d3a18b6b6f34161c699",
+            "file": "the-second-cup-a1-pt-br/animations/across-the-street.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:44.134606+00:00"
+          }
+        },
+        "courtyard-exit": {
+          "audio": {
+            "id": "0ff8929c-6f9a-4787-997b-465c7121d449",
+            "sha256": "89019e9faf022a0c3dfbd3157f30371c573e11981dec966ac717c8087091dfeb",
+            "file": "the-second-cup-a1-pt-br/audio/courtyard-exit.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:45.347555+00:00",
+            "durationMs": 19064
+          },
+          "visual": {
+            "id": "f88a1ee7-afb5-4014-8b4c-ced21af3da01",
+            "sha256": "16c3c896e018310ef2f0b0ca26baa984981ea40ff442aa4dd94a3b8d15c5c3c2",
+            "file": "the-second-cup-a1-pt-br/animations/courtyard-exit.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:45.924684+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "300974b65900a8ae5dbc65160e4eeca48d5fe8a983b1068196cf8920a1ef2e18",
+      "verifiedAtUtc": "2026-11-09T04:09:46.230403+00:00"
+    },
+    "the-seed-that-remembered-rain-b1-pt-br": {
+      "versionId": "e8984787-c281-4779-a3e8-664868aafc5b",
+      "scenes": {
+        "silent-nursery": {
+          "audio": {
+            "id": "341c5138-e2ef-43cb-a7fa-9c99e3c63e8e",
+            "sha256": "321f7712d54a64d81bbbd324fca06fe4c74a44da6fdc6af3d992cb3e51b0ebd4",
+            "file": "the-seed-that-remembered-rain-b1-pt-br/audio/silent-nursery.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:48.024539+00:00",
+            "durationMs": 34320
+          },
+          "visual": {
+            "id": "4ba869d7-09f7-40f3-a9df-793f761fd869",
+            "sha256": "67731142f4479c38736293bd9445b686e2de4c37bc1a0599f215aeb403897825",
+            "file": "the-seed-that-remembered-rain-b1-pt-br/animations/silent-nursery.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:48.600839+00:00"
+          }
+        },
+        "careful-test": {
+          "audio": {
+            "id": "4eba3af9-d3f6-4681-a821-d4efb9728226",
+            "sha256": "c5e00cbd054f795d99ecb4c935d5a1b437c2b3505a6254f06124846265287626",
+            "file": "the-seed-that-remembered-rain-b1-pt-br/audio/careful-test.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:49.831110+00:00",
+            "durationMs": 36467
+          },
+          "visual": {
+            "id": "4ec7c12a-bf58-47d1-94f5-d6ee64f6f4d3",
+            "sha256": "43a89121dde1bf5c6fb2ab8f10606ebc80f0d4a44f5262e35e7339532627ff4f",
+            "file": "the-seed-that-remembered-rain-b1-pt-br/animations/careful-test.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:50.376439+00:00"
+          }
+        },
+        "two-proposals": {
+          "audio": {
+            "id": "7a78a1af-1e43-428a-83f3-0e63f10fc0b5",
+            "sha256": "2f6e79f576693c1865afec8f19661d3988ff4b2baba8aabd8685a0731ef97e22",
+            "file": "the-seed-that-remembered-rain-b1-pt-br/audio/two-proposals.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:51.692490+00:00",
+            "durationMs": 35225
+          },
+          "visual": {
+            "id": "432e657e-2b70-4908-8e7e-58cc6f829229",
+            "sha256": "2d0c3fbeb39de0d5d92c54adb665ca688d7180bfa1d52fc673859968e6e6c577",
+            "file": "the-seed-that-remembered-rain-b1-pt-br/animations/two-proposals.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:52.274613+00:00"
+          }
+        },
+        "archive-record": {
+          "audio": {
+            "id": "49d3100b-989a-4dae-8840-413b1e15535d",
+            "sha256": "f19ad013883a19be11dee0665730e4a84d280e4929c46998943e86ff47ea8772",
+            "file": "the-seed-that-remembered-rain-b1-pt-br/audio/archive-record.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:53.556706+00:00",
+            "durationMs": 34656
+          },
+          "visual": {
+            "id": "d93c55e5-6aaf-4241-a223-aa658dddde4e",
+            "sha256": "75c82384593327a01dd96ef383ff591de64f0648f44e435c0f3488ee9286eda0",
+            "file": "the-seed-that-remembered-rain-b1-pt-br/animations/archive-record.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:54.144455+00:00"
+          }
+        },
+        "greenhouse-trial": {
+          "audio": {
+            "id": "40bdca37-6fc7-40ca-bd48-cc26541c603d",
+            "sha256": "10914abf8432cf7331a036823d71ea2f73f6dc1d5f307d9f7fb08d7013f6271c",
+            "file": "the-seed-that-remembered-rain-b1-pt-br/audio/greenhouse-trial.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:55.448914+00:00",
+            "durationMs": 37594
+          },
+          "visual": {
+            "id": "9f5f2666-ee55-4a83-9abd-d020d3859f75",
+            "sha256": "6a8873772a7decefeafa24f1caf5d4e1b1e2cf794d2a742e92a88a96a28209aa",
+            "file": "the-seed-that-remembered-rain-b1-pt-br/animations/greenhouse-trial.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:56.019000+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "49695faef1444fc389a5078b47df1b258f9877a0d33b74ff83121df9f999ff00",
+      "verifiedAtUtc": "2026-11-09T04:09:56.136744+00:00"
+    },
+    "the-seventh-photograph-b1-pt-br": {
+      "versionId": "a2d6c893-a0e1-441f-9a17-66c8f8cd3912",
+      "scenes": {
+        "sorting-table": {
+          "audio": {
+            "id": "3a1d4095-0cc8-4009-9b94-b0e360900ed6",
+            "sha256": "e93ce3e7a9d4828135b66b2aea34ef866e83062f2d40feaee977d45ecd5eb810",
+            "file": "the-seventh-photograph-b1-pt-br/audio/sorting-table.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:57.962013+00:00",
+            "durationMs": 32485
+          },
+          "visual": {
+            "id": "f5969ef2-2c64-4ebe-a0cd-3a919536fac9",
+            "sha256": "d7bf1caee6ef2260ef5ca942769c6e9b05ec7ab2f30d499e92c88c4cb2db5e93",
+            "file": "the-seventh-photograph-b1-pt-br/animations/sorting-table.gif",
+            "verifiedAtUtc": "2026-11-09T04:09:58.574234+00:00"
+          }
+        },
+        "beam-and-ledger": {
+          "audio": {
+            "id": "71a13859-6d4e-4a35-97d7-2a642741f90a",
+            "sha256": "fe31d355192f0ea9c0507e498aafaea6c0d3b25c0cb37c638b2a89fe4e60dfe5",
+            "file": "the-seventh-photograph-b1-pt-br/audio/beam-and-ledger.wav",
+            "verifiedAtUtc": "2026-11-09T04:09:59.871286+00:00",
+            "durationMs": 31638
+          },
+          "visual": {
+            "id": "f10dbedc-4423-4d43-b37a-4bf1bb2dc8e5",
+            "sha256": "6cd11adc6a985b09da24d87948a4a4f36d07d13e11e933f46a5dfa6123210ce6",
+            "file": "the-seventh-photograph-b1-pt-br/animations/beam-and-ledger.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:00.442515+00:00"
+          }
+        },
+        "two-sources": {
+          "audio": {
+            "id": "eab936f4-fdb2-48a3-ba93-637108fd1c19",
+            "sha256": "a622f79e8a37fe240f97d15d2656c27a65c83027357d37fdda7f7000ddaf6c14",
+            "file": "the-seventh-photograph-b1-pt-br/audio/two-sources.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:01.805293+00:00",
+            "durationMs": 30047
+          },
+          "visual": {
+            "id": "4ad0d27d-4c39-4656-b57f-e7ddd8555c08",
+            "sha256": "04b5812e21a9fcea5f79cfb34af7c52b792ce733a78f6fc1c50d69311f8475d1",
+            "file": "the-seventh-photograph-b1-pt-br/animations/two-sources.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:02.657428+00:00"
+          }
+        },
+        "carpenters-account": {
+          "audio": {
+            "id": "4a88e99f-94f6-4c96-a6a1-862deb02337c",
+            "sha256": "867aa87f31b3e257c747fc17137a8571e67f14c9716bdab53dd93fd49b50e7e7",
+            "file": "the-seventh-photograph-b1-pt-br/audio/carpenters-account.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:04.281402+00:00",
+            "durationMs": 29722
+          },
+          "visual": {
+            "id": "8199d627-68ad-4545-af3e-8d2ed64f2e69",
+            "sha256": "34c3461473edc1249bc6b78bdf31c4fc2a454674f79e17ff7331cf460e33c42c",
+            "file": "the-seventh-photograph-b1-pt-br/animations/carpenters-account.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:05.245607+00:00"
+          }
+        },
+        "construction-records": {
+          "audio": {
+            "id": "481b88ab-6c12-48e0-a71d-c714e5dbba99",
+            "sha256": "003969b8ec674bc0e15cf1317b60fcb1b75cce2e26fd520831f5490aa75cd855",
+            "file": "the-seventh-photograph-b1-pt-br/audio/construction-records.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:06.696361+00:00",
+            "durationMs": 31452
+          },
+          "visual": {
+            "id": "2847718e-f572-4543-934f-34f7a7292c72",
+            "sha256": "70cfdee6fbaab9296a272a5a17f7efe662f1e24430f0e965e93c69137fb3b5e6",
+            "file": "the-seventh-photograph-b1-pt-br/animations/construction-records.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:07.369633+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "f5bf5cfdf91cb8a6b8e34228ce9e2c1dc95776029a30dedc12336d8893accbae",
+      "verifiedAtUtc": "2026-11-09T04:10:07.506062+00:00"
+    },
+    "the-tailor-of-the-turning-year-b1-pt-br": {
+      "versionId": "581010ff-d5d6-4454-90cb-00465a15e4f9",
+      "scenes": {
+        "unfinished-coat": {
+          "audio": {
+            "id": "f43ed585-5a8c-42da-8617-25b0ae6206f9",
+            "sha256": "1a2e5571b1545dafd38998fce384ee84c33aae64f977c70d936403ca54a07242",
+            "file": "the-tailor-of-the-turning-year-b1-pt-br/audio/unfinished-coat.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:09.350664+00:00",
+            "durationMs": 33228
+          },
+          "visual": {
+            "id": "5c4a27cd-ec2d-40d8-a894-c9426549541c",
+            "sha256": "8f538e7b3b2e9a2937722f316f28be066446b6db5be8dadbdb37b37978115eea",
+            "file": "the-tailor-of-the-turning-year-b1-pt-br/animations/unfinished-coat.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:09.865490+00:00"
+          }
+        },
+        "a-keepers-regret": {
+          "audio": {
+            "id": "9d74e141-17f4-4745-8b17-97da502f19ae",
+            "sha256": "a4ea6ff25fe47d7669c1de577eff93adf4b8c24e690b427bf401b0e6dfe97b35",
+            "file": "the-tailor-of-the-turning-year-b1-pt-br/audio/a-keepers-regret.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:11.157247+00:00",
+            "durationMs": 30871
+          },
+          "visual": {
+            "id": "f9b72e95-4156-4f23-b140-bff181920c62",
+            "sha256": "1deab85fd4a6a62c2b21c4893ed1a56db11602d9919c1ea80cf6cc4c13059968",
+            "file": "the-tailor-of-the-turning-year-b1-pt-br/animations/a-keepers-regret.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:11.705845+00:00"
+          }
+        },
+        "two-memories": {
+          "audio": {
+            "id": "06f80815-85cf-4733-baf7-03dee7f22d00",
+            "sha256": "552462916192a1e5e6c28ba17950e4f08a27b262cd6ed10093e75c469702a729",
+            "file": "the-tailor-of-the-turning-year-b1-pt-br/audio/two-memories.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:13.038143+00:00",
+            "durationMs": 34633
+          },
+          "visual": {
+            "id": "f6491bbb-c7a3-40ca-8fe2-c740290b492a",
+            "sha256": "d071909ce8c067fffe641a5d85d507b8d6103a5053683dfb4929f5a2cd5c1965",
+            "file": "the-tailor-of-the-turning-year-b1-pt-br/animations/two-memories.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:13.655397+00:00"
+          }
+        },
+        "snowflake-pocket": {
+          "audio": {
+            "id": "3034ee63-90a6-45fb-bd29-4ed2d858555d",
+            "sha256": "4c9c1e26e9201b28a07685d50919e67cb2ece0a5b6591367cf9f9a377058e426",
+            "file": "the-tailor-of-the-turning-year-b1-pt-br/audio/snowflake-pocket.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:14.903973+00:00",
+            "durationMs": 33437
+          },
+          "visual": {
+            "id": "d05af947-c31a-4030-99a4-88ae475e7972",
+            "sha256": "b1b72080e2be7d96ba2559faa572a33b0af375d6c0dbaa8c385c9a996cf85efe",
+            "file": "the-tailor-of-the-turning-year-b1-pt-br/animations/snowflake-pocket.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:15.458312+00:00"
+          }
+        },
+        "snowfall-pattern": {
+          "audio": {
+            "id": "6bfc3c28-207d-4699-b307-f0f438159179",
+            "sha256": "740aa95f9cab1a0505bcf23e982b955dd0d53b35c837c84b83afb236cdc61d95",
+            "file": "the-tailor-of-the-turning-year-b1-pt-br/audio/snowfall-pattern.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:16.669043+00:00",
+            "durationMs": 34018
+          },
+          "visual": {
+            "id": "13a570ca-62ce-481f-a32c-671ce654d7ff",
+            "sha256": "af44dd39ac4c75792f907c225712c55a851dea7256d77a4f1378319e5ddc890e",
+            "file": "the-tailor-of-the-turning-year-b1-pt-br/animations/snowfall-pattern.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:17.271599+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "69acf4b9c637a4fc876b3ac4bc76431f9b7d13a9fe9437aa3a5e3365dbd58cc9",
+      "verifiedAtUtc": "2026-11-09T04:10:17.545667+00:00"
+    },
+    "the-tide-window-a2-pt-br": {
+      "versionId": "f331440f-f387-430e-ad4e-98840be5db2b",
+      "scenes": {
+        "harbour-box": {
+          "audio": {
+            "id": "af770c89-649c-407d-b477-99be81a435fe",
+            "sha256": "b69780f00d99bb6356aadaa19b702ff47c5b52924bdc877a7ce4513478da6ac0",
+            "file": "the-tide-window-a2-pt-br/audio/harbour-box.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:19.223857+00:00",
+            "durationMs": 24823
+          },
+          "visual": {
+            "id": "c2c1fa23-a676-42e2-abfa-21f1c72f72a8",
+            "sha256": "57c5f75067ae7bc82674215a9f09bfe71f21c11d7dc98e794251d2562e31264f",
+            "file": "the-tide-window-a2-pt-br/animations/harbour-box.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:19.812040+00:00"
+          }
+        },
+        "harbour-map": {
+          "audio": {
+            "id": "de0337b2-6861-4684-b7c8-164c4b3916aa",
+            "sha256": "b98f9f179b5a3f10127a0a99e1fea0965c13a0e928bf59f0fab15b0dc5e82bee",
+            "file": "the-tide-window-a2-pt-br/audio/harbour-map.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:21.060524+00:00",
+            "durationMs": 25751
+          },
+          "visual": {
+            "id": "8a73fd2c-56a2-4f5f-be3e-fc86b09b3f66",
+            "sha256": "5f4fa76c1ac1d2b45e6dae4d805496b5f160aecd6077b5d5bf923ca9b08ee80b",
+            "file": "the-tide-window-a2-pt-br/animations/harbour-map.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:21.600807+00:00"
+          }
+        },
+        "choose-crossing": {
+          "audio": {
+            "id": "92170cee-d0cb-4b4c-869e-9469e8568777",
+            "sha256": "aa0a06e85b02faa10dbda6b8bd832a01083c5c27a61b399f111ee679840bb541",
+            "file": "the-tide-window-a2-pt-br/audio/choose-crossing.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:22.899025+00:00",
+            "durationMs": 26831
+          },
+          "visual": {
+            "id": "3adbe40d-6c3d-4f89-a9f5-bfe4560e9060",
+            "sha256": "b558db3680927573a00cba7a475fdea67fd67e8f4648796ce0a13eb63a50760c",
+            "file": "the-tide-window-a2-pt-br/animations/choose-crossing.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:23.515000+00:00"
+          }
+        },
+        "stone-path": {
+          "audio": {
+            "id": "f6c2e882-5ab5-4a18-9106-8808fd5da708",
+            "sha256": "fe33e8522a2d4af048745fae60f2707896912a7eb09ef4d842ad8882fc09b5c6",
+            "file": "the-tide-window-a2-pt-br/audio/stone-path.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:24.711412+00:00",
+            "durationMs": 24242
+          },
+          "visual": {
+            "id": "efdce211-e972-42a2-9603-fb205ae5faba",
+            "sha256": "e9e6baea71001f130278258bd1e53c08ccb17fb6bb7aa326b6ea6021e0110dab",
+            "file": "the-tide-window-a2-pt-br/animations/stone-path.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:25.219060+00:00"
+          }
+        },
+        "supply-crossing": {
+          "audio": {
+            "id": "bd327901-0b86-44cc-883a-2cd2782ace0f",
+            "sha256": "5bc218e51cf7469dd6c48f4309f4a24b8126e8cf47e0362987ae0eddd30511c0",
+            "file": "the-tide-window-a2-pt-br/audio/supply-crossing.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:26.474028+00:00",
+            "durationMs": 28294
+          },
+          "visual": {
+            "id": "541bb191-5b9e-4204-81bc-8eccc80eb4f5",
+            "sha256": "cf96ae752a225cce32dd4a479bdd1c44ee9f81d911797b7a85e96ec85d3f785b",
+            "file": "the-tide-window-a2-pt-br/animations/supply-crossing.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:27.080514+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "7e6fa5f46f0d593cd890691f8afdc0e050906e14de5a58e9b8b4374e694e1ba2",
+      "verifiedAtUtc": "2026-11-09T04:10:27.213282+00:00"
+    },
+    "the-voice-in-carriage-nine-a2-pt-br": {
+      "versionId": "3e4256ae-06fa-4328-9e16-e279a311c514",
+      "scenes": {
+        "last-inspection": {
+          "audio": {
+            "id": "5f207d5c-26d6-4374-86b1-33e3f5b077d6",
+            "sha256": "898f62bcccb0444e6c5ad69cbaf60fa68779675475ed5230385c2ce7dc88e3da",
+            "file": "the-voice-in-carriage-nine-a2-pt-br/audio/last-inspection.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:28.927659+00:00",
+            "durationMs": 22884
+          },
+          "visual": {
+            "id": "2325e2fb-7f60-4214-9110-ba53fe71ed1b",
+            "sha256": "6325feea22b6e4e304f5acac8ac20ae73f85cd4ad20d4d74cb3dc41552750a0c",
+            "file": "the-voice-in-carriage-nine-a2-pt-br/animations/last-inspection.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:29.515871+00:00"
+          }
+        },
+        "announcement": {
+          "audio": {
+            "id": "1bc4dbac-bf9d-4c39-9f2e-b9b6f1c29412",
+            "sha256": "ce19f92c3ce98683d732e2faf3f471129a06f22249370ac9f731c9c014b10ceb",
+            "file": "the-voice-in-carriage-nine-a2-pt-br/audio/announcement.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:30.748093+00:00",
+            "durationMs": 23418
+          },
+          "visual": {
+            "id": "0f9245b9-adc6-4549-946d-3992248a565c",
+            "sha256": "3778edb0c2d0c3d87585468e88992ccfaa507f9c892dd043ba9ccb96f3f48258",
+            "file": "the-voice-in-carriage-nine-a2-pt-br/animations/announcement.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:31.326915+00:00"
+          }
+        },
+        "unwritten-choice": {
+          "audio": {
+            "id": "d3d3650e-d5db-4b52-9f82-f9ca816dfb02",
+            "sha256": "44a39dde668067c5d8240a8a1a7129e991aea3e2c94fb2873ed93b04e57c23df",
+            "file": "the-voice-in-carriage-nine-a2-pt-br/audio/unwritten-choice.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:32.557648+00:00",
+            "durationMs": 25392
+          },
+          "visual": {
+            "id": "aca528b0-35e0-439c-b54b-1fbe77b1f0b1",
+            "sha256": "13ccef2506f2ec14f7ed6525d3c81019f4d15430a9d56dc694582e85fa6be1fc",
+            "file": "the-voice-in-carriage-nine-a2-pt-br/animations/unwritten-choice.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:33.124862+00:00"
+          }
+        },
+        "taken-picture": {
+          "audio": {
+            "id": "f93e909d-abfb-4bbe-a9fa-c5d9a40f4994",
+            "sha256": "feeebaaa1311573b7c51caa9a2a9c4753e3db7d3bede4f18298855243931c5e8",
+            "file": "the-voice-in-carriage-nine-a2-pt-br/audio/taken-picture.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:34.335602+00:00",
+            "durationMs": 28445
+          },
+          "visual": {
+            "id": "2553bf06-3e23-4d64-8916-b0b4d36c39bf",
+            "sha256": "c2879299fb6ee2a8de7306f42c3b48a998fe8cf935a6ce7d832d5b9a8c3c1704",
+            "file": "the-voice-in-carriage-nine-a2-pt-br/animations/taken-picture.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:34.847421+00:00"
+          }
+        },
+        "phone-left": {
+          "audio": {
+            "id": "220a8155-4fac-495a-8db4-eff121bfc4f0",
+            "sha256": "8e00da84f33c17ae2876382ac9ccf6f24fe30956d9b23275a562ddfda6ee1e3f",
+            "file": "the-voice-in-carriage-nine-a2-pt-br/audio/phone-left.wav",
+            "verifiedAtUtc": "2026-11-09T04:10:36.099703+00:00",
+            "durationMs": 28770
+          },
+          "visual": {
+            "id": "d581dde8-a74f-408e-9601-7b94a185dc59",
+            "sha256": "a65332672e30b950c621d11b279a94844a3d0b72f696699550baf4bb69f257d5",
+            "file": "the-voice-in-carriage-nine-a2-pt-br/animations/phone-left.gif",
+            "verifiedAtUtc": "2026-11-09T04:10:36.659726+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 9,
+      "publicationIssues": [],
+      "sourceSha256": "5c62b2acfda80f1fd6670b29f81cf76ef7a1e83bad1064d4cff862edcd72a335",
+      "verifiedAtUtc": "2026-11-09T04:10:36.833397+00:00"
+    }
+  }
+}

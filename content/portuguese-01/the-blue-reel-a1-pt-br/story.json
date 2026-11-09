@@ -1,0 +1,439 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#E0BA7B",
+      "accent": "#D9A666",
+      "background": "#110D16",
+      "surface": "#251C29",
+      "text": "#FAF0E5",
+      "font": "classic",
+      "motion": "gentle"
+    },
+    "title": "O Rolo Azul",
+    "synopsis": "Iris encontra um rolo de filme azul ao limpar um cinema. Uma fotografia antiga pode revelar quem deixou aquele presente.",
+    "genre": "Mistério",
+    "difficulty": "A1",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "empty-cinema",
+  "scenes": [
+    {
+      "key": "empty-cinema",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Um rolo de filme azul em uma sacola amarela"
+        },
+        {
+          "key": "b",
+          "text": "Um casaco branco e um ingresso vermelho"
+        },
+        {
+          "key": "c",
+          "text": "Uma caixa de doces vazia"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "written-note"
+        }
+      ],
+      "title": "Depois do último filme",
+      "narration": "Iris limpa um pequeno cinema à noite. Debaixo de uma poltrona, encontra um rolo de filme azul em uma sacola amarela. A sacola está seca e limpa. \"Alguém esteve aqui hoje. Isso não é lixo antigo.\" Ela leva a sacola à sala de projeção. Dentro dela há um pequeno envelope branco.",
+      "prompt": "O que Iris encontra debaixo de uma poltrona?",
+      "explanation": "Iris encontra um rolo de filme azul dentro de uma sacola amarela.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Iris limpa um pequeno cinema à noite. Debaixo de uma poltrona, encontra um rolo de filme azul em uma sacola amarela. A sacola está seca e limpa.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10808
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Iris",
+          "text": "\"Alguém esteve aqui hoje. Isso não é lixo antigo.\"",
+          "startMilliseconds": 10808,
+          "endMilliseconds": 14907
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ela leva a sacola à sala de projeção. Dentro dela há um pequeno envelope branco.",
+          "startMilliseconds": 14907,
+          "endMilliseconds": 20851
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "poltrona",
+          "translation": "Assento individual confortável, como os de um cinema."
+        },
+        {
+          "key": "word-2",
+          "term": "projeção",
+          "translation": "Exibição de imagens de um filme na tela."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Iris limpa um pequeno cinema à noite. Debaixo de uma poltrona, encontra um rolo de filme azul em uma sacola amarela. A sacola está seca e limpa. \"Alguém esteve aqui hoje. Isso não é lixo antigo.\" Ela leva a sacola à sala de projeção. Dentro dela há um pequeno envelope branco.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "um rolo de filme azul em uma sacola amarela.",
+        "altText": "Ilustração 2D sombria. Iris encontra uma bobina azul dentro de uma bolsa amarela sob uma poltrona do cinema.",
+        "reusedVisualId": "f280032e-e5f1-448d-9b6e-0b011a9d4eb0",
+        "sourceVersionId": "bf06f0b8-003d-4dee-8ac3-2ca67ade4443",
+        "sourceSceneKey": "empty-cinema",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Iris crouches beside an empty cinema seat, lifting an open yellow cloth bag containing a clearly blue film reel; a small white envelope is partly visible inside the bag. A subdued aisle lamp provides warm light. No audience. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Iris is physically present: 29-year-old woman, brown skin, round face, dark curly bobbed hair, mustard sweater and dark green jacket. No man in the room. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Iris encontra uma bobina azul dentro de uma bolsa amarela sob uma poltrona do cinema."
+    },
+    {
+      "key": "written-note",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Que o rolo deve ser jogado no lixo"
+        },
+        {
+          "key": "b",
+          "text": "Que o filme é sobre uma floricultura"
+        },
+        {
+          "key": "c",
+          "text": "Que o filme mostra o cinema muitos anos atrás"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "two-ways"
+        }
+      ],
+      "title": "Um bilhete para o cinema",
+      "narration": "Na sala de projeção, Iris abre o envelope. O bilhete diz que o filme mostra aquele cinema muitos anos atrás. Não há nome no bilhete. \"A fotografia antiga nesta prateleira pode me ajudar.\" Na foto, um jovem segura um rolo azul. Iris reconhece seu rosto.",
+      "prompt": "O que Iris descobre no bilhete?",
+      "explanation": "O bilhete diz que o filme mostra o cinema no passado, mas não informa o remetente.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Na sala de projeção, Iris abre o envelope. O bilhete diz que o filme mostra aquele cinema muitos anos atrás. Não há nome no bilhete.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10379
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Iris",
+          "text": "\"A fotografia antiga nesta prateleira pode me ajudar.\"",
+          "startMilliseconds": 10379,
+          "endMilliseconds": 13873
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Na foto, um jovem segura um rolo azul. Iris reconhece seu rosto.",
+          "startMilliseconds": 13873,
+          "endMilliseconds": 19678
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "bilhete",
+          "translation": "Mensagem curta escrita em um pedaço de papel."
+        },
+        {
+          "key": "word-2",
+          "term": "prateleira",
+          "translation": "Tábua ou superfície horizontal usada para apoiar objetos."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Na sala de projeção, Iris abre o envelope. O bilhete diz que o filme mostra aquele cinema muitos anos atrás. Não há nome no bilhete. \"A fotografia antiga nesta prateleira pode me ajudar.\" Na foto, um jovem segura um rolo azul. Iris reconhece seu rosto.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "o filme mostra aquele cinema muitos anos atrás.",
+        "altText": "Ilustração 2D sombria. Iris compara um bilhete sem assinatura com uma fotografia antiga na sala de projeção.",
+        "reusedVisualId": "39b89386-560e-4669-8fe1-b78b057e482d",
+        "sourceVersionId": "bf06f0b8-003d-4dee-8ac3-2ca67ade4443",
+        "sourceSceneKey": "written-note",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Iris stands at a projection-room shelf holding an open white envelope and plain note with no legible writing. Beside her is a small old framed painted photograph of a young man with dark brown hair and round glasses holding a blue film reel. The actual blue reel and yellow bag lie on a nearby desk. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Iris is physically present: 29-year-old woman, brown skin, dark curly bobbed hair, mustard sweater and dark green jacket. A small framed old photo may depict young Mr Hale with dark brown hair and round glasses, only inside the frame. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Iris compara um bilhete sem assinatura com uma fotografia antiga na sala de projeção."
+    },
+    {
+      "key": "two-ways",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Na cozinha do cinema"
+        },
+        {
+          "key": "b",
+          "text": "Em uma floricultura perto do cinema"
+        },
+        {
+          "key": "c",
+          "text": "Em uma estação longe da cidade"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-1",
+          "label": "Assistir ao filme no cinema",
+          "targetSceneKey": "film-on-screen"
+        },
+        {
+          "key": "route-2",
+          "label": "Levar a sacola ao senhor Hale",
+          "targetSceneKey": "flower-shop"
+        }
+      ],
+      "title": "O homem da fotografia",
+      "narration": "O homem da foto é o senhor Hale. Ele tem uma floricultura perto do cinema. Iris coloca o rolo azul ao lado do projetor. A máquina funciona. \"Posso assistir ao filme ou levar a sacola até a loja dele.\" Ela tem tempo para uma visita antes de ir para casa.",
+      "prompt": "Onde o senhor Hale trabalha atualmente?",
+      "explanation": "O senhor Hale agora tem uma floricultura perto do cinema.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "O homem da foto é o senhor Hale. Ele tem uma floricultura perto do cinema. Iris coloca o rolo azul ao lado do projetor. A máquina funciona.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10971
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Iris",
+          "text": "\"Posso assistir ao filme ou levar a sacola até a loja dele.\"",
+          "startMilliseconds": 10971,
+          "endMilliseconds": 14791
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ela tem tempo para uma visita antes de ir para casa.",
+          "startMilliseconds": 14791,
+          "endMilliseconds": 18390
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "floricultura",
+          "translation": "Loja que vende flores e plantas."
+        },
+        {
+          "key": "word-2",
+          "term": "projetor",
+          "translation": "Aparelho que exibe o filme na tela."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "O homem da foto é o senhor Hale. Ele tem uma floricultura perto do cinema. Iris coloca o rolo azul ao lado do projetor. A máquina funciona. \"Posso assistir ao filme ou levar a sacola até a loja dele.\" Ela tem tempo para uma visita antes de ir para casa.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Ele tem uma floricultura perto do cinema.",
+        "altText": "Ilustração 2D sombria. Iris decide se assiste ao filme ou devolve a bolsa ao dono da floricultura.",
+        "reusedVisualId": "1faef133-d287-4ae1-9c12-b70b7db048bd",
+        "sourceVersionId": "bf06f0b8-003d-4dee-8ac3-2ca67ade4443",
+        "sourceSceneKey": "two-ways",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Iris stands beside an old film projector in its booth; the blue reel rests on a table beside the yellow bag and white envelope. No framed portrait is visible in this angle; the earlier shelf picture is outside the frame. Through the doorway only the empty auditorium is visible. No shop or future scene. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Iris is physically present: brown skin, dark curly bobbed hair, mustard sweater and dark green jacket. A small old framed portrait is a picture, not an actual second person. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Iris decide se assiste ao filme ou devolve a bolsa ao dono da floricultura."
+    },
+    {
+      "key": "film-on-screen",
+      "isEnding": true,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "O senhor Hale fechando sua floricultura"
+        },
+        {
+          "key": "b",
+          "text": "Iris limpando a sala de projeção"
+        },
+        {
+          "key": "c",
+          "text": "O senhor Hale abrindo o cinema pela primeira vez"
+        }
+      ],
+      "transitions": [],
+      "title": "A primeira noite",
+      "narration": "Iris assiste ao filme. Na tela, o jovem senhor Hale abre as portas do cinema pela primeira vez. Sua família está ao lado dele. No final, ele acena. \"Agora sei por que este pequeno filme é importante.\" Ela guarda o rolo em segurança. Amanhã, vai convidá-lo para assistir com ela.",
+      "prompt": "O que o filme mostra?",
+      "explanation": "O filme registra a abertura do cinema, com o jovem senhor Hale e sua família.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Iris assiste ao filme. Na tela, o jovem senhor Hale abre as portas do cinema pela primeira vez. Sua família está ao lado dele. No final, ele acena.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11621
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Iris",
+          "text": "\"Agora sei por que este pequeno filme é importante.\"",
+          "startMilliseconds": 11621,
+          "endMilliseconds": 15069
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ela guarda o rolo em segurança. Amanhã, vai convidá-lo para assistir com ela.",
+          "startMilliseconds": 15069,
+          "endMilliseconds": 20956
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "acena",
+          "translation": "Faz um gesto com a mão para cumprimentar ou se despedir."
+        },
+        {
+          "key": "word-2",
+          "term": "em segurança",
+          "translation": "Em um lugar protegido, sem risco de dano."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Iris assiste ao filme. Na tela, o jovem senhor Hale abre as portas do cinema pela primeira vez. Sua família está ao lado dele. No final, ele acena. \"Agora sei por que este pequeno filme é importante.\" Ela guarda o rolo em segurança. Amanhã, vai convidá-lo para assistir com ela.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "abre as portas do cinema pela primeira vez.",
+        "altText": "Ilustração 2D sombria. Iris assiste à gravação antiga da inauguração do cinema e prepara um convite para Mr Hale.",
+        "reusedVisualId": "18011041-bac6-4572-ad27-f3267c57feff",
+        "sourceVersionId": "bf06f0b8-003d-4dee-8ac3-2ca67ade4443",
+        "sourceSceneKey": "film-on-screen",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Viewed from behind Iris in an empty auditorium, a softly glowing cinema screen shows a stylized old silent-film image of 25-year-old adult Mr Hale with dark brown hair and round glasses at cinema doors beside two adult family members. Iris sits alone holding the yellow bag on her lap. Blue reel is mounted on the distant projector, not duplicated in her hands. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only adult Iris is physically in the auditorium, brown skin, dark curly bobbed hair, mustard sweater, green jacket. 25-year-old adult Mr Hale with brown hair and round glasses and two adult relatives appear only on the distant movie screen. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Iris assiste à gravação antiga da inauguração do cinema e prepara um convite para Mr Hale."
+    },
+    {
+      "key": "flower-shop",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Ele o deixou como presente"
+        },
+        {
+          "key": "b",
+          "text": "Ele queria jogá-lo fora"
+        },
+        {
+          "key": "c",
+          "text": "Ele queria que Iris o vendesse"
+        }
+      ],
+      "transitions": [],
+      "title": "Um presente devolvido",
+      "narration": "Iris leva a sacola amarela à floricultura. O senhor Hale olha para o rolo azul e sorri. Ele o deixou no cinema como presente. \"Esqueci de escrever meu nome. Obrigado por me encontrar.\" Iris o convida a levar a família ao cinema. Juntos, eles poderão contar aquela história.",
+      "prompt": "Por que o senhor Hale deixou o rolo no cinema?",
+      "explanation": "O senhor Hale havia deixado o filme como presente para o cinema.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Iris leva a sacola amarela à floricultura. O senhor Hale olha para o rolo azul e sorri. Ele o deixou no cinema como presente.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 9079
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Sr. Hale",
+          "text": "\"Esqueci de escrever meu nome. Obrigado por me encontrar.\"",
+          "startMilliseconds": 9079,
+          "endMilliseconds": 13757
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Iris o convida a levar a família ao cinema. Juntos, eles poderão contar aquela história.",
+          "startMilliseconds": 13757,
+          "endMilliseconds": 19980
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "sorri",
+          "translation": "Demonstra alegria com um sorriso."
+        },
+        {
+          "key": "word-2",
+          "term": "convida",
+          "translation": "Chama alguém para participar de alguma atividade."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Iris leva a sacola amarela à floricultura. O senhor Hale olha para o rolo azul e sorri. Ele o deixou no cinema como presente. \"Esqueci de escrever meu nome. Obrigado por me encontrar.\" Iris o convida a levar a família ao cinema. Juntos, eles poderão contar aquela história.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Ele o deixou no cinema como presente.",
+        "altText": "Ilustração 2D sombria. Na floricultura, Mr Hale explica a Iris que a bobina era um presente para o cinema.",
+        "reusedVisualId": "d0f58ef2-07c2-48f3-9a64-15f61597f91c",
+        "sourceVersionId": "bf06f0b8-003d-4dee-8ac3-2ca67ade4443",
+        "sourceSceneKey": "flower-shop",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Inside a closed flower shop under one warm counter lamp, Iris hands the open yellow bag to elderly Mr Hale, who smiles at the blue film reel and white envelope inside. A few potted flowers surround the counter. Only these two adults are present. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly two adults: Iris (brown skin, curly dark bob, mustard sweater, green jacket) and elderly Mr Hale (68, light skin, silver hair, round glasses, burgundy cardigan). STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Na floricultura, Mr Hale explica a Iris que a bobina era um presente para o cinema."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "bf06f0b8-003d-4dee-8ac3-2ca67ade4443",
+    "sourceTitle": "The Blue Reel — A1",
+    "sourceSnapshotSha256": "6896f57b66d4e5a4af66538fdd441d5bc20b6e6809b5c59cacd58847f031ce2c",
+    "sourcePath": "content/anthology-02/the-blue-reel-a1/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "empty-cinema",
+        "written-note",
+        "two-ways",
+        "film-on-screen"
+      ],
+      [
+        "empty-cinema",
+        "written-note",
+        "two-ways",
+        "flower-shop"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

@@ -1,0 +1,432 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#DAB881",
+      "accent": "#C9A4E7",
+      "background": "#14101F",
+      "surface": "#261E35",
+      "text": "#F9F0E3",
+      "font": "rounded",
+      "motion": "gentle"
+    },
+    "title": "Um Ensaio Muito Importante",
+    "synopsis": "Ben ensaia a entrada de um rei, mas um pato de borracha escondido no palco transforma a cena. Ele decide se o imprevisto entra na peça.",
+    "genre": "Comédia",
+    "difficulty": "A1",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "royal-entrance",
+  "scenes": [
+    {
+      "key": "royal-entrance",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Um som de pato"
+        },
+        {
+          "key": "b",
+          "text": "Uma campainha"
+        },
+        {
+          "key": "c",
+          "text": "Um tambor"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "small-singer"
+        }
+      ],
+      "title": "Um som sob a coroa",
+      "narration": "Ben está em um pequeno palco, com um casaco azul e uma coroa de papel. Ele faz o rei em uma peça. Dá um passo grande. Um som alto vem do chão. \"Isso não é um rei. É um pato!\"",
+      "prompt": "O que Ben ouve ao dar um passo?",
+      "explanation": "O passo faz soar um pato escondido no palco.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Ben está em um pequeno palco, com um casaco azul e uma coroa de papel. Ele faz o rei em uma peça. Dá um passo grande. Um som alto vem do chão.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11737
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Ben",
+          "text": "\"Isso não é um rei. É um pato!\"",
+          "startMilliseconds": 11737,
+          "endMilliseconds": 14918
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "coroa",
+          "translation": "Adereço usado na cabeça para representar um rei ou uma rainha."
+        },
+        {
+          "key": "word-2",
+          "term": "peça",
+          "translation": "Apresentação de teatro com personagens."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Ben está em um pequeno palco, com um casaco azul e uma coroa de papel. Ele faz o rei em uma peça. Dá um passo grande. Um som alto vem do chão. \"Isso não é um rei. É um pato!\"",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "É um pato!",
+        "altText": "Ilustração 2D sombria. Ben, de coroa de papel e casaco azul, olha surpreso para o chão do palco.",
+        "reusedVisualId": "0b983156-893b-412d-8445-e4d96742435a",
+        "sourceVersionId": "2721b604-15a9-4ecc-879a-bc5d9bd01693",
+        "sourceSceneKey": "royal-entrance",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Only Ben stands on the empty wooden theatre stage, looking down in comic surprise after a grand royal step. His gold paper crown tilts slightly. A wooden step is near his boot. The source of the sound is NOT visible yet: no duck, no extra person, no audience. VISIBLE CAST AND CONTINUITY (strict): Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots, simple gold paper crown without emblems. Only this adult is visible. Empty wooden theatre stage, burgundy curtains and one amber lamp. The source of the sound remains concealed. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Ben, de coroa de papel e casaco azul, olha surpreso para o chão do palco."
+    },
+    {
+      "key": "small-singer",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Dentro da coroa de papel"
+        },
+        {
+          "key": "b",
+          "text": "Debaixo de uma tábua solta"
+        },
+        {
+          "key": "c",
+          "text": "Atrás da cortina"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "entrance-choice"
+        }
+      ],
+      "title": "Um pequeno cantor",
+      "narration": "Dara levanta uma tábua solta perto dos pés de Ben. Debaixo dela há um pato de brinquedo amarelo. A tábua aperta o pato quando Ben pisa nela. \"Encontramos nosso cantor bem pequenino.\" Ben ri. A voz do rei está ótima.",
+      "prompt": "Onde está o pato de brinquedo amarelo?",
+      "explanation": "O pato está debaixo da tábua solta que Dara levanta.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Dara levanta uma tábua solta perto dos pés de Ben. Debaixo dela há um pato de brinquedo amarelo. A tábua aperta o pato quando Ben pisa nela.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10042
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Dara",
+          "text": "\"Encontramos nosso cantor bem pequenino.\"",
+          "startMilliseconds": 10042,
+          "endMilliseconds": 13154
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ben ri. A voz do rei está ótima.",
+          "startMilliseconds": 13154,
+          "endMilliseconds": 16811
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "tábua",
+          "translation": "Peça de madeira comprida e plana."
+        },
+        {
+          "key": "word-2",
+          "term": "solta",
+          "translation": "Sem estar bem presa ao restante do palco."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Dara levanta uma tábua solta perto dos pés de Ben. Debaixo dela há um pato de brinquedo amarelo. A tábua aperta o pato quando Ben pisa nela. \"Encontramos nosso cantor bem pequenino.\" Ben ri. A voz do rei está ótima.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Debaixo dela há um pato de brinquedo amarelo.",
+        "altText": "Ilustração 2D sombria. Dara levanta uma tábua e mostra a Ben o pato de borracha que faz o barulho.",
+        "reusedVisualId": "df04fa32-c176-4a4d-babe-098a8811f27a",
+        "sourceVersionId": "2721b604-15a9-4ecc-879a-bc5d9bd01693",
+        "sourceSceneKey": "small-singer",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Ben and Dara on the same stage. Dara carefully lifts one loose wooden board, revealing a small yellow RUBBER TOY duck beneath it. Ben looks down and laughs. The toy is on the stage floor, not a real animal, not in a crown. VISIBLE CAST AND CONTINUITY (strict): Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots and a simple gold paper crown without emblems. Dara: adult woman aged 33, dark brown skin, short tight black curls, burgundy sweater, charcoal trousers. Never depict children or a real duck. A palm-sized yellow rubber toy duck causes the sound. The stage has dark wooden boards, burgundy curtains and one amber rehearsal lamp. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Dara levanta uma tábua e mostra a Ben o pato de borracha que faz o barulho."
+    },
+    {
+      "key": "entrance-choice",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Dara"
+        },
+        {
+          "key": "b",
+          "text": "Os outros atores"
+        },
+        {
+          "key": "c",
+          "text": "Ben"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "duck-king",
+          "label": "Manter o pato e mudar o rei",
+          "targetSceneKey": "duck-king"
+        },
+        {
+          "key": "quiet-practice",
+          "label": "Retirar o pato para uma entrada silenciosa",
+          "targetSceneKey": "quiet-practice"
+        }
+      ],
+      "title": "Como o rei vai entrar?",
+      "narration": "Eles podem retirar o pato. Ben também pode deixá-lo sob a tábua e mudar seu personagem na peça. \"Um rei pato também pode ser um bom rei.\" Dara espera. Ben precisa escolher sua entrada antes da chegada dos outros atores.",
+      "prompt": "Quem escolhe como o rei vai entrar?",
+      "explanation": "Ben precisa decidir como será a entrada do seu personagem.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Eles podem retirar o pato. Ben também pode deixá-lo sob a tábua e mudar seu personagem na peça.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 7291
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Ben",
+          "text": "\"Um rei pato também pode ser um bom rei.\"",
+          "startMilliseconds": 7291,
+          "endMilliseconds": 10298
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Dara espera. Ben precisa escolher sua entrada antes da chegada dos outros atores.",
+          "startMilliseconds": 10298,
+          "endMilliseconds": 16474
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "personagem",
+          "translation": "Figura representada por alguém em uma história ou peça."
+        },
+        {
+          "key": "word-2",
+          "term": "entrada",
+          "translation": "Momento em que o ator aparece no palco."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Eles podem retirar o pato. Ben também pode deixá-lo sob a tábua e mudar seu personagem na peça. \"Um rei pato também pode ser um bom rei.\" Dara espera. Ben precisa escolher sua entrada antes da chegada dos outros atores.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Ben precisa escolher sua entrada",
+        "altText": "Ilustração 2D sombria. Ben e Dara consideram se o pato de brinquedo deve fazer parte da entrada do rei.",
+        "reusedVisualId": "1c85afcf-3be6-463a-a0b4-c78c787f1291",
+        "sourceVersionId": "2721b604-15a9-4ecc-879a-bc5d9bd01693",
+        "sourceSceneKey": "entrance-choice",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Ben and Dara, considering the lifted wooden board and the yellow rubber duck visible underneath. Ben gestures thoughtfully with one hand; Dara waits beside him. Same simple theatre rehearsal. No other actors have arrived. VISIBLE CAST AND CONTINUITY (strict): Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots and a simple gold paper crown without emblems. Dara: adult woman aged 33, dark brown skin, short tight black curls, burgundy sweater, charcoal trousers. Never depict children or a real duck. A palm-sized yellow rubber toy duck causes the sound. The stage has dark wooden boards, burgundy curtains and one amber rehearsal lamp. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Ben e Dara consideram se o pato de brinquedo deve fazer parte da entrada do rei."
+    },
+    {
+      "key": "duck-king",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Dara"
+        },
+        {
+          "key": "b",
+          "text": "Os outros atores"
+        },
+        {
+          "key": "c",
+          "text": "Um pato de verdade"
+        }
+      ],
+      "transitions": [],
+      "title": "O rei pato",
+      "narration": "Ben coloca a tábua de volta sobre o pato. Pisa nela devagar e ouve o pato novamente. \"Abram caminho para o rei pato!\" Dara ri e bate palmas. Ben se inclina para a frente. Está pronto para os outros atores.",
+      "prompt": "Quem ri e bate palmas para Ben?",
+      "explanation": "Dara ri e bate palmas para a entrada do rei pato.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Ben coloca a tábua de volta sobre o pato. Pisa nela devagar e ouve o pato novamente.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 6559
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Ben",
+          "text": "\"Abram caminho para o rei pato!\"",
+          "startMilliseconds": 6559,
+          "endMilliseconds": 8753
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Dara ri e bate palmas. Ben se inclina para a frente. Está pronto para os outros atores.",
+          "startMilliseconds": 8753,
+          "endMilliseconds": 16613
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "se inclina",
+          "translation": "Dobra o corpo em uma direção, como ao agradecer os aplausos."
+        },
+        {
+          "key": "word-2",
+          "term": "bate palmas",
+          "translation": "Aplaude, juntando as mãos repetidamente."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Ben coloca a tábua de volta sobre o pato. Pisa nela devagar e ouve o pato novamente. \"Abram caminho para o rei pato!\" Dara ri e bate palmas. Ben se inclina para a frente. Está pronto para os outros atores.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Dara ri e bate palmas.",
+        "altText": "Ilustração 2D sombria. Ben faz uma reverência cômica enquanto Dara ri e bate palmas no ensaio.",
+        "reusedVisualId": "ca2200c0-623c-40c5-a12b-36ffbb8e8c2d",
+        "sourceVersionId": "2721b604-15a9-4ecc-879a-bc5d9bd01693",
+        "sourceSceneKey": "duck-king",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Ben and Dara on the amber-lit stage. Ben gives an exaggerated royal bow with his paper crown, both feet firmly planted on the replaced wooden board, both grey trouser legs visibly connected to the boots he is wearing; the toy duck is hidden UNDER that board. Dara laughs and claps as his only audience. No real duck and no other actors. VISIBLE CAST AND CONTINUITY (strict): Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots and a simple gold paper crown without emblems. Dara: adult woman aged 33, dark brown skin, short tight black curls, burgundy sweater, charcoal trousers. Never depict children or a real duck. A palm-sized yellow rubber toy duck causes the sound. The stage has dark wooden boards, burgundy curtains and one amber rehearsal lamp. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing. Exactly two boots, BOTH worn on his feet. No loose footwear, detached boots or disembodied legs.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Ben faz uma reverência cômica enquanto Dara ri e bate palmas no ensaio."
+    },
+    {
+      "key": "quiet-practice",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "O brinquedo debaixo da tábua"
+        },
+        {
+          "key": "b",
+          "text": "O próprio Ben"
+        },
+        {
+          "key": "c",
+          "text": "Alguém dentro da caixa"
+        }
+      ],
+      "transitions": [],
+      "title": "Um ensaio silencioso",
+      "narration": "Dara retira o pato e o coloca sobre uma caixa. Ben atravessa o palco. O chão está silencioso agora. \"Estou com saudade do meu pequeno cantor.\" Ele mesmo imita o som do pato. Dara ri. O ensaio silencioso termina com um rei muito feliz.",
+      "prompt": "Quem faz o último som de pato?",
+      "explanation": "Depois que o brinquedo é retirado, o próprio Ben imita o som.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Dara retira o pato e o coloca sobre uma caixa. Ben atravessa o palco. O chão está silencioso agora.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 8126
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Ben",
+          "text": "\"Estou com saudade do meu pequeno cantor.\"",
+          "startMilliseconds": 8126,
+          "endMilliseconds": 11145
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ele mesmo imita o som do pato. Dara ri. O ensaio silencioso termina com um rei muito feliz.",
+          "startMilliseconds": 11145,
+          "endMilliseconds": 19110
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "imita",
+          "translation": "Faz um som ou gesto parecido com o de outra pessoa ou animal."
+        },
+        {
+          "key": "word-2",
+          "term": "ensaio",
+          "translation": "Prática de uma apresentação antes de realizá-la para o público."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Dara retira o pato e o coloca sobre uma caixa. Ben atravessa o palco. O chão está silencioso agora. \"Estou com saudade do meu pequeno cantor.\" Ele mesmo imita o som do pato. Dara ri. O ensaio silencioso termina com um rei muito feliz.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Ele mesmo imita o som do pato.",
+        "altText": "Ilustração 2D sombria. O pato está sobre uma caixa; Ben faz o som por conta própria e Dara ri.",
+        "reusedVisualId": "b8f52c72-5fb6-4605-8ebf-ef3e007edf56",
+        "sourceVersionId": "2721b604-15a9-4ecc-879a-bc5d9bd01693",
+        "sourceSceneKey": "quiet-practice",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Ben and Dara. The yellow rubber toy duck rests clearly ON TOP OF a wooden box well away from the stage step. Ben walks on the quiet stage with an amused duck-like expression; Dara laughs. Same blue coat and paper crown. No live duck, no duck under the board. VISIBLE CAST AND CONTINUITY (strict): Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots and a simple gold paper crown without emblems. Dara: adult woman aged 33, dark brown skin, short tight black curls, burgundy sweater, charcoal trousers. Never depict children or a real duck. A palm-sized yellow rubber toy duck causes the sound. The stage has dark wooden boards, burgundy curtains and one amber rehearsal lamp. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. O pato está sobre uma caixa; Ben faz o som por conta própria e Dara ri."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "2721b604-15a9-4ecc-879a-bc5d9bd01693",
+    "sourceTitle": "A Very Important Rehearsal — A1",
+    "sourceSnapshotSha256": "86628418e7bcc347a7a3b3c6699dce6d49751ac0f093a830ba85ffcfe90b2c3a",
+    "sourcePath": "content/anthology-03/a-very-important-rehearsal-a1/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "royal-entrance",
+        "small-singer",
+        "entrance-choice",
+        "duck-king"
+      ],
+      [
+        "royal-entrance",
+        "small-singer",
+        "entrance-choice",
+        "quiet-practice"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

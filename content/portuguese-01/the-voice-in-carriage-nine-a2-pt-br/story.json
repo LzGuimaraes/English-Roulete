@@ -1,0 +1,439 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#E0B1B1",
+      "accent": "#CE8A8A",
+      "background": "#130C14",
+      "surface": "#291C28",
+      "text": "#FAECEE",
+      "font": "classic",
+      "motion": "gentle"
+    },
+    "title": "A Voz do Vagão Nove",
+    "synopsis": "Uma ferroviária encontra um casaco idêntico ao seu em um trem vazio. A voz do alto-falante começa a anunciar movimentos que ela ainda não fez.",
+    "genre": "Terror psicológico",
+    "difficulty": "A2",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "last-inspection",
+  "scenes": [
+    {
+      "key": "last-inspection",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Um remendo na manga"
+        },
+        {
+          "key": "b",
+          "text": "O tamanho e um ingresso novo"
+        },
+        {
+          "key": "c",
+          "text": "Um nome escrito no banco"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "announcement"
+        }
+      ],
+      "title": "Um casaco a mais",
+      "narration": "Mara inspecionava o trem vazio antes de apagarem as últimas luzes. No vagão nove, uma capa de chuva vermelha estava pendurada em um banco. Era idêntica à sua, até o pequeno remendo na manga. \"Meu casaco está no armário. Deixei lá esta manhã.\" Ela ergueu a lanterna amarela. A água pingava da capa sobre o piso seco.",
+      "prompt": "Que detalhe fez Mara pensar que o casaco era seu?",
+      "explanation": "Mara reconhece o pequeno remendo na manga da capa de chuva.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Mara inspecionava o trem vazio antes de apagarem as últimas luzes. No vagão nove, uma capa de chuva vermelha estava pendurada em um banco. Era idêntica à sua, até o pequeno remendo na manga.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 13177
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Mara",
+          "text": "\"Meu casaco está no armário. Deixei lá esta manhã.\"",
+          "startMilliseconds": 13177,
+          "endMilliseconds": 17565
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ela ergueu a lanterna amarela. A água pingava da capa sobre o piso seco.",
+          "startMilliseconds": 17565,
+          "endMilliseconds": 22883
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "vagão",
+          "translation": "Parte de um trem destinada a passageiros ou carga."
+        },
+        {
+          "key": "word-2",
+          "term": "remendo",
+          "translation": "Conserto feito em uma parte rasgada ou danificada de uma roupa."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mara inspecionava o trem vazio antes de apagarem as últimas luzes. No vagão nove, uma capa de chuva vermelha estava pendurada em um banco. Era idêntica à sua, até o pequeno remendo na manga. \"Meu casaco está no armário. Deixei lá esta manhã.\" Ela ergueu a lanterna amarela. A água pingava da capa sobre o piso seco.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "até o pequeno remendo na manga.",
+        "altText": "Ilustração 2D sombria. Mara ilumina um casaco vermelho molhado, com um pequeno remendo na manga, em um vagão vazio.",
+        "reusedVisualId": "2325e2fb-7f60-4214-9110-ba53fe71ed1b",
+        "sourceVersionId": "ca97f9b7-cd48-4c11-bb5c-ede35b1be159",
+        "sourceSceneKey": "last-inspection",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Mara stands alone inside a dim empty train carriage, aiming a yellow torch at an unoccupied seat with a wet red raincoat draped over its back. Show a small stitched repair on the red sleeve and a few water drops on otherwise dry flooring. No human shape inside the coat. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Mara is present: 36-year-old woman, medium brown skin, tired dark eyes, black hair tied low, navy railway work jacket, grey trousers and small yellow torch. Red coat is empty fabric, never a person. No manager, no ghost, no other human. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Mara ilumina um casaco vermelho molhado, com um pequeno remendo na manga, em um vagão vazio."
+    },
+    {
+      "key": "announcement",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Avisou que outro trem estava chegando"
+        },
+        {
+          "key": "b",
+          "text": "Disse que a porta da plataforma estava trancada"
+        },
+        {
+          "key": "c",
+          "text": "Descreveu seu movimento antes que ela o fizesse"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "unwritten-choice"
+        }
+      ],
+      "title": "Um aviso antes do passo",
+      "narration": "O alto-falante do teto estalou. Uma voz calma disse que Mara se afastaria do banco molhado. Ela ainda não tinha se movido. Então seu pé deslizou para trás pelo chão. \"Agora você vai olhar para a porta. A porta continuará aberta.\" Mara olhou. A porta para a plataforma estava aberta, mas a capa vermelha já não pingava.",
+      "prompt": "Por que o primeiro anúncio assustou Mara?",
+      "explanation": "A voz anunciou o movimento de Mara antes de ela dar o passo.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "O alto-falante do teto estalou. Uma voz calma disse que Mara se afastaria do banco molhado. Ela ainda não tinha se movido. Então seu pé deslizou para trás pelo chão.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 12329
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Alto-falante",
+          "text": "\"Agora você vai olhar para a porta. A porta continuará aberta.\"",
+          "startMilliseconds": 12329,
+          "endMilliseconds": 17101
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Mara olhou. A porta para a plataforma estava aberta, mas a capa vermelha já não pingava.",
+          "startMilliseconds": 17101,
+          "endMilliseconds": 23417
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "estalou",
+          "translation": "Produziu um ruído curto e seco ao ligar."
+        },
+        {
+          "key": "word-2",
+          "term": "plataforma",
+          "translation": "Área ao lado dos trilhos usada para entrar e sair do trem."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "O alto-falante do teto estalou. Uma voz calma disse que Mara se afastaria do banco molhado. Ela ainda não tinha se movido. Então seu pé deslizou para trás pelo chão. \"Agora você vai olhar para a porta. A porta continuará aberta.\" Mara olhou. A porta para a plataforma estava aberta, mas a capa vermelha já não pingava.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Ela ainda não tinha se movido.",
+        "altText": "Ilustração 2D sombria. O alto-falante descreve um movimento de Mara antes que ela o faça; a porta continua aberta.",
+        "reusedVisualId": "0f9245b9-adc6-4549-946d-3992248a565c",
+        "sourceVersionId": "ca97f9b7-cd48-4c11-bb5c-ede35b1be159",
+        "sourceSceneKey": "announcement",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Mara, still alone in the train, has moved one step back from the red raincoat. She looks up toward a small ceiling speaker; the open platform doorway remains visible to her right. The red coat hangs on the same empty seat, without falling water. No person in the doorway. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Mara is present: 36-year-old woman, medium brown skin, tired dark eyes, black hair tied low, navy railway work jacket, grey trousers and small yellow torch. Red coat is empty fabric, never a person. No manager, no ghost, no other human. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. O alto-falante descreve um movimento de Mara antes que ela o faça; a porta continua aberta."
+    },
+    {
+      "key": "unwritten-choice",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "A porta estava fechada"
+        },
+        {
+          "key": "b",
+          "text": "A capa vermelha não aparecia"
+        },
+        {
+          "key": "c",
+          "text": "Havia outro passageiro no banco"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-1",
+          "label": "Tirar uma fotografia e sair",
+          "targetSceneKey": "taken-picture"
+        },
+        {
+          "key": "route-2",
+          "label": "Deixar o celular e sair do vagão",
+          "targetSceneKey": "phone-left"
+        }
+      ],
+      "title": "Uma voz que espera",
+      "narration": "A câmera do celular mostrava o banco vazio. Na tela, a capa vermelha não aparecia. Mara poderia fotografar o vagão ou deixar o telefone no banco e sair. Ela manteve os dois pés parados. \"Você vai escolher a foto. Você sempre escolhe a foto.\" Pela primeira vez, a voz parecia incerta. A porta aberta estava a poucos passos.",
+      "prompt": "O que estava diferente na tela do celular?",
+      "explanation": "A câmera não mostrava a capa vermelha que Mara via no vagão.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "A câmera do celular mostrava o banco vazio. Na tela, a capa vermelha não aparecia. Mara poderia fotografar o vagão ou deixar o telefone no banco e sair. Ela manteve os dois pés parados.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 14175
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Alto-falante",
+          "text": "\"Você vai escolher a foto. Você sempre escolhe a foto.\"",
+          "startMilliseconds": 14175,
+          "endMilliseconds": 18935
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Pela primeira vez, a voz parecia incerta. A porta aberta estava a poucos passos.",
+          "startMilliseconds": 18935,
+          "endMilliseconds": 25391
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "incerta",
+          "translation": "Sem segurança sobre o que vai acontecer."
+        },
+        {
+          "key": "word-2",
+          "term": "a poucos passos",
+          "translation": "A uma distância curta, que se percorre rapidamente a pé."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "A câmera do celular mostrava o banco vazio. Na tela, a capa vermelha não aparecia. Mara poderia fotografar o vagão ou deixar o telefone no banco e sair. Ela manteve os dois pés parados. \"Você vai escolher a foto. Você sempre escolhe a foto.\" Pela primeira vez, a voz parecia incerta. A porta aberta estava a poucos passos.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Na tela, a capa vermelha não aparecia.",
+        "altText": "Ilustração 2D sombria. O celular mostra o mesmo banco sem o casaco vermelho que Mara enxerga diante dela.",
+        "reusedVisualId": "aca528b0-35e0-439c-b54b-1fbe77b1f0b1",
+        "sourceVersionId": "ca97f9b7-cd48-4c11-bb5c-ede35b1be159",
+        "sourceSceneKey": "unwritten-choice",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Mara stands near the open train doorway, holding her phone so both a small camera preview and the real seat can be compared. The real seat holds the red raincoat, but the phone preview shows the same seat empty. Make the preview a clear simple drawing, no interface text or extra people. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Mara is present: 36-year-old woman, medium brown skin, tired dark eyes, black hair tied low, navy railway work jacket, grey trousers and small yellow torch. Red coat is empty fabric, never a person. No manager, no ghost, no other human. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. O celular mostra o mesmo banco sem o casaco vermelho que Mara enxerga diante dela."
+    },
+    {
+      "key": "taken-picture",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Mostrava a lanterna no banco enquanto ela a segurava"
+        },
+        {
+          "key": "b",
+          "text": "Mostrava luz do dia na plataforma"
+        },
+        {
+          "key": "c",
+          "text": "Mostrava uma capa de outra cor"
+        }
+      ],
+      "transitions": [],
+      "title": "Uma prova na plataforma",
+      "narration": "Mara tirou uma foto e saiu para a plataforma. As luzes do trem se apagaram atrás dela. Na fotografia, a capa finalmente aparecia, dobrada com cuidado sobre o banco. Ao lado, estava sua lanterna amarela. \"Isso não pode estar certo. Ainda estou segurando a lanterna.\" Ela mostrou a imagem ao gerente noturno e se recusou a voltar sozinha. A câmera registrara uma cena que ela nunca havia visto.",
+      "prompt": "O que tornava a fotografia impossível para Mara?",
+      "explanation": "A foto mostrava a lanterna no banco, mas Mara continuava com ela na mão.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Mara tirou uma foto e saiu para a plataforma. As luzes do trem se apagaram atrás dela. Na fotografia, a capa finalmente aparecia, dobrada com cuidado sobre o banco. Ao lado, estava sua lanterna amarela.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 15220
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Mara",
+          "text": "\"Isso não pode estar certo. Ainda estou segurando a lanterna.\"",
+          "startMilliseconds": 15220,
+          "endMilliseconds": 20027
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ela mostrou a imagem ao gerente noturno e se recusou a voltar sozinha. A câmera registrara uma cena que ela nunca havia visto.",
+          "startMilliseconds": 20027,
+          "endMilliseconds": 28444
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "dobrada",
+          "translation": "Com partes sobrepostas para ocupar menos espaço."
+        },
+        {
+          "key": "word-2",
+          "term": "se recusou",
+          "translation": "Não aceitou fazer algo."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mara tirou uma foto e saiu para a plataforma. As luzes do trem se apagaram atrás dela. Na fotografia, a capa finalmente aparecia, dobrada com cuidado sobre o banco. Ao lado, estava sua lanterna amarela. \"Isso não pode estar certo. Ainda estou segurando a lanterna.\" Ela mostrou a imagem ao gerente noturno e se recusou a voltar sozinha. A câmera registrara uma cena que ela nunca havia visto.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Ainda estou segurando a lanterna.",
+        "altText": "Ilustração 2D sombria. Na plataforma, Mara segura a lanterna que também aparece, impossivelmente, dentro da fotografia.",
+        "reusedVisualId": "2553bf06-3e23-4d64-8916-b0b4d36c39bf",
+        "sourceVersionId": "ca97f9b7-cd48-4c11-bb5c-ede35b1be159",
+        "sourceSceneKey": "taken-picture",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Mara stands alone on a dim platform holding her real yellow torch and her phone. The phone photo shows the train seat with a neatly folded red coat and a small yellow torch beside it. The actual carriage behind her is dark. The night manager has not appeared in this depicted instant. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Mara is present: 36-year-old woman, medium brown skin, tired dark eyes, black hair tied low, navy railway work jacket, grey trousers and small yellow torch. Red coat is empty fabric, never a person. No manager, no ghost, no other human. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Na plataforma, Mara segura a lanterna que também aparece, impossivelmente, dentro da fotografia."
+    },
+    {
+      "key": "phone-left",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Coloca a mão no bolso do casaco"
+        },
+        {
+          "key": "b",
+          "text": "Fecha o armário e liga para o gerente"
+        },
+        {
+          "key": "c",
+          "text": "Volta sozinha ao trem"
+        }
+      ],
+      "transitions": [],
+      "title": "A chamada do armário",
+      "narration": "Mara deixou o celular no banco e saiu para a plataforma. O alto-falante ficou em silêncio. Na sala dos funcionários, sua própria capa vermelha continuava dentro do armário. Alguma coisa vibrou no bolso. \"Deixei meu telefone no trem. Este bolso deveria estar vazio.\" Ela fechou o armário sem colocar a mão lá dentro e ligou para o gerente noturno pelo telefone da mesa. Juntos, esperaram amanhecer do lado de fora da sala.",
+      "prompt": "O que Mara faz depois de ouvir a vibração?",
+      "explanation": "Mara fecha o armário e usa o telefone da mesa para chamar o gerente.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Mara deixou o celular no banco e saiu para a plataforma. O alto-falante ficou em silêncio. Na sala dos funcionários, sua própria capa vermelha continuava dentro do armário. Alguma coisa vibrou no bolso.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 13792
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Mara",
+          "text": "\"Deixei meu telefone no trem. Este bolso deveria estar vazio.\"",
+          "startMilliseconds": 13792,
+          "endMilliseconds": 18726
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ela fechou o armário sem colocar a mão lá dentro e ligou para o gerente noturno pelo telefone da mesa. Juntos, esperaram amanhecer do lado de fora da sala.",
+          "startMilliseconds": 18726,
+          "endMilliseconds": 28769
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "vibrou",
+          "translation": "Fez pequenos movimentos rápidos, como um celular recebendo chamada."
+        },
+        {
+          "key": "word-2",
+          "term": "amanhecer",
+          "translation": "Momento em que o dia começa a clarear."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mara deixou o celular no banco e saiu para a plataforma. O alto-falante ficou em silêncio. Na sala dos funcionários, sua própria capa vermelha continuava dentro do armário. Alguma coisa vibrou no bolso. \"Deixei meu telefone no trem. Este bolso deveria estar vazio.\" Ela fechou o armário sem colocar a mão lá dentro e ligou para o gerente noturno pelo telefone da mesa. Juntos, esperaram amanhecer do lado de fora da sala.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Ela fechou o armário sem colocar a mão lá dentro e ligou para o gerente noturno",
+        "altText": "Ilustração 2D sombria. Mara encontra seu casaco no armário e ouve uma vibração no bolso, embora tenha deixado o celular no trem.",
+        "reusedVisualId": "d581dde8-a74f-408e-9601-7b94a185dc59",
+        "sourceVersionId": "ca97f9b7-cd48-4c11-bb5c-ede35b1be159",
+        "sourceSceneKey": "phone-left",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: In a deserted staff room Mara stands a step away from her open metal locker, looking at her own red raincoat hanging inside. A faint crease at its pocket suggests a vibration, but no phone or device is visible. She holds only her yellow torch; a wired desk phone is visible nearby. No train or second coat in the room. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Mara is present: 36-year-old woman, medium brown skin, tired dark eyes, black hair tied low, navy railway work jacket, grey trousers and small yellow torch. Red coat is empty fabric, never a person. No manager, no ghost, no other human. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Mara encontra seu casaco no armário e ouve uma vibração no bolso, embora tenha deixado o celular no trem."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "ca97f9b7-cd48-4c11-bb5c-ede35b1be159",
+    "sourceTitle": "The Voice in Carriage Nine — A2",
+    "sourceSnapshotSha256": "769678bf1ef0b76a036082b73600a163579f6e8009f69765d12cc2096f8c3ddb",
+    "sourcePath": "content/anthology-02/the-voice-in-carriage-nine-a2/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "last-inspection",
+        "announcement",
+        "unwritten-choice",
+        "taken-picture"
+      ],
+      [
+        "last-inspection",
+        "announcement",
+        "unwritten-choice",
+        "phone-left"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

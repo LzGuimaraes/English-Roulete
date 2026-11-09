@@ -1,0 +1,369 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#B6A0E8",
+      "accent": "#E4BA6D",
+      "background": "#131021",
+      "surface": "#221B35",
+      "text": "#F5F0FF",
+      "font": "modern",
+      "motion": "gentle"
+    },
+    "title": "A Moldura Vazia",
+    "synopsis": "A pintura desapareceu da galeria, mas a moldura continua na parede. Etta segue as pistas deixadas pela chuva para protegê-la a tempo.",
+    "genre": "Mistério",
+    "difficulty": "A2",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "gallery-morning",
+  "scenes": [
+    {
+      "key": "gallery-morning",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "A moldura de madeira"
+        },
+        {
+          "key": "b",
+          "text": "A pintura"
+        },
+        {
+          "key": "c",
+          "text": "A chave da oficina"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "restoration-log"
+        }
+      ],
+      "title": "Um espaço vazio na parede",
+      "narration": "Etta abriu o museu comunitário antes da exposição. Na galeria do rio, a moldura de madeira continuava na parede, mas a pintura havia sumido. Ela verificou o balcão da entrada. A chave da oficina estava pendurada no cordão vermelho. Nada mais parecia ter desaparecido. Precisava encontrar a pintura antes de convidar os visitantes a entrar.",
+      "prompt": "O que havia desaparecido da galeria?",
+      "explanation": "A moldura continuava na parede; o que havia sumido era a pintura.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Etta abriu o museu comunitário antes da exposição. Na galeria do rio, a moldura de madeira continuava na parede, mas a pintura havia sumido. Ela verificou o balcão da entrada. A chave da oficina estava pendurada no cordão vermelho. Nada mais parecia ter desaparecido. Precisava encontrar a pintura antes de convidar os visitantes a entrar.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 23301
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "moldura",
+          "translation": "Estrutura que envolve e sustenta uma pintura."
+        },
+        {
+          "key": "word-2",
+          "term": "exposição",
+          "translation": "Apresentação de obras ou objetos ao público."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Etta abriu o museu comunitário antes da exposição. Na galeria do rio, a moldura de madeira continuava na parede, mas a pintura havia sumido. Ela verificou o balcão da entrada. A chave da oficina estava pendurada no cordão vermelho. Nada mais parecia ter desaparecido. Precisava encontrar a pintura antes de convidar os visitantes a entrar.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "a pintura havia sumido.",
+        "altText": "Etta observa a moldura de madeira vazia na galeria. Ao fundo, aparecem o balcão da entrada e a chave da oficina presa ao cordão vermelho.",
+        "reusedVisualId": "34879827-d62e-4719-be12-5dc541114b75",
+        "sourceVersionId": "14b461e6-5e37-4136-878c-88787c81a2b5",
+        "sourceSceneKey": "gallery-morning",
+        "imagePrompt": "SCENE: Etta stands in the river gallery before the empty wooden frame. The entrance desk and its hanging red-cord workshop key are visible through the open entrance. Soft morning window light reveals the empty frame. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Etta observa a moldura de madeira vazia na galeria. Ao fundo, aparecem o balcão da entrada e a chave da oficina presa ao cordão vermelho."
+    },
+    {
+      "key": "restoration-log",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Para trocar a moldura de madeira"
+        },
+        {
+          "key": "b",
+          "text": "Para preparar o balcão da entrada"
+        },
+        {
+          "key": "c",
+          "text": "Para protegê-la da água"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "two-checks"
+        }
+      ],
+      "title": "Uma página com clipe azul",
+      "narration": "Um clipe azul marcava uma página no registro de restauração sobre o balcão. Etta leu: \"Pintura do rio removida após a chuva. Consulte as anotações do depósito.\" Junto à parede da galeria, marcas recentes de água chegavam ao chão. Ela se lembrou da chuva forte durante a noite. Talvez alguém tivesse levado a pintura para protegê-la, em vez de roubá-la.",
+      "prompt": "Por que alguém pode ter removido a pintura?",
+      "explanation": "O registro e as marcas de água sugerem que a pintura foi removida para ser protegida da chuva.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Um clipe azul marcava uma página no registro de restauração sobre o balcão. Etta leu: \"Pintura do rio removida após a chuva. Consulte as anotações do depósito.\" Junto à parede da galeria, marcas recentes de água chegavam ao chão. Ela se lembrou da chuva forte durante a noite. Talvez alguém tivesse levado a pintura para protegê-la, em vez de roubá-la.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 24671
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "restauração",
+          "translation": "Trabalho de conservar ou recuperar uma obra danificada."
+        },
+        {
+          "key": "word-2",
+          "term": "depósito",
+          "translation": "Local usado para guardar materiais ou objetos."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Um clipe azul marcava uma página no registro de restauração sobre o balcão. Etta leu: \"Pintura do rio removida após a chuva. Consulte as anotações do depósito.\" Junto à parede da galeria, marcas recentes de água chegavam ao chão. Ela se lembrou da chuva forte durante a noite. Talvez alguém tivesse levado a pintura para protegê-la, em vez de roubá-la.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "levado a pintura para protegê-la",
+        "altText": "No balcão, Etta lê o registro de restauração aberto com um clipe azul. Marcas de água descem pela parede próxima da galeria.",
+        "reusedVisualId": "fc078d49-dbb8-4961-85ed-ccec224cab0f",
+        "sourceVersionId": "14b461e6-5e37-4136-878c-88787c81a2b5",
+        "sourceSceneKey": "restoration-log",
+        "imagePrompt": "SCENE: At the entrance desk, Etta reads a restoration log held open by a blue clip. Water marks are visible down the nearby gallery wall. Do not render readable log text or add the painting here. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "No balcão, Etta lê o registro de restauração aberto com um clipe azul. Marcas de água descem pela parede próxima da galeria."
+    },
+    {
+      "key": "two-checks",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Em direção à escada do sótão"
+        },
+        {
+          "key": "b",
+          "text": "Em direção à porta de entrada"
+        },
+        {
+          "key": "c",
+          "text": "Em direção à janela da oficina"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Usar a chave e falar com o restaurador",
+          "targetSceneKey": "restorer-explanation"
+        },
+        {
+          "key": "route-two",
+          "label": "Seguir as marcas de água até o sótão",
+          "targetSceneKey": "attic-storage"
+        }
+      ],
+      "title": "Duas formas de verificar",
+      "narration": "Etta pegou a chave com o cordão vermelho. A porta da oficina ficava à esquerda. Ela poderia abri-la e falar com o restaurador, que costumava chegar cedo. Atrás da galeria, uma escada levava ao sótão. As marcas de água continuavam naquela direção. Também poderia verificar o telhado e o depósito por conta própria. Deixou o registro no balcão e pensou nas duas rotas.",
+      "prompt": "Para onde levavam as marcas de água?",
+      "explanation": "As marcas de água seguiam em direção à escada que levava ao sótão.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Etta pegou a chave com o cordão vermelho. A porta da oficina ficava à esquerda. Ela poderia abri-la e falar com o restaurador, que costumava chegar cedo. Atrás da galeria, uma escada levava ao sótão. As marcas de água continuavam naquela direção. Também poderia verificar o telhado e o depósito por conta própria. Deixou o registro no balcão e pensou nas duas rotas.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 26087
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "sótão",
+          "translation": "Espaço de um prédio logo abaixo do telhado."
+        },
+        {
+          "key": "word-2",
+          "term": "por conta própria",
+          "translation": "Sozinha, sem a ajuda de outra pessoa."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Etta pegou a chave com o cordão vermelho. A porta da oficina ficava à esquerda. Ela poderia abri-la e falar com o restaurador, que costumava chegar cedo. Atrás da galeria, uma escada levava ao sótão. As marcas de água continuavam naquela direção. Também poderia verificar o telhado e o depósito por conta própria. Deixou o registro no balcão e pensou nas duas rotas.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "As marcas de água continuavam naquela direção.",
+        "altText": "Etta para entre a porta da oficina e a escada do sótão, segurando a chave de cordão vermelho. Marcas de umidade seguem até a escada.",
+        "reusedVisualId": "7073fd9d-d2a1-4097-a845-4e1a039178a9",
+        "sourceVersionId": "14b461e6-5e37-4136-878c-88787c81a2b5",
+        "sourceSceneKey": "two-checks",
+        "imagePrompt": "SCENE: Etta pauses between the left workshop door and the rear attic stairs, holding the red-cord key. The restoration log remains on the entrance desk. Faint wet marks continue towards the stairs. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Etta para entre a porta da oficina e a escada do sótão, segurando a chave de cordão vermelho. Marcas de umidade seguem até a escada."
+    },
+    {
+      "key": "restorer-explanation",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "O restaurador precisava fazer outra pintura"
+        },
+        {
+          "key": "b",
+          "text": "O telhado precisava de conserto para proteger a pintura"
+        },
+        {
+          "key": "c",
+          "text": "O balcão da entrada havia sido roubado"
+        }
+      ],
+      "transitions": [],
+      "title": "A explicação do restaurador",
+      "narration": "Etta destrancou a oficina e encontrou o restaurador examinando um canto danificado da capa protetora da pintura. Durante a chuva, ele levara a obra para uma caixa seca no sótão. Juntos, verificaram que estava segura. Etta adiou a exposição e providenciou o conserto do telhado. A moldura vazia podia esperar; a pintura não podia correr o risco de outra noite de chuva.",
+      "prompt": "Por que Etta adiou a exposição?",
+      "explanation": "Etta adiou a exposição para consertar o telhado e evitar novos danos à pintura.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Etta destrancou a oficina e encontrou o restaurador examinando um canto danificado da capa protetora da pintura. Durante a chuva, ele levara a obra para uma caixa seca no sótão. Juntos, verificaram que estava segura. Etta adiou a exposição e providenciou o conserto do telhado. A moldura vazia podia esperar; a pintura não podia correr o risco de outra noite de chuva.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 24404
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "adiou",
+          "translation": "Deixou algo marcado para depois."
+        },
+        {
+          "key": "word-2",
+          "term": "providenciou",
+          "translation": "Tomou as medidas necessárias para conseguir alguma coisa."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Etta destrancou a oficina e encontrou o restaurador examinando um canto danificado da capa protetora da pintura. Durante a chuva, ele levara a obra para uma caixa seca no sótão. Juntos, verificaram que estava segura. Etta adiou a exposição e providenciou o conserto do telhado. A moldura vazia podia esperar; a pintura não podia correr o risco de outra noite de chuva.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Etta adiou a exposição e providenciou o conserto do telhado.",
+        "altText": "Dentro da oficina, Etta escuta o restaurador junto a uma capa protetora com um canto úmido. Ela segura a chave; a pintura está guardada em outro lugar.",
+        "reusedVisualId": "ae1e53de-18ab-4f2c-8bcd-3b7dd4e54409",
+        "sourceVersionId": "14b461e6-5e37-4136-878c-88787c81a2b5",
+        "sourceSceneKey": "restorer-explanation",
+        "imagePrompt": "SCENE: Inside the workshop, Etta listens to an adult restorer beside a protective cover with a damp corner. She holds the red-cord key. The painting is not present: it remains in the attic storage box in this route. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Dentro da oficina, Etta escuta o restaurador junto a uma capa protetora com um canto úmido. Ela segura a chave; a pintura está guardada em outro lugar."
+    },
+    {
+      "key": "attic-storage",
+      "isEnding": true,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "A moldura de madeira"
+        },
+        {
+          "key": "b",
+          "text": "O balcão da entrada"
+        },
+        {
+          "key": "c",
+          "text": "O telhado com vazamento"
+        }
+      ],
+      "transitions": [],
+      "title": "Protegida acima da galeria",
+      "narration": "Etta subiu ao sótão. Na parte seca, encontrou a pintura do rio dentro de uma caixa larga. Um bilhete do restaurador explicava que a chuva havia entrado acima da moldura. Ela fechou a caixa novamente e fotografou o telhado com vazamento para solicitar um conserto. A pintura estava segura. Em vez de abrir a exposição, ajudou a proteger seu futuro.",
+      "prompt": "O que Etta fotografou para solicitar o conserto?",
+      "explanation": "Ela fotografou o telhado por onde a água entrava para pedir seu conserto.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Etta subiu ao sótão. Na parte seca, encontrou a pintura do rio dentro de uma caixa larga. Um bilhete do restaurador explicava que a chuva havia entrado acima da moldura. Ela fechou a caixa novamente e fotografou o telhado com vazamento para solicitar um conserto. A pintura estava segura. Em vez de abrir a exposição, ajudou a proteger seu futuro.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 24369
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "vazamento",
+          "translation": "Passagem de água por um lugar que deveria estar vedado."
+        },
+        {
+          "key": "word-2",
+          "term": "solicitar",
+          "translation": "Pedir formalmente um serviço ou uma providência."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Etta subiu ao sótão. Na parte seca, encontrou a pintura do rio dentro de uma caixa larga. Um bilhete do restaurador explicava que a chuva havia entrado acima da moldura. Ela fechou a caixa novamente e fotografou o telhado com vazamento para solicitar um conserto. A pintura estava segura. Em vez de abrir a exposição, ajudou a proteger seu futuro.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "fotografou o telhado com vazamento",
+        "altText": "No lado seco do sótão, Etta está junto à caixa aberta com a pintura do rio. Ela aponta o celular para a área do telhado com vazamento.",
+        "reusedVisualId": "a976a04a-bd4b-4138-b85f-c44358e55b10",
+        "sourceVersionId": "14b461e6-5e37-4136-878c-88787c81a2b5",
+        "sourceSceneKey": "attic-storage",
+        "imagePrompt": "SCENE: Etta stands on the dry side of the attic beside the open wide storage box containing the river painting. The damp roof area is across the room. Her phone is raised towards the roof, not the painting. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Etta, a 39-year-old woman with an oval face, brown skin, dark eyes, black hair in a low bun, a rust-red sweater, navy trousers and practical black shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "No lado seco do sótão, Etta está junto à caixa aberta com a pintura do rio. Ela aponta o celular para a área do telhado com vazamento."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "14b461e6-5e37-4136-878c-88787c81a2b5",
+    "sourceTitle": "The Empty Frame — A2",
+    "sourceSnapshotSha256": "a006dc4104dfaa6644a08513377ea295986a36c864ecda363a4353b55eca9084",
+    "sourcePath": "content/anthology-01/the-empty-frame-a2/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "gallery-morning",
+        "restoration-log",
+        "two-checks",
+        "restorer-explanation"
+      ],
+      [
+        "gallery-morning",
+        "restoration-log",
+        "two-checks",
+        "attic-storage"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

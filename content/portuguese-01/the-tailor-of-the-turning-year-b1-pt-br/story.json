@@ -1,0 +1,411 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#DAB881",
+      "accent": "#C9A4E7",
+      "background": "#14101F",
+      "surface": "#261E35",
+      "text": "#F9F0E3",
+      "font": "classic",
+      "motion": "gentle"
+    },
+    "title": "A Alfaiate da Virada do Ano",
+    "synopsis": "Rin precisa terminar o casaco da primavera. Para conseguir o último fio, terá de ajudar o guardião do inverno a preservar uma lembrança da estação que termina.",
+    "genre": "Fantasia",
+    "difficulty": "B1",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "unfinished-coat",
+  "scenes": [
+    {
+      "key": "unfinished-coat",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "O último fio do carretel prateado"
+        },
+        {
+          "key": "b",
+          "text": "Um tecido verde diferente"
+        },
+        {
+          "key": "c",
+          "text": "Uma cadeira de madeira nova"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "a-keepers-regret"
+        }
+      ],
+      "title": "O último fio do inverno",
+      "narration": "Rin era a alfaiate que fazia um casaco novo para o guardião de cada estação. Na última noite do inverno, esperava na oficina do alto da colina, com um casaco verde quase pronto para a primavera. Sev, o guardião do inverno, deveria ter chegado antes do pôr do sol para devolver o carretel prateado. Sem aquele último fio, não era possível fechar o forro. Quando a porta finalmente se abriu, Sev segurava o carretel com força. \"Por favor, deixe o casaco inacabado. Não estou pronto para me despedir do inverno.\"",
+      "prompt": "O que falta para terminar o casaco da primavera?",
+      "explanation": "O último fio do carretel é necessário para fechar o forro do casaco da primavera.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Rin era a alfaiate que fazia um casaco novo para o guardião de cada estação. Na última noite do inverno, esperava na oficina do alto da colina, com um casaco verde quase pronto para a primavera. Sev, o guardião do inverno, deveria ter chegado antes do pôr do sol para devolver o carretel prateado. Sem aquele último fio, não era possível fechar o forro. Quando a porta finalmente se abriu, Sev segurava o carretel com força.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 27353
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Sev",
+          "text": "\"Por favor, deixe o casaco inacabado. Não estou pronto para me despedir do inverno.\"",
+          "startMilliseconds": 27353,
+          "endMilliseconds": 33227
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "alfaiate",
+          "translation": "Profissional que faz e ajusta roupas sob medida."
+        },
+        {
+          "key": "word-2",
+          "term": "forro",
+          "translation": "Camada de tecido que reveste uma roupa por dentro."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Rin era a alfaiate que fazia um casaco novo para o guardião de cada estação. Na última noite do inverno, esperava na oficina do alto da colina, com um casaco verde quase pronto para a primavera. Sev, o guardião do inverno, deveria ter chegado antes do pôr do sol para devolver o carretel prateado. Sem aquele último fio, não era possível fechar o forro. Quando a porta finalmente se abriu, Sev segurava o carretel com força. \"Por favor, deixe o casaco inacabado. Não estou pronto para me despedir do inverno.\"",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Sem aquele último fio, não era possível fechar o forro.",
+        "altText": "Ilustração 2D sombria. Sev chega à oficina de Rin segurando o carretel necessário para terminar o casaco da primavera.",
+        "reusedVisualId": "5c4a27cd-ec2d-40d8-a894-c9426549541c",
+        "sourceVersionId": "7385a738-b53a-42e8-9a78-3d545edc85a9",
+        "sourceSceneKey": "unfinished-coat",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly adult tailor Rin and adult winter keeper Sev. Rin stands by a worktable with a green coat whose lining is still open; Sev has just entered the workshop doorway, holding a small silver spool of white thread tightly in both hands. Cold twilight outside contrasts with amber lamplight. No snowflake pocket or embroidered spiral yet. VISIBLE CAST AND CONTINUITY (strict): Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Sev chega à oficina de Rin segurando o carretel necessário para terminar o casaco da primavera."
+    },
+    {
+      "key": "a-keepers-regret",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Seu trabalho como alfaiate"
+        },
+        {
+          "key": "b",
+          "text": "A lembrança da sensação do inverno"
+        },
+        {
+          "key": "c",
+          "text": "A chave da oficina"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "two-memories"
+        }
+      ],
+      "title": "O receio de um guardião",
+      "narration": "Sev explicou que o inverno desaparecia de sua mente sempre que entregava o último fio. Lembraria de seus deveres, mas não do prazer tranquilo da neve caindo junto à janela. \"Este carretel guarda o que resta dessa sensação.\" Rin sempre acreditara que os guardiões recebiam cada nova estação sem pesar. Agora entendia o atraso dele. Pousou a agulha e ofereceu uma cadeira. Terminar o casaco era importante, mas apressá-lo não tornaria a despedida mais fácil.",
+      "prompt": "O que Sev tem medo de perder?",
+      "explanation": "Sev teme esquecer o prazer de sentir o inverno, mesmo lembrando de seus deveres.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Sev explicou que o inverno desaparecia de sua mente sempre que entregava o último fio. Lembraria de seus deveres, mas não do prazer tranquilo da neve caindo junto à janela.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11110
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Sev",
+          "text": "\"Este carretel guarda o que resta dessa sensação.\"",
+          "startMilliseconds": 11110,
+          "endMilliseconds": 14593
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Rin sempre acreditara que os guardiões recebiam cada nova estação sem pesar. Agora entendia o atraso dele. Pousou a agulha e ofereceu uma cadeira. Terminar o casaco era importante, mas apressá-lo não tornaria a despedida mais fácil.",
+          "startMilliseconds": 14593,
+          "endMilliseconds": 30870
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "pesar",
+          "translation": "Tristeza ou dificuldade em se despedir de algo."
+        },
+        {
+          "key": "word-2",
+          "term": "carretel",
+          "translation": "Pequeno suporte em que se enrola uma linha."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Sev explicou que o inverno desaparecia de sua mente sempre que entregava o último fio. Lembraria de seus deveres, mas não do prazer tranquilo da neve caindo junto à janela. \"Este carretel guarda o que resta dessa sensação.\" Rin sempre acreditara que os guardiões recebiam cada nova estação sem pesar. Agora entendia o atraso dele. Pousou a agulha e ofereceu uma cadeira. Terminar o casaco era importante, mas apressá-lo não tornaria a despedida mais fácil.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "não do prazer tranquilo da neve caindo junto à janela.",
+        "altText": "Ilustração 2D sombria. Rin escuta o receio de Sev de esquecer a sensação do inverno ao entregar o último fio.",
+        "reusedVisualId": "f9b72e95-4156-4f23-b140-bff181920c62",
+        "sourceVersionId": "7385a738-b53a-42e8-9a78-3d545edc85a9",
+        "sourceSceneKey": "a-keepers-regret",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rin and Sev, now seated near the workshop table. Sev in his deep-blue cloak looks thoughtfully at the small silver spool held between his fingers. Rin listens with empathy; her needle rests on the table beside the green coat. Snow is faintly visible beyond the window. No extra keeper, no snowflake pocket and no silver spiral yet. VISIBLE CAST AND CONTINUITY (strict): Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Rin escuta o receio de Sev de esquecer a sensação do inverno ao entregar o último fio."
+    },
+    {
+      "key": "two-memories",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Um floco de neve verdadeiro"
+        },
+        {
+          "key": "b",
+          "text": "O calor do verão"
+        },
+        {
+          "key": "c",
+          "text": "O som da neve caindo"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "snowflake-pocket",
+          "label": "Fazer um bolso para um floco de neve verdadeiro",
+          "targetSceneKey": "snowflake-pocket"
+        },
+        {
+          "key": "snowfall-pattern",
+          "label": "Tecer o som da neve no manto",
+          "targetSceneKey": "snowfall-pattern"
+        }
+      ],
+      "title": "Duas maneiras de lembrar",
+      "narration": "Rin examinou o carretel. Havia fio suficiente para fechar o casaco da primavera e ainda sobraria um pouco para o próprio manto azul de Sev. Ela conhecia duas formas de guardar uma memória em uma roupa. Um bolso escondido poderia manter um floco de neve verdadeiro, intacto até ser aberto novamente. Um desenho tecido poderia preservar o som da neve caindo, embora não contivesse neve. Qualquer uma das opções permitiria que Sev terminasse seu trabalho e lembrasse do que amava. Rin explicou as duas e deixou que ele escolhesse.",
+      "prompt": "O que um desenho tecido preservaria?",
+      "explanation": "O desenho tecido guarda o som da neve caindo, sem conter neve de verdade.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Rin examinou o carretel. Havia fio suficiente para fechar o casaco da primavera e ainda sobraria um pouco para o próprio manto azul de Sev. Ela conhecia duas formas de guardar uma memória em uma roupa. Um bolso escondido poderia manter um floco de neve verdadeiro, intacto até ser aberto novamente. Um desenho tecido poderia preservar o som da neve caindo, embora não contivesse neve. Qualquer uma das opções permitiria que Sev terminasse seu trabalho e lembrasse do que amava. Rin explicou as duas e deixou que ele escolhesse.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 34632
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "manto",
+          "translation": "Peça de roupa ampla usada sobre os ombros e o corpo."
+        },
+        {
+          "key": "word-2",
+          "term": "intacto",
+          "translation": "Sem alterações; no mesmo estado em que foi guardado."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Rin examinou o carretel. Havia fio suficiente para fechar o casaco da primavera e ainda sobraria um pouco para o próprio manto azul de Sev. Ela conhecia duas formas de guardar uma memória em uma roupa. Um bolso escondido poderia manter um floco de neve verdadeiro, intacto até ser aberto novamente. Um desenho tecido poderia preservar o som da neve caindo, embora não contivesse neve. Qualquer uma das opções permitiria que Sev terminasse seu trabalho e lembrasse do que amava. Rin explicou as duas e deixou que ele escolhesse.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Um desenho tecido poderia preservar o som da neve caindo",
+        "altText": "Ilustração 2D sombria. Rin explica duas maneiras de guardar uma memória no próprio manto azul de Sev.",
+        "reusedVisualId": "f6491bbb-c7a3-40ca-8fe2-c740290b492a",
+        "sourceVersionId": "7385a738-b53a-42e8-9a78-3d545edc85a9",
+        "sourceSceneKey": "two-memories",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rin and Sev at the worktable considering the small silver spool. Rin gestures between the inside lining of his OPEN BLUE CLOAK and the unfinished green spring coat on the table. The blue cloak lining is still plain, with NO finished pocket, snowflake or spiral yet: this is the undecided moment. Warm amber light, cool blue window, original fairy-tale setting. VISIBLE CAST AND CONTINUITY (strict): Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Rin explica duas maneiras de guardar uma memória no próprio manto azul de Sev."
+    },
+    {
+      "key": "snowflake-pocket",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Um floco de neve verdadeiro"
+        },
+        {
+          "key": "b",
+          "text": "O som de um sino"
+        },
+        {
+          "key": "c",
+          "text": "Uma agulha quebrada"
+        }
+      ],
+      "transitions": [],
+      "title": "Um floco no bolso",
+      "narration": "Sev escolheu o bolso. Rin o costurou dentro do manto azul e o manteve aberto perto da janela. Um floco de neve entrou e continuou brilhante contra o tecido. Ela usou o resto do fio para terminar o casaco verde da primavera. Lá fora, os primeiros brotos surgiram nos galhos nus. Sev fechou o manto, sentindo o pequeno bolso junto ao peito. O inverno já não preenchia a sala, mas sua memória poderia acompanhá-lo. \"Agora posso descansar até o inverno voltar.\" Ele saiu.",
+      "prompt": "O que fica dentro do bolso escondido?",
+      "explanation": "Um floco de neve verdadeiro fica preservado dentro do bolso do manto azul.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Sev escolheu o bolso. Rin o costurou dentro do manto azul e o manteve aberto perto da janela. Um floco de neve entrou e continuou brilhante contra o tecido. Ela usou o resto do fio para terminar o casaco verde da primavera. Lá fora, os primeiros brotos surgiram nos galhos nus. Sev fechou o manto, sentindo o pequeno bolso junto ao peito. O inverno já não preenchia a sala, mas sua memória poderia acompanhá-lo.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 28107
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Sev",
+          "text": "\"Agora posso descansar até o inverno voltar.\"",
+          "startMilliseconds": 28107,
+          "endMilliseconds": 31451
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ele saiu.",
+          "startMilliseconds": 31451,
+          "endMilliseconds": 33436
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "brotos",
+          "translation": "Primeiras partes novas que surgem em uma planta."
+        },
+        {
+          "key": "word-2",
+          "term": "galhos nus",
+          "translation": "Ramos de árvores que ainda estão sem folhas."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Sev escolheu o bolso. Rin o costurou dentro do manto azul e o manteve aberto perto da janela. Um floco de neve entrou e continuou brilhante contra o tecido. Ela usou o resto do fio para terminar o casaco verde da primavera. Lá fora, os primeiros brotos surgiram nos galhos nus. Sev fechou o manto, sentindo o pequeno bolso junto ao peito. O inverno já não preenchia a sala, mas sua memória poderia acompanhá-lo. \"Agora posso descansar até o inverno voltar.\" Ele saiu.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Um floco de neve entrou e continuou brilhante contra o tecido.",
+        "altText": "Ilustração 2D sombria. Um único floco de neve permanece no bolso do manto azul de Sev; o casaco verde fica pronto na mesa.",
+        "reusedVisualId": "d05af947-c31a-4030-99a4-88ae475e7972",
+        "sourceVersionId": "7385a738-b53a-42e8-9a78-3d545edc85a9",
+        "sourceSceneKey": "snowflake-pocket",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rin and Sev beside the workshop window, at the moment before he closes his blue cloak. A tiny hidden pocket INSIDE SEV'S BLUE CLOAK holds ONE clearly visible luminous snowflake. Rin has just finished stitching it. The separate finished GREEN SPRING COAT remains on the worktable, NOT worn by Sev. Buds just begin on branches beyond the window. No embroidered spiral in this ending. VISIBLE CAST AND CONTINUITY (strict): Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Um único floco de neve permanece no bolso do manto azul de Sev; o casaco verde fica pronto na mesa."
+    },
+    {
+      "key": "snowfall-pattern",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Sua pele se transforma em gelo"
+        },
+        {
+          "key": "b",
+          "text": "Ele ouve o som da neve pousando"
+        },
+        {
+          "key": "c",
+          "text": "O casaco da primavera desaparece"
+        }
+      ],
+      "transitions": [],
+      "title": "O som no forro",
+      "narration": "Sev escolheu o desenho tecido. Rin usou o fio extra para costurar uma espiral prateada dentro do manto azul. Ao passar os dedos por ela, Sev ouviu a neve pousando suavemente no parapeito de uma janela. Não havia gelo em sua pele, apenas a lembrança do som. Rin terminou o casaco da primavera com o fio restante. Lá fora, surgiram os primeiros brotos. Sev fechou os olhos por um instante e depois abriu a porta sem hesitar. \"Posso receber o que vem a seguir sem fingir que o inverno não significou nada.\"",
+      "prompt": "O que acontece quando Sev toca a espiral prateada?",
+      "explanation": "A espiral preserva o som da neve, que Sev ouve ao tocá-la.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Sev escolheu o desenho tecido. Rin usou o fio extra para costurar uma espiral prateada dentro do manto azul. Ao passar os dedos por ela, Sev ouviu a neve pousando suavemente no parapeito de uma janela. Não havia gelo em sua pele, apenas a lembrança do som. Rin terminou o casaco da primavera com o fio restante. Lá fora, surgiram os primeiros brotos. Sev fechou os olhos por um instante e depois abriu a porta sem hesitar.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 29106
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Sev",
+          "text": "\"Posso receber o que vem a seguir sem fingir que o inverno não significou nada.\"",
+          "startMilliseconds": 29106,
+          "endMilliseconds": 34017
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "espiral",
+          "translation": "Forma curva que dá voltas ao redor de um ponto."
+        },
+        {
+          "key": "word-2",
+          "term": "parapeito",
+          "translation": "Parte inferior ou apoio junto a uma janela."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Sev escolheu o desenho tecido. Rin usou o fio extra para costurar uma espiral prateada dentro do manto azul. Ao passar os dedos por ela, Sev ouviu a neve pousando suavemente no parapeito de uma janela. Não havia gelo em sua pele, apenas a lembrança do som. Rin terminou o casaco da primavera com o fio restante. Lá fora, surgiram os primeiros brotos. Sev fechou os olhos por um instante e depois abriu a porta sem hesitar. \"Posso receber o que vem a seguir sem fingir que o inverno não significou nada.\"",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Sev ouviu a neve pousando suavemente",
+        "altText": "Ilustração 2D sombria. Sev toca a espiral prateada no forro do manto e guarda o som do inverno na memória.",
+        "reusedVisualId": "13a570ca-62ce-481f-a32c-671ce654d7ff",
+        "sourceVersionId": "7385a738-b53a-42e8-9a78-3d545edc85a9",
+        "sourceSceneKey": "snowfall-pattern",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rin and Sev in the amber-lit workshop. Sev holds open the lining of HIS OWN BLUE CLOAK and gently brushes a small embroidered SILVER SPIRAL with his fingertips, eyes peacefully closed. The separate finished green spring coat rests on the worktable near Rin. Buds appear beyond the window. NO actual snowflake, ice, snowflake pocket or visual sound lettering in this ending. VISIBLE CAST AND CONTINUITY (strict): Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Sev toca a espiral prateada no forro do manto e guarda o som do inverno na memória."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "7385a738-b53a-42e8-9a78-3d545edc85a9",
+    "sourceTitle": "The Tailor of the Turning Year — B1",
+    "sourceSnapshotSha256": "337e4f289516b5984569514a9ba350aeb38684e15e95f8afcfb4251abb05597e",
+    "sourcePath": "content/anthology-03/the-tailor-of-the-turning-year-b1/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "unfinished-coat",
+        "a-keepers-regret",
+        "two-memories",
+        "snowflake-pocket"
+      ],
+      [
+        "unfinished-coat",
+        "a-keepers-regret",
+        "two-memories",
+        "snowfall-pattern"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

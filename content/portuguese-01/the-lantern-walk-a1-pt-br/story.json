@@ -1,0 +1,369 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#A1C7B1",
+      "accent": "#E7BC75",
+      "background": "#0D1C19",
+      "surface": "#17352C",
+      "text": "#EFF8F2",
+      "font": "modern",
+      "motion": "gentle"
+    },
+    "title": "O Caminho da Lanterna",
+    "synopsis": "Omar leva uma lanterna para iluminar um piquenique no parque e escolhe com quem seguir pelo caminho.",
+    "genre": "Aventura",
+    "difficulty": "A1",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "park-entrance",
+  "scenes": [
+    {
+      "key": "park-entrance",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Uma cesta azul"
+        },
+        {
+          "key": "b",
+          "text": "Um guarda-chuva amarelo"
+        },
+        {
+          "key": "c",
+          "text": "Uma lanterna verde"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "map-paths"
+        }
+      ],
+      "title": "Na entrada do parque",
+      "narration": "Omar usa uma jaqueta azul e carrega uma lanterna verde. Hoje à noite, os vizinhos fazem um piquenique no parque. As luzes da mesa de comida não estão funcionando. Ele quer ajudar. Na entrada do parque, abre um mapa de papel.",
+      "prompt": "O que Omar carrega?",
+      "explanation": "Omar carrega uma lanterna verde para ajudar no piquenique.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Omar usa uma jaqueta azul e carrega uma lanterna verde. Hoje à noite, os vizinhos fazem um piquenique no parque. As luzes da mesa de comida não estão funcionando. Ele quer ajudar. Na entrada do parque, abre um mapa de papel.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 16927
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "piquenique",
+          "translation": "Refeição compartilhada ao ar livre."
+        },
+        {
+          "key": "word-2",
+          "term": "lanterna",
+          "translation": "Fonte de luz portátil que pode ser levada na mão."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Omar usa uma jaqueta azul e carrega uma lanterna verde. Hoje à noite, os vizinhos fazem um piquenique no parque. As luzes da mesa de comida não estão funcionando. Ele quer ajudar. Na entrada do parque, abre um mapa de papel.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "carrega uma lanterna verde.",
+        "altText": "Na entrada do parque ao anoitecer, Omar segura uma lanterna verde e um mapa de papel aberto. A luz da lanterna ilumina o caminho.",
+        "reusedVisualId": "badedc08-8a84-4eb1-9b1a-784ad06fa7f4",
+        "sourceVersionId": "7d367e7e-60f0-4dda-9f4b-1f4be4b9a341",
+        "sourceSceneKey": "park-entrance",
+        "imagePrompt": "SCENE: Omar stands at the park south entrance, holding a green lantern and an open paper map. The green lantern provides warm light at the entrance; dusk is gentle, not threatening. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Na entrada do parque ao anoitecer, Omar segura uma lanterna verde e um mapa de papel aberto. A luz da lanterna ilumina o caminho."
+    },
+    {
+      "key": "map-paths",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Ao lado de um lago"
+        },
+        {
+          "key": "b",
+          "text": "Por um pomar"
+        },
+        {
+          "key": "c",
+          "text": "Por um estacionamento"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "people-on-paths"
+        }
+      ],
+      "title": "Dois caminhos no mapa",
+      "narration": "O mapa mostra dois caminhos para o piquenique. O da esquerda passa ao lado de um lago. O da direita atravessa um pomar. Os dois estão abertos. Omar dobra o mapa e o coloca no bolso. Da entrada, ele consegue ver o lago.",
+      "prompt": "Por onde passa o caminho da esquerda?",
+      "explanation": "O caminho da esquerda passa ao lado de um lago.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "O mapa mostra dois caminhos para o piquenique. O da esquerda passa ao lado de um lago. O da direita atravessa um pomar. Os dois estão abertos. Omar dobra o mapa e o coloca no bolso. Da entrada, ele consegue ver o lago.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 16950
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "pomar",
+          "translation": "Área com árvores que produzem frutas."
+        },
+        {
+          "key": "word-2",
+          "term": "dobra",
+          "translation": "Vira uma parte do papel sobre a outra."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "O mapa mostra dois caminhos para o piquenique. O da esquerda passa ao lado de um lago. O da direita atravessa um pomar. Os dois estão abertos. Omar dobra o mapa e o coloca no bolso. Da entrada, ele consegue ver o lago.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "O da esquerda passa ao lado de um lago.",
+        "altText": "Omar guarda o mapa dobrado no bolso e segura a lanterna. O caminho do lago fica à esquerda; o do pomar, à direita.",
+        "reusedVisualId": "82cb6481-5b73-4ef6-9127-703ac63230fc",
+        "sourceVersionId": "7d367e7e-60f0-4dda-9f4b-1f4be4b9a341",
+        "sourceSceneKey": "map-paths",
+        "imagePrompt": "SCENE: Omar puts the folded paper map into his jacket pocket. The pond path opens to the left and the orchard path to the right. He keeps the green lantern in his other hand. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Omar guarda o mapa dobrado no bolso e segura a lanterna. O caminho do lago fica à esquerda; o do pomar, à direita."
+    },
+    {
+      "key": "people-on-paths",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Um vizinho sentado em um banco"
+        },
+        {
+          "key": "b",
+          "text": "Dois músicos"
+        },
+        {
+          "key": "c",
+          "text": "Três pessoas com comida"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Seguir pelo caminho ao lado do lago",
+          "targetSceneKey": "picnic-table"
+        },
+        {
+          "key": "route-two",
+          "label": "Seguir pelo caminho do pomar",
+          "targetSceneKey": "picnic-stage"
+        }
+      ],
+      "title": "Companhia pelo caminho",
+      "narration": "Um vizinho espera em um banco perto do lago. Dois músicos estão junto ao caminho do pomar. Eles também querem chegar ao piquenique. Omar pode caminhar com o vizinho ou com os músicos. Ele levanta a lanterna para que possam vê-lo.",
+      "prompt": "Quem está junto ao caminho do pomar?",
+      "explanation": "Dois músicos estão junto ao caminho que passa pelo pomar.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Um vizinho espera em um banco perto do lago. Dois músicos estão junto ao caminho do pomar. Eles também querem chegar ao piquenique. Omar pode caminhar com o vizinho ou com os músicos. Ele levanta a lanterna para que possam vê-lo.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 15627
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "músicos",
+          "translation": "Pessoas que tocam instrumentos ou fazem música."
+        },
+        {
+          "key": "word-2",
+          "term": "junto",
+          "translation": "Perto; ao lado de alguma coisa."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Um vizinho espera em um banco perto do lago. Dois músicos estão junto ao caminho do pomar. Eles também querem chegar ao piquenique. Omar pode caminhar com o vizinho ou com os músicos. Ele levanta a lanterna para que possam vê-lo.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Dois músicos estão junto ao caminho do pomar.",
+        "altText": "Na bifurcação, Omar ergue a lanterna verde. Um vizinho espera junto ao lago e dois músicos estão na entrada do caminho do pomar.",
+        "reusedVisualId": "0a3e89b0-4ea1-4410-bf43-c1ae8e59689a",
+        "sourceVersionId": "7d367e7e-60f0-4dda-9f4b-1f4be4b9a341",
+        "sourceSceneKey": "people-on-paths",
+        "imagePrompt": "SCENE: At the path fork, Omar holds his green lantern at shoulder height. One adult neighbour sits by the pond; two adult musicians stand at the orchard entrance. Keep both routes distinct. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. The two musicians are a 40-year-old woman with dark braided hair and a forest-green jacket, and a 45-year-old man with a short black beard and a plain grey jacket. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. The two musicians are a 40-year-old woman with dark braided hair and a forest-green jacket, and a 45-year-old man with a short black beard and a plain grey jacket. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Na bifurcação, Omar ergue a lanterna verde. Um vizinho espera junto ao lago e dois músicos estão na entrada do caminho do pomar."
+    },
+    {
+      "key": "picnic-table",
+      "isEnding": true,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Em um banco perto do lago"
+        },
+        {
+          "key": "b",
+          "text": "Ao lado do palco"
+        },
+        {
+          "key": "c",
+          "text": "Sobre a mesa de comida"
+        }
+      ],
+      "transitions": [],
+      "title": "Luz para a mesa",
+      "narration": "Omar segue pelo caminho do lago com o vizinho. Os dois chegam juntos ao piquenique. Ele coloca a lanterna verde sobre a mesa de comida. Agora todos conseguem ver os pratos. O vizinho lhe oferece pão. Omar se senta, feliz por compartilhar a noite.",
+      "prompt": "Onde Omar coloca a lanterna?",
+      "explanation": "Omar coloca a lanterna sobre a mesa de comida para iluminar os pratos.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Omar segue pelo caminho do lago com o vizinho. Os dois chegam juntos ao piquenique. Ele coloca a lanterna verde sobre a mesa de comida. Agora todos conseguem ver os pratos. O vizinho lhe oferece pão. Omar se senta, feliz por compartilhar a noite.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 18007
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "compartilhar",
+          "translation": "Participar de algo junto com outras pessoas."
+        },
+        {
+          "key": "word-2",
+          "term": "oferece",
+          "translation": "Disponibiliza algo a outra pessoa, como um presente ou ajuda."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Omar segue pelo caminho do lago com o vizinho. Os dois chegam juntos ao piquenique. Ele coloca a lanterna verde sobre a mesa de comida. Agora todos conseguem ver os pratos. O vizinho lhe oferece pão. Omar se senta, feliz por compartilhar a noite.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Ele coloca a lanterna verde sobre a mesa de comida.",
+        "altText": "Omar coloca a lanterna verde sobre a mesa do piquenique, entre pratos e pães. Seu vizinho está ao lado, com os rostos iluminados pela lanterna.",
+        "reusedVisualId": "ceff0a1e-cb19-4d35-a602-4dfd47f28b8c",
+        "sourceVersionId": "7d367e7e-60f0-4dda-9f4b-1f4be4b9a341",
+        "sourceSceneKey": "picnic-table",
+        "imagePrompt": "SCENE: Omar sets the green lantern on the picnic food table among plates and bread. His adult neighbour stands beside him. The lantern lights their faces; the pond path ends behind them. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Omar coloca a lanterna verde sobre a mesa do piquenique, entre pratos e pães. Seu vizinho está ao lado, com os rostos iluminados pela lanterna."
+    },
+    {
+      "key": "picnic-stage",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Ao lado do pequeno palco"
+        },
+        {
+          "key": "b",
+          "text": "Sobre a mesa de comida"
+        },
+        {
+          "key": "c",
+          "text": "Debaixo de uma árvore do pomar"
+        }
+      ],
+      "transitions": [],
+      "title": "Luz para a música",
+      "narration": "Omar atravessa o pomar com os músicos. No piquenique, outro vizinho leva uma luminária para a mesa de comida. Omar coloca sua lanterna verde ao lado do pequeno palco. Os músicos começam a tocar. Ele fica para ouvir, contente porque os dois lugares têm luz.",
+      "prompt": "Onde Omar coloca sua lanterna?",
+      "explanation": "Como a mesa já tem uma luminária, Omar coloca sua lanterna ao lado do palco.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Omar atravessa o pomar com os músicos. No piquenique, outro vizinho leva uma luminária para a mesa de comida. Omar coloca sua lanterna verde ao lado do pequeno palco. Os músicos começam a tocar. Ele fica para ouvir, contente porque os dois lugares têm luz.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 18216
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "luminária",
+          "translation": "Objeto que sustenta uma lâmpada para iluminar um local."
+        },
+        {
+          "key": "word-2",
+          "term": "palco",
+          "translation": "Espaço onde artistas fazem uma apresentação."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Omar atravessa o pomar com os músicos. No piquenique, outro vizinho leva uma luminária para a mesa de comida. Omar coloca sua lanterna verde ao lado do pequeno palco. Os músicos começam a tocar. Ele fica para ouvir, contente porque os dois lugares têm luz.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Omar coloca sua lanterna verde ao lado do pequeno palco.",
+        "altText": "Omar põe a lanterna ao lado do pequeno palco, onde dois músicos se preparam. Ao fundo, um vizinho leva outra luminária à mesa de comida.",
+        "reusedVisualId": "6add196e-a64c-4c4a-8b3d-38d89e857872",
+        "sourceVersionId": "7d367e7e-60f0-4dda-9f4b-1f4be4b9a341",
+        "sourceSceneKey": "picnic-stage",
+        "imagePrompt": "SCENE: Omar places his green lantern beside the small picnic stage. Two adult musicians prepare to play. In the background, a neighbour brings a separate lamp to the food table, as stated in this ending. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. The two musicians are a 40-year-old woman with dark braided hair and a forest-green jacket, and a 45-year-old man with a short black beard and a plain grey jacket. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Omar, a 53-year-old man with a broad face, close-cropped grey hair, brown eyes, a blue jacket, beige trousers and walking shoes. The neighbour is a 60-year-old woman with a round face, short grey curls and a brown coat. The two musicians are a 40-year-old woman with dark braided hair and a forest-green jacket, and a 45-year-old man with a short black beard and a plain grey jacket. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Omar põe a lanterna ao lado do pequeno palco, onde dois músicos se preparam. Ao fundo, um vizinho leva outra luminária à mesa de comida."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "7d367e7e-60f0-4dda-9f4b-1f4be4b9a341",
+    "sourceTitle": "The Lantern Walk — A1",
+    "sourceSnapshotSha256": "75a9d0181805d161a69a42bb10987551c58d0561ddc6c5c9f6c510b5927fdd8b",
+    "sourcePath": "content/anthology-01/the-lantern-walk-a1/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "park-entrance",
+        "map-paths",
+        "people-on-paths",
+        "picnic-table"
+      ],
+      [
+        "park-entrance",
+        "map-paths",
+        "people-on-paths",
+        "picnic-stage"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

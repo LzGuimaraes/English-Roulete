@@ -1,0 +1,369 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#D8A3A3",
+      "accent": "#BA7878",
+      "background": "#100B10",
+      "surface": "#21161E",
+      "text": "#F6EBED",
+      "font": "classic",
+      "motion": "gentle"
+    },
+    "title": "O Inventário dos Quartos Vazios",
+    "synopsis": "Dalia inspeciona uma pensão abandonada, mas o livro de hóspedes contradiz os quartos vazios e começa a registrar sua presença.",
+    "genre": "Terror psicológico",
+    "difficulty": "B1",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "inspection-kit",
+  "scenes": [
+    {
+      "key": "inspection-kit",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Ele estava sem poeira, ao contrário do balcão ao redor"
+        },
+        {
+          "key": "b",
+          "text": "Era o único objeto mencionado no formulário"
+        },
+        {
+          "key": "c",
+          "text": "Estava trancado em um dos seis quartos"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "six-empty-rooms"
+        }
+      ],
+      "title": "Um formulário para um prédio vazio",
+      "narration": "Dalia chegou para inspecionar uma pensão fechada havia anos. A agência queria apenas uma declaração de que os seis quartos estavam vazios. Ela levava o formulário em um envelope azul e uma chave de latão com etiqueta amarela. Na recepção, havia um livro de hóspedes preto sobre o balcão. A poeira cobria tudo ao redor, menos o livro. Ela pousou o envelope sem abri-lo. Primeiro, verificaria os quartos.",
+      "prompt": "O que fazia o livro de hóspedes se destacar?",
+      "explanation": "O livro estava limpo, embora o balcão ao redor estivesse coberto de poeira.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Dalia chegou para inspecionar uma pensão fechada havia anos. A agência queria apenas uma declaração de que os seis quartos estavam vazios. Ela levava o formulário em um envelope azul e uma chave de latão com etiqueta amarela. Na recepção, havia um livro de hóspedes preto sobre o balcão. A poeira cobria tudo ao redor, menos o livro. Ela pousou o envelope sem abri-lo. Primeiro, verificaria os quartos.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 28711
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "pensão",
+          "translation": "Estabelecimento que aluga quartos para hospedagem."
+        },
+        {
+          "key": "word-2",
+          "term": "latão",
+          "translation": "Metal de cor amarelada usado em objetos como chaves."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Dalia chegou para inspecionar uma pensão fechada havia anos. A agência queria apenas uma declaração de que os seis quartos estavam vazios. Ela levava o formulário em um envelope azul e uma chave de latão com etiqueta amarela. Na recepção, havia um livro de hóspedes preto sobre o balcão. A poeira cobria tudo ao redor, menos o livro. Ela pousou o envelope sem abri-lo. Primeiro, verificaria os quartos.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "A poeira cobria tudo ao redor, menos o livro.",
+        "altText": "Dalia põe o envelope azul no balcão empoeirado e segura a chave com etiqueta amarela. Um livro de hóspedes preto e limpo contrasta com a poeira.",
+        "reusedVisualId": "a8fad582-a0da-44be-99cf-11e4772a4421",
+        "sourceVersionId": "2a774608-59f6-4b5c-86a8-61299262f571",
+        "sourceSceneKey": "inspection-kit",
+        "imagePrompt": "SCENE: Dalia sets a blue survey envelope on the dusty reception counter, holding the yellow-tag brass key. A clean black guest ledger lies on the same desk. A dim front window lights the contrasting dust; no residents or silhouettes are visible. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Dalia põe o envelope azul no balcão empoeirado e segura a chave com etiqueta amarela. Um livro de hóspedes preto e limpo contrasta com a poeira."
+    },
+    {
+      "key": "six-empty-rooms",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "O livro listava menos quartos do que havia no prédio"
+        },
+        {
+          "key": "b",
+          "text": "Os quartos não mostravam sinais de vida cotidiana"
+        },
+        {
+          "key": "c",
+          "text": "A agência a proibira de verificar os armários"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "her-name"
+        }
+      ],
+      "title": "Seis portas, seis nomes",
+      "narration": "Dalia verificou os seis quartos. As camas estavam sem roupa de cama, os armários abertos, e não restavam objetos pessoais. De volta à recepção, abriu o livro. Seis nomes preenchiam a página atual, todos seguidos da palavra \"presente\". Conferiu as datas com o formulário: eram daquele dia. Talvez alguém tivesse usado o prédio recentemente. Ainda assim, os quartos não mostravam sinais de vida cotidiana. Deixou o livro aberto enquanto anotava apenas o que realmente observara.",
+      "prompt": "Por que Dalia hesitou em aceitar o livro como prova de moradores?",
+      "explanation": "Os nomes e as datas indicavam hóspedes atuais, mas os quartos vazios não sustentavam essa informação.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Dalia verificou os seis quartos. As camas estavam sem roupa de cama, os armários abertos, e não restavam objetos pessoais. De volta à recepção, abriu o livro. Seis nomes preenchiam a página atual, todos seguidos da palavra \"presente\". Conferiu as datas com o formulário: eram daquele dia. Talvez alguém tivesse usado o prédio recentemente. Ainda assim, os quartos não mostravam sinais de vida cotidiana. Deixou o livro aberto enquanto anotava apenas o que realmente observara.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 34191
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "cotidiana",
+          "translation": "Que faz parte do dia a dia."
+        },
+        {
+          "key": "word-2",
+          "term": "conferiu",
+          "translation": "Comparou informações para verificar se correspondiam."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Dalia verificou os seis quartos. As camas estavam sem roupa de cama, os armários abertos, e não restavam objetos pessoais. De volta à recepção, abriu o livro. Seis nomes preenchiam a página atual, todos seguidos da palavra \"presente\". Conferiu as datas com o formulário: eram daquele dia. Talvez alguém tivesse usado o prédio recentemente. Ainda assim, os quartos não mostravam sinais de vida cotidiana. Deixou o livro aberto enquanto anotava apenas o que realmente observara.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "os quartos não mostravam sinais de vida cotidiana.",
+        "altText": "Na recepção, Dalia examina o livro preto aberto ao lado do envelope azul. As portas entreabertas do corredor revelam quartos sem moradores.",
+        "reusedVisualId": "3c8f7839-db7a-4208-be91-d9c6fca624eb",
+        "sourceVersionId": "2a774608-59f6-4b5c-86a8-61299262f571",
+        "sourceSceneKey": "six-empty-rooms",
+        "imagePrompt": "SCENE: Back at reception, Dalia studies the open black ledger beside her blue survey envelope. The corridor doors stand ajar behind her, revealing only bare rooms. Pages may have indistinct marks, but no readable names or figures. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Na recepção, Dalia examina o livro preto aberto ao lado do envelope azul. As portas entreabertas do corredor revelam quartos sem moradores."
+    },
+    {
+      "key": "her-name",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Assinar o livro como nova moradora"
+        },
+        {
+          "key": "b",
+          "text": "Trancar as saídas e verificar os quartos novamente"
+        },
+        {
+          "key": "c",
+          "text": "Não atestar uma declaração que não conseguia comprovar"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Levar o livro à agência como evidência",
+          "targetSceneKey": "ledger-outside"
+        },
+        {
+          "key": "route-two",
+          "label": "Deixar o livro e entregar apenas o formulário",
+          "targetSceneKey": "survey-only"
+        }
+      ],
+      "title": "Um lugar já reservado",
+      "narration": "Quando Dalia ergueu os olhos do formulário, uma anotação havia mudado. Seu nome completo agora ocupava a última linha do livro de hóspedes. A letra parecia a sua, embora sua caneta só tivesse tocado o formulário. A chave com etiqueta amarela continuava ao lado do envelope azul. A porta da frente e a saída do pátio estavam abertas. Ela poderia levar o livro à agência ou deixá-lo ali. De qualquer forma, não assinaria uma declaração que já não conseguia comprovar.",
+      "prompt": "O que Dalia havia decidido antes de escolher o que levar?",
+      "explanation": "Antes de decidir sobre o livro, Dalia resolve não assinar uma declaração sem comprovação.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Quando Dalia ergueu os olhos do formulário, uma anotação havia mudado. Seu nome completo agora ocupava a última linha do livro de hóspedes. A letra parecia a sua, embora sua caneta só tivesse tocado o formulário. A chave com etiqueta amarela continuava ao lado do envelope azul. A porta da frente e a saída do pátio estavam abertas. Ela poderia levar o livro à agência ou deixá-lo ali. De qualquer forma, não assinaria uma declaração que já não conseguia comprovar.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 31474
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "ergueu",
+          "translation": "Levantou; aqui, desviou os olhos para cima."
+        },
+        {
+          "key": "word-2",
+          "term": "comprovar",
+          "translation": "Apresentar evidências de que algo é verdadeiro."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Quando Dalia ergueu os olhos do formulário, uma anotação havia mudado. Seu nome completo agora ocupava a última linha do livro de hóspedes. A letra parecia a sua, embora sua caneta só tivesse tocado o formulário. A chave com etiqueta amarela continuava ao lado do envelope azul. A porta da frente e a saída do pátio estavam abertas. Ela poderia levar o livro à agência ou deixá-lo ali. De qualquer forma, não assinaria uma declaração que já não conseguia comprovar.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "não assinaria uma declaração que já não conseguia comprovar.",
+        "altText": "Dalia compara seu formulário com a última linha do livro aberto. A chave com etiqueta amarela está junto ao envelope, e as duas saídas estão livres.",
+        "reusedVisualId": "ec85c021-fd4f-482f-b647-7868dcf11412",
+        "sourceVersionId": "2a774608-59f6-4b5c-86a8-61299262f571",
+        "sourceSceneKey": "her-name",
+        "imagePrompt": "SCENE: Dalia looks from her separate survey form to the last line of the open black ledger. The brass key with a yellow tag rests beside the blue envelope. Both established exits remain open; no figure appears in either doorway. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Dalia compara seu formulário com a última linha do livro aberto. A chave com etiqueta amarela está junto ao envelope, e as duas saídas estão livres."
+    },
+    {
+      "key": "ledger-outside",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Não conseguia explicar nem atestar honestamente o que encontrara"
+        },
+        {
+          "key": "b",
+          "text": "Esquecera de levar o envelope com o formulário"
+        },
+        {
+          "key": "c",
+          "text": "O colega pediu que assinasse as páginas em branco"
+        }
+      ],
+      "transitions": [],
+      "title": "Um livro além do portão",
+      "narration": "Dalia prendeu o livro e o envelope sob o braço, pegou a chave e saiu pela porta da frente. Do lado de fora do portão, todas as páginas do livro estavam em branco. Na agência, mostrou-o a um colega e descreveu os seis nomes e o seu. Ele registrou o relato sem pedir que ela voltasse sozinha. A inspeção continuou incompleta. Para Dalia, deixar um formulário inacabado era menos assustador do que fingir que havia entendido o prédio.",
+      "prompt": "Por que Dalia deixou a inspeção incompleta?",
+      "explanation": "Dalia não consegue explicar as evidências contraditórias e prefere não atestar a inspeção.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Dalia prendeu o livro e o envelope sob o braço, pegou a chave e saiu pela porta da frente. Do lado de fora do portão, todas as páginas do livro estavam em branco. Na agência, mostrou-o a um colega e descreveu os seis nomes e o seu. Ele registrou o relato sem pedir que ela voltasse sozinha. A inspeção continuou incompleta. Para Dalia, deixar um formulário inacabado era menos assustador do que fingir que havia entendido o prédio.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 29686
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "relato",
+          "translation": "Descrição do que alguém viu ou viveu."
+        },
+        {
+          "key": "word-2",
+          "term": "inacabado",
+          "translation": "Que ainda não foi concluído."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Dalia prendeu o livro e o envelope sob o braço, pegou a chave e saiu pela porta da frente. Do lado de fora do portão, todas as páginas do livro estavam em branco. Na agência, mostrou-o a um colega e descreveu os seis nomes e o seu. Ele registrou o relato sem pedir que ela voltasse sozinha. A inspeção continuou incompleta. Para Dalia, deixar um formulário inacabado era menos assustador do que fingir que havia entendido o prédio.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "deixar um formulário inacabado era menos assustador do que fingir que havia entendido o prédio.",
+        "altText": "Do lado de fora do portão da pensão, Dalia segura o livro aberto com páginas em branco. Leva o envelope azul sob o braço e a chave na mão.",
+        "reusedVisualId": "a1aaac76-1e0e-4d72-8563-42f017afef1f",
+        "sourceVersionId": "2a774608-59f6-4b5c-86a8-61299262f571",
+        "sourceSceneKey": "ledger-outside",
+        "imagePrompt": "SCENE: Outside the boarding-house street gate, Dalia holds the open black ledger with visibly blank pages. The blue survey envelope is under her other arm and the yellow-tag key remains in her hand. Pale daylight replaces the interior gloom. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Do lado de fora do portão da pensão, Dalia segura o livro aberto com páginas em branco. Leva o envelope azul sob o braço e a chave na mão."
+    },
+    {
+      "key": "survey-only",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "O livro de hóspedes com os seis nomes"
+        },
+        {
+          "key": "b",
+          "text": "Seu envelope com o formulário e a chave, mas não o livro"
+        },
+        {
+          "key": "c",
+          "text": "Apenas um formulário em branco da recepção"
+        }
+      ],
+      "transitions": [],
+      "title": "Um endereço que ela recusou",
+      "narration": "Dalia deixou o livro aberto e levou apenas o envelope com o formulário e a chave. No portão do pátio, conferiu o documento: ainda continha suas anotações cuidadosas, não uma lista de moradores. Entregou um relatório marcado como \"ocupação não verificada\" e recusou outra visita sem um colega. Em casa, colocou a chave com etiqueta amarela na caixa de devoluções da agência. Fosse qual fosse o nome registrado no livro, ela decidira não fazer daquele endereço o seu.",
+      "prompt": "O que Dalia levou do prédio?",
+      "explanation": "Ela deixa o livro e sai pelo pátio com seu próprio envelope e a chave.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Dalia deixou o livro aberto e levou apenas o envelope com o formulário e a chave. No portão do pátio, conferiu o documento: ainda continha suas anotações cuidadosas, não uma lista de moradores. Entregou um relatório marcado como \"ocupação não verificada\" e recusou outra visita sem um colega. Em casa, colocou a chave com etiqueta amarela na caixa de devoluções da agência. Fosse qual fosse o nome registrado no livro, ela decidira não fazer daquele endereço o seu.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 31555
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "ocupação",
+          "translation": "Presença de pessoas morando ou usando um imóvel."
+        },
+        {
+          "key": "word-2",
+          "term": "recusou",
+          "translation": "Disse não; não aceitou uma proposta."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Dalia deixou o livro aberto e levou apenas o envelope com o formulário e a chave. No portão do pátio, conferiu o documento: ainda continha suas anotações cuidadosas, não uma lista de moradores. Entregou um relatório marcado como \"ocupação não verificada\" e recusou outra visita sem um colega. Em casa, colocou a chave com etiqueta amarela na caixa de devoluções da agência. Fosse qual fosse o nome registrado no livro, ela decidira não fazer daquele endereço o seu.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "levou apenas o envelope com o formulário e a chave.",
+        "altText": "No portão aberto do pátio, Dalia confere o formulário retirado do envelope azul enquanto segura a chave. O corredor atrás dela está vazio.",
+        "reusedVisualId": "a36ba72b-08e8-4805-8376-a533ac46f79f",
+        "sourceVersionId": "2a774608-59f6-4b5c-86a8-61299262f571",
+        "sourceSceneKey": "survey-only",
+        "imagePrompt": "SCENE: At the open courtyard gate, Dalia checks the survey taken from her blue envelope while holding the yellow-tag key. The reception ledger is not in this frame and must not be placed in her belongings. The corridor behind her is empty. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Dalia, a 49-year-old woman with a narrow face, light brown skin, deep-set brown eyes, straight dark hair cut at the jaw, a worn olive coat, grey sweater, black trousers and brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "No portão aberto do pátio, Dalia confere o formulário retirado do envelope azul enquanto segura a chave. O corredor atrás dela está vazio."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "2a774608-59f6-4b5c-86a8-61299262f571",
+    "sourceTitle": "The Inventory of Empty Rooms — B1",
+    "sourceSnapshotSha256": "b9a534d09f6326e1bbc2d252621fc33f8b0a5a4ff02ae57a75caec687f65e989",
+    "sourcePath": "content/anthology-01/the-inventory-of-empty-rooms-b1/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "inspection-kit",
+        "six-empty-rooms",
+        "her-name",
+        "ledger-outside"
+      ],
+      [
+        "inspection-kit",
+        "six-empty-rooms",
+        "her-name",
+        "survey-only"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

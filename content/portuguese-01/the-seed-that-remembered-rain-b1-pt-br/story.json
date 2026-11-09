@@ -1,0 +1,439 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#C9DCA1",
+      "accent": "#B3CB81",
+      "background": "#101713",
+      "surface": "#1E3026",
+      "text": "#F3F8E9",
+      "font": "classic",
+      "motion": "gentle"
+    },
+    "title": "A Semente que Lembrava da Chuva",
+    "synopsis": "Sob a cúpula seca de uma cidade, uma muda parece reagir a uma gravação de chuva. Lena precisa decidir como preservar e compartilhar uma observação ainda sem explicação.",
+    "genre": "Ficção científica",
+    "difficulty": "B1",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "silent-nursery",
+  "scenes": [
+    {
+      "key": "silent-nursery",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Ele cresce do lado de fora da cúpula"
+        },
+        {
+          "key": "b",
+          "text": "Ele aparece sem que ela altere a regulagem da água"
+        },
+        {
+          "key": "c",
+          "text": "É a primeira semente que ela regou naquele dia"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "careful-test"
+        }
+      ],
+      "title": "Um som no viveiro",
+      "narration": "Lena trabalhava em um viveiro sob a cúpula de vidro da cidade. Não chovia havia tanto tempo que aquele som sobrevivia principalmente em gravações. A maioria das sementes continuava dormente, apesar do controle cuidadoso da água e da luz. Certa noite, enquanto catalogava um cartucho de dados âmbar, uma gravação de chuva tocou na caixa de som da mesa. \"Aquela bandeja estava parada esta manhã. Alguma coisa mudou.\" Um pequeno broto pálido surgia do vaso mais próximo. A regulagem da água não havia mudado.",
+      "prompt": "Por que Lena percebe o broto?",
+      "explanation": "O broto aparece embora a regulagem da água não tenha sido alterada.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Lena trabalhava em um viveiro sob a cúpula de vidro da cidade. Não chovia havia tanto tempo que aquele som sobrevivia principalmente em gravações. A maioria das sementes continuava dormente, apesar do controle cuidadoso da água e da luz. Certa noite, enquanto catalogava um cartucho de dados âmbar, uma gravação de chuva tocou na caixa de som da mesa.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 22871
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Lena",
+          "text": "\"Aquela bandeja estava parada esta manhã. Alguma coisa mudou.\"",
+          "startMilliseconds": 22871,
+          "endMilliseconds": 27736
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Um pequeno broto pálido surgia do vaso mais próximo. A regulagem da água não havia mudado.",
+          "startMilliseconds": 27736,
+          "endMilliseconds": 34319
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "dormente",
+          "translation": "Em estado de repouso, ainda sem iniciar o crescimento."
+        },
+        {
+          "key": "word-2",
+          "term": "viveiro",
+          "translation": "Local preparado para cultivar mudas e plantas jovens."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Lena trabalhava em um viveiro sob a cúpula de vidro da cidade. Não chovia havia tanto tempo que aquele som sobrevivia principalmente em gravações. A maioria das sementes continuava dormente, apesar do controle cuidadoso da água e da luz. Certa noite, enquanto catalogava um cartucho de dados âmbar, uma gravação de chuva tocou na caixa de som da mesa. \"Aquela bandeja estava parada esta manhã. Alguma coisa mudou.\" Um pequeno broto pálido surgia do vaso mais próximo. A regulagem da água não havia mudado.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "A regulagem da água não havia mudado.",
+        "altText": "Ilustração 2D sombria. Lena percebe um broto muito pequeno enquanto uma gravação de chuva toca no viveiro sob o domo.",
+        "reusedVisualId": "4ba869d7-09f7-40f3-a9df-793f761fd869",
+        "sourceVersionId": "4588bfab-8cea-48f9-a443-072a53d961d5",
+        "sourceSceneKey": "silent-nursery",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Lena sits at a shadowy research desk inside a plant nursery beneath a glass city dome. An amber data cartridge lies beside a palm-sized silver speaker. In a small seed tray one pale shoot barely breaks the soil, while the other pots remain bare. Water controls are abstract shapes without writing. No rain or large plants outside. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Lena is present: a 44-year-old Black woman, narrow face, short tightly curled hair, round clear glasses, charcoal research coat and copper scarf. No Arun, no other researcher. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Lena percebe um broto muito pequeno enquanto uma gravação de chuva toca no viveiro sob o domo."
+    },
+    {
+      "key": "careful-test",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "A reação observada merece novos testes"
+        },
+        {
+          "key": "b",
+          "text": "Todas as sementes precisam do som da chuva"
+        },
+        {
+          "key": "c",
+          "text": "O trânsito impede o crescimento de todas as plantas"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "two-proposals"
+        }
+      ],
+      "title": "Mudar uma coisa de cada vez",
+      "narration": "Na manhã seguinte, Lena repetiu o teste com Arun. Mantiveram lâmpadas, temperatura e água iguais e tocaram a mesma gravação de chuva. O pequeno broto se inclinou para a caixa de som prateada. Quando a gravação parou, ele lentamente voltou à posição inicial. Uma gravação de trânsito não provocou reação visível. \"É um padrão que merece novos testes, ainda não uma explicação.\" Lena concordou. Identificou a bandeja para observação e salvou uma cópia do som, sem transformar um resultado incomum em uma afirmação sobre todas as sementes.",
+      "prompt": "O que os pesquisadores podem concluir por enquanto?",
+      "explanation": "A observação sugere uma pergunta para novos testes, sem comprovar uma regra para todas as sementes.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Na manhã seguinte, Lena repetiu o teste com Arun. Mantiveram lâmpadas, temperatura e água iguais e tocaram a mesma gravação de chuva. O pequeno broto se inclinou para a caixa de som prateada. Quando a gravação parou, ele lentamente voltou à posição inicial. Uma gravação de trânsito não provocou reação visível.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 21664
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Arun",
+          "text": "\"É um padrão que merece novos testes, ainda não uma explicação.\"",
+          "startMilliseconds": 21664,
+          "endMilliseconds": 26424
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Lena concordou. Identificou a bandeja para observação e salvou uma cópia do som, sem transformar um resultado incomum em uma afirmação sobre todas as sementes.",
+          "startMilliseconds": 26424,
+          "endMilliseconds": 36466
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "padrão",
+          "translation": "Comportamento que parece se repetir em certas condições."
+        },
+        {
+          "key": "word-2",
+          "term": "observação",
+          "translation": "Acompanhamento cuidadoso para registrar o que acontece."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Na manhã seguinte, Lena repetiu o teste com Arun. Mantiveram lâmpadas, temperatura e água iguais e tocaram a mesma gravação de chuva. O pequeno broto se inclinou para a caixa de som prateada. Quando a gravação parou, ele lentamente voltou à posição inicial. Uma gravação de trânsito não provocou reação visível. \"É um padrão que merece novos testes, ainda não uma explicação.\" Lena concordou. Identificou a bandeja para observação e salvou uma cópia do som, sem transformar um resultado incomum em uma afirmação sobre todas as sementes.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "É um padrão que merece novos testes, ainda não uma explicação.",
+        "altText": "Ilustração 2D sombria. Lena e Arun repetem a observação sem alterar luz, água ou temperatura, evitando conclusões precipitadas.",
+        "reusedVisualId": "4ec7c12a-bf58-47d1-94f5-d6ee64f6f4d3",
+        "sourceVersionId": "4588bfab-8cea-48f9-a443-072a53d961d5",
+        "sourceSceneKey": "careful-test",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Lena and Arun observe the single small shoot leaning gently toward the palm-sized silver speaker on a laboratory bench. The amber cartridge rests beside the speaker. Other small pots remain unchanged. Both researchers are calm and attentive, not celebrating; the glass-dome nursery background remains dry and dim. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly two adults: Lena (Black woman, short tight curls, round glasses, charcoal coat, copper scarf) and Arun (50-year-old South Asian man, dark-grey hair, neat beard, olive research coat). STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Lena e Arun repetem a observação sem alterar luz, água ou temperatura, evitando conclusões precipitadas."
+    },
+    {
+      "key": "two-proposals",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Uma muda a água; a outra muda as lâmpadas"
+        },
+        {
+          "key": "b",
+          "text": "Uma destrói o cartucho; a outra remove a cúpula"
+        },
+        {
+          "key": "c",
+          "text": "Uma preserva o registro; a outra permite um teste independente"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-1",
+          "label": "Preservar o original e seu contexto no arquivo",
+          "targetSceneKey": "archive-record"
+        },
+        {
+          "key": "route-2",
+          "label": "Compartilhar uma cópia para um teste independente na estufa",
+          "targetSceneKey": "greenhouse-trial"
+        }
+      ],
+      "title": "O que compartilhar primeiro",
+      "narration": "O arquivo da cidade poderia preservar a gravação junto das anotações do experimento. Uma estufa do bairro também oferecera um espaço controlado para um segundo teste. Lena tinha tempo para preparar apenas uma entrega naquela tarde. Enviar o cartucho ao arquivo protegeria seu contexto; levar uma cópia à estufa permitiria que outra equipe tentasse repetir o teste. \"As duas coisas importam. Precisamos escolher qual conversa acontece primeiro.\" Ela colocou o cartucho âmbar original ao lado de uma cópia nova e deixou a bandeja de sementes no viveiro.",
+      "prompt": "Qual é a diferença entre as duas propostas?",
+      "explanation": "O arquivo preserva o registro e seu contexto; a estufa permite uma tentativa independente.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "O arquivo da cidade poderia preservar a gravação junto das anotações do experimento. Uma estufa do bairro também oferecera um espaço controlado para um segundo teste. Lena tinha tempo para preparar apenas uma entrega naquela tarde. Enviar o cartucho ao arquivo protegeria seu contexto; levar uma cópia à estufa permitiria que outra equipe tentasse repetir o teste.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 22685
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Lena",
+          "text": "\"As duas coisas importam. Precisamos escolher qual conversa acontece primeiro.\"",
+          "startMilliseconds": 22685,
+          "endMilliseconds": 28502
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ela colocou o cartucho âmbar original ao lado de uma cópia nova e deixou a bandeja de sementes no viveiro.",
+          "startMilliseconds": 28502,
+          "endMilliseconds": 35224
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "contexto",
+          "translation": "Informações sobre a origem e as condições de um registro."
+        },
+        {
+          "key": "word-2",
+          "term": "estufa",
+          "translation": "Estrutura que protege plantas e permite controlar seu ambiente."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "O arquivo da cidade poderia preservar a gravação junto das anotações do experimento. Uma estufa do bairro também oferecera um espaço controlado para um segundo teste. Lena tinha tempo para preparar apenas uma entrega naquela tarde. Enviar o cartucho ao arquivo protegeria seu contexto; levar uma cópia à estufa permitiria que outra equipe tentasse repetir o teste. \"As duas coisas importam. Precisamos escolher qual conversa acontece primeiro.\" Ela colocou o cartucho âmbar original ao lado de uma cópia nova e deixou a bandeja de sementes no viveiro.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "levar uma cópia à estufa permitiria que outra equipe tentasse repetir o teste.",
+        "altText": "Ilustração 2D sombria. Lena escolhe entre preservar o registro no arquivo e levar uma cópia para um teste independente.",
+        "reusedVisualId": "432e657e-2b70-4908-8e7e-58cc6f829229",
+        "sourceVersionId": "4588bfab-8cea-48f9-a443-072a53d961d5",
+        "sourceSceneKey": "two-proposals",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Lena stands at a research bench with the original amber cartridge, a second clearly separate amber copy in a plain sleeve, and a folder of experiment notes. The single-shoot seed tray remains in its nursery position behind her. Arun is not present in this moment. No archive or greenhouse is depicted yet. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Lena is present: a Black woman with short tight curls, round glasses, charcoal research coat and copper scarf. No Arun or other person. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Lena escolhe entre preservar o registro no arquivo e levar uma cópia para um teste independente."
+    },
+    {
+      "key": "archive-record",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Ainda não sabem qual parte do som pode importar"
+        },
+        {
+          "key": "b",
+          "text": "As anotações provaram que todos os sons de chuva são iguais"
+        },
+        {
+          "key": "c",
+          "text": "Ela quer substituir a gravação por música"
+        }
+      ],
+      "transitions": [],
+      "title": "Mais que um som agradável",
+      "narration": "No arquivo da cidade, Lena entregou o cartucho original e suas anotações, guardando a cópia para testes futuros. O arquivista descobriu que a gravação fora feita em um jardim que já não existia. Além da água caindo, ela continha o ruído suave da chuva no telhado de uma estufa. \"Guarde esse detalhe com o som. Ainda não sabemos qual parte importa.\" De volta ao viveiro, o broto continuava pequeno. Lena não trouxera a chuva de volta nem resolvera o experimento. Apenas garantira que a próxima pessoa pudesse fazer uma pergunta melhor.",
+      "prompt": "Por que Lena pede que o arquivista preserve o contexto da gravação?",
+      "explanation": "O som inclui detalhes do ambiente original, e ainda não se sabe qual deles pode influenciar o resultado.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "No arquivo da cidade, Lena entregou o cartucho original e suas anotações, guardando a cópia para testes futuros. O arquivista descobriu que a gravação fora feita em um jardim que já não existia. Além da água caindo, ela continha o ruído suave da chuva no telhado de uma estufa.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 18076
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Lena",
+          "text": "\"Guarde esse detalhe com o som. Ainda não sabemos qual parte importa.\"",
+          "startMilliseconds": 18076,
+          "endMilliseconds": 23370
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "De volta ao viveiro, o broto continuava pequeno. Lena não trouxera a chuva de volta nem resolvera o experimento. Apenas garantira que a próxima pessoa pudesse fazer uma pergunta melhor.",
+          "startMilliseconds": 23370,
+          "endMilliseconds": 34655
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "arquivista",
+          "translation": "Profissional que organiza e preserva documentos e registros."
+        },
+        {
+          "key": "word-2",
+          "term": "garantira",
+          "translation": "Havia assegurado; tomara cuidado para que algo acontecesse."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "No arquivo da cidade, Lena entregou o cartucho original e suas anotações, guardando a cópia para testes futuros. O arquivista descobriu que a gravação fora feita em um jardim que já não existia. Além da água caindo, ela continha o ruído suave da chuva no telhado de uma estufa. \"Guarde esse detalhe com o som. Ainda não sabemos qual parte importa.\" De volta ao viveiro, o broto continuava pequeno. Lena não trouxera a chuva de volta nem resolvera o experimento. Apenas garantira que a próxima pessoa pudesse fazer uma pergunta melhor.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Ainda não sabemos qual parte importa.",
+        "altText": "Ilustração 2D sombria. Lena entrega o registro original e suas anotações ao arquivo, preservando o contexto da gravação.",
+        "reusedVisualId": "d93c55e5-6aaf-4241-a223-aa658dddde4e",
+        "sourceVersionId": "4588bfab-8cea-48f9-a443-072a53d961d5",
+        "sourceSceneKey": "archive-record",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: In a dim municipal archive, Lena hands the original amber cartridge and a folder of notes to an adult archivist wearing a dark blue cardigan. Archive shelves hold plain folders without readable writing. No live rain, no flourishing plants and no seed tray in this archive. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly two adults: Lena (Black woman, short tight curls, round glasses, charcoal coat, copper scarf) and an archivist in a dark blue cardigan. No Arun. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Lena entrega o registro original e suas anotações ao arquivo, preservando o contexto da gravação."
+    },
+    {
+      "key": "greenhouse-trial",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Pede que a equipe esconda o resultado"
+        },
+        {
+          "key": "b",
+          "text": "Considera o resultado útil e compara os detalhes"
+        },
+        {
+          "key": "c",
+          "text": "Anuncia que a chuva voltou à cidade"
+        }
+      ],
+      "transitions": [],
+      "title": "Uma pergunta compartilhada",
+      "narration": "Lena levou a cópia da gravação e as anotações à estufa do bairro, deixando o original protegido no viveiro. A segunda equipe preparou bandejas iguais e concordou em registrar fracassos com o mesmo cuidado dos sucessos. No primeiro teste, não houve movimento claro, embora água e lâmpadas correspondessem aos ajustes de Lena. \"Um resultado diferente do nosso também é útil. Vamos comparar os detalhes.\" Marcaram outra observação para o dia seguinte. Lá fora, a cúpula permanecia seca, mas o som da chuva havia se tornado uma pergunta que mais de uma equipe podia investigar.",
+      "prompt": "Como Lena reage quando o segundo teste não mostra movimento claro?",
+      "explanation": "Lena considera a diferença uma evidência útil e propõe comparar os detalhes dos testes.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Lena levou a cópia da gravação e as anotações à estufa do bairro, deixando o original protegido no viveiro. A segunda equipe preparou bandejas iguais e concordou em registrar fracassos com o mesmo cuidado dos sucessos. No primeiro teste, não houve movimento claro, embora água e lâmpadas correspondessem aos ajustes de Lena.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 20770
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Lena",
+          "text": "\"Um resultado diferente do nosso também é útil. Vamos comparar os detalhes.\"",
+          "startMilliseconds": 20770,
+          "endMilliseconds": 26621
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Marcaram outra observação para o dia seguinte. Lá fora, a cúpula permanecia seca, mas o som da chuva havia se tornado uma pergunta que mais de uma equipe podia investigar.",
+          "startMilliseconds": 26621,
+          "endMilliseconds": 37593
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "correspondessem",
+          "translation": "Fossem equivalentes; apresentassem os mesmos valores."
+        },
+        {
+          "key": "word-2",
+          "term": "investigar",
+          "translation": "Examinar cuidadosamente para compreender algo."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Lena levou a cópia da gravação e as anotações à estufa do bairro, deixando o original protegido no viveiro. A segunda equipe preparou bandejas iguais e concordou em registrar fracassos com o mesmo cuidado dos sucessos. No primeiro teste, não houve movimento claro, embora água e lâmpadas correspondessem aos ajustes de Lena. \"Um resultado diferente do nosso também é útil. Vamos comparar os detalhes.\" Marcaram outra observação para o dia seguinte. Lá fora, a cúpula permanecia seca, mas o som da chuva havia se tornado uma pergunta que mais de uma equipe podia investigar.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Um resultado diferente do nosso também é útil.",
+        "altText": "Ilustração 2D sombria. Lena e outra equipe comparam resultados sem esconder um teste que não repetiu o primeiro efeito.",
+        "reusedVisualId": "9f5f2666-ee55-4a83-9abd-d020d3859f75",
+        "sourceVersionId": "4588bfab-8cea-48f9-a443-072a53d961d5",
+        "sourceSceneKey": "greenhouse-trial",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Inside a modest neighbourhood greenhouse beneath the same dry glass dome, Lena and two adult local researchers compare two small seed trays and a plain folder beside the silver speaker and copied amber cartridge. All trays are small and unchanged; no shoot dramatically bends. Faces show careful discussion rather than disappointment or celebration. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly three adults: Lena (Black woman, short tight curls, round glasses, charcoal coat, copper scarf) and two local researchers in plain dark workwear. No Arun. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Lena e outra equipe comparam resultados sem esconder um teste que não repetiu o primeiro efeito."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "4588bfab-8cea-48f9-a443-072a53d961d5",
+    "sourceTitle": "The Seed That Remembered Rain — B1",
+    "sourceSnapshotSha256": "1fe055b0046acaff016b5f107c71bab8bedf03ce80c543b8d9fddc9740ebe092",
+    "sourcePath": "content/anthology-02/the-seed-that-remembered-rain-b1/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "silent-nursery",
+        "careful-test",
+        "two-proposals",
+        "archive-record"
+      ],
+      [
+        "silent-nursery",
+        "careful-test",
+        "two-proposals",
+        "greenhouse-trial"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

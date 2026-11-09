@@ -1,0 +1,411 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#D8A3A3",
+      "accent": "#BA7878",
+      "background": "#100B10",
+      "surface": "#21161E",
+      "text": "#F6EBED",
+      "font": "classic",
+      "motion": "gentle"
+    },
+    "title": "A Cabine de Escuta",
+    "synopsis": "Celia vai a um arquivo sonoro para guardar a voz do pai. Depois da mensagem conhecida, outra voz parece antecipar a sua.",
+    "genre": "Terror psicológico",
+    "difficulty": "A2",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "archive-visit",
+  "scenes": [
+    {
+      "key": "archive-visit",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Para consertar a lâmpada da mesa"
+        },
+        {
+          "key": "b",
+          "text": "Para deixar uma mensagem na recepção"
+        },
+        {
+          "key": "c",
+          "text": "Para copiar a gravação do pai"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "unfamiliar-voice"
+        }
+      ],
+      "title": "Uma gravação para levar para casa",
+      "narration": "Celia visitou o arquivo sonoro para copiar uma gravação antiga do pai. Levava um dispositivo de memória preto. Dentro da cabine de escuta, uma lâmpada âmbar iluminava a mesa. A fita do pai já estava no aparelho. Ela colocou os fones e ouviu as palavras familiares. \"Não tenha pressa.\" Por um instante, a pequena sala pareceu acolhedora.",
+      "prompt": "Por que Celia levou um dispositivo de memória?",
+      "explanation": "Celia levou o dispositivo para guardar uma cópia da gravação do pai.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Celia visitou o arquivo sonoro para copiar uma gravação antiga do pai. Levava um dispositivo de memória preto. Dentro da cabine de escuta, uma lâmpada âmbar iluminava a mesa. A fita do pai já estava no aparelho. Ela colocou os fones e ouviu as palavras familiares.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 18285
+        },
+        {
+          "key": "cue-2",
+          "speaker": "O pai",
+          "text": "\"Não tenha pressa.\"",
+          "startMilliseconds": 18285,
+          "endMilliseconds": 20294
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Por um instante, a pequena sala pareceu acolhedora.",
+          "startMilliseconds": 20294,
+          "endMilliseconds": 23823
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "âmbar",
+          "translation": "Cor amarelada e quente, parecida com mel."
+        },
+        {
+          "key": "word-2",
+          "term": "acolhedora",
+          "translation": "Que transmite conforto e sensação de bem-estar."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Celia visitou o arquivo sonoro para copiar uma gravação antiga do pai. Levava um dispositivo de memória preto. Dentro da cabine de escuta, uma lâmpada âmbar iluminava a mesa. A fita do pai já estava no aparelho. Ela colocou os fones e ouviu as palavras familiares. \"Não tenha pressa.\" Por um instante, a pequena sala pareceu acolhedora.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "para copiar uma gravação antiga do pai.",
+        "altText": "Celia usa fones à mesa da cabine. A fita do pai está no aparelho, o dispositivo preto fica junto ao terminal, e uma lâmpada âmbar ilumina suas mãos.",
+        "reusedVisualId": "f4a46ec9-931c-4691-9aed-cfdb9b4b6bf0",
+        "sourceVersionId": "2caf200d-4a88-4724-a3f2-52c6e4856f8f",
+        "sourceSceneKey": "archive-visit",
+        "imagePrompt": "SCENE: Celia sits at the listening-booth desk wearing headphones. The reel player holds the father's tape, a black memory drive rests beside the copying terminal, and the square amber lamp lights her hands. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Celia usa fones à mesa da cabine. A fita do pai está no aparelho, o dispositivo preto fica junto ao terminal, e uma lâmpada âmbar ilumina suas mãos."
+    },
+    {
+      "key": "unfamiliar-voice",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Deixar a porta aberta"
+        },
+        {
+          "key": "b",
+          "text": "Apagar a lâmpada âmbar"
+        },
+        {
+          "key": "c",
+          "text": "Devolver o dispositivo à recepção"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "copying-choice"
+        }
+      ],
+      "title": "Uma voz antes da sua",
+      "narration": "Depois das palavras do pai, outra voz falou. \"Deixe a porta aberta.\" Parecia a voz de Celia, embora ela não tivesse dito nada. Tirou os fones. As mesmas palavras vieram baixinho deles outra vez. Abriu a porta da cabine e olhou para o corredor vazio. Ao voltar à mesa, decidiu que não fecharia a porta novamente.",
+      "prompt": "O que a voz desconhecida disse para Celia fazer?",
+      "explanation": "A voz disse: deixe a porta aberta.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Depois das palavras do pai, outra voz falou.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 3947
+        },
+        {
+          "key": "cue-2",
+          "speaker": "A voz",
+          "text": "\"Deixe a porta aberta.\"",
+          "startMilliseconds": 3947,
+          "endMilliseconds": 6106
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Parecia a voz de Celia, embora ela não tivesse dito nada. Tirou os fones. As mesmas palavras vieram baixinho deles outra vez. Abriu a porta da cabine e olhou para o corredor vazio. Ao voltar à mesa, decidiu que não fecharia a porta novamente.",
+          "startMilliseconds": 6106,
+          "endMilliseconds": 24102
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "embora",
+          "translation": "Mesmo que; indica contraste entre duas informações."
+        },
+        {
+          "key": "word-2",
+          "term": "cabine",
+          "translation": "Pequeno espaço fechado destinado a uma atividade."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Depois das palavras do pai, outra voz falou. \"Deixe a porta aberta.\" Parecia a voz de Celia, embora ela não tivesse dito nada. Tirou os fones. As mesmas palavras vieram baixinho deles outra vez. Abriu a porta da cabine e olhou para o corredor vazio. Ao voltar à mesa, decidiu que não fecharia a porta novamente.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Deixe a porta aberta.",
+        "altText": "Celia segura os fones que retirou. A porta da cabine está aberta para um corredor vazio; o aparelho de fita e o dispositivo preto permanecem sobre a mesa.",
+        "reusedVisualId": "5d54385d-19cc-46a5-8e39-9e1117081c9b",
+        "sourceVersionId": "2caf200d-4a88-4724-a3f2-52c6e4856f8f",
+        "sourceSceneKey": "unfamiliar-voice",
+        "imagePrompt": "SCENE: Celia holds the removed headphones at the booth desk. The booth door is now open to an empty corridor. Keep the reel player, black memory drive and amber lamp in their established places; no figure appears outside. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Celia segura os fones que retirou. A porta da cabine está aberta para um corredor vazio; o aparelho de fita e o dispositivo preto permanecem sobre a mesa."
+    },
+    {
+      "key": "copying-choice",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Apenas a voz estranha, sem a mensagem do pai"
+        },
+        {
+          "key": "b",
+          "text": "A gravação completa ou apenas a mensagem do pai"
+        },
+        {
+          "key": "c",
+          "text": "Nada, porque o dispositivo já estava cheio"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Guardar a gravação completa e sair",
+          "targetSceneKey": "full-recording"
+        },
+        {
+          "key": "route-two",
+          "label": "Guardar apenas a mensagem do pai e sair",
+          "targetSceneKey": "fathers-message"
+        }
+      ],
+      "title": "O que levar consigo",
+      "narration": "O terminal de cópia mostrava duas partes: a mensagem curta do pai e a voz estranha que vinha depois. Celia poderia guardar tudo como evidência ou copiar apenas as palavras que havia ido ouvir. Qualquer uma das opções caberia no dispositivo preto. Com a porta ainda aberta atrás de si, estendeu a mão para o terminal e escolheu o que levar para casa.",
+      "prompt": "O que Celia poderia copiar para seu dispositivo?",
+      "explanation": "Havia espaço tanto para a gravação completa quanto para somente a mensagem do pai.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "O terminal de cópia mostrava duas partes: a mensagem curta do pai e a voz estranha que vinha depois. Celia poderia guardar tudo como evidência ou copiar apenas as palavras que havia ido ouvir. Qualquer uma das opções caberia no dispositivo preto. Com a porta ainda aberta atrás de si, estendeu a mão para o terminal e escolheu o que levar para casa.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 22755
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "terminal",
+          "translation": "Equipamento usado para acessar e operar um sistema."
+        },
+        {
+          "key": "word-2",
+          "term": "evidência",
+          "translation": "Registro que pode ajudar a demonstrar o que aconteceu."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "O terminal de cópia mostrava duas partes: a mensagem curta do pai e a voz estranha que vinha depois. Celia poderia guardar tudo como evidência ou copiar apenas as palavras que havia ido ouvir. Qualquer uma das opções caberia no dispositivo preto. Com a porta ainda aberta atrás de si, estendeu a mão para o terminal e escolheu o que levar para casa.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Qualquer uma das opções caberia no dispositivo preto.",
+        "altText": "Celia mantém uma mão perto do terminal de cópia, com o dispositivo preto conectado. A porta da cabine continua aberta atrás dela.",
+        "reusedVisualId": "d73e4222-38a1-48d2-a3e9-d8a54aba0da3",
+        "sourceVersionId": "2caf200d-4a88-4724-a3f2-52c6e4856f8f",
+        "sourceSceneKey": "copying-choice",
+        "imagePrompt": "SCENE: Celia pauses with one hand near the copying terminal and her black memory drive connected. The booth door remains visibly open behind her. Show an indistinct display without readable text or invented controls. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Celia mantém uma mão perto do terminal de cópia, com o dispositivo preto conectado. A porta da cabine continua aberta atrás dela."
+    },
+    {
+      "key": "full-recording",
+      "isEnding": true,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "As palavras claras: deixe a porta aberta"
+        },
+        {
+          "key": "b",
+          "text": "Uma saudação da recepção"
+        },
+        {
+          "key": "c",
+          "text": "Um estalo e uma respiração fraca"
+        }
+      ],
+      "transitions": [],
+      "title": "Uma cópia com testemunha",
+      "narration": "Celia salvou as duas partes e saiu da cabine. Na recepção, pediu ao atendente que ouvisse com ela. A mensagem do pai tocou com clareza. Depois, ouviram um estalo e uma respiração fraca, mas nenhuma palavra. O atendente anotou o problema. Celia guardou a cópia completa e saiu do arquivo com ele. Tinha a gravação, e outra pessoa sabia o que ela havia ouvido.",
+      "prompt": "O que Celia e o atendente ouviram depois da mensagem do pai?",
+      "explanation": "Ao ouvirem juntos, havia apenas um estalo e uma respiração fraca depois da mensagem.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Celia salvou as duas partes e saiu da cabine. Na recepção, pediu ao atendente que ouvisse com ela. A mensagem do pai tocou com clareza. Depois, ouviram um estalo e uma respiração fraca, mas nenhuma palavra. O atendente anotou o problema. Celia guardou a cópia completa e saiu do arquivo com ele. Tinha a gravação, e outra pessoa sabia o que ela havia ouvido.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 26389
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "clareza",
+          "translation": "Qualidade de algo que pode ser ouvido ou entendido sem dificuldade."
+        },
+        {
+          "key": "word-2",
+          "term": "estalo",
+          "translation": "Som curto e seco, como um pequeno clique."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Celia salvou as duas partes e saiu da cabine. Na recepção, pediu ao atendente que ouvisse com ela. A mensagem do pai tocou com clareza. Depois, ouviram um estalo e uma respiração fraca, mas nenhuma palavra. O atendente anotou o problema. Celia guardou a cópia completa e saiu do arquivo com ele. Tinha a gravação, e outra pessoa sabia o que ela havia ouvido.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "um estalo e uma respiração fraca, mas nenhuma palavra.",
+        "altText": "Na recepção do arquivo, Celia e um atendente escutam a cópia juntos. Ela levou o dispositivo preto; ao fundo, a porta da cabine continua aberta.",
+        "reusedVisualId": "ecd20269-2a98-4b84-926f-8a915bcb105d",
+        "sourceVersionId": "2caf200d-4a88-4724-a3f2-52c6e4856f8f",
+        "sourceSceneKey": "full-recording",
+        "imagePrompt": "SCENE: At archive reception, Celia stands beside an adult clerk listening to the copied recording at the reception desk. Celia has brought the black memory drive with her. The listening-booth door is open in the background. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Na recepção do arquivo, Celia e um atendente escutam a cópia juntos. Ela levou o dispositivo preto; ao fundo, a porta da cabine continua aberta."
+    },
+    {
+      "key": "fathers-message",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "A fita original"
+        },
+        {
+          "key": "b",
+          "text": "Seu dispositivo de memória preto"
+        },
+        {
+          "key": "c",
+          "text": "A cópia da mensagem do pai"
+        }
+      ],
+      "transitions": [],
+      "title": "Só as palavras que ela queria",
+      "narration": "Celia copiou apenas a mensagem do pai para o dispositivo preto. Deixou a fita no aparelho e saiu pela porta aberta. Em casa, ouviu a cópia enquanto ligava para a irmã. \"Não tenha pressa.\" Celia também contou à irmã sobre a cabine. Não levara a voz estranha para casa, mas não precisava guardar aquela experiência só para si.",
+      "prompt": "O que Celia deixou no arquivo?",
+      "explanation": "Ela levou a cópia no dispositivo e deixou a fita original no aparelho do arquivo.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Celia copiou apenas a mensagem do pai para o dispositivo preto. Deixou a fita no aparelho e saiu pela porta aberta. Em casa, ouviu a cópia enquanto ligava para a irmã.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11308
+        },
+        {
+          "key": "cue-2",
+          "speaker": "O pai",
+          "text": "\"Não tenha pressa.\"",
+          "startMilliseconds": 11308,
+          "endMilliseconds": 13235
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Celia também contou à irmã sobre a cabine. Não levara a voz estranha para casa, mas não precisava guardar aquela experiência só para si.",
+          "startMilliseconds": 13235,
+          "endMilliseconds": 22534
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "cópia",
+          "translation": "Reprodução de um registro original."
+        },
+        {
+          "key": "word-2",
+          "term": "só para si",
+          "translation": "Sem compartilhar com outras pessoas."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Celia copiou apenas a mensagem do pai para o dispositivo preto. Deixou a fita no aparelho e saiu pela porta aberta. Em casa, ouviu a cópia enquanto ligava para a irmã. \"Não tenha pressa.\" Celia também contou à irmã sobre a cabine. Não levara a voz estranha para casa, mas não precisava guardar aquela experiência só para si.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Deixou a fita no aparelho",
+        "altText": "Celia está do lado de fora da cabine segurando o dispositivo preto. Pela porta aberta, vê-se a fita original no aparelho sob a lâmpada âmbar.",
+        "reusedVisualId": "82d56f18-f163-4f09-9a9c-8ddfd0228c1c",
+        "sourceVersionId": "2caf200d-4a88-4724-a3f2-52c6e4856f8f",
+        "sourceSceneKey": "fathers-message",
+        "imagePrompt": "SCENE: Celia stands just outside the booth holding the black memory drive. Inside the open door, the original tape remains on the reel player beneath the amber lamp. This image depicts her departure, not a montage of home and archive. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Adult psychological horror through isolation, negative space and restrained uncertainty. No gore, jump scare, visible monster or human-shaped shadow not present in the narration. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Celia, a 36-year-old woman with a narrow face, hazel eyes, short dark curly hair, a dark green raincoat over a grey shirt, black jeans and worn brown boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Celia está do lado de fora da cabine segurando o dispositivo preto. Pela porta aberta, vê-se a fita original no aparelho sob a lâmpada âmbar."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "2caf200d-4a88-4724-a3f2-52c6e4856f8f",
+    "sourceTitle": "The Listening Booth — A2",
+    "sourceSnapshotSha256": "8aabb25b249ebd01d85d71b745c6a25eec47c074535c7ef68da00692ac8e0607",
+    "sourcePath": "content/anthology-01/the-listening-booth-a2/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "archive-visit",
+        "unfamiliar-voice",
+        "copying-choice",
+        "full-recording"
+      ],
+      [
+        "archive-visit",
+        "unfamiliar-voice",
+        "copying-choice",
+        "fathers-message"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

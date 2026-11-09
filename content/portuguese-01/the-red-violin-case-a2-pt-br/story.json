@@ -1,0 +1,369 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#A1C7B1",
+      "accent": "#E7BC75",
+      "background": "#0D1C19",
+      "surface": "#17352C",
+      "text": "#EFF8F2",
+      "font": "modern",
+      "motion": "gentle"
+    },
+    "title": "O Estojo Vermelho do Violino",
+    "synopsis": "Com a balsa atrasada, Joana procura outro caminho para devolver o violino do professor e encontra companhia na travessia.",
+    "genre": "Aventura",
+    "difficulty": "A2",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "ferry-delay",
+  "scenes": [
+    {
+      "key": "ferry-delay",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Para devolver o violino do professor"
+        },
+        {
+          "key": "b",
+          "text": "Para consertar a balsa atrasada"
+        },
+        {
+          "key": "c",
+          "text": "Para buscar um estojo novo"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "other-crossings"
+        }
+      ],
+      "title": "Um atraso no embarque",
+      "narration": "Joana chegou ao embarcadouro com um estojo vermelho de violino. Dentro estava o instrumento que pegara emprestado do professor. Precisava devolvê-lo na sala de música do outro lado do rio. Um aviso dizia que a balsa estava atrasada por causa de reparos. A água estava calma, mas a embarcação grande não partiria tão cedo. Joana procurou outra solução.",
+      "prompt": "Por que Joana precisava chegar à sala de música?",
+      "explanation": "Ela precisava devolver o violino que havia pegado emprestado do professor.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Joana chegou ao embarcadouro com um estojo vermelho de violino. Dentro estava o instrumento que pegara emprestado do professor. Precisava devolvê-lo na sala de música do outro lado do rio. Um aviso dizia que a balsa estava atrasada por causa de reparos. A água estava calma, mas a embarcação grande não partiria tão cedo. Joana procurou outra solução.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 23986
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "embarcadouro",
+          "translation": "Local de entrada e saída de passageiros de barcos."
+        },
+        {
+          "key": "word-2",
+          "term": "balsa",
+          "translation": "Embarcação usada para transportar pessoas ou veículos entre margens."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Joana chegou ao embarcadouro com um estojo vermelho de violino. Dentro estava o instrumento que pegara emprestado do professor. Precisava devolvê-lo na sala de música do outro lado do rio. Um aviso dizia que a balsa estava atrasada por causa de reparos. A água estava calma, mas a embarcação grande não partiria tão cedo. Joana procurou outra solução.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Precisava devolvê-lo na sala de música do outro lado do rio.",
+        "altText": "Joana segura o estojo vermelho fechado no embarcadouro do rio calmo. A balsa está atracada junto ao quadro de avisos, e a outra margem aparece ao fundo.",
+        "reusedVisualId": "64e83c5b-5280-45b1-aeb2-c6d2650f63df",
+        "sourceVersionId": "deeee5cb-19e9-4d2e-b6db-d5614a22736d",
+        "sourceSceneKey": "ferry-delay",
+        "imagePrompt": "SCENE: Joana stands at the calm river ferry landing, holding the closed hard red violin case. The delayed ferry is moored beside a notice board with unreadable writing; the opposite bank is visible. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Joana segura o estojo vermelho fechado no embarcadouro do rio calmo. A balsa está atracada junto ao quadro de avisos, e a outra margem aparece ao fundo."
+    },
+    {
+      "key": "other-crossings",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Diretamente à sala de música"
+        },
+        {
+          "key": "b",
+          "text": "A uma ponte de pedestres"
+        },
+        {
+          "key": "c",
+          "text": "Ao galpão de reparos da balsa"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "a-person-to-help"
+        }
+      ],
+      "title": "Outras maneiras de atravessar",
+      "narration": "Um funcionário apontou para a parte mais alta do rio. Uma trilha pela margem levava a uma ponte de pedestres e depois seguia pela outra margem até a sala de música. Ao lado do embarcadouro, um condutor autorizado preparava um barco menor para uma travessia programada. Havia lugar para Joana e o estojo fechado. Ela agradeceu ao funcionário e conferiu as duas rotas no mapa da cidade.",
+      "prompt": "Aonde a trilha pela margem levava primeiro?",
+      "explanation": "A trilha levava primeiro à ponte de pedestres, antes de seguir pela outra margem.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Um funcionário apontou para a parte mais alta do rio. Uma trilha pela margem levava a uma ponte de pedestres e depois seguia pela outra margem até a sala de música. Ao lado do embarcadouro, um condutor autorizado preparava um barco menor para uma travessia programada. Havia lugar para Joana e o estojo fechado. Ela agradeceu ao funcionário e conferiu as duas rotas no mapa da cidade.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 24613
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "margem",
+          "translation": "Faixa de terra ao lado de um rio."
+        },
+        {
+          "key": "word-2",
+          "term": "pedestres",
+          "translation": "Pessoas que se deslocam a pé."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Um funcionário apontou para a parte mais alta do rio. Uma trilha pela margem levava a uma ponte de pedestres e depois seguia pela outra margem até a sala de música. Ao lado do embarcadouro, um condutor autorizado preparava um barco menor para uma travessia programada. Havia lugar para Joana e o estojo fechado. Ela agradeceu ao funcionário e conferiu as duas rotas no mapa da cidade.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "levava a uma ponte de pedestres",
+        "altText": "Joana examina o mapa perto de um funcionário, com o estojo vermelho aos pés. A trilha segue pela margem, e um condutor prepara um pequeno barco próximo.",
+        "reusedVisualId": "c37dd41c-cf17-4d8c-8ada-71e76089e2ad",
+        "sourceVersionId": "deeee5cb-19e9-4d2e-b6db-d5614a22736d",
+        "sourceSceneKey": "other-crossings",
+        "imagePrompt": "SCENE: Joana studies the town map near the landing worker, with the closed red case at her feet. The upstream path is visible; an adult boat operator prepares a small moored boat nearby. Daylight is clear. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. The boat operator is a 50-year-old woman with short black hair and a practical dark blue jacket. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. The boat operator is a 50-year-old woman with short black hair and a practical dark blue jacket. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Joana examina o mapa perto de um funcionário, com o estojo vermelho aos pés. A trilha segue pela margem, e um condutor prepara um pequeno barco próximo."
+    },
+    {
+      "key": "a-person-to-help",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Consertar o violino"
+        },
+        {
+          "key": "b",
+          "text": "Transportar os passageiros da balsa"
+        },
+        {
+          "key": "c",
+          "text": "Guiar Joana até a sala de música"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Seguir pela margem até a ponte",
+          "targetSceneKey": "bridge-story"
+        },
+        {
+          "key": "route-two",
+          "label": "Fazer a travessia programada no barco menor",
+          "targetSceneKey": "boat-arrival"
+        }
+      ],
+      "title": "Uma pessoa para ajudar",
+      "narration": "Um músico mais velho estava no começo da trilha. Ele ia a pé à sala de música e ofereceu ajuda para guiar Joana. O condutor avisou que o barco também estava pronto. Ela poderia caminhar com o músico ou viajar com o condutor. Nenhuma das rotas mudava sua promessa de devolver o violino em segurança. Joana segurou o estojo pela alça.",
+      "prompt": "O que o músico mais velho ofereceu?",
+      "explanation": "O músico ofereceu ajuda para mostrar a Joana o caminho até a sala de música.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Um músico mais velho estava no começo da trilha. Ele ia a pé à sala de música e ofereceu ajuda para guiar Joana. O condutor avisou que o barco também estava pronto. Ela poderia caminhar com o músico ou viajar com o condutor. Nenhuma das rotas mudava sua promessa de devolver o violino em segurança. Joana segurou o estojo pela alça.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 22337
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "condutor",
+          "translation": "Pessoa responsável por conduzir uma embarcação."
+        },
+        {
+          "key": "word-2",
+          "term": "alça",
+          "translation": "Parte de um objeto usada para segurá-lo e carregá-lo."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Um músico mais velho estava no começo da trilha. Ele ia a pé à sala de música e ofereceu ajuda para guiar Joana. O condutor avisou que o barco também estava pronto. Ela poderia caminhar com o músico ou viajar com o condutor. Nenhuma das rotas mudava sua promessa de devolver o violino em segurança. Joana segurou o estojo pela alça.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "ofereceu ajuda para guiar Joana.",
+        "altText": "Joana segura o estojo na junção do embarcadouro com a trilha. Um músico mais velho indica o caminho; o condutor espera junto ao barco ainda atracado.",
+        "reusedVisualId": "253b89f4-132f-4024-9ee1-cf5f3b0a55d9",
+        "sourceVersionId": "deeee5cb-19e9-4d2e-b6db-d5614a22736d",
+        "sourceSceneKey": "a-person-to-help",
+        "imagePrompt": "SCENE: Joana holds the closed red case at the junction of landing and riverside path. An older adult musician gestures along the path; the boat operator waits beside the moored small boat. No crossing has begun. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. The older musician is a 72-year-old man with a white beard, a lined face and a brown wool coat. The boat operator is a 50-year-old woman with short black hair and a practical dark blue jacket. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. The older musician is a 72-year-old man with a white beard, a lined face and a brown wool coat. The boat operator is a 50-year-old woman with short black hair and a practical dark blue jacket. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Joana segura o estojo na junção do embarcadouro com a trilha. Um músico mais velho indica o caminho; o condutor espera junto ao barco ainda atracado."
+    },
+    {
+      "key": "bridge-story",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Eles já haviam tocado juntos na sala de música"
+        },
+        {
+          "key": "b",
+          "text": "Eles haviam consertado a balsa juntos"
+        },
+        {
+          "key": "c",
+          "text": "Eles haviam pegado o violino de Joana emprestado juntos"
+        }
+      ],
+      "transitions": [],
+      "title": "Uma história na ponte",
+      "narration": "Joana seguiu o músico pela trilha e atravessou a ponte. Ele contou que já havia tocado naquela sala com o professor dela. Na entrada da margem norte, encontraram o professor esperando. Joana devolveu o estojo vermelho fechado e apresentou seu guia. Os dois músicos se reconheceram. A viagem mais longa havia levado de volta à sala de música muito mais que um violino.",
+      "prompt": "Como o músico mais velho conhecia o professor de Joana?",
+      "explanation": "Os dois músicos já haviam tocado juntos naquela sala.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Joana seguiu o músico pela trilha e atravessou a ponte. Ele contou que já havia tocado naquela sala com o professor dela. Na entrada da margem norte, encontraram o professor esperando. Joana devolveu o estojo vermelho fechado e apresentou seu guia. Os dois músicos se reconheceram. A viagem mais longa havia levado de volta à sala de música muito mais que um violino.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 24671
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "guia",
+          "translation": "Pessoa que acompanha outra e mostra o caminho."
+        },
+        {
+          "key": "word-2",
+          "term": "se reconheceram",
+          "translation": "Perceberam que já se conheciam."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Joana seguiu o músico pela trilha e atravessou a ponte. Ele contou que já havia tocado naquela sala com o professor dela. Na entrada da margem norte, encontraram o professor esperando. Joana devolveu o estojo vermelho fechado e apresentou seu guia. Os dois músicos se reconheceram. A viagem mais longa havia levado de volta à sala de música muito mais que um violino.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "já havia tocado naquela sala com o professor dela.",
+        "altText": "Na entrada da sala de música da margem norte, Joana devolve o estojo vermelho ao professor. O músico mais velho sorri ao reconhecê-lo.",
+        "reusedVisualId": "7766768e-b4d4-4da4-b267-46c2ef51c318",
+        "sourceVersionId": "deeee5cb-19e9-4d2e-b6db-d5614a22736d",
+        "sourceSceneKey": "bridge-story",
+        "imagePrompt": "SCENE: At the north-bank music-hall entrance, Joana returns the closed red case to her adult teacher while the older musician smiles in recognition. The riverside path ends nearby; soft daylight lights the entrance. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Joana's teacher is a 58-year-old man with short greying hair, a narrow face and a plain green cardigan. The older musician is a 72-year-old man with a white beard, a lined face and a brown wool coat. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Joana's teacher is a 58-year-old man with short greying hair, a narrow face and a plain green cardigan. The older musician is a 72-year-old man with a white beard, a lined face and a brown wool coat. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Na entrada da sala de música da margem norte, Joana devolve o estojo vermelho ao professor. O músico mais velho sorri ao reconhecê-lo."
+    },
+    {
+      "key": "boat-arrival",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Ajudar a consertar a balsa"
+        },
+        {
+          "key": "b",
+          "text": "Ficar para o ensaio"
+        },
+        {
+          "key": "c",
+          "text": "Devolver o barco do condutor"
+        }
+      ],
+      "transitions": [],
+      "title": "Um lugar junto à janela",
+      "narration": "Joana atravessou no barco menor, mantendo o estojo fechado ao lado do assento. No desembarque da margem norte, o condutor mostrou a trilha curta até a sala de música. O professor esperava lá dentro. Depois que ela devolveu o violino, ele a convidou para ficar no ensaio. Joana escolheu um lugar junto à janela e ouviu, aliviada por devolver o instrumento em segurança.",
+      "prompt": "O que o professor convidou Joana a fazer?",
+      "explanation": "Depois de receber o violino, o professor a convidou para acompanhar o ensaio.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Joana atravessou no barco menor, mantendo o estojo fechado ao lado do assento. No desembarque da margem norte, o condutor mostrou a trilha curta até a sala de música. O professor esperava lá dentro. Depois que ela devolveu o violino, ele a convidou para ficar no ensaio. Joana escolheu um lugar junto à janela e ouviu, aliviada por devolver o instrumento em segurança.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 23812
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "ensaio",
+          "translation": "Prática de uma apresentação antes de sua realização."
+        },
+        {
+          "key": "word-2",
+          "term": "aliviada",
+          "translation": "Mais tranquila porque uma preocupação foi resolvida."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Joana atravessou no barco menor, mantendo o estojo fechado ao lado do assento. No desembarque da margem norte, o condutor mostrou a trilha curta até a sala de música. O professor esperava lá dentro. Depois que ela devolveu o violino, ele a convidou para ficar no ensaio. Joana escolheu um lugar junto à janela e ouviu, aliviada por devolver o instrumento em segurança.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "ele a convidou para ficar no ensaio.",
+        "altText": "Dentro da sala de música, Joana senta perto da janela. O professor segura o estojo vermelho junto à área de ensaio; lá fora, o rio está calmo.",
+        "reusedVisualId": "b6b88492-1867-4287-9d9c-5aa2dbbeeb38",
+        "sourceVersionId": "deeee5cb-19e9-4d2e-b6db-d5614a22736d",
+        "sourceSceneKey": "boat-arrival",
+        "imagePrompt": "SCENE: Inside the music hall, Joana sits beside a window after returning the red case to her adult teacher, who holds it near the rehearsal area. Daylight through the window reveals the calm river beyond. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Joana's teacher is a 58-year-old man with short greying hair, a narrow face and a plain green cardigan. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult journey with purposeful movement and human connection. Legible routes and a natural setting; no invented danger, dramatic rescue, fantasy costume or action-game spectacle. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Joana, a 33-year-old woman with an oval face, brown eyes, straight black hair tied in a short ponytail, a navy coat, a cream scarf, dark trousers and low walking boots. Joana's teacher is a 58-year-old man with short greying hair, a narrow face and a plain green cardigan. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Dentro da sala de música, Joana senta perto da janela. O professor segura o estojo vermelho junto à área de ensaio; lá fora, o rio está calmo."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "deeee5cb-19e9-4d2e-b6db-d5614a22736d",
+    "sourceTitle": "The Red Violin Case — A2",
+    "sourceSnapshotSha256": "3ba799a6748165c84fe17cad6a534f64c127a1e6f25212d9e2a03d623e5d8ed4",
+    "sourcePath": "content/anthology-01/the-red-violin-case-a2/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "ferry-delay",
+        "other-crossings",
+        "a-person-to-help",
+        "bridge-story"
+      ],
+      [
+        "ferry-delay",
+        "other-crossings",
+        "a-person-to-help",
+        "boat-arrival"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

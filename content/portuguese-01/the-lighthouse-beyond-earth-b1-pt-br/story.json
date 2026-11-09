@@ -1,0 +1,383 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#9EC9EC",
+      "accent": "#C4AEED",
+      "background": "#0B1422",
+      "surface": "#172A41",
+      "text": "#EFF5FC",
+      "font": "modern",
+      "motion": "gentle"
+    },
+    "title": "O Farol Além da Terra",
+    "synopsis": "Ao preparar uma estação lunar para operar sozinha, Anik recebe um sinal desconhecido e escolhe como iniciar uma conversa.",
+    "genre": "Ficção científica",
+    "difficulty": "B1",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "outpost-shift",
+  "scenes": [
+    {
+      "key": "outpost-shift",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "O indicador provava que havia um visitante lá fora"
+        },
+        {
+          "key": "b",
+          "text": "As gravações habituais já explicavam o padrão"
+        },
+        {
+          "key": "c",
+          "text": "O padrão desconhecido poderia ser uma tentativa de comunicação"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "an-answering-pause"
+        }
+      ],
+      "title": "Um sinal antes da mudança",
+      "narration": "Anik preparava um posto lunar de comunicações para funcionar automaticamente. Em breve, mensagens gravadas substituiriam seus turnos noturnos. Ao conferir a mesa de sinais, percebeu um indicador amarelo piscando três vezes, seguido de uma pausa. O padrão não correspondia às mensagens habituais da estação. Ele ouviu pelos fones, com o solo cinzento e o céu negro além da janela. Antes de entregar a sala a uma gravação repetitiva, queria descobrir se algo já estava tentando ser ouvido.",
+      "prompt": "Por que Anik investigou antes de ativar a operação automática?",
+      "explanation": "O sinal era diferente das mensagens habituais e poderia vir de uma tentativa de comunicação.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Anik preparava um posto lunar de comunicações para funcionar automaticamente. Em breve, mensagens gravadas substituiriam seus turnos noturnos. Ao conferir a mesa de sinais, percebeu um indicador amarelo piscando três vezes, seguido de uma pausa. O padrão não correspondia às mensagens habituais da estação. Ele ouviu pelos fones, com o solo cinzento e o céu negro além da janela. Antes de entregar a sala a uma gravação repetitiva, queria descobrir se algo já estava tentando ser ouvido.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 33088
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "posto",
+          "translation": "Pequena instalação destinada a uma atividade específica."
+        },
+        {
+          "key": "word-2",
+          "term": "habituais",
+          "translation": "Comuns; que costumam acontecer."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Anik preparava um posto lunar de comunicações para funcionar automaticamente. Em breve, mensagens gravadas substituiriam seus turnos noturnos. Ao conferir a mesa de sinais, percebeu um indicador amarelo piscando três vezes, seguido de uma pausa. O padrão não correspondia às mensagens habituais da estação. Ele ouviu pelos fones, com o solo cinzento e o céu negro além da janela. Antes de entregar a sala a uma gravação repetitiva, queria descobrir se algo já estava tentando ser ouvido.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "queria descobrir se algo já estava tentando ser ouvido.",
+        "altText": "Anik usa fones na mesa de sinais lunar e observa um indicador amarelo. Pela janela, aparecem o solo cinzento e o céu negro; o transmissor está inativo.",
+        "reusedVisualId": "31f307d9-a166-48d5-9ce8-f7510a0b9142",
+        "sourceVersionId": "241a95a0-f314-4022-938b-3762b8dfe27c",
+        "sourceSceneKey": "outpost-shift",
+        "imagePrompt": "SCENE: Anik sits at the lunar signal desk wearing headphones, watching a yellow indicator. Grey lunar ground and a black sky appear through the control-room window. The recorded-transmission unit is present but not active; show no spacecraft or other beings. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space and grey lunar ground. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Anik usa fones na mesa de sinais lunar e observa um indicador amarelo. Pela janela, aparecem o solo cinzento e o céu negro; o transmissor está inativo."
+    },
+    {
+      "key": "an-answering-pause",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "O padrão mudou depois do envio do tom de teste"
+        },
+        {
+          "key": "b",
+          "text": "A gravação anunciou o nome do remetente"
+        },
+        {
+          "key": "c",
+          "text": "A janela mostrou alguém com um transmissor"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "choosing-a-language"
+        }
+      ],
+      "title": "Uma pausa diferente",
+      "narration": "Anik enviou o tom de teste comum da estação. O padrão de três pulsos parou. Quando ele encerrou o tom, o padrão voltou, mas a pausa estava mais longa. Conferiu a gravação duas vezes. Uma conexão solta poderia repetir um ruído, porém aquela mudança parecia ligada ao que acabara de enviar. Registrou a observação sem atribuir uma origem ao sinal. Se a resposta fosse intencional, um canal cheio de mensagens automáticas poderia impedir que os dois se ouvissem.",
+      "prompt": "O que fez Anik considerar uma resposta intencional?",
+      "explanation": "A mudança na pausa ocorreu depois do tom enviado por Anik, sugerindo uma possível resposta.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Anik enviou o tom de teste comum da estação. O padrão de três pulsos parou. Quando ele encerrou o tom, o padrão voltou, mas a pausa estava mais longa. Conferiu a gravação duas vezes. Uma conexão solta poderia repetir um ruído, porém aquela mudança parecia ligada ao que acabara de enviar. Registrou a observação sem atribuir uma origem ao sinal. Se a resposta fosse intencional, um canal cheio de mensagens automáticas poderia impedir que os dois se ouvissem.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 31915
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "pulsos",
+          "translation": "Sinais curtos e separados, como batidas sonoras."
+        },
+        {
+          "key": "word-2",
+          "term": "intencional",
+          "translation": "Feita de propósito, e não por acaso."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Anik enviou o tom de teste comum da estação. O padrão de três pulsos parou. Quando ele encerrou o tom, o padrão voltou, mas a pausa estava mais longa. Conferiu a gravação duas vezes. Uma conexão solta poderia repetir um ruído, porém aquela mudança parecia ligada ao que acabara de enviar. Registrou a observação sem atribuir uma origem ao sinal. Se a resposta fosse intencional, um canal cheio de mensagens automáticas poderia impedir que os dois se ouvissem.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "a pausa estava mais longa.",
+        "altText": "Na mesa de sinais, Anik tira um dos fones e escreve no caderno. O indicador amarelo e os controles do gravador ficam à frente, com a paisagem lunar ao fundo.",
+        "reusedVisualId": "d4792b38-a5bd-4d52-82ad-80475b926ad3",
+        "sourceVersionId": "241a95a0-f314-4022-938b-3762b8dfe27c",
+        "sourceSceneKey": "an-answering-pause",
+        "imagePrompt": "SCENE: At the lunar signal desk, Anik has removed one headphone cup and writes an observation in a plain notebook. The yellow indicator and recording controls remain in front of him. The window still shows only grey ground and black sky. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space and grey lunar ground. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Na mesa de sinais, Anik tira um dos fones e escreve no caderno. O indicador amarelo e os controles do gravador ficam à frente, com a paisagem lunar ao fundo."
+    },
+    {
+      "key": "choosing-a-language",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Garantia de que o remetente se identificaria"
+        },
+        {
+          "key": "b",
+          "text": "Usar uma forma que a origem desconhecida parecia reconhecer"
+        },
+        {
+          "key": "c",
+          "text": "Permitir que o transmissor automático ocupasse o canal"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Enviar uma saudação simples gravada",
+          "targetSceneKey": "spoken-reply"
+        },
+        {
+          "key": "route-two",
+          "label": "Repetir o padrão de três pulsos",
+          "targetSceneKey": "pulse-reply"
+        }
+      ],
+      "title": "Uma primeira resposta",
+      "narration": "O gravador da mesa poderia enviar uma frase curta ou os mesmos três pulsos. Uma voz mostraria que alguém estava ouvindo, embora o destinatário talvez não entendesse as palavras. Repetir o padrão usaria uma forma que a origem desconhecida parecia reconhecer. Anik poderia registrar qualquer uma das respostas e preservar o resultado para a próxima equipe. Manteve o transmissor automático em silêncio e escolheu como começar, sabendo que uma resposta ainda não revelaria quem estava do outro lado.",
+      "prompt": "Qual era a vantagem de repetir os três pulsos?",
+      "explanation": "Os pulsos repetem uma forma que a origem do sinal já parecia reconhecer.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "O gravador da mesa poderia enviar uma frase curta ou os mesmos três pulsos. Uma voz mostraria que alguém estava ouvindo, embora o destinatário talvez não entendesse as palavras. Repetir o padrão usaria uma forma que a origem desconhecida parecia reconhecer. Anik poderia registrar qualquer uma das respostas e preservar o resultado para a próxima equipe. Manteve o transmissor automático em silêncio e escolheu como começar, sabendo que uma resposta ainda não revelaria quem estava do outro lado.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 31637
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "destinatário",
+          "translation": "Pessoa ou origem a quem uma mensagem é enviada."
+        },
+        {
+          "key": "word-2",
+          "term": "transmissor",
+          "translation": "Equipamento usado para enviar sinais."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "O gravador da mesa poderia enviar uma frase curta ou os mesmos três pulsos. Uma voz mostraria que alguém estava ouvindo, embora o destinatário talvez não entendesse as palavras. Repetir o padrão usaria uma forma que a origem desconhecida parecia reconhecer. Anik poderia registrar qualquer uma das respostas e preservar o resultado para a próxima equipe. Manteve o transmissor automático em silêncio e escolheu como começar, sabendo que uma resposta ainda não revelaria quem estava do outro lado.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Repetir o padrão usaria uma forma que a origem desconhecida parecia reconhecer.",
+        "altText": "Anik hesita entre o microfone e os controles de gravação. O indicador amarelo brilha na sala de controle, enquanto o transmissor automático permanece inativo.",
+        "reusedVisualId": "13a365a6-20ae-4d2d-a020-40838082a9b7",
+        "sourceVersionId": "241a95a0-f314-4022-938b-3762b8dfe27c",
+        "sourceSceneKey": "choosing-a-language",
+        "imagePrompt": "SCENE: Anik pauses between the desk microphone and the recording controls while the yellow indicator glows softly. The automatic transmission unit remains silent. Keep the frame to this single human and the established control room; no readable menus. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space and grey lunar ground. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Anik hesita entre o microfone e os controles de gravação. O indicador amarelo brilha na sala de controle, enquanto o transmissor automático permanece inativo."
+    },
+    {
+      "key": "spoken-reply",
+      "isEnding": true,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Que Anik sabia a identidade e a localização do remetente"
+        },
+        {
+          "key": "b",
+          "text": "Que a próxima equipe não precisava das gravações"
+        },
+        {
+          "key": "c",
+          "text": "Que a resposta havia mudado de acordo com a mensagem de Anik"
+        }
+      ],
+      "transitions": [],
+      "title": "Alguém está ouvindo",
+      "narration": "Anik gravou uma saudação simples. \"Aqui é Anik. Alguém está ouvindo.\" Depois do envio, o alto-falante devolveu uma versão entrecortada das duas últimas palavras. Ele salvou as duas gravações e deixou anotações claras para a próxima equipe. Não havia nome, imagem nem explicação da distância entre eles. Ainda assim, a resposta mudara de acordo com sua mensagem. Adiou a transmissão automática. Seu último turno noturno se tornara o começo de uma conversa que outra pessoa poderia continuar.",
+      "prompt": "O que as palavras devolvidas indicavam?",
+      "explanation": "A repetição das palavras sugere relação com a mensagem de Anik, mas não identifica o remetente.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Anik gravou uma saudação simples.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 3018
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Anik",
+          "text": "\"Aqui é Anik. Alguém está ouvindo.\"",
+          "startMilliseconds": 3018,
+          "endMilliseconds": 6443
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Depois do envio, o alto-falante devolveu uma versão entrecortada das duas últimas palavras. Ele salvou as duas gravações e deixou anotações claras para a próxima equipe. Não havia nome, imagem nem explicação da distância entre eles. Ainda assim, a resposta mudara de acordo com sua mensagem. Adiou a transmissão automática. Seu último turno noturno se tornara o começo de uma conversa que outra pessoa poderia continuar.",
+          "startMilliseconds": 6443,
+          "endMilliseconds": 35979
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "entrecortada",
+          "translation": "Interrompida por pausas ou falhas."
+        },
+        {
+          "key": "word-2",
+          "term": "adiou",
+          "translation": "Deixou para depois, sem iniciar naquele momento."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Anik gravou uma saudação simples. \"Aqui é Anik. Alguém está ouvindo.\" Depois do envio, o alto-falante devolveu uma versão entrecortada das duas últimas palavras. Ele salvou as duas gravações e deixou anotações claras para a próxima equipe. Não havia nome, imagem nem explicação da distância entre eles. Ainda assim, a resposta mudara de acordo com sua mensagem. Adiou a transmissão automática. Seu último turno noturno se tornara o começo de uma conversa que outra pessoa poderia continuar.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "a resposta mudara de acordo com sua mensagem.",
+        "altText": "Anik escreve anotações para a próxima equipe ao lado do alto-falante e do gravador. O indicador amarelo está aceso e o transmissor continua inativo.",
+        "reusedVisualId": "97793dea-113e-487e-b162-e8ee7f8d066f",
+        "sourceVersionId": "241a95a0-f314-4022-938b-3762b8dfe27c",
+        "sourceSceneKey": "spoken-reply",
+        "imagePrompt": "SCENE: Anik sits beside the control-room speaker and recorder, writing clear handover notes while the yellow indicator remains on. The automatic transmitter stays inactive. The frame contains no alien figure, incoming crew or new vessel. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space and grey lunar ground. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Anik escreve anotações para a próxima equipe ao lado do alto-falante e do gravador. O indicador amarelo está aceso e o transmissor continua inativo."
+    },
+    {
+      "key": "pulse-reply",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Ela mostrava uma resposta, mas não identificava o remetente"
+        },
+        {
+          "key": "b",
+          "text": "Continha apenas a antiga fala automática da estação"
+        },
+        {
+          "key": "c",
+          "text": "Provava que a próxima equipe enviara todos os pulsos"
+        }
+      ],
+      "transitions": [],
+      "title": "Um padrão para o próximo turno",
+      "narration": "Anik enviou três pulsos e esperou. O alto-falante respondeu com três, depois um quarto. Ele repetiu o padrão de quatro pulsos; a resposta seguinte acrescentou mais um. Salvou a troca e preparou um relatório cuidadoso para a próxima equipe. Aquilo mostrava uma resposta em desenvolvimento, não a identidade de um remetente. Deixou o canal livre da fala automática. Antes de sair, ouviu mais uma vez, confortado pela ideia de que a curiosidade podia ser compartilhada mesmo sem uma língua em comum.",
+      "prompt": "Por que Anik descreveu a troca com cautela?",
+      "explanation": "O padrão evoluía em resposta aos sinais, mas não revelava quem os enviava.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Anik enviou três pulsos e esperou. O alto-falante respondeu com três, depois um quarto. Ele repetiu o padrão de quatro pulsos; a resposta seguinte acrescentou mais um. Salvou a troca e preparou um relatório cuidadoso para a próxima equipe. Aquilo mostrava uma resposta em desenvolvimento, não a identidade de um remetente. Deixou o canal livre da fala automática. Antes de sair, ouviu mais uma vez, confortado pela ideia de que a curiosidade podia ser compartilhada mesmo sem uma língua em comum.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 33332
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "remetente",
+          "translation": "Quem envia uma mensagem."
+        },
+        {
+          "key": "word-2",
+          "term": "confortado",
+          "translation": "Mais tranquilo ou animado por uma ideia."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Anik enviou três pulsos e esperou. O alto-falante respondeu com três, depois um quarto. Ele repetiu o padrão de quatro pulsos; a resposta seguinte acrescentou mais um. Salvou a troca e preparou um relatório cuidadoso para a próxima equipe. Aquilo mostrava uma resposta em desenvolvimento, não a identidade de um remetente. Deixou o canal livre da fala automática. Antes de sair, ouviu mais uma vez, confortado pela ideia de que a curiosidade podia ser compartilhada mesmo sem uma língua em comum.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "não a identidade de um remetente.",
+        "altText": "Anik confere a troca gravada na mesa de sinais, com a mão perto do gravador. O indicador amarelo está aceso; pela janela, vê-se apenas a paisagem lunar.",
+        "reusedVisualId": "4568b941-9243-4641-9847-f634a23bd719",
+        "sourceVersionId": "241a95a0-f314-4022-938b-3762b8dfe27c",
+        "sourceSceneKey": "pulse-reply",
+        "imagePrompt": "SCENE: Anik reviews the saved exchange at the lunar signal desk, one hand resting near the recorder. A yellow indicator and the silent automatic-transmission unit remain visible. Through the window are only grey ground and black sky; no invented visual origin for the pulses. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: Cinematic 2D speculative fiction with painted environments and clearly drawn technology. Human curiosity rather than combat; do not add ships, aliens, holograms or interfaces unless this scene explicitly describes them. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Anik, a 43-year-old man with a long face, medium brown skin, dark eyes, short black hair greying at the temples, a plain slate-blue work shirt, charcoal trousers and soft grey station boots. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. ORBITAL SETTING: This is a sealed space station, not an abandoned Earth workshop. Any visible window shows black space and grey lunar ground. Absolutely no terrestrial trees, grass, ivy, buildings or cloudy blue sky outside.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Anik confere a troca gravada na mesa de sinais, com a mão perto do gravador. O indicador amarelo está aceso; pela janela, vê-se apenas a paisagem lunar."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "241a95a0-f314-4022-938b-3762b8dfe27c",
+    "sourceTitle": "The Lighthouse beyond Earth — B1",
+    "sourceSnapshotSha256": "2a882ac8f278c99bab5e49f913b1ba79aaeb7fc92c25e6b887b7557a60e4db4c",
+    "sourcePath": "content/anthology-01/the-lighthouse-beyond-earth-b1/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "outpost-shift",
+        "an-answering-pause",
+        "choosing-a-language",
+        "spoken-reply"
+      ],
+      [
+        "outpost-shift",
+        "an-answering-pause",
+        "choosing-a-language",
+        "pulse-reply"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

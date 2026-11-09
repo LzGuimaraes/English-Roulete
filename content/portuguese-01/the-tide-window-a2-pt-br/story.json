@@ -1,0 +1,439 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#ABD5DD",
+      "accent": "#86B9C5",
+      "background": "#0C141B",
+      "surface": "#182A35",
+      "text": "#EFF8FA",
+      "font": "modern",
+      "motion": "gentle"
+    },
+    "title": "A Passagem da Maré",
+    "synopsis": "Bea leva sementes a uma ilha e precisa escolher entre a trilha de pedras exposta pela maré baixa e o barco de suprimentos.",
+    "genre": "Aventura",
+    "difficulty": "A2",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "harbour-box",
+  "scenes": [
+    {
+      "key": "harbour-box",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "A caixa contém um rádio funcionando"
+        },
+        {
+          "key": "b",
+          "text": "A caixa pertence ao capitão do barco"
+        },
+        {
+          "key": "c",
+          "text": "As sementes precisam ficar secas"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "harbour-map"
+        }
+      ],
+      "title": "Sementes para a ilha",
+      "narration": "Bea chegou ao porto com uma caixa laranja lacrada, cheia de sementes. O jardim da ilha precisava delas para a abertura de primavera. O mar estava calmo, e uma trilha de pedras sinalizada começava a surgir com a descida da maré. \"A caixa precisa ficar seca. Estas sementes viajaram de muito longe.\" Ela manteve a caixa sob o casaco e foi ao escritório do porto.",
+      "prompt": "Por que Bea protege a caixa laranja?",
+      "explanation": "Bea protege a caixa porque as sementes não podem molhar.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Bea chegou ao porto com uma caixa laranja lacrada, cheia de sementes. O jardim da ilha precisava delas para a abertura de primavera. O mar estava calmo, e uma trilha de pedras sinalizada começava a surgir com a descida da maré.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 15116
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Bea",
+          "text": "\"A caixa precisa ficar seca. Estas sementes viajaram de muito longe.\"",
+          "startMilliseconds": 15116,
+          "endMilliseconds": 20584
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ela manteve a caixa sob o casaco e foi ao escritório do porto.",
+          "startMilliseconds": 20584,
+          "endMilliseconds": 24822
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "lacrada",
+          "translation": "Fechada de modo que não possa ser aberta sem romper a vedação."
+        },
+        {
+          "key": "word-2",
+          "term": "maré",
+          "translation": "Subida e descida periódica do nível do mar."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Bea chegou ao porto com uma caixa laranja lacrada, cheia de sementes. O jardim da ilha precisava delas para a abertura de primavera. O mar estava calmo, e uma trilha de pedras sinalizada começava a surgir com a descida da maré. \"A caixa precisa ficar seca. Estas sementes viajaram de muito longe.\" Ela manteve a caixa sob o casaco e foi ao escritório do porto.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "A caixa precisa ficar seca.",
+        "altText": "Ilustração 2D sombria. Bea protege uma caixa laranja de sementes enquanto a maré baixa revela uma passagem de pedra.",
+        "reusedVisualId": "c2c1fa23-a676-42e2-abfa-21f1c72f72a8",
+        "sourceVersionId": "ed50d33a-ef64-438b-8aae-649a75340278",
+        "sourceSceneKey": "harbour-box",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Bea stands on a calm dawn harbour quay, keeping a small sealed orange seed box under the edge of her teal coat. A marked stone causeway begins to emerge across a sheltered bay toward a distant walled island garden. The sky is overcast, with soft pale light and deep blue shadows. SETTING: Only the described location and objects. VISIBLE CAST (strict): Only Bea is present: a 32-year-old woman, olive skin, dark braided hair, teal waterproof coat, dark trousers and brown boots. She holds one small sealed orange seed box. No Jon or other person. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Bea protege uma caixa laranja de sementes enquanto a maré baixa revela uma passagem de pedra."
+    },
+    {
+      "key": "harbour-map",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Voltar ao porto antes do nascer do sol"
+        },
+        {
+          "key": "b",
+          "text": "Chegar ao jardim antes da abertura"
+        },
+        {
+          "key": "c",
+          "text": "Não precisar levar a caixa laranja"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "choose-crossing"
+        }
+      ],
+      "title": "Dois caminhos para atravessar",
+      "narration": "Jon mostrou a Bea o mapa do porto. A trilha sinalizada ficaria aberta por mais uma hora. O barco de suprimentos partiria em vinte minutos e voltaria da ilha ainda naquela manhã. As duas rotas chegavam ao jardim antes da abertura. \"A trilha permite uma caminhada tranquila. O barco também leva ferramentas.\" Bea agradeceu e conferiu se a caixa laranja continuava lacrada.",
+      "prompt": "O que as duas rotas permitem a Bea?",
+      "explanation": "Tanto a trilha quanto o barco permitem chegar antes da abertura do jardim.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Jon mostrou a Bea o mapa do porto. A trilha sinalizada ficaria aberta por mais uma hora. O barco de suprimentos partiria em vinte minutos e voltaria da ilha ainda naquela manhã. As duas rotas chegavam ao jardim antes da abertura.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 15905
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Jon",
+          "text": "\"A trilha permite uma caminhada tranquila. O barco também leva ferramentas.\"",
+          "startMilliseconds": 15905,
+          "endMilliseconds": 21501
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Bea agradeceu e conferiu se a caixa laranja continuava lacrada.",
+          "startMilliseconds": 21501,
+          "endMilliseconds": 25750
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "suprimentos",
+          "translation": "Materiais necessários para abastecer um lugar."
+        },
+        {
+          "key": "word-2",
+          "term": "rotas",
+          "translation": "Caminhos que podem ser percorridos para chegar a um destino."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Jon mostrou a Bea o mapa do porto. A trilha sinalizada ficaria aberta por mais uma hora. O barco de suprimentos partiria em vinte minutos e voltaria da ilha ainda naquela manhã. As duas rotas chegavam ao jardim antes da abertura. \"A trilha permite uma caminhada tranquila. O barco também leva ferramentas.\" Bea agradeceu e conferiu se a caixa laranja continuava lacrada.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "As duas rotas chegavam ao jardim antes da abertura.",
+        "altText": "Ilustração 2D sombria. Jon mostra a Bea as duas rotas até o jardim, ambas com chegada antes da abertura.",
+        "reusedVisualId": "8a73fd2c-56a2-4f5f-be3e-fc86b09b3f66",
+        "sourceVersionId": "ed50d33a-ef64-438b-8aae-649a75340278",
+        "sourceSceneKey": "harbour-map",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Inside the small harbour office, Jon points to a simple illustrated coastal map with a stone causeway and a dark blue boat route to the same island. Bea stands beside him holding the sealed orange seed box. The map has no writing, numbers or readable signs. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly two adults: Bea (olive skin, dark braid, teal waterproof coat) and Jon (56, light brown skin, grey beard, beige sailing jacket, navy cap). One sealed orange seed box. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Jon mostra a Bea as duas rotas até o jardim, ambas com chegada antes da abertura."
+    },
+    {
+      "key": "choose-crossing",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Um regador extra"
+        },
+        {
+          "key": "b",
+          "text": "Uma caixa laranja maior"
+        },
+        {
+          "key": "c",
+          "text": "Um novo mapa do porto"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-1",
+          "label": "Seguir agora pela trilha sinalizada",
+          "targetSceneKey": "stone-path"
+        },
+        {
+          "key": "route-2",
+          "label": "Esperar e levar o regador de barco",
+          "targetSceneKey": "supply-crossing"
+        }
+      ],
+      "title": "O pedido da jardineira",
+      "narration": "A responsável pelo jardim chamou pelo rádio do escritório. O espaço para as sementes estava pronto, mas ela precisava de um regador extra. Bea poderia seguir pela trilha naquele momento ou esperar com Jon e levar o regador no barco. \"As sementes vão chegar de qualquer forma. Preciso escolher como ajudar.\" Lá fora, o mar continuava calmo. A caixa laranja era leve o bastante para qualquer uma das viagens.",
+      "prompt": "Que objeto extra a jardineira pede?",
+      "explanation": "A jardineira pede um regador extra para o jardim.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "A responsável pelo jardim chamou pelo rádio do escritório. O espaço para as sementes estava pronto, mas ela precisava de um regador extra. Bea poderia seguir pela trilha naquele momento ou esperar com Jon e levar o regador no barco.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 14837
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Bea",
+          "text": "\"As sementes vão chegar de qualquer forma. Preciso escolher como ajudar.\"",
+          "startMilliseconds": 14837,
+          "endMilliseconds": 19969
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Lá fora, o mar continuava calmo. A caixa laranja era leve o bastante para qualquer uma das viagens.",
+          "startMilliseconds": 19969,
+          "endMilliseconds": 26830
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "regador",
+          "translation": "Recipiente com bico usado para molhar plantas."
+        },
+        {
+          "key": "word-2",
+          "term": "leve",
+          "translation": "Que pesa pouco e é fácil de carregar."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "A responsável pelo jardim chamou pelo rádio do escritório. O espaço para as sementes estava pronto, mas ela precisava de um regador extra. Bea poderia seguir pela trilha naquele momento ou esperar com Jon e levar o regador no barco. \"As sementes vão chegar de qualquer forma. Preciso escolher como ajudar.\" Lá fora, o mar continuava calmo. A caixa laranja era leve o bastante para qualquer uma das viagens.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "ela precisava de um regador extra.",
+        "altText": "Ilustração 2D sombria. A responsável pelo jardim pede um regador extra; Bea decide entre caminhar agora ou esperar o barco.",
+        "reusedVisualId": "3adbe40d-6c3d-4f89-a9f5-bfe4560e9060",
+        "sourceVersionId": "ed50d33a-ef64-438b-8aae-649a75340278",
+        "sourceSceneKey": "choose-crossing",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: Bea and Jon stand by the harbour-office doorway beside a simple working radio. Bea holds the sealed orange seed box. A spare metal watering can sits beside Jon, and the calm causeway and moored dark blue supply boat are visible outside. No gardener is physically present. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly Bea and Jon, no other person: Bea has olive skin, dark braid, teal coat; Jon has a grey beard, beige jacket and navy cap. One orange seed box and one spare metal watering can. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. A responsável pelo jardim pede um regador extra; Bea decide entre caminhar agora ou esperar o barco."
+    },
+    {
+      "key": "stone-path",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Bea o carregará de volta pela trilha"
+        },
+        {
+          "key": "b",
+          "text": "Jon o levará no barco de suprimentos"
+        },
+        {
+          "key": "c",
+          "text": "A jardineira o buscará depois do fechamento"
+        }
+      ],
+      "transitions": [],
+      "title": "Um jardim antes dos visitantes",
+      "narration": "Bea seguiu pela trilha de pedras e chegou enquanto a jardineira organizava vasos vazios. Juntas, colocaram a caixa laranja em uma bancada seca. Jon levaria o regador no barco. \"Tenho tempo para ajudar a preparar a primeira fileira.\" Elas plantaram as sementes antes da chegada dos visitantes. Olhando para a água calma, Bea viu o barco azul saindo do porto.",
+      "prompt": "Como o regador chegará à ilha?",
+      "explanation": "Jon levará o regador à ilha no barco de suprimentos.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Bea seguiu pela trilha de pedras e chegou enquanto a jardineira organizava vasos vazios. Juntas, colocaram a caixa laranja em uma bancada seca. Jon levaria o regador no barco.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11877
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Bea",
+          "text": "\"Tenho tempo para ajudar a preparar a primeira fileira.\"",
+          "startMilliseconds": 11877,
+          "endMilliseconds": 15371
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Elas plantaram as sementes antes da chegada dos visitantes. Olhando para a água calma, Bea viu o barco azul saindo do porto.",
+          "startMilliseconds": 15371,
+          "endMilliseconds": 24241
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "bancada",
+          "translation": "Superfície firme usada para apoiar materiais durante o trabalho."
+        },
+        {
+          "key": "word-2",
+          "term": "fileira",
+          "translation": "Conjunto de elementos organizados em uma linha."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Bea seguiu pela trilha de pedras e chegou enquanto a jardineira organizava vasos vazios. Juntas, colocaram a caixa laranja em uma bancada seca. Jon levaria o regador no barco. \"Tenho tempo para ajudar a preparar a primeira fileira.\" Elas plantaram as sementes antes da chegada dos visitantes. Olhando para a água calma, Bea viu o barco azul saindo do porto.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Jon levaria o regador no barco.",
+        "altText": "Ilustração 2D sombria. Bea ajuda a preparar os vasos enquanto Jon traz o regador no barco, ao fundo.",
+        "reusedVisualId": "efdce211-e972-42a2-9603-fb205ae5faba",
+        "sourceVersionId": "ed50d33a-ef64-438b-8aae-649a75340278",
+        "sourceSceneKey": "stone-path",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: In a quiet walled island garden, Bea and the 44-year-old woman garden keeper with short dark hair, a grey shirt and a charcoal apron prepare a row of empty terracotta pots beside a dry wooden workbench holding the open orange seed box. Beyond the low wall, a small dark blue boat is distant on the calm bay, departing the harbour. The watering can is not yet in the garden. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly Bea and the 44-year-old woman garden keeper. Bea has olive skin, dark braid and teal coat; the keeper is a woman with short dark hair, a grey shirt and a charcoal apron. Jon remains distant on the boat, not at the workbench. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Bea ajuda a preparar os vasos enquanto Jon traz o regador no barco, ao fundo."
+    },
+    {
+      "key": "supply-crossing",
+      "isEnding": true,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Planta as sementes no barco"
+        },
+        {
+          "key": "b",
+          "text": "Abre a caixa perto da água"
+        },
+        {
+          "key": "c",
+          "text": "Mantém a caixa laranja no colo"
+        }
+      ],
+      "transitions": [],
+      "title": "Mais um par de mãos",
+      "narration": "Bea esperou com Jon e viajou no barco de suprimentos. Manteve a caixa laranja no colo enquanto ele prendia o regador ao lado das ferramentas. Na ilha, a jardineira os recebeu no pequeno desembarcadouro. \"Trouxemos seu regador, e as sementes continuam secas.\" Juntos, levaram tudo até o jardim. Bea ficou para ajudar a receber os primeiros visitantes, contente por uma única viagem ter levado duas formas de ajuda.",
+      "prompt": "O que Bea faz durante a viagem de barco?",
+      "explanation": "Bea mantém a caixa no colo, protegida durante a travessia.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Bea esperou com Jon e viajou no barco de suprimentos. Manteve a caixa laranja no colo enquanto ele prendia o regador ao lado das ferramentas. Na ilha, a jardineira os recebeu no pequeno desembarcadouro.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 13734
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Bea",
+          "text": "\"Trouxemos seu regador, e as sementes continuam secas.\"",
+          "startMilliseconds": 13734,
+          "endMilliseconds": 17890
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Juntos, levaram tudo até o jardim. Bea ficou para ajudar a receber os primeiros visitantes, contente por uma única viagem ter levado duas formas de ajuda.",
+          "startMilliseconds": 17890,
+          "endMilliseconds": 28293
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "desembarcadouro",
+          "translation": "Local à beira da água onde se desce de uma embarcação."
+        },
+        {
+          "key": "word-2",
+          "term": "no colo",
+          "translation": "Apoiado sobre as pernas de uma pessoa sentada."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Bea esperou com Jon e viajou no barco de suprimentos. Manteve a caixa laranja no colo enquanto ele prendia o regador ao lado das ferramentas. Na ilha, a jardineira os recebeu no pequeno desembarcadouro. \"Trouxemos seu regador, e as sementes continuam secas.\" Juntos, levaram tudo até o jardim. Bea ficou para ajudar a receber os primeiros visitantes, contente por uma única viagem ter levado duas formas de ajuda.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Manteve a caixa laranja no colo",
+        "altText": "Ilustração 2D sombria. Bea chega de barco com as sementes secas, e Jon entrega o regador solicitado.",
+        "reusedVisualId": "541bb191-5b9e-4204-81bc-8eccc80eb4f5",
+        "sourceVersionId": "ed50d33a-ef64-438b-8aae-649a75340278",
+        "sourceSceneKey": "supply-crossing",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen game scene. SCENE: On a small calm island landing, Bea steps from a moored dark blue supply boat holding the still-sealed orange seed box. Jon remains on the boat lifting the metal watering can beside a compact tool crate. The 44-year-old woman garden keeper in a charcoal apron welcomes them from the landing. No crowd yet. SETTING: Only the described location and objects. VISIBLE CAST (strict): Exactly three adults: Bea (olive skin, dark braid, teal coat), Jon (grey beard, beige jacket, navy cap), and woman garden keeper (44, short dark hair, grey shirt, charcoal apron). STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters, expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level framing; deep charcoal shadows and selective motivated light. Keep important clue colors readable. No text, lettering, subtitles, logos or watermark. No extra people, no future events or props. No gore, no flashing, no jump scare.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Bea chega de barco com as sementes secas, e Jon entrega o regador solicitado."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "ed50d33a-ef64-438b-8aae-649a75340278",
+    "sourceTitle": "The Tide Window — A2",
+    "sourceSnapshotSha256": "944727a20d4c78705e6da2b92393fd60a423e50707848f54e8cdbdebf5a9b23e",
+    "sourcePath": "content/anthology-02/the-tide-window-a2/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "harbour-box",
+        "harbour-map",
+        "choose-crossing",
+        "stone-path"
+      ],
+      [
+        "harbour-box",
+        "harbour-map",
+        "choose-crossing",
+        "supply-crossing"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

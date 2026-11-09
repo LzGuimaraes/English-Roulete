@@ -1,0 +1,481 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#DAB881",
+      "accent": "#C9A4E7",
+      "background": "#14101F",
+      "surface": "#261E35",
+      "text": "#F9F0E3",
+      "font": "classic",
+      "motion": "gentle"
+    },
+    "title": "Uma Mesa para Dois Iniciantes",
+    "synopsis": "Rosa e Eli se conhecem em uma aula de cerâmica. Entre peças tortas e planos improvisados, eles escolhem como marcar um próximo encontro.",
+    "genre": "Romance",
+    "difficulty": "A2",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "first-bowls",
+  "scenes": [
+    {
+      "key": "first-bowls",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Tem uma alça quebrada"
+        },
+        {
+          "key": "b",
+          "text": "É perfeitamente redonda"
+        },
+        {
+          "key": "c",
+          "text": "Tem um furo no fundo"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "cleaning-together"
+        }
+      ],
+      "title": "Duas tigelas incomuns",
+      "narration": "Rosa entrou em uma aula de cerâmica à noite, depois do trabalho. Sentou-se ao lado de um homem de avental azul. A tigela dele pendia para um lado, e a dela tinha um furo no fundo. \"A água pode sair por esse furo. Sua tigela está pronta para a chuva.\" \"Então talvez ela seja um vaso de flores.\" Os dois riram. A professora pediu que todos deixassem as peças secar.",
+      "prompt": "Qual é o problema da tigela de Rosa?",
+      "explanation": "A tigela de Rosa tem um furo no fundo, por onde a água pode sair.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Rosa entrou em uma aula de cerâmica à noite, depois do trabalho. Sentou-se ao lado de um homem de avental azul. A tigela dele pendia para um lado, e a dela tinha um furo no fundo.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11795
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Eli",
+          "text": "\"A água pode sair por esse furo. Sua tigela está pronta para a chuva.\"",
+          "startMilliseconds": 11795,
+          "endMilliseconds": 16938
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Rosa",
+          "text": "\"Então talvez ela seja um vaso de flores.\"",
+          "startMilliseconds": 16938,
+          "endMilliseconds": 20131
+        },
+        {
+          "key": "cue-4",
+          "speaker": "Narrador",
+          "text": "Os dois riram. A professora pediu que todos deixassem as peças secar.",
+          "startMilliseconds": 20131,
+          "endMilliseconds": 25808
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "avental",
+          "translation": "Peça de roupa usada sobre a roupa comum para protegê-la."
+        },
+        {
+          "key": "word-2",
+          "term": "pendia",
+          "translation": "Inclinava-se para um lado."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Rosa entrou em uma aula de cerâmica à noite, depois do trabalho. Sentou-se ao lado de um homem de avental azul. A tigela dele pendia para um lado, e a dela tinha um furo no fundo. \"A água pode sair por esse furo. Sua tigela está pronta para a chuva.\" \"Então talvez ela seja um vaso de flores.\" Os dois riram. A professora pediu que todos deixassem as peças secar.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "a dela tinha um furo no fundo.",
+        "altText": "Ilustração 2D sombria. Rosa e Eli riem das próprias tigelas de argila imperfeitas na aula de cerâmica.",
+        "reusedVisualId": "aa03409b-da3d-4e03-bdf3-d5b79153b3f9",
+        "sourceVersionId": "8c1e0dc2-8301-4328-b36a-e4a51ef70b76",
+        "sourceSceneKey": "first-bowls",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Only adult Rosa and adult Eli sit side by side at a timber pottery worktable. Rosa wears beige apron over green shirt, Eli blue apron over cream shirt. A handmade bowl with a small visible hole in its bottom is near Rosa; a slightly leaning bowl is near Eli. They smile at their imperfect work. No teacher or other students visible. VISIBLE CAST AND CONTINUITY (strict): Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. During the studio class she wears a plain beige canvas apron. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt and dark trousers; during class he wears a plain deep-blue apron. Both are clearly adults. A warm pottery studio has dark timber worktables, clay bowls and shelves. Rosa's first bowl has a small hole in the bottom; Eli's first bowl leans to one side. Outside the studio and on the canal walk they wear their same shirts but NO aprons. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Rosa e Eli riem das próprias tigelas de argila imperfeitas na aula de cerâmica."
+    },
+    {
+      "key": "cleaning-together",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Uma planta em um vaso simples"
+        },
+        {
+          "key": "b",
+          "text": "Um chapéu em uma cadeira"
+        },
+        {
+          "key": "c",
+          "text": "Uma tigela perfeitamente redonda"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "outside-studio"
+        }
+      ],
+      "title": "Outro tipo de plano",
+      "narration": "Enquanto limpavam a mesa, Rosa encontrou um pequeno desenho no caderno de Eli. Era uma tigela perfeitamente redonda. \"Esse era o plano. A minha parece um chapéu cansado.\" Rosa mostrou sua própria página. Havia desenhado uma planta em um vaso simples. \"Talvez tenhamos feito o que realmente precisávamos.\" Eli sorriu e perguntou seu nome. Os dois ficaram para terminar a limpeza juntos.",
+      "prompt": "O que Rosa havia desenhado em sua página?",
+      "explanation": "O desenho de Rosa mostrava uma planta em um vaso simples.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Enquanto limpavam a mesa, Rosa encontrou um pequeno desenho no caderno de Eli. Era uma tigela perfeitamente redonda.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 7546
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Eli",
+          "text": "\"Esse era o plano. A minha parece um chapéu cansado.\"",
+          "startMilliseconds": 7546,
+          "endMilliseconds": 11900
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Rosa mostrou sua própria página. Havia desenhado uma planta em um vaso simples.",
+          "startMilliseconds": 11900,
+          "endMilliseconds": 17786
+        },
+        {
+          "key": "cue-4",
+          "speaker": "Rosa",
+          "text": "\"Talvez tenhamos feito o que realmente precisávamos.\"",
+          "startMilliseconds": 17786,
+          "endMilliseconds": 21478
+        },
+        {
+          "key": "cue-5",
+          "speaker": "Narrador",
+          "text": "Eli sorriu e perguntou seu nome. Os dois ficaram para terminar a limpeza juntos.",
+          "startMilliseconds": 21478,
+          "endMilliseconds": 27585
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "realmente",
+          "translation": "De fato; na verdade."
+        },
+        {
+          "key": "word-2",
+          "term": "redonda",
+          "translation": "Com formato circular, sem pontas."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Enquanto limpavam a mesa, Rosa encontrou um pequeno desenho no caderno de Eli. Era uma tigela perfeitamente redonda. \"Esse era o plano. A minha parece um chapéu cansado.\" Rosa mostrou sua própria página. Havia desenhado uma planta em um vaso simples. \"Talvez tenhamos feito o que realmente precisávamos.\" Eli sorriu e perguntou seu nome. Os dois ficaram para terminar a limpeza juntos.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Havia desenhado uma planta em um vaso simples.",
+        "altText": "Ilustração 2D sombria. Ao limpar a mesa, Rosa e Eli comparam os desenhos que fizeram antes da aula.",
+        "reusedVisualId": "3171689d-7888-4844-bb13-214d8e84c990",
+        "sourceVersionId": "8c1e0dc2-8301-4328-b36a-e4a51ef70b76",
+        "sourceSceneKey": "cleaning-together",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rosa and Eli in their same beige and blue studio aprons, cleaning the same timber table together. Two open sketchbook pages show simple unlettered drawings: one round bowl near Eli, one plant in a pot near Rosa. Their real imperfect clay bowls are beside them. No readable writing, no other people. VISIBLE CAST AND CONTINUITY (strict): Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. During the studio class she wears a plain beige canvas apron. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt and dark trousers; during class he wears a plain deep-blue apron. Both are clearly adults. A warm pottery studio has dark timber worktables, clay bowls and shelves. Rosa's first bowl has a small hole in the bottom; Eli's first bowl leans to one side. Outside the studio and on the canal walk they wear their same shirts but NO aprons. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Ao limpar a mesa, Rosa e Eli comparam os desenhos que fizeram antes da aula."
+    },
+    {
+      "key": "outside-studio",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Quer evitá-lo"
+        },
+        {
+          "key": "b",
+          "text": "Também quer vê-lo outra vez"
+        },
+        {
+          "key": "c",
+          "text": "Só quer pegar o caderno dele emprestado"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "canal-walk",
+          "label": "Convidar Eli para caminhar pelo canal",
+          "targetSceneKey": "canal-walk"
+        },
+        {
+          "key": "next-saturday",
+          "label": "Pedir que Eli divida a mesa no próximo sábado",
+          "targetSceneKey": "next-saturday"
+        }
+      ],
+      "title": "Encontrando as palavras",
+      "narration": "Do lado de fora do ateliê, Eli disse a Rosa que queria vê-la novamente. \"Gostei muito mais da aula com você.\" Rosa sentia o mesmo, mas precisou de um instante para encontrar as palavras. Poderia convidá-lo para uma caminhada pelo canal ou pedir que dividisse uma mesa com ela na próxima aula. \"Eu também gostaria.\"",
+      "prompt": "Como Rosa se sente sobre encontrar Eli novamente?",
+      "explanation": "Rosa sente o mesmo que Eli e também quer encontrá-lo novamente.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Do lado de fora do ateliê, Eli disse a Rosa que queria vê-la novamente.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 4806
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Eli",
+          "text": "\"Gostei muito mais da aula com você.\"",
+          "startMilliseconds": 4806,
+          "endMilliseconds": 7488
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Rosa sentia o mesmo, mas precisou de um instante para encontrar as palavras. Poderia convidá-lo para uma caminhada pelo canal ou pedir que dividisse uma mesa com ela na próxima aula.",
+          "startMilliseconds": 7488,
+          "endMilliseconds": 18819
+        },
+        {
+          "key": "cue-4",
+          "speaker": "Rosa",
+          "text": "\"Eu também gostaria.\"",
+          "startMilliseconds": 18819,
+          "endMilliseconds": 20688
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "ateliê",
+          "translation": "Espaço onde se produzem trabalhos artísticos ou artesanais."
+        },
+        {
+          "key": "word-2",
+          "term": "canal",
+          "translation": "Passagem de água construída ou organizada por pessoas."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Do lado de fora do ateliê, Eli disse a Rosa que queria vê-la novamente. \"Gostei muito mais da aula com você.\" Rosa sentia o mesmo, mas precisou de um instante para encontrar as palavras. Poderia convidá-lo para uma caminhada pelo canal ou pedir que dividisse uma mesa com ela na próxima aula. \"Eu também gostaria.\"",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Rosa sentia o mesmo",
+        "altText": "Ilustração 2D sombria. Na porta do ateliê ao anoitecer, Rosa e Eli dizem que gostariam de se ver de novo.",
+        "reusedVisualId": "23653ded-e9d7-4e86-8c2b-187614d03d7d",
+        "sourceVersionId": "8c1e0dc2-8301-4328-b36a-e4a51ef70b76",
+        "sourceSceneKey": "outside-studio",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly adult Rosa in forest-green shirt and adult Eli in cream shirt outside the pottery studio at dusk, both WITHOUT aprons. Warm light from the studio doorway, dark blue evening street, a canal railing in the distance. They look shyly pleased to speak to each other. No embrace required, no extra people. VISIBLE CAST AND CONTINUITY (strict): Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt, dark trousers. Both are clearly adults; neither wears or carries an apron outdoors. No pottery or notebooks in their hands. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Na porta do ateliê ao anoitecer, Rosa e Eli dizem que gostariam de se ver de novo."
+    },
+    {
+      "key": "canal-walk",
+      "isEnding": true,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Abandonar a aula de cerâmica para sempre"
+        },
+        {
+          "key": "b",
+          "text": "Vender as tigelas na ponte"
+        },
+        {
+          "key": "c",
+          "text": "Outra noite para se encontrar"
+        }
+      ],
+      "transitions": [],
+      "title": "Uma noite além do ateliê",
+      "narration": "Rosa convidou Eli para caminhar pelo canal. Ele aceitou. Conversaram sobre o que esperavam criar no ateliê. Em uma pequena ponte, ele parou para observar as luzes na água. \"Da próxima vez, vou trazer uma foto da minha tigela.\" \"Só se você me deixar trazer meu vaso de flores.\" Antes de se despedirem, escolheram outra noite para se encontrar.",
+      "prompt": "O que Rosa e Eli decidem antes de se despedirem?",
+      "explanation": "Eles combinam outra noite para se encontrar antes de se despedirem.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Rosa convidou Eli para caminhar pelo canal. Ele aceitou. Conversaram sobre o que esperavam criar no ateliê. Em uma pequena ponte, ele parou para observar as luzes na água.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 12294
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Eli",
+          "text": "\"Da próxima vez, vou trazer uma foto da minha tigela.\"",
+          "startMilliseconds": 12294,
+          "endMilliseconds": 16219
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Rosa",
+          "text": "\"Só se você me deixar trazer meu vaso de flores.\"",
+          "startMilliseconds": 16219,
+          "endMilliseconds": 19795
+        },
+        {
+          "key": "cue-4",
+          "speaker": "Narrador",
+          "text": "Antes de se despedirem, escolheram outra noite para se encontrar.",
+          "startMilliseconds": 19795,
+          "endMilliseconds": 24322
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "tigela",
+          "translation": "Recipiente arredondado usado para guardar ou servir algo."
+        },
+        {
+          "key": "word-2",
+          "term": "se despedirem",
+          "translation": "Dizerem adeus antes de se separar."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Rosa convidou Eli para caminhar pelo canal. Ele aceitou. Conversaram sobre o que esperavam criar no ateliê. Em uma pequena ponte, ele parou para observar as luzes na água. \"Da próxima vez, vou trazer uma foto da minha tigela.\" \"Só se você me deixar trazer meu vaso de flores.\" Antes de se despedirem, escolheram outra noite para se encontrar.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "escolheram outra noite para se encontrar.",
+        "altText": "Ilustração 2D sombria. Rosa e Eli passeiam junto ao canal e combinam outro encontro sob as luzes da ponte.",
+        "reusedVisualId": "428d4f48-ba4c-45e1-ab0b-2fd96c5e963d",
+        "sourceVersionId": "8c1e0dc2-8301-4328-b36a-e4a51ef70b76",
+        "sourceSceneKey": "canal-walk",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rosa in green shirt and Eli in cream shirt, without aprons, standing side by side on a small canal footbridge at night. Both smile warmly, looking at gold reflections on dark water. No bowls, pots or notebooks in their hands: those stayed at the studio. An original tender 2D animated scene, no other people. VISIBLE CAST AND CONTINUITY (strict): Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt, dark trousers. Both are clearly adults; neither wears or carries an apron outdoors. No pottery or notebooks in their hands. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Rosa e Eli passeiam junto ao canal e combinam outro encontro sob as luzes da ponte."
+    },
+    {
+      "key": "next-saturday",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "O lugar ao lado dele"
+        },
+        {
+          "key": "b",
+          "text": "Um lugar no barco do canal"
+        },
+        {
+          "key": "c",
+          "text": "Um avental azul novo"
+        }
+      ],
+      "transitions": [],
+      "title": "O lugar ao lado dele",
+      "narration": "Rosa pediu a Eli que dividisse a mesa na próxima aula. Uma semana depois, ele chegou cedo e guardou o lugar ao seu lado. As primeiras tigelas estavam secas na prateleira. \"Meu vaso precisa de um pratinho por baixo.\" \"E meu chapéu cansado precisa de um amigo.\" Trabalharam lado a lado e depois combinaram um café. Dessa vez, nenhum dos dois teve pressa de ir embora.",
+      "prompt": "O que Eli guarda para Rosa?",
+      "explanation": "Eli chega cedo e guarda para Rosa o lugar ao seu lado.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Rosa pediu a Eli que dividisse a mesa na próxima aula. Uma semana depois, ele chegou cedo e guardou o lugar ao seu lado. As primeiras tigelas estavam secas na prateleira.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 12167
+        },
+        {
+          "key": "cue-2",
+          "speaker": "Rosa",
+          "text": "\"Meu vaso precisa de um pratinho por baixo.\"",
+          "startMilliseconds": 12167,
+          "endMilliseconds": 15278
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Eli",
+          "text": "\"E meu chapéu cansado precisa de um amigo.\"",
+          "startMilliseconds": 15278,
+          "endMilliseconds": 18181
+        },
+        {
+          "key": "cue-4",
+          "speaker": "Narrador",
+          "text": "Trabalharam lado a lado e depois combinaram um café. Dessa vez, nenhum dos dois teve pressa de ir embora.",
+          "startMilliseconds": 18181,
+          "endMilliseconds": 25901
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "prateleira",
+          "translation": "Superfície horizontal usada para apoiar e guardar objetos."
+        },
+        {
+          "key": "word-2",
+          "term": "lado a lado",
+          "translation": "Um ao lado do outro, trabalhando juntos."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Rosa pediu a Eli que dividisse a mesa na próxima aula. Uma semana depois, ele chegou cedo e guardou o lugar ao seu lado. As primeiras tigelas estavam secas na prateleira. \"Meu vaso precisa de um pratinho por baixo.\" \"E meu chapéu cansado precisa de um amigo.\" Trabalharam lado a lado e depois combinaram um café. Dessa vez, nenhum dos dois teve pressa de ir embora.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "guardou o lugar ao seu lado.",
+        "altText": "Ilustração 2D sombria. Na aula seguinte, Eli guarda o lugar ao seu lado para Rosa e os dois voltam a criar juntos.",
+        "reusedVisualId": "f675dbd1-4bb1-498e-891f-43e4468e7830",
+        "sourceVersionId": "8c1e0dc2-8301-4328-b36a-e4a51ef70b76",
+        "sourceSceneKey": "next-saturday",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rosa and Eli back at the same pottery table one week later, again wearing their beige and blue aprons over green and cream shirts. Eli draws out the stool beside him for Rosa, both smiling. Two dry imperfect bowls sit on the background shelf, one leaning and one with a small hole. No extra people, no bridge in this scene. VISIBLE CAST AND CONTINUITY (strict): Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. During the studio class she wears a plain beige canvas apron. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt and dark trousers; during class he wears a plain deep-blue apron. Both are clearly adults. A warm pottery studio has dark timber worktables, clay bowls and shelves. Rosa's first bowl has a small hole in the bottom; Eli's first bowl leans to one side. Outside the studio and on the canal walk they wear their same shirts but NO aprons. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Ilustração 2D sombria. Na aula seguinte, Eli guarda o lugar ao seu lado para Rosa e os dois voltam a criar juntos."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "8c1e0dc2-8301-4328-b36a-e4a51ef70b76",
+    "sourceTitle": "A Table for Two Beginners — A2",
+    "sourceSnapshotSha256": "63f9461663fc10098aaef8a6e95afca9499cd9822133862389699ad647dcd655",
+    "sourcePath": "content/anthology-03/a-table-for-two-beginners-a2/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "first-bowls",
+        "cleaning-together",
+        "outside-studio",
+        "canal-walk"
+      ],
+      [
+        "first-bowls",
+        "cleaning-together",
+        "outside-studio",
+        "next-saturday"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

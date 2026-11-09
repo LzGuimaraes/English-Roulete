@@ -1,0 +1,981 @@
+{
+  "origin": "https://english.lzguimaraes.com.br",
+  "sourceLanguage": "en",
+  "targetLanguage": "pt-BR",
+  "stories": {
+    "a-table-for-two-beginners-a2-pt-br": {
+      "sourceVersionId": "8c1e0dc2-8301-4328-b36a-e4a51ef70b76",
+      "sourceTitle": "A Table for Two Beginners — A2",
+      "sourceSnapshotSha256": "63f9461663fc10098aaef8a6e95afca9499cd9822133862389699ad647dcd655",
+      "sceneKeys": [
+        "first-bowls",
+        "cleaning-together",
+        "outside-studio",
+        "canal-walk",
+        "next-saturday"
+      ],
+      "correctOptions": {
+        "first-bowls": "c",
+        "cleaning-together": "a",
+        "outside-studio": "b",
+        "canal-walk": "c",
+        "next-saturday": "a"
+      },
+      "transitions": {
+        "first-bowls": [
+          {
+            "key": "continue",
+            "targetSceneKey": "cleaning-together"
+          }
+        ],
+        "cleaning-together": [
+          {
+            "key": "continue",
+            "targetSceneKey": "outside-studio"
+          }
+        ],
+        "outside-studio": [
+          {
+            "key": "canal-walk",
+            "targetSceneKey": "canal-walk"
+          },
+          {
+            "key": "next-saturday",
+            "targetSceneKey": "next-saturday"
+          }
+        ],
+        "canal-walk": [],
+        "next-saturday": []
+      }
+    },
+    "a-very-important-rehearsal-a1-pt-br": {
+      "sourceVersionId": "2721b604-15a9-4ecc-879a-bc5d9bd01693",
+      "sourceTitle": "A Very Important Rehearsal — A1",
+      "sourceSnapshotSha256": "86628418e7bcc347a7a3b3c6699dce6d49751ac0f093a830ba85ffcfe90b2c3a",
+      "sceneKeys": [
+        "royal-entrance",
+        "small-singer",
+        "entrance-choice",
+        "duck-king",
+        "quiet-practice"
+      ],
+      "correctOptions": {
+        "royal-entrance": "a",
+        "small-singer": "b",
+        "entrance-choice": "c",
+        "duck-king": "a",
+        "quiet-practice": "b"
+      },
+      "transitions": {
+        "royal-entrance": [
+          {
+            "key": "continue",
+            "targetSceneKey": "small-singer"
+          }
+        ],
+        "small-singer": [
+          {
+            "key": "continue",
+            "targetSceneKey": "entrance-choice"
+          }
+        ],
+        "entrance-choice": [
+          {
+            "key": "duck-king",
+            "targetSceneKey": "duck-king"
+          },
+          {
+            "key": "quiet-practice",
+            "targetSceneKey": "quiet-practice"
+          }
+        ],
+        "duck-king": [],
+        "quiet-practice": []
+      }
+    },
+    "a-visitor-made-of-light-a2-pt-br": {
+      "sourceVersionId": "771fad2c-8828-447d-ba03-8971bc981eaa",
+      "sourceTitle": "A Visitor Made of Light — A2",
+      "sourceSnapshotSha256": "a4dc1a5a37885be9eb13f8bc2bf9838224efdffdb99a8b75dbb2f7f1e09fa065",
+      "sceneKeys": [
+        "old-workshop",
+        "window-memory",
+        "what-to-save",
+        "archive-light",
+        "workshop-voice"
+      ],
+      "correctOptions": {
+        "old-workshop": "b",
+        "window-memory": "c",
+        "what-to-save": "a",
+        "archive-light": "b",
+        "workshop-voice": "c"
+      },
+      "transitions": {
+        "old-workshop": [
+          {
+            "key": "continue",
+            "targetSceneKey": "window-memory"
+          }
+        ],
+        "window-memory": [
+          {
+            "key": "continue",
+            "targetSceneKey": "what-to-save"
+          }
+        ],
+        "what-to-save": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "archive-light"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "workshop-voice"
+          }
+        ],
+        "archive-light": [],
+        "workshop-voice": []
+      }
+    },
+    "the-blue-envelope-a1-pt-br": {
+      "sourceVersionId": "41596f4b-af89-42b5-a378-93ee0ebb88eb",
+      "sourceTitle": "The Blue Envelope — A1",
+      "sourceSnapshotSha256": "d8544c2c8d9a37e6f2daa4ccb517eb193b5e02533060e9c3399731d88e90b7f4",
+      "sceneKeys": [
+        "under-the-desk",
+        "old-photograph",
+        "two-places",
+        "bakery-answer",
+        "bench-answer"
+      ],
+      "correctOptions": {
+        "under-the-desk": "a",
+        "old-photograph": "b",
+        "two-places": "c",
+        "bakery-answer": "a",
+        "bench-answer": "b"
+      },
+      "transitions": {
+        "under-the-desk": [
+          {
+            "key": "continue",
+            "targetSceneKey": "old-photograph"
+          }
+        ],
+        "old-photograph": [
+          {
+            "key": "continue",
+            "targetSceneKey": "two-places"
+          }
+        ],
+        "two-places": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "bakery-answer"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "bench-answer"
+          }
+        ],
+        "bakery-answer": [],
+        "bench-answer": []
+      }
+    },
+    "the-blue-reel-a1-pt-br": {
+      "sourceVersionId": "bf06f0b8-003d-4dee-8ac3-2ca67ade4443",
+      "sourceTitle": "The Blue Reel — A1",
+      "sourceSnapshotSha256": "6896f57b66d4e5a4af66538fdd441d5bc20b6e6809b5c59cacd58847f031ce2c",
+      "sceneKeys": [
+        "empty-cinema",
+        "written-note",
+        "two-ways",
+        "film-on-screen",
+        "flower-shop"
+      ],
+      "correctOptions": {
+        "empty-cinema": "a",
+        "written-note": "c",
+        "two-ways": "b",
+        "film-on-screen": "c",
+        "flower-shop": "a"
+      },
+      "transitions": {
+        "empty-cinema": [
+          {
+            "key": "continue",
+            "targetSceneKey": "written-note"
+          }
+        ],
+        "written-note": [
+          {
+            "key": "continue",
+            "targetSceneKey": "two-ways"
+          }
+        ],
+        "two-ways": [
+          {
+            "key": "route-1",
+            "targetSceneKey": "film-on-screen"
+          },
+          {
+            "key": "route-2",
+            "targetSceneKey": "flower-shop"
+          }
+        ],
+        "film-on-screen": [],
+        "flower-shop": []
+      }
+    },
+    "the-captains-quiet-match-a2-pt-br": {
+      "sourceVersionId": "07298b94-4671-4d45-aec7-3c33e97300dc",
+      "sourceTitle": "The Captain's Quiet Match — A2",
+      "sourceSnapshotSha256": "78855055c82aa4b9c85ec012f17edf9e2cd017bc29ce56edb2a65883c0de6447",
+      "sceneKeys": [
+        "too-many-words",
+        "one-arrow",
+        "captains-choice",
+        "short-calls",
+        "junes-plan"
+      ],
+      "correctOptions": {
+        "too-many-words": "b",
+        "one-arrow": "c",
+        "captains-choice": "a",
+        "short-calls": "b",
+        "junes-plan": "c"
+      },
+      "transitions": {
+        "too-many-words": [
+          {
+            "key": "continue",
+            "targetSceneKey": "one-arrow"
+          }
+        ],
+        "one-arrow": [
+          {
+            "key": "continue",
+            "targetSceneKey": "captains-choice"
+          }
+        ],
+        "captains-choice": [
+          {
+            "key": "short-calls",
+            "targetSceneKey": "short-calls"
+          },
+          {
+            "key": "junes-plan",
+            "targetSceneKey": "junes-plan"
+          }
+        ],
+        "short-calls": [],
+        "junes-plan": []
+      }
+    },
+    "the-empty-frame-a2-pt-br": {
+      "sourceVersionId": "14b461e6-5e37-4136-878c-88787c81a2b5",
+      "sourceTitle": "The Empty Frame — A2",
+      "sourceSnapshotSha256": "a006dc4104dfaa6644a08513377ea295986a36c864ecda363a4353b55eca9084",
+      "sceneKeys": [
+        "gallery-morning",
+        "restoration-log",
+        "two-checks",
+        "restorer-explanation",
+        "attic-storage"
+      ],
+      "correctOptions": {
+        "gallery-morning": "b",
+        "restoration-log": "c",
+        "two-checks": "a",
+        "restorer-explanation": "b",
+        "attic-storage": "c"
+      },
+      "transitions": {
+        "gallery-morning": [
+          {
+            "key": "continue",
+            "targetSceneKey": "restoration-log"
+          }
+        ],
+        "restoration-log": [
+          {
+            "key": "continue",
+            "targetSceneKey": "two-checks"
+          }
+        ],
+        "two-checks": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "restorer-explanation"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "attic-storage"
+          }
+        ],
+        "restorer-explanation": [],
+        "attic-storage": []
+      }
+    },
+    "the-garden-robot-a1-pt-br": {
+      "sourceVersionId": "986372b0-a3c5-465b-82f7-4bb6129b2e37",
+      "sourceTitle": "The Garden Robot — A1",
+      "sourceSnapshotSha256": "93b4b334b0665c063dfd42bcfdf2ca58257a15964c9ded42beaf6bb72808d5f3",
+      "sceneKeys": [
+        "greenhouse-door",
+        "open-panel",
+        "delivery-choice",
+        "voice-again",
+        "quiet-team"
+      ],
+      "correctOptions": {
+        "greenhouse-door": "a",
+        "open-panel": "b",
+        "delivery-choice": "c",
+        "voice-again": "a",
+        "quiet-team": "b"
+      },
+      "transitions": {
+        "greenhouse-door": [
+          {
+            "key": "continue",
+            "targetSceneKey": "open-panel"
+          }
+        ],
+        "open-panel": [
+          {
+            "key": "continue",
+            "targetSceneKey": "delivery-choice"
+          }
+        ],
+        "delivery-choice": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "voice-again"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "quiet-team"
+          }
+        ],
+        "voice-again": [],
+        "quiet-team": []
+      }
+    },
+    "the-green-ribbon-a2-pt-br": {
+      "sourceVersionId": "77638b4e-34c0-4499-94b8-5715dee6305e",
+      "sourceTitle": "The Green Ribbon — A2",
+      "sourceSnapshotSha256": "0b146a79cfdfcd506d36c128c6f1476e25fb0aee494bce19844679ebd3f750c3",
+      "sceneKeys": [
+        "quiet-room",
+        "radio-hall",
+        "garden-rescue",
+        "roof-signal"
+      ],
+      "correctOptions": {
+        "quiet-room": "b",
+        "radio-hall": "a",
+        "garden-rescue": "c",
+        "roof-signal": "b"
+      },
+      "transitions": {
+        "quiet-room": [
+          {
+            "key": "follow-ribbon",
+            "targetSceneKey": "radio-hall"
+          }
+        ],
+        "radio-hall": [
+          {
+            "key": "garden-route",
+            "targetSceneKey": "garden-rescue"
+          },
+          {
+            "key": "roof-route",
+            "targetSceneKey": "roof-signal"
+          }
+        ],
+        "garden-rescue": [],
+        "roof-signal": []
+      }
+    },
+    "the-inventory-of-empty-rooms-b1-pt-br": {
+      "sourceVersionId": "2a774608-59f6-4b5c-86a8-61299262f571",
+      "sourceTitle": "The Inventory of Empty Rooms — B1",
+      "sourceSnapshotSha256": "b9a534d09f6326e1bbc2d252621fc33f8b0a5a4ff02ae57a75caec687f65e989",
+      "sceneKeys": [
+        "inspection-kit",
+        "six-empty-rooms",
+        "her-name",
+        "ledger-outside",
+        "survey-only"
+      ],
+      "correctOptions": {
+        "inspection-kit": "a",
+        "six-empty-rooms": "b",
+        "her-name": "c",
+        "ledger-outside": "a",
+        "survey-only": "b"
+      },
+      "transitions": {
+        "inspection-kit": [
+          {
+            "key": "continue",
+            "targetSceneKey": "six-empty-rooms"
+          }
+        ],
+        "six-empty-rooms": [
+          {
+            "key": "continue",
+            "targetSceneKey": "her-name"
+          }
+        ],
+        "her-name": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "ledger-outside"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "survey-only"
+          }
+        ],
+        "ledger-outside": [],
+        "survey-only": []
+      }
+    },
+    "the-lantern-walk-a1-pt-br": {
+      "sourceVersionId": "7d367e7e-60f0-4dda-9f4b-1f4be4b9a341",
+      "sourceTitle": "The Lantern Walk — A1",
+      "sourceSnapshotSha256": "75a9d0181805d161a69a42bb10987551c58d0561ddc6c5c9f6c510b5927fdd8b",
+      "sceneKeys": [
+        "park-entrance",
+        "map-paths",
+        "people-on-paths",
+        "picnic-table",
+        "picnic-stage"
+      ],
+      "correctOptions": {
+        "park-entrance": "c",
+        "map-paths": "a",
+        "people-on-paths": "b",
+        "picnic-table": "c",
+        "picnic-stage": "a"
+      },
+      "transitions": {
+        "park-entrance": [
+          {
+            "key": "continue",
+            "targetSceneKey": "map-paths"
+          }
+        ],
+        "map-paths": [
+          {
+            "key": "continue",
+            "targetSceneKey": "people-on-paths"
+          }
+        ],
+        "people-on-paths": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "picnic-table"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "picnic-stage"
+          }
+        ],
+        "picnic-table": [],
+        "picnic-stage": []
+      }
+    },
+    "the-last-shift-a2-pt-br": {
+      "sourceVersionId": "2d00899d-f48e-451c-84d6-db7c9c1d6835",
+      "sourceTitle": "The Last Shift — A2",
+      "sourceSnapshotSha256": "ac48ca6883f12f6dae7a97acfce66aecd3277ba3b7cf36805e492496e3f19510",
+      "sceneKeys": [
+        "warm-cup",
+        "radio-desk",
+        "empty-gate",
+        "roof-lights"
+      ],
+      "correctOptions": {
+        "warm-cup": "b",
+        "radio-desk": "a",
+        "empty-gate": "c",
+        "roof-lights": "b"
+      },
+      "transitions": {
+        "warm-cup": [
+          {
+            "key": "enter-corridor",
+            "targetSceneKey": "radio-desk"
+          }
+        ],
+        "radio-desk": [
+          {
+            "key": "unlock-exit",
+            "targetSceneKey": "empty-gate"
+          },
+          {
+            "key": "check-roof",
+            "targetSceneKey": "roof-lights"
+          }
+        ],
+        "empty-gate": [],
+        "roof-lights": []
+      }
+    },
+    "the-lighthouse-beyond-earth-b1-pt-br": {
+      "sourceVersionId": "241a95a0-f314-4022-938b-3762b8dfe27c",
+      "sourceTitle": "The Lighthouse beyond Earth — B1",
+      "sourceSnapshotSha256": "2a882ac8f278c99bab5e49f913b1ba79aaeb7fc92c25e6b887b7557a60e4db4c",
+      "sceneKeys": [
+        "outpost-shift",
+        "an-answering-pause",
+        "choosing-a-language",
+        "spoken-reply",
+        "pulse-reply"
+      ],
+      "correctOptions": {
+        "outpost-shift": "c",
+        "an-answering-pause": "a",
+        "choosing-a-language": "b",
+        "spoken-reply": "c",
+        "pulse-reply": "a"
+      },
+      "transitions": {
+        "outpost-shift": [
+          {
+            "key": "continue",
+            "targetSceneKey": "an-answering-pause"
+          }
+        ],
+        "an-answering-pause": [
+          {
+            "key": "continue",
+            "targetSceneKey": "choosing-a-language"
+          }
+        ],
+        "choosing-a-language": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "spoken-reply"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "pulse-reply"
+          }
+        ],
+        "spoken-reply": [],
+        "pulse-reply": []
+      }
+    },
+    "the-listening-booth-a2-pt-br": {
+      "sourceVersionId": "2caf200d-4a88-4724-a3f2-52c6e4856f8f",
+      "sourceTitle": "The Listening Booth — A2",
+      "sourceSnapshotSha256": "8aabb25b249ebd01d85d71b745c6a25eec47c074535c7ef68da00692ac8e0607",
+      "sceneKeys": [
+        "archive-visit",
+        "unfamiliar-voice",
+        "copying-choice",
+        "full-recording",
+        "fathers-message"
+      ],
+      "correctOptions": {
+        "archive-visit": "c",
+        "unfamiliar-voice": "a",
+        "copying-choice": "b",
+        "full-recording": "c",
+        "fathers-message": "a"
+      },
+      "transitions": {
+        "archive-visit": [
+          {
+            "key": "continue",
+            "targetSceneKey": "unfamiliar-voice"
+          }
+        ],
+        "unfamiliar-voice": [
+          {
+            "key": "continue",
+            "targetSceneKey": "copying-choice"
+          }
+        ],
+        "copying-choice": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "full-recording"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "fathers-message"
+          }
+        ],
+        "full-recording": [],
+        "fathers-message": []
+      }
+    },
+    "the-mountain-post-b1-pt-br": {
+      "sourceVersionId": "5a6a5521-eef1-4e51-a63d-c6dfb8c550c6",
+      "sourceTitle": "The Mountain Post — B1",
+      "sourceSnapshotSha256": "f5c1f01a37e2b03294b7250122a559d5c2d014b997343e68afbc942d437eae7e",
+      "sceneKeys": [
+        "last-collection",
+        "old-timetable",
+        "descent-choice",
+        "village-return",
+        "farm-return"
+      ],
+      "correctOptions": {
+        "last-collection": "b",
+        "old-timetable": "c",
+        "descent-choice": "a",
+        "village-return": "b",
+        "farm-return": "c"
+      },
+      "transitions": {
+        "last-collection": [
+          {
+            "key": "continue",
+            "targetSceneKey": "old-timetable"
+          }
+        ],
+        "old-timetable": [
+          {
+            "key": "continue",
+            "targetSceneKey": "descent-choice"
+          }
+        ],
+        "descent-choice": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "village-return"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "farm-return"
+          }
+        ],
+        "village-return": [],
+        "farm-return": []
+      }
+    },
+    "the-red-violin-case-a2-pt-br": {
+      "sourceVersionId": "deeee5cb-19e9-4d2e-b6db-d5614a22736d",
+      "sourceTitle": "The Red Violin Case — A2",
+      "sourceSnapshotSha256": "3ba799a6748165c84fe17cad6a534f64c127a1e6f25212d9e2a03d623e5d8ed4",
+      "sceneKeys": [
+        "ferry-delay",
+        "other-crossings",
+        "a-person-to-help",
+        "bridge-story",
+        "boat-arrival"
+      ],
+      "correctOptions": {
+        "ferry-delay": "a",
+        "other-crossings": "b",
+        "a-person-to-help": "c",
+        "bridge-story": "a",
+        "boat-arrival": "b"
+      },
+      "transitions": {
+        "ferry-delay": [
+          {
+            "key": "continue",
+            "targetSceneKey": "other-crossings"
+          }
+        ],
+        "other-crossings": [
+          {
+            "key": "continue",
+            "targetSceneKey": "a-person-to-help"
+          }
+        ],
+        "a-person-to-help": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "bridge-story"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "boat-arrival"
+          }
+        ],
+        "bridge-story": [],
+        "boat-arrival": []
+      }
+    },
+    "the-second-cup-a1-pt-br": {
+      "sourceVersionId": "da6b7e68-9705-4312-98a7-d6fc22b73d3a",
+      "sourceTitle": "The Second Cup — A1",
+      "sourceSnapshotSha256": "dd9b030dda5d19477f51de007d34ea111d0aa8c649819c86b35262dfbc0561d8",
+      "sceneKeys": [
+        "closing-time",
+        "two-cups",
+        "two-exits",
+        "across-the-street",
+        "courtyard-exit"
+      ],
+      "correctOptions": {
+        "closing-time": "b",
+        "two-cups": "c",
+        "two-exits": "a",
+        "across-the-street": "b",
+        "courtyard-exit": "c"
+      },
+      "transitions": {
+        "closing-time": [
+          {
+            "key": "continue",
+            "targetSceneKey": "two-cups"
+          }
+        ],
+        "two-cups": [
+          {
+            "key": "continue",
+            "targetSceneKey": "two-exits"
+          }
+        ],
+        "two-exits": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "across-the-street"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "courtyard-exit"
+          }
+        ],
+        "across-the-street": [],
+        "courtyard-exit": []
+      }
+    },
+    "the-seed-that-remembered-rain-b1-pt-br": {
+      "sourceVersionId": "4588bfab-8cea-48f9-a443-072a53d961d5",
+      "sourceTitle": "The Seed That Remembered Rain — B1",
+      "sourceSnapshotSha256": "1fe055b0046acaff016b5f107c71bab8bedf03ce80c543b8d9fddc9740ebe092",
+      "sceneKeys": [
+        "silent-nursery",
+        "careful-test",
+        "two-proposals",
+        "archive-record",
+        "greenhouse-trial"
+      ],
+      "correctOptions": {
+        "silent-nursery": "b",
+        "careful-test": "a",
+        "two-proposals": "c",
+        "archive-record": "a",
+        "greenhouse-trial": "b"
+      },
+      "transitions": {
+        "silent-nursery": [
+          {
+            "key": "continue",
+            "targetSceneKey": "careful-test"
+          }
+        ],
+        "careful-test": [
+          {
+            "key": "continue",
+            "targetSceneKey": "two-proposals"
+          }
+        ],
+        "two-proposals": [
+          {
+            "key": "route-1",
+            "targetSceneKey": "archive-record"
+          },
+          {
+            "key": "route-2",
+            "targetSceneKey": "greenhouse-trial"
+          }
+        ],
+        "archive-record": [],
+        "greenhouse-trial": []
+      }
+    },
+    "the-seventh-photograph-b1-pt-br": {
+      "sourceVersionId": "078baa10-40a9-45a4-a6eb-bbc2e5c7f1d7",
+      "sourceTitle": "The Seventh Photograph — B1",
+      "sourceSnapshotSha256": "e340b5944cf7ab1dcdf9f32d4313b2942805ac11048f48bd48eb0f650ad72631",
+      "sceneKeys": [
+        "sorting-table",
+        "beam-and-ledger",
+        "two-sources",
+        "carpenters-account",
+        "construction-records"
+      ],
+      "correctOptions": {
+        "sorting-table": "c",
+        "beam-and-ledger": "a",
+        "two-sources": "b",
+        "carpenters-account": "c",
+        "construction-records": "a"
+      },
+      "transitions": {
+        "sorting-table": [
+          {
+            "key": "continue",
+            "targetSceneKey": "beam-and-ledger"
+          }
+        ],
+        "beam-and-ledger": [
+          {
+            "key": "continue",
+            "targetSceneKey": "two-sources"
+          }
+        ],
+        "two-sources": [
+          {
+            "key": "route-one",
+            "targetSceneKey": "carpenters-account"
+          },
+          {
+            "key": "route-two",
+            "targetSceneKey": "construction-records"
+          }
+        ],
+        "carpenters-account": [],
+        "construction-records": []
+      }
+    },
+    "the-tailor-of-the-turning-year-b1-pt-br": {
+      "sourceVersionId": "7385a738-b53a-42e8-9a78-3d545edc85a9",
+      "sourceTitle": "The Tailor of the Turning Year — B1",
+      "sourceSnapshotSha256": "337e4f289516b5984569514a9ba350aeb38684e15e95f8afcfb4251abb05597e",
+      "sceneKeys": [
+        "unfinished-coat",
+        "a-keepers-regret",
+        "two-memories",
+        "snowflake-pocket",
+        "snowfall-pattern"
+      ],
+      "correctOptions": {
+        "unfinished-coat": "a",
+        "a-keepers-regret": "b",
+        "two-memories": "c",
+        "snowflake-pocket": "a",
+        "snowfall-pattern": "b"
+      },
+      "transitions": {
+        "unfinished-coat": [
+          {
+            "key": "continue",
+            "targetSceneKey": "a-keepers-regret"
+          }
+        ],
+        "a-keepers-regret": [
+          {
+            "key": "continue",
+            "targetSceneKey": "two-memories"
+          }
+        ],
+        "two-memories": [
+          {
+            "key": "snowflake-pocket",
+            "targetSceneKey": "snowflake-pocket"
+          },
+          {
+            "key": "snowfall-pattern",
+            "targetSceneKey": "snowfall-pattern"
+          }
+        ],
+        "snowflake-pocket": [],
+        "snowfall-pattern": []
+      }
+    },
+    "the-tide-window-a2-pt-br": {
+      "sourceVersionId": "ed50d33a-ef64-438b-8aae-649a75340278",
+      "sourceTitle": "The Tide Window — A2",
+      "sourceSnapshotSha256": "944727a20d4c78705e6da2b92393fd60a423e50707848f54e8cdbdebf5a9b23e",
+      "sceneKeys": [
+        "harbour-box",
+        "harbour-map",
+        "choose-crossing",
+        "stone-path",
+        "supply-crossing"
+      ],
+      "correctOptions": {
+        "harbour-box": "c",
+        "harbour-map": "b",
+        "choose-crossing": "a",
+        "stone-path": "b",
+        "supply-crossing": "c"
+      },
+      "transitions": {
+        "harbour-box": [
+          {
+            "key": "continue",
+            "targetSceneKey": "harbour-map"
+          }
+        ],
+        "harbour-map": [
+          {
+            "key": "continue",
+            "targetSceneKey": "choose-crossing"
+          }
+        ],
+        "choose-crossing": [
+          {
+            "key": "route-1",
+            "targetSceneKey": "stone-path"
+          },
+          {
+            "key": "route-2",
+            "targetSceneKey": "supply-crossing"
+          }
+        ],
+        "stone-path": [],
+        "supply-crossing": []
+      }
+    },
+    "the-voice-in-carriage-nine-a2-pt-br": {
+      "sourceVersionId": "ca97f9b7-cd48-4c11-bb5c-ede35b1be159",
+      "sourceTitle": "The Voice in Carriage Nine — A2",
+      "sourceSnapshotSha256": "769678bf1ef0b76a036082b73600a163579f6e8009f69765d12cc2096f8c3ddb",
+      "sceneKeys": [
+        "last-inspection",
+        "announcement",
+        "unwritten-choice",
+        "taken-picture",
+        "phone-left"
+      ],
+      "correctOptions": {
+        "last-inspection": "a",
+        "announcement": "c",
+        "unwritten-choice": "b",
+        "taken-picture": "a",
+        "phone-left": "b"
+      },
+      "transitions": {
+        "last-inspection": [
+          {
+            "key": "continue",
+            "targetSceneKey": "announcement"
+          }
+        ],
+        "announcement": [
+          {
+            "key": "continue",
+            "targetSceneKey": "unwritten-choice"
+          }
+        ],
+        "unwritten-choice": [
+          {
+            "key": "route-1",
+            "targetSceneKey": "taken-picture"
+          },
+          {
+            "key": "route-2",
+            "targetSceneKey": "phone-left"
+          }
+        ],
+        "taken-picture": [],
+        "phone-left": []
+      }
+    }
+  }
+}

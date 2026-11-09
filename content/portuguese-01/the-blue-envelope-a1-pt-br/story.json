@@ -1,0 +1,383 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#B6A0E8",
+      "accent": "#E4BA6D",
+      "background": "#131021",
+      "surface": "#221B35",
+      "text": "#F5F0FF",
+      "font": "modern",
+      "motion": "gentle"
+    },
+    "title": "O Envelope Azul",
+    "synopsis": "Uma bibliotecária encontra uma fotografia dentro de um envelope sem nome e procura a pessoa que preparou aquele presente.",
+    "genre": "Mistério",
+    "difficulty": "A1",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "under-the-desk",
+  "scenes": [
+    {
+      "key": "under-the-desk",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Debaixo do balcão de atendimento"
+        },
+        {
+          "key": "b",
+          "text": "Em uma poltrona de leitura"
+        },
+        {
+          "key": "c",
+          "text": "Ao lado da porta da frente"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "old-photograph"
+        }
+      ],
+      "title": "Debaixo do balcão",
+      "narration": "Lena trabalha em uma pequena biblioteca. Ela usa um casaco de malha amarelo. Hoje, encontra um envelope azul debaixo do balcão de atendimento. Não há nome nele. Ela o abre com cuidado. Uma pequena fotografia cai em sua mão.",
+      "prompt": "Onde Lena encontra o envelope?",
+      "explanation": "O envelope azul está debaixo do balcão de atendimento.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Lena trabalha em uma pequena biblioteca. Ela usa um casaco de malha amarelo. Hoje, encontra um envelope azul debaixo do balcão de atendimento. Não há nome nele. Ela o abre com cuidado. Uma pequena fotografia cai em sua mão.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 17229
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "balcão",
+          "translation": "Mesa alta onde se atende o público."
+        },
+        {
+          "key": "word-2",
+          "term": "de malha",
+          "translation": "Feito com fios entrelaçados, como uma roupa de tricô."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Lena trabalha em uma pequena biblioteca. Ela usa um casaco de malha amarelo. Hoje, encontra um envelope azul debaixo do balcão de atendimento. Não há nome nele. Ela o abre com cuidado. Uma pequena fotografia cai em sua mão.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "debaixo do balcão de atendimento.",
+        "altText": "Lena segura um envelope azul aberto junto ao balcão da biblioteca. Uma pequena fotografia repousa na palma de sua mão, iluminada pela janela.",
+        "reusedVisualId": "78fd635a-d019-46fa-ba4e-52ee5e28f02e",
+        "sourceVersionId": "41596f4b-af89-42b5-a378-93ee0ebb88eb",
+        "sourceSceneKey": "under-the-desk",
+        "imagePrompt": "SCENE: Lena holds an open blue envelope beside the library front desk; the small photograph rests on her palm. Daylight enters the street window. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. EXACT CAST: This scene has exactly 1 adult person(s). Do not add anyone else.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Lena segura um envelope azul aberto junto ao balcão da biblioteca. Uma pequena fotografia repousa na palma de sua mão, iluminada pela janela."
+    },
+    {
+      "key": "old-photograph",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Uma cadeira azul em uma cozinha"
+        },
+        {
+          "key": "b",
+          "text": "Um banco vermelho em um jardim"
+        },
+        {
+          "key": "c",
+          "text": "Uma mesa amarela em uma loja"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continuar a história",
+          "targetSceneKey": "two-places"
+        }
+      ],
+      "title": "Uma fotografia antiga",
+      "narration": "A fotografia mostra um banco vermelho em um jardim. Lena olha pela porta lateral. O pátio da biblioteca também tem um banco vermelho. No verso da foto, ela vê duas palavras: \"Para papai\". Ela quer encontrar a pessoa a quem a foto pertence.",
+      "prompt": "O que a fotografia mostra?",
+      "explanation": "A fotografia mostra um banco vermelho em um jardim.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "A fotografia mostra um banco vermelho em um jardim. Lena olha pela porta lateral. O pátio da biblioteca também tem um banco vermelho. No verso da foto, ela vê duas palavras: \"Para papai\". Ela quer encontrar a pessoa a quem a foto pertence.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 17089
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "verso",
+          "translation": "Parte de trás de uma folha ou fotografia."
+        },
+        {
+          "key": "word-2",
+          "term": "lateral",
+          "translation": "Que fica ao lado, e não na frente."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "A fotografia mostra um banco vermelho em um jardim. Lena olha pela porta lateral. O pátio da biblioteca também tem um banco vermelho. No verso da foto, ela vê duas palavras: \"Para papai\". Ela quer encontrar a pessoa a quem a foto pertence.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "um banco vermelho em um jardim.",
+        "altText": "Lena examina a fotografia perto da porta lateral da biblioteca. No pátio, ao fundo, aparece um banco vermelho.",
+        "reusedVisualId": "afad9c37-41b7-4242-aabb-cad530b251c7",
+        "sourceVersionId": "41596f4b-af89-42b5-a378-93ee0ebb88eb",
+        "sourceSceneKey": "old-photograph",
+        "imagePrompt": "SCENE: Lena studies the photograph by the library side door; a red bench is visible in the courtyard beyond. Keep the writing on the photograph unreadable. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. EXACT CAST: This scene has exactly 1 adult person(s). Do not add anyone else.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Lena examina a fotografia perto da porta lateral da biblioteca. No pátio, ao fundo, aparece um banco vermelho."
+    },
+    {
+      "key": "two-places",
+      "isEnding": false,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Abrindo a janela da biblioteca"
+        },
+        {
+          "key": "b",
+          "text": "Carregando pão do outro lado da rua"
+        },
+        {
+          "key": "c",
+          "text": "Procurando algo debaixo do banco vermelho"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "route-one",
+          "label": "Perguntar ao padeiro sobre a fotografia",
+          "targetSceneKey": "bakery-answer"
+        },
+        {
+          "key": "route-two",
+          "label": "Procurar o banco vermelho no pátio",
+          "targetSceneKey": "bench-answer"
+        }
+      ],
+      "title": "Dois lugares para procurar",
+      "narration": "Lena pega a fotografia e o envelope. O padeiro do outro lado da rua conhece muitas pessoas. No pátio, uma mulher procura algo debaixo do banco vermelho. Lena pode perguntar ao padeiro ou conversar com a mulher. Os dois lugares ficam perto.",
+      "prompt": "O que a mulher está fazendo?",
+      "explanation": "A mulher está procurando debaixo do banco vermelho.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Lena pega a fotografia e o envelope. O padeiro do outro lado da rua conhece muitas pessoas. No pátio, uma mulher procura algo debaixo do banco vermelho. Lena pode perguntar ao padeiro ou conversar com a mulher. Os dois lugares ficam perto.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 17473
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "padeiro",
+          "translation": "Profissional que prepara pães."
+        },
+        {
+          "key": "word-2",
+          "term": "pátio",
+          "translation": "Espaço aberto junto a um prédio."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Lena pega a fotografia e o envelope. O padeiro do outro lado da rua conhece muitas pessoas. No pátio, uma mulher procura algo debaixo do banco vermelho. Lena pode perguntar ao padeiro ou conversar com a mulher. Os dois lugares ficam perto.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "uma mulher procura algo debaixo do banco vermelho.",
+        "altText": "Lena está na porta lateral com o envelope e a fotografia. Uma mulher procura algo debaixo do banco vermelho no pátio.",
+        "reusedVisualId": "1147694e-f6cd-4cf4-b614-ecb8c9a69156",
+        "sourceVersionId": "41596f4b-af89-42b5-a378-93ee0ebb88eb",
+        "sourceSceneKey": "two-places",
+        "imagePrompt": "SCENE: Lena stands inside the library side doorway with the envelope and photograph. An adult woman looks beneath the red courtyard bench. No baker is visible in this frame. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. EXACT CAST: This scene has exactly 2 adult person(s). Do not add anyone else.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Lena está na porta lateral com o envelope e a fotografia. Uma mulher procura algo debaixo do banco vermelho no pátio."
+    },
+    {
+      "key": "bakery-answer",
+      "isEnding": true,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "A filha do padeiro"
+        },
+        {
+          "key": "b",
+          "text": "A irmã de Lena"
+        },
+        {
+          "key": "c",
+          "text": "A professora do padeiro"
+        }
+      ],
+      "transitions": [],
+      "title": "Uma resposta na padaria",
+      "narration": "Lena pergunta ao padeiro. A filha dele tirou a foto no pátio da biblioteca. Ele liga para ela pelo celular. Ela atravessa a rua e busca o envelope azul. O presente para o pai está pronto, e Lena pode voltar ao trabalho.",
+      "prompt": "Quem tirou a fotografia?",
+      "explanation": "A filha do padeiro tirou a foto no pátio da biblioteca.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Lena pergunta ao padeiro. A filha dele tirou a foto no pátio da biblioteca. Ele liga para ela pelo celular. Ela atravessa a rua e busca o envelope azul. O presente para o pai está pronto, e Lena pode voltar ao trabalho.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 15882
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "atravessa",
+          "translation": "Vai de um lado para o outro."
+        },
+        {
+          "key": "word-2",
+          "term": "busca",
+          "translation": "Vai pegar algo que havia deixado em outro lugar."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Lena pergunta ao padeiro. A filha dele tirou a foto no pátio da biblioteca. Ele liga para ela pelo celular. Ela atravessa a rua e busca o envelope azul. O presente para o pai está pronto, e Lena pode voltar ao trabalho.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "A filha dele tirou a foto no pátio da biblioteca.",
+        "altText": "Na entrada da padaria, Lena entrega o envelope azul à mulher. O padeiro está ao lado delas, sob a luz suave do dia.",
+        "reusedVisualId": "54e04113-6f97-479a-bfbc-065ad9de3bab",
+        "sourceVersionId": "41596f4b-af89-42b5-a378-93ee0ebb88eb",
+        "sourceSceneKey": "bakery-answer",
+        "imagePrompt": "SCENE: Inside the bakery doorway, Lena hands the blue envelope to the adult woman. The baker stands beside them. The photograph stays with the envelope; soft daylight lights the three adults. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. The baker is a man in his sixties with short grey hair and a plain cream apron. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. The baker is a man in his sixties with short grey hair and a plain cream apron. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. EXACT CAST: This scene has exactly 3 adult person(s). Do not add anyone else.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Na entrada da padaria, Lena entrega o envelope azul à mulher. O padeiro está ao lado delas, sob a luz suave do dia."
+    },
+    {
+      "key": "bench-answer",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Na biblioteca"
+        },
+        {
+          "key": "b",
+          "text": "Na padaria"
+        },
+        {
+          "key": "c",
+          "text": "Na loja de jardinagem"
+        }
+      ],
+      "transitions": [],
+      "title": "Uma resposta junto ao banco",
+      "narration": "Lena mostra a fotografia à mulher perto do banco. \"É minha! É um presente para meu pai. Ele trabalha na padaria.\" Lena devolve o envelope azul. A mulher agradece e atravessa a rua.",
+      "prompt": "Onde o pai da mulher trabalha?",
+      "explanation": "A mulher conta que seu pai trabalha na padaria.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Lena mostra a fotografia à mulher perto do banco.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 3308
+        },
+        {
+          "key": "cue-2",
+          "speaker": "A mulher",
+          "text": "\"É minha! É um presente para meu pai. Ele trabalha na padaria.\"",
+          "startMilliseconds": 3308,
+          "endMilliseconds": 8579
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Lena devolve o envelope azul. A mulher agradece e atravessa a rua.",
+          "startMilliseconds": 8579,
+          "endMilliseconds": 14164
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "devolve",
+          "translation": "Entrega algo de volta à pessoa a quem pertence."
+        },
+        {
+          "key": "word-2",
+          "term": "agradece",
+          "translation": "Demonstra gratidão por uma ajuda recebida."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Lena mostra a fotografia à mulher perto do banco. \"É minha! É um presente para meu pai. Ele trabalha na padaria.\" Lena devolve o envelope azul. A mulher agradece e atravessa a rua.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Ele trabalha na padaria.",
+        "altText": "Junto ao banco vermelho, Lena devolve a fotografia e o envelope azul à mulher aliviada. A porta lateral da biblioteca está atrás dela.",
+        "reusedVisualId": "f4d02ca6-6f03-4f1a-86d5-21230f61a901",
+        "sourceVersionId": "41596f4b-af89-42b5-a378-93ee0ebb88eb",
+        "sourceSceneKey": "bench-answer",
+        "imagePrompt": "SCENE: Beside the courtyard red bench, Lena returns the blue envelope and photograph to the relieved woman. The library side door remains behind Lena; daylight is gentle. SETTING: Use only the location and objects described in this scene, with clear spatial connections. CHARACTERS: Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. Depict only the people explicitly present in SCENE, with consistent stylized adult proportions and restrained expressions. VISUAL CLUES: Preserve the exact objects, colors, positions and current states given in SCENE; no future-route objects. MOOD AND HORROR: A grounded adult mystery, patient observation and curiosity. Restrained natural colors; no supernatural figures or ominous objects not described in the scene. CINEMATOGRAPHY: A polished 2D animated-feature keyframe with hand-drawn adult characters, clearly stylized faces and proportions, clean linework, controlled cel shading and painted backgrounds. Cinematic widescreen 16:9 composition, restrained expressive poses and a medium-wide eye-level view that keeps the action and relevant objects legible. Characters must look illustrated, never like photographs of real people. LIGHTING: Dark, shadowy cinematic 2D art direction. Use deep blue-grey and charcoal shadows, muted colors and selective pools of motivated practical light; low-key chiaroscuro with readable character silhouettes and clearly visible clue colors. Preserve the time of day and existing light sources in SCENE: even daylight scenes use a subdued overcast atmosphere and shadow-dominant interiors, without changing the narrative into night. No added lights or flashing. For horror use oppressive negative space, heavy shadows and unsettling framing, without inventing a threat. CONTINUITY: Keep Lena, a 38-year-old woman with a round face, brown eyes, short black hair, a plain yellow cardigan, dark trousers and flat brown shoes. The envelope's owner is a 30-year-old woman with a freckled oval face, dark curly hair, a plain burgundy cardigan and black trousers. Preserve the stated room layout and the current route's object states. Details of a character not present in SCENE are reference only, not an instruction to add that person. DO NOT INCLUDE: Readable text, captions, subtitles, logos, watermarks, borders, UI, extra people, unexplained objects, new threats or a montage of different moments. AVOID: Photorealism, live-action footage, real actors, photographic faces, realistic skin pores, stock photography, hyperrealistic 3D, toy-like renders, exaggerated childish faces, franchise characters, decorative clutter, excessive blur and gore. EXACT CAST: This scene has exactly 2 adult person(s). Do not add anyone else.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Junto ao banco vermelho, Lena devolve a fotografia e o envelope azul à mulher aliviada. A porta lateral da biblioteca está atrás dela."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "41596f4b-af89-42b5-a378-93ee0ebb88eb",
+    "sourceTitle": "The Blue Envelope — A1",
+    "sourceSnapshotSha256": "d8544c2c8d9a37e6f2daa4ccb517eb193b5e02533060e9c3399731d88e90b7f4",
+    "sourcePath": "content/anthology-01/the-blue-envelope-a1/story.json",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "under-the-desk",
+        "old-photograph",
+        "two-places",
+        "bakery-answer"
+      ],
+      [
+        "under-the-desk",
+        "old-photograph",
+        "two-places",
+        "bench-answer"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "metadata": {
+    "appearance": {
+      "primary": "#047857",
+      "accent": "#F59E0B",
+      "background": "#ECFDF5",
+      "surface": "#FFFFFF",
+      "text": "#12372A",
+      "font": "rounded",
+      "motion": "gentle"
+    },
+    "title": "A Fita Verde",
+    "synopsis": "Depois de uma tempestade, Eva acorda em uma clínica vazia. Fitas verdes apontam caminhos seguros até a equipe de resgate.",
+    "genre": "Mistério",
+    "difficulty": "A2",
+    "author": "English Roulette — adaptação assistida por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "Adaptação para português brasileiro de história original English Roulette, autorizada pelo responsável. A versão inglesa publicada permanece imutável.",
+    "attribution": "English Roulette. Roteiro original e adaptação para português brasileiro assistidos por IA. Narração sintética produzida offline.",
+    "language": "pt-BR"
+  },
+  "initialSceneKey": "quiet-room",
+  "scenes": [
+    {
+      "key": "quiet-room",
+      "isEnding": false,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "Um lugar para dormir"
+        },
+        {
+          "key": "b",
+          "text": "O caminho seguro"
+        },
+        {
+          "key": "c",
+          "text": "Um telefone quebrado"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "follow-ribbon",
+          "label": "Seguir a fita até o corredor",
+          "targetSceneKey": "radio-hall"
+        }
+      ],
+      "title": "O quarto silencioso",
+      "narration": "Eva abre os olhos em uma pequena clínica. A chuva bate na janela, mas o quarto está vazio. Sua jaqueta laranja está ao lado da cama. Uma fita verde pende da porta. Um cartão diz: \"O verde marca o caminho seguro. A tempestade acabou.\" Eva veste a jaqueta e segue a fita até o corredor.",
+      "prompt": "O que a fita verde marca?",
+      "explanation": "O cartão informa que o verde marca o caminho seguro.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Eva abre os olhos em uma pequena clínica. A chuva bate na janela, mas o quarto está vazio. Sua jaqueta laranja está ao lado da cama. Uma fita verde pende da porta. Um cartão diz: \"O verde marca o caminho seguro. A tempestade acabou.\" Eva veste a jaqueta e segue a fita até o corredor.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 21687
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "pende",
+          "translation": "Fica suspensa, presa por uma das extremidades."
+        },
+        {
+          "key": "word-2",
+          "term": "clínica",
+          "translation": "Local onde as pessoas recebem cuidados de saúde."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Eva abre os olhos em uma pequena clínica. A chuva bate na janela, mas o quarto está vazio. Sua jaqueta laranja está ao lado da cama. Uma fita verde pende da porta. Um cartão diz: \"O verde marca o caminho seguro. A tempestade acabou.\" Eva veste a jaqueta e segue a fita até o corredor.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "O verde marca o caminho seguro.",
+        "altText": "Eva de jaqueta laranja em uma clínica vazia; chuva na janela e uma fita verde na porta.",
+        "reusedVisualId": "d4f1025a-fac7-414f-b17e-911faceb7c03",
+        "sourceVersionId": "77638b4e-34c0-4499-94b8-5715dee6305e",
+        "sourceSceneKey": "quiet-room",
+        "imagePrompt": "Reutilizar a ilustração original desta cena, sem gerar uma nova imagem.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Eva de jaqueta laranja em uma clínica vazia; chuva na janela e uma fita verde na porta."
+    },
+    {
+      "key": "radio-hall",
+      "isEnding": false,
+      "correctOptionKey": "a",
+      "options": [
+        {
+          "key": "a",
+          "text": "Em um gancho verde"
+        },
+        {
+          "key": "b",
+          "text": "Debaixo da mesa"
+        },
+        {
+          "key": "c",
+          "text": "Dentro do rádio"
+        }
+      ],
+      "transitions": [
+        {
+          "key": "garden-route",
+          "label": "Pegar a chave e abrir a porta do jardim",
+          "targetSceneKey": "garden-rescue"
+        },
+        {
+          "key": "roof-route",
+          "label": "Subir a escada até o terraço",
+          "targetSceneKey": "roof-signal"
+        }
+      ],
+      "title": "Uma voz no rádio",
+      "narration": "O corredor está escuro, mas Eva vê duas placas: JARDIM e TERRAÇO. Há um pequeno rádio sobre uma mesa. \"A equipe de resgate está verificando o jardim e o terraço.\" Ao lado da porta do jardim, uma chave está pendurada em um gancho verde. A escada para o terraço está livre. Eva precisa escolher onde procurar primeiro.",
+      "prompt": "Onde está a chave?",
+      "explanation": "A chave está pendurada em um gancho verde, perto da porta do jardim.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "O corredor está escuro, mas Eva vê duas placas: JARDIM e TERRAÇO. Há um pequeno rádio sobre uma mesa.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 7616
+        },
+        {
+          "key": "cue-2",
+          "speaker": "A voz do rádio",
+          "text": "\"A equipe de resgate está verificando o jardim e o terraço.\"",
+          "startMilliseconds": 7616,
+          "endMilliseconds": 11726
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Ao lado da porta do jardim, uma chave está pendurada em um gancho verde. A escada para o terraço está livre. Eva precisa escolher onde procurar primeiro.",
+          "startMilliseconds": 11726,
+          "endMilliseconds": 22651
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "resgate",
+          "translation": "Ajuda para retirar pessoas de uma situação de perigo."
+        },
+        {
+          "key": "word-2",
+          "term": "terraço",
+          "translation": "Área aberta na parte superior de um prédio."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "O corredor está escuro, mas Eva vê duas placas: JARDIM e TERRAÇO. Há um pequeno rádio sobre uma mesa. \"A equipe de resgate está verificando o jardim e o terraço.\" Ao lado da porta do jardim, uma chave está pendurada em um gancho verde. A escada para o terraço está livre. Eva precisa escolher onde procurar primeiro.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "uma chave está pendurada em um gancho verde.",
+        "altText": "Eva encontra um rádio no corredor, uma chave no gancho verde e as escadas para o terraço.",
+        "reusedVisualId": "477ebc78-2528-470a-8a65-8bfeee5a4c66",
+        "sourceVersionId": "77638b4e-34c0-4499-94b8-5715dee6305e",
+        "sourceSceneKey": "radio-hall",
+        "imagePrompt": "Reutilizar a ilustração original desta cena, sem gerar uma nova imagem.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Eva encontra um rádio no corredor, uma chave no gancho verde e as escadas para o terraço."
+    },
+    {
+      "key": "garden-rescue",
+      "isEnding": true,
+      "correctOptionKey": "c",
+      "options": [
+        {
+          "key": "a",
+          "text": "Um professor"
+        },
+        {
+          "key": "b",
+          "text": "Um jardineiro"
+        },
+        {
+          "key": "c",
+          "text": "Um motorista da equipe de resgate"
+        }
+      ],
+      "transitions": [],
+      "title": "O portão do jardim",
+      "narration": "Eva pega a chave do gancho verde e abre a porta do jardim. O ar está fresco depois da chuva. Fitas verdes levam a um portão largo. Um motorista da equipe de resgate espera ao lado de uma van amarela. \"Deixamos as fitas depois da tempestade. Que bom que você encontrou nossos sinais.\" Eva entra na van, pronta para voltar para casa.",
+      "prompt": "Quem espera ao lado da van amarela?",
+      "explanation": "Um motorista da equipe de resgate espera junto à van.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Eva pega a chave do gancho verde e abre a porta do jardim. O ar está fresco depois da chuva. Fitas verdes levam a um portão largo. Um motorista da equipe de resgate espera ao lado de uma van amarela.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 14640
+        },
+        {
+          "key": "cue-2",
+          "speaker": "O motorista",
+          "text": "\"Deixamos as fitas depois da tempestade. Que bom que você encontrou nossos sinais.\"",
+          "startMilliseconds": 14640,
+          "endMilliseconds": 20758
+        },
+        {
+          "key": "cue-3",
+          "speaker": "Narrador",
+          "text": "Eva entra na van, pronta para voltar para casa.",
+          "startMilliseconds": 20758,
+          "endMilliseconds": 24439
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "van",
+          "translation": "Veículo maior que um carro comum, usado para transportar pessoas."
+        },
+        {
+          "key": "word-2",
+          "term": "sinais",
+          "translation": "Indicações deixadas para orientar alguém."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Eva pega a chave do gancho verde e abre a porta do jardim. O ar está fresco depois da chuva. Fitas verdes levam a um portão largo. Um motorista da equipe de resgate espera ao lado de uma van amarela. \"Deixamos as fitas depois da tempestade. Que bom que você encontrou nossos sinais.\" Eva entra na van, pronta para voltar para casa.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Um motorista da equipe de resgate espera ao lado de uma van amarela.",
+        "altText": "Fitas verdes indicam o portão do jardim, onde um motorista aguarda junto à van amarela.",
+        "reusedVisualId": "43e28a7f-c0e9-4587-82a8-9c902b9ad25e",
+        "sourceVersionId": "77638b4e-34c0-4499-94b8-5715dee6305e",
+        "sourceSceneKey": "garden-rescue",
+        "imagePrompt": "Reutilizar a ilustração original desta cena, sem gerar uma nova imagem.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "Fitas verdes indicam o portão do jardim, onde um motorista aguarda junto à van amarela."
+    },
+    {
+      "key": "roof-signal",
+      "isEnding": true,
+      "correctOptionKey": "b",
+      "options": [
+        {
+          "key": "a",
+          "text": "O interruptor vermelho"
+        },
+        {
+          "key": "b",
+          "text": "O botão azul"
+        },
+        {
+          "key": "c",
+          "text": "A fita verde"
+        }
+      ],
+      "transitions": [],
+      "title": "O botão azul",
+      "narration": "Eva sobe a escada e chega ao terraço. As nuvens estão se afastando. Perto de um banco, encontra um rádio com um botão azul e uma fita verde amarrada nele. Um bilhete diz: \"Aperte o botão azul se precisar de ajuda.\" Eva aperta. Um socorrista responde e vem encontrá-la na escada. Ela está segura.",
+      "prompt": "O que Eva aperta para pedir ajuda?",
+      "explanation": "O bilhete orienta Eva a apertar o botão azul para pedir ajuda.",
+      "dialogue": [
+        {
+          "key": "cue-1",
+          "speaker": "Narrador",
+          "text": "Eva sobe a escada e chega ao terraço. As nuvens estão se afastando. Perto de um banco, encontra um rádio com um botão azul e uma fita verde amarrada nele. Um bilhete diz: \"Aperte o botão azul se precisar de ajuda.\" Eva aperta. Um socorrista responde e vem encontrá-la na escada. Ela está segura.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 23254
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "socorrista",
+          "translation": "Pessoa preparada para ajudar em emergências."
+        },
+        {
+          "key": "word-2",
+          "term": "se afastando",
+          "translation": "Ficando mais longe; saindo daquela área."
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Eva sobe a escada e chega ao terraço. As nuvens estão se afastando. Perto de um banco, encontra um rádio com um botão azul e uma fita verde amarrada nele. Um bilhete diz: \"Aperte o botão azul se precisar de ajuda.\" Eva aperta. Um socorrista responde e vem encontrá-la na escada. Ela está segura.",
+        "audioLanguage": "pt-BR",
+        "questionEvidence": "Aperte o botão azul se precisar de ajuda.",
+        "altText": "No terraço, Eva encontra um rádio com botão azul e fita verde; uma pessoa do resgate chega pela escada.",
+        "reusedVisualId": "dae5a863-8652-47df-a519-6943624491d5",
+        "sourceVersionId": "77638b4e-34c0-4499-94b8-5715dee6305e",
+        "sourceSceneKey": "roof-signal",
+        "imagePrompt": "Reutilizar a ilustração original desta cena, sem gerar uma nova imagem.",
+        "visualContinuity": "Preservar a ilustração vinculada à cena inglesa original."
+      },
+      "visualDescription": "No terraço, Eva encontra um rádio com botão azul e fita verde; uma pessoa do resgate chega pela escada."
+    }
+  ],
+  "authoringNotes": {
+    "language": "pt-BR",
+    "sourceVersionId": "77638b4e-34c0-4499-94b8-5715dee6305e",
+    "sourceTitle": "The Green Ribbon — A2",
+    "sourceSnapshotSha256": "0b146a79cfdfcd506d36c128c6f1476e25fb0aee494bce19844679ebd3f750c3",
+    "sourcePath": "Catálogo legado exportado pela API administrativa",
+    "translationStatus": "complete",
+    "levelNote": "Classificação editorial herdada do original; não é certificação CEFR de português.",
+    "routes": [
+      [
+        "quiet-room",
+        "radio-hall",
+        "garden-rescue"
+      ],
+      [
+        "quiet-room",
+        "radio-hall",
+        "roof-signal"
+      ]
+    ],
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "reuse-published-original"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all speakers.",
+    "audioProduction": {
+      "engine": "piper-tts 1.8.0",
+      "model": "pt_BR-cadu-medium",
+      "lengthScale": 1.04,
+      "phonemeAliases": {},
+      "note": "Offline adjustment of consonant clusters and syllable codas; intervocalic taps preserved. Selected by comparing the same Portuguese phrases. No TTS or phoneme processing runs in the game.",
+      "portugueseRhoticCompatibility": true
+    }
+  }
+}
