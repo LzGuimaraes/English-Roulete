@@ -1,0 +1,461 @@
+{
+  "metadata": {
+    "title": "A Table for Two Beginners — A2",
+    "synopsis": "Duas pessoas se aproximam em uma aula de cerâmica e escolhem como transformar uma conversa desajeitada em um próximo encontro.",
+    "genre": "Romance",
+    "difficulty": "A2",
+    "author": "English Roulette — texto original assistido por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "História original criada para English Roulette em 08/11/2026 com assistência de IA. O responsável solicitou mais histórias de temas diferentes e já autorizou produção e publicação direta na VPS, sem nova aprovação. Não adapta obra de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Nível editorial proposto; não constitui certificação CEFR.",
+    "appearance": {
+      "primary": "#DAB881",
+      "accent": "#C9A4E7",
+      "background": "#14101F",
+      "surface": "#261E35",
+      "text": "#F9F0E3",
+      "font": "classic",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "first-bowls",
+  "scenes": [
+    {
+      "key": "first-bowls",
+      "title": "Two Unusual Bowls",
+      "narration": "Rosa joined an evening pottery class after work. She chose a place beside a man in a blue apron. His bowl leaned to one side, and hers had a hole in the bottom. \"Water can leave through that hole. Your bowl is ready for rain.\" \"Then perhaps it is a flower pot.\" They laughed. The teacher asked everyone to leave their work to dry.",
+      "isEnding": false,
+      "prompt": "What is wrong with Rosa's bowl?",
+      "options": [
+        {
+          "key": "a",
+          "text": "It has a broken handle"
+        },
+        {
+          "key": "b",
+          "text": "It is perfectly round"
+        },
+        {
+          "key": "c",
+          "text": "It has a hole in the bottom"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "It has a hole in the bottom. Evidence: hers had a hole in the bottom",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "cleaning-together"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "leaned",
+          "translation": "estava inclinada"
+        },
+        {
+          "key": "word-2",
+          "term": "apron",
+          "translation": "avental"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "first-bowls-line-1",
+          "speaker": "Narrador",
+          "text": "Rosa joined an evening pottery class after work. She chose a place beside a man in a blue apron. His bowl leaned to one side, and hers had a hole in the bottom.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10623
+        },
+        {
+          "key": "first-bowls-line-2",
+          "speaker": "Eli",
+          "text": "\"Water can leave through that hole. Your bowl is ready for rain.\"",
+          "startMilliseconds": 10623,
+          "endMilliseconds": 14500
+        },
+        {
+          "key": "first-bowls-line-3",
+          "speaker": "Rosa",
+          "text": "\"Then perhaps it is a flower pot.\"",
+          "startMilliseconds": 14500,
+          "endMilliseconds": 17229
+        },
+        {
+          "key": "first-bowls-line-4",
+          "speaker": "Narrador",
+          "text": "They laughed. The teacher asked everyone to leave their work to dry.",
+          "startMilliseconds": 17229,
+          "endMilliseconds": 21408
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Rosa joined an evening pottery class after work. She chose a place beside a man in a blue apron. His bowl leaned to one side, and hers had a hole in the bottom. \"Water can leave through that hole. Your bowl is ready for rain.\" \"Then perhaps it is a flower pot.\" They laughed. The teacher asked everyone to leave their work to dry.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "hers had a hole in the bottom",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Only adult Rosa and adult Eli sit side by side at a timber pottery worktable. Rosa wears beige apron over green shirt, Eli blue apron over cream shirt. A handmade bowl with a small visible hole in its bottom is near Rosa; a slightly leaning bowl is near Eli. They smile at their imperfect work. No teacher or other students visible. VISIBLE CAST AND CONTINUITY (strict): Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. During the studio class she wears a plain beige canvas apron. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt and dark trousers; during class he wears a plain deep-blue apron. Both are clearly adults. A warm pottery studio has dark timber worktables, clay bowls and shelves. Rosa's first bowl has a small hole in the bottom; Eli's first bowl leans to one side. Outside the studio and on the canal walk they wear their same shirts but NO aprons. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Rosa e Eli riem das próprias tigelas de argila imperfeitas na aula de cerâmica.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "cleaning-together",
+      "title": "A Different Kind of Plan",
+      "narration": "While they cleaned the table, Rosa found a small drawing on Eli's notebook. It showed a perfect round bowl. \"That was the plan. Mine looks like a tired hat.\" Rosa showed him her own page. She had drawn a plant in a simple pot. \"Perhaps we made the things we actually needed.\" Eli smiled and asked her name. They stayed to finish cleaning together.",
+      "isEnding": false,
+      "prompt": "What had Rosa drawn on her page?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A plant in a simple pot"
+        },
+        {
+          "key": "b",
+          "text": "A hat on a chair"
+        },
+        {
+          "key": "c",
+          "text": "A perfectly round bowl"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "A plant in a simple pot. Evidence: She had drawn a plant in a simple pot.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "outside-studio"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "round",
+          "translation": "redonda"
+        },
+        {
+          "key": "word-2",
+          "term": "actually",
+          "translation": "na verdade"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "cleaning-together-line-1",
+          "speaker": "Narrador",
+          "text": "While they cleaned the table, Rosa found a small drawing on Eli's notebook. It showed a perfect round bowl.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 6513
+        },
+        {
+          "key": "cleaning-together-line-2",
+          "speaker": "Eli",
+          "text": "\"That was the plan. Mine looks like a tired hat.\"",
+          "startMilliseconds": 6513,
+          "endMilliseconds": 9984
+        },
+        {
+          "key": "cleaning-together-line-3",
+          "speaker": "Narrador",
+          "text": "Rosa showed him her own page. She had drawn a plant in a simple pot.",
+          "startMilliseconds": 9984,
+          "endMilliseconds": 14942
+        },
+        {
+          "key": "cleaning-together-line-4",
+          "speaker": "Rosa",
+          "text": "\"Perhaps we made the things we actually needed.\"",
+          "startMilliseconds": 14942,
+          "endMilliseconds": 17658
+        },
+        {
+          "key": "cleaning-together-line-5",
+          "speaker": "Narrador",
+          "text": "Eli smiled and asked her name. They stayed to finish cleaning together.",
+          "startMilliseconds": 17658,
+          "endMilliseconds": 22012
+        }
+      ],
+      "productionNotes": {
+        "audioText": "While they cleaned the table, Rosa found a small drawing on Eli's notebook. It showed a perfect round bowl. \"That was the plan. Mine looks like a tired hat.\" Rosa showed him her own page. She had drawn a plant in a simple pot. \"Perhaps we made the things we actually needed.\" Eli smiled and asked her name. They stayed to finish cleaning together.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "She had drawn a plant in a simple pot.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rosa and Eli in their same beige and blue studio aprons, cleaning the same timber table together. Two open sketchbook pages show simple unlettered drawings: one round bowl near Eli, one plant in a pot near Rosa. Their real imperfect clay bowls are beside them. No readable writing, no other people. VISIBLE CAST AND CONTINUITY (strict): Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. During the studio class she wears a plain beige canvas apron. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt and dark trousers; during class he wears a plain deep-blue apron. Both are clearly adults. A warm pottery studio has dark timber worktables, clay bowls and shelves. Rosa's first bowl has a small hole in the bottom; Eli's first bowl leans to one side. Outside the studio and on the canal walk they wear their same shirts but NO aprons. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Ao limpar a mesa, Rosa e Eli comparam os desenhos que fizeram antes da aula.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "outside-studio",
+      "title": "Finding the Words",
+      "narration": "Outside the studio, Eli told Rosa that he wanted to see her again. \"I enjoyed the class much more with you.\" Rosa felt the same, but she needed a moment to find the words. She could invite him for a short walk by the canal, or ask him to share a table at the next class. \"I would like that, too.\"",
+      "isEnding": false,
+      "prompt": "How does Rosa feel about seeing Eli again?",
+      "options": [
+        {
+          "key": "a",
+          "text": "She wants to avoid him"
+        },
+        {
+          "key": "b",
+          "text": "She wants to see him again too"
+        },
+        {
+          "key": "c",
+          "text": "She only wants to borrow his notebook"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "She wants to see him again too. Evidence: Rosa felt the same",
+      "transitions": [
+        {
+          "key": "canal-walk",
+          "label": "Invite Eli for a walk by the canal",
+          "targetSceneKey": "canal-walk"
+        },
+        {
+          "key": "next-saturday",
+          "label": "Ask Eli to share a table next Saturday",
+          "targetSceneKey": "next-saturday"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "canal",
+          "translation": "canal"
+        },
+        {
+          "key": "word-2",
+          "term": "share",
+          "translation": "dividir; compartilhar"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "outside-studio-line-1",
+          "speaker": "Narrador",
+          "text": "Outside the studio, Eli told Rosa that he wanted to see her again.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 5178
+        },
+        {
+          "key": "outside-studio-line-2",
+          "speaker": "Eli",
+          "text": "\"I enjoyed the class much more with you.\"",
+          "startMilliseconds": 5178,
+          "endMilliseconds": 7569
+        },
+        {
+          "key": "outside-studio-line-3",
+          "speaker": "Narrador",
+          "text": "Rosa felt the same, but she needed a moment to find the words.",
+          "startMilliseconds": 7569,
+          "endMilliseconds": 12144
+        },
+        {
+          "key": "outside-studio-line-4",
+          "speaker": "Narrador",
+          "text": "She could invite him for a short walk by the canal, or ask him to share a table at the next class.",
+          "startMilliseconds": 12144,
+          "endMilliseconds": 18645
+        },
+        {
+          "key": "outside-studio-line-5",
+          "speaker": "Rosa",
+          "text": "\"I would like that, too.\"",
+          "startMilliseconds": 18645,
+          "endMilliseconds": 20120
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Outside the studio, Eli told Rosa that he wanted to see her again. \"I enjoyed the class much more with you.\" Rosa felt the same, but she needed a moment to find the words. She could invite him for a short walk by the canal, or ask him to share a table at the next class. \"I would like that, too.\"",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "Rosa felt the same",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly adult Rosa in forest-green shirt and adult Eli in cream shirt outside the pottery studio at dusk, both WITHOUT aprons. Warm light from the studio doorway, dark blue evening street, a canal railing in the distance. They look shyly pleased to speak to each other. No embrace required, no extra people. VISIBLE CAST AND CONTINUITY (strict): Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt, dark trousers. Both are clearly adults; neither wears or carries an apron outdoors. No pottery or notebooks in their hands. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Na porta do ateliê ao anoitecer, Rosa e Eli dizem que gostariam de se ver de novo.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "canal-walk",
+      "title": "An Evening beyond the Studio",
+      "narration": "Rosa asked Eli to walk beside the canal. He said yes. They talked about the things they hoped to make at the studio. At a small bridge, he stopped to watch the lights on the water. \"Next time, I will bring a picture of my bowl.\" \"Only if you let me bring my flower pot.\" They chose another evening to meet before they said goodbye.",
+      "isEnding": true,
+      "prompt": "What do Rosa and Eli decide before saying goodbye?",
+      "options": [
+        {
+          "key": "a",
+          "text": "To leave the pottery class forever"
+        },
+        {
+          "key": "b",
+          "text": "To sell their bowls at the bridge"
+        },
+        {
+          "key": "c",
+          "text": "Another evening to meet"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "Another evening to meet. Evidence: They chose another evening to meet",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "bridge",
+          "translation": "ponte"
+        },
+        {
+          "key": "word-2",
+          "term": "goodbye",
+          "translation": "despedida"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "canal-walk-line-1",
+          "speaker": "Narrador",
+          "text": "Rosa asked Eli to walk beside the canal. He said yes. They talked about the things they hoped to make at the studio.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 7082
+        },
+        {
+          "key": "canal-walk-line-2",
+          "speaker": "Narrador",
+          "text": "At a small bridge, he stopped to watch the lights on the water.",
+          "startMilliseconds": 7082,
+          "endMilliseconds": 11075
+        },
+        {
+          "key": "canal-walk-line-3",
+          "speaker": "Eli",
+          "text": "\"Next time, I will bring a picture of my bowl.\"",
+          "startMilliseconds": 11075,
+          "endMilliseconds": 14059
+        },
+        {
+          "key": "canal-walk-line-4",
+          "speaker": "Rosa",
+          "text": "\"Only if you let me bring my flower pot.\"",
+          "startMilliseconds": 14059,
+          "endMilliseconds": 17287
+        },
+        {
+          "key": "canal-walk-line-5",
+          "speaker": "Narrador",
+          "text": "They chose another evening to meet before they said goodbye.",
+          "startMilliseconds": 17287,
+          "endMilliseconds": 20886
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Rosa asked Eli to walk beside the canal. He said yes. They talked about the things they hoped to make at the studio. At a small bridge, he stopped to watch the lights on the water. \"Next time, I will bring a picture of my bowl.\" \"Only if you let me bring my flower pot.\" They chose another evening to meet before they said goodbye.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "They chose another evening to meet",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rosa in green shirt and Eli in cream shirt, without aprons, standing side by side on a small canal footbridge at night. Both smile warmly, looking at gold reflections on dark water. No bowls, pots or notebooks in their hands: those stayed at the studio. An original tender 2D animated scene, no other people. VISIBLE CAST AND CONTINUITY (strict): Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt, dark trousers. Both are clearly adults; neither wears or carries an apron outdoors. No pottery or notebooks in their hands. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Rosa e Eli passeiam junto ao canal e combinam outro encontro sob as luzes da ponte.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "next-saturday",
+      "title": "The Seat beside Him",
+      "narration": "Rosa asked Eli to share her table at the next class. A week later, he arrived early and saved the seat beside him. Their first bowls were dry on a shelf. \"My flower pot needs a small plate under it.\" \"And my tired hat needs a friend.\" They worked side by side, then made plans for coffee. This time, neither of them hurried home.",
+      "isEnding": true,
+      "prompt": "What does Eli save for Rosa?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The seat beside him"
+        },
+        {
+          "key": "b",
+          "text": "A place on the canal boat"
+        },
+        {
+          "key": "c",
+          "text": "A new blue apron"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The seat beside him. Evidence: saved the seat beside him",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "shelf",
+          "translation": "prateleira"
+        },
+        {
+          "key": "word-2",
+          "term": "hurried",
+          "translation": "foi embora com pressa"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "next-saturday-line-1",
+          "speaker": "Narrador",
+          "text": "Rosa asked Eli to share her table at the next class. A week later, he arrived early and saved the seat beside him. Their first bowls were dry on a shelf.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10599
+        },
+        {
+          "key": "next-saturday-line-2",
+          "speaker": "Rosa",
+          "text": "\"My flower pot needs a small plate under it.\"",
+          "startMilliseconds": 10599,
+          "endMilliseconds": 13792
+        },
+        {
+          "key": "next-saturday-line-3",
+          "speaker": "Eli",
+          "text": "\"And my tired hat needs a friend.\"",
+          "startMilliseconds": 13792,
+          "endMilliseconds": 16323
+        },
+        {
+          "key": "next-saturday-line-4",
+          "speaker": "Narrador",
+          "text": "They worked side by side, then made plans for coffee. This time, neither of them hurried home.",
+          "startMilliseconds": 16323,
+          "endMilliseconds": 23219
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Rosa asked Eli to share her table at the next class. A week later, he arrived early and saved the seat beside him. Their first bowls were dry on a shelf. \"My flower pot needs a small plate under it.\" \"And my tired hat needs a friend.\" They worked side by side, then made plans for coffee. This time, neither of them hurried home.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "saved the seat beside him",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rosa and Eli back at the same pottery table one week later, again wearing their beige and blue aprons over green and cream shirts. Eli draws out the stool beside him for Rosa, both smiling. Two dry imperfect bowls sit on the background shelf, one leaning and one with a small hole. No extra people, no bridge in this scene. VISIBLE CAST AND CONTINUITY (strict): Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. During the studio class she wears a plain beige canvas apron. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt and dark trousers; during class he wears a plain deep-blue apron. Both are clearly adults. A warm pottery studio has dark timber worktables, clay bowls and shelves. Rosa's first bowl has a small hole in the bottom; Eli's first bowl leans to one side. Outside the studio and on the canal walk they wear their same shirts but NO aprons. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Na aula seguinte, Eli guarda o lugar ao seu lado para Rosa e os dois voltam a criar juntos.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    }
+  ],
+  "authoringNotes": {
+    "routes": [
+      [
+        "first-bowls",
+        "cleaning-together",
+        "outside-studio",
+        "canal-walk"
+      ],
+      [
+        "first-bowls",
+        "cleaning-together",
+        "outside-studio",
+        "next-saturday"
+      ]
+    ],
+    "visualContinuity": "Rosa: adult woman aged 28, medium brown skin, short copper-red curly bob, forest-green long-sleeved shirt, dark trousers. During the studio class she wears a plain beige canvas apron. Eli: adult man aged 31, olive-brown skin, short curly black hair and a short dark beard, cream long-sleeved shirt and dark trousers; during class he wears a plain deep-blue apron. Both are clearly adults. A warm pottery studio has dark timber worktables, clay bowls and shelves. Rosa's first bowl has a small hole in the bottom; Eli's first bowl leans to one side. Outside the studio and on the canal walk they wear their same shirts but NO aprons.",
+    "review": "Five physical scenes, four per path, one meaningful decision and two complete endings. Answers are supported by the current scene. Two contextual hints per scene. Editorial proposed levels, not certification. No inventory, combat, live sports minigame, romance meter or special runtime event is claimed.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all labels, no word-level phonetic alignment."
+  }
+}

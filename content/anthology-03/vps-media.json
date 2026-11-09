@@ -1,0 +1,345 @@
+{
+  "origin": "https://english.lzguimaraes.com.br",
+  "stories": {
+    "a-table-for-two-beginners-a2": {
+      "versionId": "8c1e0dc2-8301-4328-b36a-e4a51ef70b76",
+      "scenes": {
+        "first-bowls": {
+          "audio": {
+            "id": "1825e612-40ff-4016-b345-c020f2fad6a4",
+            "sha256": "4f0e0f3687b2c1d00d12432472c9e9ebcf773397068a127493ebe148a1a7dc5f",
+            "file": "a-table-for-two-beginners-a2/audio/first-bowls.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:03.113962+00:00",
+            "durationMs": 21409
+          },
+          "visual": {
+            "id": "aa03409b-da3d-4e03-bdf3-d5b79153b3f9",
+            "sha256": "69fa04da957e16e5632b2bba03be4acff55a157f46bf90db9da9dae0ae9380f8",
+            "file": "a-table-for-two-beginners-a2/animations/first-bowls.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:05.074649+00:00"
+          }
+        },
+        "cleaning-together": {
+          "audio": {
+            "id": "58f5600c-a83f-48c4-b303-783bd32889a8",
+            "sha256": "1b5009d68a5fbad489a909d146aefe8e35528c8b4baa034d9f38b301e2d61135",
+            "file": "a-table-for-two-beginners-a2/audio/cleaning-together.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:06.406162+00:00",
+            "durationMs": 22013
+          },
+          "visual": {
+            "id": "3171689d-7888-4844-bb13-214d8e84c990",
+            "sha256": "a984a255344b349af97958e41c48894dbea803a2e5c4cec6e5bd9d67ea3b7781",
+            "file": "a-table-for-two-beginners-a2/animations/cleaning-together.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:07.671587+00:00"
+          }
+        },
+        "outside-studio": {
+          "audio": {
+            "id": "57f530ca-80de-4e15-8cb7-2c195d9ba802",
+            "sha256": "41f3d2ea0774ce1d7a093ba28cb5c535b8bff6187897843624a93f3ee713b7f2",
+            "file": "a-table-for-two-beginners-a2/audio/outside-studio.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:08.907044+00:00",
+            "durationMs": 20121
+          },
+          "visual": {
+            "id": "23653ded-e9d7-4e86-8c2b-187614d03d7d",
+            "sha256": "635a4192c6f2b9e1d3056107f6cde5acbfaff0d4c5a6755c5605c1355b6c54eb",
+            "file": "a-table-for-two-beginners-a2/animations/outside-studio.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:10.483855+00:00"
+          }
+        },
+        "canal-walk": {
+          "audio": {
+            "id": "22885396-468a-463e-a810-32f0f5224a12",
+            "sha256": "4557c8a178974394804e02923ad6cfdd64cde6206b742e42386fd130e5f7cc20",
+            "file": "a-table-for-two-beginners-a2/audio/canal-walk.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:11.682516+00:00",
+            "durationMs": 20887
+          },
+          "visual": {
+            "id": "428d4f48-ba4c-45e1-ab0b-2fd96c5e963d",
+            "sha256": "046ffccaf6179369903dce33e5ce0f3af72b4485987a0611a610c69ab710bc0f",
+            "file": "a-table-for-two-beginners-a2/animations/canal-walk.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:12.956455+00:00"
+          }
+        },
+        "next-saturday": {
+          "audio": {
+            "id": "1afd1012-e686-47c4-aa82-997a8760ffae",
+            "sha256": "4475283ce6cf248996359d00388bb455ab092aabb8280e0b0fc87b187840750a",
+            "file": "a-table-for-two-beginners-a2/audio/next-saturday.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:14.167211+00:00",
+            "durationMs": 23220
+          },
+          "visual": {
+            "id": "f675dbd1-4bb1-498e-891f-43e4468e7830",
+            "sha256": "991fc6786f366b894d20904250bc2b2e795f017095224da582ae956b0fdbeae7",
+            "file": "a-table-for-two-beginners-a2/animations/next-saturday.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:15.495157+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 13,
+      "publicationIssues": [],
+      "sourceSha256": "1b350edf45e810bf604d3fccfc791e38f8df23325f26d6d08029e096792952c4",
+      "verifiedAtUtc": "2026-11-09T02:30:15.654287+00:00"
+    },
+    "a-very-important-rehearsal-a1": {
+      "versionId": "2721b604-15a9-4ecc-879a-bc5d9bd01693",
+      "scenes": {
+        "royal-entrance": {
+          "audio": {
+            "id": "d27a95ad-7b2d-407d-a7b9-5d4d8e3a7d41",
+            "sha256": "e20fb3212fd5f01af7852cf2fa38964024bd4916b6b3f9164151c5abe485c28b",
+            "file": "a-very-important-rehearsal-a1/audio/royal-entrance.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:17.526992+00:00",
+            "durationMs": 15720
+          },
+          "visual": {
+            "id": "0b983156-893b-412d-8445-e4d96742435a",
+            "sha256": "d5026ed03620a627020dbe63a768ac949c6880521139a8c7eb723f5d14a22acd",
+            "file": "a-very-important-rehearsal-a1/animations/royal-entrance.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:18.829730+00:00"
+          }
+        },
+        "small-singer": {
+          "audio": {
+            "id": "3e8f5e1b-3485-45b4-bcb4-05b8a929bc03",
+            "sha256": "437525f0370ea33c229e1f60c8b104c1d9aa59e80ec1a9b9e4c701c6d508fca6",
+            "file": "a-very-important-rehearsal-a1/audio/small-singer.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:19.987991+00:00",
+            "durationMs": 16789
+          },
+          "visual": {
+            "id": "df04fa32-c176-4a4d-babe-098a8811f27a",
+            "sha256": "db72ab7f8bfdb9d8306aad98614d0212d430a5e4f3bfe2fb69474cde69c0c92f",
+            "file": "a-very-important-rehearsal-a1/animations/small-singer.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:21.325492+00:00"
+          }
+        },
+        "entrance-choice": {
+          "audio": {
+            "id": "88631c3e-e97b-4564-8d0a-7ee510323680",
+            "sha256": "f3852331a4546f64162d8d8a60686debc5b0f09ac38cc011202ff65ea816ef76",
+            "file": "a-very-important-rehearsal-a1/audio/entrance-choice.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:22.516173+00:00",
+            "durationMs": 16963
+          },
+          "visual": {
+            "id": "1c85afcf-3be6-463a-a0b4-c78c787f1291",
+            "sha256": "9a38f0dcb998b00e5d7d8cc86837bc794caaa8d5f4cbfa6d0ee82c6853c7d150",
+            "file": "a-very-important-rehearsal-a1/animations/entrance-choice.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:23.757381+00:00"
+          }
+        },
+        "duck-king": {
+          "audio": {
+            "id": "e5d90c6d-63e0-4ca4-8033-2ef5f1caf2c7",
+            "sha256": "0fdb255dc12dc659877e6361964ff105d8db60cef6f29612334e276316f46d29",
+            "file": "a-very-important-rehearsal-a1/audio/duck-king.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:24.940301+00:00",
+            "durationMs": 18600
+          },
+          "visual": {
+            "id": "ca2200c0-623c-40c5-a12b-36ffbb8e8c2d",
+            "sha256": "b481ed6653cab5ba3205976a6341e8c9aba29058e3d9adf09954d87670ff5bed",
+            "file": "a-very-important-rehearsal-a1/animations/duck-king.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:26.201132+00:00"
+          }
+        },
+        "quiet-practice": {
+          "audio": {
+            "id": "1ea14afc-76d3-4843-b2f0-6c97fc034ca4",
+            "sha256": "df6e6e6e3e722086bfe63690363a536c591dcd6dbd4a747d585236607fb54f66",
+            "file": "a-very-important-rehearsal-a1/audio/quiet-practice.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:27.392274+00:00",
+            "durationMs": 19401
+          },
+          "visual": {
+            "id": "b8f52c72-5fb6-4605-8ebf-ef3e007edf56",
+            "sha256": "ff8a82cf3c1df7d57799e3a639c110cac73e31cbb22a57fbe36883f00faaa7dc",
+            "file": "a-very-important-rehearsal-a1/animations/quiet-practice.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:28.612961+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 13,
+      "publicationIssues": [],
+      "sourceSha256": "878378458d1062fa3d9c3ed92de34a38b4a8a4161ca46eac3ee2a11bf8c7512d",
+      "verifiedAtUtc": "2026-11-09T02:30:28.779758+00:00"
+    },
+    "the-captains-quiet-match-a2": {
+      "versionId": "07298b94-4671-4d45-aec7-3c33e97300dc",
+      "scenes": {
+        "too-many-words": {
+          "audio": {
+            "id": "d6116a44-1074-43b1-b9d1-d726722ae3e7",
+            "sha256": "b66a4bc36cb954cd331ce4856fd4da39a33bfec8318ed58948b3ee23995dc448",
+            "file": "the-captains-quiet-match-a2/audio/too-many-words.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:30.424679+00:00",
+            "durationMs": 22431
+          },
+          "visual": {
+            "id": "48e91967-417a-4e14-ba72-b429866acd23",
+            "sha256": "a903751f85b04e0e254dc79d82b19c1ecc9a2ec5250e25d37d40df500fa3cf9c",
+            "file": "the-captains-quiet-match-a2/animations/too-many-words.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:31.638370+00:00"
+          }
+        },
+        "one-arrow": {
+          "audio": {
+            "id": "c51ee1d0-db94-441a-a47b-850aaac5fe17",
+            "sha256": "f1c03012870d63f14ce5282d9fe5f4110e3eed1dd1c5a619fad1454eabc0ab16",
+            "file": "the-captains-quiet-match-a2/audio/one-arrow.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:32.812306+00:00",
+            "durationMs": 20399
+          },
+          "visual": {
+            "id": "fceca48a-548c-4cf2-b150-2b6c22f5c6ac",
+            "sha256": "134b7a1a021d49d8fc4abdb11f8a0f4dd970f88b450da875ba3bc103704abc8f",
+            "file": "the-captains-quiet-match-a2/animations/one-arrow.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:34.347679+00:00"
+          }
+        },
+        "captains-choice": {
+          "audio": {
+            "id": "bdafb5ea-e8a0-4b0c-84db-8421f7e9db5c",
+            "sha256": "355926d4dcf30c95aa2fab68f71fa7d844d642fccfc694851f202c19918282b3",
+            "file": "the-captains-quiet-match-a2/audio/captains-choice.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:35.570360+00:00",
+            "durationMs": 21073
+          },
+          "visual": {
+            "id": "f6ae79d8-ad09-4a3d-9fec-b2634ad4d8a3",
+            "sha256": "fdd0ceb0fb1aa927cb551cf35ed80cfa11435306fb9fc7d8303d9229fc2943ad",
+            "file": "the-captains-quiet-match-a2/animations/captains-choice.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:36.835614+00:00"
+          }
+        },
+        "short-calls": {
+          "audio": {
+            "id": "301dff72-3fd3-420d-8c16-e715e97d7f47",
+            "sha256": "6802c4527d6c6d885f3f6ec92ea67fa3ba3685a445c03abae1aa5a434570804a",
+            "file": "the-captains-quiet-match-a2/audio/short-calls.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:38.034389+00:00",
+            "durationMs": 22013
+          },
+          "visual": {
+            "id": "047d9a4c-50dc-464c-9df6-e2658f975c89",
+            "sha256": "af2c0156aaf54f7c000982015fceb8c3924acc02e5f18e7d60aba35000e8fc34",
+            "file": "the-captains-quiet-match-a2/animations/short-calls.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:39.308815+00:00"
+          }
+        },
+        "junes-plan": {
+          "audio": {
+            "id": "b4ce8b46-b608-439d-9af4-d93dec3244bd",
+            "sha256": "73b4816a845d7c29184227409dbd59f09595583d8ecb572eff2002cda4fc5a05",
+            "file": "the-captains-quiet-match-a2/audio/junes-plan.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:40.496035+00:00",
+            "durationMs": 22408
+          },
+          "visual": {
+            "id": "cd76c370-0e73-4e4a-999a-b6a33be7e95a",
+            "sha256": "265796ceda9ac50e2609d5718eb4e4478b90a79a2ac147e165b9d331648293a7",
+            "file": "the-captains-quiet-match-a2/animations/junes-plan.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:41.765690+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 13,
+      "publicationIssues": [],
+      "sourceSha256": "d2005812e93ac72bb651adaca82c3fe67003186a127cc24b08f57bbb0e3e38be",
+      "verifiedAtUtc": "2026-11-09T02:30:41.880052+00:00"
+    },
+    "the-tailor-of-the-turning-year-b1": {
+      "versionId": "7385a738-b53a-42e8-9a78-3d545edc85a9",
+      "scenes": {
+        "unfinished-coat": {
+          "audio": {
+            "id": "26a23f96-11df-44ec-a212-cb5f2ccd7fcc",
+            "sha256": "036e36bbf425aa0d7ead65ca58290823077ec63478efe8ba26bea3eb5c6c6add",
+            "file": "the-tailor-of-the-turning-year-b1/audio/unfinished-coat.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:43.555678+00:00",
+            "durationMs": 28886
+          },
+          "visual": {
+            "id": "5c4a27cd-ec2d-40d8-a894-c9426549541c",
+            "sha256": "8f538e7b3b2e9a2937722f316f28be066446b6db5be8dadbdb37b37978115eea",
+            "file": "the-tailor-of-the-turning-year-b1/animations/unfinished-coat.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:44.859030+00:00"
+          }
+        },
+        "a-keepers-regret": {
+          "audio": {
+            "id": "56c48ddc-0751-46cd-9afd-28bc58e317d4",
+            "sha256": "86077a8ff837741cb1ef089a09cfddb29aaa0c427c6ea07776b585392ff88f3a",
+            "file": "the-tailor-of-the-turning-year-b1/audio/a-keepers-regret.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:46.083168+00:00",
+            "durationMs": 27539
+          },
+          "visual": {
+            "id": "f9b72e95-4156-4f23-b140-bff181920c62",
+            "sha256": "1deab85fd4a6a62c2b21c4893ed1a56db11602d9919c1ea80cf6cc4c13059968",
+            "file": "the-tailor-of-the-turning-year-b1/animations/a-keepers-regret.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:47.379677+00:00"
+          }
+        },
+        "two-memories": {
+          "audio": {
+            "id": "b8d4021a-40d5-4f76-a262-9c459ca093f0",
+            "sha256": "b74fb9e58892bf852d425647b999ffb94e12278b8f6f61408812d35aa4ff15f7",
+            "file": "the-tailor-of-the-turning-year-b1/audio/two-memories.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:48.631897+00:00",
+            "durationMs": 28155
+          },
+          "visual": {
+            "id": "f6491bbb-c7a3-40ca-8fe2-c740290b492a",
+            "sha256": "d071909ce8c067fffe641a5d85d507b8d6103a5053683dfb4929f5a2cd5c1965",
+            "file": "the-tailor-of-the-turning-year-b1/animations/two-memories.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:50.021288+00:00"
+          }
+        },
+        "snowflake-pocket": {
+          "audio": {
+            "id": "6a28fc79-6b7d-4707-a7e5-a2262d351b16",
+            "sha256": "b2c25a2722a3e72c9fa0dce73d2ba8460d48ec396f3438db0b37372423791d63",
+            "file": "the-tailor-of-the-turning-year-b1/audio/snowflake-pocket.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:51.317470+00:00",
+            "durationMs": 29083
+          },
+          "visual": {
+            "id": "d05af947-c31a-4030-99a4-88ae475e7972",
+            "sha256": "b1b72080e2be7d96ba2559faa572a33b0af375d6c0dbaa8c385c9a996cf85efe",
+            "file": "the-tailor-of-the-turning-year-b1/animations/snowflake-pocket.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:52.694420+00:00"
+          }
+        },
+        "snowfall-pattern": {
+          "audio": {
+            "id": "78231810-604c-4bd7-91e9-94663013b2c9",
+            "sha256": "4eeb87498834952218cd20f25d995b8bb7696bfe81ae50f0b40e2aef9bb54aa4",
+            "file": "the-tailor-of-the-turning-year-b1/audio/snowfall-pattern.wav",
+            "verifiedAtUtc": "2026-11-09T02:30:53.926473+00:00",
+            "durationMs": 28143
+          },
+          "visual": {
+            "id": "13a570ca-62ce-481f-a32c-671ce654d7ff",
+            "sha256": "af44dd39ac4c75792f907c225712c55a851dea7256d77a4f1378319e5ddc890e",
+            "file": "the-tailor-of-the-turning-year-b1/animations/snowfall-pattern.gif",
+            "verifiedAtUtc": "2026-11-09T02:30:55.149832+00:00"
+          }
+        }
+      },
+      "status": "Published",
+      "revision": 13,
+      "publicationIssues": [],
+      "sourceSha256": "23664adeb73b4d80996d6fd1857630de0c4d532043877c9f77bb6bd68e2a9542",
+      "verifiedAtUtc": "2026-11-09T02:30:55.299716+00:00"
+    }
+  }
+}

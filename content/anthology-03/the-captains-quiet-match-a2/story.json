@@ -1,0 +1,420 @@
+{
+  "metadata": {
+    "title": "The Captain's Quiet Match — A2",
+    "synopsis": "Uma capitã aprende que ajudar a equipe pode significar falar menos e abrir espaço para a voz de uma nova jogadora.",
+    "genre": "Esporte",
+    "difficulty": "A2",
+    "author": "English Roulette — texto original assistido por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "História original criada para English Roulette em 08/11/2026 com assistência de IA. O responsável solicitou mais histórias de temas diferentes e já autorizou produção e publicação direta na VPS, sem nova aprovação. Não adapta obra de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Nível editorial proposto; não constitui certificação CEFR.",
+    "appearance": {
+      "primary": "#DAB881",
+      "accent": "#C9A4E7",
+      "background": "#14101F",
+      "surface": "#261E35",
+      "text": "#F9F0E3",
+      "font": "rounded",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "too-many-words",
+  "scenes": [
+    {
+      "key": "too-many-words",
+      "title": "The Loudest Voice",
+      "narration": "Mika was captain of a small indoor football team. Before the evening match, she called instructions across the court. June, a new player, looked at her and then at the ball. \"I can hear you, but there are too many words.\" Mika stopped. She wanted to help her team, but speaking louder was not making her message easier to understand.",
+      "isEnding": false,
+      "prompt": "What problem does June describe?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The court has no lights"
+        },
+        {
+          "key": "b",
+          "text": "There are too many words in the instructions"
+        },
+        {
+          "key": "c",
+          "text": "The ball is missing"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "There are too many words in the instructions. Evidence: there are too many words",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "one-arrow"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "court",
+          "translation": "quadra"
+        },
+        {
+          "key": "word-2",
+          "term": "instructions",
+          "translation": "instruções"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "too-many-words-line-1",
+          "speaker": "Narrador",
+          "text": "Mika was captain of a small indoor football team. Before the evening match, she called instructions across the court. June, a new player, looked at her and then at the ball.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11064
+        },
+        {
+          "key": "too-many-words-line-2",
+          "speaker": "June",
+          "text": "\"I can hear you, but there are too many words.\"",
+          "startMilliseconds": 11064,
+          "endMilliseconds": 14187
+        },
+        {
+          "key": "too-many-words-line-3",
+          "speaker": "Narrador",
+          "text": "Mika stopped. She wanted to help her team, but speaking louder was not making her message easier to understand.",
+          "startMilliseconds": 14187,
+          "endMilliseconds": 22430
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mika was captain of a small indoor football team. Before the evening match, she called instructions across the court. June, a new player, looked at her and then at the ball. \"I can hear you, but there are too many words.\" Mika stopped. She wanted to help her team, but speaking louder was not making her message easier to understand.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "there are too many words",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Only adult Mika and adult June in plain matching teal football kit at the side of an indoor court before a match. Mika gestures mid-instruction; June looks between Mika and a blue-and-white football with a confused but attentive expression. A white goal is distant. Other team members are off frame; no crowd, no scoreboard lettering. VISIBLE CAST AND CONTINUITY (strict): Mika: adult woman aged 30, warm brown skin, short straight black hair, plain teal indoor-football shirt with a thin white collar, charcoal shorts and black indoor shoes. June: adult woman aged 27, medium brown skin, shoulder-length dark hair in one braid, the same plain teal-and-white team kit. No shirt numbers, sponsor marks, flags or logos. They are at a small indoor football court with dark timber benches, a white goal and warm overhead lights.  The ball is blue and white. Other players and the coach are mentioned but remain off frame in these illustrations. Indoor football means FUTSAL/SOCCER, not American football: no helmets, pads or oval ball. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing. No whiteboard or arrow is visible in this first scene: that solution is introduced only in the next scene.",
+        "altText": "June tenta acompanhar as muitas instruções de Mika antes da partida na quadra.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged.",
+        "imageRevisionPrompt": "Use case: precise-object-edit. Edit target: this exact dark 2D indoor-football illustration. Remove ONLY the whiteboard with the drawn arrow from the left bench. Fill that space naturally with the existing timber bench and dark background. Keep Mika, June, their faces, hair, matching plain teal kit, both natural poses, the blue-and-white ball, bottle, cloth, indoor goal, lights and the wide composition unchanged. This is an EARLIER scene before the whiteboard solution is introduced: no whiteboard, clipboard, arrow, drawing or writing anywhere. Preserve the hand-drawn cinematic animation style and shadows."
+      }
+    },
+    {
+      "key": "one-arrow",
+      "title": "One Idea at a Time",
+      "narration": "The coach called a short break before the match began. Mika sat beside June on the bench and asked what would help. \"One idea at a time. Tell me where you need me.\" Mika drew a simple arrow on a small whiteboard. June pointed to the open space beside the net and nodded. The picture was easier to follow than a long speech.",
+      "isEnding": false,
+      "prompt": "What makes the plan easier to follow?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A louder speech across the court"
+        },
+        {
+          "key": "b",
+          "text": "A long list of new rules"
+        },
+        {
+          "key": "c",
+          "text": "A simple arrow on a whiteboard"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "A simple arrow on a whiteboard. Evidence: The picture was easier to follow than a long speech.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "captains-choice"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "bench",
+          "translation": "banco de reservas"
+        },
+        {
+          "key": "word-2",
+          "term": "nodded",
+          "translation": "concordou com a cabeça"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "one-arrow-line-1",
+          "speaker": "Narrador",
+          "text": "The coach called a short break before the match began. Mika sat beside June on the bench and asked what would help.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 7116
+        },
+        {
+          "key": "one-arrow-line-2",
+          "speaker": "June",
+          "text": "\"One idea at a time. Tell me where you need me.\"",
+          "startMilliseconds": 7116,
+          "endMilliseconds": 10031
+        },
+        {
+          "key": "one-arrow-line-3",
+          "speaker": "Narrador",
+          "text": "Mika drew a simple arrow on a small whiteboard. June pointed to the open space beside the net and nodded. The picture was easier to follow than a long speech.",
+          "startMilliseconds": 10031,
+          "endMilliseconds": 20398
+        }
+      ],
+      "productionNotes": {
+        "audioText": "The coach called a short break before the match began. Mika sat beside June on the bench and asked what would help. \"One idea at a time. Tell me where you need me.\" Mika drew a simple arrow on a small whiteboard. June pointed to the open space beside the net and nodded. The picture was easier to follow than a long speech.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "The picture was easier to follow than a long speech.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Mika and June sit on a dark timber bench at the court edge. Mika holds a small whiteboard showing ONE simple arrow with no writing. June points towards open court space beside the distant goal. Blue-and-white ball near their shoes, warm overhead light, other players and coach off frame. VISIBLE CAST AND CONTINUITY (strict): Mika: adult woman aged 30, warm brown skin, short straight black hair, plain teal indoor-football shirt with a thin white collar, charcoal shorts and black indoor shoes. June: adult woman aged 27, medium brown skin, shoulder-length dark hair in one braid, the same plain teal-and-white team kit. No shirt numbers, sponsor marks, flags or logos. They are at a small indoor football court with dark timber benches, a white goal and warm overhead lights. A small whiteboard may show only one simple arrow, no letters. The ball is blue and white. Other players and the coach are mentioned but remain off frame in these illustrations. Indoor football means FUTSAL/SOCCER, not American football: no helmets, pads or oval ball. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Mika e June usam uma seta simples no quadro para entender o plano da equipe.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "captains-choice",
+      "title": "More than One Useful Voice",
+      "narration": "Mika had two ways to share the simpler plan. She could stay on the court, use short calls and point to open spaces. She could also begin on the bench and let June explain the arrow to the team. \"Being captain means helping everyone understand. It does not mean saying every word myself.\" June waited for Mika's choice.",
+      "isEnding": false,
+      "prompt": "What can June do if Mika starts on the bench?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Explain the arrow to the team"
+        },
+        {
+          "key": "b",
+          "text": "Cancel the match"
+        },
+        {
+          "key": "c",
+          "text": "Take the ball home"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "Explain the arrow to the team. Evidence: let June explain the arrow to the team",
+      "transitions": [
+        {
+          "key": "short-calls",
+          "label": "Stay on the court and use short calls",
+          "targetSceneKey": "short-calls"
+        },
+        {
+          "key": "junes-plan",
+          "label": "Start on the bench and let June explain",
+          "targetSceneKey": "junes-plan"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "point",
+          "translation": "apontar"
+        },
+        {
+          "key": "word-2",
+          "term": "choice",
+          "translation": "escolha"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "captains-choice-line-1",
+          "speaker": "Narrador",
+          "text": "Mika had two ways to share the simpler plan. She could stay on the court, use short calls and point to open spaces.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 7999
+        },
+        {
+          "key": "captains-choice-line-2",
+          "speaker": "Narrador",
+          "text": "She could also begin on the bench and let June explain the arrow to the team.",
+          "startMilliseconds": 7999,
+          "endMilliseconds": 12689
+        },
+        {
+          "key": "captains-choice-line-3",
+          "speaker": "Mika",
+          "text": "\"Being captain means helping everyone understand. It does not mean saying every word myself.\"",
+          "startMilliseconds": 12689,
+          "endMilliseconds": 19075
+        },
+        {
+          "key": "captains-choice-line-4",
+          "speaker": "Narrador",
+          "text": "June waited for Mika's choice.",
+          "startMilliseconds": 19075,
+          "endMilliseconds": 21072
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mika had two ways to share the simpler plan. She could stay on the court, use short calls and point to open spaces. She could also begin on the bench and let June explain the arrow to the team. \"Being captain means helping everyone understand. It does not mean saying every word myself.\" June waited for Mika's choice.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "let June explain the arrow to the team",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Mika and June beside the court bench, both in the same unlettered teal kit. Mika holds the small arrow-only whiteboard between them and speaks thoughtfully; June listens with growing confidence. The court and bench make both roles visible, no trophies or outcome yet, no extra people. VISIBLE CAST AND CONTINUITY (strict): Mika: adult woman aged 30, warm brown skin, short straight black hair, plain teal indoor-football shirt with a thin white collar, charcoal shorts and black indoor shoes. June: adult woman aged 27, medium brown skin, shoulder-length dark hair in one braid, the same plain teal-and-white team kit. No shirt numbers, sponsor marks, flags or logos. They are at a small indoor football court with dark timber benches, a white goal and warm overhead lights. A small whiteboard may show only one simple arrow, no letters. The ball is blue and white. Other players and the coach are mentioned but remain off frame in these illustrations. Indoor football means FUTSAL/SOCCER, not American football: no helmets, pads or oval ball. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Mika considera liderar na quadra ou dar espaço para June explicar o plano.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "short-calls",
+      "title": "A Pass They Both Understood",
+      "narration": "Mika stayed on the court. Instead of a long speech, she used June's name and one clear instruction. June moved into the open space and received a pass. \"That was it. We understood each other.\" The next move did not end in a goal, but their team kept the ball. Mika saw June ask for it again. They had found a way to work together.",
+      "isEnding": true,
+      "prompt": "What happens after June receives a pass?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The match is cancelled immediately"
+        },
+        {
+          "key": "b",
+          "text": "The team keeps the ball without scoring a goal"
+        },
+        {
+          "key": "c",
+          "text": "June leaves the team"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The team keeps the ball without scoring a goal. Evidence: The next move did not end in a goal, but their team kept the ball.",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "pass",
+          "translation": "passe"
+        },
+        {
+          "key": "word-2",
+          "term": "kept",
+          "translation": "manteve"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "short-calls-line-1",
+          "speaker": "Narrador",
+          "text": "Mika stayed on the court. Instead of a long speech, she used June's name and one clear instruction. June moved into the open space and received a pass.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10878
+        },
+        {
+          "key": "short-calls-line-2",
+          "speaker": "Mika",
+          "text": "\"That was it. We understood each other.\"",
+          "startMilliseconds": 10878,
+          "endMilliseconds": 13397
+        },
+        {
+          "key": "short-calls-line-3",
+          "speaker": "Narrador",
+          "text": "The next move did not end in a goal, but their team kept the ball. Mika saw June ask for it again. They had found a way to work together.",
+          "startMilliseconds": 13397,
+          "endMilliseconds": 22012
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mika stayed on the court. Instead of a long speech, she used June's name and one clear instruction. June moved into the open space and received a pass. \"That was it. We understood each other.\" The next move did not end in a goal, but their team kept the ball. Mika saw June ask for it again. They had found a way to work together.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "The next move did not end in a goal, but their team kept the ball.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Mika and June on the indoor football court, same plain teal kit. June receives the blue-and-white ball in open space and Mika points a short clear gesture towards her. Distant white goal with no ball inside. Other players remain outside this close sideline framing. No celebratory trophy or scoreboard claiming a win. VISIBLE CAST AND CONTINUITY (strict): Mika: adult woman aged 30, warm brown skin, short straight black hair, plain teal indoor-football shirt with a thin white collar, charcoal shorts and black indoor shoes. June: adult woman aged 27, medium brown skin, shoulder-length dark hair in one braid, the same plain teal-and-white team kit. No shirt numbers, sponsor marks, flags or logos. They are at a small indoor football court with dark timber benches, a white goal and warm overhead lights. A small whiteboard may show only one simple arrow, no letters. The ball is blue and white. Other players and the coach are mentioned but remain off frame in these illustrations. Indoor football means FUTSAL/SOCCER, not American football: no helmets, pads or oval ball. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "June recebe o passe em um espaço livre e Mika orienta com uma mensagem simples.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "junes-plan",
+      "title": "The Plan in Her Own Words",
+      "narration": "Mika began on the bench and handed June the whiteboard. June explained the arrow in her own words. She asked one teammate to show the movement, then checked that the others understood. \"Captain, did I miss anything?\" \"No. You made the plan yours.\" When Mika joined the court later, she listened before speaking. Her team now had more than one useful voice.",
+      "isEnding": true,
+      "prompt": "What does Mika do when she joins the court later?",
+      "options": [
+        {
+          "key": "a",
+          "text": "She removes every player from the court"
+        },
+        {
+          "key": "b",
+          "text": "She refuses to hear June"
+        },
+        {
+          "key": "c",
+          "text": "She listens before speaking"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "She listens before speaking. Evidence: she listened before speaking",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "handed",
+          "translation": "entregou"
+        },
+        {
+          "key": "word-2",
+          "term": "teammate",
+          "translation": "colega de equipe"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "junes-plan-line-1",
+          "speaker": "Narrador",
+          "text": "Mika began on the bench and handed June the whiteboard. June explained the arrow in her own words. She asked one teammate to show the movement, then checked that the others understood.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11795
+        },
+        {
+          "key": "junes-plan-line-2",
+          "speaker": "June",
+          "text": "\"Captain, did I miss anything?\"",
+          "startMilliseconds": 11795,
+          "endMilliseconds": 13548
+        },
+        {
+          "key": "junes-plan-line-3",
+          "speaker": "Mika",
+          "text": "\"No. You made the plan yours.\"",
+          "startMilliseconds": 13548,
+          "endMilliseconds": 15638
+        },
+        {
+          "key": "junes-plan-line-4",
+          "speaker": "Narrador",
+          "text": "When Mika joined the court later, she listened before speaking. Her team now had more than one useful voice.",
+          "startMilliseconds": 15638,
+          "endMilliseconds": 22407
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Mika began on the bench and handed June the whiteboard. June explained the arrow in her own words. She asked one teammate to show the movement, then checked that the others understood. \"Captain, did I miss anything?\" \"No. You made the plan yours.\" When Mika joined the court later, she listened before speaking. Her team now had more than one useful voice.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "she listened before speaking",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly June and Mika at the court edge by the timber bench. June confidently holds the small whiteboard with one simple arrow and explains, while Mika listens with a warm attentive expression. Same plain teal kit and blue-and-white ball nearby. Other teammates stay off frame, no trophies, no invented match score. VISIBLE CAST AND CONTINUITY (strict): Mika: adult woman aged 30, warm brown skin, short straight black hair, plain teal indoor-football shirt with a thin white collar, charcoal shorts and black indoor shoes. June: adult woman aged 27, medium brown skin, shoulder-length dark hair in one braid, the same plain teal-and-white team kit. No shirt numbers, sponsor marks, flags or logos. They are at a small indoor football court with dark timber benches, a white goal and warm overhead lights. A small whiteboard may show only one simple arrow, no letters. The ball is blue and white. Other players and the coach are mentioned but remain off frame in these illustrations. Indoor football means FUTSAL/SOCCER, not American football: no helmets, pads or oval ball. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "June apresenta o plano com confiança e Mika aprende a escutar antes de falar.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    }
+  ],
+  "authoringNotes": {
+    "routes": [
+      [
+        "too-many-words",
+        "one-arrow",
+        "captains-choice",
+        "short-calls"
+      ],
+      [
+        "too-many-words",
+        "one-arrow",
+        "captains-choice",
+        "junes-plan"
+      ]
+    ],
+    "visualContinuity": "Mika: adult woman aged 30, warm brown skin, short straight black hair, plain teal indoor-football shirt with a thin white collar, charcoal shorts and black indoor shoes. June: adult woman aged 27, medium brown skin, shoulder-length dark hair in one braid, the same plain teal-and-white team kit. No shirt numbers, sponsor marks, flags or logos. They are at a small indoor football court with dark timber benches, a white goal and warm overhead lights. A small whiteboard may show only one simple arrow, no letters. The ball is blue and white. Other players and the coach are mentioned but remain off frame in these illustrations.",
+    "review": "Five physical scenes, four per path, one meaningful decision and two complete endings. Answers are supported by the current scene. Two contextual hints per scene. Editorial proposed levels, not certification. No inventory, combat, live sports minigame, romance meter or special runtime event is claimed.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all labels, no word-level phonetic alignment."
+  }
+}

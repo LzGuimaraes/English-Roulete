@@ -1,0 +1,440 @@
+{
+  "metadata": {
+    "title": "The Tailor of the Turning Year — B1",
+    "synopsis": "Uma alfaiate ajuda o guardião do inverno a deixar sua estação partir sem perder a lembrança do que amou nela.",
+    "genre": "Fantasia",
+    "difficulty": "B1",
+    "author": "English Roulette — texto original assistido por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "História original criada para English Roulette em 08/11/2026 com assistência de IA. O responsável solicitou mais histórias de temas diferentes e já autorizou produção e publicação direta na VPS, sem nova aprovação. Não adapta obra de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Nível editorial proposto; não constitui certificação CEFR.",
+    "appearance": {
+      "primary": "#DAB881",
+      "accent": "#C9A4E7",
+      "background": "#14101F",
+      "surface": "#261E35",
+      "text": "#F9F0E3",
+      "font": "classic",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "unfinished-coat",
+  "scenes": [
+    {
+      "key": "unfinished-coat",
+      "title": "The Last Thread of Winter",
+      "narration": "Rin was the tailor who made a new coat for the keeper of each season. On the final evening of winter, she waited in her hilltop workshop with a nearly finished green coat for spring. Sev, the winter keeper, should have arrived before sunset to return his silver spool. Without that last thread, the coat's lining could not be closed. When the door finally opened, Sev held the spool tightly. \"Please leave the coat unfinished. I am not ready to let winter go.\"",
+      "isEnding": false,
+      "prompt": "What is needed to finish the spring coat?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The last thread from the silver spool"
+        },
+        {
+          "key": "b",
+          "text": "A different green fabric"
+        },
+        {
+          "key": "c",
+          "text": "A new wooden chair"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "The last thread from the silver spool. Evidence: Without that last thread, the coat's lining could not be closed.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "a-keepers-regret"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "lining",
+          "translation": "forro"
+        },
+        {
+          "key": "word-2",
+          "term": "spool",
+          "translation": "carretel"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "unfinished-coat-line-1",
+          "speaker": "Narrador",
+          "text": "Rin was the tailor who made a new coat for the keeper of each season. On the final evening of winter, she waited in her hilltop workshop with a nearly finished green coat for spring.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11041
+        },
+        {
+          "key": "unfinished-coat-line-2",
+          "speaker": "Narrador",
+          "text": "Sev, the winter keeper, should have arrived before sunset to return his silver spool. Without that last thread, the coat's lining could not be closed.",
+          "startMilliseconds": 11041,
+          "endMilliseconds": 20538
+        },
+        {
+          "key": "unfinished-coat-line-3",
+          "speaker": "Narrador",
+          "text": "When the door finally opened, Sev held the spool tightly.",
+          "startMilliseconds": 20538,
+          "endMilliseconds": 24276
+        },
+        {
+          "key": "unfinished-coat-line-4",
+          "speaker": "Sev",
+          "text": "\"Please leave the coat unfinished. I am not ready to let winter go.\"",
+          "startMilliseconds": 24276,
+          "endMilliseconds": 28885
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Rin was the tailor who made a new coat for the keeper of each season. On the final evening of winter, she waited in her hilltop workshop with a nearly finished green coat for spring. Sev, the winter keeper, should have arrived before sunset to return his silver spool. Without that last thread, the coat's lining could not be closed. When the door finally opened, Sev held the spool tightly. \"Please leave the coat unfinished. I am not ready to let winter go.\"",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "Without that last thread, the coat's lining could not be closed.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly adult tailor Rin and adult winter keeper Sev. Rin stands by a worktable with a green coat whose lining is still open; Sev has just entered the workshop doorway, holding a small silver spool of white thread tightly in both hands. Cold twilight outside contrasts with amber lamplight. No snowflake pocket or embroidered spiral yet. VISIBLE CAST AND CONTINUITY (strict): Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Sev chega à oficina de Rin segurando o carretel necessário para terminar o casaco da primavera.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "a-keepers-regret",
+      "title": "What the Spool Remembered",
+      "narration": "Sev explained that winter vanished from his mind whenever he gave up its final thread. He would remember his duties, but not the quiet pleasure of snow falling against a window. \"This spool holds the last of that feeling.\" Rin had always believed that the keepers welcomed each new season without regret. Now she understood why he had arrived late. She set her needle down and offered him a chair. Finishing the coat mattered, but rushing him would not make the parting easier.",
+      "isEnding": false,
+      "prompt": "What is Sev afraid of losing?",
+      "options": [
+        {
+          "key": "a",
+          "text": "His job as a tailor"
+        },
+        {
+          "key": "b",
+          "text": "The remembered feeling of winter"
+        },
+        {
+          "key": "c",
+          "text": "The key to the workshop"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "The remembered feeling of winter. Evidence: not the quiet pleasure of snow falling against a window",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "two-memories"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "regret",
+          "translation": "pesar"
+        },
+        {
+          "key": "word-2",
+          "term": "parting",
+          "translation": "despedida"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "a-keepers-regret-line-1",
+          "speaker": "Narrador",
+          "text": "Sev explained that winter vanished from his mind whenever he gave up its final thread. He would remember his duties, but not the quiet pleasure of snow falling against a window.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10054
+        },
+        {
+          "key": "a-keepers-regret-line-2",
+          "speaker": "Sev",
+          "text": "\"This spool holds the last of that feeling.\"",
+          "startMilliseconds": 10054,
+          "endMilliseconds": 12469
+        },
+        {
+          "key": "a-keepers-regret-line-3",
+          "speaker": "Narrador",
+          "text": "Rin had always believed that the keepers welcomed each new season without regret. Now she understood why he had arrived late. She set her needle down and offered him a chair.",
+          "startMilliseconds": 12469,
+          "endMilliseconds": 23359
+        },
+        {
+          "key": "a-keepers-regret-line-4",
+          "speaker": "Narrador",
+          "text": "Finishing the coat mattered, but rushing him would not make the parting easier.",
+          "startMilliseconds": 23359,
+          "endMilliseconds": 27538
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Sev explained that winter vanished from his mind whenever he gave up its final thread. He would remember his duties, but not the quiet pleasure of snow falling against a window. \"This spool holds the last of that feeling.\" Rin had always believed that the keepers welcomed each new season without regret. Now she understood why he had arrived late. She set her needle down and offered him a chair. Finishing the coat mattered, but rushing him would not make the parting easier.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "not the quiet pleasure of snow falling against a window",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rin and Sev, now seated near the workshop table. Sev in his deep-blue cloak looks thoughtfully at the small silver spool held between his fingers. Rin listens with empathy; her needle rests on the table beside the green coat. Snow is faintly visible beyond the window. No extra keeper, no snowflake pocket and no silver spiral yet. VISIBLE CAST AND CONTINUITY (strict): Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Rin escuta o receio de Sev de esquecer a sensação do inverno ao entregar o último fio.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "two-memories",
+      "title": "A Memory to Carry",
+      "narration": "Rin examined the spool. There was enough thread to close the spring coat, with a little left over for Sev's own blue cloak. She knew two ways to keep a memory inside a garment. A hidden pocket could hold one real snowflake, unchanged until the pocket was opened again. A woven design could preserve the sound of snowfall, though it would contain no snow. Either would let Sev finish his work and remember what he loved. Rin explained both possibilities and let him choose.",
+      "isEnding": false,
+      "prompt": "What would a woven design preserve?",
+      "options": [
+        {
+          "key": "a",
+          "text": "One real snowflake"
+        },
+        {
+          "key": "b",
+          "text": "The heat of summer"
+        },
+        {
+          "key": "c",
+          "text": "The sound of snowfall"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "The sound of snowfall. Evidence: A woven design could preserve the sound of snowfall",
+      "transitions": [
+        {
+          "key": "snowflake-pocket",
+          "label": "Make a pocket for one real snowflake",
+          "targetSceneKey": "snowflake-pocket"
+        },
+        {
+          "key": "snowfall-pattern",
+          "label": "Weave the sound of snowfall into the cloak",
+          "targetSceneKey": "snowfall-pattern"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "garment",
+          "translation": "peça de roupa"
+        },
+        {
+          "key": "word-2",
+          "term": "woven",
+          "translation": "tecido; entrelaçado"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "two-memories-line-1",
+          "speaker": "Narrador",
+          "text": "Rin examined the spool. There was enough thread to close the spring coat, with a little left over for Sev's own blue cloak. She knew two ways to keep a memory inside a garment.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10112
+        },
+        {
+          "key": "two-memories-line-2",
+          "speaker": "Narrador",
+          "text": "A hidden pocket could hold one real snowflake, unchanged until the pocket was opened again. A woven design could preserve the sound of snowfall, though it would contain no snow.",
+          "startMilliseconds": 10112,
+          "endMilliseconds": 20677
+        },
+        {
+          "key": "two-memories-line-3",
+          "speaker": "Narrador",
+          "text": "Either would let Sev finish his work and remember what he loved. Rin explained both possibilities and let him choose.",
+          "startMilliseconds": 20677,
+          "endMilliseconds": 28154
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Rin examined the spool. There was enough thread to close the spring coat, with a little left over for Sev's own blue cloak. She knew two ways to keep a memory inside a garment. A hidden pocket could hold one real snowflake, unchanged until the pocket was opened again. A woven design could preserve the sound of snowfall, though it would contain no snow. Either would let Sev finish his work and remember what he loved. Rin explained both possibilities and let him choose.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "A woven design could preserve the sound of snowfall",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rin and Sev at the worktable considering the small silver spool. Rin gestures between the inside lining of his OPEN BLUE CLOAK and the unfinished green spring coat on the table. The blue cloak lining is still plain, with NO finished pocket, snowflake or spiral yet: this is the undecided moment. Warm amber light, cool blue window, original fairy-tale setting. VISIBLE CAST AND CONTINUITY (strict): Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Rin explica duas maneiras de guardar uma memória no próprio manto azul de Sev.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "snowflake-pocket",
+      "title": "A Place for One Snowflake",
+      "narration": "Sev chose the pocket. Rin stitched it inside his blue cloak and held it open near the window. One snowflake drifted in and remained bright against the cloth. She used the rest of the thread to finish the green spring coat. Outside, the first buds appeared on bare branches. Sev fastened his cloak, feeling the tiny pocket against his chest. Winter no longer filled the room, but its memory could travel with him. \"Now I can rest until winter returns.\" He stepped outside.",
+      "isEnding": true,
+      "prompt": "What remains inside the hidden pocket?",
+      "options": [
+        {
+          "key": "a",
+          "text": "One real snowflake"
+        },
+        {
+          "key": "b",
+          "text": "The sound of a bell"
+        },
+        {
+          "key": "c",
+          "text": "A broken needle"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "One real snowflake. Evidence: One snowflake drifted in and remained bright against the cloth.",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "stitched",
+          "translation": "costurou"
+        },
+        {
+          "key": "word-2",
+          "term": "buds",
+          "translation": "brotos"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "snowflake-pocket-line-1",
+          "speaker": "Narrador",
+          "text": "Sev chose the pocket. Rin stitched it inside his blue cloak and held it open near the window. One snowflake drifted in and remained bright against the cloth.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 9241
+        },
+        {
+          "key": "snowflake-pocket-line-2",
+          "speaker": "Narrador",
+          "text": "She used the rest of the thread to finish the green spring coat. Outside, the first buds appeared on bare branches. Sev fastened his cloak, feeling the tiny pocket against his chest.",
+          "startMilliseconds": 9241,
+          "endMilliseconds": 21385
+        },
+        {
+          "key": "snowflake-pocket-line-3",
+          "speaker": "Narrador",
+          "text": "Winter no longer filled the room, but its memory could travel with him.",
+          "startMilliseconds": 21385,
+          "endMilliseconds": 25054
+        },
+        {
+          "key": "snowflake-pocket-line-4",
+          "speaker": "Sev",
+          "text": "\"Now I can rest until winter returns.\"",
+          "startMilliseconds": 25054,
+          "endMilliseconds": 27794
+        },
+        {
+          "key": "snowflake-pocket-line-5",
+          "speaker": "Narrador",
+          "text": "He stepped outside.",
+          "startMilliseconds": 27794,
+          "endMilliseconds": 29082
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Sev chose the pocket. Rin stitched it inside his blue cloak and held it open near the window. One snowflake drifted in and remained bright against the cloth. She used the rest of the thread to finish the green spring coat. Outside, the first buds appeared on bare branches. Sev fastened his cloak, feeling the tiny pocket against his chest. Winter no longer filled the room, but its memory could travel with him. \"Now I can rest until winter returns.\" He stepped outside.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "One snowflake drifted in and remained bright against the cloth.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rin and Sev beside the workshop window, at the moment before he closes his blue cloak. A tiny hidden pocket INSIDE SEV'S BLUE CLOAK holds ONE clearly visible luminous snowflake. Rin has just finished stitching it. The separate finished GREEN SPRING COAT remains on the worktable, NOT worn by Sev. Buds just begin on branches beyond the window. No embroidered spiral in this ending. VISIBLE CAST AND CONTINUITY (strict): Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Um único floco de neve permanece no bolso do manto azul de Sev; o casaco verde fica pronto na mesa.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "snowfall-pattern",
+      "title": "The Sound in the Lining",
+      "narration": "Sev chose the woven design. Rin used the extra thread to stitch a silver spiral inside his blue cloak. When he brushed it with his fingers, he heard snow settling softly on a windowsill. There was no ice against his skin, only the remembered sound. Rin finished the spring coat with the remaining thread. Outside, the first buds appeared. Sev closed his eyes once, then opened the door without hesitation. \"I can welcome what comes next without pretending that winter meant nothing.\"",
+      "isEnding": true,
+      "prompt": "What happens when Sev touches the silver spiral?",
+      "options": [
+        {
+          "key": "a",
+          "text": "His skin turns into ice"
+        },
+        {
+          "key": "b",
+          "text": "He hears the sound of snow settling"
+        },
+        {
+          "key": "c",
+          "text": "The spring coat disappears"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "He hears the sound of snow settling. Evidence: he heard snow settling softly on a windowsill",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "windowsill",
+          "translation": "peitoril da janela"
+        },
+        {
+          "key": "word-2",
+          "term": "hesitation",
+          "translation": "hesitação"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "snowfall-pattern-line-1",
+          "speaker": "Narrador",
+          "text": "Sev chose the woven design. Rin used the extra thread to stitch a silver spiral inside his blue cloak. When he brushed it with his fingers, he heard snow settling softly on a windowsill.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 11099
+        },
+        {
+          "key": "snowfall-pattern-line-2",
+          "speaker": "Narrador",
+          "text": "There was no ice against his skin, only the remembered sound. Rin finished the spring coat with the remaining thread. Outside, the first buds appeared.",
+          "startMilliseconds": 11099,
+          "endMilliseconds": 20526
+        },
+        {
+          "key": "snowfall-pattern-line-3",
+          "speaker": "Narrador",
+          "text": "Sev closed his eyes once, then opened the door without hesitation.",
+          "startMilliseconds": 20526,
+          "endMilliseconds": 24531
+        },
+        {
+          "key": "snowfall-pattern-line-4",
+          "speaker": "Sev",
+          "text": "\"I can welcome what comes next without pretending that winter meant nothing.\"",
+          "startMilliseconds": 24531,
+          "endMilliseconds": 28142
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Sev chose the woven design. Rin used the extra thread to stitch a silver spiral inside his blue cloak. When he brushed it with his fingers, he heard snow settling softly on a windowsill. There was no ice against his skin, only the remembered sound. Rin finished the spring coat with the remaining thread. Outside, the first buds appeared. Sev closed his eyes once, then opened the door without hesitation. \"I can welcome what comes next without pretending that winter meant nothing.\"",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "he heard snow settling softly on a windowsill",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Rin and Sev in the amber-lit workshop. Sev holds open the lining of HIS OWN BLUE CLOAK and gently brushes a small embroidered SILVER SPIRAL with his fingertips, eyes peacefully closed. The separate finished green spring coat rests on the worktable near Rin. Buds appear beyond the window. NO actual snowflake, ice, snowflake pocket or visual sound lettering in this ending. VISIBLE CAST AND CONTINUITY (strict): Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Sev toca a espiral prateada no forro do manto e guarda o som do inverno na memória.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    }
+  ],
+  "authoringNotes": {
+    "routes": [
+      [
+        "unfinished-coat",
+        "a-keepers-regret",
+        "two-memories",
+        "snowflake-pocket"
+      ],
+      [
+        "unfinished-coat",
+        "a-keepers-regret",
+        "two-memories",
+        "snowfall-pattern"
+      ]
+    ],
+    "visualContinuity": "Rin: adult woman aged 36, medium olive-brown skin, dark brown hair in a short braid, teal wool work jacket, charcoal skirt and plain brass thimble. Sev: adult man visibly aged about 55, cool light-brown skin, silver curly hair and a short silver beard, deep-blue wool cloak with a plain silver clasp. He is an original winter keeper, no franchise character. The hilltop tailor workshop has dark timber beams, a worktable, amber lamplight, a window facing bare branches and a green spring coat with an unfinished lining. Sev carries a SMALL SILVER SPOOL of luminous white winter thread. In the pocket ending the memory is in a hidden pocket of SEV'S BLUE CLOAK, not the green coat. In the pattern ending it is a silver spiral stitched inside that blue cloak; no snowflake or pocket is shown.",
+    "review": "Five physical scenes, four per path, one meaningful decision and two complete endings. Answers are supported by the current scene. Two contextual hints per scene. Editorial proposed levels, not certification. No inventory, combat, live sports minigame, romance meter or special runtime event is claimed.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all labels, no word-level phonetic alignment."
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "metadata": {
+    "title": "A Very Important Rehearsal — A1",
+    "synopsis": "Um ator tenta fazer uma entrada majestosa, mas um pato de brinquedo transforma o ensaio em uma escolha entre solenidade e diversão.",
+    "genre": "Comédia",
+    "difficulty": "A1",
+    "author": "English Roulette — texto original assistido por IA",
+    "licenseType": "Original",
+    "licenseEvidence": "História original criada para English Roulette em 08/11/2026 com assistência de IA. O responsável solicitou mais histórias de temas diferentes e já autorizou produção e publicação direta na VPS, sem nova aprovação. Não adapta obra de terceiros.",
+    "attribution": "Texto original assistido por IA para English Roulette. Nível editorial proposto; não constitui certificação CEFR.",
+    "appearance": {
+      "primary": "#DAB881",
+      "accent": "#C9A4E7",
+      "background": "#14101F",
+      "surface": "#261E35",
+      "text": "#F9F0E3",
+      "font": "rounded",
+      "motion": "gentle"
+    }
+  },
+  "initialSceneKey": "royal-entrance",
+  "scenes": [
+    {
+      "key": "royal-entrance",
+      "title": "A Sound beneath the Crown",
+      "narration": "Ben stands on a small stage in a blue coat and a paper crown. He is the king in a play. He takes one big step. A loud sound comes from the floor. \"That is not a king. That is a duck!\"",
+      "isEnding": false,
+      "prompt": "What does Ben hear when he takes a step?",
+      "options": [
+        {
+          "key": "a",
+          "text": "A duck sound"
+        },
+        {
+          "key": "b",
+          "text": "A doorbell"
+        },
+        {
+          "key": "c",
+          "text": "A drum"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "A duck sound. Evidence: That is a duck!",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "small-singer"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "crown",
+          "translation": "coroa"
+        },
+        {
+          "key": "word-2",
+          "term": "stage",
+          "translation": "palco"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "royal-entrance-line-1",
+          "speaker": "Narrador",
+          "text": "Ben stands on a small stage in a blue coat and a paper crown. He is the king in a play. He takes one big step. A loud sound comes from the floor.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 12608
+        },
+        {
+          "key": "royal-entrance-line-2",
+          "speaker": "Ben",
+          "text": "\"That is not a king. That is a duck!\"",
+          "startMilliseconds": 12608,
+          "endMilliseconds": 15719
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Ben stands on a small stage in a blue coat and a paper crown. He is the king in a play. He takes one big step. A loud sound comes from the floor. \"That is not a king. That is a duck!\"",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "That is a duck!",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Only Ben stands on the empty wooden theatre stage, looking down in comic surprise after a grand royal step. His gold paper crown tilts slightly. A wooden step is near his boot. The source of the sound is NOT visible yet: no duck, no extra person, no audience. VISIBLE CAST AND CONTINUITY (strict): Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots, simple gold paper crown without emblems. Only this adult is visible. Empty wooden theatre stage, burgundy curtains and one amber lamp. The source of the sound remains concealed. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Ben, de coroa de papel e casaco azul, olha surpreso para o chão do palco.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "small-singer",
+      "title": "A Very Small Singer",
+      "narration": "Dara lifts a loose board near Ben's feet. A yellow toy duck is under it. The board pushes the duck down when Ben steps on it. \"We found our very small singer.\" Ben laughs. The king's voice is fine.",
+      "isEnding": false,
+      "prompt": "Where is the yellow toy duck?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Inside the paper crown"
+        },
+        {
+          "key": "b",
+          "text": "Under a loose board"
+        },
+        {
+          "key": "c",
+          "text": "Behind the curtain"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Under a loose board. Evidence: A yellow toy duck is under it.",
+      "transitions": [
+        {
+          "key": "continue",
+          "label": "Continue the story",
+          "targetSceneKey": "entrance-choice"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "loose",
+          "translation": "solta"
+        },
+        {
+          "key": "word-2",
+          "term": "pushes",
+          "translation": "pressiona"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "small-singer-line-1",
+          "speaker": "Narrador",
+          "text": "Dara lifts a loose board near Ben's feet. A yellow toy duck is under it. The board pushes the duck down when Ben steps on it.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 10007
+        },
+        {
+          "key": "small-singer-line-2",
+          "speaker": "Dara",
+          "text": "\"We found our very small singer.\"",
+          "startMilliseconds": 10007,
+          "endMilliseconds": 12933
+        },
+        {
+          "key": "small-singer-line-3",
+          "speaker": "Narrador",
+          "text": "Ben laughs. The king's voice is fine.",
+          "startMilliseconds": 12933,
+          "endMilliseconds": 16788
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Dara lifts a loose board near Ben's feet. A yellow toy duck is under it. The board pushes the duck down when Ben steps on it. \"We found our very small singer.\" Ben laughs. The king's voice is fine.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "A yellow toy duck is under it.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Ben and Dara on the same stage. Dara carefully lifts one loose wooden board, revealing a small yellow RUBBER TOY duck beneath it. Ben looks down and laughs. The toy is on the stage floor, not a real animal, not in a crown. VISIBLE CAST AND CONTINUITY (strict): Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots and a simple gold paper crown without emblems. Dara: adult woman aged 33, dark brown skin, short tight black curls, burgundy sweater, charcoal trousers. Never depict children or a real duck. A palm-sized yellow rubber toy duck causes the sound. The stage has dark wooden boards, burgundy curtains and one amber rehearsal lamp. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Dara levanta uma tábua e mostra a Ben o pato de borracha que faz o barulho.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "entrance-choice",
+      "title": "Two Ways to Be a King",
+      "narration": "They can take the toy duck away. Ben can also keep it under the board and change his part in the play. \"A duck king can be a good king, too.\" Dara waits. Ben must choose his entrance before the other actors arrive.",
+      "isEnding": false,
+      "prompt": "Who chooses how the king will enter?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Dara"
+        },
+        {
+          "key": "b",
+          "text": "The other actors"
+        },
+        {
+          "key": "c",
+          "text": "Ben"
+        }
+      ],
+      "correctOptionKey": "c",
+      "explanation": "Ben. Evidence: Ben must choose his entrance",
+      "transitions": [
+        {
+          "key": "duck-king",
+          "label": "Keep the duck and change the king",
+          "targetSceneKey": "duck-king"
+        },
+        {
+          "key": "quiet-practice",
+          "label": "Remove the duck for a quiet entrance",
+          "targetSceneKey": "quiet-practice"
+        }
+      ],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "away",
+          "translation": "para outro lugar; para longe"
+        },
+        {
+          "key": "word-2",
+          "term": "entrance",
+          "translation": "entrada em cena"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "entrance-choice-line-1",
+          "speaker": "Narrador",
+          "text": "They can take the toy duck away. Ben can also keep it under the board and change his part in the play.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 8312
+        },
+        {
+          "key": "entrance-choice-line-2",
+          "speaker": "Ben",
+          "text": "\"A duck king can be a good king, too.\"",
+          "startMilliseconds": 8312,
+          "endMilliseconds": 11389
+        },
+        {
+          "key": "entrance-choice-line-3",
+          "speaker": "Narrador",
+          "text": "Dara waits. Ben must choose his entrance before the other actors arrive.",
+          "startMilliseconds": 11389,
+          "endMilliseconds": 16962
+        }
+      ],
+      "productionNotes": {
+        "audioText": "They can take the toy duck away. Ben can also keep it under the board and change his part in the play. \"A duck king can be a good king, too.\" Dara waits. Ben must choose his entrance before the other actors arrive.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "Ben must choose his entrance",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Ben and Dara, considering the lifted wooden board and the yellow rubber duck visible underneath. Ben gestures thoughtfully with one hand; Dara waits beside him. Same simple theatre rehearsal. No other actors have arrived. VISIBLE CAST AND CONTINUITY (strict): Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots and a simple gold paper crown without emblems. Dara: adult woman aged 33, dark brown skin, short tight black curls, burgundy sweater, charcoal trousers. Never depict children or a real duck. A palm-sized yellow rubber toy duck causes the sound. The stage has dark wooden boards, burgundy curtains and one amber rehearsal lamp. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "Ben e Dara consideram se o pato de brinquedo deve fazer parte da entrada do rei.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    },
+    {
+      "key": "duck-king",
+      "title": "Make Way for the Duck King",
+      "narration": "Ben puts the board back over the toy duck. He takes a slow step onto it. Ben hears the duck again. \"Make way for the Duck King!\" Dara laughs and claps. Ben bends forward. He is ready for the other actors.",
+      "isEnding": true,
+      "prompt": "Who laughs and claps for Ben?",
+      "options": [
+        {
+          "key": "a",
+          "text": "Dara"
+        },
+        {
+          "key": "b",
+          "text": "The other actors"
+        },
+        {
+          "key": "c",
+          "text": "A real duck"
+        }
+      ],
+      "correctOptionKey": "a",
+      "explanation": "Dara. Evidence: Dara laughs and claps.",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "bends",
+          "translation": "inclina-se"
+        },
+        {
+          "key": "word-2",
+          "term": "claps",
+          "translation": "bate palmas"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "duck-king-line-1",
+          "speaker": "Narrador",
+          "text": "Ben puts the board back over the toy duck. He takes a slow step onto it. Ben hears the duck again.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 9032
+        },
+        {
+          "key": "duck-king-line-2",
+          "speaker": "Ben",
+          "text": "\"Make way for the Duck King!\"",
+          "startMilliseconds": 9032,
+          "endMilliseconds": 11284
+        },
+        {
+          "key": "duck-king-line-3",
+          "speaker": "Narrador",
+          "text": "Dara laughs and claps. Ben bends forward. He is ready for the other actors.",
+          "startMilliseconds": 11284,
+          "endMilliseconds": 18599
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Ben puts the board back over the toy duck. He takes a slow step onto it. Ben hears the duck again. \"Make way for the Duck King!\" Dara laughs and claps. Ben bends forward. He is ready for the other actors.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "Dara laughs and claps.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Ben and Dara on the amber-lit stage. Ben gives an exaggerated royal bow with his paper crown, both feet firmly planted on the replaced wooden board, both grey trouser legs visibly connected to the boots he is wearing; the toy duck is hidden UNDER that board. Dara laughs and claps as his only audience. No real duck and no other actors. VISIBLE CAST AND CONTINUITY (strict): Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots and a simple gold paper crown without emblems. Dara: adult woman aged 33, dark brown skin, short tight black curls, burgundy sweater, charcoal trousers. Never depict children or a real duck. A palm-sized yellow rubber toy duck causes the sound. The stage has dark wooden boards, burgundy curtains and one amber rehearsal lamp. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing. Exactly two boots, BOTH worn on his feet. No loose footwear, detached boots or disembodied legs.",
+        "altText": "Ben faz uma reverência cômica enquanto Dara ri e bate palmas no ensaio.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged.",
+        "imageRevisionPrompt": "Use case: precise-object-edit. Edit target: this exact 2D theatre illustration. Preserve Ben's face, gold paper crown, deep-blue coat, bowing pose, Dara clapping at right, wooden stage, closed board, burgundy curtains, amber lighting and the dark hand-drawn animated-feature style. Correct ONLY Ben's lower-body anatomy: the boot at the center is currently an EMPTY DETACHED BOOT. Make it clearly worn on Ben's second foot, with a natural grey trouser leg connecting visibly to his body. Both boots must be worn on his two feet; exactly two legs with natural proportions. Slightly part the bottom of the coat if needed to reveal the connection. No spare footwear, no new character, no visible duck, no text. Keep the same wide composition."
+      }
+    },
+    {
+      "key": "quiet-practice",
+      "title": "A Quiet Floor and a Happy King",
+      "narration": "Dara takes the toy duck away and puts it on a box. Ben walks across the stage. The floor is quiet now. \"I miss my small singer.\" He makes a duck sound himself. Dara laughs. Their quiet practice ends with one very happy king.",
+      "isEnding": true,
+      "prompt": "Who makes the last duck sound?",
+      "options": [
+        {
+          "key": "a",
+          "text": "The toy under the board"
+        },
+        {
+          "key": "b",
+          "text": "Ben himself"
+        },
+        {
+          "key": "c",
+          "text": "Someone inside the box"
+        }
+      ],
+      "correctOptionKey": "b",
+      "explanation": "Ben himself. Evidence: He makes a duck sound himself.",
+      "transitions": [],
+      "vocabulary": [
+        {
+          "key": "word-1",
+          "term": "himself",
+          "translation": "ele mesmo"
+        },
+        {
+          "key": "word-2",
+          "term": "practice",
+          "translation": "ensaio; prática"
+        }
+      ],
+      "dialogue": [
+        {
+          "key": "quiet-practice-line-1",
+          "speaker": "Narrador",
+          "text": "Dara takes the toy duck away and puts it on a box. Ben walks across the stage. The floor is quiet now.",
+          "startMilliseconds": 0,
+          "endMilliseconds": 8951
+        },
+        {
+          "key": "quiet-practice-line-2",
+          "speaker": "Ben",
+          "text": "\"I miss my small singer.\"",
+          "startMilliseconds": 8951,
+          "endMilliseconds": 11261
+        },
+        {
+          "key": "quiet-practice-line-3",
+          "speaker": "Narrador",
+          "text": "He makes a duck sound himself. Dara laughs. Their quiet practice ends with one very happy king.",
+          "startMilliseconds": 11261,
+          "endMilliseconds": 19400
+        }
+      ],
+      "productionNotes": {
+        "audioText": "Dara takes the toy duck away and puts it on a box. Ben walks across the stage. The floor is quiet now. \"I miss my small singer.\" He makes a duck sound himself. Dara laughs. Their quiet practice ends with one very happy king.",
+        "voiceDirection": "One clear synthetic English voice for narrator and characters. Speaker labels do not imply different recorded voices. Preserve every word; do not add music or sound effects.",
+        "questionEvidence": "He makes a duck sound himself.",
+        "imagePrompt": "Use case: illustration-story. Asset type: full-screen story-game scene. SCENE: Exactly Ben and Dara. The yellow rubber toy duck rests clearly ON TOP OF a wooden box well away from the stage step. Ben walks on the quiet stage with an amused duck-like expression; Dara laughs. Same blue coat and paper crown. No live duck, no duck under the board. VISIBLE CAST AND CONTINUITY (strict): Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots and a simple gold paper crown without emblems. Dara: adult woman aged 33, dark brown skin, short tight black curls, burgundy sweater, charcoal trousers. Never depict children or a real duck. A palm-sized yellow rubber toy duck causes the sound. The stage has dark wooden boards, burgundy curtains and one amber rehearsal lamp. STYLE: Cinematic dark 2D animated-feature illustration, hand-drawn adult characters with expressive stylized faces, clean linework, restrained cel shading and richly painted backgrounds. Deep charcoal shadows, selective warm motivated lighting and readable clue colors. Not photorealistic, no real-person likeness. Widescreen 16:9, medium-wide eye-level composition, central actions and props within the middle two-thirds for responsive cropping. No text, subtitles, logos, watermark, letters, numbers or readable writing. No extra characters, no future branch objects, no gore, no flashing.",
+        "altText": "O pato está sobre uma caixa; Ben faz o som por conta própria e Dara ri.",
+        "animationPrompt": "Derive a quiet six-second camera-drift loop from this exact approved illustration. No mouth animation, invented character action or flashing. Keep every clue and branch-specific prop unchanged."
+      }
+    }
+  ],
+  "authoringNotes": {
+    "routes": [
+      [
+        "royal-entrance",
+        "small-singer",
+        "entrance-choice",
+        "duck-king"
+      ],
+      [
+        "royal-entrance",
+        "small-singer",
+        "entrance-choice",
+        "quiet-practice"
+      ]
+    ],
+    "visualContinuity": "Ben: adult man aged 35, light brown skin, short dark brown hair and a small moustache, long deep-blue velvet stage coat, grey trousers, black boots and a simple gold paper crown without emblems. Dara: adult woman aged 33, dark brown skin, short tight black curls, burgundy sweater, charcoal trousers. Never depict children or a real duck. A palm-sized yellow rubber toy duck causes the sound. The stage has dark wooden boards, burgundy curtains and one amber rehearsal lamp.",
+    "review": "Five physical scenes, four per path, one meaningful decision and two complete endings. Answers are supported by the current scene. Two contextual hints per scene. Editorial proposed levels, not certification. No inventory, combat, live sports minigame, romance meter or special runtime event is claimed.",
+    "mediaStatus": {
+      "audio": "produced",
+      "visual": "produced"
+    },
+    "dialogueTimingStatus": "Measured from concatenated PCM frames; one synthetic voice for all labels, no word-level phonetic alignment."
+  }
+}

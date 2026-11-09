@@ -1,0 +1,54 @@
+{
+  "origin": "https://english.lzguimaraes.com.br",
+  "stories": {
+    "a-table-for-two-beginners-a2": {
+      "versionId": "8c1e0dc2-8301-4328-b36a-e4a51ef70b76",
+      "status": "Published",
+      "revision": 13,
+      "title": "A Table for Two Beginners — A2",
+      "sceneCount": 5,
+      "sourceSha256": "1b350edf45e810bf604d3fccfc791e38f8df23325f26d6d08029e096792952c4",
+      "audioAssetsUploaded": 5,
+      "visualAssetsUploaded": 5,
+      "publicationIssues": [],
+      "verifiedAtUtc": "2026-11-09T02:30:16.210199+00:00"
+    },
+    "a-very-important-rehearsal-a1": {
+      "versionId": "2721b604-15a9-4ecc-879a-bc5d9bd01693",
+      "status": "Published",
+      "revision": 13,
+      "title": "A Very Important Rehearsal — A1",
+      "sceneCount": 5,
+      "sourceSha256": "878378458d1062fa3d9c3ed92de34a38b4a8a4161ca46eac3ee2a11bf8c7512d",
+      "audioAssetsUploaded": 5,
+      "visualAssetsUploaded": 5,
+      "publicationIssues": [],
+      "verifiedAtUtc": "2026-11-09T02:30:29.125334+00:00"
+    },
+    "the-captains-quiet-match-a2": {
+      "versionId": "07298b94-4671-4d45-aec7-3c33e97300dc",
+      "status": "Published",
+      "revision": 13,
+      "title": "The Captain's Quiet Match — A2",
+      "sceneCount": 5,
+      "sourceSha256": "d2005812e93ac72bb651adaca82c3fe67003186a127cc24b08f57bbb0e3e38be",
+      "audioAssetsUploaded": 5,
+      "visualAssetsUploaded": 5,
+      "publicationIssues": [],
+      "verifiedAtUtc": "2026-11-09T02:30:42.237901+00:00"
+    },
+    "the-tailor-of-the-turning-year-b1": {
+      "versionId": "7385a738-b53a-42e8-9a78-3d545edc85a9",
+      "status": "Published",
+      "revision": 13,
+      "title": "The Tailor of the Turning Year — B1",
+      "sceneCount": 5,
+      "sourceSha256": "23664adeb73b4d80996d6fd1857630de0c4d532043877c9f77bb6bd68e2a9542",
+      "audioAssetsUploaded": 5,
+      "visualAssetsUploaded": 5,
+      "publicationIssues": [],
+      "verifiedAtUtc": "2026-11-09T02:30:55.683526+00:00"
+    }
+  },
+  "published": true
+}
