@@ -41,6 +41,13 @@ public sealed class SoloAdventureSession
         {
             throw new ArgumentException("Provide one positive narration/question timing for each story scene.", nameof(timings));
         }
+        foreach (var timing in snapshot)
+        {
+            var seconds = (int)timing.QuestionDuration.TotalSeconds;
+            if (timing.QuestionDuration != TimeSpan.FromSeconds(seconds))
+            { throw new GameRuleException("INVALID_QUESTION_TIME", "O tempo da pergunta deve ser informado em segundos inteiros."); }
+            QuestionTiming.FromSeconds(seconds);
+        }
 
         scoringRules?.Validate();
         _scoringRules = scoringRules;

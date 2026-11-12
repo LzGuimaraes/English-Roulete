@@ -54,6 +54,33 @@ public sealed class LobbyRoomTests
         Assert.Equal("STATE_CONFLICT", Assert.Throws<GameRuleException>(() => LobbyRoom.SetReady(updated, host.PlayerId, 1, false, Start)).Code);
     }
     [Fact]
+    public void Host_CanChooseQuestionTime_AndValuesAreValidated()
+    {
+        var host = Member("Host");
+        var room = LobbyRoom.Create(Guid.NewGuid(), "ABCDEFGH", 2, host, Start);
+        var updated = LobbyRoom.SetQuestionSeconds(room, host.PlayerId, room.StateVersion, 30, Start);
+
+        Assert.Equal(30, updated.QuestionSeconds);
+        Assert.Equal("ROOM_FORBIDDEN", Assert.Throws<GameRuleException>(() =>
+            LobbyRoom.SetQuestionSeconds(updated, Guid.NewGuid(), updated.StateVersion, 45, Start)).Code);
+        Assert.Equal("INVALID_QUESTION_TIME", Assert.Throws<GameRuleException>(() =>
+            LobbyRoom.SetQuestionSeconds(updated, host.PlayerId, updated.StateVersion, 5, Start)).Code);
+    }
+    [Fact]
+    public void Chat_IsBoundedAndIdempotent()
+    {
+        var host = Member("Host");
+        var room = LobbyRoom.Create(Guid.NewGuid(), "ABCDEFGH", 2, host, Start);
+        var requestId = Guid.NewGuid();
+        var sent = LobbyRoom.AddChatMessage(room, host.PlayerId, requestId, "  Olá, equipe!  ", Start);
+        var replay = LobbyRoom.AddChatMessage(sent, host.PlayerId, requestId, "Olá, equipe!", Start.AddSeconds(1));
+
+        Assert.Single(replay.ChatMessages!);
+        Assert.Equal(sent.StateVersion, replay.StateVersion);
+        Assert.Equal("INVALID_CHAT", Assert.Throws<GameRuleException>(() => LobbyRoom.AddChatMessage(sent, host.PlayerId,
+            Guid.NewGuid(), new string('x', 301), Start)).Code);
+    }
+    [Fact]
     public void Spin_RequiresHostAndAllConnectedPlayersReady_AndPersistsOneResult()
     {
         var host = Member("Host"); var guest = Member("Guest");

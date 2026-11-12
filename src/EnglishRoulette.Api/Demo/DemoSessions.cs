@@ -42,9 +42,11 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
         return snapshot is null ? null : await MapAsync(snapshot, hash, cancellationToken);
     }
 
-    public async Task<AdventureView> CreateAsync(HttpContext context, Guid? versionId, CancellationToken cancellationToken, string language = StoryLanguage.English)
+    public async Task<AdventureView> CreateAsync(HttpContext context, Guid? versionId, CancellationToken cancellationToken,
+        string language = StoryLanguage.English, int questionSeconds = QuestionTiming.SoloDefaultSeconds)
     {
         language = StoryLanguage.Require(language);
+        questionSeconds = (int)QuestionTiming.FromSeconds(questionSeconds).TotalSeconds;
         var previousHash = CredentialHash(context);
         var previous = previousHash is null ? null : await store.FindAsync(previousHash, cancellationToken);
         versionId ??= StoryRoulette.Draw(await catalog.PublishedAsync(cancellationToken), language: language);
@@ -56,7 +58,7 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
         var playerId = Guid.TryParse(guest.Principal?.FindFirstValue(ClaimTypes.NameIdentifier), out var guestId)
             ? guestId : previous?.Checkpoint.PlayerId ?? Guid.NewGuid();
         var timings = content.Story.Scenes.Select(scene => new SceneTiming(scene.Key,
-            TimeSpan.FromMilliseconds(content.Audio[scene.Key].DurationMs + SafetyMarginMs), TimeSpan.FromSeconds(20)));
+            TimeSpan.FromMilliseconds(content.Audio[scene.Key].DurationMs + SafetyMarginMs), TimeSpan.FromSeconds(questionSeconds)));
         var session = new SoloAdventureSession(Guid.NewGuid(), playerId, content.Story, timings, GameAssistance.Rules(configuration));
         var credential = Convert.ToHexString(RandomNumberGenerator.GetBytes(32));
         var hash = Hash(credential);
@@ -118,7 +120,7 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
             snapshot.StateVersion, snapshot.Phase.ToString(), snapshot.ServerNowUtc, snapshot.PhaseDeadlineUtc,
             snapshot.Question is { } question
                 ? new(question.InstanceId, question.Prompt, question.Options.Select(option => new OptionView(option.Key, option.Text)).ToArray()) : null,
-            snapshot.Answer is { } answer ? new(answer.OptionKey, answer.IsCorrect, answer.TimedOut, answer.Explanation) : null,
+            snapshot.Answer is { } answer ? new(answer.OptionKey, answer.IsCorrect, answer.TimedOut, answer.Explanation, scene.Support?.FullTranslation) : null,
             snapshot.Choices.Select(choice => new ChoiceView(choice.Key, choice.Label)).ToArray(),
             new($"/media/catalog/{audio.Id}", audio.DurationMs, SafetyMarginMs),
             keys.Select(key => new VisitedSceneView(key, content.SceneTitles[key])).ToArray(), snapshot.StoryVersionId, AdminContracts.Appearance(content.Metadata.Appearance ?? new()),

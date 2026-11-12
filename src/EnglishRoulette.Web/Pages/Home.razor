@@ -35,6 +35,12 @@
                 else { <h1>Inglês em uma<br /><em>história jogável.</em></h1> }
                 <p class="lead">Ouça uma cena em @LanguageName.ToLowerInvariant(), responda sobre o que entendeu e tome decisões que mudam o caminho da história.</p>
                 <p class="intro">A roleta escolhe a história. Jogue até o final: ao sair ou recarregar a página, a aventura solo recomeça do zero.</p>
+                <label class="question-time-setting">Tempo para pensar
+                    <select @bind="_questionSeconds" disabled="@(_busy || _catalogLoading)" aria-describedby="question-time-help">
+                        @foreach (var seconds in QuestionTimeOptions) { <option value="@seconds">@seconds segundos</option> }
+                    </select>
+                    <small id="question-time-help">Aplica-se a cada pergunta desta aventura.</small>
+                </label>
                 <div class="hero-actions">
                     <button class="primary start-button" disabled="@(_busy || _catalogLoading || _catalog.Count == 0)" aria-describedby="solo-start-status" @onclick="CreateAsync">@StartLabel <span aria-hidden="true">↗</span></button>
                     <a class="secondary" href="/multiplayer">Jogar com amigos <span aria-hidden="true">↗</span></a>
@@ -160,6 +166,8 @@
     private bool _focusAdventure;
     private bool _audioReady;
     private string? _artFailureUrl;
+    private int _questionSeconds = 20;
+    private static readonly int[] QuestionTimeOptions = [10, 15, 20, 30, 45, 60];
 
     private int RemainingSeconds => _state?.PhaseDeadlineUtc is { } deadline
         ? Math.Max(0, (int)Math.Ceiling((deadline - _state.ServerNowUtc - (Clock.GetUtcNow() - _receivedAtUtc)).TotalSeconds)) : 0;
@@ -242,7 +250,7 @@
         {
             if (_narrator is not null) { await _narrator.StopAsync(); }
             // Only a successful server snapshot can put the wheel in the spinning state.
-            var adventure = await Client.CreateAsync(null, _lifetime.Token, CurrentLanguage);
+            var adventure = await Client.CreateAsync(null, _lifetime.Token, CurrentLanguage, _questionSeconds);
             _browsing = true; SetState(null); _pendingAdventure = adventure;
             _launchPhase = LaunchPhase.Spinning; _error = null;
             using var spin = CancellationTokenSource.CreateLinkedTokenSource(_lifetime.Token);

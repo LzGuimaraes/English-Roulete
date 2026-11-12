@@ -7,6 +7,7 @@
     <fieldset disabled="@(ReadOnly || Busy)">
         <div class="admin-form-grid"><label>Chave da cena<input @bind="Scene.Key" @bind:after="Changed" maxlength="80" placeholder="estacao" /></label><label>Título da cena<input @bind="Scene.Title" @bind:after="Changed" maxlength="200" /></label></div>
         <label>Texto da narração no idioma da história<textarea rows="5" @bind="Scene.Narration" @bind:after="Changed" maxlength="10000"></textarea></label>
+        <label>Tradução completa da narração (liberada após a resposta)<textarea rows="4" @bind="Scene.FullTranslation" @bind:after="Changed" maxlength="10000" placeholder="Traduza toda a cena para apoiar o aprendizado."></textarea></label>
         <label>Descrição da imagem no idioma da história<input @bind="Scene.VisualDescription" @bind:after="Changed" maxlength="300" placeholder="Descreva os personagens e objetos visíveis." /></label>
         <details class="admin-support"><summary>Vocabulário e diálogos</summary>
             <p class="hint">Dicas traduzem termos das cenas inglesas ou explicam palavras das cenas portuguesas. O jogador vê o custo antes de usar.</p>

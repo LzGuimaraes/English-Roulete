@@ -3,7 +3,6 @@ using EnglishRoulette.Application.Admin;
 using EnglishRoulette.Application.Multiplayer;
 using EnglishRoulette.Contracts;
 using EnglishRoulette.Domain;
-using EnglishRoulette.Domain.Challenges;
 using EnglishRoulette.Domain.Multiplayer;
 using EnglishRoulette.Domain.Sessions;
 using Microsoft.AspNetCore.SignalR;
@@ -15,8 +14,8 @@ internal sealed class RoomGames(IAdminCatalog catalog, ILobbyStore lobbies, Time
 {
     internal static MultiplayerMatch Start(PublishedAdventure content, LobbyState state, DateTimeOffset now, EnglishRoulette.Domain.Scoring.AssistanceRules? hints = null) =>
         MultiplayerGame.Create(content.Story, content.Story.Scenes.Select(scene => new SceneTiming(scene.Key,
-            TimeSpan.FromMilliseconds(content.Audio[scene.Key].DurationMs + 2000), TimeSpan.FromSeconds(15))).ToArray(),
-            state.Members, now, (state.RouletteStartedAtUtc ?? now).AddSeconds(5), new(Hints: hints), state.SeriesScores);
+            TimeSpan.FromMilliseconds(content.Audio[scene.Key].DurationMs + 2000), TimeSpan.FromSeconds(state.QuestionSeconds))).ToArray(),
+            state.Members, now, (state.RouletteStartedAtUtc ?? now).AddSeconds(5), new(QuestionSeconds: state.QuestionSeconds, Hints: hints), state.SeriesScores);
 
     public async Task<RoomView> ViewAsync(LobbyState state, Guid actor, CancellationToken token)
     {
@@ -38,7 +37,9 @@ internal sealed class RoomGames(IAdminCatalog catalog, ILobbyStore lobbies, Time
                 nowUtc - member.LastSeenUtc < LobbyRoom.ConnectedWindow,
                 state.Match?.Players.SingleOrDefault(player => player.Id == member.PlayerId)?.Score ??
                     state.SeriesScores?.SingleOrDefault(player => player.PlayerId == member.PlayerId)?.Score ?? 0)).ToArray(), nowUtc, state.RouletteStartedAtUtc,
-            state.Match is { } match && content is not null ? Map(match, content, state, actor, nowUtc) : null, state.CompletedGames + 1, state.Language);
+            state.Match is { } match && content is not null ? Map(match, content, state, actor, nowUtc) : null, state.CompletedGames + 1, state.Language,
+            state.QuestionSeconds, (state.ChatMessages ?? []).Select(message => new RoomChatMessageView(message.Id, message.PlayerId,
+                message.Nickname, message.Avatar, message.Text, message.SentAtUtc)).ToArray());
     }
     private static MultiplayerMatchView Map(MultiplayerMatch match, PublishedAdventure content, LobbyState room, Guid actor, DateTimeOffset now)
     {
@@ -53,7 +54,7 @@ internal sealed class RoomGames(IAdminCatalog catalog, ILobbyStore lobbies, Time
             questionVisible ? new(match.SceneInstanceId, scene.Challenge.Prompt,
                 scene.Challenge.Options.Select(option => new OptionView(option.Key, option.Text)).ToArray()) : null,
             revealed ? new(answer?.OptionKey, answer?.IsCorrect ?? false, answer is null,
-                ChallengeEvaluator.Evaluate(scene.Challenge, scene.Challenge.Options[0].Key).Explanation) : null,
+                scene.Challenge.Explanation, scene.Support?.FullTranslation) : null,
             match.Phase == MultiplayerPhase.DecisionOpen ? scene.Transitions.Select(choice => new ChoiceView(choice.Key, choice.Label)).ToArray() : [],
             new($"/media/catalog/{audio.Id}", audio.DurationMs, 2000),
             match.VisitedScenes.Select(key => new VisitedSceneView(key, content.SceneTitles[key])).ToArray(), content.Story.Id,

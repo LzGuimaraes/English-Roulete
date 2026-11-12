@@ -56,8 +56,10 @@ public static class MultiplayerGame
             rules.RevealSeconds is < 1 or > 30 || rules.VoteSeconds is < 1 or > 60 || rules.TieMilliseconds != 300 ||
             rules.ScoringPolicy != "correct-arrival-v1" || timings.Count != story.Scenes.Count ||
             timings.Select(timing => timing.SceneKey).Distinct(StringComparer.Ordinal).Count() != timings.Count ||
-            timings.Any(timing => timing.NarrationDuration <= TimeSpan.Zero || !story.Scenes.Any(scene => scene.Key == timing.SceneKey)))
+            timings.Any(timing => timing.NarrationDuration <= TimeSpan.Zero || timing.QuestionDuration != TimeSpan.FromSeconds(rules.QuestionSeconds) ||
+                !story.Scenes.Any(scene => scene.Key == timing.SceneKey)))
         { throw new GameRuleException("INVALID_MATCH", "Revise participantes, tempos e conteúdo da partida."); }
+        QuestionTiming.FromSeconds(rules.QuestionSeconds);
         if (startingScores is not null && (startingScores.Count > 8 || startingScores.Any(player => player.Score < 0 || player.CorrectAnswers < 0) ||
             startingScores.Select(player => player.PlayerId).Distinct().Count() != startingScores.Count))
         { throw Invalid("O placar acumulado da sala é inválido."); }

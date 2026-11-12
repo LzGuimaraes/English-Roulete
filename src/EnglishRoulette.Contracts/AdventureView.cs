@@ -3,7 +3,7 @@ namespace EnglishRoulette.Contracts;
 public sealed record OptionView(string Key, string Text);
 public sealed record ChoiceView(string Key, string Label);
 public sealed record QuestionView(Guid InstanceId, string Prompt, IReadOnlyList<OptionView> Options);
-public sealed record AnswerView(string? OptionKey, bool IsCorrect, bool TimedOut, string Explanation);
+public sealed record AnswerView(string? OptionKey, bool IsCorrect, bool TimedOut, string Explanation, string? FullTranslation = null);
 public sealed record AudioView(string Url, int DurationMilliseconds, int SafetyMarginMilliseconds);
 public sealed record WordHintView(string Key, string Term, string? Translation);
 public sealed record HintCostView(string PerWord, string Limit, int UsedCount, string CurrentDiscount, bool CanUse);
@@ -44,4 +44,4 @@ public sealed record AdventureCommand(
 public sealed record VisitedSceneView(string Key, string Title);
 public sealed record CreateAdventureRequest(Guid? StoryVersionId = null,
     StoryAppearance? Appearance = null,
-    SceneVisualView? Visual = null, string Language = "en");
+    SceneVisualView? Visual = null, string Language = "en", int QuestionSeconds = 20);

@@ -37,6 +37,7 @@ internal static class AdminContracts
             Narration = scene.Narration,
             IsEnding = scene.IsEnding,
             VisualDescription = scene.Support?.VisualDescription,
+            FullTranslation = scene.Support?.FullTranslation,
             Vocabulary = (scene.Support?.Vocabulary ?? []).Select(h => new AdminVocabularyHint { Key = h.Key, Term = h.Term, Translation = h.Translation }).ToList(),
             Dialogue = (scene.Support?.Dialogue ?? []).Select(c => new AdminDialogueCue { Key = c.Key, Speaker = c.Speaker, Text = c.Text, StartMilliseconds = c.StartMilliseconds, EndMilliseconds = c.EndMilliseconds }).ToList(),
             Prompt = scene.Prompt,
@@ -68,6 +69,7 @@ internal static class AdminContracts
                 scene.Visual is { } visual ? new(visual.Id, visual.AltText, visual.Animated, visual.Attribution, visual.LicenseEvidence) : null, new SceneSupport
                 {
                     VisualDescription = string.IsNullOrWhiteSpace(scene.VisualDescription) ? null : scene.VisualDescription.Trim(),
+                    FullTranslation = string.IsNullOrWhiteSpace(scene.FullTranslation) ? null : scene.FullTranslation.Trim(),
                     Vocabulary = (scene.Vocabulary ?? []).Select(h => new VocabularyHint(h.Key ?? "", h.Term ?? "", h.Translation ?? "")).ToArray(),
                     Dialogue = (scene.Dialogue ?? []).Select(c => new DialogueCue(c.Key ?? "", c.Speaker ?? "", c.Text ?? "", c.StartMilliseconds, c.EndMilliseconds)).ToArray()
                 })).ToArray());

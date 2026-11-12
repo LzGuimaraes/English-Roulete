@@ -88,7 +88,7 @@ A classe acima não substitui o cálculo completo de faixas de empate; ela demon
 | Histórias por partida multiplayer | 1 | arquitetura pode suportar até 3 após validação |
 | Cenas por história | 5–8 | editorial, não constraint de banco para rascunho |
 | Duração de narração/cena | 20–45 s | prevalece a duração do arquivo real |
-| Tempo por pergunta | 15 s | sobrescrito pela questão, entre 10 e 20 s em desafios comuns |
+| Tempo por pergunta | 15 s multiplayer / 20 s solo | escolhido antes da partida entre 10 e 60 s; congelado no snapshot |
 | Contagem regressiva inicial | 3 s | todos veem previsão de início |
 | Janela de empate multiplayer | 300 ms | por horário de chegada ao servidor |
 | Tolerância de desconexão | 90 s | não paralisa indefinidamente a sala |
@@ -362,6 +362,12 @@ Em evento `DOUBLE_POINTS`, multiplicar a pontuação da faixa por 2. A regra aci
 | Próxima cena | Escolha individual | Escolha individual | Voto coletivo |
 | XP por conclusão | Sim | Não por repetição; padrão V1 sem XP | Sim |
 | Replay | Sim, recompensa reduzida | Sim | Revanche com nova sessão |
+
+### 7.4 Tempo configurável e feedback de tradução
+
+O tempo da pergunta é uma configuração de início, não uma decisão do cliente durante a rodada. O multiplayer usa `LobbyState.QuestionSeconds`, definido pelo anfitrião antes do giro; o solo grava a duração escolhida em cada `SceneTiming`. Em ambos os casos, o relógio autoritativo é UTC no servidor e respostas após o deadline são rejeitadas.
+
+Após `QuestionReveal`, o servidor pode liberar `SceneSupport.FullTranslation` junto com a explicação, tanto para acerto quanto para erro ou timeout. O campo não aparece em `QuestionOpen`. Tradução ausente deve ser informada como conteúdo editorial pendente, nunca preenchida pelo navegador.
 
 ## 8. XP, conquistas e ranking
 

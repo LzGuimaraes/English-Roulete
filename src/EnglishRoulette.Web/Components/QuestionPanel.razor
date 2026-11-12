@@ -21,6 +21,17 @@
             <div class="feedback @(answer.IsCorrect ? "correct" : "")" role="status">
                 <strong>@(answer.TimedOut ? "O tempo acabou. Tudo bem, vamos aprender." : answer.IsCorrect ? "Isso mesmo! Você entendeu a pista." : "Quase lá. Veja o que a história diz:")</strong>
                 <p lang="@State.Language">@answer.Explanation</p>
+                @if (!string.IsNullOrWhiteSpace(answer.FullTranslation))
+                {
+                    <div class="full-translation" lang="pt-BR">
+                        <span class="section-label">TRADUÇÃO COMPLETA</span>
+                        <p>@answer.FullTranslation</p>
+                    </div>
+                }
+                else if (State.Language == "en")
+                {
+                    <p class="translation-unavailable">A tradução completa desta cena ainda não foi cadastrada.</p>
+                }
                 @if (State.Score is { RoundPoints: not null } score)
                 { <p class="round-points">@score.RoundBase pontos − @score.RoundDeduction de dicas = <strong>+@score.RoundPoints</strong> · Total: @score.Total</p> }
             </div>

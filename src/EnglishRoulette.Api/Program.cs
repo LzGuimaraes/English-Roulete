@@ -115,7 +115,7 @@ app.Use(async (context, next) =>
 app.MapGet("/api/demo/session", async (HttpContext context, DemoSessions sessions) =>
     await sessions.GetAsync(context, context.RequestAborted) is { } state ? Results.Ok(state) : Results.NotFound());
 app.MapPost("/api/demo/session", async (HttpContext context, CreateAdventureRequest request, DemoSessions sessions) =>
-    Results.Ok(await sessions.CreateAsync(context, request.StoryVersionId, context.RequestAborted, request.Language)));
+    Results.Ok(await sessions.CreateAsync(context, request.StoryVersionId, context.RequestAborted, request.Language, request.QuestionSeconds)));
 app.MapDelete("/api/demo/session", async (HttpContext context, DemoSessions sessions) =>
 {
     await sessions.EndAsync(context, context.RequestAborted);

@@ -44,11 +44,11 @@ public sealed class AdventureClient(HttpClient http)
         return await ReadAsync(response, bounded);
     }, token);
 
-    public Task<AdventureView> CreateAsync(Guid? versionId, CancellationToken token, string language = "en") => RequestAsync(async bounded =>
+    public Task<AdventureView> CreateAsync(Guid? versionId, CancellationToken token, string language = "en", int questionSeconds = 20) => RequestAsync(async bounded =>
     {
         var generation = _generation;
         using var request = SessionRequest(HttpMethod.Post, "api/demo/session");
-        request.Content = JsonContent.Create(new CreateAdventureRequest(versionId, Language: language));
+        request.Content = JsonContent.Create(new CreateAdventureRequest(versionId, Language: language, QuestionSeconds: questionSeconds));
         using var response = await http.SendAsync(request, bounded);
         await EnsureAsync(response, bounded);
         var state = await ReadAsync(response, bounded);

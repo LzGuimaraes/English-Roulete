@@ -35,7 +35,10 @@
           "label": "Seguir o mapa até a livraria",
           "targetSceneKey": "bookshop"
         }
-      ]
+      ],
+      "support": {
+        "fullTranslation": "O último trem já havia partido quando Mia percebeu um caderno azul sob o relógio da estação. Na capa, alguém escrevera: 'Se você encontrar isto, siga o mapa, por favor.' Dentro, um pequeno desenho apontava para a antiga livraria do outro lado da rua."
+      }
     },
     {
       "storyVersionId": "be135d20-3666-411c-ab3c-d903687b52bf",
@@ -73,7 +76,10 @@
           "label": "Procurar Nora na biblioteca",
           "targetSceneKey": "library"
         }
-      ]
+      ],
+      "support": {
+        "fullTranslation": "Uma luz acolhedora brilhava pela janela da livraria. O dono reconheceu o caderno imediatamente. 'Ele pertence à minha irmã, Nora', disse. 'Ela escreve histórias sobre esta cidade.' Ele virou uma página. Havia dois lugares possíveis para encontrá-la: o café à beira do rio ou a biblioteca tranquila."
+      }
     },
     {
       "storyVersionId": "be135d20-3666-411c-ab3c-d903687b52bf",
@@ -100,7 +106,10 @@
         "explanation": "Nora explains that her new story was in the notebook."
       },
       "isEnding": true,
-      "transitions": []
+      "transitions": [],
+      "support": {
+        "fullTranslation": "Mia encontrou Nora sentada junto à janela do café, observando o rio. Quando viu o caderno azul, seu rosto se iluminou. 'Minha história nova estava aí dentro! Obrigada por trazê-lo de volta.' Nora comprou um chocolate quente para Mia e perguntou se poderia escrever sobre o encontro inesperado das duas."
+      }
     },
     {
       "storyVersionId": "be135d20-3666-411c-ab3c-d903687b52bf",
@@ -127,7 +136,10 @@
         "explanation": "Nora was reading to a small group of children when Mia arrived."
       },
       "isEnding": true,
-      "transitions": []
+      "transitions": [],
+      "support": {
+        "fullTranslation": "Na biblioteca, Nora lia para um pequeno grupo de crianças. Mia esperou a história terminar e então lhe entregou o caderno. 'Você encontrou o final que estava faltando!', Nora riu. Ela convidou Mia a ficar. Naquela noite, as crianças ouviram uma história novinha sobre uma viajante gentil e um caderno azul."
+      }
     }
   ]
 }

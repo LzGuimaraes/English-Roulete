@@ -8,6 +8,7 @@ public sealed class SceneSupportTests
     private const string Text = "The ledger is empty. Wait here.";
     private static SceneSupport Valid() => new()
     {
+        FullTranslation = "O livro de registros está vazio. Espere aqui.",
         Vocabulary = [new("ledger", "ledger", "livro de registros")],
         Dialogue = [new("narrator", "Narrador", "The ledger is empty.", 0, 2000), new("anna", "Anna", "Wait here.", 2100, 3000)]
     };
@@ -24,6 +25,7 @@ public sealed class SceneSupportTests
         var restored = StoryDefinition.Capture(story).Restore().Scenes.Single();
         Assert.Equal("Anna", restored.Support!.Dialogue[1].Speaker);
         Assert.Equal(2100, restored.Support.Dialogue[1].StartMilliseconds);
+        Assert.Equal("O livro de registros está vazio. Espere aqui.", restored.Support.FullTranslation);
     }
 
     [Theory]

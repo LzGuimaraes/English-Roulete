@@ -10,6 +10,7 @@ public sealed record DialogueCue(string Key, string Speaker, string Text, int St
 public sealed partial record SceneSupport
 {
     public string? VisualDescription { get; init; }
+    public string? FullTranslation { get; init; }
     public IReadOnlyList<VocabularyHint> Vocabulary { get; init; } = [];
     public IReadOnlyList<DialogueCue> Dialogue { get; init; } = [];
 
@@ -27,6 +28,9 @@ public sealed partial record SceneSupport
     {
         if (VisualDescription is { } description && (description.Length > 300 || description.Any(char.IsControl)))
         { throw Invalid("Use uma descrição da imagem de até 300 caracteres, sem caracteres de controle."); }
+        if (FullTranslation is { } translation &&
+            (string.IsNullOrWhiteSpace(translation) || translation.Length > 10000 || translation.Any(char.IsControl)))
+        { throw Invalid("Use uma tradução completa de até 10.000 caracteres, sem caracteres de controle."); }
         if (Vocabulary is null || Dialogue is null || Vocabulary.Count > 12 || Dialogue.Count > 40 ||
             Vocabulary.Any(hint => hint is null || !KeyPattern().IsMatch(hint.Key ?? "") ||
                 string.IsNullOrWhiteSpace(hint.Term) || hint.Term.Length > 80 || hint.Term.Any(char.IsControl) ||

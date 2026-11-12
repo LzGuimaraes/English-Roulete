@@ -85,6 +85,13 @@ internal static class RoomEndpoints
             var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) => LobbyRoom.SetReady(state, Actor(context), request.ExpectedStateVersion, request.Ready, now), context.RequestAborted);
             await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
         }).RequireRateLimiting("AdminWrite");
+        group.MapPost("/{id:guid}/settings", async (Guid id, RoomSettingsRequest request, HttpContext context,
+            ILobbyStore lobbies, RoomGames games, IHubContext<RoomHub> hub) =>
+        {
+            var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) =>
+                LobbyRoom.SetQuestionSeconds(state, Actor(context), request.ExpectedStateVersion, request.QuestionSeconds, now), context.RequestAborted);
+            await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
+        }).RequireRateLimiting("AdminWrite");
         group.MapPost("/{id:guid}/spin", async (Guid id, SpinRoomRequest request, HttpContext context, ILobbyStore lobbies,
             IAdminCatalog catalog, RoomGames games, IHubContext<RoomHub> hub, IConfiguration configuration) =>
         {
@@ -119,6 +126,13 @@ internal static class RoomEndpoints
                     state.Members, now, RandomNumberGenerator.GetInt32),
                 StateVersion = state.StateVersion + 1
             }, context.RequestAborted);
+            await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
+        }).RequireRateLimiting("AdminWrite");
+        group.MapPost("/{id:guid}/chat", async (Guid id, ChatMessageRequest request, HttpContext context,
+            ILobbyStore lobbies, RoomGames games, IHubContext<RoomHub> hub) =>
+        {
+            var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) =>
+                LobbyRoom.AddChatMessage(state, Actor(context), request.RequestId, request.Message ?? "", now), context.RequestAborted);
             await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
         }).RequireRateLimiting("AdminWrite");
         group.MapPost("/{id:guid}/leave", async (Guid id, HttpContext context, ILobbyStore lobbies, IHubContext<RoomHub> hub) =>

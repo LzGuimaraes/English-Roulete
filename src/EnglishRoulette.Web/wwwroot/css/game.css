@@ -265,6 +265,33 @@
 .room-experience.in-adventure .ending > p { color: #e5dce5; }
 .room-experience.in-adventure .ending .narration { font-size: clamp(17px, 1.3vw, 20px); line-height: 1.7; color: #fff6ef; }
 
+/* New learning feedback stays in the result phase, beside the explanation. */
+.question-time-setting { display:grid; gap:6px; max-width:320px; margin:0 0 24px; color:#eee4f5; font-size:13px; font-weight:700; }
+.question-time-setting select { width:100%; min-height:44px; padding:10px 12px; border:1px solid #ffffff35; border-radius:10px; background:#130e20; color:#f6edff; font:inherit; }
+.question-time-setting small { color:#bfb0d3; font-size:11px; font-weight:400; line-height:1.5; }
+.room-time-setting { margin:0 0 8px; }
+.room-time-setting select { max-width:220px; }
+.full-translation { margin-top:12px; padding:11px 13px; border:1px solid #bca1e94d; border-radius:10px; background:#b18cf612; }
+.full-translation p { margin:5px 0 0; color:#fff7dc; font-size:14px; line-height:1.6; }
+.translation-unavailable { color:#d6c8de; font-size:12px!important; }
+.match-chat { margin-top:12px; padding:1rem 1.1rem; background:#140e18e8; border:1px solid #b8a17555; border-radius:16px; }
+.match-chat h2 { margin:0; font-size:1.05rem; }
+.chat-count { min-width:24px; padding:3px 7px; border-radius:999px; background:#ffffff12; color:#dbd1bf; font-size:.72rem; text-align:center; }
+.chat-log { display:flex; flex-direction:column; gap:8px; max-height:220px; overflow:auto; margin:10px 0; padding-right:3px; }
+.chat-empty { margin:0; color:#c6b8c9; font-size:.78rem; line-height:1.5; }
+.chat-message { display:flex; gap:7px; margin:0; padding:7px 8px; border-radius:10px; background:#ffffff08; font-size:.78rem; line-height:1.4; }
+.chat-message.is-viewer { background:#a783ea18; }
+.chat-message .member-avatar { flex:0 0 auto; font-size:18px; }
+.chat-message strong,.chat-message>span:last-child>span { display:block; overflow-wrap:anywhere; }
+.chat-message strong { color:#f4d58b; font-size:.7rem; }
+.chat-form { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:7px; }
+.chat-form input { min-width:0; min-height:42px; padding:8px 10px; border:1px solid #ffffff35; border-radius:9px; background:#130e20; color:#f6edff; }
+.chat-form button { min-height:42px; padding:8px 12px; font-size:12px; }
+@media(max-width:800px) {
+    .room-time-setting select { max-width:none; }
+    .match-chat { width:100%; box-sizing:border-box; }
+}
+
 /* A real timer gets one short, elastic beat per new server-derived second. */
 .game-countdown { --countdown-paper:var(--scene-accent,#d0b9f5); --countdown-ink:#24152f; display:inline-flex; align-items:center; gap:10px; flex-shrink:0; color:#f4ecfb; }
 .countdown-face { position:relative; display:inline-flex; align-items:baseline; justify-content:center; min-width:58px; padding:5px 8px; border:2px solid var(--countdown-ink); border-radius:15px 13px 16px 12px; background:var(--countdown-paper); color:var(--countdown-ink); box-shadow:0 3px 9px #0004; }

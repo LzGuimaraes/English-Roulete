@@ -19,11 +19,15 @@ public sealed class RoomClient(HttpClient http)
     public Task<RoomView> CreateAsync(int capacity, CancellationToken token, string language = "en") => Send<RoomView>("api/rooms/", new CreateRoomRequest(capacity, language), token);
     public Task<RoomView> JoinAsync(string code, CancellationToken token) => Send<RoomView>("api/rooms/join", new JoinRoomRequest(code), token);
     public Task<RoomView> ReadyAsync(RoomView room, bool ready, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/ready", new ReadyRoomRequest(room.StateVersion, ready), token);
+    public Task<RoomView> SettingsAsync(RoomView room, int questionSeconds, CancellationToken token) =>
+        Send<RoomView>($"api/rooms/{room.Id}/settings", new RoomSettingsRequest(room.StateVersion, questionSeconds), token);
     public Task<RoomView> SpinAsync(RoomView room, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/spin", new SpinRoomRequest(room.StateVersion), token);
     public Task<RoomView> NextAsync(RoomView room, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/next",
         new NextRoomRequest(room.StateVersion, room.Match?.Id ?? throw new RoomApiException("Atualize o resultado antes de preparar outra partida.")), token);
     public Task<RoomView> CommandAsync(RoomView room, MatchCommandRequest command, CancellationToken token) =>
         Send<RoomView>($"api/rooms/{room.Id}/commands", command, token);
+    public Task<RoomView> ChatAsync(RoomView room, ChatMessageRequest message, CancellationToken token) =>
+        Send<RoomView>($"api/rooms/{room.Id}/chat", message, token);
     public async Task LeaveAsync(Guid id, CancellationToken token)
     { using var response = await Post($"api/rooms/{id}/leave", new { }, token); await Ensure(response, token); }
     private async Task<T?> Optional<T>(string path, CancellationToken token)

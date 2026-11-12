@@ -1,4 +1,5 @@
 using System.Text;
+using EnglishRoulette.Domain.Sessions;
 using EnglishRoulette.Domain.Stories;
 
 namespace EnglishRoulette.Domain.Multiplayer;
@@ -6,10 +7,13 @@ namespace EnglishRoulette.Domain.Multiplayer;
 public sealed record LobbyMember(Guid PlayerId, string Nickname, string Avatar, bool Ready,
     DateTimeOffset JoinedAtUtc, DateTimeOffset LastSeenUtc);
 public sealed record SeriesPlayer(Guid PlayerId, int Score, int CorrectAnswers);
+public sealed record LobbyChatMessage(Guid Id, Guid RequestId, Guid PlayerId, string Nickname, string Avatar,
+    string Text, DateTimeOffset SentAtUtc);
 public sealed record LobbyState(Guid Id, string Code, int Capacity, Guid HostId, long StateVersion,
     Guid? StoryVersionId, IReadOnlyList<LobbyMember> Members, DateTimeOffset LastActivityUtc, string Status = "Lobby",
     DateTimeOffset? RouletteStartedAtUtc = null, MultiplayerMatch? Match = null, IReadOnlyList<SeriesPlayer>? SeriesScores = null,
-    Guid? PreparedFromMatchId = null, int CompletedGames = 0, string Language = StoryLanguage.English);
+    Guid? PreparedFromMatchId = null, int CompletedGames = 0, string Language = StoryLanguage.English,
+    int QuestionSeconds = QuestionTiming.MultiplayerDefaultSeconds, IReadOnlyList<LobbyChatMessage>? ChatMessages = null);
 
 public static class LobbyRoom
 {
@@ -49,6 +53,34 @@ public static class LobbyRoom
         if (state.Match is not null) { throw new GameRuleException("ROOM_IN_PROGRESS", "A prontidão do lobby não muda durante a partida."); }
         if (state.Members.Single(member => member.PlayerId == player).Ready == ready) { return Touch(state, player, now); }
         return Touch(state with { Members = Array.AsReadOnly(state.Members.Select(member => member.PlayerId == player ? member with { Ready = ready } : member).ToArray()), StateVersion = state.StateVersion + 1 }, player, now);
+    }
+    public static LobbyState SetQuestionSeconds(LobbyState state, Guid player, long expectedVersion, int seconds, DateTimeOffset now)
+    {
+        Authorize(state, player); Version(state, expectedVersion);
+        if (state.HostId != player) { throw new GameRuleException("ROOM_FORBIDDEN", "Só o anfitrião define o tempo da pergunta."); }
+        if (state.Match is not null) { throw new GameRuleException("ROOM_IN_PROGRESS", "O tempo fica congelado durante a partida."); }
+        QuestionTiming.FromSeconds(seconds);
+        if (state.QuestionSeconds == seconds) { return Touch(state, player, now); }
+        return Touch(state with { QuestionSeconds = seconds, StateVersion = state.StateVersion + 1 }, player, now);
+    }
+    public static LobbyState AddChatMessage(LobbyState state, Guid player, Guid requestId, string message, DateTimeOffset now)
+    {
+        Authorize(state, player);
+        if (requestId == Guid.Empty) { throw new GameRuleException("INVALID_CHAT", "Identifique o envio do chat."); }
+        var text = message.Trim();
+        var existing = (state.ChatMessages ?? []).SingleOrDefault(item => item.RequestId == requestId);
+        if (existing is not null)
+        {
+            if (existing.PlayerId != player || !string.Equals(existing.Text, text, StringComparison.Ordinal))
+            { throw new GameRuleException("IDEMPOTENCY_CONFLICT", "Este envio de chat já foi usado para outra mensagem."); }
+            return Touch(state, player, now);
+        }
+        if (text.Length is < 1 or > 300 || text.Any(char.IsControl))
+        { throw new GameRuleException("INVALID_CHAT", "A mensagem deve ter entre 1 e 300 caracteres."); }
+        var member = state.Members.Single(item => item.PlayerId == player);
+        var messages = (state.ChatMessages ?? []).Append(new LobbyChatMessage(Guid.NewGuid(), requestId, player,
+            member.Nickname, member.Avatar, text, now.ToUniversalTime())).TakeLast(100).ToArray();
+        return Touch(state with { ChatMessages = Array.AsReadOnly(messages), StateVersion = state.StateVersion + 1 }, player, now);
     }
     public static LobbyState Spin(LobbyState state, Guid actor, long version, Guid storyVersionId, DateTimeOffset now)
     {

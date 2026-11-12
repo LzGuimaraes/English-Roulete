@@ -39,7 +39,7 @@ Execute os testes do README. Os casos incluem lotação, apelido duplicado, repe
 
 Para verificar manualmente, abra dois perfis de navegador (ou janela anônima), crie uma sala com um jogador e entre com o outro. Confira prontidão em ambos, resultado compartilhado da roleta, refresh, transferência ao sair e ausência de acesso administrativo para convidados.
 
-O próximo incremento reutilizará `StoryFlowEngine` e `ChallengeEvaluator` para preloading, áudio simultâneo, perguntas com prazo do servidor e decisão coletiva. As fórmulas de pontos/XP continuam pendentes de validação; este lobby não inventa placares.
+O fluxo de partida agora reutiliza `StoryFlowEngine` e `ChallengeEvaluator` para preloading, áudio simultâneo, perguntas com prazo do servidor, decisão coletiva, chat curto e feedback pós-resposta. O anfitrião define o tempo de cada pergunta antes de iniciar; a duração é congelada na partida. Veja [LIVE_CHAT_TIMED_QUESTIONS_TRANSLATION.md](increments/LIVE_CHAT_TIMED_QUESTIONS_TRANSLATION.md) para critérios, limites e decisões ainda abertas.
 
 ## Atualização: roleta compartilhada
 
