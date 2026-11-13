@@ -35,6 +35,13 @@
                 else { <h1>Inglês em uma<br /><em>história jogável.</em></h1> }
                 <p class="lead">Ouça uma cena em @LanguageName.ToLowerInvariant(), responda sobre o que entendeu e tome decisões que mudam o caminho da história.</p>
                 <p class="intro">A roleta escolhe a história. Jogue até o final: ao sair ou recarregar a página, a aventura solo recomeça do zero.</p>
+                <label class="level-setting">Nível das histórias
+                    <select value="@(_difficulty ?? "")" @onchange="DifficultyChanged" disabled="@(_busy || _catalogLoading || _catalog.Count == 0)">
+                        <option value="">Todos os níveis</option>
+                        @foreach (var level in AvailableLevels) { <option value="@level">@level</option> }
+                    </select>
+                    <small>A roleta sorteia apenas histórias do nível escolhido.</small>
+                </label>
                 <label class="question-time-setting">Tempo para pensar
                     <select @bind="_questionSeconds" disabled="@(_busy || _catalogLoading)" aria-describedby="question-time-help">
                         @foreach (var seconds in QuestionTimeOptions) { <option value="@seconds">@seconds segundos</option> }
@@ -42,7 +49,7 @@
                     <small id="question-time-help">Aplica-se a cada pergunta desta aventura.</small>
                 </label>
                 <div class="hero-actions">
-                    <button class="primary start-button" disabled="@(_busy || _catalogLoading || _catalog.Count == 0)" aria-describedby="solo-start-status" @onclick="CreateAsync">@StartLabel <span aria-hidden="true">↗</span></button>
+                    <button class="primary start-button" disabled="@(_busy || _catalogLoading || FilteredCatalog.Count == 0)" aria-describedby="solo-start-status" @onclick="CreateAsync">@StartLabel <span aria-hidden="true">↗</span></button>
                     <a class="secondary" href="/multiplayer">Jogar com amigos <span aria-hidden="true">↗</span></a>
                 </div>
                 <div id="solo-start-status" class="start-status" role="status" aria-live="polite">
@@ -53,7 +60,7 @@
                     else if (_launchPhase == LaunchPhase.Spinning) { <p>História encontrada. A roleta apresenta o resultado; a cena abre em seguida.</p> }
                     else { <p>Sem cadastro. O áudio começa quando você tocar em “Ouvir e iniciar cena”.</p> }
                 </div>
-                @if (_catalog.Count > 0 && CurrentLanguage == "en") { <p class="level-note"><strong>@LevelSummary</strong> O nível indica a complexidade do inglês. A roleta usa os níveis disponíveis no catálogo.</p> }
+                @if (_catalog.Count > 0 && CurrentLanguage == "en") { <p class="level-note"><strong>@LevelSummary</strong> O nível indica a complexidade do inglês.</p> }
                 else if (_catalog.Count > 0) { <p class="level-note">Texto, perguntas e narração em português brasileiro. A roleta sorteia apenas histórias deste idioma.</p> }
                 <a class="preview-link" href="#round-preview">Ver uma rodada de exemplo ↓</a>
             </div>
@@ -132,7 +139,10 @@
     private string LanguageName => StoryLanguagePreference.Name(CurrentLanguage);
     private StoryAppearance CurrentTheme => IsHorror ? ThemePalette.Horror : _state?.Appearance ?? ThemePalette.Arcade;
     private bool IsHorror => ThemePalette.IsHorror(_state?.Genre);
-    private IReadOnlyList<string> Genres => _catalog.Select(story => story.Genre.Trim()).Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
+    private IReadOnlyList<PublicStoryView> FilteredCatalog => _difficulty is null ? _catalog : _catalog.Where(story => story.Difficulty == _difficulty).ToArray();
+    private IReadOnlyList<string> Genres => FilteredCatalog.Select(story => story.Genre.Trim()).Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
+    private IReadOnlyList<string> AvailableLevels => _catalog.Select(story => story.Difficulty).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToArray();
+    private string? _difficulty;
     private AdventureView? _pendingAdventure;
     private const double SpinSeconds = 3;
     private enum LaunchPhase { Idle, Requesting, Spinning, Failed }
@@ -223,7 +233,10 @@
         catch (HttpRequestException error) { _catalogError = error.Message; }
         catch (OperationCanceledException) when (_lifetime.IsCancellationRequested) { }
         finally { _catalogLoading = false; }
+        if (_difficulty is not null && !AvailableLevels.Contains(_difficulty)) { _difficulty = null; }
     }
+
+    private void DifficultyChanged(ChangeEventArgs args) => _difficulty = string.IsNullOrEmpty(args.Value?.ToString()) ? null : args.Value.ToString();
 
     private async Task ChangeLanguageAsync(string language)
     {
@@ -250,7 +263,7 @@
         {
             if (_narrator is not null) { await _narrator.StopAsync(); }
             // Only a successful server snapshot can put the wheel in the spinning state.
-            var adventure = await Client.CreateAsync(null, _lifetime.Token, CurrentLanguage, _questionSeconds);
+            var adventure = await Client.CreateAsync(null, _lifetime.Token, CurrentLanguage, _questionSeconds, _difficulty);
             _browsing = true; SetState(null); _pendingAdventure = adventure;
             _launchPhase = LaunchPhase.Spinning; _error = null;
             using var spin = CancellationTokenSource.CreateLinkedTokenSource(_lifetime.Token);

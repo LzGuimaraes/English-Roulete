@@ -8,7 +8,7 @@ public interface ILobbyStore
     Task<IReadOnlyList<LobbyState>> TickMatchesAsync(CancellationToken token);
     Task<GuestProfile?> GuestAsync(Guid id, CancellationToken token);
     Task<GuestProfile> SaveGuestAsync(Guid? id, string nickname, string avatar, CancellationToken token);
-    Task<LobbyState> CreateAsync(Guid player, int capacity, CancellationToken token, string language = "en");
+    Task<LobbyState> CreateAsync(Guid player, int capacity, CancellationToken token, string language = "en", string? difficulty = null);
     Task<LobbyState> JoinAsync(Guid player, string code, CancellationToken token);
     Task<LobbyState?> CurrentAsync(Guid player, CancellationToken token);
     Task<LobbyState?> ReadAsync(Guid id, Guid player, CancellationToken token);

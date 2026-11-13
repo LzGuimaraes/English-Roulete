@@ -13,7 +13,8 @@ public sealed record LobbyState(Guid Id, string Code, int Capacity, Guid HostId,
     Guid? StoryVersionId, IReadOnlyList<LobbyMember> Members, DateTimeOffset LastActivityUtc, string Status = "Lobby",
     DateTimeOffset? RouletteStartedAtUtc = null, MultiplayerMatch? Match = null, IReadOnlyList<SeriesPlayer>? SeriesScores = null,
     Guid? PreparedFromMatchId = null, int CompletedGames = 0, string Language = StoryLanguage.English,
-    int QuestionSeconds = QuestionTiming.MultiplayerDefaultSeconds, IReadOnlyList<LobbyChatMessage>? ChatMessages = null);
+    int QuestionSeconds = QuestionTiming.MultiplayerDefaultSeconds, IReadOnlyList<LobbyChatMessage>? ChatMessages = null,
+    string? Difficulty = null);
 
 public static class LobbyRoom
 {
@@ -30,10 +31,11 @@ public static class LobbyRoom
     }
     public static void ValidateAvatar(string avatar)
     { if (!Avatars.Contains(avatar, StringComparer.Ordinal)) { throw new GameRuleException("INVALID_PROFILE", "Escolha um avatar do catálogo."); } }
-    public static LobbyState Create(Guid id, string code, int capacity, LobbyMember host, DateTimeOffset now, string language = StoryLanguage.English)
+    public static LobbyState Create(Guid id, string code, int capacity, LobbyMember host, DateTimeOffset now, string language = StoryLanguage.English, string? difficulty = null)
     {
         if (capacity is < 2 or > 8) { throw new GameRuleException("INVALID_CAPACITY", "Escolha de 2 a 8 vagas."); }
-        return new(id, code, capacity, host.PlayerId, 1, null, Array.AsReadOnly(new[] { host }), now, Language: StoryLanguage.Require(language));
+        return new(id, code, capacity, host.PlayerId, 1, null, Array.AsReadOnly(new[] { host }), now,
+            Language: StoryLanguage.Require(language), Difficulty: StoryDifficulty.Require(difficulty));
     }
     public static LobbyState Join(LobbyState state, LobbyMember member, DateTimeOffset now)
     {
@@ -55,9 +57,9 @@ public static class LobbyRoom
         return Touch(state with { Members = Array.AsReadOnly(state.Members.Select(member => member.PlayerId == player ? member with { Ready = ready } : member).ToArray()), StateVersion = state.StateVersion + 1 }, player, now);
     }
     public static LobbyState SetQuestionSeconds(LobbyState state, Guid player, long expectedVersion, int seconds, DateTimeOffset now)
-        => SetSettings(state, player, expectedVersion, seconds, state.Capacity, state.Language, now);
+        => SetSettings(state, player, expectedVersion, seconds, state.Capacity, state.Language, now, state.Difficulty);
 
-    public static LobbyState SetSettings(LobbyState state, Guid player, long expectedVersion, int seconds, int capacity, string language, DateTimeOffset now)
+    public static LobbyState SetSettings(LobbyState state, Guid player, long expectedVersion, int seconds, int capacity, string language, DateTimeOffset now, string? difficulty = null)
     {
         Authorize(state, player); Version(state, expectedVersion);
         if (state.HostId != player) { throw new GameRuleException("ROOM_FORBIDDEN", "Só o anfitrião configura a sala."); }
@@ -66,8 +68,16 @@ public static class LobbyRoom
         if (capacity is < 2 or > 8 || capacity < state.Members.Count)
         { throw new GameRuleException("INVALID_CAPACITY", "As vagas devem ser de 2 a 8 e acomodar todos os participantes atuais."); }
         language = StoryLanguage.Require(language);
-        if (state.QuestionSeconds == seconds && state.Capacity == capacity && state.Language == language) { return Touch(state, player, now); }
-        return Touch(state with { QuestionSeconds = seconds, Capacity = capacity, Language = language, StateVersion = state.StateVersion + 1 }, player, now);
+        difficulty = StoryDifficulty.Require(difficulty);
+        if (state.QuestionSeconds == seconds && state.Capacity == capacity && state.Language == language && state.Difficulty == difficulty) { return Touch(state, player, now); }
+        return Touch(state with
+        {
+            QuestionSeconds = seconds,
+            Capacity = capacity,
+            Language = language,
+            Difficulty = difficulty,
+            StateVersion = state.StateVersion + 1
+        }, player, now);
     }
     public static LobbyState AddChatMessage(LobbyState state, Guid player, Guid requestId, string message, DateTimeOffset now)
     {

@@ -16,11 +16,11 @@ public sealed class RoomClient(HttpClient http)
         using var response = await SendHttp(new(HttpMethod.Post, "api/rooms/identity") { Content = JsonContent.Create(new GuestRequest(nickname, avatar)) }, token);
         await Ensure(response, token); return await Read<GuestView>(response, token);
     }
-    public Task<RoomView> CreateAsync(int capacity, CancellationToken token, string language = "en") => Send<RoomView>("api/rooms/", new CreateRoomRequest(capacity, language), token);
+    public Task<RoomView> CreateAsync(int capacity, CancellationToken token, string language = "en", string? difficulty = null) => Send<RoomView>("api/rooms/", new CreateRoomRequest(capacity, language, difficulty), token);
     public Task<RoomView> JoinAsync(string code, CancellationToken token) => Send<RoomView>("api/rooms/join", new JoinRoomRequest(code), token);
     public Task<RoomView> ReadyAsync(RoomView room, bool ready, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/ready", new ReadyRoomRequest(room.StateVersion, ready), token);
-    public Task<RoomView> SettingsAsync(RoomView room, int questionSeconds, int capacity, string language, CancellationToken token) =>
-        Send<RoomView>($"api/rooms/{room.Id}/settings", new RoomSettingsRequest(room.StateVersion, questionSeconds, capacity, language), token);
+    public Task<RoomView> SettingsAsync(RoomView room, int questionSeconds, int capacity, string language, CancellationToken token, string? difficulty = null) =>
+        Send<RoomView>($"api/rooms/{room.Id}/settings", new RoomSettingsRequest(room.StateVersion, questionSeconds, capacity, language, difficulty), token);
     public Task<RoomView> SpinAsync(RoomView room, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/spin", new SpinRoomRequest(room.StateVersion), token);
     public Task<RoomView> NextAsync(RoomView room, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/next",
         new NextRoomRequest(room.StateVersion, room.Match?.Id ?? throw new RoomApiException("Atualize o resultado antes de preparar outra partida.")), token);

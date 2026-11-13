@@ -39,7 +39,7 @@ public sealed class LobbyStore(AdventureDbContext db, TimeProvider clock) : ILob
         row.Nickname = nickname; row.Avatar = avatar; await db.SaveChangesAsync(token);
         return new(row.Id, row.Nickname, row.Avatar);
     }
-    public async Task<LobbyState> CreateAsync(Guid player, int capacity, CancellationToken token, string language = "en")
+    public async Task<LobbyState> CreateAsync(Guid player, int capacity, CancellationToken token, string language = "en", string? difficulty = null)
     {
         await using var transaction = await db.Database.BeginTransactionAsync(token);
         await LockPlayer(player, token); await EnsureAvailable(player, token);
@@ -47,7 +47,7 @@ public sealed class LobbyStore(AdventureDbContext db, TimeProvider clock) : ILob
         const string alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
         var code = string.Concat(RandomNumberGenerator.GetBytes(8).Select(value => alphabet[value % alphabet.Length]));
         var now = clock.GetUtcNow();
-        var state = LobbyRoom.Create(Guid.NewGuid(), code, capacity, new(player, guest.Nickname, guest.Avatar, false, now, now), now, language);
+        var state = LobbyRoom.Create(Guid.NewGuid(), code, capacity, new(player, guest.Nickname, guest.Avatar, false, now, now), now, language, difficulty);
         var row = new LobbyRow { Id = state.Id, Code = state.Code, StateJson = JsonSerializer.Serialize(state) };
         db.Lobbies.Add(row); db.LobbyMemberships.Add(new() { PlayerId = player, RoomId = row.Id });
         await db.SaveChangesAsync(token); await transaction.CommitAsync(token); return state;

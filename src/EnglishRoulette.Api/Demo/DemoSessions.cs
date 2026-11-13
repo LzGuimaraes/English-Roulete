@@ -43,17 +43,20 @@ internal sealed class DemoSessions(ISoloSessionStore store, TimeProvider timePro
     }
 
     public async Task<AdventureView> CreateAsync(HttpContext context, Guid? versionId, CancellationToken cancellationToken,
-        string language = StoryLanguage.English, int questionSeconds = QuestionTiming.SoloDefaultSeconds)
+        string language = StoryLanguage.English, int questionSeconds = QuestionTiming.SoloDefaultSeconds, string? difficulty = null)
     {
         language = StoryLanguage.Require(language);
+        difficulty = StoryDifficulty.Require(difficulty);
         questionSeconds = (int)QuestionTiming.FromSeconds(questionSeconds).TotalSeconds;
         var previousHash = CredentialHash(context);
         var previous = previousHash is null ? null : await store.FindAsync(previousHash, cancellationToken);
-        versionId ??= StoryRoulette.Draw(await catalog.PublishedAsync(cancellationToken), language: language);
+        versionId ??= StoryRoulette.Draw(await catalog.PublishedAsync(cancellationToken), language: language, difficulty: difficulty);
         var content = await catalog.LoadPublishedAsync(versionId, cancellationToken)
             ?? throw new GameRuleException("CONTENT_NOT_PUBLISHED", "Escolha uma história publicada no catálogo.");
         if (content.Metadata.Language != language)
         { throw new GameRuleException("LANGUAGE_MISMATCH", "Esta história pertence a outro idioma. Volte ao catálogo e escolha o idioma desejado."); }
+        if (difficulty is not null && content.Metadata.Difficulty != difficulty)
+        { throw new GameRuleException("DIFFICULTY_MISMATCH", "Esta história pertence a outro nível."); }
         var guest = await context.AuthenticateAsync(RoomEndpoints.PlayerScheme);
         var playerId = Guid.TryParse(guest.Principal?.FindFirstValue(ClaimTypes.NameIdentifier), out var guestId)
             ? guestId : previous?.Checkpoint.PlayerId ?? Guid.NewGuid();

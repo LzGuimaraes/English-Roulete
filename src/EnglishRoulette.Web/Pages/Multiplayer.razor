@@ -34,7 +34,7 @@
             else if (_room is null)
             {
                 <h1>Olá, @_guest.Nickname <span>@_guest.Avatar</span></h1><p>Prepare o grupo. Você pode criar uma sala privada ou usar um convite.</p>
-                <div class="room-entry"><section class="admin-card"><div class="eyebrow">SEU GRUPO, SUA SALA</div><h2>Crie o ponto de encontro.</h2><LanguageSelector Value="@CurrentLanguage" ValueChanged="ChangeLanguageAsync" Disabled="_busy" /><p class="catalog-note">Texto e áudio no idioma escolhido para todo o grupo.</p><label>Vagas<select @bind="_capacity">@for (var size = 2; size <= 8; size++) { <option value="@size">@size jogadores</option> }</select></label><button class="primary" disabled="@_busy" @onclick="CreateAsync">Criar sala →</button></section>
+                <div class="room-entry"><section class="admin-card"><div class="eyebrow">SEU GRUPO, SUA SALA</div><h2>Crie o ponto de encontro.</h2><LanguageSelector Value="@CurrentLanguage" ValueChanged="ChangeLanguageAsync" Disabled="_busy" /><p class="catalog-note">Texto e áudio no idioma escolhido para todo o grupo.</p><label>Nível das histórias<select value="@(_difficulty ?? "")" @onchange="EntryDifficultyChanged" disabled="@_busy"><option value="">Todos os níveis</option>@foreach (var level in AvailableLevels) { <option value="@level">@level</option> }</select></label><label>Vagas<select @bind="_capacity">@for (var size = 2; size <= 8; size++) { <option value="@size">@size jogadores</option> }</select></label><button class="primary" disabled="@_busy" @onclick="CreateAsync">Criar sala →</button></section>
                     <form class="admin-card" @onsubmit="JoinAsync" @onsubmit:preventDefault><div class="eyebrow">JÁ TEM UM CONVITE?</div><h2>Chegue mais.</h2><label>Código da sala<input @bind="_code" required maxlength="8" minlength="8" autocapitalize="characters" /></label><button class="secondary" disabled="@_busy" type="submit">Entrar na sala →</button></form></div>
                 <button class="text-button" @onclick="() => _editProfile = true">Trocar apelido ou avatar</button>
             }
@@ -51,14 +51,15 @@
                     <section class="room-start-bar" aria-label="Início da partida">
                         <div><strong>@(_room.GameNumber > 1 ? CanSpin ? "Pontos mantidos. Todos prontos!" : "Pontos mantidos. Confirmem “Estou pronto!”" : CanSpin ? "Todos prontos. Vamos começar!" : "Preparem o grupo para começar.")</strong><p>@(_room.HostId == _room.ViewerId ? "Mínimo de 2 pessoas conectadas e todos prontos. Você gira a roleta." : "Mínimo de 2 pessoas conectadas e todos prontos. O anfitrião gira.")</p></div>
                         @if (_room.HostId == _room.ViewerId) { <button class="primary" disabled="@(_busy || !CanSpin)" @onclick="SpinAsync">Iniciar e girar a roleta ↗</button> }
-                        @if (_stories.Count == 0) { <small>Nenhuma história disponível neste idioma.</small> }
-                        @if (_stories.Count == 0) { <button class="text-button" disabled="@_busy" @onclick="ReconnectAsync">Recarregar catálogo</button> }
+                        @if (FilteredStories.Count == 0) { <small>Nenhuma história disponível neste idioma e nível.</small> }
+                        @if (FilteredStories.Count == 0) { <button class="text-button" disabled="@_busy" @onclick="ReconnectAsync">Recarregar catálogo</button> }
                     </section>
                     <section class="admin-card room-settings" aria-label="Configurações da sala">
                         <div><h2>Configurações da sala</h2><p>@(_room.HostId == _room.ViewerId ? "Defina antes de girar a roleta. Todos verão as alterações." : "O anfitrião define estas opções antes da partida.")</p></div>
                         <label>Tempo por pergunta<select value="@_room.QuestionSeconds" @onchange="QuestionSecondsChangedAsync" disabled="@(_busy || _room.HostId != _room.ViewerId)">@foreach (var seconds in QuestionTimeOptions) { <option value="@seconds">@seconds segundos</option> }</select></label>
                         <label>Vagas<select value="@_room.Capacity" @onchange="CapacityChangedAsync" disabled="@(_busy || _room.HostId != _room.ViewerId)">@for (var size = 2; size <= 8; size++) { <option value="@size" disabled="@(size < _room.Members.Count)">@size jogadores</option> }</select></label>
                         <label>Idioma<select value="@_room.Language" @onchange="RoomLanguageChangedAsync" disabled="@(_busy || _room.HostId != _room.ViewerId)"><option value="en">Inglês</option><option value="pt-BR">Português</option></select></label>
+                        <label>Nível<select value="@(_room.Difficulty ?? "")" @onchange="RoomDifficultyChangedAsync" disabled="@(_busy || _room.HostId != _room.ViewerId)"><option value="">Todos os níveis</option>@foreach (var level in AvailableLevels) { <option value="@level">@level</option> }</select></label>
                     </section>
                 }
                 <div class="room-grid"><div class="room-lobby-sidebar"><section class="admin-card room-invitation"><div class="eyebrow">CONVIDE OS AMIGOS</div><div class="room-invite-controls"><strong class="room-code">@_room.Code</strong><button class="secondary" @onclick="CopyAsync">@(_copied ? "Convite copiado" : "Copiar convite")</button></div><details class="room-invite-link"><summary>Ver link de convite</summary><label>Link do convite<input readonly value="@InviteUrl" /></label></details>@if (_copied) { <p class="room-copy-status" role="status">Convite copiado.</p> }
@@ -91,6 +92,7 @@
     private bool Playing => _room?.Match is { Scene.Phase: not "Roulette" };
     private string _nickname = "", _avatar = "🦊", _code = "";
     private int _capacity = 8;
+    private string? _difficulty;
     private static readonly int[] QuestionTimeOptions = [10, 15, 20, 30, 45, 60];
     private bool _loading = true, _busy, _refreshing, _connectionError, _editProfile, _live, _copied;
     private string? _error;
@@ -100,8 +102,10 @@
     private StoryAppearance CurrentTheme => ThemePalette.IsHorror(CurrentGenre) ? ThemePalette.Horror : _room?.Match?.Scene.Appearance ?? ThemePalette.Arcade;
     private string? CurrentGenre => _room?.Match?.Scene.Genre ?? SelectedStory?.Genre;
     private PublicStoryView? SelectedStory => _stories.FirstOrDefault(story => story.Id == _room?.StoryVersionId);
-    private IReadOnlyList<string> Genres => _stories.Select(story => story.Genre.Trim()).Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
-    private bool CanSpin => _stories.Count > 0 && _room is { Members.Count: >= 2 } room && room.Members.All(member => member.Ready && member.Connected);
+    private IReadOnlyList<string> AvailableLevels => _stories.Select(story => story.Difficulty).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).ToArray();
+    private IReadOnlyList<PublicStoryView> FilteredStories => _room?.Difficulty is { } level ? _stories.Where(story => story.Difficulty == level).ToArray() : _stories;
+    private IReadOnlyList<string> Genres => FilteredStories.Select(story => story.Genre.Trim()).Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
+    private bool CanSpin => FilteredStories.Count > 0 && _room is { Members.Count: >= 2 } room && room.Members.All(member => member.Ready && member.Connected);
     private DateTimeOffset _receivedAtUtc;
     private DateTimeOffset _nextHubAttempt;
     private double SpinElapsed => _room?.RouletteStartedAtUtc is { } start ? Math.Max(0, (_room.ServerNowUtc - start + (Clock.GetUtcNow() - _receivedAtUtc)).TotalSeconds) : 0;
@@ -123,7 +127,9 @@
         _requestedCatalogLanguage = language;
         var stories = await Catalog.CatalogAsync(_life.Token, language);
         if (language == CurrentLanguage) { _stories = stories; }
+        if (_room is null && _difficulty is not null && !AvailableLevels.Contains(_difficulty)) { _difficulty = null; }
     }
+    private void EntryDifficultyChanged(ChangeEventArgs args) => _difficulty = string.IsNullOrEmpty(args.Value?.ToString()) ? null : args.Value.ToString();
     private Task ChangeLanguageAsync(string language) => Run(async () =>
     {
         if (_room is not null) { return; }
@@ -132,28 +138,34 @@
     });
     private async Task ReconnectAsync() => await Run(async () => { await RefreshAsync(); await LoadCatalogAsync(); });
     private async Task IdentifyAsync() => await Run(async () => { _guest = await Client.IdentifyAsync(_nickname, _avatar, _life.Token); _editProfile = false; await RefreshAsync(); });
-    private async Task CreateAsync() => await Run(async () => { _room = await Client.CreateAsync(_capacity, _life.Token, CurrentLanguage); _copied = false; _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
+    private async Task CreateAsync() => await Run(async () => { _room = await Client.CreateAsync(_capacity, _life.Token, CurrentLanguage, _difficulty); _copied = false; _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
     private async Task JoinAsync() => await Run(async () => { _room = await Client.JoinAsync(_code, _life.Token); LanguagePreference.Value = _room.Language; await LoadCatalogAsync(); _copied = false; _receivedAtUtc = Clock.GetUtcNow(); await ConnectAsync(); });
     private async Task ReadyAsync() => await Run(async () => { if (_room is { } room) { _room = await Client.ReadyAsync(room, !ViewerReady, _life.Token); } });
     private async Task QuestionSecondsChangedAsync(ChangeEventArgs args) => await Run(async () =>
     {
         if (_room is not { } room || !int.TryParse(args.Value?.ToString(), out var seconds)) { return; }
-        await SaveSettingsAsync(room, seconds, room.Capacity, room.Language);
+        await SaveSettingsAsync(room, seconds, room.Capacity, room.Language, room.Difficulty);
     });
     private async Task CapacityChangedAsync(ChangeEventArgs args) => await Run(async () =>
     {
         if (_room is not { } room || !int.TryParse(args.Value?.ToString(), out var capacity)) { return; }
-        await SaveSettingsAsync(room, room.QuestionSeconds, capacity, room.Language);
+        await SaveSettingsAsync(room, room.QuestionSeconds, capacity, room.Language, room.Difficulty);
     });
     private async Task RoomLanguageChangedAsync(ChangeEventArgs args) => await Run(async () =>
     {
         if (_room is not { } room || args.Value is not string language) { return; }
-        await SaveSettingsAsync(room, room.QuestionSeconds, room.Capacity, language);
+        await SaveSettingsAsync(room, room.QuestionSeconds, room.Capacity, language, null);
         await LoadCatalogAsync();
     });
-    private async Task SaveSettingsAsync(RoomView room, int seconds, int capacity, string language)
+    private async Task RoomDifficultyChangedAsync(ChangeEventArgs args) => await Run(async () =>
     {
-        _room = await Client.SettingsAsync(room, seconds, capacity, language, _life.Token);
+        if (_room is not { } room) { return; }
+        var difficulty = string.IsNullOrEmpty(args.Value?.ToString()) ? null : args.Value.ToString();
+        await SaveSettingsAsync(room, room.QuestionSeconds, room.Capacity, room.Language, difficulty);
+    });
+    private async Task SaveSettingsAsync(RoomView room, int seconds, int capacity, string language, string? difficulty)
+    {
+        _room = await Client.SettingsAsync(room, seconds, capacity, language, _life.Token, difficulty);
         _receivedAtUtc = Clock.GetUtcNow();
         LanguagePreference.Value = _room.Language;
     }

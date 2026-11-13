@@ -44,11 +44,11 @@ public sealed class AdventureClient(HttpClient http)
         return await ReadAsync(response, bounded);
     }, token);
 
-    public Task<AdventureView> CreateAsync(Guid? versionId, CancellationToken token, string language = "en", int questionSeconds = 20) => RequestAsync(async bounded =>
+    public Task<AdventureView> CreateAsync(Guid? versionId, CancellationToken token, string language = "en", int questionSeconds = 20, string? difficulty = null) => RequestAsync(async bounded =>
     {
         var generation = _generation;
         using var request = SessionRequest(HttpMethod.Post, "api/demo/session");
-        request.Content = JsonContent.Create(new CreateAdventureRequest(versionId, Language: language, QuestionSeconds: questionSeconds));
+        request.Content = JsonContent.Create(new CreateAdventureRequest(versionId, Language: language, QuestionSeconds: questionSeconds, Difficulty: difficulty));
         using var response = await http.SendAsync(request, bounded);
         await EnsureAsync(response, bounded);
         var state = await ReadAsync(response, bounded);
@@ -117,7 +117,8 @@ public sealed class AdventureClient(HttpClient http)
         catch (JsonException) { }
         var message = code switch
         {
-            "CONTENT_NOT_PUBLISHED" => "Não há histórias publicadas neste idioma. Atualize o catálogo ou escolha outro idioma.",
+            "CONTENT_NOT_PUBLISHED" => "Não há histórias publicadas para este idioma e nível. Atualize o catálogo ou mude o filtro.",
+            "INVALID_DIFFICULTY" or "DIFFICULTY_MISMATCH" => "Escolha um nível disponível para esta história.",
             "INVALID_LANGUAGE" or "LANGUAGE_MISMATCH" => "O idioma solicitado não corresponde à história. Volte ao menu e escolha inglês ou português.",
             "INVALID_AUDIO" or "MEDIA_UNAVAILABLE" => "A narração desta história está indisponível. Tente novamente em instantes.",
             _ when response.StatusCode == HttpStatusCode.TooManyRequests => "Muitas tentativas em pouco tempo. Aguarde um minuto e tente novamente.",

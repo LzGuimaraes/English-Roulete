@@ -44,4 +44,4 @@ public sealed record AdventureCommand(
 public sealed record VisitedSceneView(string Key, string Title);
 public sealed record CreateAdventureRequest(Guid? StoryVersionId = null,
     StoryAppearance? Appearance = null,
-    SceneVisualView? Visual = null, string Language = "en", int QuestionSeconds = 20);
+    SceneVisualView? Visual = null, string Language = "en", int QuestionSeconds = 20, string? Difficulty = null);

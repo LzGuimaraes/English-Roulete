@@ -23,6 +23,25 @@ public sealed class LobbyRoomTests
             LobbyRoom.Create(Guid.NewGuid(), "ABCDEFGH", 2, host, Start, "es")).Code);
     }
 
+    [Fact]
+    public void Difficulty_IsPersistedAndOnlyHostCanChangeItBeforeSpin()
+    {
+        var host = Member("Host");
+        var guest = Member("Guest");
+        var room = LobbyRoom.Join(LobbyRoom.Create(Guid.NewGuid(), "ABCDEFGH", 2, host, Start, difficulty: "A1"), guest, Start);
+        Assert.Equal("A1", JsonSerializer.Deserialize<LobbyState>(JsonSerializer.Serialize(room))!.Difficulty);
+        Assert.Equal("ROOM_FORBIDDEN", Assert.Throws<GameRuleException>(() =>
+            LobbyRoom.SetSettings(room, guest.PlayerId, room.StateVersion, 30, 2, "en", Start, "B1")).Code);
+        var updated = LobbyRoom.SetSettings(room, host.PlayerId, room.StateVersion, 30, 2, "en", Start, "B1");
+        Assert.Equal("B1", updated.Difficulty);
+        Assert.Equal("B1", LobbyRoom.SetQuestionSeconds(updated, host.PlayerId, updated.StateVersion, 45, Start).Difficulty);
+        Assert.Equal("INVALID_DIFFICULTY", Assert.Throws<GameRuleException>(() =>
+            LobbyRoom.SetSettings(updated, host.PlayerId, updated.StateVersion, 30, 2, "en", Start, "Z9")).Code);
+        var legacy = JsonSerializer.SerializeToNode(room)!.AsObject();
+        legacy.Remove("Difficulty");
+        Assert.Null(legacy.Deserialize<LobbyState>()!.Difficulty);
+    }
+
     [Theory]
     [InlineData(1)]
     [InlineData(9)]

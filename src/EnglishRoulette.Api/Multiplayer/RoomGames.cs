@@ -39,7 +39,7 @@ internal sealed class RoomGames(IAdminCatalog catalog, ILobbyStore lobbies, Time
                     state.SeriesScores?.SingleOrDefault(player => player.PlayerId == member.PlayerId)?.Score ?? 0)).ToArray(), nowUtc, state.RouletteStartedAtUtc,
             state.Match is { } match && content is not null ? Map(match, content, state, actor, nowUtc) : null, state.CompletedGames + 1, state.Language,
             state.QuestionSeconds, (state.ChatMessages ?? []).Select(message => new RoomChatMessageView(message.Id, message.PlayerId,
-                message.Nickname, message.Avatar, message.Text, message.SentAtUtc)).ToArray());
+                message.Nickname, message.Avatar, message.Text, message.SentAtUtc)).ToArray(), state.Difficulty);
     }
     private static MultiplayerMatchView Map(MultiplayerMatch match, PublishedAdventure content, LobbyState room, Guid actor, DateTimeOffset now)
     {

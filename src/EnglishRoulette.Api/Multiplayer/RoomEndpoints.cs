@@ -74,7 +74,7 @@ internal static class RoomEndpoints
         group.MapGet("/{id:guid}", async (Guid id, HttpContext context, ILobbyStore lobbies, RoomGames games) =>
             await lobbies.ReadAsync(id, Actor(context), context.RequestAborted) is { } state ? Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted)) : Results.NotFound());
         group.MapPost("/", async (CreateRoomRequest request, HttpContext context, ILobbyStore lobbies, RoomGames games) =>
-            Results.Ok(await games.ViewAsync(await lobbies.CreateAsync(Actor(context), request.Capacity, context.RequestAborted, request.Language), Actor(context), context.RequestAborted))).RequireRateLimiting("RoomEntry");
+            Results.Ok(await games.ViewAsync(await lobbies.CreateAsync(Actor(context), request.Capacity, context.RequestAborted, request.Language, request.Difficulty), Actor(context), context.RequestAborted))).RequireRateLimiting("RoomEntry");
         group.MapPost("/join", async (JoinRoomRequest request, HttpContext context, ILobbyStore lobbies, RoomGames games, IHubContext<RoomHub> hub) =>
         {
             var state = await lobbies.JoinAsync(Actor(context), request.Code ?? "", context.RequestAborted);
@@ -89,7 +89,7 @@ internal static class RoomEndpoints
             ILobbyStore lobbies, RoomGames games, IHubContext<RoomHub> hub) =>
         {
             var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) =>
-                LobbyRoom.SetSettings(state, Actor(context), request.ExpectedStateVersion, request.QuestionSeconds, request.Capacity, request.Language, now), context.RequestAborted);
+                LobbyRoom.SetSettings(state, Actor(context), request.ExpectedStateVersion, request.QuestionSeconds, request.Capacity, request.Language, now, request.Difficulty), context.RequestAborted);
             await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
         }).RequireRateLimiting("AdminWrite");
         group.MapPost("/{id:guid}/spin", async (Guid id, SpinRoomRequest request, HttpContext context, ILobbyStore lobbies,
@@ -97,7 +97,7 @@ internal static class RoomEndpoints
         {
             var room = await lobbies.ReadAsync(id, Actor(context), context.RequestAborted)
                 ?? throw new GameRuleException("ROOM_FORBIDDEN", "Você não participa desta sala.");
-            var selected = StoryRoulette.Draw(await catalog.PublishedAsync(context.RequestAborted), language: room.Language);
+            var selected = StoryRoulette.Draw(await catalog.PublishedAsync(context.RequestAborted), language: room.Language, difficulty: room.Difficulty);
             var content = await catalog.LoadPublishedAsync(selected, context.RequestAborted)
                 ?? throw new GameRuleException("INVALID_CONTENT", "O catálogo mudou. Tente girar novamente.");
             var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) =>

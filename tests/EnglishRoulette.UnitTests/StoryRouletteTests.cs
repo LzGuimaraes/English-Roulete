@@ -20,6 +20,20 @@ public sealed class StoryRouletteTests
             StoryRoulette.Draw([english, portuguese], language: "es")).Code);
     }
 
+    [Fact]
+    public void Draw_UsesOnlySelectedLevel_AndRejectsUnavailableOrInvalidLevels()
+    {
+        var beginner = Story("Terror") with { Difficulty = "A1" };
+        var intermediate = Story("Mistério") with { Difficulty = "B1" };
+        var portuguese = Story("Comédia") with { Difficulty = "A1", Language = StoryLanguage.Portuguese };
+        Assert.Equal(beginner.Id, StoryRoulette.Draw([beginner, intermediate, portuguese], difficulty: "A1"));
+        Assert.Equal(intermediate.Id, StoryRoulette.Draw([beginner, intermediate], difficulty: "B1"));
+        Assert.Equal("CONTENT_NOT_PUBLISHED", Assert.Throws<GameRuleException>(() =>
+            StoryRoulette.Draw([beginner, intermediate], difficulty: "C1")).Code);
+        Assert.Equal("INVALID_DIFFICULTY", Assert.Throws<GameRuleException>(() =>
+            StoryRoulette.Draw([beginner], difficulty: "Z9")).Code);
+    }
+
     private static CatalogSummary Story(string genre, string status = "Published") =>
         new(Guid.NewGuid(), Guid.NewGuid(), 1, "Story", genre, "A2", status, 1, DateTimeOffset.UnixEpoch);
 
