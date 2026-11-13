@@ -95,7 +95,7 @@
 /* Room forms and buttons share the game skin. */
 .game-experience .admin-card { background:#211a33d9; color:#f5edff; border:1px solid #ffffff20; border-radius:20px; }
 .game-experience .room-profile input,.game-experience .room-entry input,.game-experience .room-grid input,.game-experience .room-entry select { background:#130e20; border:1px solid #ffffff35; color:#f6edff; }
-.game-experience .room-code { color:#dac0ff; }.game-experience .room-live { color:#c4acf0; }.game-experience .room-member { border-color:#ffffff20; }.game-experience .avatar-picker button { background:#ffffff08; border-color:#ffffff15; }.game-experience .avatar-picker button.selected { background:#a783ea35; border-color:#bf9df7; }.game-experience .danger { color:#ffb2bc; }.game-experience .room-development { background:#ffffff08; color:#bfb0d3; border:1px solid #ffffff16; }.game-experience .room-intro h1 em { color:#c2a1fb; }.game-experience .room-solo { min-height:44px; padding:10px 15px; }.room-roulette { overflow:hidden; }.room-roulette .roulette-stage { transform:scale(.84); margin:-26px -20px -20px; min-height:455px; }.room-roulette>h2 { margin-top:15px; }.game-experience .room-ready { display:flex; }
+.game-experience .room-code { color:#dac0ff; }.game-experience .room-live { color:#c4acf0; }.game-experience .room-member { border-color:#ffffff20; }.game-experience .avatar-picker button { background:#ffffff08; border-color:#ffffff15; }.game-experience .avatar-picker button.selected { background:#a783ea35; border-color:#bf9df7; }.game-experience .danger { color:#ffb2bc; }.game-experience .room-intro h1 em { color:#c2a1fb; }.game-experience .room-solo { min-height:44px; padding:10px 15px; }.room-roulette { overflow:hidden; }.room-roulette .roulette-stage { transform:scale(.84); margin:-26px -20px -20px; min-height:455px; }.room-roulette>h2 { margin-top:15px; }
 @keyframes roulette-spin { from { transform:rotate(0deg); } to { transform:rotate(var(--wheel-stop)); } }
 @keyframes orbit-drift { to { transform:rotate(360deg); } }
 @keyframes float-spark { 50% { transform:translateY(-12px) rotate(12deg); opacity:.5; } }
@@ -270,8 +270,6 @@
 .question-time-setting { display:grid; gap:6px; max-width:320px; margin:0 0 24px; color:#eee4f5; font-size:13px; font-weight:700; }
 .question-time-setting select { width:100%; min-height:44px; padding:10px 12px; border:1px solid #ffffff35; border-radius:10px; background:#130e20; color:#f6edff; font:inherit; }
 .question-time-setting small { color:#bfb0d3; font-size:11px; font-weight:400; line-height:1.5; }
-.room-time-setting { margin:0 0 8px; }
-.room-time-setting select { max-width:220px; }
 .room-settings { display:grid; grid-template-columns:minmax(180px,1.4fr) repeat(4,minmax(125px,1fr)); gap:12px; align-items:end; margin-bottom:14px; }
 .room-settings h2 { font-size:17px; margin:0 0 4px; }
 .room-settings p { margin:0; color:#c7b8d4; font-size:12px; line-height:1.4; }
@@ -302,7 +300,6 @@
 .chat-form input { min-width:0; min-height:42px; padding:8px 10px; border:1px solid #ffffff35; border-radius:9px; background:#130e20; color:#f6edff; }
 .chat-form button { min-height:42px; padding:8px 12px; font-size:12px; }
 @media(max-width:800px) {
-    .room-time-setting select { max-width:none; }
     .match-chat { width:100%; box-sizing:border-box; }
 }
 
@@ -442,7 +439,7 @@
     .match-scoreboard.scoreboard-expanded .scoreboard-content { display:block; position:absolute; right:0; top:calc(100% + 8px); bottom:auto; width:min(650px,85vw); max-height:65dvh; overflow:auto; margin:0; padding:14px; border:1px solid var(--game-border); border-radius:12px; background:var(--game-panel); z-index:6; }
     .match-scoreboard .scoreboard-content ol { grid-template-columns:repeat(4,minmax(0,1fr)); }
 }
-.room-invite-controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; }
+.room-invite-controls { display:block; }
 .room-invite-link { position:relative; min-width:0; }
 .room-invite-link summary { cursor:pointer; min-height:44px; padding:12px 0; font-size:13px; }
 @media(min-width:768px) and (min-height:560px) {
@@ -711,7 +708,6 @@
 .game-experience .room-entry .catalog-note { margin:-4px 0 12px; }
 .game-experience .level-setting,.game-experience .question-time-setting { display:grid; gap:7px; max-width:340px; margin:0 0 18px; color:#eee4f5; font-size:13px; font-weight:700; }
 .game-experience .level-setting small,.game-experience .question-time-setting small { color:#bfb0d3; font-size:11px; font-weight:400; line-height:1.5; }
-.room-invite-controls { display:block; }
 .room-invite-controls .room-code { margin:12px 0 14px; }
 .room-share-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; width:100%; }
 .game-experience .room-share-actions .secondary { min-width:0; min-height:44px; padding:9px 7px; font-size:12px; line-height:1.25; text-align:center; white-space:normal; gap:0; }
