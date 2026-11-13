@@ -26,6 +26,10 @@ module.exports = async function multiplayer({ browser, base, errors, screen }) {
         };
     });
     const snapshot = async person => (await person.page.request.get(base + '/api/rooms/current')).json();
+    const waitForChatBottom = person => person.page.waitForFunction(() => {
+        const log = document.querySelector('.chat-log');
+        return log && Math.abs(log.scrollHeight - log.clientHeight - log.scrollTop) <= 2;
+    });
     try {
         let badIdentity = true, failedCatalog = true;
         await host.page.route('**/api/catalog', route => failedCatalog ? route.fulfill({ status: 503, body: '' }) : route.continue());
@@ -43,10 +47,29 @@ module.exports = async function multiplayer({ browser, base, errors, screen }) {
         await host.page.getByRole('button', { name: 'Criar sala →', exact: true }).click();
         await host.page.locator('.room-code').waitFor();
         const code = (await host.page.locator('.room-code').innerText()).trim();
+        const whatsapp = new URL(await host.page.getByRole('link', { name: 'Enviar convite pelo WhatsApp' }).getAttribute('href'));
+        assert.equal(whatsapp.hostname, 'wa.me');
+        assert.ok(whatsapp.searchParams.get('text').includes('/join/' + code));
+        await host.context.grantPermissions(['clipboard-read', 'clipboard-write']);
+        await host.page.getByRole('button', { name: 'Copiar link', exact: true }).click();
+        assert.ok((await host.page.evaluate(() => navigator.clipboard.readText())).endsWith('/join/' + code));
+        await host.page.getByRole('button', { name: 'Compartilhar', exact: true }).waitFor();
+        for (let index = 0; index < 8; index++) {
+            await host.page.getByLabel('Mensagem para a sala').fill(`Mensagem ${index} ${'teste de rolagem '.repeat(8)}`);
+            await host.page.getByRole('button', { name: 'Enviar', exact: true }).click();
+        }
+        await host.page.locator('.chat-message').last().getByText('Mensagem 7', { exact: false }).waitFor();
+        await waitForChatBottom(host);
         await guest.page.goto(base + '/join/' + code);
         await guest.page.getByLabel('Seu apelido').fill('QAGuest');
         await guest.page.getByRole('button', { name: 'Entrar no lobby →', exact: true }).click();
         await guest.page.getByRole('button', { name: 'Entrar na sala →', exact: true }).click();
+        await guest.page.locator('.chat-message').last().getByText('Mensagem 7', { exact: false }).waitFor();
+        await waitForChatBottom(guest);
+        await guest.page.getByLabel('Mensagem para a sala').fill('Cheguei!');
+        await guest.page.getByRole('button', { name: 'Enviar', exact: true }).click();
+        await host.page.locator('.chat-message').last().getByText('Cheguei!', { exact: true }).waitFor();
+        await waitForChatBottom(host);
         await guest.page.getByRole('button', { name: 'Estou pronto! ✓', exact: true }).click();
         await host.page.locator('.room-member').filter({ hasText: 'QAGuest' }).locator('.member-ready.is-ready').waitFor();
         await host.page.getByRole('button', { name: 'Estou pronto! ✓', exact: true }).click();
@@ -57,11 +80,23 @@ module.exports = async function multiplayer({ browser, base, errors, screen }) {
         await screen(host.page, 'multiplayer-ready-mobile');
         await launch.click();
         for (const person of people) await person.page.locator('.phase-preloading').waitFor({ timeout: 20000 });
+        await screen(host.page, 'multiplayer-preloading-mobile');
+        const audioAction = await host.page.locator('.scene-ready button').boundingBox();
+        assert.ok(audioAction && audioAction.y < 844, 'The audio confirmation must be discoverable on mobile.');
+        for (const person of people) {
+            await person.page.locator('.chat-message').last().getByText('Cheguei!', { exact: true }).waitFor();
+            await waitForChatBottom(person);
+        }
         console.log('Multiplayer: shared preload.');
         const initial = await snapshot(host), shared = await snapshot(guest);
         assert.equal(initial.storyVersionId, shared.storyVersionId);
         assert.equal(initial.match.id, shared.match.id);
         await guest.page.getByText('Não foi possível carregar a narração.', { exact: true }).waitFor();
+        const manualAudio = guest.page.getByRole('button', { name: 'Carregar e ativar áudio', exact: true });
+        assert.ok(await manualAudio.isEnabled());
+        await manualAudio.click();
+        await guest.page.getByText('O navegador não liberou o áudio.', { exact: false }).waitFor();
+        assert.equal((await snapshot(guest)).match.myAudioReady, false);
         failMedia = false;
         await guest.page.getByRole('button', { name: 'Tentar carregar áudio novamente', exact: true }).click();
         let questions = 0, votes = 0, refreshed = false;
@@ -73,6 +108,7 @@ module.exports = async function multiplayer({ browser, base, errors, screen }) {
             for (const person of people) {
                 await person.page.waitForFunction(() => !document.querySelector('.scene-ready button')?.disabled);
                 await person.page.getByRole('button', { name: 'Ativar áudio e confirmar', exact: true }).click();
+                await person.page.waitForFunction(() => document.querySelector('.scene-ready button')?.textContent.includes('confirmado') || !document.querySelector('.scene-ready'));
             }
             for (const person of people) await person.page.locator('.phase-countdown').waitFor();
             const a = await snapshot(host), b = await snapshot(guest);

@@ -33,8 +33,8 @@
             @if (State.Phase == "Preloading")
             {
                 <div class="scene-ready"><p>Carregue e ative o áudio. A contagem começa quando os jogadores conectados confirmarem.</p>
-                    <button class="primary" disabled="@(Busy || !_audioReady || Match.MyAudioReady)" @onclick="ConfirmAsync">@(Match.MyAudioReady ? "Áudio confirmado ✓" : "Ativar áudio e confirmar")</button>
-                    <p role="status">@(!_audioReady ? "Aguardando a narração carregar. Se falhar, tente carregar o áudio novamente." : Match.MyAudioReady ? "Aguardando os outros jogadores confirmarem o áudio." : "Toque para permitir a reprodução da narração.")</p>
+                    <button class="primary" disabled="@(Busy || Match.MyAudioReady)" @onclick="ConfirmAsync">@(Match.MyAudioReady ? "Áudio confirmado ✓" : _audioReady ? "Ativar áudio e confirmar" : "Carregar e ativar áudio")</button>
+                    <p role="status">@(!_audioReady ? "Toque para carregar o áudio. Se falhar, use “Tentar carregar áudio novamente”." : Match.MyAudioReady ? "Aguardando os outros jogadores confirmarem o áudio." : "Toque para permitir a reprodução da narração.")</p>
                 </div>
             }
             else if (State.Phase == "Countdown")
@@ -121,7 +121,12 @@
     private async Task ConfirmAsync()
     {
         _audioError = null;
-        try { if (_narrator is not null) { await _narrator.UnlockAsync(); await SendAsync("audio-ready"); } }
+        try
+        {
+            if (_narrator is null) { return; }
+            if (await _narrator.UnlockAsync()) { await SendAsync("audio-ready"); }
+            else { _audioError = "O áudio ainda está carregando. Toque novamente quando estiver pronto."; }
+        }
         catch (JSException) { _audioError = "O navegador não liberou o áudio. Toque novamente para ativar e confirmar."; }
     }
     private Task SendAsync(string kind, string? key = null) => OnCommand.InvokeAsync(new(Guid.NewGuid(), State.StateVersion, Match.SceneInstanceId, kind, key));

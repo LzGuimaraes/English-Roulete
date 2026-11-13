@@ -174,7 +174,7 @@ async function failedStart(body, status) {
         await page.route('**/api/catalog/round-preview', route => route.fulfill({ status: 204 }));
         await home(page);
         assert.ok(await page.getByRole('button', { name: /Iniciar aventura solo/ }).isDisabled());
-        assert.ok(await page.getByText('Ainda não há histórias publicadas para jogar.', { exact: false }).isVisible());
+        assert.ok(await page.getByText('Ainda não há histórias publicadas em inglês.', { exact: false }).isVisible());
         assert.equal(await page.locator('.wheel-label').count(), 0); // No fabricated genres.
         await page.getByRole('button', { name: 'Atualizar catálogo', exact: true }).click();
         await context.close();

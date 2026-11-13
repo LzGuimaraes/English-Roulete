@@ -128,10 +128,12 @@
         await _module.InvokeVoidAsync("play", _audio);
     }
 
-    public async Task UnlockAsync()
+    public async Task<bool> UnlockAsync()
     {
-        if (!_ready || _module is null) { throw new JSException("Aguarde o áudio carregar."); }
-        await _module.InvokeVoidAsync("unlock", _audio);
+        if (_module is null) { throw new JSException("O áudio ainda está sendo preparado."); }
+        var ready = await _module.InvokeAsync<bool>("unlock", _audio);
+        if (ready) { _ready = true; await ReportReadyAsync(); }
+        return ready;
     }
     private async Task ResumeAsync()
     {

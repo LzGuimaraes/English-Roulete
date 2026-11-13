@@ -117,9 +117,13 @@ export function createNarrationText(element, audioElementId, text) {
 
 // A trusted click unlocks this element before the shared server countdown.
 export async function unlock(audio) {
-    const muted = audio.muted;
-    try { audio.muted = true; await audio.play(); audio.pause(); audio.currentTime = 0; }
-    finally { audio.muted = muted; }
+    if (audio.networkState === HTMLMediaElement.NETWORK_EMPTY) audio.load();
+    // Keep play() inside the click gesture. iOS Safari may defer loading until this call.
+    await audio.play();
+    audio.pause();
+    audio.currentTime = 0;
+    // Seeking back to zero can temporarily lower readyState even after playback succeeded.
+    return true;
 }
 export function mute(audio, muted) { audio.muted = muted; }
 export async function synchronizeShared(audio, phase, offset) {

@@ -1,4 +1,5 @@
 /* Game shell. Editorial screens keep their own light palette. */
+:root:has(.game-experience) { background:#100d20; }
 .game-experience { --muted:#bfb5d4; --line:#ffffff20; position:relative; isolation:isolate; min-height:100dvh; overflow-x:clip; background:radial-gradient(ellipse at 75% 24%,#5a329538,transparent 52%),radial-gradient(ellipse at 8% 65%,#253f5730,transparent 45%),var(--page); }
 .game-experience::before { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:.25; background-image:radial-gradient(#d8c6ff 1px,transparent 1px); background-size:73px 79px; mask-image:linear-gradient(black,transparent 85%); }
 .game-experience .site-header { max-width:1400px; padding:26px 5%; border-bottom:1px solid #ffffff12; min-height:99px; gap:22px; }
@@ -289,6 +290,8 @@
 .match-chat h2 { margin:0; font-size:1.05rem; }
 .chat-count { min-width:24px; padding:3px 7px; border-radius:999px; background:#ffffff12; color:#dbd1bf; font-size:.72rem; text-align:center; }
 .chat-log { display:flex; flex-direction:column; gap:8px; max-height:220px; overflow:auto; margin:10px 0; padding-right:3px; }
+.game-experience.in-adventure .error-banner { color:#fff2e4; background:#3b1b27; border-color:#dc9c90; border-radius:12px; }
+.game-experience.in-adventure .error-banner :is(h3,p) { color:inherit; }
 .chat-empty { margin:0; color:#c6b8c9; font-size:.78rem; line-height:1.5; }
 .chat-message { display:flex; gap:7px; margin:0; padding:7px 8px; border-radius:10px; background:#ffffff08; font-size:.78rem; line-height:1.4; }
 .chat-message.is-viewer { background:#a783ea18; }
@@ -708,4 +711,14 @@
 .game-experience .room-entry .catalog-note { margin:-4px 0 12px; }
 .game-experience .level-setting,.game-experience .question-time-setting { display:grid; gap:7px; max-width:340px; margin:0 0 18px; color:#eee4f5; font-size:13px; font-weight:700; }
 .game-experience .level-setting small,.game-experience .question-time-setting small { color:#bfb0d3; font-size:11px; font-weight:400; line-height:1.5; }
-@media(max-width:480px) { .game-experience .language-options { width:100%; }.game-experience .language-options button { flex:1; min-width:0; }.game-experience .level-setting,.game-experience .question-time-setting { max-width:none; } }
+.room-invite-controls { display:block; }
+.room-invite-controls .room-code { margin:12px 0 14px; }
+.room-share-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; width:100%; }
+.game-experience .room-share-actions .secondary { min-width:0; min-height:44px; padding:9px 7px; font-size:12px; line-height:1.25; text-align:center; white-space:normal; gap:0; }
+.game-experience .room-share-actions .room-whatsapp { color:#a8edc1; border-color:#5cbc8280; background:#2a754023; }
+.game-experience .room-share-actions .room-whatsapp:hover { color:#d3ffe2; border-color:#80dba5; background:#2a754041; }
+.game-experience .room-start-actions { display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.game-experience .room-start-actions .room-ready { width:auto; margin:0; min-height:44px; }
+.game-experience .room-start-actions .room-ready.is-ready { color:#adf3cf; border-color:#69c6948c; background:#206b4433; }
+@media(max-width:780px) { .game-experience .room-start-actions { display:grid; grid-template-columns:1fr; width:100%; }.game-experience .room-start-actions .room-ready,.game-experience .room-start-actions .primary { width:100%; } }
+@media(max-width:480px) { .game-experience .language-options { width:100%; }.game-experience .language-options button { flex:1; min-width:0; }.game-experience .level-setting,.game-experience .question-time-setting { max-width:none; }.room-share-actions { grid-template-columns:repeat(2,minmax(0,1fr)); }.room-share-actions>:last-child { grid-column:1 / -1; } }

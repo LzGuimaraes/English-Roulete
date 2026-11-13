@@ -1,7 +1,9 @@
 @using EnglishRoulette.Contracts
+@implements IAsyncDisposable
+@inject IJSRuntime JS
 <section class="match-chat" aria-label="Chat da sala">
     <div class="scoreboard-heading"><h2>Chat da sala</h2><span class="chat-count">@(Room.ChatMessages?.Count ?? 0)</span></div>
-    <div class="chat-log" aria-live="polite" aria-label="Mensagens do chat">
+    <div class="chat-log" @ref="_log" aria-live="polite" aria-label="Mensagens do chat">
         @if (Room.ChatMessages is not { Count: > 0 })
         { <p class="chat-empty">Envie uma mensagem para conversar com quem entrar na sala.</p> }
         else
@@ -24,11 +26,43 @@
     [Parameter] public EventCallback<ChatMessageRequest> OnChat { get; set; }
     private readonly string _inputId = "room-chat-" + Guid.NewGuid().ToString("N");
     private string _draft = "";
+    private ElementReference _log;
+    private IJSObjectReference? _scrollModule;
+    private Guid? _latestMessageId;
+    private bool _scrollPending;
+
+    protected override void OnParametersSet()
+    {
+        var latest = Room.ChatMessages is { Count: > 0 } messages ? messages[^1].Id : (Guid?)null;
+        if (latest != _latestMessageId)
+        {
+            _latestMessageId = latest;
+            _scrollPending = latest is not null;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!_scrollPending) { return; }
+        try
+        {
+            _scrollModule ??= await JS.InvokeAsync<IJSObjectReference>("import", "./room-chat.js");
+            await _scrollModule.InvokeVoidAsync("showLatest", _log);
+            _scrollPending = false;
+        }
+        catch (JSException) { /* Chat remains usable if scrolling is unavailable. */ }
+    }
+
     private async Task SendAsync()
     {
         var message = _draft.Trim();
         if (message.Length == 0) { return; }
         await OnChat.InvokeAsync(new(Guid.NewGuid(), message));
         _draft = "";
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_scrollModule is not null) { await _scrollModule.DisposeAsync(); }
     }
 }
