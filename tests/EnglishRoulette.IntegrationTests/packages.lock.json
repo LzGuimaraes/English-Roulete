@@ -212,6 +212,11 @@
         "resolved": "17.14.1",
         "contentHash": "pmTrhfFIoplzFVbhVwUquT+77CbGH+h4/3mBpdmIlYtBi9nAB+kKI6dN3A/nV4DFi3wLLx/BlHIPK+MkbQ6Tpg=="
       },
+      "Microsoft.DotNet.HotReload.WebAssembly.Browser": {
+        "type": "Transitive",
+        "resolved": "10.0.115",
+        "contentHash": "wv++IOkJ6cKmGgBRaygfo5ftwac7eWodWs3MmgBnQWu/ELmnJMEAutQy2Z3WAG0uyRwRtgHLfKVzwQfIr2svqw=="
+      },
       "Microsoft.EntityFrameworkCore": {
         "type": "Transitive",
         "resolved": "10.0.14",
@@ -713,7 +718,8 @@
         "dependencies": {
           "EnglishRoulette.Contracts": "[1.0.0, )",
           "Microsoft.AspNetCore.Components.WebAssembly": "[10.0.14, )",
-          "Microsoft.AspNetCore.SignalR.Client": "[10.0.14, )"
+          "Microsoft.AspNetCore.SignalR.Client": "[10.0.14, )",
+          "Microsoft.DotNet.HotReload.WebAssembly.Browser": "[10.0.115, )"
         }
       }
     }

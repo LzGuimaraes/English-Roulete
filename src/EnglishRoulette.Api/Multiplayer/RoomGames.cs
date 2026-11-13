@@ -44,6 +44,7 @@ internal sealed class RoomGames(IAdminCatalog catalog, ILobbyStore lobbies, Time
     private static MultiplayerMatchView Map(MultiplayerMatch match, PublishedAdventure content, LobbyState room, Guid actor, DateTimeOffset now)
     {
         var scene = MultiplayerGame.Scene(match);
+        var sceneDefinition = match.Story.Scenes.Single(item => item.Key == match.SceneKey);
         var answer = match.Answers.SingleOrDefault(item => item.PlayerId == actor);
         var revealed = match.Phase is MultiplayerPhase.QuestionReveal or MultiplayerPhase.StoryResult;
         var questionVisible = match.Phase is MultiplayerPhase.QuestionOpen or MultiplayerPhase.QuestionReveal;
@@ -54,7 +55,7 @@ internal sealed class RoomGames(IAdminCatalog catalog, ILobbyStore lobbies, Time
             questionVisible ? new(match.SceneInstanceId, scene.Challenge.Prompt,
                 scene.Challenge.Options.Select(option => new OptionView(option.Key, option.Text)).ToArray()) : null,
             revealed ? new(answer?.OptionKey, answer?.IsCorrect ?? false, answer is null,
-                scene.Challenge.Explanation, scene.Support?.FullTranslation) : null,
+                sceneDefinition.Challenge.Explanation, scene.Support?.FullTranslation) : null,
             match.Phase == MultiplayerPhase.DecisionOpen ? scene.Transitions.Select(choice => new ChoiceView(choice.Key, choice.Label)).ToArray() : [],
             new($"/media/catalog/{audio.Id}", audio.DurationMs, 2000),
             match.VisitedScenes.Select(key => new VisitedSceneView(key, content.SceneTitles[key])).ToArray(), content.Story.Id,

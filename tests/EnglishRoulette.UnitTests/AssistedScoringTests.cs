@@ -107,7 +107,7 @@ public sealed class AssistedScoringTests
     public void MultiplayerHints_PreservePhaseVersionTieRankAndOtherPlayersPoints()
     {
         var members = new[] { new LobbyMember(_player, "Host", "fox", true, Now, Now), new LobbyMember(Guid.NewGuid(), "Guest", "owl", true, Now, Now) };
-        var match = MultiplayerGame.Create(Story(), Timings(), members, Now, Now, new(Hints: Rules.Hints));
+        var match = MultiplayerGame.Create(Story(), Timings(), members, Now, Now, new(QuestionSeconds: 20, Hints: Rules.Hints));
         MultiplayerMatch Send(Guid actor, string kind, string? key, double second)
         {
             var at = Now.AddSeconds(second);
