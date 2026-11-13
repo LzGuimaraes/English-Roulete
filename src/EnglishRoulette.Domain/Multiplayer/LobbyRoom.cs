@@ -55,13 +55,19 @@ public static class LobbyRoom
         return Touch(state with { Members = Array.AsReadOnly(state.Members.Select(member => member.PlayerId == player ? member with { Ready = ready } : member).ToArray()), StateVersion = state.StateVersion + 1 }, player, now);
     }
     public static LobbyState SetQuestionSeconds(LobbyState state, Guid player, long expectedVersion, int seconds, DateTimeOffset now)
+        => SetSettings(state, player, expectedVersion, seconds, state.Capacity, state.Language, now);
+
+    public static LobbyState SetSettings(LobbyState state, Guid player, long expectedVersion, int seconds, int capacity, string language, DateTimeOffset now)
     {
         Authorize(state, player); Version(state, expectedVersion);
-        if (state.HostId != player) { throw new GameRuleException("ROOM_FORBIDDEN", "Só o anfitrião define o tempo da pergunta."); }
-        if (state.Match is not null) { throw new GameRuleException("ROOM_IN_PROGRESS", "O tempo fica congelado durante a partida."); }
+        if (state.HostId != player) { throw new GameRuleException("ROOM_FORBIDDEN", "Só o anfitrião configura a sala."); }
+        if (state.Match is not null || state.StoryVersionId is not null) { throw new GameRuleException("ROOM_IN_PROGRESS", "As configurações ficam bloqueadas após o sorteio."); }
         QuestionTiming.FromSeconds(seconds);
-        if (state.QuestionSeconds == seconds) { return Touch(state, player, now); }
-        return Touch(state with { QuestionSeconds = seconds, StateVersion = state.StateVersion + 1 }, player, now);
+        if (capacity is < 2 or > 8 || capacity < state.Members.Count)
+        { throw new GameRuleException("INVALID_CAPACITY", "As vagas devem ser de 2 a 8 e acomodar todos os participantes atuais."); }
+        language = StoryLanguage.Require(language);
+        if (state.QuestionSeconds == seconds && state.Capacity == capacity && state.Language == language) { return Touch(state, player, now); }
+        return Touch(state with { QuestionSeconds = seconds, Capacity = capacity, Language = language, StateVersion = state.StateVersion + 1 }, player, now);
     }
     public static LobbyState AddChatMessage(LobbyState state, Guid player, Guid requestId, string message, DateTimeOffset now)
     {

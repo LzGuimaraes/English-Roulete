@@ -5,7 +5,7 @@ public sealed record GuestView(Guid Id, string Nickname, string Avatar);
 public sealed record CreateRoomRequest(int Capacity = 8, string Language = "en");
 public sealed record JoinRoomRequest(string Code);
 public sealed record ReadyRoomRequest(long ExpectedStateVersion, bool Ready);
-public sealed record RoomSettingsRequest(long ExpectedStateVersion, int QuestionSeconds);
+public sealed record RoomSettingsRequest(long ExpectedStateVersion, int QuestionSeconds, int Capacity, string Language);
 public sealed record ChatMessageRequest(Guid RequestId, string Message);
 public sealed record NextRoomRequest(long ExpectedStateVersion, Guid CompletedMatchId);
 public sealed record SpinRoomRequest(long ExpectedStateVersion);

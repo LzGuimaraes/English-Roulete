@@ -39,7 +39,7 @@ Execute os testes do README. Os casos incluem lotação, apelido duplicado, repe
 
 Para verificar manualmente, abra dois perfis de navegador (ou janela anônima), crie uma sala com um jogador e entre com o outro. Confira prontidão em ambos, resultado compartilhado da roleta, refresh, transferência ao sair e ausência de acesso administrativo para convidados.
 
-O fluxo de partida agora reutiliza `StoryFlowEngine` e `ChallengeEvaluator` para preloading, áudio simultâneo, perguntas com prazo do servidor, decisão coletiva, chat curto e feedback pós-resposta. O anfitrião define o tempo de cada pergunta antes de iniciar; a duração é congelada na partida. Veja [LIVE_CHAT_TIMED_QUESTIONS_TRANSLATION.md](increments/LIVE_CHAT_TIMED_QUESTIONS_TRANSLATION.md) para critérios, limites e decisões ainda abertas.
+O fluxo de partida agora reutiliza `StoryFlowEngine` e `ChallengeEvaluator` para preloading, áudio simultâneo, perguntas com prazo do servidor, decisão coletiva, chat curto e feedback pós-resposta. O chat fica disponível desde a criação da sala, inclusive para o primeiro participante, e o histórico segue para a partida. Antes do sorteio, o anfitrião pode ajustar tempo por pergunta (10–60 segundos), vagas (2–8, sem retirar participantes presentes) e idioma (inglês ou português); todos recebem o estado atualizado. Depois do sorteio, essas opções ficam bloqueadas. DECISION NEEDED: definir se mudar o idioma depois de jogadores marcarem “pronto” deve limpar a prontidão de todos; por ora a prontidão permanece. Veja [LIVE_CHAT_TIMED_QUESTIONS_TRANSLATION.md](increments/LIVE_CHAT_TIMED_QUESTIONS_TRANSLATION.md) para critérios, limites e decisões ainda abertas.
 
 ## Atualização: roleta compartilhada
 

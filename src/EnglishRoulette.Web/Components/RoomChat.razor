@@ -1,0 +1,34 @@
+@using EnglishRoulette.Contracts
+<section class="match-chat" aria-label="Chat da sala">
+    <div class="scoreboard-heading"><h2>Chat da sala</h2><span class="chat-count">@(Room.ChatMessages?.Count ?? 0)</span></div>
+    <div class="chat-log" aria-live="polite" aria-label="Mensagens do chat">
+        @if (Room.ChatMessages is not { Count: > 0 })
+        { <p class="chat-empty">Envie uma mensagem para conversar com quem entrar na sala.</p> }
+        else
+        {
+            @foreach (var message in Room.ChatMessages)
+            {
+                <p class="chat-message @(message.PlayerId == Room.ViewerId ? "is-viewer" : "")"><span class="member-avatar" aria-hidden="true">@message.Avatar</span><span><strong>@message.Nickname</strong><span>@message.Text</span></span></p>
+            }
+        }
+    </div>
+    <form class="chat-form" @onsubmit="SendAsync" @onsubmit:preventDefault>
+        <label class="transcript-accessible" for="@_inputId">Mensagem para a sala</label>
+        <input id="@_inputId" @bind="_draft" @bind:event="oninput" maxlength="300" autocomplete="off" placeholder="Escreva para a sala…" disabled="@Busy" />
+        <button class="secondary" type="submit" disabled="@(Busy || string.IsNullOrWhiteSpace(_draft))">Enviar</button>
+    </form>
+</section>
+@code {
+    [Parameter, EditorRequired] public RoomView Room { get; set; } = default!;
+    [Parameter] public bool Busy { get; set; }
+    [Parameter] public EventCallback<ChatMessageRequest> OnChat { get; set; }
+    private readonly string _inputId = "room-chat-" + Guid.NewGuid().ToString("N");
+    private string _draft = "";
+    private async Task SendAsync()
+    {
+        var message = _draft.Trim();
+        if (message.Length == 0) { return; }
+        await OnChat.InvokeAsync(new(Guid.NewGuid(), message));
+        _draft = "";
+    }
+}

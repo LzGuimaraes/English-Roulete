@@ -67,6 +67,31 @@ public sealed class LobbyRoomTests
             LobbyRoom.SetQuestionSeconds(updated, host.PlayerId, updated.StateVersion, 5, Start)).Code);
     }
     [Fact]
+    public void Host_CanConfigureCapacityLanguageAndTime_BeforeSpin()
+    {
+        var host = Member("Host");
+        var guest = Member("Guest");
+        var room = LobbyRoom.Join(LobbyRoom.Create(Guid.NewGuid(), "ABCDEFGH", 8, host, Start), guest, Start);
+        var configured = LobbyRoom.SetSettings(room, host.PlayerId, room.StateVersion, 30, 2, "pt-BR", Start);
+
+        Assert.Equal((30, 2, "pt-BR"), (configured.QuestionSeconds, configured.Capacity, configured.Language));
+        Assert.Equal(room.StateVersion + 1, configured.StateVersion);
+        Assert.Equal("ROOM_FULL", Assert.Throws<GameRuleException>(() => LobbyRoom.Join(configured, Member("Third"), Start)).Code);
+        Assert.Equal("STATE_CONFLICT", Assert.Throws<GameRuleException>(() =>
+            LobbyRoom.SetSettings(configured, host.PlayerId, room.StateVersion, 45, 3, "en", Start)).Code);
+        Assert.Equal("ROOM_FORBIDDEN", Assert.Throws<GameRuleException>(() =>
+            LobbyRoom.SetSettings(configured, guest.PlayerId, configured.StateVersion, 45, 3, "en", Start)).Code);
+        Assert.Equal("INVALID_CAPACITY", Assert.Throws<GameRuleException>(() =>
+            LobbyRoom.SetSettings(configured, host.PlayerId, configured.StateVersion, 30, 1, "en", Start)).Code);
+        Assert.Equal("INVALID_LANGUAGE", Assert.Throws<GameRuleException>(() =>
+            LobbyRoom.SetSettings(configured, host.PlayerId, configured.StateVersion, 30, 2, "es", Start)).Code);
+        var ready = LobbyRoom.SetReady(configured, host.PlayerId, configured.StateVersion, true, Start);
+        ready = LobbyRoom.SetReady(ready, guest.PlayerId, ready.StateVersion, true, Start);
+        var spun = LobbyRoom.Spin(ready, host.PlayerId, ready.StateVersion, Guid.NewGuid(), Start);
+        Assert.Equal("ROOM_IN_PROGRESS", Assert.Throws<GameRuleException>(() =>
+            LobbyRoom.SetSettings(spun, host.PlayerId, spun.StateVersion, 45, 3, "en", Start)).Code);
+    }
+    [Fact]
     public void Chat_IsBoundedAndIdempotent()
     {
         var host = Member("Host");

@@ -12,6 +12,32 @@ namespace EnglishRoulette.IntegrationTests;
 public sealed partial class AdminCatalogTests
 {
     [PostgresFact]
+    public async Task Lobby_HostSettingsAndChatWorkBeforeSecondPlayerJoins()
+    {
+        using var host = await Player("Host"); using var guest = await Player("Guest");
+        using var create = await RoomPost(host, "/api/rooms/", new CreateRoomRequest(8));
+        create.EnsureSuccessStatusCode();
+        var room = (await create.Content.ReadFromJsonAsync<RoomView>())!;
+
+        using var chat = await RoomPost(host, $"/api/rooms/{room.Id}/chat", new ChatMessageRequest(Guid.NewGuid(), "Olá!"));
+        chat.EnsureSuccessStatusCode();
+        room = (await chat.Content.ReadFromJsonAsync<RoomView>())!;
+        Assert.Single(room.ChatMessages!);
+        using var settings = await RoomPost(host, $"/api/rooms/{room.Id}/settings", new RoomSettingsRequest(room.StateVersion, 30, 2, "pt-BR"));
+        settings.EnsureSuccessStatusCode();
+        room = (await settings.Content.ReadFromJsonAsync<RoomView>())!;
+        Assert.Equal((30, 2, "pt-BR"), (room.QuestionSeconds, room.Capacity, room.Language));
+
+        using var join = await RoomPost(guest, "/api/rooms/join", new JoinRoomRequest(room.Code));
+        join.EnsureSuccessStatusCode();
+        var guestRoom = (await join.Content.ReadFromJsonAsync<RoomView>())!;
+        Assert.Equal("pt-BR", guestRoom.Language);
+        Assert.Equal("Olá!", Assert.Single(guestRoom.ChatMessages!).Text);
+        using var forbidden = await RoomPost(guest, $"/api/rooms/{room.Id}/settings", new RoomSettingsRequest(guestRoom.StateVersion, 45, 3, "en"));
+        Assert.Equal(HttpStatusCode.Forbidden, forbidden.StatusCode);
+    }
+
+    [PostgresFact]
     public async Task Multiplayer_ConcurrentReadinessAnswers_PrivateUntilClosed_DurableResultAndIdempotency()
     {
         await Login();

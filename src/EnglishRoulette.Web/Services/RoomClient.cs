@@ -19,8 +19,8 @@ public sealed class RoomClient(HttpClient http)
     public Task<RoomView> CreateAsync(int capacity, CancellationToken token, string language = "en") => Send<RoomView>("api/rooms/", new CreateRoomRequest(capacity, language), token);
     public Task<RoomView> JoinAsync(string code, CancellationToken token) => Send<RoomView>("api/rooms/join", new JoinRoomRequest(code), token);
     public Task<RoomView> ReadyAsync(RoomView room, bool ready, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/ready", new ReadyRoomRequest(room.StateVersion, ready), token);
-    public Task<RoomView> SettingsAsync(RoomView room, int questionSeconds, CancellationToken token) =>
-        Send<RoomView>($"api/rooms/{room.Id}/settings", new RoomSettingsRequest(room.StateVersion, questionSeconds), token);
+    public Task<RoomView> SettingsAsync(RoomView room, int questionSeconds, int capacity, string language, CancellationToken token) =>
+        Send<RoomView>($"api/rooms/{room.Id}/settings", new RoomSettingsRequest(room.StateVersion, questionSeconds, capacity, language), token);
     public Task<RoomView> SpinAsync(RoomView room, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/spin", new SpinRoomRequest(room.StateVersion), token);
     public Task<RoomView> NextAsync(RoomView room, CancellationToken token) => Send<RoomView>($"api/rooms/{room.Id}/next",
         new NextRoomRequest(room.StateVersion, room.Match?.Id ?? throw new RoomApiException("Atualize o resultado antes de preparar outra partida.")), token);

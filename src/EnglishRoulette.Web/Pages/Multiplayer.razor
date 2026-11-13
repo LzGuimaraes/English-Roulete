@@ -54,16 +54,16 @@
                         @if (_stories.Count == 0) { <small>Nenhuma história disponível neste idioma.</small> }
                         @if (_stories.Count == 0) { <button class="text-button" disabled="@_busy" @onclick="ReconnectAsync">Recarregar catálogo</button> }
                     </section>
+                    <section class="admin-card room-settings" aria-label="Configurações da sala">
+                        <div><h2>Configurações da sala</h2><p>@(_room.HostId == _room.ViewerId ? "Defina antes de girar a roleta. Todos verão as alterações." : "O anfitrião define estas opções antes da partida.")</p></div>
+                        <label>Tempo por pergunta<select value="@_room.QuestionSeconds" @onchange="QuestionSecondsChangedAsync" disabled="@(_busy || _room.HostId != _room.ViewerId)">@foreach (var seconds in QuestionTimeOptions) { <option value="@seconds">@seconds segundos</option> }</select></label>
+                        <label>Vagas<select value="@_room.Capacity" @onchange="CapacityChangedAsync" disabled="@(_busy || _room.HostId != _room.ViewerId)">@for (var size = 2; size <= 8; size++) { <option value="@size" disabled="@(size < _room.Members.Count)">@size jogadores</option> }</select></label>
+                        <label>Idioma<select value="@_room.Language" @onchange="RoomLanguageChangedAsync" disabled="@(_busy || _room.HostId != _room.ViewerId)"><option value="en">Inglês</option><option value="pt-BR">Português</option></select></label>
+                    </section>
                 }
                 <div class="room-grid"><section class="admin-card room-invitation"><div class="eyebrow">CONVIDE OS AMIGOS</div><div class="room-invite-controls"><strong class="room-code">@_room.Code</strong><button class="secondary" @onclick="CopyAsync">@(_copied ? "Convite copiado" : "Copiar convite")</button></div><details class="room-invite-link"><summary>Ver link de convite</summary><label>Link do convite<input readonly value="@InviteUrl" /></label></details>@if (_copied) { <p class="room-copy-status" role="status">Convite copiado.</p> }
                         <div class="room-members">@foreach (var member in _room.Members) { <div class="room-member"><span class="member-avatar">@member.Avatar</span><div><strong>@member.Nickname @(member.PlayerId == _room.ViewerId ? "(você)" : "")</strong><small class="member-status-detail">@(member.PlayerId == _room.HostId ? "Anfitrião · " : "")@(member.Connected ? "Conectado" : "Reconectando…")@(_room.GameNumber > 1 ? $" · {member.Score} pontos" : "")</small>@if (_room.GameNumber > 1) { <small class="member-status-compact">@if (member.PlayerId == _room.HostId) { <span class="member-host-compact">Anfitrião</span> }<span class="member-presence @(member.Connected ? "is-online" : "is-offline")" title="@(member.Connected ? "Conectado" : "Reconectando")"><svg viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" /></svg><span class="transcript-accessible">@(member.Connected ? "Conectado" : "Reconectando")</span></span> @member.Score pontos</small> }</div><span class="member-ready @(member.Ready ? "is-ready" : "")" aria-label="@(member.Ready ? "Pronto" : "Preparando")" title="@(member.Ready ? "Pronto" : "Preparando")"><svg class="member-ready-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" />@if (member.Ready) { <path d="m6 10 3 3 5-6" /> }</svg><span class="member-ready-text">@(member.Ready ? "Pronto ✓" : "Preparando")</span></span></div> }</div>
                     </section><section class="admin-card room-roulette"><div class="eyebrow">NINGUÉM ESCOLHE O DESTINO</div>
-                        <label class="question-time-setting room-time-setting">Tempo para pensar por pergunta
-                            <select value="@_room.QuestionSeconds" @onchange="QuestionSecondsChangedAsync" disabled="@(_busy || _room.HostId != _room.ViewerId)">
-                                @foreach (var seconds in QuestionTimeOptions) { <option value="@seconds">@seconds segundos</option> }
-                            </select>
-                            <small>@(_room.HostId == _room.ViewerId ? "Só você pode alterar antes de iniciar." : "Definido pelo anfitrião antes da partida.")</small>
-                        </label>
                         <StoryWheel Genres="Genres" ResultGenre="@SelectedStory?.Genre" ResultKey="@_room.StoryVersionId?.ToString()" Spinning="WheelSpinning" ElapsedSeconds="SpinElapsed" />
                         @if (SelectedStory is { } selected && !WheelSpinning)
                         { <h2>@selected.Title</h2><p>@selected.Synopsis</p><p class="catalog-note">@(CurrentLanguage == "pt-BR" ? "Português" : selected.Difficulty) · @selected.Genre · Resultado compartilhado por toda a sala.</p> }
@@ -75,6 +75,7 @@
                         @if (Genres.Count == 1) { <p class="catalog-note">Catálogo em expansão: só há histórias de @Genres[0] no momento. Pode haver repetição.</p> }
                         <p class="catalog-note">A mesma história para todos: ouçam as cenas, respondam às perguntas e votem nos caminhos. O placar considera acertos e ordem de chegada.</p>
                     </section></div>
+                <div class="room-chat-panel"><RoomChat Room="_room" Busy="_busy" OnChat="ChatAsync" /></div>
             }
         }
     </main>
@@ -138,8 +139,25 @@
     private async Task QuestionSecondsChangedAsync(ChangeEventArgs args) => await Run(async () =>
     {
         if (_room is not { } room || !int.TryParse(args.Value?.ToString(), out var seconds)) { return; }
-        _room = await Client.SettingsAsync(room, seconds, _life.Token);
+        await SaveSettingsAsync(room, seconds, room.Capacity, room.Language);
     });
+    private async Task CapacityChangedAsync(ChangeEventArgs args) => await Run(async () =>
+    {
+        if (_room is not { } room || !int.TryParse(args.Value?.ToString(), out var capacity)) { return; }
+        await SaveSettingsAsync(room, room.QuestionSeconds, capacity, room.Language);
+    });
+    private async Task RoomLanguageChangedAsync(ChangeEventArgs args) => await Run(async () =>
+    {
+        if (_room is not { } room || args.Value is not string language) { return; }
+        await SaveSettingsAsync(room, room.QuestionSeconds, room.Capacity, language);
+        await LoadCatalogAsync();
+    });
+    private async Task SaveSettingsAsync(RoomView room, int seconds, int capacity, string language)
+    {
+        _room = await Client.SettingsAsync(room, seconds, capacity, language, _life.Token);
+        _receivedAtUtc = Clock.GetUtcNow();
+        LanguagePreference.Value = _room.Language;
+    }
     private async Task SpinAsync() => await Run(async () => { if (_room is { } room) { _room = await Client.SpinAsync(room, _life.Token); _receivedAtUtc = Clock.GetUtcNow(); } });
     private async Task NextAsync() => await Run(async () =>
     { if (_room is { } room) { _room = await Client.NextAsync(room, _life.Token); _receivedAtUtc = Clock.GetUtcNow(); } });

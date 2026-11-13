@@ -89,7 +89,7 @@ internal static class RoomEndpoints
             ILobbyStore lobbies, RoomGames games, IHubContext<RoomHub> hub) =>
         {
             var state = await lobbies.ChangeAsync(id, Actor(context), (state, now) =>
-                LobbyRoom.SetQuestionSeconds(state, Actor(context), request.ExpectedStateVersion, request.QuestionSeconds, now), context.RequestAborted);
+                LobbyRoom.SetSettings(state, Actor(context), request.ExpectedStateVersion, request.QuestionSeconds, request.Capacity, request.Language, now), context.RequestAborted);
             await Notify(hub, state); return Results.Ok(await games.ViewAsync(state, Actor(context), context.RequestAborted));
         }).RequireRateLimiting("AdminWrite");
         group.MapPost("/{id:guid}/spin", async (Guid id, SpinRoomRequest request, HttpContext context, ILobbyStore lobbies,

@@ -76,25 +76,7 @@
             { <p class="match-decision-note">Decisão em @decision.SceneTitle: @decision.Choice.@(decision.NoVotes ? " Sem votos: caminho sorteado no servidor." : decision.Tied ? " Empate: caminho sorteado entre os mais votados." : " Escolha da maioria.")</p> }
         </div></details>
         </div>
-        <section class="match-chat" aria-labelledby="match-chat-title">
-            <div class="scoreboard-heading"><h2 id="match-chat-title">Chat da partida</h2><span class="chat-count">@(Room.ChatMessages?.Count ?? 0)</span></div>
-            <div class="chat-log" aria-live="polite" aria-label="Mensagens do chat">
-                @if (Room.ChatMessages is not { Count: > 0 })
-                { <p class="chat-empty">Conversem sobre a pista enquanto a história avança.</p> }
-                else
-                {
-                    @foreach (var message in Room.ChatMessages)
-                    {
-                        <p class="chat-message @(message.PlayerId == Room.ViewerId ? "is-viewer" : "")"><span class="member-avatar" aria-hidden="true">@message.Avatar</span><span><strong>@message.Nickname</strong><span>@message.Text</span></span></p>
-                    }
-                }
-            </div>
-            <form class="chat-form" @onsubmit="SendChatAsync" @onsubmit:preventDefault>
-                <label class="transcript-accessible" for="match-chat-input">Mensagem para a equipe</label>
-                <input id="match-chat-input" @bind="_chatDraft" @bind:event="oninput" maxlength="300" autocomplete="off" placeholder="Escreva para a equipe…" disabled="@Busy" />
-                <button class="secondary" type="submit" disabled="@(Busy || string.IsNullOrWhiteSpace(_chatDraft))">Enviar</button>
-            </form>
-        </section>
+        <RoomChat Room="Room" Busy="Busy" OnChat="OnChat" />
     </aside>
     }
 </div>
@@ -123,7 +105,6 @@
     private bool _audioReady;
     private bool _showScoreboard;
     private string? _audioError;
-    private string _chatDraft = "";
     private DateTimeOffset _receivedAt;
     private DateTimeOffset _snapshotAt;
     private Guid _instance;
@@ -147,11 +128,4 @@
     private Task AnswerAsync(string key) => SendAsync("answer", key);
     private Task UseHintAsync(string key) => SendAsync("hint", key);
     private Task VoteAsync(string key) => SendAsync("vote", key);
-    private async Task SendChatAsync()
-    {
-        var message = _chatDraft.Trim();
-        if (string.IsNullOrWhiteSpace(message)) { return; }
-        await OnChat.InvokeAsync(new ChatMessageRequest(Guid.NewGuid(), message));
-        _chatDraft = "";
-    }
 }

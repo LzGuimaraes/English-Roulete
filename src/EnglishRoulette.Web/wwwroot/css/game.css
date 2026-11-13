@@ -271,6 +271,15 @@
 .question-time-setting small { color:#bfb0d3; font-size:11px; font-weight:400; line-height:1.5; }
 .room-time-setting { margin:0 0 8px; }
 .room-time-setting select { max-width:220px; }
+.room-settings { display:grid; grid-template-columns:minmax(180px,1.5fr) repeat(3,minmax(130px,1fr)); gap:12px; align-items:end; margin-bottom:14px; }
+.room-settings h2 { font-size:17px; margin:0 0 4px; }
+.room-settings p { margin:0; color:#c7b8d4; font-size:12px; line-height:1.4; }
+.room-settings label { display:grid; gap:5px; font-size:12px; }
+.room-settings select { width:100%; min-height:44px; padding:8px; border:1px solid #ffffff35; border-radius:10px; background:#130e20; color:#f6edff; font:inherit; }
+.room-chat-panel { margin-top:12px; }
+.room-chat-panel .match-chat { margin-top:0; }
+@media(max-width:850px) { .room-settings { grid-template-columns:repeat(2,minmax(0,1fr)); } .room-settings > div { grid-column:1 / -1; } }
+@media(max-width:500px) { .room-settings { grid-template-columns:1fr; } }
 .full-translation { margin-top:12px; padding:11px 13px; border:1px solid #bca1e94d; border-radius:10px; background:#b18cf612; }
 .full-translation p { margin:5px 0 0; color:#fff7dc; font-size:14px; line-height:1.6; }
 .translation-unavailable { color:#d6c8de; font-size:12px!important; }
@@ -434,7 +443,7 @@
 @media(min-width:768px) and (min-height:560px) {
     .game-experience.in-lobby { display:flex; flex-direction:column; height:100dvh; min-height:100dvh; --wheel-size:clamp(200px,32dvh,300px); --wheel-label-radius:calc(var(--wheel-size)*-.34); --wheel-hub-size:calc(var(--wheel-size)*.3); }
     .game-experience.in-lobby .site-header { width:100%; padding:10px clamp(20px,4vw,64px); min-height:0; flex:none; }
-    .game-experience.in-lobby .rooms-main { display:flex; flex-direction:column; flex:1; min-height:0; width:100%; padding:12px clamp(20px,4vw,64px); }
+    .game-experience.in-lobby .rooms-main { display:flex; flex-direction:column; flex:1; min-height:0; width:100%; padding:12px clamp(20px,4vw,64px); overflow-y:auto; }
     .in-lobby .rooms-main > .eyebrow { display:none; }
     .in-lobby .room-heading { flex:none; margin-bottom:8px; }
     .in-lobby .room-heading h1 { font-size:28px; margin:0; }
@@ -444,7 +453,7 @@
     .in-lobby .room-start-bar p { font-size:12px; line-height:1.4; margin:3px 0 0; }
     .in-lobby .room-start-bar small { font-size:12px; }
     .in-lobby .room-start-bar .primary { width:auto; min-height:44px; padding:10px 14px; font-size:13px; }
-    .in-lobby .room-grid { flex:1; min-height:0; grid-template-rows:minmax(0,1fr); grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr); gap:18px; align-items:center; }
+    .in-lobby .room-grid { flex:0 0 auto; min-height:0; grid-template-rows:auto; grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr); gap:18px; align-items:center; }
     .in-lobby .admin-card { padding:12px; min-width:0; border-radius:16px; }
     .in-lobby .room-code { margin:8px 0; font-size:clamp(22px,2.3vw,34px); letter-spacing:2px; }
     .in-lobby .room-invite-controls .secondary { min-height:36px; padding:8px 10px; font-size:12px; gap:0; }
